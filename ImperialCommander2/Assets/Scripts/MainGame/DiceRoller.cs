@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,17 +8,17 @@ public class DiceRoller : MonoBehaviour
 {
 	public CanvasGroup cg, cg2, cardcg;
 	public Image fader, attackRanged, attackMelee, defenseIcon, bgIconColor, outlineColor;
-	public GameObject container, diceObject;
+	public GameObject container, diceObject, modifierBox;
 	public Text okBtn;
 	public GameObject addAttackContainer, addDefenseContainer;
 	public DynamicCardPrefab dynamicCard;
-	[HideInInspector]
+	public TextMeshProUGUI modText;
 
-	CardDescriptor card;
+	DeploymentCard card;
 	Action<bool> callback;
 	GridLayoutGroup gridLayout;
 
-	public void Show( CardDescriptor cd, bool isAttack, Action<bool> ac = null )
+	public void Show( DeploymentCard cd, bool isAttack, Action<bool> ac = null )
 	{
 		callback = ac;
 		okBtn.text = DataStore.uiLanguage.uiSettings.ok;
@@ -72,6 +73,19 @@ public class DiceRoller : MonoBehaviour
 					CreateDice( card.defense[i] );
 				}
 			}
+		}
+
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			//check for modififier override
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && ovrd.showMod && !string.IsNullOrEmpty( ovrd.modification.Trim() ) )
+			{
+				modifierBox.SetActive( true );
+				modText.text = Saga.Utils.ReplaceGlyphs( ovrd.modification );
+			}
+			else
+				modifierBox.SetActive( false );
 		}
 
 		gameObject.SetActive( true );

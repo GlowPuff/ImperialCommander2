@@ -7,13 +7,13 @@ public class DebugObject : MonoBehaviour
 	public Image thumb;
 	public TextMeshProUGUI cardName, cardCost, cardCostHeading;
 
-	CardDescriptor cardDescriptor;
+	DeploymentCard cardDescriptor;
 
-	public void Init( CardDescriptor cd )
+	public void Init( DeploymentCard cd )
 	{
 		cardDescriptor = cd;
 
-		if ( DataStore.villainCards.cards.Contains( cd ) )
+		if ( DataStore.villainCards.ContainsCard( cd ) )
 			thumb.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
 		else
 			thumb.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
@@ -27,7 +27,7 @@ public class DebugObject : MonoBehaviour
 	{
 		DataStore.deploymentHand.Remove( cardDescriptor );
 		//add card into manual deployment list, then sort list
-		if ( !DataStore.manualDeploymentList.Contains( cardDescriptor ) )
+		if ( !DataStore.manualDeploymentList.ContainsCard( cardDescriptor ) )
 		{
 			DataStore.manualDeploymentList.Add( cardDescriptor );
 			DataStore.SortManualDeployList();

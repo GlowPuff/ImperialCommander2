@@ -3,24 +3,38 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using Saga;
 using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.22";
+	public static readonly string appVersion = "v.2.0-alpha";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
+	public static Mission mission;
+	public static GameType gameType;
 	public static Dictionary<string, List<MissionCard>> missionCards;
 	/// <summary>
 	/// all enemies (excluding villains)
 	/// </summary>
-	public static DeploymentCards deploymentCards;
-	public static DeploymentCards allyCards;
-	public static DeploymentCards villainCards;
-	public static DeploymentCards heroCards;
+	public static List<DeploymentCard> deploymentCards;
+	public static List<DeploymentCard> allyCards;
+	public static List<DeploymentCard> villainCards;
+	public static List<DeploymentCard> heroCards;
+	/// <summary>
+	/// ALL enemies in the game, including villains
+	/// </summary>
+	public static List<DeploymentCard> allEnemyDeploymentCards
+	{
+		get
+		{
+			return deploymentCards.Concat( villainCards ).ToList();
+		}
+	}
 	public static SessionData sessionData;
+	public static SagaSession sagaSessionData;
 	public static List<Expansion> ownedExpansions;
-	public static List<CardDescriptor>
+	public static List<DeploymentCard>
 		deploymentHand,
 		manualDeploymentList,
 		deployedHeroes,//contains deployed heroes AND allies
@@ -48,23 +62,25 @@ public static class DataStore
 	 * card text
 	 * */
 
-	private static List<CardDescriptor> villainsToManuallyAdd;
+	private static List<DeploymentCard> villainsToManuallyAdd;
 
 	//manualDeploymentList includes all owned expansion groups plus villains, minus deployment hand, plus both factions, minus reserved, minus starting, minus EARNED villains
 
 	/// <summary>
-	/// Creates all the card lists, load app settings
+	/// Creates all card lists, load app settings, mission presets and translations, saga mode
+	/// Called when app starts
 	/// </summary>
 	public static void InitData()
 	{
+		gameType = GameType.Saga;
 		string[] expansions = Enum.GetNames( typeof( Expansion ) );
 
 		missionCards = new Dictionary<string, List<MissionCard>>();
-		deploymentHand = new List<CardDescriptor>();
-		manualDeploymentList = new List<CardDescriptor>();
-		deployedHeroes = new List<CardDescriptor>();
-		deployedEnemies = new List<CardDescriptor>();
-		villainsToManuallyAdd = new List<CardDescriptor>();
+		deploymentHand = new List<DeploymentCard>();
+		manualDeploymentList = new List<DeploymentCard>();
+		deployedHeroes = new List<DeploymentCard>();
+		deployedEnemies = new List<DeploymentCard>();
+		villainsToManuallyAdd = new List<DeploymentCard>();
 		deploymentSounds = new List<DeploymentSound>();
 		missionPresets = new Dictionary<string, List<MissionPreset>>();
 
@@ -109,6 +125,7 @@ public static class DataStore
 				PlayerPrefs.Save();
 			}
 		}
+		Debug.Log( "OWNED EXPANSIONS: " + String.Join( ", ", ownedExpansions ) );
 	}
 
 	public static void LoadTranslatedData()
@@ -145,10 +162,10 @@ public static class DataStore
 			LoadMissionCardTranslations();
 
 			//assign translations to card data
-			SetCardTranslations( deploymentCards.cards );
-			SetCardTranslations( allyCards.cards );
-			SetCardTranslations( villainCards.cards );
-			SetCardTranslations( heroCards.cards );
+			SetCardTranslations( deploymentCards );
+			SetCardTranslations( allyCards );
+			SetCardTranslations( villainCards );
+			SetCardTranslations( heroCards );
 
 			Debug.Log( "Loaded Language: " + languageCodeList[languageCode] );
 		}
@@ -169,14 +186,24 @@ public static class DataStore
 	public static void StartNewSession()
 	{
 		sessionData = new SessionData();
+		gameType = GameType.Classic;
 	}
 
-	static DeploymentCards LoadCards( string asset )
+	/// <summary>
+	/// new game session, called from SagaController upon NEW GAME, always called AFTER InitData
+	/// </summary>
+	public static void StartNewSagaSession( SagaSetupOptions opts )
+	{
+		sagaSessionData = new SagaSession( opts );
+		gameType = GameType.Saga;
+	}
+
+	static List<DeploymentCard> LoadCards( string asset )
 	{
 		try
 		{
 			TextAsset json = Resources.Load<TextAsset>( $"CardData/{asset}" );
-			return JsonConvert.DeserializeObject<DeploymentCards>( json.text );
+			return JsonConvert.DeserializeObject<List<DeploymentCard>>( json.text );
 		}
 		catch ( JsonException e )
 		{
@@ -337,7 +364,7 @@ public static class DataStore
 		}
 	}
 
-	public static void SetCardTranslations( List<CardDescriptor> toCards )
+	public static void SetCardTranslations( List<DeploymentCard> toCards )
 	{
 		try
 		{
@@ -398,11 +425,11 @@ public static class DataStore
 	public static void CreateManualDeployment()
 	{
 		//filter owned expansions
-		var available = deploymentCards.cards
+		var available = deploymentCards
 			.OwnedPlusOther()
 			.ToList();
 		//add all villains
-		available = available.Concat( villainCards.cards ).ToList();
+		available = available.Concat( villainCards ).ToList();
 		//filter out reserved/starting/earned villains
 		available = available
 			.MinusInDeploymentHand()
@@ -440,9 +467,9 @@ public static class DataStore
 		} );
 	}
 
-	public static void CreateDeploymentHand()
+	public static void CreateDeploymentHand( List<DeploymentCard> EarnedVillains, int threatLevel )
 	{
-		var available = deploymentCards.cards
+		var available = deploymentCards
 			.OwnedPlusOther()
 			.FilterByFaction()
 			.MinusIgnored()
@@ -452,28 +479,28 @@ public static class DataStore
 		//Debug.Log( $"OF {deploymentCards.cards.Count} CARDS, USING {available.Count()}" );
 
 		//add earned villains
-		available = available.Concat( sessionData.EarnedVillains ).ToList();
+		available = available.Concat( EarnedVillains ).ToList();
 		//Debug.Log( $"ADD VILLAINS FILTERED TO {available.Count()} CARDS" );
 
-		if ( sessionData.threatLevel <= 3 )
+		if ( threatLevel <= 3 )
 			available = GetCardsByTier( available.ToList(), 2, 2, 0 );
-		else if ( sessionData.threatLevel == 4 )
+		else if ( threatLevel == 4 )
 			available = GetCardsByTier( available.ToList(), 1, 2, 1 );
-		else if ( sessionData.threatLevel >= 5 )
+		else if ( threatLevel >= 5 )
 			available = GetCardsByTier( available.ToList(), 1, 2, 2 );
 
 		//if there are any villains and none were added, "help" add one (50% chance)
-		if ( sessionData.EarnedVillains.Count > 0
-			&& !available.Any( x => sessionData.EarnedVillains.Contains( x ) )
+		if ( EarnedVillains.Count > 0
+			&& !available.Any( x => EarnedVillains.ContainsCard( x ) )
 			&& GlowEngine.RandomBool() )
 		{
-			int[] rv = GlowEngine.GenerateRandomNumbers( sessionData.EarnedVillains.Count );
-			var v = sessionData.EarnedVillains[rv[0]];
-			available = available.Concat( new List<CardDescriptor>() { v } ).ToList();
+			int[] rv = GlowEngine.GenerateRandomNumbers( EarnedVillains.Count );
+			var v = EarnedVillains[rv[0]];
+			available = available.Concat( new List<DeploymentCard>() { v } ).ToList();
 			//add any remaining earned villains back into manual deploy list
-			foreach ( var cd in sessionData.EarnedVillains )
+			foreach ( var cd in EarnedVillains )
 			{
-				if ( !available.Contains( cd ) )
+				if ( !available.ContainsCard( cd ) )
 					villainsToManuallyAdd.Add( cd );
 			}
 			//Debug.Log( $"ADDED A VILLAIN (50%): {v.name}" );
@@ -481,9 +508,9 @@ public static class DataStore
 		else
 		{
 			//if villain wasn't already added to DH, AND it didn't get helped into hand, add it to manual deployment list
-			foreach ( var cd in sessionData.EarnedVillains )
+			foreach ( var cd in EarnedVillains )
 			{
-				if ( !available.Contains( cd ) )
+				if ( !available.ContainsCard( cd ) )
 				{
 					//Debug.Log( "VILLAIN *NOT* ADDED TO DH: " + cd.name );
 					villainsToManuallyAdd.Add( cd );
@@ -492,10 +519,10 @@ public static class DataStore
 		}
 
 		Debug.Log( $"DEPLOYMENT HAND SIZE: {available.Count()} CARDS" );
-		//for ( int i = 0; i < available.Count(); i++ )
-		//{
-		//	Debug.Log( available.ElementAt( i ).name );
-		//}
+		for ( int i = 0; i < available.Count(); i++ )
+		{
+			Debug.Log( $"DEPLOYMENT HAND::{available.ElementAt( i ).name}" );
+		}
 		deploymentHand = available.ToList();
 	}
 
@@ -512,7 +539,7 @@ public static class DataStore
 			{
 				json = sr.ReadToEnd();
 			}
-			deploymentHand = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+			deploymentHand = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//manual deployment deck
 			path = Path.Combine( basePath, "manualdeployment.json" );
@@ -520,7 +547,7 @@ public static class DataStore
 			{
 				json = sr.ReadToEnd();
 			}
-			manualDeploymentList = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+			manualDeploymentList = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//deployed enemies
 			path = Path.Combine( basePath, "deployedenemies.json" );
@@ -528,7 +555,7 @@ public static class DataStore
 			{
 				json = sr.ReadToEnd();
 			}
-			deployedEnemies = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+			deployedEnemies = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//deployed heroes
 			path = Path.Combine( basePath, "heroesallies.json" );
@@ -536,7 +563,7 @@ public static class DataStore
 			{
 				json = sr.ReadToEnd();
 			}
-			deployedHeroes = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+			deployedHeroes = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//remaining events
 			path = Path.Combine( basePath, "events.json" );
@@ -551,6 +578,7 @@ public static class DataStore
 			SetCardTranslations( manualDeploymentList );
 			SetCardTranslations( deployedEnemies );
 			SetCardTranslations( deployedHeroes );
+			cardEvents = (from ev in LoadEvents() join ev2 in cardEvents on ev.eventID equals ev2.eventID select ev).ToList();
 
 			return true;
 		}
@@ -571,9 +599,9 @@ public static class DataStore
 	/// <summary>
 	/// Randomly gets the requested number of cards according to tier
 	/// </summary>
-	static List<CardDescriptor> GetCardsByTier( List<CardDescriptor> haystack, int t1, int t2, int t3 )
+	static List<DeploymentCard> GetCardsByTier( List<DeploymentCard> haystack, int t1, int t2, int t3 )
 	{
-		List<CardDescriptor> retval = new List<CardDescriptor>();
+		List<DeploymentCard> retval = new List<DeploymentCard>();
 		;
 		if ( t1 > 0 )
 		{
@@ -603,12 +631,12 @@ public static class DataStore
 	/// <summary>
 	/// Get a normal or villain from the id
 	/// </summary>
-	public static CardDescriptor GetEnemy( string id )
+	public static DeploymentCard GetEnemy( string id )
 	{
-		if ( villainCards.cards.Any( x => x.id == id ) )
-			return villainCards.cards.Where( x => x.id == id ).First();
-		else if ( deploymentCards.cards.Any( x => x.id == id ) )
-			return deploymentCards.cards.Where( x => x.id == id ).First();
+		if ( villainCards.Any( x => x.id == id ) )
+			return villainCards.Where( x => x.id == id ).First();
+		else if ( deploymentCards.Any( x => x.id == id ) )
+			return deploymentCards.Where( x => x.id == id ).First();
 		else
 			return null;
 	}
@@ -616,14 +644,14 @@ public static class DataStore
 	/// <summary>
 	/// CAN be in dep hand, minus deployed, minus reserved, minus ignored
 	/// </summary>
-	public static CardDescriptor GetNonEliteVersion( CardDescriptor elite )
+	public static DeploymentCard GetNonEliteVersion( DeploymentCard elite )
 	{
 		//starting groups already deployed, no need to filter
 		//1) filter to NON elites only
 		//2) the elite version of the card (passed into this method) will have the NON elite NAME in its name property
-		var valid = deploymentCards.cards
+		var valid = deploymentCards
 			.Where( x => !x.isElite )
-			.Where( x => elite.name.Contains( x.name ) ).ToList()
+			.Where( x => elite.name.ToLowerInvariant().Contains( x.name.ToLowerInvariant() ) ).ToList()
 			.MinusDeployed()
 			.MinusReserved()
 			.MinusIgnored();
@@ -633,14 +661,14 @@ public static class DataStore
 	/// <summary>
 	/// CAN be in dep hand, minus deployed, minus reserved, minus ignored
 	/// </summary>
-	public static CardDescriptor GetEliteVersion( CardDescriptor cd )
+	public static DeploymentCard GetEliteVersion( DeploymentCard cd )
 	{
 		//starting groups already deployed, no need to filter
 		//1) filter to elites only
 		//2) the elite version of the card will have the NAME in its name property
-		var valid = deploymentCards.cards
+		var valid = deploymentCards
 			.Where( x => x.isElite )
-			.Where( x => x.name.Contains( cd.name ) ).ToList()
+			.Where( x => x.name.ToLowerInvariant().Contains( cd.name.ToLowerInvariant() ) ).ToList()
 			.MinusDeployed()
 			.MinusReserved()
 			.MinusIgnored();
@@ -648,9 +676,9 @@ public static class DataStore
 	}
 
 	/// <summary>
-	/// Calculate and return a valid reinforcement, optionally applying a -1 rcost modifier for Onslaught
+	/// Calculate and return a valid reinforcement, optionally applying a -1 rcost modifier for Onslaught, if Saga game also checks override if it CAN reinforce
 	/// </summary>
-	public static CardDescriptor GetReinforcement( bool isOnslaught = false )
+	public static DeploymentCard GetReinforcement( int currentThreat, bool isOnslaught = false )
 	{
 		//up to 2 groups reinforce, this method handles ONE
 		//get deployed groups that CAN reinforce
@@ -664,7 +692,19 @@ public static class DataStore
 		var valid = deployedEnemies.Where( x =>
 			x.rcost > 0 &&
 			x.currentSize < x.size &&
-			Math.Max( 1, x.rcost - costModifier ) <= sessionData.gameVars.currentThreat ).ToList();
+			Math.Max( 1, x.rcost - costModifier ) <= currentThreat ).ToList();
+
+		if ( gameType == GameType.Saga )
+		{
+			//check for "canReinforce" override and remove those cards if they can't
+			for ( int i = valid.Count - 1; i >= 0; i-- )
+			{
+				var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( valid[i].id );
+				if ( ovrd != null && !ovrd.canReinforce )
+					valid.RemoveAt( i );
+			}
+		}
+
 		if ( valid.Count > 0 )
 		{
 			int[] rnd = GlowEngine.GenerateRandomNumbers( valid.Count );
@@ -676,19 +716,19 @@ public static class DataStore
 	}
 
 	/// <summary>
-	/// Calculate and return a deployable group using "fuzzy" deployment, DOES NOT remove it from deployment hand
+	/// Calculate and return a deployable group from the hand using "fuzzy" deployment, DOES NOT remove it from deployment hand, if Saga game also checks override if it CAN redeploy
 	/// </summary>
-	public static CardDescriptor GetFuzzyDeployable( bool isOnslaught = false )
+	public static DeploymentCard GetFuzzyDeployable( int currentThreat, bool isOnslaught = false )
 	{
 		/*
 		 If the app chooses to deploy a Tier III (=expensive) group, but does not have enough threat by up to 3 points, it still deploys the unit and reduces threat to 0. This way, the deployment of expensive units does not hinge on a tiny amount of missing threat, but doesn’t simply make them cheaper. Example: The app chooses to deploy an AT-ST (threat cost 14). It can deploy even if there is only 11, 12, or 13 threat left
 		*/
 
-		List<CardDescriptor> tier1Group = new List<CardDescriptor>();
-		List<CardDescriptor> tier2Group = new List<CardDescriptor>();
-		CardDescriptor tier3Group = null;
-		List<CardDescriptor> tier23Group = new List<CardDescriptor>();
-		CardDescriptor validEnemy = null;
+		List<DeploymentCard> tier1Group = new List<DeploymentCard>();
+		List<DeploymentCard> tier2Group = new List<DeploymentCard>();
+		DeploymentCard tier3Group = null;
+		List<DeploymentCard> tier23Group = new List<DeploymentCard>();
+		DeploymentCard validEnemy = null;
 		int[] rnd;
 		int t2modifier = 0;
 		int t3modifier = 0;
@@ -701,20 +741,40 @@ public static class DataStore
 		//get tier 1 affordable groups
 		if ( deploymentHand.Any( x =>
 			x.tier == 1 &&
-			x.cost <= sessionData
-			.gameVars.currentThreat ) )
+			x.cost <= currentThreat ) )
 		{
-			tier1Group = deploymentHand.Where( x => x.tier == 1 && x.cost <= sessionData.gameVars.currentThreat ).ToList();
+			tier1Group = deploymentHand.Where( x => x.tier == 1 && x.cost <= currentThreat ).ToList();
 		}
+		//check for "canRedeploy" override and remove those cards if they can't
+		if ( gameType == GameType.Saga && tier1Group.Count > 0 )
+		{
+			for ( int i = tier1Group.Count - 1; i >= 0; i-- )
+			{
+				var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( tier1Group[i].id );
+				if ( ovrd != null && tier1Group[i].hasDeployed && !ovrd.canRedeploy )
+					tier1Group.RemoveAt( i );
+			}
+		}
+
 		//get tier 2 affordable groups
 		if ( deploymentHand.Any( x =>
 			x.tier == 2 &&
-			x.cost - t2modifier <= sessionData.gameVars.currentThreat ) )
+			x.cost - t2modifier <= currentThreat ) )
 		{
 			tier2Group = deploymentHand.Where( x =>
 			x.tier == 2 &&
-			x.cost - t2modifier <= sessionData.gameVars.currentThreat )
+			x.cost - t2modifier <= currentThreat )
 			.ToList();
+		}
+		//check for "canRedeploy" override and remove those cards if they can't
+		if ( gameType == GameType.Saga && tier2Group.Count > 0 )
+		{
+			for ( int i = tier2Group.Count - 1; i >= 0; i-- )
+			{
+				var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( tier2Group[i].id );
+				if ( ovrd != null && tier2Group[i].hasDeployed && !ovrd.canRedeploy )
+					tier2Group.RemoveAt( i );
+			}
 		}
 
 		//concatenate the tier 1 and tier 2 groups
@@ -731,17 +791,32 @@ public static class DataStore
 		//get a random tier 3 group from deployment hand with cost up to 3 over current threat and NOT DEPLOYED, if one exists
 		if ( deploymentHand.Any( x =>
 				x.tier == 3 &&
-				x.cost - t3modifier <= sessionData.gameVars.currentThreat + 3 &&
-				!deployedEnemies.Contains( x )
+				x.cost - t3modifier <= currentThreat + 3 &&
+				!deployedEnemies.ContainsCard( x )
 		) )
 		{
 			var t3 = deploymentHand.Where( x =>
 				x.tier == 3 &&
-				x.cost - t3modifier <= sessionData.gameVars.currentThreat + 3 &&
-				!deployedEnemies.Contains( x )
+				x.cost - t3modifier <= currentThreat + 3 &&
+				!deployedEnemies.ContainsCard( x )
 			).ToList();
-			rnd = GlowEngine.GenerateRandomNumbers( t3.Count );
-			tier3Group = t3[rnd[0]];
+
+			//check for "canRedeploy" override and remove those cards if they can't
+			if ( gameType == GameType.Saga && t3.Count > 0 )
+			{
+				for ( int i = t3.Count - 1; i >= 0; i-- )
+				{
+					var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( t3[i].id );
+					if ( ovrd != null && t3[i].hasDeployed && !ovrd.canRedeploy )
+						t3.RemoveAt( i );
+				}
+			}
+
+			if ( t3.Count > 0 )
+			{
+				rnd = GlowEngine.GenerateRandomNumbers( t3.Count );
+				tier3Group = t3[rnd[0]];
+			}
 		}
 
 		//if there are valid tier 3 AND tier 1/2 groups, there is a 50/50 chance of either being returned

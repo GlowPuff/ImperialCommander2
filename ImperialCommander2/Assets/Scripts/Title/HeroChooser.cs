@@ -1,6 +1,6 @@
-﻿using DG.Tweening;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,8 +14,8 @@ public class HeroChooser : MonoBehaviour
 	public TextMeshProUGUI heroNameText;
 
 	Sound sound;
-	List<CardDescriptor> selectedHeroes;
-	List<CardDescriptor> ownedHeroes;
+	List<DeploymentCard> selectedHeroes;
+	List<DeploymentCard> ownedHeroes;
 
 	private void Awake()
 	{
@@ -44,7 +44,7 @@ public class HeroChooser : MonoBehaviour
 		heroNameText.text = "";
 
 		//filter owned heroes
-		ownedHeroes = DataStore.heroCards.cards.Owned();
+		ownedHeroes = DataStore.heroCards.Owned();
 		//Debug.Log( "OWNED H" );
 		//foreach ( CardDescriptor cd in ownedHeroes )
 		//	Debug.Log( cd.name );
@@ -61,7 +61,7 @@ public class HeroChooser : MonoBehaviour
 			thumb.GetComponent<Image>().sprite = thumbNail;
 
 			//toggle if already selected
-			if ( selectedHeroes.Contains( ownedHeroes[i] ) )
+			if ( selectedHeroes.ContainsCard( ownedHeroes[i] ) )
 				child.GetComponent<Toggle>().isOn = true;
 			child.gameObject.SetActive( true );
 		}
@@ -90,13 +90,13 @@ public class HeroChooser : MonoBehaviour
 		var m = rx.Match( t.name );
 		int idx = int.Parse( m.Value ) - 1;
 		//Debug.Log( idx );
-		CardDescriptor clicked = ownedHeroes[idx];
-		if ( t.isOn && !selectedHeroes.Contains( clicked ) )
+		DeploymentCard clicked = ownedHeroes[idx];
+		if ( t.isOn && !selectedHeroes.ContainsCard( clicked ) )
 		{
 			selectedHeroes.Add( clicked );
 			heroNameText.text = clicked.name;
 		}
-		else if ( !t.isOn && selectedHeroes.Contains( clicked ) )
+		else if ( !t.isOn && selectedHeroes.ContainsCard( clicked ) )
 		{
 			selectedHeroes.Remove( clicked );
 			heroNameText.text = "";

@@ -1,5 +1,5 @@
-﻿using DG.Tweening;
-using System.Linq;
+﻿using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class Sound : MonoBehaviour
@@ -14,6 +14,12 @@ public class Sound : MonoBehaviour
 	{
 		if ( PlayerPrefs.GetInt( "sound" ) == 1 )
 			source.PlayOneShot( clips[(int)sound] );
+	}
+
+	public void PlaySound( int clipIndex )
+	{
+		//if ( PlayerPrefs.GetInt( "sound" ) == 1 )
+		source.PlayOneShot( clips[clipIndex] );
 	}
 
 	public void playDeploymentSound( string id )

@@ -1,5 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
+using Saga;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,23 +12,25 @@ public class EnemyActivationPopup : MonoBehaviour
 {
 	public Image fader;
 	public CanvasGroup cg;
-	public TextMeshProUGUI bonusNameText, bonusText, ignoreText;
+	public TextMeshProUGUI bonusNameText, bonusText, ignoreText, modText;
 	public Text enemyName, continueText;
 	public Image thumbnail, colorPip;
-	public CardZoom cardZoom;
 	public DynamicCardPrefab cardPrefab;
 	public DiceRoller diceRoller;
+	public GameObject modifierBox;
 
 	CardInstruction cardInstruction;
-	CardDescriptor cardDescriptor;
+	DeploymentCard cardDescriptor;
 	string rebel1;
 	bool spaceListen;
+	Action callback;
 
-	public void Show( CardDescriptor cd )
+	public void Show( DeploymentCard cd, Difficulty difficulty, Action cb = null )
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		//Debug.Log( "Showing: " + cd.name + " / " + cd.id );
 		//clear values
+		callback = cb;
 		thumbnail.color = new Color( 1, 1, 1, 0 );
 		bonusNameText.text = "";
 		bonusText.text = "";
@@ -33,7 +38,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		ignoreText.text = "";
 		spaceListen = true;
 		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
-		continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+		continueText.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 
 		cardDescriptor = cd;
 
@@ -41,7 +46,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		if ( cardInstruction == null )
 		{
 			Debug.Log( "cardInstruction is NULL: " + cd.id );
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "EnemyActivationPopup: cardInstruction is NULL: " + cd.id );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( "EnemyActivationPopup: cardInstruction is NULL: " + cd.id );
 			return;
 		}
 
@@ -73,7 +78,26 @@ public class EnemyActivationPopup : MonoBehaviour
 		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 
 		SetThumbnail( cd );
+
 		enemyName.text = cd.name.ToLower();
+
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			//check for name override
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null )
+				enemyName.text = ovrd.nameOverride.ToLower();
+
+			//check for modififier override
+			if ( ovrd != null && ovrd.showMod && !string.IsNullOrEmpty( ovrd.modification.Trim() ) )
+			{
+				modifierBox.SetActive( true );
+				modText.text = ReplaceGlyphs( ovrd.modification );
+			}
+			else
+				modifierBox.SetActive( false );
+		}
+
 		if ( !string.IsNullOrEmpty( cd.ignored ) )
 			ignoreText.text = $"<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" + cd.ignored;
 		else
@@ -84,15 +108,26 @@ public class EnemyActivationPopup : MonoBehaviour
 			//if multiple card instructions, pick 1
 			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
 			InstructionOption io = cardInstruction.content[rnd[0]];
+			List<string> instructions = io.instruction;
+			//check for instruction/repositioning override
+			if ( DataStore.gameType == GameType.Saga )
+			{
+				instructions = GetModifiedInstructions( cd.id, instructions );
+				instructions = GetModifiedRepositioning( cd.id, instructions );
+			}
 
-			CardDescriptor potentialRebel = FindRebel();
+			DeploymentCard potentialRebel;
+			if ( DataStore.gameType == GameType.Classic )
+				potentialRebel = FindRebel();
+			else
+				potentialRebel = FindRebelSaga();
 			if ( potentialRebel != null )
 				rebel1 = potentialRebel.name;
 			else
 				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
 
-			ParseInstructions( io );
-			ParseBonus( cd.id );
+			ParseInstructions( instructions );
+			ParseBonus( cd.id, difficulty );
 
 			//save this card's activation state
 			cardDescriptor.hasActivated = true;
@@ -103,41 +138,67 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 		else
 		{
-			CardDescriptor potentialRebel = FindRebel();
-			if ( cardDescriptor.rebelName != null )
+			DeploymentCard potentialRebel;
+			//get new target
+			if ( DataStore.gameType == GameType.Classic )
+				potentialRebel = FindRebel();
+			else
+				potentialRebel = FindRebelSaga();
+
+			//re-use target
+			if ( cardDescriptor.rebelName != null && DataStore.gameType == GameType.Classic )
 				rebel1 = cardDescriptor.rebelName;
 			else if ( potentialRebel != null )
 				rebel1 = potentialRebel.name;
 			else
 				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
 
-			if ( cardDescriptor.instructionOption != null )
-				ParseInstructions( cardDescriptor.instructionOption );
-			else
+			//re-use instructions
+			if ( cardDescriptor.instructionOption != null && DataStore.gameType == GameType.Classic )
+			{
+				List<string> instructions = cardDescriptor.instructionOption.instruction;
+				//check for instruction override
+				if ( DataStore.gameType == GameType.Saga )
+				{
+					instructions = GetModifiedInstructions( cd.id, instructions );
+					instructions = GetModifiedRepositioning( cd.id, instructions );
+				}
+				ParseInstructions( instructions );
+			}
+			else//get new instructions for this activation
 			{
 				InstructionOption io = cardInstruction.content[GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count )[0]];
-				ParseInstructions( io );
+				List<string> instructions = io.instruction;
+				//check for instruction override
+				if ( DataStore.gameType == GameType.Saga )
+				{
+					instructions = GetModifiedInstructions( cd.id, instructions );
+					instructions = GetModifiedRepositioning( cd.id, instructions );
+				}
+				ParseInstructions( instructions );
 				cardDescriptor.instructionOption = io;
 			}
 
-			if ( cardDescriptor.bonusName != null && cardDescriptor.bonusText != null )
+			if ( cardDescriptor.bonusName != null
+				&& cardDescriptor.bonusText != null
+				&& DataStore.gameType == GameType.Classic )//re-use activation bonus
 			{
 				bonusNameText.text = cardDescriptor.bonusName;
 				bonusText.text = cardDescriptor.bonusText;
 			}
-			else
+			else//get a new bonus for this activation
 			{
-				ParseBonus( cd.id );
+				ParseBonus( cd.id, difficulty );
 				cardDescriptor.bonusName = bonusNameText.text;
 				cardDescriptor.bonusText = bonusText.text;
 			}
 		}
 	}
 
-	void SetThumbnail( CardDescriptor cd )
+	void SetThumbnail( DeploymentCard cd )
 	{
 		//set thumbnail for villain
-		if ( DataStore.villainCards.cards.Any( x => x.id == cd.id ) )
+		if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
 			thumbnail.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
 		else//regular enemy
 		{
@@ -147,7 +208,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		thumbnail.DOFade( 1, .25f );
 	}
 
-	void ParseBonus( string id )
+	void ParseBonus( string id, Difficulty difficulty )
 	{
 		bonusNameText.text = "";
 		bonusText.text = "";
@@ -164,7 +225,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		bonusText.text = ReplaceGlyphs( e.Substring( idx + 1 ) ).Trim();
 
 		//At each activation, there’s a 25% chance that no bonus effect will be applied
-		if ( DataStore.sessionData.difficulty == Difficulty.Easy )
+		if ( difficulty == Difficulty.Easy )
 		{
 			if ( GlowEngine.RandomBool( 25 ) )
 			{
@@ -175,13 +236,13 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 	}
 
-	void ParseInstructions( InstructionOption op )
+	void ParseInstructions( List<string> instruction )
 	{
 		Transform content = transform.Find( "Panel/content" );
 
-		for ( int i = 0; i < op.instruction.Count; i++ )
+		for ( int i = 0; i < instruction.Count; i++ )
 		{
-			string item = op.instruction[i];
+			string item = instruction[i];
 
 			GameObject go = new GameObject( "content item" );
 			go.layer = 5;
@@ -202,7 +263,7 @@ public class EnemyActivationPopup : MonoBehaviour
 				nt.color = new Color( 0, 0.6440244f, 1, 1 );
 				//nt.margin = new Vector4( 25, 0, 0, 0 );
 				//item = item.Replace( "{-}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color> " );
-				item = item.Replace( "{-}", " ■ " );
+				item = item.Replace( "{-}", " \u25A0 " );
 			}
 			//orange highlight
 			if ( item.Contains( "{O}" ) )
@@ -244,26 +305,124 @@ public class EnemyActivationPopup : MonoBehaviour
 		return item;
 	}
 
-	CardDescriptor FindRebel()
+	DeploymentCard FindRebelSaga()
 	{
-		var hlist = DataStore.deployedHeroes.GetHealthy();
-		var ulist = DataStore.deployedHeroes.GetUnhealthy();
-		CardDescriptor r = null;
+		DeploymentCard defaultRebel = null;
+		//try to get preferred targets first (defaults)
+		GroupTraits[] groupTraits = cardDescriptor.preferredTargets;
+
+		//check for target trait override
+		var traitOvrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id )?.groupTraits;
+		if ( traitOvrd != null )
+		{
+			Debug.Log( $"FindRebel()::Preferred Traits OVERRIDE" );
+			groupTraits = traitOvrd;
+		}
+
+		//check for target trait override in ChangeTarget, which gets the last say
+		//all
+		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride()?.changeTarget;
+		if ( ovrd != null && ovrd.targetType == PriorityTargetType.Trait )
+		{
+			Debug.Log( $"FindRebel()::MODIFYING ALL::{ovrd.targetType}" );
+			if ( !ovrd.groupPriorityTraits.useDefaultPriority )
+				groupTraits = ovrd.groupPriorityTraits.GetTraitArray();
+		}
+		//specific
+		ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id )?.changeTarget;
+		if ( ovrd != null && ovrd.targetType == PriorityTargetType.Trait )
+		{
+			Debug.Log( $"FindRebel()::MODIFYING SPECIFIC::{ovrd.targetType}" );
+			if ( !ovrd.groupPriorityTraits.useDefaultPriority )
+				groupTraits = ovrd.groupPriorityTraits.GetTraitArray();
+		}
+
+		var hlist = DataStore.deployedHeroes.GetHealthy().WithTraits( groupTraits );
+		var ulist = DataStore.deployedHeroes.GetUnhealthy().WithTraits( groupTraits );
+		if ( hlist is null )
+			hlist = DataStore.deployedHeroes.GetHealthy();
+		else
+			Debug.Log( "PREFFERED::" + string.Join( ", ", groupTraits ) );
+		if ( ulist is null )
+			ulist = DataStore.deployedHeroes.GetUnhealthy();
 
 		if ( hlist != null )
 		{
 			//Debug.Log( "healthy HEROES: " + hlist.Count );
 			int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
-			r = hlist[rnd[0]];
+			defaultRebel = hlist[rnd[0]];
 		}
 		else if ( ulist != null )
 		{
 			//Debug.Log( "UNhealthy HEROES: " + ulist.Count );
 			int[] rnd = GlowEngine.GenerateRandomNumbers( ulist.Count() );
-			r = ulist[rnd[0]];
+			defaultRebel = ulist[rnd[0]];
 		}
 
-		return r;
+		//check for target override
+		//if a targeted ally/hero doesn't exist in the game, or it's withdrawn, just use default
+		//all
+		ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride()?.changeTarget;
+		if ( ovrd != null )
+		{
+			if ( ovrd.targetType == PriorityTargetType.Rebel )
+			{
+				//default behavior - any rebel already determined above
+			}
+			if ( ovrd.targetType == PriorityTargetType.Ally )
+			{
+				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificAlly && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+			}
+			else if ( ovrd.targetType == PriorityTargetType.Hero )
+			{
+				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificHero && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+			}
+			Debug.Log( $"FindRebel()::MODIFYING ALL::{ovrd.targetType}, target = {defaultRebel.name}" );
+		}
+
+		//specific
+		ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id )?.changeTarget;
+		if ( ovrd != null )
+		{
+			if ( ovrd.targetType == PriorityTargetType.Rebel )
+			{
+				//default behavior - any rebel already determined above
+			}
+			if ( ovrd.targetType == PriorityTargetType.Ally )
+			{
+				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificAlly && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+			}
+			else if ( ovrd.targetType == PriorityTargetType.Hero )
+			{
+				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificHero && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+			}
+			Debug.Log( $"FindRebel()::MODIFYING SPECIFIC::{ovrd.targetType}, target = {defaultRebel.name}" );
+		}
+
+		return defaultRebel;
+	}
+
+	DeploymentCard FindRebel()
+	{
+		var hlist = DataStore.deployedHeroes.GetHealthy();
+		var ulist = DataStore.deployedHeroes.GetUnhealthy();
+		DeploymentCard defaultRebel = null;
+
+
+		if ( hlist != null )
+		{
+			//Debug.Log( "healthy HEROES: " + hlist.Count );
+			int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
+			defaultRebel = hlist[rnd[0]];
+		}
+		else if ( ulist != null )
+		{
+			//Debug.Log( "UNhealthy HEROES: " + ulist.Count );
+			int[] rnd = GlowEngine.GenerateRandomNumbers( ulist.Count() );
+			defaultRebel = ulist[rnd[0]];
+		}
+
+		return defaultRebel;
 	}
 
 	public void OnViewCard()
@@ -271,7 +430,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		spaceListen = false;
 		EventSystem.current.SetSelectedGameObject( null );
 
-		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
+		CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 		cardViewPopup.Show( cardDescriptor, OnReturn );
 	}
 
@@ -292,6 +451,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		} );
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+		callback?.Invoke();
 	}
 
 	private void Update()
@@ -320,5 +480,67 @@ public class EnemyActivationPopup : MonoBehaviour
 		spaceListen = false;
 		EventSystem.current.SetSelectedGameObject( null );
 		diceRoller.Show( cardDescriptor, false, OnReturn );
+	}
+
+	public List<string> GetModifiedInstructions( string ID, List<string> linesOut )
+	{
+		//all
+		var ci = DataStore.sagaSessionData.gameVars.GetDeploymentOverride()?.changeInstructions;
+		if ( ci != null )
+		{
+			List<string> lines = ci.theText.Split( new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries ).ToList();
+			if ( ci.instructionType == CustomInstructionType.Replace )
+				linesOut = lines;
+			else if ( ci.instructionType == CustomInstructionType.Top )
+				linesOut = lines.Concat( linesOut ).ToList();
+			else if ( ci.instructionType == CustomInstructionType.Bottom )
+				linesOut = linesOut.Concat( lines ).ToList();
+			Debug.Log( $"GetModifiedInstructions()::ALL::MODIFYING WITH {lines.Count} LINES::{ci.instructionType}" );
+		}
+
+		//specific
+		var dgOvrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( ID )?.changeInstructions;
+		if ( dgOvrd != null )
+		{
+			List<string> lines = dgOvrd.theText.Split( new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries ).ToList();
+			if ( dgOvrd.instructionType == CustomInstructionType.Replace )
+				linesOut = lines;
+			else if ( dgOvrd.instructionType == CustomInstructionType.Top )
+				linesOut = lines.Concat( linesOut ).ToList();
+			else if ( dgOvrd.instructionType == CustomInstructionType.Bottom )
+				linesOut = linesOut.Concat( lines ).ToList();
+			Debug.Log( $"GetModifiedInstructions()::MODIFYING WITH {lines.Count} LINES::{dgOvrd.instructionType}" );
+		}
+
+		return linesOut;
+	}
+
+	public List<string> GetModifiedRepositioning( string ID, List<string> linesOut )
+	{
+		//all
+		string repo = DataStore.sagaSessionData.gameVars.GetDeploymentOverride()?.repositionInstructions;
+		if ( !string.IsNullOrEmpty( repo ) )
+		{
+			repo = "<color=orange>{-} " + repo + "</color>";
+			List<string> lines = repo.Split( new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries ).ToList();
+			lines.Insert( 0, "\n" );
+			//place at bottom of instructions
+			linesOut = linesOut.Concat( lines ).ToList();
+			Debug.Log( $"GetModifiedRepositioning()::ALL::MODIFYING WITH {lines.Count} LINES::{repo}" );
+		}
+
+		//specific
+		repo = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( ID )?.repositionInstructions;
+		if ( !string.IsNullOrEmpty( repo ) )
+		{
+			repo = "<color=orange>{-} " + repo + "</color>";
+			List<string> lines = repo.Split( new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries ).ToList();
+			lines.Insert( 0, "\n" );
+			//place at bottom of instructions
+			linesOut = linesOut.Concat( lines ).ToList();
+			Debug.Log( $"GetModifiedRepositioning()::ALL::MODIFYING WITH {lines.Count} LINES::{repo}" );
+		}
+
+		return linesOut;
 	}
 }

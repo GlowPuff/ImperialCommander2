@@ -16,9 +16,9 @@ public class DeploymentGroupManager : MonoBehaviour
 	/// <summary>
 	/// deploys hero/ally to hero box and adds it to deployed hero list
 	/// </summary>
-	public void DeployHeroAlly( CardDescriptor cd )
+	public void DeployHeroAlly( DeploymentCard cd )
 	{
-		if ( DataStore.deployedHeroes.Contains( cd ) )
+		if ( DataStore.deployedHeroes.ContainsCard( cd ) )
 		{
 			Debug.Log( cd.name + " already deployed" );
 			return;
@@ -30,7 +30,7 @@ public class DeploymentGroupManager : MonoBehaviour
 
 		var go = Instantiate( hgPrefab, heroContainer );
 		go.GetComponent<HGPrefab>().Init( cd );
-		if ( !DataStore.deployedHeroes.Contains( cd ) )
+		if ( !DataStore.deployedHeroes.ContainsCard( cd ) )
 			DataStore.deployedHeroes.Add( cd );
 		sound.PlaySound( FX.Computer );
 	}
@@ -73,7 +73,7 @@ public class DeploymentGroupManager : MonoBehaviour
 	/// <summary>
 	/// Takes an enemy or villain, applies difficulty modifier, deploys, removes from dep hand, adds to deployed list
 	/// </summary>
-	public void DeployGroup( CardDescriptor cardDescriptor, bool skipEliteModify = false )
+	public void DeployGroup( DeploymentCard cardDescriptor, bool skipEliteModify = false )
 	{
 		cardDescriptor.hasActivated = false;
 		// EASY: Any time an Elite group is deployed, it has a 15% chance to be downgraded to a normal group without refunding of threat. ( If the respective normal group is still available.)
@@ -88,7 +88,7 @@ public class DeploymentGroupManager : MonoBehaviour
 			{
 				Debug.Log( "DeployGroup EASY mode Elite downgrade: " + nonE.name );
 				cardDescriptor = nonE;
-				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngradeMsgUC );
+				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngradeMsgUC );
 			}
 		}
 
@@ -104,13 +104,13 @@ public class DeploymentGroupManager : MonoBehaviour
 			{
 				Debug.Log( "DeployGroup HARD mode Elite upgrade: " + elite.name );
 				cardDescriptor = elite;
-				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgradeMsgUC );
+				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgradeMsgUC );
 			}
 			else
 				Debug.Log( "SKIPPED: " + cardDescriptor.name );
 		}
 
-		if ( DataStore.deployedEnemies.Contains( cardDescriptor ) )
+		if ( DataStore.deployedEnemies.ContainsCard( cardDescriptor ) )
 		{
 			Debug.Log( cardDescriptor.name + " already deployed" );
 			return;
@@ -144,9 +144,9 @@ public class DeploymentGroupManager : MonoBehaviour
 		}
 	}
 
-	public List<CardDescriptor> GetNonExhaustedGroups()
+	public List<DeploymentCard> GetNonExhaustedGroups()
 	{
-		var cd = new List<CardDescriptor>();
+		var cd = new List<DeploymentCard>();
 		foreach ( Transform c in gridContainer )
 		{
 			var pf = c.GetComponent<DGPrefab>();

@@ -26,11 +26,11 @@
 /// 
 /// </summary>
 
-using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [Serializable]
@@ -45,12 +45,12 @@ public struct Point
 
 	public static bool operator !=( Point p1, Point p2 )
 	{
-		return ( p1.X != p2.X || p1.Y != p2.Y );
+		return (p1.X != p2.X || p1.Y != p2.Y);
 	}
 
 	public static bool operator ==( Point p1, Point p2 )
 	{
-		return ( p1.X == p2.X && p1.Y == p2.Y );
+		return (p1.X == p2.X && p1.Y == p2.Y);
 	}
 
 	public override bool Equals( object obj )
@@ -276,7 +276,7 @@ public class GlowEngine : MonoBehaviour
 			rect.width = 1.0f;
 			rect.height = scaleHeight;
 			rect.x = 0;
-			rect.y = ( 1.0f - scaleHeight ) / 2.0f;
+			rect.y = (1.0f - scaleHeight) / 2.0f;
 
 			mainCamera.rect = rect;
 		}
@@ -288,7 +288,7 @@ public class GlowEngine : MonoBehaviour
 
 			rect.width = scalewidth;
 			rect.height = 1.0f;
-			rect.x = ( 1.0f - scalewidth ) / 2.0f;
+			rect.x = (1.0f - scalewidth) / 2.0f;
 			rect.y = 0;
 
 			mainCamera.rect = rect;
@@ -299,7 +299,7 @@ public class GlowEngine : MonoBehaviour
 	{
 		Vector3 total = array.Aggregate( Vector3.zero, ( acc, next ) =>
 		{
-			return ( acc += next );
+			return (acc += next);
 		} );
 		total /= array.Length;
 
@@ -358,7 +358,7 @@ public class GlowEngine : MonoBehaviour
 	public static float SineAnimation( float low, float high, float frequencyMultiplier = 1 )
 	{
 		float value = Mathf.Sin( Time.time * frequencyMultiplier );
-		return low + ( value - -1 ) * ( high - low ) / ( 1 - -1 );
+		return low + (value - -1) * (high - low) / (1 - -1);
 	}
 
 	/// <summary>
@@ -367,8 +367,8 @@ public class GlowEngine : MonoBehaviour
 	/// <param name="multiplier_offset">X=frequency multiplier, Y=time offset for sinewave</param>
 	public static float SineAnimation( float low, float high, Vector2 multiplier_offset )
 	{
-		float value = Mathf.Sin( ( Time.time + multiplier_offset.y ) * multiplier_offset.x );
-		return low + ( value - -1 ) * ( high - low ) / ( 1 - -1 );
+		float value = Mathf.Sin( (Time.time + multiplier_offset.y) * multiplier_offset.x );
+		return low + (value - -1) * (high - low) / (1 - -1);
 	}
 
 	/// <summary>
@@ -377,7 +377,7 @@ public class GlowEngine : MonoBehaviour
 	public static float SineAnimation( float low, float high, float frequencyMultiplier, float elapsed )
 	{
 		float value = Mathf.Sin( elapsed * frequencyMultiplier );
-		return low + ( value - -1 ) * ( high - low ) / ( 1 - -1 );
+		return low + (value - -1) * (high - low) / (1 - -1);
 	}
 
 	/// <summary>
@@ -387,9 +387,9 @@ public class GlowEngine : MonoBehaviour
 	{
 		value = Mathf.Clamp( value, low1, high1 );
 		if ( low2 < high2 )
-			return low2 + ( value - low1 ) * ( high2 - low2 ) / ( high1 - low1 );
+			return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
 		else
-			return high2 + ( value - high1 ) * ( low2 - high2 ) / ( low1 - high1 );
+			return high2 + (value - high1) * (low2 - high2) / (low1 - high1);
 	}
 
 	/// <summary>
@@ -398,9 +398,9 @@ public class GlowEngine : MonoBehaviour
 	public static float WrapValue( float value, float min, float max )
 	{
 		if ( value > max )
-			return ( value - max ) + min;
+			return (value - max) + min;
 		if ( value < min )
-			return max - ( min - value );
+			return max - (min - value);
 		return value;
 	}
 
@@ -546,15 +546,15 @@ public class GlowEngine : MonoBehaviour
 		//float totalTime = Time.time;
 		if ( randoms.Length < 6 )
 			throw new ArgumentException( "randoms[] must be an array of 6" );
-		return (float)Math.Min( 1, ( randoms[0] * Math.Sin( randoms[1] * totalTime * 10f ) +
+		return (float)Math.Min( 1, (randoms[0] * Math.Sin( randoms[1] * totalTime * 10f ) +
 			 randoms[2] * Math.Sin( randoms[3] * totalTime * 10f ) +
-			 randoms[4] * Math.Sin( randoms[5] * totalTime * 10f ) ) );
+			 randoms[4] * Math.Sin( randoms[5] * totalTime * 10f )) );
 	}
 
 	/// <summary>
-	/// Finds objects even if they are not active
+	/// Finds all objects even if they are not active
 	/// </summary>
-	public static List<T> FindObjectsOfTypeAll<T>()
+	public static List<T> FindAllUnityObjects<T>()
 	{
 		List<T> results = new List<T>();
 		for ( int i = 0; i < SceneManager.sceneCount; i++ )
@@ -576,7 +576,7 @@ public class GlowEngine : MonoBehaviour
 	/// <summary>
 	/// Finds a single object even if it is not active
 	/// </summary>
-	public static T FindObjectsOfTypeSingle<T>()
+	public static T FindUnityObject<T>()
 	{
 		List<T> results = new List<T>();
 		for ( int i = 0; i < SceneManager.sceneCount; i++ )

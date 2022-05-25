@@ -15,7 +15,7 @@ public class CardZoom : MonoBehaviour
 
 	Action callback;
 
-	public void Show( Sprite s, CardDescriptor cd, Action action = null )
+	public void Show( Sprite s, DeploymentCard cd, Action action = null )
 	{
 		gameObject.SetActive( true );
 		cg.DOFade( 1, .5f );

@@ -1,14 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
+using Newtonsoft.Json;
 
-public class DeploymentCards
-{
-	public List<CardDescriptor> cards = new List<CardDescriptor>();
-}
-
-public class CardDescriptor : IEquatable<CardDescriptor>
+public class DeploymentCard : IEquatable<DeploymentCard>
 {
 	//== data from JSON
 	[JsonIgnore]
@@ -26,8 +19,7 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	[JsonIgnore]
 	public string ignored;
 	public bool isElite;
-
-	//start v.1.0.21 additions
+	public bool isHero;
 	[JsonIgnore]
 	public string subname;
 	public int health;
@@ -45,31 +37,29 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	public AttackType attackType;
 	public FigureSize miniSize;
 	public GroupTraits[] groupTraits;
-	//==end v.1.0.21 additions
+	public GroupTraits[] preferredTargets;
 	//==
-
 
 	//==upkeep properties
 	public int currentSize;
 	public int colorIndex;
-	//start v.1.0.17 additions
-	[DefaultValue( false )]
-	[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
-	public bool hasActivated;
+	//[DefaultValue( false )]
+	//[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
+	public bool hasActivated = false;
 	public string bonusName, bonusText, rebelName;
 	public InstructionOption instructionOption;
-
-	//start v.1.0.20 additions
 	public bool isDummy;
 	public HeroState heroState;
-	//==end v.1.0.20 additions
+	public bool hasDeployed = false;
 	//==end upkeep
 
-	public bool Equals( CardDescriptor obj )
+	//public Saga.EnemyGroupData enemyGroupData { get; set; }
+
+	public bool Equals( DeploymentCard obj )
 	{
 		if ( obj == null )
 			return false;
-		CardDescriptor objAsPart = obj as CardDescriptor;
+		DeploymentCard objAsPart = obj as DeploymentCard;
 		if ( objAsPart == null )
 			return false;
 		else
@@ -93,4 +83,10 @@ public class CardLanguage
 	public string[] surges;
 	public string[] keywords;
 	public GroupAbility[] abilities;
+}
+
+public class DCPointer
+{
+	public string name;
+	public string id;
 }

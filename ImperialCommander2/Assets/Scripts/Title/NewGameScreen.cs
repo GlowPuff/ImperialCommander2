@@ -224,9 +224,9 @@ public class NewGameScreen : MonoBehaviour
 			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
 			imperialToggle.isOn = DataStore.sessionData.includeImperials;
 
-			CardDescriptor custom = new CardDescriptor() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
+			DeploymentCard custom = new DeploymentCard() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
 
-			var allCards = DataStore.deploymentCards.cards.Concat( DataStore.villainCards.cards ).ToList();
+			var allCards = DataStore.deploymentCards.Concat( DataStore.villainCards ).ToList();
 			allCards.Add( custom );
 
 			DataStore.sessionData.MissionStarting.Clear();
@@ -239,8 +239,14 @@ public class NewGameScreen : MonoBehaviour
 			{
 				DataStore.sessionData.MissionReserved.Add( allCards.Where( x => x.id == card ).First() );
 			}
+			DataStore.sessionData.MissionIgnored.Clear();
+			foreach ( var card in mp.ignoredGroups )
+			{
+				DataStore.sessionData.MissionIgnored.Add( allCards.Where( x => x.id == card ).First() );
+			}
+
 			if ( mp.allyGroups.Count > 0 )
-				DataStore.sessionData.selectedAlly = DataStore.allyCards.cards.Where( x => x.id == mp.allyGroups[0] ).First();
+				DataStore.sessionData.selectedAlly = DataStore.allyCards.Where( x => x.id == mp.allyGroups[0] ).First();
 			else
 				DataStore.sessionData.selectedAlly = null;
 		}
@@ -282,9 +288,9 @@ public class NewGameScreen : MonoBehaviour
 		{
 			//only the first 4 DeploymentCards
 			//index 4 contains heroes
-			DeploymentCards selectedCards = DataStore.sessionData.selectedDeploymentCards[i];
-			if ( selectedCards.cards.Count > 0 )
-				enemyGroupText[i].text = selectedCards.cards.Count + " " + DataStore.uiLanguage.uiSetup.selected;
+			List<DeploymentCard> selectedCards = DataStore.sessionData.selectedDeploymentCards[i];
+			if ( selectedCards.Count > 0 )
+				enemyGroupText[i].text = selectedCards.Count + " " + DataStore.uiLanguage.uiSetup.selected;
 			else
 				enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
 		}
@@ -295,7 +301,7 @@ public class NewGameScreen : MonoBehaviour
 		addHeroButton.interactable = DataStore.sessionData.MissionHeroes.Count < 4;
 
 		int idx = 0;
-		foreach ( CardDescriptor dc in DataStore.sessionData.MissionHeroes )
+		foreach ( DeploymentCard dc in DataStore.sessionData.MissionHeroes )
 		{
 			//add thumbnail
 			heroMetas[idx].gameObject.SetActive( true );
@@ -384,10 +390,10 @@ public class NewGameScreen : MonoBehaviour
 			//set card translation text
 			for ( int i = 0; i < session.selectedDeploymentCards.Length; i++ )
 			{
-				DataStore.SetCardTranslations( session.selectedDeploymentCards[i].cards );
+				DataStore.SetCardTranslations( session.selectedDeploymentCards[i] );
 			}
 			if ( session.selectedAlly != null )
-				DataStore.SetCardTranslations( new List<CardDescriptor>() { session.selectedAlly } );
+				DataStore.SetCardTranslations( new List<DeploymentCard>() { session.selectedAlly } );
 
 			DataStore.sessionData = session;
 
@@ -442,7 +448,7 @@ public class NewGameScreen : MonoBehaviour
 	private void Update()
 	{
 		//check if mission can be started
-		bool heroCheck = DataStore.sessionData.selectedDeploymentCards[4].cards.Count > 0;
+		bool heroCheck = DataStore.sessionData.selectedDeploymentCards[4].Count > 0;
 		bool difficulty = DataStore.sessionData.difficulty != Difficulty.NotSet;
 		bool allyRules = DataStore.sessionData.allyRules != AllyRules.NotSet;
 		bool factions = DataStore.sessionData.includeImperials || DataStore.sessionData.includeMercs;
@@ -451,5 +457,12 @@ public class NewGameScreen : MonoBehaviour
 			startMissionButton.interactable = true;
 		else
 			startMissionButton.interactable = false;
+
+		if ( Input.GetKeyDown( KeyCode.Escape )
+			&& !GlowEngine.FindUnityObject<GroupChooserScreen>().gameObject.activeInHierarchy
+			&& !GlowEngine.FindUnityObject<MissionTextBox>().gameObject.activeInHierarchy
+			&& !GlowEngine.FindUnityObject<HeroChooser>().gameObject.activeInHierarchy
+			&& !GlowEngine.FindUnityObject<CardViewPopup>().gameObject.activeInHierarchy )
+			OnBack();
 	}
 }

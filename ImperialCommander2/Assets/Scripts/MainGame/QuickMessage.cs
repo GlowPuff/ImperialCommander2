@@ -1,6 +1,7 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using System;
 using DG.Tweening;
+using TMPro;
+using UnityEngine;
 
 public class QuickMessage : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class QuickMessage : MonoBehaviour
 
 	Sequence sequence = null;
 
-	public void Show( string m )
+	public void Show( string m, Action cb = null )
 	{
 		InitTween();
 		if ( sequence != null && sequence.IsPlaying() )
@@ -29,7 +30,6 @@ public class QuickMessage : MonoBehaviour
 	{
 		if ( sequence == null )
 		{
-			//print( "made seq" );
 			sequence = DOTween.Sequence();
 			Tween t1 = cg.DOFade( 1, .25f );
 			Tween t2 = cg.DOFade( 0, .25f ).SetDelay( 3 ).OnComplete( () => { gameObject.SetActive( false ); } );

@@ -11,25 +11,38 @@ public class Tooltip : MonoBehaviour
 		switch ( t )
 		{
 			case "MissionInfo":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipInfoUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipInfoUC;
+				break;
 			case "MissionRules":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipRulesUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipRulesUC;
+				break;
 			case "PauseDeploy":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipPauseDepUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipPauseDepUC;
+				break;
 			case "PauseThreat":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipPauseThreatUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipPauseThreatUC;
+				break;
 			case "OptionalDeploy":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipOpDepUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipOpDepUC;
+				break;
 			case "Settings":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipSettingsUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipSettingsUC;
+				break;
 			case "Debug":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipImpHandUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipImpHandUC;
+				break;
 			case "Activate":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipActivateUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipActivateUC;
+				break;
 			case "Fame":
-				tt = DataStore.uiLanguage.uiMainApp.tooltipFameUC; break;
+				tt = DataStore.uiLanguage.uiMainApp.tooltipFameUC;
+				break;
+			case "MapVisibility":
+				tt = DataStore.uiLanguage.sagaMainApp.tooltipHideUIUC;
+				break;
 			default:
-				tt = "Unknown string code: " + t; break;
+				tt = "Unknown string code: " + t;
+				break;
 		}
 
 		gameObject.SetActive( true );

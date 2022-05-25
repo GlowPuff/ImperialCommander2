@@ -14,9 +14,9 @@ public class DGPrefab : MonoBehaviour
 	public Button selfButton;
 
 	public bool IsExhausted { get { return exhaustedOverlay.activeInHierarchy; } }
-	public CardDescriptor Card { get { return cardDescriptor; } }
+	public DeploymentCard Card { get { return cardDescriptor; } }
 
-	CardDescriptor cardDescriptor;
+	DeploymentCard cardDescriptor;
 	int colorIndex = 0;
 
 	private void Awake()
@@ -28,7 +28,7 @@ public class DGPrefab : MonoBehaviour
 	/// <summary>
 	/// Takes an enemy, villain, or ally
 	/// </summary>
-	public void Init( CardDescriptor cd )
+	public void Init( DeploymentCard cd )
 	{
 		Debug.Log( "DEPLOYED: " + cd.name );
 		cardDescriptor = cd;
@@ -38,11 +38,11 @@ public class DGPrefab : MonoBehaviour
 
 		ToggleExhausted( cd.hasActivated );
 
-		if ( DataStore.deploymentCards.cards.Any( x => x.id == cd.id ) )
+		if ( DataStore.deploymentCards.Any( x => x.id == cd.id ) )
 		{
 			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
 		}
-		else if ( DataStore.villainCards.cards.Any( x => x.id == cd.id ) )
+		else if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
 		{
 			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
 			outline.effectColor = eliteColor;
@@ -147,16 +147,16 @@ public class DGPrefab : MonoBehaviour
 		selfButton.interactable = false;
 
 		Transform tf = transform.GetChild( 0 );
-		tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+		tf.DOScale( 0, .35f ).SetEase( Ease.InCirc ).OnComplete( () =>
 		 {
 			 //add card back to dep hand ONLY IF IT'S NOT THE CUSTOM GROUP
 			 //AND if it's NOT a villain
-			 if ( cardDescriptor.id != "DG070" && !DataStore.villainCards.cards.Contains( cardDescriptor ) )
+			 if ( cardDescriptor.id != "DG070" && !DataStore.villainCards.ContainsCard( cardDescriptor ) )
 				 DataStore.deploymentHand.Add( cardDescriptor );
 			 //remove it from deployed list
 			 DataStore.deployedEnemies.Remove( cardDescriptor );
 			 //if it is an EARNED villain, add it back into manual deploy list
-			 if ( DataStore.sessionData.EarnedVillains.Contains( cardDescriptor ) && !DataStore.manualDeploymentList.Contains( cardDescriptor ) )
+			 if ( DataStore.sessionData.EarnedVillains.ContainsCard( cardDescriptor ) && !DataStore.manualDeploymentList.ContainsCard( cardDescriptor ) )
 			 {
 				 DataStore.manualDeploymentList.Add( cardDescriptor );
 				 DataStore.SortManualDeployList();
@@ -169,7 +169,7 @@ public class DGPrefab : MonoBehaviour
 				 //reimburse some Threat
 				 DataStore.sessionData.ModifyThreat( cardDescriptor.reimb );
 				 //show fame popup
-				 GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"red\">{cardDescriptor.fame}</color>" );
+				 GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"red\">{cardDescriptor.fame}</color>" );
 			 }
 
 			 Object.Destroy( gameObject );
@@ -217,7 +217,7 @@ public class DGPrefab : MonoBehaviour
 
 	public void OnPointerClick()
 	{
-		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
+		CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 		cardViewPopup.Show( cardDescriptor );
 	}
 

@@ -81,25 +81,25 @@ public class MainGameController : MonoBehaviour
 		//bootstrap threat
 		DataStore.sessionData.threatLevel = 6;
 		//bootstrap a hero
-		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards.cards[0] );
-		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards.cards[1] );
+		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards[0] );
+		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 
 		//bootstrap some starting enemy groups
-		DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG015" ).FirstOrDefault() );
-		DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG002" ).FirstOrDefault() );
+		DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.Where( x => x.id == "DG015" ).FirstOrDefault() );
+		DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.Where( x => x.id == "DG002" ).FirstOrDefault() );
 
 		//bootstrap reserved
 		//DataStore.sessionData.MissionReserved.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG003" ).FirstOrDefault() );
 		//DataStore.sessionData.MissionReserved.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG006" ).FirstOrDefault() );
 
 		//bootstrap an ally
-		DataStore.sessionData.selectedAlly = DataStore.allyCards.cards.Where( x => x.id == "A005" ).FirstOrDefault();
+		DataStore.sessionData.selectedAlly = DataStore.allyCards.Where( x => x.id == "A005" ).FirstOrDefault();
 
 		//bootstrap factions
 		//DataStore.sessionData.includeImperials = false;
 
 		//bootstrap earned villains
-		DataStore.sessionData.EarnedVillains.Add( DataStore.villainCards.cards.Where( x => x.id == "DG072" ).FirstOrDefault() );//darth vader
+		DataStore.sessionData.EarnedVillains.Add( DataStore.villainCards.Where( x => x.id == "DG072" ).FirstOrDefault() );//darth vader
 	}
 
 	/// <summary>
@@ -109,7 +109,7 @@ public class MainGameController : MonoBehaviour
 	{
 		fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
 		//create deployment hand and manual deploy list
-		DataStore.CreateDeploymentHand();
+		DataStore.CreateDeploymentHand( DataStore.sessionData.EarnedVillains, DataStore.sessionData.threatLevel );
 		//foreach ( var d in dh )
 		//	Debug.Log( "DH: " + d.name );
 		DataStore.CreateManualDeployment();
@@ -119,7 +119,7 @@ public class MainGameController : MonoBehaviour
 		if ( DataStore.sessionData.MissionHeroes.Count == 3 )
 		{
 			Debug.Log( "Creating dummy hero" );
-			dgManager.DeployHeroAlly( new CardDescriptor() { isDummy = true } );
+			dgManager.DeployHeroAlly( new DeploymentCard() { isDummy = true } );
 		}
 		//deploy ally
 		if ( DataStore.sessionData.selectedAlly != null )
@@ -128,7 +128,11 @@ public class MainGameController : MonoBehaviour
 		dgManager.DeployStartingGroups();
 		//perform option deployment if it's toggled
 		if ( DataStore.sessionData.optionalDeployment == YesNo.Yes )
+		{
+			//increase threat by twice the threat level and resolve an optional deployment
+
 			GlowTimer.SetTimer( 1, () => deploymentPopup.Show( DeployMode.Landing, false, true ) );
+		}
 	}
 
 	void ContinueGame()
@@ -149,11 +153,11 @@ public class MainGameController : MonoBehaviour
 
 			fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
 
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoredMsgUC );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoredMsgUC );
 		}
 		else
 		{
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoreErrorMsgUC );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoreErrorMsgUC );
 		}
 	}
 
@@ -170,7 +174,7 @@ public class MainGameController : MonoBehaviour
 		sound.PlaySound( FX.Click );
 		DataStore.sessionData.gameVars.pauseThreatIncrease = t.isOn;
 		string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC : DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC;
-		GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( s );
+		GlowEngine.FindUnityObject<QuickMessage>().Show( s );
 	}
 
 	public void OnPauseDeploy( Toggle t )
@@ -178,7 +182,7 @@ public class MainGameController : MonoBehaviour
 		sound.PlaySound( FX.Click );
 		DataStore.sessionData.gameVars.pauseDeployment = t.isOn;
 		string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseDepMsgUC : DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC;
-		GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( s );
+		GlowEngine.FindUnityObject<QuickMessage>().Show( s );
 	}
 
 	public void OnActivateImperial()
@@ -186,7 +190,7 @@ public class MainGameController : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		int[] rnd;
-		CardDescriptor toActivate = null;
+		DeploymentCard toActivate = null;
 		//find a non-exhausted group and activate it, bias to priority 1
 		var groups = dgManager.GetNonExhaustedGroups();
 		if ( groups.Count > 0 )
@@ -217,12 +221,12 @@ public class MainGameController : MonoBehaviour
 		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}rules" );
 		if ( txt != null )
 		{
-			if ( GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().gameObject.activeInHierarchy )
-				GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().OnReturn( false );
+			if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
+				GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
 			missionTextBox.Show( txt.text, OnReturn );
 		}
 		else
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Could not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
 	}
 
 	public void OnMissionInfo()
@@ -232,18 +236,18 @@ public class MainGameController : MonoBehaviour
 		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" );
 		if ( txt != null )
 		{
-			if ( GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().gameObject.activeInHierarchy )
-				GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().OnReturn( false );
+			if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
+				GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
 			missionTextBox.Show( txt.text, OnReturn );
 		}
 		else
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Could not find Mission Info: " + DataStore.sessionData.selectedMissionID );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Info: " + DataStore.sessionData.selectedMissionID );
 	}
 
 	private void OnReturn()
 	{
-		if ( GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().gameObject.activeInHierarchy )
-			GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().OnReturn();
+		if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
+			GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn();
 	}
 
 	public void OnOptionalDeploy()
@@ -354,7 +358,7 @@ public class MainGameController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show( OnSettingsClose );
+		GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose );
 	}
 
 	void OnSettingsClose( SettingsCommand c )
@@ -391,7 +395,7 @@ public class MainGameController : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		//filter out DEPLOYED allies
-		var allies = DataStore.allyCards.cards.Where( x => !DataStore.deployedHeroes.Contains( x ) ).ToList();
+		var allies = DataStore.allyCards.Where( x => !DataStore.deployedHeroes.ContainsCard( x ) ).ToList();
 		genericChooser.Show( ChooserMode.Ally, allies, AddAlly );
 	}
 
@@ -414,7 +418,7 @@ public class MainGameController : MonoBehaviour
 			genericChooser.Show( ChooserMode.DeploymentGroups, DataStore.deploymentHand, AddGroup );
 		}
 		else//no groups, just show custom
-			genericChooser.Show( ChooserMode.DeploymentGroups, new List<CardDescriptor>(), AddGroup );
+			genericChooser.Show( ChooserMode.DeploymentGroups, new List<DeploymentCard>(), AddGroup );
 	}
 
 	public void OnRandom()
@@ -424,37 +428,37 @@ public class MainGameController : MonoBehaviour
 		randomDeployPopup.Show();
 	}
 
-	public void AddGroup( CardDescriptor cd )
+	public void AddGroup( DeploymentCard cd )
 	{
 		if ( cd != null )
 			dgManager.DeployGroup( cd, true );
 	}
 
-	public void AddAlly( CardDescriptor cd )
+	public void AddAlly( DeploymentCard cd )
 	{
 		if ( cd != null )
 			dgManager.DeployHeroAlly( cd );
 	}
 
-	public void ActivateEnemy( CardDescriptor cd )
+	public void ActivateEnemy( DeploymentCard cd )
 	{
 		if ( cd == null )
 			return;
 
 		dgManager.ExhaustGroup( cd.id );
-		enemyActivationPopup.Show( cd );
+		enemyActivationPopup.Show( cd, DataStore.sessionData.difficulty );
 	}
 
 	public void OnShowDebug()
 	{
 		EventSystem.current.SetSelectedGameObject( null );
-		GlowEngine.FindObjectsOfTypeSingle<DebugPopup>().Show();
+		GlowEngine.FindUnityObject<DebugPopup>().Show();
 	}
 
 	public void OnShowFamePopup()
 	{
 		EventSystem.current.SetSelectedGameObject( null );
-		famePopup.Show();
+		famePopup.Show( DataStore.sessionData.gameVars.fame, DataStore.sessionData.gameVars.round );
 	}
 
 	private void Update()
@@ -487,7 +491,7 @@ public class MainGameController : MonoBehaviour
 			else
 			{
 				EventSystem.current.SetSelectedGameObject( null );
-				GlowEngine.FindObjectsOfTypeSingle<DebugPopup>().Show();
+				GlowEngine.FindUnityObject<DebugPopup>().Show();
 			}
 		}
 	}

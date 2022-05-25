@@ -1,0 +1,171 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Saga
+{
+	public class DeploymentGroupOverride
+	{
+		public string ID = "";//for identification of override
+		public ChangeInstructions changeInstructions;
+		public ChangeTarget changeTarget;
+		//public ChangeReposition changeReposition;
+
+		///EnemyDeployment properties
+		public string nameOverride;
+		public string repositionInstructions;
+		public int threatCost;
+		public string modification;
+		public bool canReinforce;
+		public bool canRedeploy;
+		public bool canBeDefeated;
+		public bool useThreat;//use threat cost
+		public bool showMod;
+		public bool useResetGroup;
+		public Guid setTrigger;
+		public Guid setEvent;
+		public Guid specificDeploymentPoint;
+		public DeploymentSpot deploymentPoint;
+		///EnemyGroupData properties
+		public GroupTraits[] groupTraits;
+		public List<DPData> pointList = new List<DPData>();
+		///Deployment
+		public bool hasDeployed;
+
+		public DeploymentGroupOverride() { }//empty constructor for json.net
+
+		public DeploymentGroupOverride( string cardID )
+		{
+			//set defaults all groups would use
+			ID = cardID;
+			repositionInstructions = "";
+			nameOverride = "";
+			if ( !string.IsNullOrEmpty( cardID ) )
+				nameOverride = DataStore.GetEnemy( cardID )?.name ?? DataStore.allyCards.Where( x => x.id == cardID ).FirstOr( null )?.name ?? $"Unknown card::{cardID}";
+			//overrides set to null are not used when called upon
+			threatCost = 0;
+			modification = "";
+			canReinforce = true;
+			canRedeploy = true;
+			canBeDefeated = true;
+			useThreat = false;
+			showMod = false;
+			setTrigger = Guid.Empty;
+			setEvent = Guid.Empty;
+			specificDeploymentPoint = Guid.Empty;
+			deploymentPoint = DeploymentSpot.Active;
+			hasDeployed = false;
+			useResetGroup = false;
+
+			groupTraits = null;
+
+			changeInstructions = null;
+			changeTarget = null;
+		}
+
+		/// <summary>
+		/// From EnemyDeployment event action
+		/// </summary>
+		public void SetEnemyDeploymentOverride( EnemyDeployment ed )
+		{
+			threatCost = ed.threatCost;
+			modification = ed.modification;
+			canReinforce = ed.canReinforce;
+			canRedeploy = ed.canRedeploy;
+			canBeDefeated = ed.canBeDefeated;
+			useThreat = ed.useThreat;
+			showMod = ed.showMod;
+			setTrigger = ed.setTrigger;
+			setEvent = ed.setEvent;
+			repositionInstructions = ed.repositionInstructions;
+
+			//warning - this will overwrite deploymentPoint, specificDeploymentPoint, nameOverride
+			SetEnemyDeploymentOverride( ed.enemyGroupData );
+
+			//use the custom name from EnemyDeployment in this case
+			if ( !string.IsNullOrEmpty( ed.enemyName ) )
+				nameOverride = ed.enemyName;
+			//use specific DP from EnemyDeployment in this case
+			deploymentPoint = ed.deploymentPoint;
+			specificDeploymentPoint = ed.specificDeploymentPoint;
+		}
+
+		/// <summary>
+		/// (From Reserved/Starting data) Sets groupTraits, custom name, instructions, DP override if they exist in EnemyGroupData parameter
+		/// </summary>
+		public void SetEnemyDeploymentOverride( EnemyGroupData ed )
+		{
+			//name
+			if ( !string.IsNullOrEmpty( ed.cardName ) )
+				nameOverride = ed.cardName;
+			//traits
+			if ( !ed.groupPriorityTraits.useDefaultPriority )
+				groupTraits = ed.groupPriorityTraits.GetTraitArray();
+			//instructions
+			if ( !string.IsNullOrEmpty( ed.customText ) )
+			{
+				SetInstructionOverride( new ChangeInstructions()
+				{
+					instructionType = ed.customInstructionType,
+					theText = ed.customText,
+				} );
+			}
+			//DPs
+			specificDeploymentPoint = ed.pointList[0].GUID;//there is always at least 1
+
+			//determine if the deploymentPoint should be Active or Specific
+			if ( ed.pointList.All( x => x.GUID == Guid.Empty ) )
+				deploymentPoint = DeploymentSpot.Active;
+			else
+				deploymentPoint = DeploymentSpot.Specific;
+			pointList = ed.pointList;
+
+			//defeated trigger/event
+			setTrigger = ed.defeatedTrigger;
+			setEvent = ed.defeatedEvent;
+		}
+
+		public void SetInstructionOverride( ChangeInstructions ci )
+		{
+			changeInstructions = ci;
+		}
+
+		public void SetTargetOverride( ChangeTarget ct )
+		{
+			changeTarget = ct;
+		}
+
+		public Guid[] GetDeploymentPoints()
+		{
+			if ( deploymentPoint == DeploymentSpot.Active )
+				return new Guid[] { Guid.Empty };
+			else
+			{
+				if ( pointList.All( x => x.GUID == specificDeploymentPoint ) )
+					return new Guid[] { specificDeploymentPoint };
+				else
+					return pointList.Select( x => x.GUID ).ToArray();
+			}
+		}
+	}
+}
+
+/*
+Saga will use a deployment point's (DP) "Is Active" status to establish whether to use it for the "Active Deployment Point" used by deployment event actions and any end of turn deployments/reinforcements
+
+Active DPs have a permanent (as long as its Active) visual icon on the map in the Saga app (using its color)
+
+Events with the Modify Map Entity event action can be used to enable/disable a DP
+
+If more than one DP is Active, ONE of them will be randomly chosen for groups to deploy on
+
+If no DPs are Active, the deployment won't happen
+
+All figures in a group will deploy on the same Active DP, unless they are using the "Specific DP" option
+
+If a "Specific DP" is specified, but that DP is inactive, the DP will momentarily become active only for that group to deploy on it (as long as its Map Section is visible), and then become inactive (hidden from the map) after the deployment finishes.  See NOTE below
+
+The app will zoom to the DP the group should deploy on, as well as show a popup naming the group along with the ID
+
+Like every other popup in Saga, a "show map" icon can be hit to temporarily hide the popup so the players can see the map underneath
+ * */

@@ -12,7 +12,7 @@ public class ReinforcePrefab : MonoBehaviour
 	public Outline outline;
 	public TextMeshProUGUI nameText;
 
-	public void Init( CardDescriptor cd, int add = 0 )
+	public void Init( DeploymentCard cd, int add = 0 )
 	{
 		//reset
 		for ( int i = 0; i < 3; i++ )
@@ -31,7 +31,7 @@ public class ReinforcePrefab : MonoBehaviour
 
 		nameText.text = cd.name;
 
-		if ( DataStore.villainCards.cards.Contains( cd ) )
+		if ( DataStore.villainCards.ContainsCard( cd ) )
 		{
 			thumbnail.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
 			outline.effectColor = Color.red;

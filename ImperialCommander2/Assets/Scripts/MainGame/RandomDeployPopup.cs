@@ -1,6 +1,6 @@
-﻿using DG.Tweening;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,11 +36,11 @@ public class RandomDeployPopup : MonoBehaviour
 	public void OnConfirm()
 	{
 		int c = mWheelHandler.wheelValue;
-		CardDescriptor cd = null;
-		List<CardDescriptor> list = new List<CardDescriptor>();
+		DeploymentCard cd = null;
+		List<DeploymentCard> list = new List<DeploymentCard>();
 		do
 		{
-			var p = DataStore.deploymentCards.cards
+			var p = DataStore.deploymentCards
 				.OwnedPlusOther()
 				.MinusDeployed()
 				.MinusInDeploymentHand()
@@ -49,7 +49,7 @@ public class RandomDeployPopup : MonoBehaviour
 				.MinusIgnored()
 				.FilterByFaction()
 				.Concat( DataStore.sessionData.EarnedVillains )
-				.Where( x => x.cost <= c && !list.Contains( x ) )
+				.Where( x => x.cost <= c && !list.ContainsCard( x ) )
 				.ToList();
 			if ( p.Count > 0 )
 			{
@@ -68,7 +68,7 @@ public class RandomDeployPopup : MonoBehaviour
 
 		string s = DataStore.uiLanguage.uiMainApp.noRandomMatchesUC.Replace( "{d}", mWheelHandler.wheelValue.ToString() );
 		if ( list.Count == 0 )
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( $"<color=\"orange\">{s}</color>" );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( $"<color=\"orange\">{s}</color>" );
 
 		OnCancel();
 	}

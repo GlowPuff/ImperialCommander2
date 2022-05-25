@@ -9,10 +9,10 @@ using UnityEngine.UI;
 public class HeroAllyToggleContainer : MonoBehaviour
 {
 	[HideInInspector]
-	public CardDescriptor selectedHero;
+	public DeploymentCard selectedHero;
 	public TextMeshProUGUI enemyNameText;
 
-	List<CardDescriptor> heroCards = new List<CardDescriptor>();
+	List<DeploymentCard> heroCards = new List<DeploymentCard>();
 	Toggle[] buttonToggles;
 	ChooserMode chooserMode;
 	Sound sound;
@@ -58,9 +58,9 @@ public class HeroAllyToggleContainer : MonoBehaviour
 
 		//only get card list of chosen expansion
 		if ( chooserMode == ChooserMode.Hero )
-			heroCards = DataStore.heroCards.cards.Where( x => x.expansion == expansion ).ToList();
+			heroCards = DataStore.heroCards.Where( x => x.expansion == expansion ).ToList();
 		else if ( chooserMode == ChooserMode.Ally )
-			heroCards = DataStore.allyCards.cards.Where( x => x.expansion == expansion ).ToList();
+			heroCards = DataStore.allyCards.Where( x => x.expansion == expansion ).ToList();
 
 		Sprite thumbNail = null;
 
@@ -105,8 +105,8 @@ public class HeroAllyToggleContainer : MonoBehaviour
 	{
 		if ( chooserMode == ChooserMode.Hero )
 		{
-			if ( selectedHero != null && !DataStore.sessionData.selectedDeploymentCards[4].cards.Contains( selectedHero ) )
-				DataStore.sessionData.selectedDeploymentCards[4].cards.Add( selectedHero );
+			if ( selectedHero != null && !DataStore.sessionData.selectedDeploymentCards[4].ContainsCard( selectedHero ) )
+				DataStore.sessionData.selectedDeploymentCards[4].Add( selectedHero );
 		}
 		else if ( chooserMode == ChooserMode.Ally )
 		{

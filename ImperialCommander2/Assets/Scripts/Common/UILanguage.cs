@@ -4,7 +4,9 @@ public class UILanguage
 {
 	public UITitle uiTitle;
 	public UISetup uiSetup;
+	public SagaUISetup sagaUISetup;
 	public UIMainApp uiMainApp;
+	public SagaMainApp sagaMainApp;
 	public UISettings uiSettings;
 	public UIExpansions uiExpansions;
 	public UIDeploymentGroups uiDeploymentGroups;
@@ -24,6 +26,16 @@ public class UITitle
 public class UISetup
 {
 	public string settingsHeading, chooseMission, viewCardBtn, missionInfoBtn, threatLevelHeading, addtlThreatHeading, deploymentHeading, yes, no, back, difficulty, easy, normal, hard, imperials, mercenaries, adaptive, groupsHeading, choose, zoom, initialHeading, reservedHeading, villainsHeading, ignoredHeading, addHero, addAlly, threatCostHeading, cancel, continueBtn, saved, loaded, selected, enemyChooser, missionChooser, heroAllyChooser, adaptiveInfoUC, chooseHeroesHeading;
+}
+
+public class SagaUISetup
+{
+	public string groupsText, villainsBtn;
+}
+
+public class SagaMainApp
+{
+	public string tooltipHideUIUC, roundIncreasedUC, endOfMissionUC, deployMessageUC, noDPWarningUC, mmAddTilesUC, mmRemoveTilesUC, mmAddEntitiesUC, groupsReadyUC, groupsExhaustUC;
 }
 
 public class UIMainApp

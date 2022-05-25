@@ -11,9 +11,9 @@ public class CardViewPopup : MonoBehaviour
 	public DynamicMissionCardPrefab dynamicMissionCard;
 
 	Action<bool> callback;
-	CardDescriptor card;
+	DeploymentCard card;
 
-	public void Show( CardDescriptor cd, Action<bool> action = null )
+	public void Show( DeploymentCard cd, Action<bool> action = null )
 	{
 		card = cd;
 		dynamicCard.gameObject.SetActive( true );
@@ -37,7 +37,7 @@ public class CardViewPopup : MonoBehaviour
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
 		fader.DOFade( .95f, .5f );
-		cg2.DOFade( 1, .5f );
+		cg2?.DOFade( 1, .5f );
 		transform.GetChild( 2 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 2 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 	}
@@ -61,14 +61,14 @@ public class CardViewPopup : MonoBehaviour
 	public void OnRollAttack()
 	{
 		OnOK();
-		DiceRoller diceRoller = GlowEngine.FindObjectsOfTypeSingle<DiceRoller>();
+		DiceRoller diceRoller = GlowEngine.FindUnityObject<DiceRoller>();
 		diceRoller.Show( card, true );
 	}
 
 	public void OnRollDefense()
 	{
 		OnOK();
-		DiceRoller diceRoller = GlowEngine.FindObjectsOfTypeSingle<DiceRoller>();
+		DiceRoller diceRoller = GlowEngine.FindUnityObject<DiceRoller>();
 		diceRoller.Show( card, false );
 	}
 

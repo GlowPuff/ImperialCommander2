@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 
 [JsonObject( MemberSerialization.OptOut )]
@@ -11,9 +10,6 @@ public class SessionData
 {
 	public int stateManagementVersion = 3;
 	public Difficulty difficulty;
-	/// <summary>
-	/// Current threat in the game
-	/// </summary>
 	public int threatLevel;
 	public int addtlThreat;
 	public AllyRules allyRules;
@@ -24,40 +20,39 @@ public class SessionData
 	public string selectedMissionID;
 	public string selectedMissionName;
 	//0=starting, 1=reserved, 2=villains, 3=ignored, 4=heroes
-	public DeploymentCards[] selectedDeploymentCards;
-	public CardDescriptor selectedAlly;
+	public List<DeploymentCard>[] selectedDeploymentCards { get; set; }
+	public DeploymentCard selectedAlly;
 	public GameVars gameVars;
-
-	//properties added after initial state saving release
-	//using a default value allows the older JSON state which is missing these values to deserialize properly, otherwise they would be NULL
-	[DefaultValue( false )]
-	[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
 	public bool useAdaptiveDifficulty;
 
+	//using a default value allows the older JSON state which is missing these values to deserialize properly, otherwise they would be NULL
+	//[DefaultValue( false )]
+	//[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
+
 	[JsonIgnore]
-	public List<CardDescriptor> MissionStarting
+	public List<DeploymentCard> MissionStarting
 	{
-		get { return selectedDeploymentCards[0].cards; }
+		get { return selectedDeploymentCards[0]; }
 	}
 	[JsonIgnore]
-	public List<CardDescriptor> MissionReserved
+	public List<DeploymentCard> MissionReserved
 	{
-		get { return selectedDeploymentCards[1].cards; }
+		get { return selectedDeploymentCards[1]; }
 	}
 	[JsonIgnore]
-	public List<CardDescriptor> EarnedVillains
+	public List<DeploymentCard> EarnedVillains
 	{
-		get { return selectedDeploymentCards[2].cards; }
+		get { return selectedDeploymentCards[2]; }
 	}
 	[JsonIgnore]
-	public List<CardDescriptor> MissionIgnored
+	public List<DeploymentCard> MissionIgnored
 	{
-		get { return selectedDeploymentCards[3].cards; }
+		get { return selectedDeploymentCards[3]; }
 	}
 	[JsonIgnore]
-	public List<CardDescriptor> MissionHeroes
+	public List<DeploymentCard> MissionHeroes
 	{
-		get { return selectedDeploymentCards[4].cards; }
+		get { return selectedDeploymentCards[4]; }
 	}
 
 	public class GameVars
@@ -91,18 +86,18 @@ public class SessionData
 		includeImperials = true;
 		includeMercs = true;
 
-		selectedDeploymentCards = new DeploymentCards[5];
+		selectedDeploymentCards = new List<DeploymentCard>[5];
 		for ( int i = 0; i < 5; i++ )
-			selectedDeploymentCards[i] = new DeploymentCards();
+			selectedDeploymentCards[i] = new List<DeploymentCard>();
 		selectedAlly = null;
 
 		//ignore "Other" expansion enemy groups by default
-		selectedDeploymentCards[3].cards.AddRange( DataStore.deploymentCards.cards.Where( x => x.expansion == "Other" ) );
+		selectedDeploymentCards[3].AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
 		gameVars = new GameVars();
 	}
 
 	/// <summary>
-	/// Only called when starting a NEW game
+	/// Only called when starting a NEW CLASSIC game
 	/// </summary>
 	public void InitGameVars()
 	{
@@ -189,8 +184,8 @@ public class SessionData
 
 	public void ToggleHero( string id )
 	{
-		int idx = selectedDeploymentCards[4].cards.FindIndex( x => x.id == id );
-		selectedDeploymentCards[4].cards.RemoveAt( idx );
+		int idx = selectedDeploymentCards[4].FindIndex( x => x.id == id );
+		selectedDeploymentCards[4].RemoveAt( idx );
 	}
 
 	/// <summary>

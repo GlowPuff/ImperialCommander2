@@ -11,8 +11,8 @@ public class GroupToggleContainer : MonoBehaviour
 	public ExpansionController expansionController;
 	public DynamicCardPrefab cardPrefab;
 
-	DeploymentCards deploymentCards;
-	List<CardDescriptor> enemyCards;
+	List<DeploymentCard> deploymentCards;//?
+	List<DeploymentCard> enemyCards;
 	int groupIndex;//0=starting, 1=reserved, 2=villains, 3=ignored
 	Toggle[] buttonToggles;
 	Expansion selectedExpansion;
@@ -47,12 +47,12 @@ public class GroupToggleContainer : MonoBehaviour
 
 		if ( buttonToggles[index].isOn )
 		{
-			DataStore.sessionData.selectedDeploymentCards[groupIndex].cards.Add( enemyCards[index] );
+			DataStore.sessionData.selectedDeploymentCards[groupIndex].Add( enemyCards[index] );
 			cardPrefab.InitCard( enemyCards[index] );
 		}
 		else
 		{
-			DataStore.sessionData.selectedDeploymentCards[groupIndex].cards.Remove( enemyCards[index] );
+			DataStore.sessionData.selectedDeploymentCards[groupIndex].Remove( enemyCards[index] );
 			cardPrefab.gameObject.SetActive( false );
 		}
 
@@ -75,19 +75,19 @@ public class GroupToggleContainer : MonoBehaviour
 		//0=starting, 1=reserved, 2=villains, 3=ignored
 		if ( groupIndex == 0 || groupIndex == 1 )
 		{
-			deploymentCards = new DeploymentCards() { cards = DataStore.deploymentCards.cards.Concat( DataStore.villainCards.cards ).ToList() };
+			deploymentCards = new List<DeploymentCard>( DataStore.deploymentCards.Concat( DataStore.villainCards ).ToList() );
 		}
 		else if ( groupIndex == 2 )
 			deploymentCards = DataStore.villainCards;
 		else if ( groupIndex == 3 )
 			deploymentCards = DataStore.deploymentCards;
 
-		CardDescriptor custom = new CardDescriptor() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
+		DeploymentCard custom = new DeploymentCard() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
 
-		enemyCards = deploymentCards.cards.Where( x => x.expansion == expansion ).ToList();
+		enemyCards = deploymentCards.Where( x => x.expansion == expansion ).ToList();
 		if ( expansion == "Other" )
 			enemyCards.Add( custom );
-		DeploymentCards prevSelected = DataStore.sessionData.selectedDeploymentCards[groupIndex];
+		List<DeploymentCard> prevSelected = DataStore.sessionData.selectedDeploymentCards[groupIndex];
 
 		Sprite thumbNail = null;
 
@@ -96,7 +96,7 @@ public class GroupToggleContainer : MonoBehaviour
 			var child = transform.GetChild( i );
 			//switch on if previously selected
 			//do it while Toggle is INACTIVE so OnToggle code doesn't run
-			if ( prevSelected.cards.Contains( enemyCards[i] ) )
+			if ( prevSelected.ContainsCard( enemyCards[i] ) )
 				buttonToggles[i].isOn = true;
 			child.gameObject.SetActive( true );//re-enable the Toggle
 
@@ -138,7 +138,7 @@ public class GroupToggleContainer : MonoBehaviour
 		OnChangeExpansion( "Core" );
 	}
 
-	public bool IsInGroup( CardDescriptor cd )
+	public bool IsInGroup( DeploymentCard cd )
 	{
 		bool found = false;
 
@@ -146,7 +146,7 @@ public class GroupToggleContainer : MonoBehaviour
 		{
 			if ( groupIndex != i )
 			{
-				if ( DataStore.sessionData.selectedDeploymentCards[i].cards.Contains( cd ) )
+				if ( DataStore.sessionData.selectedDeploymentCards[i].ContainsCard( cd ) )
 					found = true;
 			}
 		}

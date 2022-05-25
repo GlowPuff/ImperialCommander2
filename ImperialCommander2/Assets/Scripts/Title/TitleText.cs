@@ -19,7 +19,7 @@ public class TitleText : MonoBehaviour
 		Sequence seq = DOTween.Sequence();
 		Tween t1T = t1.DOAnchorPos( new Vector2( 0, 0 ), 2 ).SetDelay( .5f );
 		Tween t2T = t2.DOAnchorPos( new Vector2( 0, -108 ), 2 ).SetDelay( .25f );
-		Tween t3T = t3.DOAnchorPos( new Vector2( 0, -223 ), 2 ).SetDelay( .25f );
+		Tween t3T = t3.DOAnchorPos( new Vector2( 0, -175 ), 2 ).SetDelay( .25f );
 
 		Tween t1A = i1.DOFade( 1, 2 );
 		Tween t2A = i2.DOFade( 1, 2 ).SetDelay( .25f );

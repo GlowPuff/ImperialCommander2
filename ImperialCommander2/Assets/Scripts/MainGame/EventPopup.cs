@@ -1,6 +1,6 @@
-﻿using DG.Tweening;
-using System;
+﻿using System;
 using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +14,7 @@ public class EventPopup : MonoBehaviour
 	public TMP_FontAsset tmpImpeprialFont;
 
 	CardEvent cardEvent;
-	CardDescriptor allyToAdd, enemyToAdd, rebel1, rebel2;
+	DeploymentCard allyToAdd, enemyToAdd, rebel1, rebel2;
 	Action callback;
 
 	public void Show( CardEvent ce, Action cb = null )
@@ -47,7 +47,7 @@ public class EventPopup : MonoBehaviour
 		}
 		else
 		{
-			rebel1 = new CardDescriptor() { name = "None" };
+			rebel1 = new DeploymentCard() { name = "None" };
 			rebel2 = rebel1;
 		}
 
@@ -70,7 +70,7 @@ public class EventPopup : MonoBehaviour
 			{
 				if ( DataStore.sessionData.gameVars.pauseDeployment )
 				{
-					GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( $"Imperial Deployment is <color=\"red\">PAUSED</color>.  The requested group [{enemyToAdd.name}] will not be deployed." );
+					GlowEngine.FindUnityObject<QuickMessage>().Show( $"Imperial Deployment is <color=\"red\">PAUSED</color>.  The requested group [{enemyToAdd.name}] will not be deployed." );
 				}
 				else
 				{
@@ -140,7 +140,7 @@ public class EventPopup : MonoBehaviour
 			if ( !DataStore.deployedEnemies.Any( x => x.id == "DG072" ) )//vader
 			{
 				//add to deployment hand
-				DataStore.deploymentHand.Add( DataStore.villainCards.cards.Where( x => x.id == "DG072" ).First() );
+				DataStore.deploymentHand.Add( DataStore.villainCards.Where( x => x.id == "DG072" ).First() );
 				//reduce its cost by 2
 				DataStore.deploymentHand.Where( x => x.id == "DG072" ).First().cost -= 2;
 			}
@@ -173,11 +173,11 @@ public class EventPopup : MonoBehaviour
 		rt.sizeDelta = new Vector2( 900, 100 );
 	}
 
-	CardDescriptor HandleR23()
+	DeploymentCard HandleR23()
 	{
 		//filter ally list by owned expansions + Other, minus anything already deployed
 		var alist =
-			DataStore.allyCards.cards
+			DataStore.allyCards
 			.OwnedPlusOther()
 			.MinusDeployed();
 		//sanity check for empty list
@@ -192,7 +192,7 @@ public class EventPopup : MonoBehaviour
 		}
 	}
 
-	CardDescriptor HandleR8()
+	DeploymentCard HandleR8()
 	{
 		/*•	If there is a villain in the deployment hand, choose that villain.
 		•	If there are any earned villains, select one of those villains randomly.
@@ -224,7 +224,7 @@ public class EventPopup : MonoBehaviour
 		}
 
 		//else random villain owned+other, minus deployed/ignored/faction
-		v = DataStore.villainCards.cards
+		v = DataStore.villainCards
 			.OwnedPlusOther()
 			.FilterByFaction()
 			.MinusIgnored()
@@ -241,10 +241,10 @@ public class EventPopup : MonoBehaviour
 		return null;
 	}
 
-	CardDescriptor HandleR18()
+	DeploymentCard HandleR18()
 	{
 		//Randomly select a creature, based on the available groups
-		var clist = DataStore.deploymentCards.cards.Where( x =>
+		var clist = DataStore.deploymentCards.Where( x =>
 		x.id == "DG017" ||
 		x.id == "DG018" ||
 		x.id == "DG060" ||
@@ -261,7 +261,7 @@ public class EventPopup : MonoBehaviour
 		{
 			int[] rnd = GlowEngine.GenerateRandomNumbers( clist.Count );
 			//if it's in deployment hand, remove it
-			if ( DataStore.deploymentHand.Contains( clist[rnd[0]] ) )
+			if ( DataStore.deploymentHand.ContainsCard( clist[rnd[0]] ) )
 				DataStore.deploymentHand.Remove( clist[rnd[0]] );
 			return clist[rnd[0]];
 		}

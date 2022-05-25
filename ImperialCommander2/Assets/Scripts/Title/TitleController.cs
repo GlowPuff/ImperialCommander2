@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using DG.Tweening;
 using Newtonsoft.Json;
+using Saga;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -29,6 +30,7 @@ public class TitleController : MonoBehaviour
 	public MissionTextBox versionPopup;
 	public TMP_Dropdown languageDropdown;
 	public TextMeshProUGUI donateText, docsText;
+	public Toggle sagaToggle, classicToggle;
 
 	//UI objects using language translations
 	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
@@ -62,6 +64,7 @@ public class TitleController : MonoBehaviour
 		//save defaults
 		PlayerPrefs.Save();
 
+		//create all card lists, load app settings, mission presets and translations
 		DataStore.InitData();
 
 		//set translated UI
@@ -76,7 +79,7 @@ public class TitleController : MonoBehaviour
 			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 		//check if saved state is valid
-		continueButton.interactable = IsSessionValid();
+		continueButton.interactable = IsSagaSessionValid();
 
 		FindObjectOfType<Sound>().CheckAudio();
 
@@ -90,6 +93,54 @@ public class TitleController : MonoBehaviour
 			networkStatus = NetworkStatus.Error;
 			busyIconTF.GetComponent<Image>().color = new Color( 1, 0, 0 );
 		}
+
+		//check if we should load right into Saga for mission testing
+		if ( BootStrapTestMission() )
+		{
+			SceneManager.LoadScene( "Saga" );
+		}
+	}
+
+#if UNITY_EDITOR
+	//private void DEBUG()
+	//{
+	//	var p = Saga.FileManager.GetProjects();
+	//	foreach ( var project in p )
+	//		Debug.Log( project.fileName );
+	//	var m = Saga.FileManager.LoadMission( "test.json" );
+	//	var dp = m.mapEntities[2] as Saga.DeploymentPoint;
+	//	Debug.Log( dp.deploymentColor );
+	//}
+#endif
+
+	/// <summary>
+	/// Check for command line to load right into a Saga mission for quick testing of missions
+	/// </summary>
+	private bool BootStrapTestMission()
+	{
+		//first array element is appName.exe
+		string[] args = Environment.GetCommandLineArgs();
+		//args = new string[2] { "foo.exe", "atest.json" };//"CORE1-A New Threat.json" };//DEBUG TESTING
+		if ( args.Length == 2 )
+		{
+			string path = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", args[1] );
+			string missionName = args[1];
+			var setupOptions = new SagaSetupOptions()
+			{
+				difficulty = Difficulty.Medium,
+				threatLevel = 3,
+				projectItem = new ProjectItem() { fullPathWithFilename = path, fileName = args[1] },
+			};
+
+			Debug.Log( "***BootStrapTestMission***" );
+			DataStore.StartNewSagaSession( setupOptions );
+			//add some heroes to test with
+			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
+			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
+			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+			return true;
+		}
+		return false;
 	}
 
 	private void OnEnable()
@@ -132,8 +183,20 @@ public class TitleController : MonoBehaviour
 		versionButton.SetActive( false );
 		languageDropdown.gameObject.SetActive( false );
 
-		DataStore.StartNewSession();
-		newGameScreen.ActivateScreen();
+		if ( DataStore.gameType == GameType.Classic )
+		{
+			DataStore.StartNewSession();
+			newGameScreen.ActivateScreen();
+		}
+		else
+		{
+			soundController.FadeOutMusic();
+			FadeOut( 1 );
+
+			float foo = 1;
+			DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+			 SceneManager.LoadScene( "SagaSetup" ) );
+		}
 	}
 
 	public void OnContinueSession()
@@ -179,7 +242,7 @@ public class TitleController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
-		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show( OnSettingsClose, true );
+		GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose, true );
 	}
 
 	void OnSettingsClose( SettingsCommand s )
@@ -297,6 +360,11 @@ public class TitleController : MonoBehaviour
 		}
 	}
 
+	private bool IsSagaSessionValid()
+	{
+		return false;
+	}
+
 	private SessionData LoadSession()
 	{
 		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
@@ -383,5 +451,21 @@ public class TitleController : MonoBehaviour
 		}
 
 		yield return null;
+	}
+
+	public void OnToggleMode( Toggle toggle )
+	{
+		if ( sagaToggle.isOn )
+		{
+			DataStore.gameType = GameType.Saga;
+			//check if saved state is valid
+			continueButton.interactable = IsSagaSessionValid();
+		}
+		else if ( classicToggle.isOn )
+		{
+			DataStore.gameType = GameType.Classic;
+			//check if saved state is valid
+			continueButton.interactable = IsSessionValid();
+		}
 	}
 }

@@ -11,7 +11,7 @@ public class HGPrefab : MonoBehaviour
 	public Color eliteColor;
 	public GameObject exhaustedOverlay;
 
-	CardDescriptor cardDescriptor;
+	DeploymentCard cardDescriptor;
 	bool isAlly = false;
 	bool isHero = false;
 
@@ -21,19 +21,19 @@ public class HGPrefab : MonoBehaviour
 		tf.localScale = Vector3.zero;
 	}
 
-	public void Init( CardDescriptor cd )
+	public void Init( DeploymentCard cd )
 	{
 		Debug.Log( "DEPLOYED: " + cd.name );
 		cardDescriptor = cd;
 
 		if ( !cd.isDummy )
 		{
-			if ( DataStore.heroCards.cards.Any( x => x.id == cd.id ) )
+			if ( DataStore.heroCards.Any( x => x.id == cd.id ) )
 			{
 				isHero = true;
 				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
 			}
-			else if ( DataStore.allyCards.cards.Any( x => x.id == cd.id ) )
+			else if ( DataStore.allyCards.Any( x => x.id == cd.id ) )
 			{
 				isAlly = true;
 				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
@@ -120,7 +120,7 @@ public class HGPrefab : MonoBehaviour
 	{
 		if ( cardDescriptor.isDummy || isHero )
 			return;
-		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
+		CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 		cardViewPopup.Show( cardDescriptor );
 	}
 

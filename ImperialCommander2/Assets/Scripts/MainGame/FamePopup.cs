@@ -8,14 +8,14 @@ public class FamePopup : MonoBehaviour
 	public Image fader;
 	public CanvasGroup cg;
 
-	public void Show()
+	public void Show( int currentFame, int currentRound )
 	{
-		fameText.text = "<color=#00A4FF>" + DataStore.uiLanguage.uiMainApp.fameHeading + "</color> <color=#00FFA0>" + DataStore.sessionData.gameVars.fame.ToString() + "</color>";
+		fameText.text = "<color=#00A4FF>" + DataStore.uiLanguage.uiMainApp.fameHeading + "</color> <color=#00FFA0>" + currentFame.ToString() + "</color>";
 
 		//AWARD value based on FAME divided by 12, rounded down (for every 12 Fame you earn, you gain 1 Reward
-		int awards = Mathf.FloorToInt( DataStore.sessionData.gameVars.fame / 12 );
+		int awards = Mathf.FloorToInt( currentFame / 12 );
 		//reset to 0 at round 8+
-		if ( DataStore.sessionData.gameVars.round >= 8 )
+		if ( currentRound >= 8 )
 			awards = 0;
 		awardText.text = "<color=#00A4FF>" + DataStore.uiLanguage.uiMainApp.awardsHeading + "</color> <color=#00FFA0>" + awards.ToString() + "</color>";
 

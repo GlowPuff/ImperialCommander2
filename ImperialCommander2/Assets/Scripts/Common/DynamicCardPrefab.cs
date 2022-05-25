@@ -12,14 +12,20 @@ public class DynamicCardPrefab : MonoBehaviour
 	public TextMeshProUGUI cardName, traits, keywords, cost, rcost, health, speed;
 	public Image cardColor;
 
-	private CardDescriptor card;
+	private DeploymentCard card;
 
-	public void InitCard( CardDescriptor cd )
+	public void InitCard( DeploymentCard cd )
 	{
 		card = cd;
 
+		//check for override
+		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+
 		//name, subname
-		cardName.text = card.name;
+		if ( ovrd != null )
+			cardName.text = ovrd.nameOverride;
+		else
+			cardName.text = card.name;
 		if ( !string.IsNullOrEmpty( card.subname ) )
 			cardName.text += $"\r\n<size=20><color=\"orange\">{card.subname}</color></size>";
 
@@ -64,13 +70,13 @@ public class DynamicCardPrefab : MonoBehaviour
 			size3.SetActive( true );
 
 		//mugshot
-		if ( DataStore.deploymentCards.cards.Any( x => x.id == card.id ) )
+		if ( DataStore.deploymentCards.Any( x => x.id == card.id ) )
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-		else if ( DataStore.villainCards.cards.Any( x => x.id == cd.id ) )
+		else if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
-		else if ( DataStore.allyCards.cards.Any( x => x.id == cd.id ) )
+		else if ( DataStore.allyCards.Any( x => x.id == cd.id ) )
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
-		else if ( DataStore.heroCards.cards.Any( x => x.id == cd.id ) )
+		else if ( DataStore.heroCards.Any( x => x.id == cd.id ) )
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
 		else if ( cd.id == "DG070" )//handle custom group
 		{
@@ -91,6 +97,7 @@ public class DynamicCardPrefab : MonoBehaviour
 		}
 		expansion.color = mugshotOutline.color;
 
+		///IS COST THE SAME AS THREAT COST FROM OVERRIDE?
 		//numbers
 		cost.text = card.cost.ToString();
 		rcost.text = card.rcost.ToString();
@@ -125,7 +132,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			nt.margin = new Vector4( 0, 2, 0, 2 );
 
 			//replace glyphs
-			string item = ReplaceGlyphs( card.surges[i] );
+			string item = Saga.Utils.ReplaceGlyphs( card.surges[i] );
 
 			nt.text = $"<color=#00A4FF>{i + 1 })</color> {item}";
 		}
@@ -157,7 +164,7 @@ public class DynamicCardPrefab : MonoBehaviour
 
 		for ( int i = 0; i < card.keywords.Length; i++ )
 		{
-			keywords.text += ReplaceGlyphs( card.keywords[i] ) + "\r\n";
+			keywords.text += Saga.Utils.ReplaceGlyphs( card.keywords[i] ) + "\r\n";
 		}
 	}
 
@@ -197,8 +204,8 @@ public class DynamicCardPrefab : MonoBehaviour
 				ntt.color = new Color( 137f / 255f, 164f / 255f, 1 );
 
 				//replace glyphs
-				string aName = ReplaceGlyphs( card.abilities[i].name );
-				string item = ReplaceGlyphs( card.abilities[i].text );
+				string aName = Saga.Utils.ReplaceGlyphs( card.abilities[i].name );
+				string item = Saga.Utils.ReplaceGlyphs( card.abilities[i].text );
 
 				ntt.text = $"<size=25><b><color=orange>{aName}:</color></b> ";
 				ntt.text += item + "</size>";
@@ -299,27 +306,5 @@ public class DynamicCardPrefab : MonoBehaviour
 					break;
 			}
 		}
-	}
-
-	string ReplaceGlyphs( string item )
-	{
-		item = item.Replace( "{H}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">H</font></color>" );
-		item = item.Replace( "{C}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">C</font></color>" );
-		item = item.Replace( "{J}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">J</font></color>" );
-		item = item.Replace( "{K}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">K</font></color>" );
-		item = item.Replace( "{A}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">A</font></color>" );
-		item = item.Replace( "{Q}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">Q</font></color>" );
-		item = item.Replace( "{g}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">g</font></color>" );
-		item = item.Replace( "{h}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">h</font></color>" );
-		item = item.Replace( "{E}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">E</font></color>" );
-		item = item.Replace( "{G}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">G</font></color>" );
-		item = item.Replace( "{f}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">f</font></color>" );
-		item = item.Replace( "{b}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">b</font></color>" );
-		item = item.Replace( "{B}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">B</font></color>" );
-		item = item.Replace( "{I}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">I</font></color>" );
-		item = item.Replace( "{P}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">P</font></color>" );
-		item = item.Replace( "{F}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" );
-
-		return item;
 	}
 }

@@ -7,11 +7,11 @@ public class TooltipHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
 	public void OnPointerEnter( PointerEventData eventData )
 	{
-		GlowEngine.FindObjectsOfTypeSingle<Tooltip>().Show( tooltip );
+		GlowEngine.FindUnityObject<Tooltip>().Show( tooltip );
 	}
 
 	public void OnPointerExit( PointerEventData eventData )
 	{
-		GlowEngine.FindObjectsOfTypeSingle<Tooltip>().Hide();
+		GlowEngine.FindUnityObject<Tooltip>().Hide();
 	}
 }

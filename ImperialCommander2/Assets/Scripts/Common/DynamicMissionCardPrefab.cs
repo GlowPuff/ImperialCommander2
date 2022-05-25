@@ -46,7 +46,7 @@ public class DynamicMissionCardPrefab : MonoBehaviour
 			cardImage.color = Color.gray;
 
 		//description + bonus text
-		descriptionText.text = missionCard.descriptionText.Replace( "<i>", "" ).Replace( "</i>", "" );
+		descriptionText.text = missionCard.descriptionText.Replace( "<i>", "" ).Replace( "</i>", "" ).Replace( "\n", "\n\n" );
 		descriptionText.text += $"\n\n<color=orange>{missionCard.bonusText}</color>";
 
 		//tags

@@ -29,7 +29,7 @@ public class DeploymentPopup : MonoBehaviour
 	public GameObject depPrefab, depGrid, onslaughtMessage;
 	public TextMeshProUGUI onslaughtRWarning, onslaughtDWarning;
 
-	List<CardDescriptor> groupsToDeploy;
+	List<DeploymentCard> groupsToDeploy;
 	Action postAction;
 	bool pauseKeyInput;
 
@@ -48,7 +48,7 @@ public class DeploymentPopup : MonoBehaviour
 		onslaughtPanel.SetActive( false );
 
 		postAction = a;
-		groupsToDeploy = new List<CardDescriptor>();
+		groupsToDeploy = new List<DeploymentCard>();
 		warning.gameObject.SetActive( false );
 
 		//reset reinforce
@@ -139,7 +139,7 @@ public class DeploymentPopup : MonoBehaviour
 		DataStore.sessionData.ModifyThreat( DataStore.sessionData.threatLevel );
 		DataStore.sessionData.UpdateDeploymentModifier( 1 );
 
-		CardDescriptor r1 = DataStore.GetReinforcement();
+		DeploymentCard r1 = DataStore.GetReinforcement( DataStore.sessionData.gameVars.currentThreat );
 		if ( r1 != null )
 		{
 			topPanel.SetActive( true );
@@ -150,7 +150,7 @@ public class DeploymentPopup : MonoBehaviour
 			DataStore.sessionData.ModifyThreat( -r1.rcost );
 			//Debug.Log( "new size R1:" + r1.currentSize );
 		}
-		CardDescriptor r2 = DataStore.GetReinforcement();
+		DeploymentCard r2 = DataStore.GetReinforcement( DataStore.sessionData.gameVars.currentThreat );
 		if ( r2 != null )
 		{
 			bottomPanel.SetActive( true );
@@ -186,7 +186,7 @@ public class DeploymentPopup : MonoBehaviour
 			landingMessage.SetActive( true );
 		}
 
-		CardDescriptor d1 = DataStore.GetFuzzyDeployable();
+		DeploymentCard d1 = DataStore.GetFuzzyDeployable( DataStore.sessionData.gameVars.currentThreat );
 		if ( d1 != null )
 		{
 			topLanding.SetActive( true );
@@ -198,7 +198,7 @@ public class DeploymentPopup : MonoBehaviour
 			DataStore.sessionData.ModifyThreat( -d1.cost );
 		}
 
-		CardDescriptor d2 = DataStore.GetFuzzyDeployable();
+		DeploymentCard d2 = DataStore.GetFuzzyDeployable( DataStore.sessionData.gameVars.currentThreat );
 		if ( d2 != null )
 		{
 			bottomLanding.SetActive( true );
@@ -242,7 +242,7 @@ public class DeploymentPopup : MonoBehaviour
 		//set deployment modifier to -2, regardless of skipThreatIncrease
 		DataStore.sessionData.SetDeploymentModifier( -2 );
 
-		CardDescriptor r1 = DataStore.GetReinforcement( true );
+		DeploymentCard r1 = DataStore.GetReinforcement( DataStore.sessionData.gameVars.currentThreat, true );
 		if ( r1 != null )
 		{
 			topOnslaught.SetActive( true );
@@ -253,7 +253,7 @@ public class DeploymentPopup : MonoBehaviour
 			DataStore.sessionData.ModifyThreat( -(Mathf.Max( 1, r1.rcost - 1 )) );
 		}
 
-		CardDescriptor r2 = DataStore.GetReinforcement( true );
+		DeploymentCard r2 = DataStore.GetReinforcement( DataStore.sessionData.gameVars.currentThreat, true );
 		if ( r2 != null )
 		{
 			onR2Group.SetActive( true );
@@ -268,10 +268,10 @@ public class DeploymentPopup : MonoBehaviour
 			onslaughtRWarning.gameObject.SetActive( true );
 		}
 
-		CardDescriptor dep;
+		DeploymentCard dep;
 		do
 		{
-			dep = DataStore.GetFuzzyDeployable( true );
+			dep = DataStore.GetFuzzyDeployable( DataStore.sessionData.gameVars.currentThreat, true );
 			if ( dep != null )
 			{
 				dep.currentSize = dep.size;

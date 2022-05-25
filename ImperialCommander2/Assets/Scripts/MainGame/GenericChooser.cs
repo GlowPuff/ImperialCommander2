@@ -12,19 +12,19 @@ public class GenericChooser : MonoBehaviour
 	public CanvasGroup cg;
 	public Image fader;
 	public Sound sound;
-	public CardDescriptor selectedCard;
+	public DeploymentCard selectedCard;
 	public TextMeshProUGUI nameText;
 	public Text closeText;
 
 	Image[] images;
 	string imagePath;
-	List<CardDescriptor> cardDescriptors;
+	List<DeploymentCard> cardDescriptors;
 	ChooserMode chooserMode;
-	List<CardDescriptor> cardSet;
+	List<DeploymentCard> cardSet;
 	int selectedIndex = -1;
-	Action<CardDescriptor> callBack;
+	Action<DeploymentCard> callBack;
 
-	public void Show( ChooserMode mode, List<CardDescriptor> cards, Action<CardDescriptor> callback )
+	public void Show( ChooserMode mode, List<DeploymentCard> cards, Action<DeploymentCard> callback )
 	{
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
@@ -50,9 +50,9 @@ public class GenericChooser : MonoBehaviour
 		chooserMode = mode;
 
 		//add custom group IF mode != ally/hero
-		CardDescriptor custom = new CardDescriptor() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
+		DeploymentCard custom = new DeploymentCard() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
 
-		cardDescriptors = new List<CardDescriptor>( cards );
+		cardDescriptors = new List<DeploymentCard>( cards );
 		if ( mode == ChooserMode.DeploymentGroups && !cardDescriptors.Any( x => x.id == "DG070" ) )
 			cardDescriptors.Add( custom );
 
@@ -108,7 +108,7 @@ public class GenericChooser : MonoBehaviour
 		}
 
 		//filter to selected expansion
-		cardSet = new List<CardDescriptor>();
+		cardSet = new List<DeploymentCard>();
 		cardSet = cardDescriptors.Where( x => x.expansion == expansion ).ToList();
 		images = new Image[cardSet.Count];
 
@@ -125,7 +125,7 @@ public class GenericChooser : MonoBehaviour
 		{
 			if ( chooserMode == ChooserMode.DeploymentGroups )
 			{
-				if ( DataStore.villainCards.cards.Contains( cardSet[i] ) )
+				if ( DataStore.villainCards.ContainsCard( cardSet[i] ) )
 					imagePath = $"Cards/Villains/{cardSet[i].id.Replace( "DG", "M" )}";
 				else
 					imagePath = $"Cards/Enemies/{cardSet[i].expansion}/{cardSet[i].id.Replace( "DG", "M" )}";
