@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Text;
+using UnityEngine;
 using UnityEngine.Events;
 
 #if UNITY_STANDALONE_WIN
@@ -255,8 +255,8 @@ public class AspectRatioController : MonoBehaviour
 			RECT clientRect = new RECT();
 			GetClientRect( unityHWnd, ref clientRect );
 
-			int borderWidth = windowRect.Right - windowRect.Left - ( clientRect.Right - clientRect.Left );
-			int borderHeight = windowRect.Bottom - windowRect.Top - ( clientRect.Bottom - clientRect.Top );
+			int borderWidth = windowRect.Right - windowRect.Left - (clientRect.Right - clientRect.Left);
+			int borderHeight = windowRect.Bottom - windowRect.Top - (clientRect.Bottom - clientRect.Top);
 
 			// Remove borders (including window title bar) before applying aspect ratio.
 			rc.Right -= borderWidth;
@@ -365,7 +365,7 @@ public class AspectRatioController : MonoBehaviour
 			Screen.SetResolution( setWidth, setHeight, false );
 			resolutionChangedEvent.Invoke( setWidth, setHeight, false );
 		}
-		else if ( !Screen.fullScreen && setWidth != -1 && setHeight != -1 && ( Screen.width != setWidth || Screen.height != setHeight ) )
+		else if ( !Screen.fullScreen && setWidth != -1 && setHeight != -1 && (Screen.width != setWidth || Screen.height != setHeight) )
 		{
 			// Aero Snap detected. Set width by height.
 			// Necessary because Aero Snap doesn't trigger WM_SIZING.
@@ -442,18 +442,22 @@ public class AspectRatioController : MonoBehaviour
 	/// </summary>
 	IEnumerator DelayedQuit()
 	{
-		// Re-set old WindowProc callback. Normally, this would be done in the new callback itself
-		// once WM_CLOSE is detected. This seems to work fine on 64 bit, but when I build 32 bit
-		// executables, this causes the application to crash on quitting.
-		// This shouldn't really happen and I'm not sure why it does.
-		// However, this solution right here seems to work fine on both 32 and 64 bit.
-		SetWindowLong( unityHWnd, GWLP_WNDPROC, oldWndProcPtr );
-
-		// Wait for end of frame (our callback is now un-registered), then allow application to quit.
-		yield return new WaitForEndOfFrame();
-
-		quitStarted = true;
-		Application.Quit();
+		try
+		{
+			// Re-set old WindowProc callback. Normally, this would be done in the new callback itself
+			// once WM_CLOSE is detected. This seems to work fine on 64 bit, but when I build 32 bit
+			// executables, this causes the application to crash on quitting.
+			// This shouldn't really happen and I'm not sure why it does.
+			// However, this solution right here seems to work fine on both 32 and 64 bit.
+			SetWindowLong( unityHWnd, GWLP_WNDPROC, oldWndProcPtr );
+			// Wait for end of frame (our callback is now un-registered), then allow application to quit.
+			yield return new WaitForEndOfFrame();
+		}
+		finally
+		{
+			quitStarted = true;
+			Application.Quit();
+		}
 	}
 }
 

@@ -21,13 +21,12 @@ namespace Saga
 		public bool canBeDefeated;
 		public bool useThreat;//use threat cost
 		public bool showMod;
-		public bool useResetGroup;
+		public bool useGenericMugshot;
 		public Guid setTrigger;
 		public Guid setEvent;
 		public Guid specificDeploymentPoint;
 		public DeploymentSpot deploymentPoint;
 		///EnemyGroupData properties
-		public GroupTraits[] groupTraits;
 		public List<DPData> pointList = new List<DPData>();
 		///Deployment
 		public bool hasDeployed;
@@ -50,14 +49,14 @@ namespace Saga
 			canBeDefeated = true;
 			useThreat = false;
 			showMod = false;
+			useGenericMugshot = false;
 			setTrigger = Guid.Empty;
 			setEvent = Guid.Empty;
 			specificDeploymentPoint = Guid.Empty;
 			deploymentPoint = DeploymentSpot.Active;
 			hasDeployed = false;
-			useResetGroup = false;
 
-			groupTraits = null;
+			//groupTraits = null;
 
 			changeInstructions = null;
 			changeTarget = null;
@@ -75,8 +74,8 @@ namespace Saga
 			canBeDefeated = ed.canBeDefeated;
 			useThreat = ed.useThreat;
 			showMod = ed.showMod;
-			setTrigger = ed.setTrigger;
-			setEvent = ed.setEvent;
+			setTrigger = ed.enemyGroupData.defeatedTrigger;
+			setEvent = ed.enemyGroupData.defeatedEvent;
 			repositionInstructions = ed.repositionInstructions;
 
 			//warning - this will overwrite deploymentPoint, specificDeploymentPoint, nameOverride
@@ -99,8 +98,13 @@ namespace Saga
 			if ( !string.IsNullOrEmpty( ed.cardName ) )
 				nameOverride = ed.cardName;
 			//traits
-			if ( !ed.groupPriorityTraits.useDefaultPriority )
-				groupTraits = ed.groupPriorityTraits.GetTraitArray();
+			var ct = new ChangeTarget()
+			{
+				targetType = PriorityTargetType.Trait,
+				groupPriorityTraits = ed.groupPriorityTraits,
+				percentChance = 60
+			};
+			SetTargetOverride( ct );
 			//instructions
 			if ( !string.IsNullOrEmpty( ed.customText ) )
 			{
@@ -116,6 +120,8 @@ namespace Saga
 			//determine if the deploymentPoint should be Active or Specific
 			if ( ed.pointList.All( x => x.GUID == Guid.Empty ) )
 				deploymentPoint = DeploymentSpot.Active;
+			else if ( ed.pointList.Any( x => x.GUID == Utils.GUIDOne ) )
+				deploymentPoint = DeploymentSpot.None;
 			else
 				deploymentPoint = DeploymentSpot.Specific;
 			pointList = ed.pointList;
@@ -146,6 +152,19 @@ namespace Saga
 				else
 					return pointList.Select( x => x.GUID ).ToArray();
 			}
+		}
+
+		public void SoftReset()
+		{
+			deploymentPoint = DeploymentSpot.Active;
+			specificDeploymentPoint = Guid.Empty;
+			setTrigger = Guid.Empty;
+			setEvent = Guid.Empty;
+			threatCost = 0;
+			canReinforce = true;
+			canRedeploy = true;
+			canBeDefeated = true;
+			useThreat = false;
 		}
 	}
 }

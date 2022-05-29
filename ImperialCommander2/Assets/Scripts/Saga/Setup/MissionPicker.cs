@@ -101,6 +101,16 @@ namespace Saga
 				missionNameText.text = pi?.Title;
 				missionDescriptionText.text = pi?.Description;
 				tilesButton.interactable = true;
+				if ( pi.missionID != "Custom" )
+				{
+					var expansion = pi.missionID.Split( ' ' )[0].ToLower();
+					var id = pi.missionID.Split( ' ' )[1].ToLower();
+					var presets = DataStore.missionPresets[expansion];
+					var mp = presets.Where( x => x.id.ToLower() == $"{expansion}{id}" ).FirstOr( null );
+					FindObjectOfType<SagaSetup>().OnMissionSelected( mp );
+				}
+				else
+					FindObjectOfType<SagaSetup>().OnMissionSelected( pi );
 			}
 			else
 			{

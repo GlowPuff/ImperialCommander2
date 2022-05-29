@@ -19,7 +19,7 @@ namespace Saga
 		public TileRenderer tileRenderer { get; set; }
 
 		//tile props
-		public string textureName;
+		public string textureName { get { return $"{expansion}_{tileID}{tileSide}"; } }
 		public string tileID;
 		public string tileSide;
 		public Expansion expansion;

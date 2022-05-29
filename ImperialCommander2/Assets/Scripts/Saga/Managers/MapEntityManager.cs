@@ -112,18 +112,18 @@ namespace Saga
 
 			var ret = new List<string>();
 			if ( doors.Count() > 0 )
-				ret.Add( $"<color=orange>{doors.Count()} Door</color>" );
+				ret.Add( $"<color=orange>{doors.Count()} Door(s)</color>" );
 			if ( tokens.Count() > 0 )
-				ret.Add( $"<color=orange>{tokens.Count()} Token</color>" );
+				ret.Add( $"<color=orange>{tokens.Count()} Token(s)</color>" );
 			if ( terminals.Count() > 0 )
-				ret.Add( $"<color=orange>{terminals.Count()} Terminal</color>" );
+				ret.Add( $"<color=orange>{terminals.Count()} Terminal(s)</color>" );
 			if ( crate.Count() > 0 )
-				ret.Add( $"<color=orange>{crate.Count()} Crate</color>" );
+				ret.Add( $"<color=orange>{crate.Count()} Crate(s)</color>" );
 
 			return ret;
 		}
 
-		public void ModifyPrefabs( ModifyMapEntity mm )
+		public void ModifyPrefabs( ModifyMapEntity mm, Action callback )
 		{
 			foreach ( var mod in mm.entitiesToModify )
 			{
@@ -131,9 +131,36 @@ namespace Saga
 				{
 					var pf = child.GetComponent<IEntityPrefab>();
 					if ( pf?.mapEntity.GUID == mod.sourceGUID )
+					{
+						//don't show a message for certain types
+						if ( pf.mapEntity.entityType != EntityType.DeploymentPoint
+							&& pf.mapEntity.entityType != EntityType.Highlight
+							&& pf.mapEntity.entityType != EntityType.Tile
+							&& pf.mapEntity.entityType != EntityType.Door )
+						{
+							//if setting a non-active to active
+							if ( !pf.mapEntity.entityProperties.isActive && mod.entityProperties.isActive )
+							{
+								pf.ModifyEntity( mod.entityProperties );
+								FindObjectOfType<SagaController>().cameraController.MoveToEntity( pf.mapEntity.GUID );
+								var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n1 " + pf.mapEntity.entityType;
+								FindObjectOfType<SagaController>().eventManager.ShowTextBox( emsg, callback );
+								return;
+							}
+							//if setting a active to non-active
+							//else if ( pf.mapEntity.entityProperties.isActive && !mod.entityProperties.isActive )
+							//{
+							//	var emsg = DataStore.uiLanguage.sagaMainApp.mmRemoveEntitiesUC + ":\n\n1 " + pf.mapEntity.entityType;
+							//	FindObjectOfType<SagaController>().eventManager.ShowTextBox( emsg, callback );
+							//}
+						}
+
 						pf.ModifyEntity( mod.entityProperties );
+					}
 				}
 			}
+
+			callback?.Invoke();
 		}
 
 		private void AddDP( DeploymentPoint dpoint, LifeSpan life )
@@ -190,40 +217,41 @@ namespace Saga
 			mapEntities.Add( t );
 		}
 
-		//public void EndTurnCleanup()
-		//{
-		//	//iterate each entity type and do cleanup
-		//	foreach ( Transform tf in transform )
-		//	{
-		//		tf.GetComponent<DPointPrefab>()?.EndTurnCleanup();
-		//		tf.GetComponent<TerminalPrefab>()?.EndTurnCleanup();
-		//		tf.GetComponent<CratePrefab>()?.EndTurnCleanup();
-		//		tf.GetComponent<DoorPrefab>()?.EndTurnCleanup();
-		//		tf.GetComponent<HighlightPrefab>()?.EndTurnCleanup();
-		//		tf.GetComponent<TokenPrefab>()?.EndTurnCleanup();
-		//	}
-		//}
+		public void EndTurnCleanup()
+		{
+			//iterate each entity type and do cleanup
+			foreach ( Transform tf in transform )
+			{
+				tf.GetComponent<DPointPrefab>()?.EndTurnCleanup();
+				tf.GetComponent<TerminalPrefab>()?.EndTurnCleanup();
+				tf.GetComponent<CratePrefab>()?.EndTurnCleanup();
+				tf.GetComponent<DoorPrefab>()?.EndTurnCleanup();
+				tf.GetComponent<HighlightPrefab>()?.EndTurnCleanup();
+				tf.GetComponent<TokenPrefab>()?.EndTurnCleanup();
+			}
+		}
 
 		void ProcessQuestionPrompt( EntityProperties props )
 		{
 			QuestionPrompt prompt = new QuestionPrompt();
 			prompt.theText = props.theText;
+			prompt.includeCancel = true;
 			foreach ( var item in props.buttonActions )
 			{
 				prompt.buttonList.Add( new ButtonAction() { buttonText = item.buttonText, triggerGUID = item.triggerGUID, eventGUID = item.eventGUID } );
 			}
 			eventManager.toggleVisButton.SetActive( true );
-			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
+			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 			eventManager.ShowPromptBox( prompt, () =>
 			{
 				eventManager.toggleVisButton.SetActive( false );
-				FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+				//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 			} );
 		}
 
 		private void Update()
 		{
-			if ( !HandleObjectSelection )
+			if ( FindObjectOfType<SagaEventManager>().IsProcessingEvents )//!HandleObjectSelection )
 				return;
 
 			int pointerID = -1;//mouse

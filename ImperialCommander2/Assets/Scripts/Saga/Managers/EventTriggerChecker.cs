@@ -14,24 +14,30 @@ namespace Saga
 
 		public bool CheckAdditionalTriggers()
 		{
-			bool found = false;
 			var tstates = Object.FindObjectOfType<TriggerManager>().GetTriggerStates( missionEvent );
-			if ( missionEvent.additionalTriggers.Count > 0 )
+
+			var count = from ts in tstates
+									join triggeredby in missionEvent.additionalTriggers
+									on ts.trigger.GUID equals triggeredby.triggerGUID
+									select ts;
+			var states = from ts in tstates
+									 join triggeredby in missionEvent.additionalTriggers
+									 on new { g = ts.trigger.GUID, cv = ts.currentValue }
+									 equals new { g = triggeredby.triggerGUID, cv = triggeredby.triggerValue }
+									 select ts;
+
+			if ( missionEvent.behaviorAll && count.Count() == states.Count() )
 			{
-				foreach ( var ts in tstates )
-				{
-					foreach ( var triggerby in missionEvent.additionalTriggers )
-					{
-						if ( triggerby.triggerGUID == ts.trigger.GUID && ts.currentValue == triggerby.triggerValue )
-						{
-							Debug.Log( $"CheckAdditionalTriggers()::TRIGGER MATCH for Event '{missionEvent.name}'::" + triggerby.triggerName );
-							found = true;
-						}
-					}
-				}
+				Debug.Log( $"CheckAdditionalTriggers()::ALL TRIGGER MATCH for Event '{missionEvent.name}'" );
+				return true;
+			}
+			else if ( !missionEvent.behaviorAll && states.Count() > 0 )
+			{
+				Debug.Log( $"CheckAdditionalTriggers()::ANY TRIGGER MATCH for Event '{missionEvent.name}'" );
+				return true;
 			}
 
-			return found;
+			return false;
 		}
 
 		/// <summary>

@@ -18,7 +18,7 @@ namespace Saga
 			sound = FindObjectOfType<Sound>();
 		}
 
-		public void DeployHeroAlly( DeploymentCard cd )
+		public void DeployHeroAlly( DeploymentCard cd, bool useGenericMugshot = false )
 		{
 			if ( DataStore.deployedHeroes.ContainsCard( cd ) )
 			{
@@ -31,7 +31,7 @@ namespace Saga
 			cd.heroState.Init( DataStore.sagaSessionData.MissionHeroes.Count );
 
 			var go = Instantiate( hgPrefab, heroContainer );
-			go.GetComponent<SagaHGPrefab>().Init( cd );
+			go.GetComponent<SagaHGPrefab>().Init( cd, useGenericMugshot );
 			if ( !DataStore.deployedHeroes.ContainsCard( cd ) )
 				DataStore.deployedHeroes.Add( cd );
 			sound.PlaySound( FX.Computer );
@@ -276,13 +276,14 @@ namespace Saga
 					if ( adp != Guid.Empty )
 					{
 						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
-						FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
+						//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 						FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( adp, true );
 						FindObjectOfType<CameraController>().MoveToEntity( adp );
-						FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{ovrd.nameOverride}</color> <color=orange>[{enemyToAdd.id}]</color>", () =>
+						string enemyName = ovrd.useGenericMugshot ? "Rebel" : ovrd.nameOverride;
+						FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{enemyToAdd.id}]</color>", () =>
 						{
 							FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
-							FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+							//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 							FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( adp, false );
 							callback?.Invoke();
 						} );
@@ -293,10 +294,22 @@ namespace Saga
 						callback?.Invoke();
 					}
 				}
+				else if ( ovrd.deploymentPoint == DeploymentSpot.None )
+				{
+					Debug.Log( "EnemyDeployment::NONE DP" );
+					FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
+					string enemyName = ovrd.useGenericMugshot ? "Rebel" : ovrd.nameOverride;
+					FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{enemyToAdd.id}]</color>", () =>
+					{
+						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
+						callback?.Invoke();
+					} );
+				}
 				else
 				{
 					Debug.Log( "EnemyDeployment::MULTIPLE DPs" );
-					StartCoroutine( NavToDeployment( ovrd, callback ) );//also invokes callback when finished
+					DoMultipleDeployment( ovrd, callback );
+					//StartCoroutine( NavToDeployment( ovrd, callback ) );//also invokes callback when finished
 				}
 			}
 			else//no override, just use Active DP
@@ -305,13 +318,14 @@ namespace Saga
 				if ( adp != Guid.Empty )
 				{
 					FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
-					FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
+					//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 					FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( adp, true );
 					FindObjectOfType<CameraController>().MoveToEntity( adp );
+					//string enemyName = ovrd.useGenericMugshot ? "Rebel" : enemyToAdd.name;
 					FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyToAdd.name}</color> <color=orange>[{enemyToAdd.id}]</color>", () =>
 					{
 						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
-						FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+						//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 						FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( adp, false );
 						callback?.Invoke();
 					} );
@@ -324,35 +338,64 @@ namespace Saga
 			}
 		}
 
-		IEnumerator NavToDeployment( DeploymentGroupOverride ovrd, Action callback = null )
+		void DoMultipleDeployment( DeploymentGroupOverride ovrd, Action callback = null )
 		{
-			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
+			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 			FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
 			var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint();
 
-			foreach ( var dp in ovrd.GetDeploymentPoints() )
+			//show all DPs used
+			var allDPs = ovrd.GetDeploymentPoints();
+			foreach ( var dp in allDPs )
 			{
-				var done = false;
-				//if the dp is empty, use the Active DP
 				Guid guid = dp == Guid.Empty ? adp : dp;
 				FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( guid, true );
-				FindObjectOfType<CameraController>().MoveToEntity( guid, () =>
-				{
-					//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
-				} );
-				FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{ovrd.nameOverride}</color> <color=orange>[{ovrd.ID}]</color>", () =>
-				{
-					FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( guid, false );
-					done = true;
-				} );
-
-				while ( !done )
-					yield return null;
 			}
 
-			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
-			FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
-			callback?.Invoke();
+			if ( allDPs.Length > 0 )
+				FindObjectOfType<CameraController>().MoveToEntity( allDPs[0] );
+
+			string enemyName = ovrd.useGenericMugshot ? "Rebel" : ovrd.nameOverride;
+			FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{ovrd.ID}]</color>", () =>
+			{
+				//hide all DPs used
+				foreach ( var dp in ovrd.GetDeploymentPoints() )
+				{
+					Guid guid = dp == Guid.Empty ? adp : dp;
+					FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( guid, false );
+				}
+				//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+				FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
+				callback?.Invoke();
+			} );
 		}
+
+		//IEnumerator NavToDeployment( DeploymentGroupOverride ovrd, Action callback = null )
+		//{
+		//	FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
+		//	FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
+		//	var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint();
+
+		//	foreach ( var dp in ovrd.GetDeploymentPoints() )
+		//	{
+		//		var done = false;
+		//		//if the dp is empty, use the Active DP
+		//		Guid guid = dp == Guid.Empty ? adp : dp;
+		//		FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( guid, true );
+		//		FindObjectOfType<CameraController>().MoveToEntity( guid );
+		//		FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{ovrd.nameOverride}</color> <color=orange>[{ovrd.ID}]</color>", () =>
+		//		{
+		//			FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( guid, false );
+		//			done = true;
+		//		} );
+
+		//		while ( !done )
+		//			yield return null;
+		//	}
+
+		//	FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+		//	FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
+		//	callback?.Invoke();
+		//}
 	}
 }

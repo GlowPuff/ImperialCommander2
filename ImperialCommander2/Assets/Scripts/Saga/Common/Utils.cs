@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -6,7 +7,7 @@ namespace Saga
 {
 	public static class Utils
 	{
-		public const string formatVersion = "10";//the EXPECTED mission format
+		public const string formatVersion = "12";//the EXPECTED mission format
 
 		public static void LogError( string error )
 		{
@@ -39,6 +40,8 @@ namespace Saga
 			}
 		}
 
+		public static Guid GUIDOne { get { return Guid.Parse( "11111111-1111-1111-1111-111111111111" ); } }
+
 		public static string ReplaceGlyphs( string item )
 		{
 			//symbols
@@ -58,6 +61,8 @@ namespace Saga
 			item = item.Replace( "{I}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">I</font></color>" );
 			item = item.Replace( "{P}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">P</font></color>" );
 			item = item.Replace( "{F}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" );
+			item = item.Replace( "{V}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">V</font></color>" );
+			item = item.Replace( "{D}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">D</font></color>" );
 			item = item.Replace( "{-}", " \u25A0 " );
 			//if ( item.Contains( "{O}" ) )
 			//{
@@ -87,17 +92,24 @@ namespace Saga
 				foreach ( var match in regex.Matches( item ) )
 				{
 					int mul = int.Parse( match.ToString().Replace( "*", "" ) );
-					item = item.Replace( match.ToString(), (DataStore.sagaSessionData.gameVars.currentThreat * mul).ToString() );
+					item = item.Replace( match.ToString(), (DataStore.sagaSessionData.setupOptions.threatLevel * mul).ToString() );
 				}
-
 
 				//random rebel
 				regex = new Regex( @"\{rebel\}", RegexOptions.IgnoreCase );
 				m = regex.Matches( item );
+				string rebelName = "";
 				foreach ( var match in regex.Matches( item ) )
 				{
 					var rebel = DataStore.deployedHeroes[GlowEngine.GenerateRandomNumbers( DataStore.deployedHeroes.Count )[0]];
-					item = item.Replace( match.ToString(), rebel.name );
+					//look for ally override with a custom name
+					var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( rebel.id );
+					if ( ovrd != null )
+						rebelName = ovrd.nameOverride;
+					else
+						rebelName = rebel.name;
+
+					item = item.Replace( match.ToString(), rebelName );
 				}
 			}
 

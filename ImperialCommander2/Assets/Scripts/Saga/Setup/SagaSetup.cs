@@ -65,7 +65,7 @@ namespace Saga
 			sound.CheckAudio();
 
 			setupOptions = new SagaSetupOptions();
-			threatValue.ResetWheeler( 3 );
+			threatValue.ResetWheeler( 0 );
 			addtlThreatValue.ResetWheeler();
 			DataStore.StartNewSagaSession( setupOptions );
 			ResetSetup();
@@ -191,6 +191,40 @@ namespace Saga
 			{
 				allyImage.gameObject.SetActive( true );
 				allyImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{DataStore.sagaSessionData.selectedAlly.id.Replace( "A", "M" )}" );
+			}
+		}
+
+		public void OnMissionSelected( MissionPreset mp )
+		{
+			//clear ignored groups
+			DataStore.sagaSessionData.MissionIgnored.Clear();
+			//add default ignored
+			//ignore "Other" expansion enemy groups by default
+			DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+			//get ignored from preset
+			var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ign );
+
+			threatValue.ResetWheeler( mp.defaultThreat );
+			initialText.text = mp.defaultThreat.ToString();
+		}
+
+		public void OnMissionSelected( ProjectItem pi )
+		{
+			threatValue.ResetWheeler( 0 );
+			initialText.text = "0";
+
+			Mission m = FileManager.LoadMission( pi.fullPathWithFilename );
+			if ( m != null )
+			{
+				//clear ignored groups
+				DataStore.sagaSessionData.MissionIgnored.Clear();
+				//add default ignored
+				//ignore "Other" expansion enemy groups by default
+				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+				//get ignored from mission
+				var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
+				DataStore.sagaSessionData.MissionIgnored.AddRange( ign );
 			}
 		}
 

@@ -25,7 +25,7 @@ namespace Saga
 			tf.localScale = Vector3.zero;
 		}
 
-		public void Init( DeploymentCard cd )
+		public void Init( DeploymentCard cd, bool useGenericMugshot = false )
 		{
 			Debug.Log( "DEPLOYED: " + cd.name );
 			cardDescriptor = cd;
@@ -40,7 +40,10 @@ namespace Saga
 				else if ( DataStore.allyCards.Any( x => x.id == cd.id ) )
 				{
 					//isAlly = true;
-					iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
+					if ( !useGenericMugshot )
+						iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
+					else
+						iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/M002" );
 				}
 
 				if ( cd.id[0] == 'A' )
@@ -147,10 +150,12 @@ namespace Saga
 		//popup card view, excluding Heroes
 		public void OnPointerClick()
 		{
-			if ( cardDescriptor.isDummy || cardDescriptor.isHero )
-				return;
-			CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
-			cardViewPopup.Show( cardDescriptor );
+			//new - don't show popup for ANY hero/ally since ally might be a generic regel
+
+			//if ( cardDescriptor.isDummy || cardDescriptor.isHero )
+			//	return;
+			//CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
+			//cardViewPopup.Show( cardDescriptor );
 		}
 
 		public void SetHealth( HeroHealth heroHealth )

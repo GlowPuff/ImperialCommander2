@@ -91,19 +91,20 @@ namespace Saga
 			DataStore.InitData();
 			DataStore.StartNewSagaSession( new SagaSetupOptions()
 			{
-				projectItem = new ProjectItem() { fileName = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
+				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },//CORE1-A New Threat
 				difficulty = Difficulty.Medium,
 				threatLevel = 3,
-				useAdaptiveDifficulty = true,
+				useAdaptiveDifficulty = false,
 			} );
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
-			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
 
 		public void ShowError( string m )
 		{
+			Debug.Log( "ShowError()::" + m );
 			errorPanel.Show( m );
 		}
 
@@ -218,9 +219,6 @@ namespace Saga
 			//deploy ally
 			if ( DataStore.sagaSessionData.selectedAlly != null )
 				dgManager.DeployHeroAlly( DataStore.sagaSessionData.selectedAlly );
-			//perform option deployment if it's toggled
-			//if ( DataStore.sagaSessionData.optionalDeployment == YesNo.Yes )
-			//		GlowTimer.SetTimer( 1, () => deploymentPopup.Show( DeployMode.Landing, false, true ) );
 
 			//init event manager
 			eventManager.Init( DataStore.mission );
@@ -247,8 +245,13 @@ namespace Saga
 
 		void DoStartupTasks( Tuple<List<string>, List<string>> tiles )
 		{
+			var tmsg = string.Join( ", ", tiles.Item1 );
+			var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
+			var emsg2 = string.Join( "\n", tiles.Item2 );
+			emsg = string.IsNullOrEmpty( emsg2.Trim() ) ? "" : emsg + emsg2;
+
 			eventManager.toggleVisButton.SetActive( true );
-			eventManager.ShowTextBox( $"Prepare the following tiles:\n\n<color=orange>{string.Join( ", ", tiles.Item1 )}</color>\n\nPlace the following map Entities:\n\n{string.Join( "\n", tiles.Item2 )}", () =>
+			eventManager.ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{tmsg}</color>\n\n{emsg}", () =>
 			{
 				eventManager.toggleVisButton.SetActive( false );
 				StartupLayoutAndEvents();
@@ -260,14 +263,23 @@ namespace Saga
 			//layout starting groups
 			dgManager.DeployStartingGroups( () =>
 				 {
-					 var ev = eventManager.EventFromGUID( DataStore.mission.missionProperties.startingEvent );
-					 eventManager.DoEvent( ev );
-					 //handle any start of turn events
-					 DataStore.sagaSessionData.gameVars.isStartTurn = true;
-					 eventManager.CheckIfEventsTriggered( () =>
+					 Action action = () =>
 					 {
-						 DataStore.sagaSessionData.gameVars.isStartTurn = false;
-					 } );
+						 var ev = eventManager.EventFromGUID( DataStore.mission.missionProperties.startingEvent );
+						 eventManager.DoEvent( ev );
+						 //handle any start of turn events
+						 DataStore.sagaSessionData.gameVars.isStartTurn = true;
+						 eventManager.CheckIfEventsTriggered( () =>
+						 {
+							 DataStore.sagaSessionData.gameVars.isStartTurn = false;
+						 } );
+					 };
+
+					 //perform optional deployment if it's a side mission
+					 if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
+						 deploymentPopup.Show( DeployMode.Landing, false, true, action );
+					 else
+						 action();
 				 } );
 		}
 
@@ -286,7 +298,7 @@ namespace Saga
 			//1 in 4 chance to do an event
 			int[] rnd = GlowEngine.GenerateRandomNumbers( 4 );
 			int roll1 = rnd[0] + 1;
-
+			roll1 = 0;//Saga doesn't do end-of-round Events
 			if ( roll1 == 1 && DataStore.sagaSessionData.gameVars.eventsTriggered < 3 )
 			{
 				DataStore.sagaSessionData.gameVars.eventsTriggered++;
@@ -448,7 +460,7 @@ namespace Saga
 					DoDeployment( false, OnStartTurn );
 
 				dgManager.ReadyAllGroups();
-				//mapEntityManager.EndTurnCleanup();
+				mapEntityManager.EndTurnCleanup();
 			};
 
 			//check if a mission event is now in progress as a result of End of Turn
@@ -538,7 +550,7 @@ namespace Saga
 		/// </summary>
 		public void ToggleNavAndEntitySelection( bool handle )
 		{
-			mapEntityManager.HandleObjectSelection = handle;
+			//mapEntityManager.HandleObjectSelection = handle;
 			cameraController.ToggleNavigation( handle );
 		}
 

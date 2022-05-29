@@ -19,7 +19,8 @@ namespace Saga
 			mapTile = t;
 			tileDescriptor = td;
 			//Debug.Log( "LoadTile()::" + mapTile.tileID );
-			Addressables.LoadAssetAsync<Sprite>( mapTile.textureName ).Completed += TileRenderer_Completed;
+			var textname = $"{t.expansion}_{t.tileID}{t.tileSide}";
+			Addressables.LoadAssetAsync<Sprite>( textname ).Completed += TileRenderer_Completed;
 		}
 
 		private void TileRenderer_Completed( AsyncOperationHandle<Sprite> tex )

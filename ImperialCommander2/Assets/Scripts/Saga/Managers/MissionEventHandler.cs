@@ -11,7 +11,7 @@ namespace Saga
 		public void NotifyMissionInfoChanged()
 		{
 			infoButtonTX.DOScale( 1.2f, .15f ).SetLoops( -1, LoopType.Yoyo );
-			GlowEngine.FindUnityObject<QuickMessage>().Show( "Mission Info Updated" );
+			//GlowEngine.FindUnityObject<QuickMessage>().Show( "Mission Info Updated" );
 		}
 
 		/// <summary>
@@ -46,22 +46,22 @@ namespace Saga
 			if ( mm.pauseDeployment )
 			{
 				DataStore.sagaSessionData.gameVars.pauseDeployment = true;
-				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseDepMsgUC );
+				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseDepMsgUC );
 			}
 			if ( mm.unpauseDeployment )
 			{
 				DataStore.sagaSessionData.gameVars.pauseDeployment = false;
-				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC );
+				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC );
 			}
 			if ( mm.pauseThreat )
 			{
 				DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
-				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC );
+				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC );
 			}
 			if ( mm.unpauseThreat )
 			{
 				DataStore.sagaSessionData.gameVars.pauseThreatIncrease = false;
-				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC );
+				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC );
 			}
 			if ( mm.endMission )
 			{
@@ -85,7 +85,7 @@ namespace Saga
 					if ( DataStore.sagaSessionData.gameVars.round >= 8 )
 						awards = 0;
 
-					ShowTextBox( $"<color=orange><bold>{DataStore.uiLanguage.sagaMainApp.endOfMissionUC}</bold></color>\n\n{DataStore.uiLanguage.uiMainApp.fameHeading}: <color=orange><bold>{DataStore.sagaSessionData.gameVars.fame}</bold></color>\n\n{DataStore.uiLanguage.uiMainApp.awardsHeading}: <color=orange><bold>{awards}</bold></color>", () =>
+					ShowTextBox( $"<color=orange><uppercase><b>{DataStore.uiLanguage.sagaMainApp.endOfMissionUC}</color>\n\n{DataStore.uiLanguage.uiMainApp.fameHeading}: <color=orange>{DataStore.sagaSessionData.gameVars.fame}</color>\n\n{DataStore.uiLanguage.uiMainApp.awardsHeading}: <color=orange>{awards}</color>", () =>
 					{
 						//load title screen
 						FindObjectOfType<SagaController>().EndMission();
@@ -112,13 +112,13 @@ namespace Saga
 			if ( !string.IsNullOrEmpty( changeObjective.longText ) )
 			{
 				FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
-				FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
+				//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 				ShowTextBox( changeObjective.longText, () =>
 				{
 					FindObjectOfType<SagaController>().OnChangeObjective( changeObjective.theText, () =>
 					{
 						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
-						FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+						//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 						NextEventAction();
 					} );
 				} );
@@ -163,18 +163,6 @@ namespace Saga
 			Debug.Log( "SagaEventManager()::PROCESSING EnemyDeployment" );
 			DeploymentCard card = DataStore.GetEnemy( ed.deploymentGroup );
 
-			//check for existing group reset
-			var reset = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( ed.deploymentGroup );
-			if ( reset != null )
-			{
-				if ( reset.useResetGroup )
-				{
-
-					NextEventAction();
-					return;
-				}
-			}
-
 			var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ed.deploymentGroup );
 			//name
 			if ( !string.IsNullOrEmpty( ed.enemyName ) )
@@ -211,6 +199,8 @@ namespace Saga
 			if ( card != null )
 			{
 				var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ad.allyID );
+				//generic mugshot
+				ovrd.useGenericMugshot = ad.useGenericMugshot;
 				//name
 				if ( !string.IsNullOrEmpty( ad.allyName ) )
 					ovrd.nameOverride = ad.allyName;
@@ -228,7 +218,7 @@ namespace Saga
 					DataStore.sagaSessionData.ModifyThreat( Mathf.Clamp( card.cost + ad.threatCost, 0, 100 ) );
 				}
 				//finally, do the actual deployment
-				FindObjectOfType<SagaController>().dgManager.DeployHeroAlly( card );
+				FindObjectOfType<SagaController>().dgManager.DeployHeroAlly( card, ovrd.useGenericMugshot );
 				FindObjectOfType<SagaController>().dgManager.HandleMapDeployment( card, NextEventAction, ovrd );
 			}
 			else
@@ -368,18 +358,18 @@ namespace Saga
 				FindObjectOfType<SagaController>().dgManager.ExhaustGroup( grp.id );
 			}
 
-			string output = "";
-			if ( !string.IsNullOrEmpty( readied ) )
-				output = $"{DataStore.uiLanguage.sagaMainApp.groupsReadyUC}:\r\n" + readied + "\r\n";
-			if ( !string.IsNullOrEmpty( exhausted ) )
-				output += $"{DataStore.uiLanguage.sagaMainApp.groupsExhaustUC}:\r\n" + exhausted;
+			//string output = "";
+			//if ( !string.IsNullOrEmpty( readied ) )
+			//	output = $"{DataStore.uiLanguage.sagaMainApp.groupsReadyUC}:\r\n" + readied + "\r\n";
+			//if ( !string.IsNullOrEmpty( exhausted ) )
+			//	output += $"{DataStore.uiLanguage.sagaMainApp.groupsExhaustUC}:\r\n" + exhausted;
 
-			if ( !string.IsNullOrEmpty( output ) )
-			{
-				ShowTextBox( output, NextEventAction );
-			}
-			else
-				NextEventAction();
+			//if ( !string.IsNullOrEmpty( output ) )
+			//{
+			//	ShowTextBox( output, NextEventAction );
+			//}
+			//else
+			NextEventAction();
 		}
 
 		void ChangeReposition( ChangeReposition cr )
@@ -428,7 +418,12 @@ namespace Saga
 			{
 				var tiles = FindObjectOfType<SagaController>().tileManager.ActivateMapSection( mm.mapSection );
 				FindObjectOfType<TileManager>().CamToSection( mm.mapSection );
-				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{string.Join( ", ", tiles.Item1 )}</color>\n\n{DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC}:\n\n{string.Join( "\n", tiles.Item2 )}", () =>
+				var tmsg = string.Join( ", ", tiles.Item1 );
+				var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
+				var emsg2 = string.Join( "\n", tiles.Item2 );
+				emsg = string.IsNullOrEmpty( emsg2.Trim() ) ? "" : emsg + emsg2;
+
+				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{tmsg}</color>\n\n{emsg}", () =>
 				{
 					NextEventAction();
 				} );
@@ -466,9 +461,9 @@ namespace Saga
 		void ModifyMapEntity( ModifyMapEntity mod )
 		{
 			var em = FindObjectOfType<MapEntityManager>();
-			em.ModifyPrefabs( mod );
+			em.ModifyPrefabs( mod, NextEventAction );
 
-			NextEventAction();
+			//NextEventAction();
 		}
 
 		/// <summary>

@@ -124,7 +124,6 @@ public class TitleController : MonoBehaviour
 		if ( args.Length == 2 )
 		{
 			string path = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", args[1] );
-			string missionName = args[1];
 			var setupOptions = new SagaSetupOptions()
 			{
 				difficulty = Difficulty.Medium,
@@ -290,7 +289,7 @@ public class TitleController : MonoBehaviour
 
 	public void OnDownloadLatest()
 	{
-		Application.OpenURL( "https://github.com/GlowPuff/ImperialCommander/releases" );
+		Application.OpenURL( "https://github.com/GlowPuff/ImperialCommander2/releases" );
 	}
 
 	public void OnLanguageChange()
@@ -404,7 +403,7 @@ public class TitleController : MonoBehaviour
 	private IEnumerator CheckVersion()
 	{
 		// /repos/{owner}/{repo}/releases
-		var web = UnityWebRequest.Get( "https://api.github.com/repos/GlowPuff/ImperialCommander/releases/latest" );
+		var web = UnityWebRequest.Get( "https://api.github.com/repos/GlowPuff/ImperialCommander2/releases/latest" );
 		yield return web.SendWebRequest();
 		if ( web.result == UnityWebRequest.Result.ConnectionError )
 		{

@@ -15,9 +15,18 @@ namespace Saga
 		public PopupBase popupBase;
 		public List<Button> buttonList;
 		public TextMeshProUGUI cancelText;
+		public GameObject cancelButton;
 
+		RectTransform rect;
+		Vector2 ap;
 		QuestionPrompt questionPrompt;
 		Action callback;
+
+		void Awake()
+		{
+			rect = GetComponent<RectTransform>();
+			ap = rect.anchoredPosition;
+		}
 
 		/// <summary>
 		/// Parses text for glyphs
@@ -27,10 +36,13 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 
 			questionPrompt = eventAction as QuestionPrompt;
-			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
+			string c = DataStore.uiLanguage.uiSetup.cancel[0].ToString().ToUpper();
+			cancelText.text = c + DataStore.uiLanguage.uiSetup.cancel.Substring( 1 );
 			callback = action;
 
-			theText.text = Utils.ReplaceGlyphs( questionPrompt.theText );
+			if ( !questionPrompt.includeCancel )
+				cancelButton.SetActive( false );
+
 			for ( int i = 0; i < buttonList.Count; i++ )
 				buttonList[i].gameObject.SetActive( false );
 			for ( int i = 0; i < questionPrompt.buttonList.Count; i++ )
@@ -42,7 +54,20 @@ namespace Saga
 			cg.DOFade( 1, .2f );
 			popupBase.Show();
 
+			SetText( Utils.ReplaceGlyphs( questionPrompt.theText ) );
+
 			theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -3000, 0 );
+		}
+
+		void SetText( string t )
+		{
+			theText.text = t;
+			//get size of text for this string and set the text
+			Vector2 size = theText.GetPreferredValues( t, 700, 174 );
+			//Debug.Log( size.y );
+			//adjust size of window
+			var windowH = Mathf.Clamp( size.y + 125, 250, 600 );
+			rect.SetSizeWithCurrentAnchors( RectTransform.Axis.Vertical, windowH );
 		}
 
 		public void OnClose()

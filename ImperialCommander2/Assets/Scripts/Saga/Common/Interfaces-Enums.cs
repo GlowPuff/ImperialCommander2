@@ -60,7 +60,7 @@ namespace Saga
 	public enum EventActionType { G1, G2, G3, G4, G5, G6, D1, D2, D3, D4, D5, GM1, GM2, GM3, M1, M2, G7, GM4, GM5, G8 }
 	public enum ThreatAction { Add, Remove }
 	public enum SourceType { InitialReserved, Manual, Hand }
-	public enum DeploymentSpot { Active, Specific }
+	public enum DeploymentSpot { Active, Specific, None }
 	public enum GroupType { All, Specific }
 	public enum MarkerType { Neutral, Rebel, Imperial }
 	public enum MissionType { Story, Side, Forced }

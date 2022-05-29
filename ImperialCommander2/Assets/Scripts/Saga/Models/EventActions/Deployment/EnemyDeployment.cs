@@ -16,8 +16,6 @@ namespace Saga
 		public bool useThreat;
 		public bool useCustomInstructions;
 		public bool showMod;
-		public Guid setTrigger;
-		public Guid setEvent;
 		public Guid specificDeploymentPoint;
 		public DeploymentSpot deploymentPoint;//active or specific
 		public EnemyGroupData enemyGroupData;

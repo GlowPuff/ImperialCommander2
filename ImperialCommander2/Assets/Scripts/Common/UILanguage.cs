@@ -30,12 +30,12 @@ public class UISetup
 
 public class SagaUISetup
 {
-	public string groupsText, villainsBtn;
+	public string groupsText, villainsBtn, tilesBtn, setupStartBtn;
 }
 
 public class SagaMainApp
 {
-	public string tooltipHideUIUC, roundIncreasedUC, endOfMissionUC, deployMessageUC, noDPWarningUC, mmAddTilesUC, mmRemoveTilesUC, mmAddEntitiesUC, groupsReadyUC, groupsExhaustUC;
+	public string tooltipHideUIUC, roundIncreasedUC, endOfMissionUC, deployMessageUC, noDPWarningUC, mmAddTilesUC, mmRemoveTilesUC, mmAddEntitiesUC, groupsReadyUC, groupsExhaustUC, repositionTargetUC;
 }
 
 public class UIMainApp

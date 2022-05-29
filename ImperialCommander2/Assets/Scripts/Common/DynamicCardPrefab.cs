@@ -18,16 +18,25 @@ public class DynamicCardPrefab : MonoBehaviour
 	{
 		card = cd;
 
-		//check for override
-		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			//check for override
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
 
-		//name, subname
-		if ( ovrd != null )
-			cardName.text = ovrd.nameOverride;
+			//name, subname
+			if ( ovrd != null )
+				cardName.text = ovrd.nameOverride;
+			else
+				cardName.text = card.name;
+			if ( !string.IsNullOrEmpty( card.subname ) )
+				cardName.text += $"\r\n<size=20><color=\"orange\">{card.subname}</color></size>";
+		}
 		else
+		{
 			cardName.text = card.name;
-		if ( !string.IsNullOrEmpty( card.subname ) )
-			cardName.text += $"\r\n<size=20><color=\"orange\">{card.subname}</color></size>";
+			if ( !string.IsNullOrEmpty( card.subname ) )
+				cardName.text += $"\r\n<size=20><color=\"orange\">{card.subname}</color></size>";
+		}
 
 		//surges,traits, abilities, keywords
 		ParseSurges();

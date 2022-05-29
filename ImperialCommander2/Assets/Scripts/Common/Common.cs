@@ -44,7 +44,7 @@ public static class Extensions
 	}
 	public static DeploymentCard GetDeploymentCard( this List<DeploymentCard> thisCD, string cardID )
 	{
-		return thisCD.Where( x => x.id == cardID.ToUpper() ).FirstOrDefault();
+		return thisCD.Where( x => x.id == cardID.ToUpper() ).FirstOr( null );
 	}
 	public static List<DeploymentCard> Owned( this List<DeploymentCard> thisCD )
 	{
@@ -159,12 +159,17 @@ public static class Extensions
 	{
 		if ( trait.Length == 0 || thisCD is null )
 			return null;
-		var list = (from dc in thisCD from tr in trait where dc.groupTraits.ToList().Contains( tr ) select dc).DefaultIfEmpty()?.ToList();
-		if ( list?.Count > 0 )
-			//return list[GlowEngine.GenerateRandomNumbers( list.Count )[0]];
+		var list = (from dc in thisCD from tr in trait where dc.groupTraits.ToList().Contains( tr ) select dc).ToList();
+		if ( list.Count > 0 )
+		{
+			Debug.Log( "WithTraits()::MATCHING TRAITS FOUND" );
 			return list;
+		}
 		else
+		{
+			Debug.Log( "WithTraits()::NO MATCHING TRAITS FOUND" );
 			return null;
+		}
 	}
 
 	public static T FirstOr<T>( this IEnumerable<T> thisEnum, T def )

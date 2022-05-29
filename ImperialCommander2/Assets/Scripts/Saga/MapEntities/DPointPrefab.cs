@@ -64,7 +64,7 @@ namespace Saga
 			}
 			else
 			{
-				ShowEntity();
+				//ShowEntity();
 			}
 			GetComponent<SpriteRenderer>().color = Utils.String2UnityColor( mapEntity.entityProperties.entityColor );
 		}

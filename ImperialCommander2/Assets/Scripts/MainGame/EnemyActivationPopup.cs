@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using DG.Tweening;
 using Saga;
 using TMPro;
@@ -103,7 +104,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		else
 			ignoreText.text = "";
 
-		if ( !cardDescriptor.hasActivated )
+		if ( !cardDescriptor.hasActivated || DataStore.gameType == GameType.Saga )
 		{
 			//if multiple card instructions, pick 1
 			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
@@ -116,13 +117,20 @@ public class EnemyActivationPopup : MonoBehaviour
 				instructions = GetModifiedRepositioning( cd.id, instructions );
 			}
 
-			DeploymentCard potentialRebel;
-			if ( DataStore.gameType == GameType.Classic )
-				potentialRebel = FindRebel();
-			else
-				potentialRebel = FindRebelSaga();
+			DeploymentCard potentialRebel = DataStore.gameType == GameType.Classic ? FindRebel() : FindRebelSaga();
+
 			if ( potentialRebel != null )
+			{
 				rebel1 = potentialRebel.name;
+				if ( DataStore.gameType == GameType.Saga )
+				{
+					//check for a target name override, id will be null if this is using "Other" as a target
+					//sending null as the id will return a null instead of the All override
+					var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( potentialRebel.id );
+					if ( ovrd != null )
+						rebel1 = ovrd.nameOverride;
+				}
+			}
 			else
 				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
 
@@ -138,15 +146,11 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 		else
 		{
-			DeploymentCard potentialRebel;
 			//get new target
-			if ( DataStore.gameType == GameType.Classic )
-				potentialRebel = FindRebel();
-			else
-				potentialRebel = FindRebelSaga();
+			DeploymentCard potentialRebel = FindRebel();
 
 			//re-use target
-			if ( cardDescriptor.rebelName != null && DataStore.gameType == GameType.Classic )
+			if ( cardDescriptor.rebelName != null )
 				rebel1 = cardDescriptor.rebelName;
 			else if ( potentialRebel != null )
 				rebel1 = potentialRebel.name;
@@ -154,15 +158,10 @@ public class EnemyActivationPopup : MonoBehaviour
 				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
 
 			//re-use instructions
-			if ( cardDescriptor.instructionOption != null && DataStore.gameType == GameType.Classic )
+			if ( cardDescriptor.instructionOption != null )
 			{
 				List<string> instructions = cardDescriptor.instructionOption.instruction;
 				//check for instruction override
-				if ( DataStore.gameType == GameType.Saga )
-				{
-					instructions = GetModifiedInstructions( cd.id, instructions );
-					instructions = GetModifiedRepositioning( cd.id, instructions );
-				}
 				ParseInstructions( instructions );
 			}
 			else//get new instructions for this activation
@@ -170,18 +169,12 @@ public class EnemyActivationPopup : MonoBehaviour
 				InstructionOption io = cardInstruction.content[GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count )[0]];
 				List<string> instructions = io.instruction;
 				//check for instruction override
-				if ( DataStore.gameType == GameType.Saga )
-				{
-					instructions = GetModifiedInstructions( cd.id, instructions );
-					instructions = GetModifiedRepositioning( cd.id, instructions );
-				}
 				ParseInstructions( instructions );
 				cardDescriptor.instructionOption = io;
 			}
 
 			if ( cardDescriptor.bonusName != null
-				&& cardDescriptor.bonusText != null
-				&& DataStore.gameType == GameType.Classic )//re-use activation bonus
+				&& cardDescriptor.bonusText != null )//re-use activation bonus
 			{
 				bonusNameText.text = cardDescriptor.bonusName;
 				bonusText.text = cardDescriptor.bonusText;
@@ -296,10 +289,20 @@ public class EnemyActivationPopup : MonoBehaviour
 		item = item.Replace( "{I}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">I</font></color>" );
 		item = item.Replace( "{P}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">P</font></color>" );
 		item = item.Replace( "{F}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" );
+		item = item.Replace( "{V}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">V</font></color>" );
+		item = item.Replace( "{D}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">D</font></color>" );
 
 		if ( item.Contains( "{R1}" ) )
 		{
 			item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1 + "</color>" );
+		}
+
+		//random rebel
+		Regex regex = new Regex( @"\{rebel\}", RegexOptions.IgnoreCase );
+		var m = regex.Matches( item );
+		foreach ( var match in regex.Matches( item ) )
+		{
+			item = item.Replace( match.ToString(), "<color=#00A4FF>" + rebel1 + "</color>" );
 		}
 
 		return item;
@@ -307,42 +310,78 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	DeploymentCard FindRebelSaga()
 	{
-		DeploymentCard defaultRebel = null;
-		//try to get preferred targets first (defaults)
-		GroupTraits[] groupTraits = cardDescriptor.preferredTargets;
-
-		//check for target trait override
-		var traitOvrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id )?.groupTraits;
-		if ( traitOvrd != null )
-		{
-			Debug.Log( $"FindRebel()::Preferred Traits OVERRIDE" );
-			groupTraits = traitOvrd;
-		}
-
-		//check for target trait override in ChangeTarget, which gets the last say
-		//all
+		//try override to ALL
 		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride()?.changeTarget;
-		if ( ovrd != null && ovrd.targetType == PriorityTargetType.Trait )
+		//try specific override, which supercedes targeting ALL
+		if ( ovrd == null )
+			ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id )?.changeTarget;
+
+		//if there is a targeting override, only use it X% of the time
+		if ( ovrd != null && GlowEngine.RandomBool( ovrd.percentChance ) )
 		{
-			Debug.Log( $"FindRebel()::MODIFYING ALL::{ovrd.targetType}" );
-			if ( !ovrd.groupPriorityTraits.useDefaultPriority )
-				groupTraits = ovrd.groupPriorityTraits.GetTraitArray();
+			Debug.Log( $"FindRebel()::MODIFYING TARGET" );
+			if ( ovrd.targetType == PriorityTargetType.Trait
+				|| ovrd.targetType == PriorityTargetType.Rebel )
+				return HandleTargetTraits( ovrd );
+			else if ( ovrd.targetType == PriorityTargetType.Ally )
+				return HandleTargetAlly( ovrd );
+			else if ( ovrd.targetType == PriorityTargetType.Hero )
+				return HandleTargetHero( ovrd );
+			else if ( ovrd.targetType == PriorityTargetType.Other )
+				return new DeploymentCard() { name = ovrd.otherTarget };
 		}
-		//specific
-		ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id )?.changeTarget;
-		if ( ovrd != null && ovrd.targetType == PriorityTargetType.Trait )
+		//otherwise no targeting override, or RNG failed, try using groups DEFAULT preferred target
+		else if ( GlowEngine.RandomBool( 65 ) )
 		{
-			Debug.Log( $"FindRebel()::MODIFYING SPECIFIC::{ovrd.targetType}" );
-			if ( !ovrd.groupPriorityTraits.useDefaultPriority )
-				groupTraits = ovrd.groupPriorityTraits.GetTraitArray();
+			Debug.Log( "FindRebelSaga()::FINDING REBEL USING DEFAULT PREFERRED TRAITS (65%)" );
+			return HandleTargetTraits();
 		}
 
-		var hlist = DataStore.deployedHeroes.GetHealthy().WithTraits( groupTraits );
-		var ulist = DataStore.deployedHeroes.GetUnhealthy().WithTraits( groupTraits );
-		if ( hlist is null )
+		Debug.Log( "FindRebelSaga()::FINDING FALLBACK REBEL" );
+		return FindRebel();
+	}
+
+	DeploymentCard HandleTargetHero( ChangeTarget ovrd )
+	{
+		Debug.Log( "HandleTargetHero()" );
+		//find a rebel with no targeting
+		DeploymentCard defaultRebel = FindRebel();
+		//if finding a specific hero bombs, just find ANY rebel
+		defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificHero && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+
+		return defaultRebel;
+	}
+
+	DeploymentCard HandleTargetAlly( ChangeTarget ovrd )
+	{
+		Debug.Log( "HandleTargetAlly()" );
+		//find a rebel with no targeting
+		DeploymentCard defaultRebel = FindRebel();
+		//if finding a specific ally bombs, just find ANY rebel
+		defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificAlly && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+
+		return defaultRebel;
+	}
+
+	DeploymentCard HandleTargetTraits( ChangeTarget ovrd = null )
+	{
+		Debug.Log( "HandleTargetTraits()" );
+		//find a rebel with no targeting
+		DeploymentCard defaultRebel = FindRebel();
+		//get the DEFAULT preferred target traits first
+		GroupTraits[] preferredTargets = cardDescriptor.preferredTargets;
+
+		//if an override was sent, use it
+		if ( ovrd != null && !ovrd.groupPriorityTraits.useDefaultPriority )
+			preferredTargets = ovrd.groupPriorityTraits.GetTraitArray();
+
+		var hlist = DataStore.deployedHeroes.GetHealthy().WithTraits( preferredTargets );
+		var ulist = DataStore.deployedHeroes.GetUnhealthy().WithTraits( preferredTargets );
+
+		if ( hlist is null )//if no rebels with preferred traits, try ANY healthy rebel
 			hlist = DataStore.deployedHeroes.GetHealthy();
 		else
-			Debug.Log( "PREFFERED::" + string.Join( ", ", groupTraits ) );
+			Debug.Log( "PREFFERED::" + string.Join( ", ", preferredTargets ) );
 		if ( ulist is null )
 			ulist = DataStore.deployedHeroes.GetUnhealthy();
 
@@ -359,46 +398,6 @@ public class EnemyActivationPopup : MonoBehaviour
 			defaultRebel = ulist[rnd[0]];
 		}
 
-		//check for target override
-		//if a targeted ally/hero doesn't exist in the game, or it's withdrawn, just use default
-		//all
-		ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride()?.changeTarget;
-		if ( ovrd != null )
-		{
-			if ( ovrd.targetType == PriorityTargetType.Rebel )
-			{
-				//default behavior - any rebel already determined above
-			}
-			if ( ovrd.targetType == PriorityTargetType.Ally )
-			{
-				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificAlly && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
-			}
-			else if ( ovrd.targetType == PriorityTargetType.Hero )
-			{
-				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificHero && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
-			}
-			Debug.Log( $"FindRebel()::MODIFYING ALL::{ovrd.targetType}, target = {defaultRebel.name}" );
-		}
-
-		//specific
-		ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id )?.changeTarget;
-		if ( ovrd != null )
-		{
-			if ( ovrd.targetType == PriorityTargetType.Rebel )
-			{
-				//default behavior - any rebel already determined above
-			}
-			if ( ovrd.targetType == PriorityTargetType.Ally )
-			{
-				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificAlly && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
-			}
-			else if ( ovrd.targetType == PriorityTargetType.Hero )
-			{
-				defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificHero && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
-			}
-			Debug.Log( $"FindRebel()::MODIFYING SPECIFIC::{ovrd.targetType}, target = {defaultRebel.name}" );
-		}
-
 		return defaultRebel;
 	}
 
@@ -407,7 +406,6 @@ public class EnemyActivationPopup : MonoBehaviour
 		var hlist = DataStore.deployedHeroes.GetHealthy();
 		var ulist = DataStore.deployedHeroes.GetUnhealthy();
 		DeploymentCard defaultRebel = null;
-
 
 		if ( hlist != null )
 		{
@@ -521,7 +519,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		string repo = DataStore.sagaSessionData.gameVars.GetDeploymentOverride()?.repositionInstructions;
 		if ( !string.IsNullOrEmpty( repo ) )
 		{
-			repo = "<color=orange>{-} " + repo + "</color>";
+			repo = "<color=orange>" + DataStore.uiLanguage.sagaMainApp.repositionTargetUC + ":\n{-} " + repo + "</color>";
 			List<string> lines = repo.Split( new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries ).ToList();
 			lines.Insert( 0, "\n" );
 			//place at bottom of instructions
@@ -533,7 +531,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		repo = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( ID )?.repositionInstructions;
 		if ( !string.IsNullOrEmpty( repo ) )
 		{
-			repo = "<color=orange>{-} " + repo + "</color>";
+			repo = "<color=orange>" + DataStore.uiLanguage.sagaMainApp.repositionTargetUC + ":\n{-} " + repo + "</color>";
 			List<string> lines = repo.Split( new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries ).ToList();
 			lines.Insert( 0, "\n" );
 			//place at bottom of instructions

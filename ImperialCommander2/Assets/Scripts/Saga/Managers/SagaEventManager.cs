@@ -263,7 +263,7 @@ namespace Saga
 		void ProcessEvent( MissionEvent ev )
 		{
 			Debug.Log( "ProcessEvent()::START PROCESSING EVENT QUEUE" );
-			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
+			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 			toggleVisButton.SetActive( true );
 
 			processingEvents = true;
@@ -292,7 +292,7 @@ namespace Saga
 			}
 			else
 			{
-				if ( eventActionQueue.Count > 0 )
+				if ( eventActionQueue.Count >= 0 )
 				{
 					NextEventAction();
 				}
@@ -397,7 +397,7 @@ namespace Saga
 				{
 					Debug.Log( "NextEventAction()::DONE PROCESSING ALL EVENTS" );
 					processingEvents = false;
-					FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+					//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 					toggleVisButton.SetActive( false );
 
 					//Debug.Log( $"NextEventAction()::endProcessingCallback={endProcessingCallback.ToString()}" );

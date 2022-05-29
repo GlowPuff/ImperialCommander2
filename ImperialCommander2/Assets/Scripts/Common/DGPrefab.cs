@@ -169,7 +169,7 @@ public class DGPrefab : MonoBehaviour
 				 //reimburse some Threat
 				 DataStore.sessionData.ModifyThreat( cardDescriptor.reimb );
 				 //show fame popup
-				 GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"red\">{cardDescriptor.fame}</color>" );
+				 GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"green\">{cardDescriptor.fame}</color>" );
 			 }
 
 			 Object.Destroy( gameObject );

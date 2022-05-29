@@ -24,7 +24,6 @@ namespace Saga
 		int colorIndex = 0;
 		[HideInInspector]
 		public bool isConfirming = false;
-		ScrollRect scrollRect;
 
 		private void Awake()
 		{
@@ -202,7 +201,7 @@ namespace Saga
 					//reimburse some Threat
 					DataStore.sagaSessionData.ModifyThreat( cardDescriptor.reimb );
 					//show fame popup
-					GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"red\">{cardDescriptor.fame}</color>" );
+					GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"green\">{cardDescriptor.fame}</color>" );
 				}
 
 				Object.Destroy( gameObject );
@@ -311,8 +310,9 @@ namespace Saga
 			if ( ovrd != null )
 			{
 				FindObjectOfType<SagaController>().triggerManager.FireTrigger( ovrd.setTrigger );
-				//if ( ovrd.setTrigger == System.Guid.Empty )
 				FindObjectOfType<SagaController>().eventManager.DoEvent( ovrd.setEvent );
+				//soft reset of override
+				ovrd.SoftReset();
 			}
 		}
 

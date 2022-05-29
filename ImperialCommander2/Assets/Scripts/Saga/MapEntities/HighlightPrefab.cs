@@ -21,7 +21,16 @@ public class HighlightPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 
 	public void EndTurnCleanup()
 	{
+		if ( (mapEntity as SpaceHighlight).Duration == 0 || !mapEntity.entityProperties.isActive )
+			return;
 
+		if ( !DataStore.sagaSessionData.gameVars.highlightLifeTimes.ContainsKey( mapEntity.GUID ) )
+			DataStore.sagaSessionData.gameVars.highlightLifeTimes.Add( mapEntity.GUID, 0 );
+
+		DataStore.sagaSessionData.gameVars.highlightLifeTimes[mapEntity.GUID]++;
+
+		if ( DataStore.sagaSessionData.gameVars.highlightLifeTimes[mapEntity.GUID] >= (mapEntity as SpaceHighlight).Duration )
+			HideEntity();
 	}
 
 	public void RemoveEntity()

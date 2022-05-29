@@ -5,13 +5,14 @@ using UnityEngine;
 public class DoorPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 {
 	public GameObject doorModel, doorOpenModel;
-	//[HideInInspector]
-	//public Door door;
+	public MeshRenderer meshRenderer;
 
 	public IMapEntity mapEntity { get; set; }
 
 	public void Init( Door d )
 	{
+		meshRenderer.material.color = Color.green;
+
 		float xmod = 1;
 		float ymod = 1;
 		if ( d.entityRotation == 90 )

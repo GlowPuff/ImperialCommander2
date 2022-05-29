@@ -40,6 +40,7 @@ namespace Saga
 			public List<Guid> firedEvents { get; } = new List<Guid>();
 			public List<DeploymentGroupOverride> dgOverrides = new List<DeploymentGroupOverride>();
 			public DeploymentGroupOverride dgOverridesAll = null;
+			public Dictionary<Guid, int> highlightLifeTimes = new Dictionary<Guid, int>();
 
 			public SagaGameVars()
 			{
@@ -88,6 +89,8 @@ namespace Saga
 				{
 					return dgOverrides.Where( x => x.ID == id ).FirstOr( null );
 				}
+				else if ( id == null )
+					return null;
 				else
 					return dgOverridesAll;
 			}

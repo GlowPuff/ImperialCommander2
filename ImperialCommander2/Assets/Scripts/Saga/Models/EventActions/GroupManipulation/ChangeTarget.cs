@@ -9,6 +9,7 @@ namespace Saga
 		public string otherTarget;
 		public string specificAlly;
 		public string specificHero;
+		public int percentChance;
 		public List<DeploymentCard> groupsToAdd = new List<DeploymentCard>();
 		public GroupPriorityTraits groupPriorityTraits;
 

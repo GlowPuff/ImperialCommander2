@@ -11,6 +11,7 @@ namespace Saga
 		public Guid specificDeploymentPoint;
 		public int threatCost;
 		public bool useThreat;
+		public bool useGenericMugshot;
 
 		public AllyDeployment()
 		{
