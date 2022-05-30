@@ -25,7 +25,7 @@ namespace Saga
 			tf.localScale = Vector3.zero;
 		}
 
-		public void Init( DeploymentCard cd, bool useGenericMugshot = false )
+		public void Init( DeploymentCard cd )
 		{
 			Debug.Log( "DEPLOYED: " + cd.name );
 			cardDescriptor = cd;
@@ -39,11 +39,12 @@ namespace Saga
 				}
 				else if ( DataStore.allyCards.Any( x => x.id == cd.id ) )
 				{
-					//isAlly = true;
-					if ( !useGenericMugshot )
+					//check for using generic mugshot
+					var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+					if ( ovrd != null && !ovrd.useGenericMugshot )
 						iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
 					else
-						iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/M002" );
+						iconImage.sprite = Resources.Load<Sprite>( $"Cards/genericAlly" );
 				}
 
 				if ( cd.id[0] == 'A' )

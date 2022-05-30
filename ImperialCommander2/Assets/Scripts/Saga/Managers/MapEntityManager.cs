@@ -112,13 +112,13 @@ namespace Saga
 
 			var ret = new List<string>();
 			if ( doors.Count() > 0 )
-				ret.Add( $"<color=orange>{doors.Count()} Door(s)</color>" );
+				ret.Add( $"<color=orange>{doors.Count()} {DataStore.uiLanguage.sagaMainApp.doorsUC}</color>" );
 			if ( tokens.Count() > 0 )
-				ret.Add( $"<color=orange>{tokens.Count()} Token(s)</color>" );
+				ret.Add( $"<color=orange>{tokens.Count()} {DataStore.uiLanguage.sagaMainApp.tokensUC}</color>" );
 			if ( terminals.Count() > 0 )
-				ret.Add( $"<color=orange>{terminals.Count()} Terminal(s)</color>" );
+				ret.Add( $"<color=orange>{terminals.Count()} {DataStore.uiLanguage.sagaMainApp.terminalsUC}</color>" );
 			if ( crate.Count() > 0 )
-				ret.Add( $"<color=orange>{crate.Count()} Crate(s)</color>" );
+				ret.Add( $"<color=orange>{crate.Count()} {DataStore.uiLanguage.sagaMainApp.cratesUC}</color>" );
 
 			return ret;
 		}

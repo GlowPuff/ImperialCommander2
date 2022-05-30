@@ -155,6 +155,7 @@ namespace Saga
 		public GroupPriorityTraits groupPriorityTraits;
 		public Guid defeatedTrigger;
 		public Guid defeatedEvent;
+		public bool useGenericMugshot;
 
 		public EnemyGroupData()
 		{
@@ -185,6 +186,21 @@ namespace Saga
 		//	}
 		//}
 	}
+
+	public class InputRange
+	{
+		public string theText;
+		public int fromValue;
+		public int toValue;
+		public Guid triggerGUID;
+		public Guid eventGUID;
+
+		public InputRange()
+		{
+
+		}
+	}
+
 
 	//public class SagaDeploymentCard
 	//{

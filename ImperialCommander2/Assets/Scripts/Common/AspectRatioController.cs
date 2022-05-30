@@ -442,22 +442,18 @@ public class AspectRatioController : MonoBehaviour
 	/// </summary>
 	IEnumerator DelayedQuit()
 	{
-		try
-		{
-			// Re-set old WindowProc callback. Normally, this would be done in the new callback itself
-			// once WM_CLOSE is detected. This seems to work fine on 64 bit, but when I build 32 bit
-			// executables, this causes the application to crash on quitting.
-			// This shouldn't really happen and I'm not sure why it does.
-			// However, this solution right here seems to work fine on both 32 and 64 bit.
-			SetWindowLong( unityHWnd, GWLP_WNDPROC, oldWndProcPtr );
-			// Wait for end of frame (our callback is now un-registered), then allow application to quit.
-			yield return new WaitForEndOfFrame();
-		}
-		finally
-		{
-			quitStarted = true;
-			Application.Quit();
-		}
+		// Re-set old WindowProc callback. Normally, this would be done in the new callback itself
+		// once WM_CLOSE is detected. This seems to work fine on 64 bit, but when I build 32 bit
+		// executables, this causes the application to crash on quitting.
+		// This shouldn't really happen and I'm not sure why it does.
+		// However, this solution right here seems to work fine on both 32 and 64 bit.
+		SetWindowLong( unityHWnd, GWLP_WNDPROC, oldWndProcPtr );
+
+		// Wait for end of frame (our callback is now un-registered), then allow application to quit.
+		yield return new WaitForEndOfFrame();
+
+		quitStarted = true;
+		Application.Quit();
 	}
 }
 

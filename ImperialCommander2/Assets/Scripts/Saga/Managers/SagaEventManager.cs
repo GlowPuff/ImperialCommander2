@@ -7,7 +7,7 @@ namespace Saga
 {
 	public partial class SagaEventManager : MonoBehaviour
 	{
-		public GameObject textBoxPrefab, promptBoxPrefab, toggleVisButton;
+		public GameObject textBoxPrefab, promptBoxPrefab, toggleVisButton, inputBoxPrefab;
 		public Transform infoButtonTX;
 
 		bool[] hiddenChildren = new bool[0];
@@ -326,6 +326,9 @@ namespace Saga
 					break;
 				case EventActionType.G8:
 					ActivateEventGroup( eventAction as ActivateEventGroup );
+					break;
+				case EventActionType.G9:
+					ShowInputBox( eventAction as InputPrompt );
 					break;
 				case EventActionType.GM1:
 					ChangeGroupInstructions( eventAction as ChangeInstructions );

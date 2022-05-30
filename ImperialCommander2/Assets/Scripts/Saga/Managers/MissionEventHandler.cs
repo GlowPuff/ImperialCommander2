@@ -153,8 +153,16 @@ namespace Saga
 		{
 			Debug.Log( "SagaEventManager()::PROCESSING ActivateEventGroup" );
 			EventGroup eg = DataStore.mission.eventGroups.Where( x => x.GUID == ag.eventGroupGUID ).FirstOr( null );
-			FindObjectOfType<SagaController>().triggerManager.FireEventGroup( eg.GUID );
+			if ( eg != null )
+				FindObjectOfType<SagaController>().triggerManager.FireEventGroup( eg.GUID );
 			NextEventAction();
+		}
+		void ShowInputBox( InputPrompt ip )
+		{
+			Debug.Log( "ShowInputBox()::PROCESSING ShowTextBox" );
+			var go = Instantiate( inputBoxPrefab, transform );
+			var tb = go.transform.Find( "InputBox" ).GetComponent<InputBox>();
+			tb.Show( ip, NextEventAction );
 		}
 
 		//DEPLOYMENTS
@@ -218,7 +226,7 @@ namespace Saga
 					DataStore.sagaSessionData.ModifyThreat( Mathf.Clamp( card.cost + ad.threatCost, 0, 100 ) );
 				}
 				//finally, do the actual deployment
-				FindObjectOfType<SagaController>().dgManager.DeployHeroAlly( card, ovrd.useGenericMugshot );
+				FindObjectOfType<SagaController>().dgManager.DeployHeroAlly( card );
 				FindObjectOfType<SagaController>().dgManager.HandleMapDeployment( card, NextEventAction, ovrd );
 			}
 			else

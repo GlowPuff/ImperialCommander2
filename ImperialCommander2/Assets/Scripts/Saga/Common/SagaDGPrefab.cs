@@ -66,6 +66,11 @@ namespace Saga
 				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "DG", "M" )}" );
 			}
 
+			//check for using generic mugshot
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && !ovrd.useGenericMugshot )
+				iconImage.sprite = Resources.Load<Sprite>( $"Cards/genericEnemy" );
+
 			if ( cd.isElite )
 				outlineColor.color = eliteColor;
 			//outline.effectColor = eliteColor;
@@ -73,7 +78,6 @@ namespace Saga
 			SetColorIndex();
 
 			//check for modifier text override
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
 			if ( ovrd != null && ovrd.showMod && !string.IsNullOrEmpty( ovrd.modification.Trim() ) )
 			{
 				modifierBox.SetActive( true );

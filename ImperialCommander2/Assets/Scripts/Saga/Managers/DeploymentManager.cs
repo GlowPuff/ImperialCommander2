@@ -18,7 +18,7 @@ namespace Saga
 			sound = FindObjectOfType<Sound>();
 		}
 
-		public void DeployHeroAlly( DeploymentCard cd, bool useGenericMugshot = false )
+		public void DeployHeroAlly( DeploymentCard cd )
 		{
 			if ( DataStore.deployedHeroes.ContainsCard( cd ) )
 			{
@@ -31,7 +31,7 @@ namespace Saga
 			cd.heroState.Init( DataStore.sagaSessionData.MissionHeroes.Count );
 
 			var go = Instantiate( hgPrefab, heroContainer );
-			go.GetComponent<SagaHGPrefab>().Init( cd, useGenericMugshot );
+			go.GetComponent<SagaHGPrefab>().Init( cd );
 			if ( !DataStore.deployedHeroes.ContainsCard( cd ) )
 				DataStore.deployedHeroes.Add( cd );
 			sound.PlaySound( FX.Computer );

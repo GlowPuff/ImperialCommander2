@@ -93,6 +93,9 @@ namespace Saga
 					case 19:
 						eventActionAction = item.ToObject<ActivateEventGroup>();
 						break;
+					case 20:
+						eventActionAction = item.ToObject<InputPrompt>();
+						break;
 				}
 				eObserver.Add( eventActionAction );
 			}

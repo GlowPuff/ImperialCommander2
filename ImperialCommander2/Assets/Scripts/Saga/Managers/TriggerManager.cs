@@ -81,7 +81,8 @@ namespace Saga
 
 				//handle Event Groups
 				var eg = eventGroupList.Where( x => x.triggerGUID == guid ).FirstOr( null );
-				FireEventGroup( eg.GUID );
+				if ( eg != null )
+					FireEventGroup( eg.GUID );
 			}
 		}
 
