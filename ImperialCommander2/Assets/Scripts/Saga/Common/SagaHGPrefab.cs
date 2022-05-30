@@ -41,7 +41,7 @@ namespace Saga
 				{
 					//check for using generic mugshot
 					var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-					if ( ovrd != null && !ovrd.useGenericMugshot )
+					if ( ovrd == null || (ovrd != null && !ovrd.useGenericMugshot) )
 						iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
 					else
 						iconImage.sprite = Resources.Load<Sprite>( $"Cards/genericAlly" );

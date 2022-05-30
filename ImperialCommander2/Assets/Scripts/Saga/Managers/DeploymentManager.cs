@@ -126,7 +126,7 @@ namespace Saga
 				{
 					Debug.Log( "DeployGroup EASY mode Elite downgrade: " + nonE.name );
 					cardDescriptor = nonE;
-					GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngradeMsgUC );
+					//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngradeMsgUC );
 				}
 			}
 
@@ -142,7 +142,7 @@ namespace Saga
 				{
 					Debug.Log( "DeployGroup HARD mode Elite upgrade: " + elite.name );
 					cardDescriptor = elite;
-					GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgradeMsgUC );
+					//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgradeMsgUC );
 				}
 				else
 					Debug.Log( "SKIPPED: " + cardDescriptor.name );
@@ -163,7 +163,7 @@ namespace Saga
 			DataStore.deployedEnemies.Add( cardDescriptor );
 			//if it's FROM the dep hand, remove it
 			//should have already been removed *IF* it's from DeploymentPopup
-			//otherwise it just got (up/down)graded to/from Elite
+			//otherwise it just got (up/down)graded to/from Elite or it's from the event action
 			DataStore.deploymentHand.Remove( cardDescriptor );
 
 			sound.playDeploymentSound( cardDescriptor.id );

@@ -117,6 +117,9 @@ public class EnemyActivationPopup : MonoBehaviour
 				instructions = GetModifiedRepositioning( cd.id, instructions );
 			}
 
+			ParseInstructions( instructions );
+			ParseBonus( cd.id, difficulty );
+
 			DeploymentCard potentialRebel = DataStore.gameType == GameType.Classic ? FindRebel() : FindRebelSaga();
 
 			if ( potentialRebel != null )
@@ -133,9 +136,6 @@ public class EnemyActivationPopup : MonoBehaviour
 			}
 			else
 				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
-
-			ParseInstructions( instructions );
-			ParseBonus( cd.id, difficulty );
 
 			//save this card's activation state
 			cardDescriptor.hasActivated = true;
@@ -211,6 +211,13 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	void ParseBonus( string id, Difficulty difficulty )
 	{
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
+			if ( ovrd != null && ovrd.useGenericMugshot )
+				return;
+		}
+
 		bonusNameText.text = "";
 		bonusText.text = "";
 		BonusEffect be = DataStore.bonusEffects.Where( x => x.bonusID == id ).FirstOr( null );
@@ -468,6 +475,10 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	public void OnRollAttackDice()
 	{
+		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
+		if ( ovrd != null && ovrd.useGenericMugshot )
+			return;
+
 		if ( cardDescriptor.attacks == null )
 			return;
 
@@ -479,6 +490,10 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	public void OnRollDefenseDice()
 	{
+		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
+		if ( ovrd != null && ovrd.useGenericMugshot )
+			return;
+
 		if ( cardDescriptor.defense == null )
 			return;
 

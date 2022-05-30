@@ -93,13 +93,6 @@ public class DynamicCardPrefab : MonoBehaviour
 			faction.gameObject.SetActive( false );
 		}
 
-		if ( DataStore.gameType == GameType.Saga )
-		{
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && ovrd.useGenericMugshot )
-				mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
-		}
-
 		//elite?
 		if ( card.isElite )
 		{
@@ -119,6 +112,45 @@ public class DynamicCardPrefab : MonoBehaviour
 		rcost.text = card.rcost.ToString();
 		health.text = card.health.ToString();
 		speed.text = card.speed.ToString();
+
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && ovrd.useGenericMugshot )
+			{
+				//mugshot
+				mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+				//and clear out ALL data
+				//no faction
+				faction.gameObject.SetActive( false );
+				//size=1
+				size2.SetActive( false );
+				size3.SetActive( false );
+				//remove elite
+				cardColor.color = new Color( 0, 164 / 255f, 1 );
+				mugshotOutline.color = new Color( 0, 164f / 255f, 1 );
+				//expansion to Core
+				expansion.color = mugshotOutline.color;
+				//numbers
+				cost.text = rcost.text = health.text = speed.text = "0";
+				//surges
+				foreach ( Transform child in surgeBox.transform )
+				{
+					Destroy( child.gameObject );
+				}
+				//traits
+				traits.text = "";
+				//keywords
+				keywords.text = "";
+				//abilities
+				foreach ( Transform child in abilityContainer.transform )
+					Destroy( child.gameObject );
+				foreach ( Transform child in defenseContainer.transform )
+					Destroy( child.gameObject );
+				foreach ( Transform child in attackContainer.transform )
+					Destroy( child.gameObject );
+			}
+		}
 	}
 
 	private void ParseSurges()

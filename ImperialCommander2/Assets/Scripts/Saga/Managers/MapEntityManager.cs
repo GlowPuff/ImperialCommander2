@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -125,6 +126,11 @@ namespace Saga
 
 		public void ModifyPrefabs( ModifyMapEntity mm, Action callback )
 		{
+			StartCoroutine( ModifyEntityCoroutine( mm, callback ) );
+		}
+
+		IEnumerator ModifyEntityCoroutine( ModifyMapEntity mm, Action callback )
+		{
 			foreach ( var mod in mm.entitiesToModify )
 			{
 				foreach ( Transform child in transform )
@@ -144,18 +150,16 @@ namespace Saga
 								pf.ModifyEntity( mod.entityProperties );
 								FindObjectOfType<SagaController>().cameraController.MoveToEntity( pf.mapEntity.GUID );
 								var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n1 " + pf.mapEntity.entityType;
-								FindObjectOfType<SagaController>().eventManager.ShowTextBox( emsg, callback );
-								return;
+								bool done = false;
+								FindObjectOfType<SagaController>().eventManager.ShowTextBox( emsg, () => done = true );
+								while ( !done )
+									yield return null;
 							}
-							//if setting a active to non-active
-							//else if ( pf.mapEntity.entityProperties.isActive && !mod.entityProperties.isActive )
-							//{
-							//	var emsg = DataStore.uiLanguage.sagaMainApp.mmRemoveEntitiesUC + ":\n\n1 " + pf.mapEntity.entityType;
-							//	FindObjectOfType<SagaController>().eventManager.ShowTextBox( emsg, callback );
-							//}
+							else
+								pf.ModifyEntity( mod.entityProperties );
 						}
-
-						pf.ModifyEntity( mod.entityProperties );
+						else
+							pf.ModifyEntity( mod.entityProperties );
 					}
 				}
 			}

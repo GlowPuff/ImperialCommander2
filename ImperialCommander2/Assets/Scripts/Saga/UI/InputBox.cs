@@ -75,8 +75,8 @@ namespace Saga
 			foreach ( var item in inputPrompt.inputList )
 			{
 				int max = item.toValue;
-				//if toValue=0, max is infinite
-				if ( item.toValue == 0 )
+				//if toValue=-1, max is infinite
+				if ( item.toValue == -1 )
 					max = int.MaxValue;
 
 				if ( inputValue >= item.fromValue && inputValue <= max )
