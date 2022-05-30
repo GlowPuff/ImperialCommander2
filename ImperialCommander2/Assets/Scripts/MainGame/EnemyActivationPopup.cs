@@ -198,6 +198,14 @@ public class EnemyActivationPopup : MonoBehaviour
 			thumbnail.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
 			thumbnail.GetComponent<Outline>().effectColor = new Color( 0, 0.6440244f, 1, 1 );
 		}
+
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && ovrd.useGenericMugshot )
+				thumbnail.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+		}
+
 		thumbnail.DOFade( 1, .25f );
 	}
 

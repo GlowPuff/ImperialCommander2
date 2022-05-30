@@ -93,6 +93,13 @@ public class DynamicCardPrefab : MonoBehaviour
 			faction.gameObject.SetActive( false );
 		}
 
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && ovrd.useGenericMugshot )
+				mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+		}
+
 		//elite?
 		if ( card.isElite )
 		{

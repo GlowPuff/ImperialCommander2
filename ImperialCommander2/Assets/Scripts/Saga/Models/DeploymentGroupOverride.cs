@@ -129,6 +129,9 @@ namespace Saga
 			//defeated trigger/event
 			setTrigger = ed.defeatedTrigger;
 			setEvent = ed.defeatedEvent;
+
+			//generic mugshot
+			useGenericMugshot = ed.useGenericMugshot;
 		}
 
 		public void SetInstructionOverride( ChangeInstructions ci )

@@ -186,6 +186,8 @@ namespace Saga
 				} );
 			//set the main override data
 			ovrd.SetEnemyDeploymentOverride( ed );
+			//generic mugshot
+			ovrd.useGenericMugshot = ed.useGenericMugshot;
 
 			//check if this deployment uses threat cost, and apply any modification
 			if ( ed.useThreat )
