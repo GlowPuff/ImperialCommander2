@@ -104,7 +104,7 @@ namespace Saga
 				{
 					return dgOverridesAll ?? (dgOverridesAll = new DeploymentGroupOverride( "" ));
 				}
-				else if ( !string.IsNullOrEmpty( id ) && !string.IsNullOrEmpty( id ) )
+				else if ( !string.IsNullOrEmpty( id ) )
 				{
 					if ( dgOverrides.Any( x => x.ID == id ) )
 						return dgOverrides.Where( x => x.ID == id ).First();
@@ -116,6 +116,18 @@ namespace Saga
 					}
 				}
 				return null;
+			}
+
+			public DeploymentGroupOverride CreateDeploymentOverride( CustomEnemyDeployment ced )
+			{
+				if ( dgOverrides.Any( x => x.ID == ced.enemyGroupData.cardID ) )
+					return dgOverrides.Where( x => x.ID == ced.enemyGroupData.cardID ).First();
+				else
+				{
+					var ovrd = new DeploymentGroupOverride( ced.enemyGroupData.cardID );
+					dgOverrides.Add( ovrd );
+					return ovrd;
+				}
 			}
 
 			public void RemoveOverride( string id )

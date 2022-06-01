@@ -91,7 +91,7 @@ namespace Saga
 			DataStore.InitData();
 			DataStore.StartNewSagaSession( new SagaSetupOptions()
 			{
-				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "Test Token Appear.json" ) },//CORE1-A New Threat
+				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "test.json" ) },//CORE1-A New Threat
 				difficulty = Difficulty.Medium,
 				threatLevel = 3,
 				useAdaptiveDifficulty = false,

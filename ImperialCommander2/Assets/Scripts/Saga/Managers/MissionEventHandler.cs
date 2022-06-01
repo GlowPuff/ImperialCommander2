@@ -313,6 +313,12 @@ namespace Saga
 			}
 			NextEventAction();
 		}
+		void CustomDeployment( CustomEnemyDeployment ced )
+		{
+			Debug.Log( "SagaEventManager()::PROCESSING CustomDeployment" );
+			var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ced.enemyGroupData.cardID );
+
+		}
 
 		//GROUP MANIPULATIONS
 		void ChangeGroupInstructions( ChangeInstructions ci )
@@ -424,6 +430,7 @@ namespace Saga
 		void MapManagement( MapManagement mm )
 		{
 			Debug.Log( "SagaEventManager()::PROCESSING MapManagement" );
+			//activate map section
 			if ( mm.mapSection != Guid.Empty )
 			{
 				var tiles = FindObjectOfType<SagaController>().tileManager.ActivateMapSection( mm.mapSection );
@@ -438,6 +445,7 @@ namespace Saga
 					NextEventAction();
 				} );
 			}
+			//deactivate map section
 			if ( mm.mapSectionRemove != Guid.Empty )
 			{
 				var tiles = FindObjectOfType<SagaController>().tileManager.DeactivateMapSection( mm.mapSectionRemove );
@@ -447,6 +455,7 @@ namespace Saga
 						NextEventAction();
 					} );
 			}
+			//activate tile
 			if ( mm.mapTile != Guid.Empty )
 			{
 				string t = FindObjectOfType<SagaController>().tileManager.ActivateTile( mm.mapTile );
@@ -457,10 +466,10 @@ namespace Saga
 					NextEventAction();
 				} );
 			}
+			//deactivate tile
 			if ( mm.mapTileRemove != Guid.Empty )
 			{
 				string t = FindObjectOfType<SagaController>().tileManager.DeactivateTile( mm.mapTileRemove );
-				//FindObjectOfType<TileManager>().CamToTile( t.Replace( " ", "_" ) );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmRemoveTilesUC}:\n\n<color=orange>{t}</color>", () =>
 				{
 					NextEventAction();
@@ -472,8 +481,6 @@ namespace Saga
 		{
 			var em = FindObjectOfType<MapEntityManager>();
 			em.ModifyPrefabs( mod, NextEventAction );
-
-			//NextEventAction();
 		}
 
 		/// <summary>

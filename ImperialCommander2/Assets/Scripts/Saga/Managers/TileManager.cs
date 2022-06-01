@@ -103,7 +103,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Marks session as active, shows section, tiles and entities within (does NOT toggle IsActive for entities)
+		/// Marks section as active, shows section, tiles and entities within (does NOT toggle IsActive for entities)
 		/// </summary>
 		public void ActivateMapSection( int index )
 		{
@@ -194,7 +194,7 @@ namespace Saga
 			{
 				if ( tr.mapTile.GUID == guid )
 				{
-					tr.ShowTile();
+					tr.ModifyVisibility( true );
 					return $"{tr.mapTile.expansion} {tr.mapTile.tileID}{tr.mapTile.tileSide}";
 				}
 			}
@@ -207,7 +207,7 @@ namespace Saga
 			{
 				if ( tr.mapTile.GUID == guid )
 				{
-					tr.HideTile();
+					tr.ModifyVisibility( false );
 					return $"{tr.mapTile.expansion} {tr.mapTile.tileID}{tr.mapTile.tileSide}";
 				}
 			}

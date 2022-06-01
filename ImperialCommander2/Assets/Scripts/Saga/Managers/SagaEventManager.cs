@@ -360,6 +360,9 @@ namespace Saga
 				case EventActionType.D5:
 					AddGroupToHand( eventAction as AddGroupDeployment );
 					break;
+				case EventActionType.D6:
+					CustomDeployment( eventAction as CustomEnemyDeployment );
+					break;
 				case EventActionType.M1:
 					MapManagement( eventAction as MapManagement );
 					break;

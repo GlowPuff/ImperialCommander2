@@ -39,24 +39,40 @@ namespace Saga
 				FindObjectOfType<SagaController>().ShowError( $"LoadTile()::{mapTile.textureName} not found" );
 		}
 
+		/// <summary>
+		/// ONLY changes visibility, does NOT modify isActive
+		/// </summary>
 		public void ShowTile( bool immediate = false )
 		{
 			Debug.Log( $"SHOWING TILE::{tileDescriptor.id}" );
-			mapTile.entityProperties.isActive = true;
-			if ( immediate )
-				spriteRenderer.color = Color.white;
-			else
-				spriteRenderer.DOFade( 1, 1f );
+			if ( mapTile.entityProperties.isActive )
+			{
+				if ( immediate )
+					spriteRenderer.color = Color.white;
+				else
+					spriteRenderer.DOFade( 1, 1f );
+			}
 		}
 
+		/// <summary>
+		/// ONLY changes visibility, does NOT modify isActive
+		/// </summary>
 		public void HideTile( bool immediate = false )
 		{
 			Debug.Log( $"HIDING TILE::{tileDescriptor.id}" );
-			mapTile.entityProperties.isActive = false;
 			if ( immediate )
 				spriteRenderer.color = new Color( 1, 1, 1, 0 );
 			else
 				spriteRenderer.DOFade( 0, 1f );
+		}
+
+		public void ModifyVisibility( bool vis )
+		{
+			mapTile.entityProperties.isActive = vis;
+			if ( vis )
+				ShowTile();
+			else
+				HideTile();
 		}
 	}
 }
