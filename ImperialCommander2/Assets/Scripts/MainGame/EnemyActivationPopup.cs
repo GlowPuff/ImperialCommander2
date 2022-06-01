@@ -117,9 +117,6 @@ public class EnemyActivationPopup : MonoBehaviour
 				instructions = GetModifiedRepositioning( cd.id, instructions );
 			}
 
-			ParseInstructions( instructions );
-			ParseBonus( cd.id, difficulty );
-
 			DeploymentCard potentialRebel = DataStore.gameType == GameType.Classic ? FindRebel() : FindRebelSaga();
 
 			if ( potentialRebel != null )
@@ -136,6 +133,10 @@ public class EnemyActivationPopup : MonoBehaviour
 			}
 			else
 				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
+
+			//rebel1 has been set, now it's safe to parse instructions that use it for targeting
+			ParseInstructions( instructions );
+			ParseBonus( cd.id, difficulty );
 
 			//save this card's activation state
 			cardDescriptor.hasActivated = true;

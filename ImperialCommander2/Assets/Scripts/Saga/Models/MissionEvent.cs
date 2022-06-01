@@ -30,6 +30,14 @@ namespace Saga
 		public bool behaviorAll;
 		public bool isRepeatable;
 		public bool isEndOfCurrentRound;
+
+		//upkeep
+		public bool hasActivatedThisRound { get; set; } = false;
+		public bool usesEnd
+		{
+			get { return useEndOfEachRound || isEndOfCurrentRound || useEndOfRound || useStartOfEachRound || useStartOfRound; }
+		}
+
 		public List<TriggeredBy> additionalTriggers { get; set; }
 
 		[JsonConverter( typeof( EventActionConverter ) )]

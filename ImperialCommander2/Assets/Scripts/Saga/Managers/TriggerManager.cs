@@ -37,7 +37,7 @@ namespace Saga
 
 			//SKIP "NONE" Triggers?
 			foreach ( var t in mission.globalTriggers )
-				triggerStateList.Add( new TriggerState( t ) );
+				triggerStateList.Add( new TriggerState( t ) { currentValue = t.initialValue } );
 
 			foreach ( var section in mission.mapSections )
 			{
@@ -46,6 +46,8 @@ namespace Saga
 					triggerStateList.Add( new TriggerState( t ) );
 				}
 			}
+
+			FindObjectOfType<ObjectivePanel>().NotifyValueUpdated();
 		}
 
 		/// <summary>

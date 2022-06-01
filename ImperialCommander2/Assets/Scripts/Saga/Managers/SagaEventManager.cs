@@ -45,6 +45,12 @@ namespace Saga
 			}
 		}
 
+		public void ResetEndOfEvents()
+		{
+			foreach ( var ev in missionEvents )
+				ev.hasActivatedThisRound = false;
+		}
+
 		public void SetEndProcessingCallback( Action callback )
 		{
 			Debug.Log( "SetEndProcessingCallback()::SET" );
@@ -101,6 +107,8 @@ namespace Saga
 
 					if ( check )
 					{
+						if ( ev.usesEnd )
+							ev.hasActivatedThisRound = true;
 						Debug.Log( "CheckIfEventsTriggered()::EVENT TRIGGERED::" + ev.name );
 						//eventTriggered = true;
 						DoEvent( ev );
@@ -262,7 +270,8 @@ namespace Saga
 		/// </summary>
 		void ProcessEvent( MissionEvent ev )
 		{
-			Debug.Log( "ProcessEvent()::START PROCESSING EVENT QUEUE" );
+			Debug.Log( "ProcessEvent()::START PROCESSING EVENT QUEUE::" + ev.name );
+
 			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 			toggleVisButton.SetActive( true );
 
@@ -395,7 +404,7 @@ namespace Saga
 
 				if ( eventQueue.Count > 0 )
 				{
-					Debug.Log( "NextEventAction()::PROCESSING NEXT EVENT" );
+					Debug.Log( "NextEventAction()::PROCESSING NEXT EVENT::" + eventQueue.Peek().name );
 					//process the next event
 					ProcessEvent( eventQueue.Peek() );
 				}

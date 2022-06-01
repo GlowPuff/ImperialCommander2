@@ -28,12 +28,12 @@ namespace Saga
 
 			if ( missionEvent.behaviorAll && count.Count() == states.Count() )
 			{
-				Debug.Log( $"CheckAdditionalTriggers()::ALL TRIGGER MATCH for Event '{missionEvent.name}'" );
+				Debug.Log( $"CheckAdditionalTriggers()::'ALL' TRIGGER MATCH for Event '{missionEvent.name}'" );
 				return true;
 			}
 			else if ( !missionEvent.behaviorAll && states.Count() > 0 )
 			{
-				Debug.Log( $"CheckAdditionalTriggers()::ANY TRIGGER MATCH for Event '{missionEvent.name}'" );
+				Debug.Log( $"CheckAdditionalTriggers()::'ANY' TRIGGER MATCH for Event '{missionEvent.name}'" );
 				return true;
 			}
 
@@ -45,6 +45,9 @@ namespace Saga
 		/// </summary>
 		public bool CheckEndRound( int r = -1 )
 		{
+			if ( missionEvent.hasActivatedThisRound )
+				return false;
+
 			if ( DataStore.sagaSessionData.gameVars.isEndTurn )
 			{
 				if ( r == -1 )
@@ -61,6 +64,9 @@ namespace Saga
 		/// </summary>
 		public bool CheckStartRound( int r = -1 )
 		{
+			if ( missionEvent.hasActivatedThisRound )
+				return false;
+
 			if ( DataStore.sagaSessionData.gameVars.isStartTurn )
 			{
 				if ( r == -1 )
@@ -74,6 +80,8 @@ namespace Saga
 
 		public bool CheckEndOfCurrentRound()
 		{
+			if ( missionEvent.hasActivatedThisRound )
+				return false;
 			//since this check is ONLY called at the end of a round, no need to check if this is the end of the round first
 			return DataStore.sagaSessionData.gameVars.ShouldFireEndCurrentRoundEvent( missionEvent.GUID );
 		}

@@ -52,6 +52,8 @@ namespace Saga
 				chevron.DORotate( new Vector3( 0, 0, 180 ), .25f );
 				DOTween.To( () => rt.offsetMax, x => rt.offsetMax = x, new Vector2( 900, 56 ), .25f ).SetEase( Ease.InOutCubic ).OnComplete( () => message.gameObject.SetActive( true ) );
 			}
+
+			NotifyValueUpdated();
 		}
 
 		public void NotifyValueUpdated()

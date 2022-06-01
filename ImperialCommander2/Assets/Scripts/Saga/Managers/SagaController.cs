@@ -91,11 +91,13 @@ namespace Saga
 			DataStore.InitData();
 			DataStore.StartNewSagaSession( new SagaSetupOptions()
 			{
-				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "test.json" ) },//CORE1-A New Threat
+				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "EMPIRE8-Inside Man.json" ) },
 				difficulty = Difficulty.Medium,
 				threatLevel = 3,
 				useAdaptiveDifficulty = false,
 			} );
+			DataStore.sagaSessionData.gameVars.pauseDeployment = true;
+			DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
@@ -423,7 +425,7 @@ namespace Saga
 			if ( eventManager.IsUIHidden )
 				return;
 
-			Debug.Log( "OnEndRound()::ENDING TURN" );
+			Debug.Log( "OnEndRound()::ENDING TURN***************************" );
 			EventSystem.current.SetSelectedGameObject( null );
 			sound.PlaySound( FX.Vader );
 
@@ -475,9 +477,11 @@ namespace Saga
 		/// </summary>
 		void OnStartTurn()
 		{
-			Debug.Log( "OnStartTurn()::STARTING NEW TURN" );
+			Debug.Log( "OnStartTurn()::STARTING NEW TURN============================" );
 			//at this point, the previous round is COMPLETELY finished
 			DataStore.sagaSessionData.SaveSession( "SagaSession" );
+
+			eventManager.ResetEndOfEvents();
 
 			IncreaseRound();
 
@@ -485,6 +489,7 @@ namespace Saga
 			eventManager.CheckIfEventsTriggered( () =>
 			{
 				DataStore.sagaSessionData.gameVars.isStartTurn = false;
+				eventManager.ResetEndOfEvents();
 			} );
 		}
 

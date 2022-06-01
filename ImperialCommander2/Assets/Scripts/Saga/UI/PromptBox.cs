@@ -82,9 +82,9 @@ namespace Saga
 		public void OnButton( int index )
 		{
 			Debug.Log( $"CHOICE: {questionPrompt.buttonList[index].buttonText}, {questionPrompt.buttonList[index].triggerGUID}" );
-			OnClose();
 			FindObjectOfType<TriggerManager>().FireTrigger( questionPrompt.buttonList[index].triggerGUID );
 			FindObjectOfType<SagaEventManager>().DoEvent( questionPrompt.buttonList[index].eventGUID );
+			OnClose();
 		}
 	}
 }
