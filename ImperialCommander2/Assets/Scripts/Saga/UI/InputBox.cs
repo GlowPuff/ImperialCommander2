@@ -32,7 +32,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 
 			inputPrompt = eventAction as InputPrompt;
-			submitText.text = DataStore.uiLanguage.sagaMainApp.submitValue;
+			submitText.text = DataStore.uiLanguage.uiSettings.ok;
 			callback = action;
 
 			inputValue = 0;

@@ -75,6 +75,8 @@ namespace Saga
 
 			//then add files
 			projectItems = GetProjects( currentFolder ).ToArray();
+			//sort alphabetically
+			projectItems = projectItems.OrderBy( x => x.Title ).ToArray();
 			bool first = true;
 			foreach ( var item in projectItems )
 			{

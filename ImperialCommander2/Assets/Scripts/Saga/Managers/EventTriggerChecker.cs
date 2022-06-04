@@ -45,8 +45,8 @@ namespace Saga
 		/// </summary>
 		public bool CheckEndRound( int r = -1 )
 		{
-			if ( missionEvent.hasActivatedThisRound )
-				return false;
+			//if ( missionEvent.hasActivatedThisRound )
+			//	return false;
 
 			if ( DataStore.sagaSessionData.gameVars.isEndTurn )
 			{
@@ -64,8 +64,8 @@ namespace Saga
 		/// </summary>
 		public bool CheckStartRound( int r = -1 )
 		{
-			if ( missionEvent.hasActivatedThisRound )
-				return false;
+			//if ( missionEvent.hasActivatedThisRound )
+			//	return false;
 
 			if ( DataStore.sagaSessionData.gameVars.isStartTurn )
 			{
@@ -80,8 +80,8 @@ namespace Saga
 
 		public bool CheckEndOfCurrentRound()
 		{
-			if ( missionEvent.hasActivatedThisRound )
-				return false;
+			//if ( missionEvent.hasActivatedThisRound )
+			//	return false;
 			//since this check is ONLY called at the end of a round, no need to check if this is the end of the round first
 			return DataStore.sagaSessionData.gameVars.ShouldFireEndCurrentRoundEvent( missionEvent.GUID );
 		}

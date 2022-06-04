@@ -50,7 +50,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			//bootstrapDEBUG();
+			bootstrapDEBUG();
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -91,7 +91,7 @@ namespace Saga
 			DataStore.InitData();
 			DataStore.StartNewSagaSession( new SagaSetupOptions()
 			{
-				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "EMPIRE8-Inside Man.json" ) },
+				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
 				difficulty = Difficulty.Medium,
 				threatLevel = 3,
 				useAdaptiveDifficulty = false,
@@ -252,10 +252,10 @@ namespace Saga
 			var emsg2 = string.Join( "\n", tiles.Item2 );
 			emsg = string.IsNullOrEmpty( emsg2.Trim() ) ? "" : emsg + emsg2;
 
-			eventManager.toggleVisButton.SetActive( true );
+			//eventManager.toggleVisButton.SetActive( true );
 			eventManager.ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{tmsg}</color>\n\n{emsg}", () =>
 			{
-				eventManager.toggleVisButton.SetActive( false );
+				//eventManager.toggleVisButton.SetActive( false );
 				StartupLayoutAndEvents();
 			} );
 		}
@@ -311,16 +311,16 @@ namespace Saga
 				DataStore.cardEvents.Remove( ev );
 
 				//activate it
-				eventManager.toggleVisButton.SetActive( true );
+				//eventManager.toggleVisButton.SetActive( true );
 				eventPopup.Show( ev, () =>
 				{
-					eventManager.toggleVisButton.SetActive( false );
+					//eventManager.toggleVisButton.SetActive( false );
 					callback?.Invoke();
 				} );
 			}
 			else
 			{
-				eventManager.toggleVisButton.SetActive( false );
+				//eventManager.toggleVisButton.SetActive( false );
 				//all turn actions done and shouldn't be any mission events in progress, so start new turn
 				callback?.Invoke();
 			}
@@ -341,11 +341,11 @@ namespace Saga
 			int total = roll1 + roll2 + DataStore.sagaSessionData.gameVars.deploymentModifier;
 			Debug.Log( "TOTAL ROLLED VALUE: " + total );
 
-			eventManager.toggleVisButton.SetActive( true );
+			//eventManager.toggleVisButton.SetActive( true );
 			if ( total <= 4 )
 				deploymentPopup.Show( DeployMode.Calm, skipThreatIncrease, false, () =>
 				{
-					eventManager.toggleVisButton.SetActive( false );
+					//eventManager.toggleVisButton.SetActive( false );
 					callback?.Invoke();
 				} );
 			else if ( total > 4 && total <= 7 )
@@ -372,8 +372,7 @@ namespace Saga
 
 			Debug.Log( $"ActivateEnemy()::{cd.name}::{cd.id}" );
 			dgManager.ExhaustGroup( cd.id );
-			eventManager.toggleVisButton.SetActive( true );
-			enemyActivationPopup.Show( cd, DataStore.sagaSessionData.setupOptions.difficulty, () => eventManager.toggleVisButton.SetActive( false ) );
+			enemyActivationPopup.Show( cd, DataStore.sagaSessionData.setupOptions.difficulty );
 		}
 
 		public void OnActivateImperial()
@@ -481,7 +480,7 @@ namespace Saga
 			//at this point, the previous round is COMPLETELY finished
 			DataStore.sagaSessionData.SaveSession( "SagaSession" );
 
-			eventManager.ResetEndOfEvents();
+			//eventManager.ResetEndOfEvents();
 
 			IncreaseRound();
 
@@ -489,7 +488,7 @@ namespace Saga
 			eventManager.CheckIfEventsTriggered( () =>
 			{
 				DataStore.sagaSessionData.gameVars.isStartTurn = false;
-				eventManager.ResetEndOfEvents();
+				//eventManager.ResetEndOfEvents();
 			} );
 		}
 

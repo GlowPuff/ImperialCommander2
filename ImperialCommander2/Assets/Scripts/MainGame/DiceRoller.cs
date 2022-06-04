@@ -23,7 +23,7 @@ public class DiceRoller : MonoBehaviour
 		callback = ac;
 		okBtn.text = DataStore.uiLanguage.uiSettings.ok;
 		gridLayout = container.GetComponent<GridLayoutGroup>();
-		dynamicCard.InitCard( cd );
+		dynamicCard.InitCard( cd, true );
 
 		addAttackContainer.SetActive( false );
 		addDefenseContainer.SetActive( false );

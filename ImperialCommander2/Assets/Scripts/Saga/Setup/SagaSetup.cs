@@ -194,6 +194,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Official mission selected
+		/// </summary>
 		public void OnMissionSelected( MissionPreset mp )
 		{
 			//clear ignored groups
@@ -209,10 +212,13 @@ namespace Saga
 			initialText.text = mp.defaultThreat.ToString();
 		}
 
+		/// <summary>
+		/// Custom mission selected
+		/// </summary>
 		public void OnMissionSelected( ProjectItem pi )
 		{
-			threatValue.ResetWheeler( 0 );
-			initialText.text = "0";
+			threatValue.ResetWheeler( 3 );
+			initialText.text = "3";
 
 			Mission m = FileManager.LoadMission( pi.fullPathWithFilename );
 			if ( m != null )

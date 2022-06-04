@@ -50,7 +50,7 @@ namespace Saga
 				if ( immediate )
 					spriteRenderer.color = Color.white;
 				else
-					spriteRenderer.DOFade( 1, 1f );
+					spriteRenderer.DOFade( 1, 1.5f );
 			}
 		}
 

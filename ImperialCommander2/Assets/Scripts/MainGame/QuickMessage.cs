@@ -32,7 +32,7 @@ public class QuickMessage : MonoBehaviour
 		{
 			sequence = DOTween.Sequence();
 			Tween t1 = cg.DOFade( 1, .25f );
-			Tween t2 = cg.DOFade( 0, .25f ).SetDelay( 3 ).OnComplete( () => { gameObject.SetActive( false ); } );
+			Tween t2 = cg.DOFade( 0, .25f ).SetDelay( 2 ).OnComplete( () => { gameObject.SetActive( false ); } );
 			sequence
 				.Join( t1 )
 				.Join( t2 );

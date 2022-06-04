@@ -19,6 +19,8 @@ public class EnemyActivationPopup : MonoBehaviour
 	public DynamicCardPrefab cardPrefab;
 	public DiceRoller diceRoller;
 	public GameObject modifierBox;
+	[HideInInspector]
+	public bool isActive = false;
 
 	CardInstruction cardInstruction;
 	DeploymentCard cardDescriptor;
@@ -30,6 +32,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		//Debug.Log( "Showing: " + cd.name + " / " + cd.id );
+		isActive = true;
 		//clear values
 		callback = cb;
 		thumbnail.color = new Color( 1, 1, 1, 0 );
@@ -43,33 +46,7 @@ public class EnemyActivationPopup : MonoBehaviour
 
 		cardDescriptor = cd;
 
-		cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
-		if ( cardInstruction == null )
-		{
-			Debug.Log( "cardInstruction is NULL: " + cd.id );
-			GlowEngine.FindUnityObject<QuickMessage>().Show( "EnemyActivationPopup: cardInstruction is NULL: " + cd.id );
-			return;
-		}
-
-		cardPrefab.InitCard( cd );
-
-		//== no longer an issue
-		//if ( cardInstruction == null )
-		//{
-		//	//not all elites have their own instruction, resulting in null found, so get its regular version instruction set by name instead
-		//	int idx = cd.name.IndexOf( '(' );
-		//	if ( idx > 0 )
-		//	{
-		//		string nonelite = cd.name.Substring( 0, idx ).Trim();
-		//		cardInstruction = DataStore.activationInstructions.Where( x => x.instName == nonelite ).FirstOr( null );
-		//		Debug.Log( "TRYING REGULAR INSTRUCTION" );
-		//		if ( cardInstruction == null )
-		//		{
-		//			Debug.Log( "CAN'T FIND INSTRUCTION FOR: " + cd.id + "/" + nonelite );
-		//			return;
-		//		}
-		//	}
-		//}
+		cardPrefab.InitCard( cd, true );
 
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
@@ -78,46 +55,40 @@ public class EnemyActivationPopup : MonoBehaviour
 		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 
-		SetThumbnail( cd );
-
+		//mugshot
+		thumbnail.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
+		thumbnail.DOFade( 1, .25f );
+		//name
 		enemyName.text = cd.name.ToLower();
-
-		if ( DataStore.gameType == GameType.Saga )
-		{
-			//check for name override
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null )
-				enemyName.text = ovrd.nameOverride.ToLower();
-
-			//check for modififier override
-			if ( ovrd != null && ovrd.showMod && !string.IsNullOrEmpty( ovrd.modification.Trim() ) )
-			{
-				modifierBox.SetActive( true );
-				modText.text = ReplaceGlyphs( ovrd.modification );
-			}
-			else
-				modifierBox.SetActive( false );
-		}
 
 		if ( !string.IsNullOrEmpty( cd.ignored ) )
 			ignoreText.text = $"<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" + cd.ignored;
 		else
 			ignoreText.text = "";
 
-		if ( !cardDescriptor.hasActivated || DataStore.gameType == GameType.Saga )
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			ShowSaga( cd, difficulty );
+			return;
+		}
+
+		///classic mode below this line
+		cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
+		if ( cardInstruction == null )
+		{
+			Debug.Log( "cardInstruction is NULL: " + cd.id );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( "EnemyActivationPopup: cardInstruction is NULL: " + cd.id );
+			return;
+		}
+
+		if ( !cardDescriptor.hasActivated )
 		{
 			//if multiple card instructions, pick 1
 			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
 			InstructionOption io = cardInstruction.content[rnd[0]];
 			List<string> instructions = io.instruction;
-			//check for instruction/repositioning override
-			if ( DataStore.gameType == GameType.Saga )
-			{
-				instructions = GetModifiedInstructions( cd.id, instructions );
-				instructions = GetModifiedRepositioning( cd.id, instructions );
-			}
 
-			DeploymentCard potentialRebel = DataStore.gameType == GameType.Classic ? FindRebel() : FindRebelSaga();
+			DeploymentCard potentialRebel = FindRebel();
 
 			if ( potentialRebel != null )
 			{
@@ -189,36 +160,118 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 	}
 
-	void SetThumbnail( DeploymentCard cd )
+	void ShowSaga( DeploymentCard cd, Difficulty difficulty )
 	{
-		//set thumbnail for villain
-		if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
-			thumbnail.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
-		else//regular enemy
+		//check for name override
+		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+		if ( ovrd != null )
 		{
-			thumbnail.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-			thumbnail.GetComponent<Outline>().effectColor = new Color( 0, 0.6440244f, 1, 1 );
+			//name override
+			enemyName.text = ovrd.nameOverride.ToLower();
+			//check for modififier override
+			if ( ovrd.showMod && !string.IsNullOrEmpty( ovrd.modification.Trim() ) )
+			{
+				modifierBox.SetActive( true );
+				modText.text = ReplaceGlyphs( ovrd.modification );
+			}
+			else
+				modifierBox.SetActive( false );
 		}
 
-		if ( DataStore.gameType == GameType.Saga )
+		DeploymentCard potentialRebel = FindRebelSaga();
+		if ( potentialRebel != null )
 		{
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && ovrd.useGenericMugshot )
-				thumbnail.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+			rebel1 = potentialRebel.name;
+			//check for a target name override, id will be null if this is using "Other" as a target
+			//sending null as the id will return a null instead of the All override
+			var povrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( potentialRebel.id );
+			if ( povrd != null )
+				rebel1 = povrd.nameOverride;
+		}
+		else
+			rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
+
+		cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
+		if ( cardInstruction != null )
+		{
+			//if multiple card instructions, pick 1
+			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
+			InstructionOption io = cardInstruction.content[rnd[0]];
+			List<string> instructions = io.instruction;
+			//check for instruction/repositioning override, which are appended to 'instructions' list
+			instructions = GetModifiedInstructions( cd.id, instructions );
+			instructions = GetModifiedRepositioning( cd.id, instructions );
+			//rebel1 has been set, now it's safe to parse instructions that use it for targeting
+			ParseInstructions( instructions );
+			//save card's state
+			cardDescriptor.instructionOption = io;
+		}
+		else if ( ovrd != null && ovrd.isCustom )
+		{
+			if ( ovrd.changeInstructions != null )
+				ParseInstructions( ovrd.changeInstructions.theText.Split( '\n' ).ToList() );
+		}
+		ParseBonusSaga( cd.id, difficulty );
+
+		//if this card has activated, we're just showing it again - redisplay data from previous attack
+		if ( cardDescriptor.hasActivated )
+		{
+			Debug.Log( "***RE-USING PREVIOUS ACTIVATION DATA***" );
+			//re-use target
+			if ( cardDescriptor.rebelName != null )
+				rebel1 = cardDescriptor.rebelName;
+			//re-use instructions
+			if ( cardDescriptor.instructionOption != null )
+			{
+				List<string> instructions = cardDescriptor.instructionOption.instruction;
+				//check for instruction override
+				//Transform content = transform.Find( "Panel/content" );
+				//foreach ( Transform tf in content )
+				//	Destroy( tf.gameObject );
+				ParseInstructions( instructions );
+			}
+			//re-use activation bonus
+			if ( cardDescriptor.bonusName != null
+				&& cardDescriptor.bonusText != null )
+			{
+				bonusNameText.text = cardDescriptor.bonusName;
+				bonusText.text = cardDescriptor.bonusText;
+			}
 		}
 
-		thumbnail.DOFade( 1, .25f );
+		//save this card's activation state
+		cardDescriptor.hasActivated = true;
+		cardDescriptor.rebelName = rebel1;
+		cardDescriptor.bonusName = bonusNameText.text;
+		cardDescriptor.bonusText = bonusText.text;
+	}
+
+	void ParseBonusSaga( string id, Difficulty difficulty )
+	{
+		bonusNameText.text = "";
+		bonusText.text = "";
+
+		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
+		if ( ovrd != null && !ovrd.isCustom && ovrd.useGenericMugshot )
+			return;
+
+		if ( ovrd != null && ovrd.isCustom )
+		{
+			string e = ovrd.customBonuses[GlowEngine.GenerateRandomNumbers( ovrd.customBonuses.Length )[0]];
+			if ( !string.IsNullOrEmpty( e ) )
+			{
+				//get the bonus name
+				int idx = e.IndexOf( ':' );
+				bonusNameText.text = e.Substring( 0, idx );
+				bonusText.text = ReplaceGlyphs( e.Substring( idx + 1 ) ).Trim();
+			}
+		}
+		else
+			ParseBonus( id, difficulty );
 	}
 
 	void ParseBonus( string id, Difficulty difficulty )
 	{
-		if ( DataStore.gameType == GameType.Saga )
-		{
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
-			if ( ovrd != null && ovrd.useGenericMugshot )
-				return;
-		}
-
 		bonusNameText.text = "";
 		bonusText.text = "";
 		BonusEffect be = DataStore.bonusEffects.Where( x => x.bonusID == id ).FirstOr( null );
@@ -248,6 +301,8 @@ public class EnemyActivationPopup : MonoBehaviour
 	void ParseInstructions( List<string> instruction )
 	{
 		Transform content = transform.Find( "Panel/content" );
+		foreach ( Transform tf in content )
+			Destroy( tf.gameObject );
 
 		for ( int i = 0; i < instruction.Count; i++ )
 		{
@@ -307,6 +362,16 @@ public class EnemyActivationPopup : MonoBehaviour
 		item = item.Replace( "{F}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" );
 		item = item.Replace( "{V}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">V</font></color>" );
 		item = item.Replace( "{D}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">D</font></color>" );
+		//interferes with {O}range code, not used for activations anyways
+		//item = item.Replace( "{O}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">O</font></color>" );
+		item = item.Replace( "{R}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">R</font></color>" );
+		item = item.Replace( "{S}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">S</font></color>" );
+		item = item.Replace( "{U}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color>" );
+		item = item.Replace( "{W}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">W</font></color>" );
+		item = item.Replace( "{X}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">X</font></color>" );
+		item = item.Replace( "{c}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">c</font></color>" );
+		item = item.Replace( "{e}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">e</font></color>" );
+		item = item.Replace( "{s}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">s</font></color>" );
 
 		if ( item.Contains( "{R1}" ) )
 		{
@@ -458,6 +523,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
+			isActive = false;
 			Transform content = transform.Find( "Panel/content" );
 			foreach ( Transform tf in content )
 				Destroy( tf.gameObject );

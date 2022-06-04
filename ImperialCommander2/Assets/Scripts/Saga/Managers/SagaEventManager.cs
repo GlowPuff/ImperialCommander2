@@ -9,6 +9,7 @@ namespace Saga
 	{
 		public GameObject textBoxPrefab, promptBoxPrefab, toggleVisButton, inputBoxPrefab;
 		public Transform infoButtonTX;
+		public EnemyActivationPopup enemyActivationPopup;
 
 		bool[] hiddenChildren = new bool[0];
 
@@ -26,6 +27,20 @@ namespace Saga
 		public bool IsUIHidden
 		{
 			get { return hiddenChildren.Length > 0; }
+		}
+
+		public bool UIShowing
+		{
+			get
+			{
+				int c = 0;
+				foreach ( Transform item in transform )
+				{
+					if ( item.gameObject.activeInHierarchy )
+						c++;
+				}
+				return c > 0;
+			}
 		}
 
 		public void Init( Mission mission )
@@ -47,8 +62,8 @@ namespace Saga
 
 		public void ResetEndOfEvents()
 		{
-			foreach ( var ev in missionEvents )
-				ev.hasActivatedThisRound = false;
+			//foreach ( var ev in missionEvents )
+			//	ev.hasActivatedThisRound = false;
 		}
 
 		public void SetEndProcessingCallback( Action callback )
@@ -107,10 +122,10 @@ namespace Saga
 
 					if ( check )
 					{
-						if ( ev.usesEnd )
-							ev.hasActivatedThisRound = true;
+						//if ( ev.usesEnd )
+						//	ev.hasActivatedThisRound = true;
 						Debug.Log( "CheckIfEventsTriggered()::EVENT TRIGGERED::" + ev.name );
-						//eventTriggered = true;
+						//eventTriggered = true;//remove this
 						DoEvent( ev );
 					}
 				}
@@ -217,7 +232,8 @@ namespace Saga
 				{
 					Debug.Log( "DoEvent()::Queued " + ev.name );
 					//DataStore.sagaSessionData.gameVars.AddFiredEvent( ev.GUID );
-					eventQueue.Enqueue( ev );
+					if ( !eventQueue.Contains( ev ) )
+						eventQueue.Enqueue( ev );
 
 					//start processing if not busy with an event already
 					if ( !processingEvents )
@@ -254,7 +270,8 @@ namespace Saga
 					if ( check )
 					{
 						Debug.Log( "QueueEndOfCurrentTurnEvents()::EVENT TRIGGERED::" + ev.name );
-						eventQueue.Enqueue( ev );
+						if ( !eventQueue.Contains( ev ) )
+							eventQueue.Enqueue( ev );
 					}
 				}
 			}
@@ -273,7 +290,7 @@ namespace Saga
 			Debug.Log( "ProcessEvent()::START PROCESSING EVENT QUEUE::" + ev.name );
 
 			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
-			toggleVisButton.SetActive( true );
+			//toggleVisButton.SetActive( true );
 
 			processingEvents = true;
 
@@ -413,13 +430,25 @@ namespace Saga
 					Debug.Log( "NextEventAction()::DONE PROCESSING ALL EVENTS" );
 					processingEvents = false;
 					//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
-					toggleVisButton.SetActive( false );
+					//toggleVisButton.SetActive( false );
 
 					//Debug.Log( $"NextEventAction()::endProcessingCallback={endProcessingCallback.ToString()}" );
 					endProcessingCallback?.Invoke();
 					endProcessingCallback = null;
 				}
 			}
+		}
+
+		private void Update()
+		{
+			bool vis = false;
+			foreach ( Transform item in transform )
+			{
+				if ( item.GetComponent<PopupBase>() != null
+					|| enemyActivationPopup.isActive )
+					vis = true;
+			}
+			toggleVisButton.SetActive( vis );
 		}
 	}
 }

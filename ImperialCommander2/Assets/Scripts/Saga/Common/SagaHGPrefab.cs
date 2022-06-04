@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,20 +31,11 @@ namespace Saga
 
 			if ( !cd.isDummy )
 			{
-				if ( DataStore.heroCards.Any( x => x.id == cd.id ) )
-				{
-					//isHero = true;
-					iconImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
-				}
-				else if ( DataStore.allyCards.Any( x => x.id == cd.id ) )
-				{
-					//check for using generic mugshot
-					var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-					if ( ovrd == null || (ovrd != null && !ovrd.useGenericMugshot) )
-						iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
-					else
-						iconImage.sprite = Resources.Load<Sprite>( $"Cards/genericAlly" );
-				}
+				var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+				if ( ovrd != null && ovrd.isCustom )
+					cardDescriptor = ovrd.customCard;
+
+				iconImage.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
 
 				if ( cd.id[0] == 'A' )
 					outline.effectColor = eliteColor;
@@ -59,7 +49,7 @@ namespace Saga
 			if ( cd.heroState == null )
 			{
 				cd.heroState = new HeroState();
-				cd.heroState.Init( DataStore.sagaSessionData.MissionHeroes.Count );
+				cd.heroState.Init();
 			}
 
 			SetHealth( cd.heroState.heroHealth );
@@ -152,6 +142,12 @@ namespace Saga
 		public void OnPointerClick()
 		{
 			//new - don't show popup for ANY hero/ally since ally might be a generic regel
+			//unless it's a custom ally
+			if ( cardDescriptor.isCustom )
+			{
+				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
+				cardViewPopup.Show( cardDescriptor );
+			}
 
 			//if ( cardDescriptor.isDummy || cardDescriptor.isHero )
 			//	return;

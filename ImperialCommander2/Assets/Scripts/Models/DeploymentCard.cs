@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using Saga;
 
 public class DeploymentCard : IEquatable<DeploymentCard>
 {
@@ -51,9 +52,9 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	public bool isDummy;
 	public HeroState heroState;
 	public bool hasDeployed = false;
+	public bool isCustom = false;
+	public string mugShotPath;
 	//==end upkeep
-
-	//public Saga.EnemyGroupData enemyGroupData { get; set; }
 
 	public bool Equals( DeploymentCard obj )
 	{
@@ -64,6 +65,63 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			return false;
 		else
 			return id == objAsPart.id;
+	}
+
+	public static DeploymentCard CreateCustomCard( CustomEnemyDeployment ced )
+	{
+		var card = new DeploymentCard()
+		{
+			isCustom = true,
+			isDummy = false,
+			name = ced.enemyGroupData.cardName,
+			id = ced.enemyGroupData.cardID,//Guid.NewGuid().ToString(),
+			tier = 1,
+			//faction = "Imperial",
+			priority = 2,
+			cost = ced.groupCost,
+			rcost = ced.groupRedeployCost,
+			size = ced.groupSize,
+			fame = 6,
+			reimb = 6,
+			expansion = "Other",
+			ignored = "",
+			isElite = false,
+			isHero = false,
+			subname = "",
+			health = ced.groupHealth,
+			speed = ced.groupSpeed,
+			surges = ced.surges.Split( '\n' ),
+			keywords = ced.keywords.Split( '\n' ),
+			abilities = new GroupAbility[0],
+			defense = Utils.ParseCustomDice( ced.groupDefense.Split( ' ' ) ),
+			attacks = Utils.ParseCustomDice( ced.groupAttack.Split( ' ' ) ),
+			miniSize = FigureSize.Small1x1,
+			traits = new string[0],//English version of groupTraits
+			groupTraits = new GroupTraits[0],
+			preferredTargets = ced.enemyGroupData.groupPriorityTraits.GetTraitArray(),
+			attackType = AttackType.Ranged
+		};
+
+		if ( ced.customType == MarkerType.Rebel )
+		{
+			card.faction = "Mercenary";
+			if ( ced.enemyGroupData.useGenericMugshot )
+				card.mugShotPath = "Cards/genericAlly";
+			else
+				card.mugShotPath = $"Cards/Allies/{ced.thumbnailGroupRebel.Replace( "A", "M" )}";
+		}
+		else
+		{
+			card.faction = "Imperial";
+			if ( ced.enemyGroupData.useGenericMugshot )
+				card.mugShotPath = "Cards/genericEnemy";
+			else
+			{
+				var dc = DataStore.GetEnemy( ced.thumbnailGroupImperial );
+				card.mugShotPath = dc.mugShotPath;
+			}
+		}
+		return card;
 	}
 }
 

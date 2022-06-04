@@ -32,11 +32,12 @@ namespace Saga
 		public bool isEndOfCurrentRound;
 
 		//upkeep
-		public bool hasActivatedThisRound { get; set; } = false;
-		public bool usesEnd
-		{
-			get { return useEndOfEachRound || isEndOfCurrentRound || useEndOfRound || useStartOfEachRound || useStartOfRound; }
-		}
+		//public bool hasActivatedThisRound { get; set; } = false;
+		//public bool hasActivatedThisRound { get { return false; } }
+		//public bool usesEnd
+		//{
+		//	get { return useEndOfEachRound || isEndOfCurrentRound || useEndOfRound || useStartOfEachRound || useStartOfRound; }
+		//}
 
 		public List<TriggeredBy> additionalTriggers { get; set; }
 

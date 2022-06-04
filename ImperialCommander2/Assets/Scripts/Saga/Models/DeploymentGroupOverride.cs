@@ -30,6 +30,13 @@ namespace Saga
 		public List<DPData> pointList = new List<DPData>();
 		///Deployment
 		public bool hasDeployed;
+		///Custom properties
+		public bool isCustom;
+		public MarkerType customType;
+		public string thumbnailGroupImperial;
+		public string thumbnailGroupRebel;
+		public DeploymentCard customCard;
+		public string[] customBonuses;
 
 		public DeploymentGroupOverride() { }//empty constructor for json.net
 
@@ -37,6 +44,7 @@ namespace Saga
 		{
 			//set defaults all groups would use
 			ID = cardID;
+			isCustom = false;
 			repositionInstructions = "";
 			nameOverride = "";
 			if ( !string.IsNullOrEmpty( cardID ) )

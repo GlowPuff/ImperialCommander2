@@ -138,13 +138,23 @@ namespace Saga
 			{
 				Debug.Log( $"ModifyVariable::{modifier.triggerName}::OLD VALUE={t.currentValue}" );
 				if ( modifier.setValue > -1 )
-					t.currentValue = modifier.setValue;
+				{
+					if ( t.trigger.maxValue != -1 )
+						t.currentValue = Math.Min( modifier.setValue, t.trigger.maxValue );
+					else
+						t.currentValue = modifier.setValue;
+				}
 				else
-					t.currentValue += modifier.modifyValue;
+				{
+					if ( t.trigger.maxValue != -1 )
+						t.currentValue = Math.Min( t.currentValue + modifier.modifyValue, t.trigger.maxValue );
+					else
+						t.currentValue += modifier.modifyValue;
+				}
 				//notify objective of a value change
 				FindObjectOfType<ObjectivePanel>().NotifyValueUpdated();
 				Debug.Log( $"ModifyVariable::{modifier.triggerName}::NEW VALUE={t.currentValue}" );
-			}
+			}//Math.Min( ts.currentValue + 1, ts.trigger.maxValue );
 		}
 
 		public int CurrentTriggerValue( Guid guid )

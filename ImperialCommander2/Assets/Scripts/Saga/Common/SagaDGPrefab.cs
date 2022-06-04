@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using DG.Tweening;
+﻿using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,36 +43,19 @@ namespace Saga
 
 			ToggleExhausted( cd.hasActivated );
 
-			if ( DataStore.deploymentCards.Any( x => x.id == cd.id ) )
-			{
-				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-				cd.hasDeployed = true;
-			}
-			else if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
-			{
-				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
-				//outline.effectColor = eliteColor;
-				outlineColor.color = eliteColor;
-				cd.hasDeployed = true;
-			}
-			else if ( cd.id == "DG070" )//handle custom group
-			{
-				iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
-			}
-			else//otherwise it's an ally
-			{
-				//Debug.Log( "ally" );
-				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "DG", "M" )}" );
-			}
-
-			//check for using generic mugshot
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && ovrd.useGenericMugshot )
-				iconImage.sprite = Resources.Load<Sprite>( $"Cards/genericEnemy" );
+			if ( ovrd != null && ovrd.isCustom )
+				cardDescriptor = ovrd.customCard;
 
-			if ( cd.isElite )
+			cardDescriptor.hasDeployed = true;
+			if ( cd.id == "DG070" )//handle custom group (this isn't even in Saga)
+				iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
+			else
+				iconImage.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
+			if ( ovrd != null && ovrd.useGenericMugshot )
+				iconImage.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+			if ( cardDescriptor.isElite )
 				outlineColor.color = eliteColor;
-			//outline.effectColor = eliteColor;
 
 			SetColorIndex();
 
@@ -208,7 +190,7 @@ namespace Saga
 					GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"green\">{cardDescriptor.fame}</color>" );
 				}
 
-				Object.Destroy( gameObject );
+				UnityEngine.Object.Destroy( gameObject );
 			} );
 		}
 
@@ -261,14 +243,29 @@ namespace Saga
 		{
 			//mark as NOT activated for this turn so it rolls up new Activation data
 			if ( !isExhausted )
+			{
+				//reset previously saved card Activation data
+				Debug.Log( "ToggleExhausted()::RESET ACTIVATION DATA" );
 				cardDescriptor.hasActivated = false;
+				cardDescriptor.rebelName = null;
+				cardDescriptor.instructionOption = null;
+				cardDescriptor.bonusName = null;
+				cardDescriptor.bonusText = null;
+			}
 			exhaustedOverlay.SetActive( isExhausted );
 		}
 
 		public void OnPointerClick()
 		{
-			CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
-			cardViewPopup.Show( cardDescriptor );
+			if ( !cardDescriptor.hasActivated )
+			{
+				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
+				cardViewPopup.Show( cardDescriptor );
+			}
+			else
+			{
+				FindObjectOfType<SagaController>().enemyActivationPopup.Show( cardDescriptor, DataStore.sagaSessionData.setupOptions.difficulty );
+			}
 		}
 
 		public void SetGroupSize( int size )
@@ -325,6 +322,16 @@ namespace Saga
 			exhaustedOverlay.SetActive( !exhaustedOverlay.activeInHierarchy );
 			FindObjectOfType<ConfirmPopup>().Hide();
 			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+			if ( !exhaustedOverlay.activeInHierarchy )
+			{
+				//reset previously saved card Activation data
+				Debug.Log( "ToggleExhausted()::RESET ACTIVATION DATA" );
+				cardDescriptor.hasActivated = false;
+				cardDescriptor.rebelName = null;
+				cardDescriptor.instructionOption = null;
+				cardDescriptor.bonusName = null;
+				cardDescriptor.bonusText = null;
+			}
 		}
 	}
 }

@@ -59,11 +59,11 @@ namespace Saga
 		/// <summary>
 		/// example: Core1B
 		/// </summary>
-		public void CamToTile( string tileID, bool immediate = false, Action callback = null )
+		public void CamToTile( Guid tileID, bool immediate = false, Action callback = null )
 		{
 			foreach ( var tr in tileRenderers )
 			{
-				if ( tr.mapTile.textureName == tileID )
+				if ( tr.mapTile.GUID == tileID )//tr.mapTile.textureName == tileID )
 				{
 					if ( immediate )
 						FindObjectOfType<CameraController>().MoveToImmediate( tr.transform.position, 5, true, callback );

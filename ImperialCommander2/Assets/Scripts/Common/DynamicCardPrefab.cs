@@ -1,27 +1,36 @@
 ﻿using System;
-using System.Linq;
+using Saga;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DynamicCardPrefab : MonoBehaviour
 {
-	public GameObject size1, size2, size3, abilityBox, surgeBox, attackRanged, attackMelee, dicePipPrefab, defenseContainer, attackContainer, abilityContainer;
+	public GameObject size1, size2, size3, surgeBox, attackRanged, attackMelee, dicePipPrefab, defenseContainer, attackContainer, abilityContainer, modPanel;
 	public Image mugshot, faction, mugshotOutline, expansion;
 	public Sprite[] factionSprites, expansionSprites;
-	public TextMeshProUGUI cardName, traits, keywords, cost, rcost, health, speed;
+	public TextMeshProUGUI cardName, traits, keywords, cost, rcost, health, speed, modText;
 	public Image cardColor;
 
 	private DeploymentCard card;
 
-	public void InitCard( DeploymentCard cd )
+	public void InitCard( DeploymentCard cd, bool hideModifier = false )
 	{
 		card = cd;
 
+		//handle name
 		if ( DataStore.gameType == GameType.Saga )
 		{
 			//check for override
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && ovrd.isCustom )
+				card = ovrd.customCard;
+
+			if ( ovrd != null && ovrd.showMod && !hideModifier )
+			{
+				modPanel.gameObject.SetActive( true );
+				modText.text = Utils.ReplaceGlyphs( ovrd.modification );
+			}
 
 			//name, subname
 			if ( ovrd != null )
@@ -60,7 +69,8 @@ public class DynamicCardPrefab : MonoBehaviour
 			faction.sprite = factionSprites[1];
 		else
 			faction.sprite = factionSprites[2];
-
+		if ( card.isCustom )
+			faction.gameObject.SetActive( false );
 
 		//attack type
 		attackMelee.SetActive( false );
@@ -79,15 +89,21 @@ public class DynamicCardPrefab : MonoBehaviour
 			size3.SetActive( true );
 
 		//mugshot
-		if ( DataStore.deploymentCards.Any( x => x.id == card.id ) )
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-		else if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
-		else if ( DataStore.allyCards.Any( x => x.id == cd.id ) )
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
-		else if ( DataStore.heroCards.Any( x => x.id == cd.id ) )
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
-		else if ( cd.id == "DG070" )//handle custom group
+		mugshot.sprite = Resources.Load<Sprite>( card.mugShotPath );
+		//handle override for non-custom groups (generic mugshot)
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && !ovrd.isCustom && ovrd.useGenericMugshot )
+			{
+				if ( card.mugShotPath.Contains( "Allies" ) )
+					mugshot.sprite = Resources.Load<Sprite>( "Cards/genericAlly" );
+				else
+					mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+			}
+		}
+
+		if ( cd.id == "DG070" )//handle custom group
 		{
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Enemies/Other/M070" );
 			faction.gameObject.SetActive( false );
@@ -116,7 +132,8 @@ public class DynamicCardPrefab : MonoBehaviour
 		if ( DataStore.gameType == GameType.Saga )
 		{
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && ovrd.useGenericMugshot )
+			//handle override of NON-custom groups (applies to enemies only)
+			if ( ovrd != null && ovrd.useGenericMugshot && !ovrd.isCustom )
 			{
 				//mugshot
 				mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );

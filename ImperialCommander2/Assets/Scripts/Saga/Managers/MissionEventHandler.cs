@@ -111,13 +111,13 @@ namespace Saga
 			//objective bar handles glyphs itself
 			if ( !string.IsNullOrEmpty( changeObjective.longText ) )
 			{
-				FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
+				//FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
 				//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 				ShowTextBox( changeObjective.longText, () =>
 				{
 					FindObjectOfType<SagaController>().OnChangeObjective( changeObjective.theText, () =>
 					{
-						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
+						//FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
 						//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 						NextEventAction();
 					} );
@@ -313,11 +313,21 @@ namespace Saga
 			}
 			NextEventAction();
 		}
+
 		void CustomDeployment( CustomEnemyDeployment ced )
 		{
 			Debug.Log( "SagaEventManager()::PROCESSING CustomDeployment" );
-			var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ced.enemyGroupData.cardID );
+			var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ced );
+			if ( ced.useDeductCost )
+				DataStore.sagaSessionData.ModifyThreat( -ced.groupCost );
 
+			DeploymentCard card = DeploymentCard.CreateCustomCard( ced );
+			ovrd.customCard = card;
+			if ( ovrd.customType == MarkerType.Imperial )
+				FindObjectOfType<SagaController>().dgManager.DeployGroup( card, true );
+			else
+				FindObjectOfType<SagaController>().dgManager.DeployHeroAlly( card );
+			FindObjectOfType<SagaController>().dgManager.HandleMapDeployment( card, NextEventAction, ovrd );
 		}
 
 		//GROUP MANIPULATIONS
@@ -460,7 +470,7 @@ namespace Saga
 			{
 				string t = FindObjectOfType<SagaController>().tileManager.ActivateTile( mm.mapTile );
 
-				FindObjectOfType<TileManager>().CamToTile( t.Replace( " ", "_" ) );
+				FindObjectOfType<TileManager>().CamToTile( mm.mapTile );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{t}</color>", () =>
 				{
 					NextEventAction();
@@ -470,6 +480,7 @@ namespace Saga
 			if ( mm.mapTileRemove != Guid.Empty )
 			{
 				string t = FindObjectOfType<SagaController>().tileManager.DeactivateTile( mm.mapTileRemove );
+
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmRemoveTilesUC}:\n\n<color=orange>{t}</color>", () =>
 				{
 					NextEventAction();

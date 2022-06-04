@@ -74,6 +74,10 @@ namespace Saga
 
 		void updateRotation()
 		{
+			if ( FindObjectOfType<SagaEventManager>().UIShowing
+				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+				return;
+
 			if ( Input.GetMouseButtonDown( 1 ) )
 			{
 				rotOrigin = cam2D.ScreenToViewportPoint( Input.mousePosition );
@@ -88,6 +92,9 @@ namespace Saga
 
 		void updateZoom()
 		{
+			if ( FindObjectOfType<SagaEventManager>().UIShowing
+				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+				return;
 			/*
 			 * Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             float zoomDistance = zoomSpeed * Input.GetAxis("Vertical") * Time.deltaTime;

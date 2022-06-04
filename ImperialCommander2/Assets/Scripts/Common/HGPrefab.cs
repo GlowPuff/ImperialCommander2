@@ -51,7 +51,7 @@ public class HGPrefab : MonoBehaviour
 		if ( cd.heroState == null )
 		{
 			cd.heroState = new HeroState();
-			cd.heroState.Init( DataStore.sessionData.MissionHeroes.Count );
+			cd.heroState.Init();// DataStore.sessionData.MissionHeroes.Count );
 		}
 
 		SetHealth( cd.heroState.heroHealth );

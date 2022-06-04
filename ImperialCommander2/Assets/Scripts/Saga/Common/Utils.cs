@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace Saga
 			switch ( s )
 			{
 				case "Gray":
-					return new Color( .3301887f, .3301887f, .3301887f );
+					return new Color( .3301887f, .3301887f, .3301887f ) * 1.5f;
 				case "Purple":
 					return new Color( .6784314f, 0f, 1f );
 				case "Black":
@@ -63,6 +64,15 @@ namespace Saga
 			item = item.Replace( "{F}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" );
 			item = item.Replace( "{V}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">V</font></color>" );
 			item = item.Replace( "{D}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">D</font></color>" );
+			item = item.Replace( "{O}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">O</font></color>" );
+			item = item.Replace( "{R}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">R</font></color>" );
+			item = item.Replace( "{S}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">S</font></color>" );
+			item = item.Replace( "{U}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color>" );
+			item = item.Replace( "{W}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">W</font></color>" );
+			item = item.Replace( "{X}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">X</font></color>" );
+			item = item.Replace( "{c}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">c</font></color>" );
+			item = item.Replace( "{e}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">e</font></color>" );
+			item = item.Replace( "{s}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">s</font></color>" );
 			item = item.Replace( "{-}", " \u25A0 " );
 			//if ( item.Contains( "{O}" ) )
 			//{
@@ -114,6 +124,26 @@ namespace Saga
 			}
 
 			return item;
+		}
+
+		public static DiceColor[] ParseCustomDice( string[] dice )
+		{
+			List<DiceColor> diceColors = new List<DiceColor>();
+			var regex = new Regex( @"\d\w+", RegexOptions.IgnoreCase );
+
+			foreach ( var diceItem in dice )
+			{
+				var m = regex.Matches( diceItem );
+				foreach ( var match in regex.Matches( diceItem ) )
+				{
+					int count = int.Parse( match.ToString()[0].ToString() );
+
+					for ( int i = 0; i < count; i++ )
+						diceColors.Add( (DiceColor)Enum.Parse( typeof( DiceColor ), match.ToString().Substring( 1 ) ) );
+				}
+			}
+
+			return diceColors.ToArray();
 		}
 	}
 }

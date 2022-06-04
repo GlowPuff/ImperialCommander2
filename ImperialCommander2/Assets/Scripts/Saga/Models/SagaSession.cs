@@ -126,6 +126,18 @@ namespace Saga
 				{
 					var ovrd = new DeploymentGroupOverride( ced.enemyGroupData.cardID );
 					dgOverrides.Add( ovrd );
+					ovrd.isCustom = true;
+					ovrd.customType = ced.customType;
+					//set egd
+					ovrd.SetEnemyDeploymentOverride( ced.enemyGroupData );
+					//reposition instructions
+					ovrd.repositionInstructions = ced.repositionInstructions;
+					//set thumbnail
+					ovrd.thumbnailGroupImperial = ced.thumbnailGroupImperial;
+					ovrd.thumbnailGroupRebel = ced.thumbnailGroupRebel;
+					//bonuses
+					ovrd.customBonuses = ced.bonuses.Split( '\n' );
+
 					return ovrd;
 				}
 			}

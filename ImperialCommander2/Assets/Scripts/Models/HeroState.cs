@@ -4,7 +4,7 @@
 	public HeroHealth heroHealth;
 	public bool isHealthy;
 
-	public void Init( int playerCount )
+	public void Init()
 	{
 		//Debug.Log( $"Init Hero State with {playerCount} heroes" );
 		heroHealth = HeroHealth.Healthy;

@@ -8,7 +8,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.B10";
+	public static readonly string appVersion = "v.2.0.B11";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Mission mission;
@@ -203,7 +203,21 @@ public static class DataStore
 		try
 		{
 			TextAsset json = Resources.Load<TextAsset>( $"CardData/{asset}" );
-			return JsonConvert.DeserializeObject<List<DeploymentCard>>( json.text );
+			var obj = JsonConvert.DeserializeObject<List<DeploymentCard>>( json.text );
+			//set thumbnail path
+			foreach ( var item in obj )
+			{
+				if ( asset == "enemies" )
+					item.mugShotPath = $"Cards/Enemies/{item.expansion}/{item.id.Replace( "DG", "M" )}";
+				else if ( asset == "villains" )
+					item.mugShotPath = $"Cards/Villains/{item.id.Replace( "DG", "M" )}";
+				else if ( asset == "heroes" )
+					item.mugShotPath = $"Cards/Heroes/{item.id}";
+				else if ( asset == "allies" )
+					item.mugShotPath = $"Cards/Allies/{item.id.Replace( "A", "M" )}";
+			}
+
+			return obj;
 		}
 		catch ( JsonException e )
 		{
