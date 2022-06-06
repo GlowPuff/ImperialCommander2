@@ -47,6 +47,7 @@ public class Sound : MonoBehaviour
 
 	public void PlayMusic()
 	{
+		musicSource.volume = .5f;
 		musicSource.Play();
 	}
 

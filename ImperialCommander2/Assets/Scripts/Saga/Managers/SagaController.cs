@@ -51,7 +51,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			bootstrapDEBUG();
+			//bootstrapDEBUG();
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -59,6 +59,12 @@ namespace Saga
 
 			//set translated UI
 			languageController.SetTranslatedUI();
+
+			//apply settings
+			//if ( volume.TryGet<Bloom>( out var bloom ) )
+			//	bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
+			//if ( volume.TryGet<Vignette>( out var vig ) )
+			//	vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 			//see if it's a new game or restoring state
 			if ( DataStore.sagaSessionData.gameVars.isNewGame )
