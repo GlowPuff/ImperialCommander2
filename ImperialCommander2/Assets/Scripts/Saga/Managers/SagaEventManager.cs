@@ -10,6 +10,7 @@ namespace Saga
 		public GameObject textBoxPrefab, promptBoxPrefab, toggleVisButton, inputBoxPrefab;
 		public Transform infoButtonTX;
 		public EnemyActivationPopup enemyActivationPopup;
+		public ImperialPopup imperialPopup;
 
 		bool[] hiddenChildren = new bool[0];
 
@@ -444,7 +445,8 @@ namespace Saga
 			bool vis = false;
 			foreach ( Transform item in transform )
 			{
-				if ( item.GetComponent<PopupBase>() != null
+				var popup = item.GetComponent<PopupBase>();
+				if ( (popup != null && popup.isActive)
 					|| enemyActivationPopup.isActive )
 					vis = true;
 			}

@@ -8,18 +8,23 @@ public class PopupBase : MonoBehaviour
 	public CanvasGroup cg;
 	public Image fader;
 
-	public void Show()
+	[HideInInspector]
+	public bool isActive = false;
+
+	public void Show( Action callback = null )
 	{
+		isActive = true;
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
 		fader.DOFade( .75f, 1 );//.95
 		cg.DOFade( 1, .5f );
 		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
-		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo ).OnComplete( () => callback?.Invoke() );
 	}
 
 	public void Close( Action callback = null )
 	{
+		isActive = false;
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{

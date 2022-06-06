@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Saga;
 
@@ -101,6 +102,16 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			preferredTargets = ced.enemyGroupData.groupPriorityTraits.GetTraitArray(),
 			attackType = AttackType.Ranged
 		};
+
+		string[] alist = ced.abilities.Split( '\n' );
+		var gaList = new List<GroupAbility>();
+		foreach ( var item in alist )
+		{
+			string[] a = item.Split( ':' );
+			GroupAbility ab = new GroupAbility() { name = a[0], text = a[1] };
+			gaList.Add( ab );
+		}
+		card.abilities = gaList.ToArray();
 
 		if ( ced.customType == MarkerType.Rebel )
 		{

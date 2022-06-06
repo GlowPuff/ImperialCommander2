@@ -164,9 +164,19 @@ namespace Saga
 			Transform tf = transform.GetChild( 0 );
 			tf.DOScale( 0, .35f ).SetEase( Ease.InCirc ).OnComplete( () =>
 			{
-				//add card back to dep hand ONLY IF IT'S NOT THE CUSTOM GROUP
-				//AND if it's NOT a villain
-				if ( cardDescriptor.id != "DG070" && !DataStore.villainCards.ContainsCard( cardDescriptor ) )
+				//add card back to deployment hand ONLY IF:
+				//not custom group DG070
+				//not a villain or a custom deployment
+				//can be redeployed
+				//not using generic mugshot
+				bool returnToHand = true;
+				var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
+				if ( ovrd != null && (ovrd.isCustom || ovrd.useGenericMugshot || !ovrd.canRedeploy) )
+					returnToHand = false;
+
+				if ( cardDescriptor.id != "DG070"
+				&& !DataStore.villainCards.ContainsCard( cardDescriptor )
+				&& returnToHand )
 					DataStore.deploymentHand.Add( cardDescriptor );
 				//remove it from deployed list
 				DataStore.deployedEnemies.Remove( cardDescriptor );

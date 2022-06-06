@@ -8,7 +8,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.B11";
+	public static readonly string appVersion = "v.2.0.B12";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Mission mission;
@@ -760,6 +760,7 @@ public static class DataStore
 			tier1Group = deploymentHand.Where( x => x.tier == 1 && x.cost <= currentThreat ).ToList();
 		}
 		//check for "canRedeploy" override and remove those cards if they can't
+		//this might be redundant now that exhausting an enemy will not add it back to the hand anyways
 		if ( gameType == GameType.Saga && tier1Group.Count > 0 )
 		{
 			for ( int i = tier1Group.Count - 1; i >= 0; i-- )

@@ -250,7 +250,7 @@ namespace Saga
 		public void Warp()
 		{
 			sound.PlaySound( FX.Click );
-			sound.StopMusic();
+			sound.FadeOutMusic();
 
 			thrusterRoot.DOMoveZ( -30, 2 );
 
@@ -265,7 +265,7 @@ namespace Saga
 					.OnComplete( () =>
 					{
 						//all effects/music finish, load the mission
-						GlowTimer.SetTimer( 3, () =>
+						GlowTimer.SetTimer( 2, () =>
 						{
 							SceneManager.LoadScene( "Saga" );
 						} );

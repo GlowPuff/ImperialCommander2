@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,7 +10,6 @@ namespace Saga
 	public class PromptBox : MonoBehaviour
 	{
 		public TextMeshProUGUI theText;
-		public CanvasGroup cg;
 		public PopupBase popupBase;
 		public List<Button> buttonList;
 		public TextMeshProUGUI cancelText;
@@ -51,7 +49,6 @@ namespace Saga
 				buttonList[i].transform.GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = Utils.ReplaceGlyphs( questionPrompt.buttonList[i].buttonText );
 			}
 
-			cg.DOFade( 1, .2f );
 			popupBase.Show();
 
 			SetText( Utils.ReplaceGlyphs( questionPrompt.theText ) );

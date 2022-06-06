@@ -27,6 +27,7 @@ namespace Saga
 		public FamePopup famePopup;
 		public ObjectivePanel objectivePanel;
 		public EnemyActivationPopup enemyActivationPopup;
+		public ImperialPopup imperialPopup;
 		//MANAGERS
 		public CameraController cameraController;
 		public DeploymentManager dgManager;
@@ -50,7 +51,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			bootstrapDEBUG();
+			//bootstrapDEBUG();
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -518,10 +519,20 @@ namespace Saga
 		public void OnSettings()
 		{
 			sound.PlaySound( FX.Click );
+			EventSystem.current.SetSelectedGameObject( null );
 			if ( !eventManager.IsUIHidden )
 			{
-				EventSystem.current.SetSelectedGameObject( null );
 				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose );
+			}
+		}
+
+		public void OnImperialPopup()
+		{
+			sound.PlaySound( FX.Click );
+			EventSystem.current.SetSelectedGameObject( null );
+			if ( !eventManager.IsUIHidden )
+			{
+				imperialPopup.Show();
 			}
 		}
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,7 +10,6 @@ namespace Saga
 	{
 		public Text continueButton;
 		public TextMeshProUGUI theText;
-		public CanvasGroup cg;
 		public PopupBase popupBase;
 
 		Action callback;
@@ -35,7 +33,6 @@ namespace Saga
 			continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 			callback = action;
 
-			cg.DOFade( 1, .2f );
 			popupBase.Show();
 
 			theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -3000, 0 );

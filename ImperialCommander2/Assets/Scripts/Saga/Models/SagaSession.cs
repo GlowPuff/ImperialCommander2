@@ -118,6 +118,9 @@ namespace Saga
 				return null;
 			}
 
+			/// <summary>
+			/// For CUSTOM deployments
+			/// </summary>
 			public DeploymentGroupOverride CreateDeploymentOverride( CustomEnemyDeployment ced )
 			{
 				if ( dgOverrides.Any( x => x.ID == ced.enemyGroupData.cardID ) )

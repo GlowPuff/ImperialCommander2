@@ -1,5 +1,4 @@
 using System;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,7 +12,6 @@ namespace Saga
 		public PopupBase popupBase;
 		public TextMeshProUGUI theText, readoutText;
 		public Text submitText;
-		public CanvasGroup cg;
 
 		RectTransform rect;
 		Vector2 ap;
@@ -38,7 +36,6 @@ namespace Saga
 			inputValue = 0;
 			readoutText.text = "0";
 
-			cg.DOFade( 1, .2f );
 			popupBase.Show();
 
 			SetText( Utils.ReplaceGlyphs( inputPrompt.theText ) );
