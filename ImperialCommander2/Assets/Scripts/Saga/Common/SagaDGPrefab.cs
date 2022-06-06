@@ -78,6 +78,9 @@ namespace Saga
 
 		public void OnCount1( Toggle t )
 		{
+			if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
+				return;
+
 			if ( !t.gameObject.activeInHierarchy )
 				return;
 
@@ -103,6 +106,9 @@ namespace Saga
 		}
 		public void OnCount2( Toggle t )
 		{
+			if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
+				return;
+
 			if ( !t.gameObject.activeInHierarchy )
 				return;
 
@@ -128,6 +134,9 @@ namespace Saga
 		}
 		public void OnCount3( Toggle t )
 		{
+			if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
+				return;
+
 			if ( !t.gameObject.activeInHierarchy )
 				return;
 
@@ -267,6 +276,9 @@ namespace Saga
 
 		public void OnPointerClick()
 		{
+			if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
+				return;
+
 			if ( !cardDescriptor.hasActivated )
 			{
 				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();

@@ -131,6 +131,8 @@ namespace Saga
 					dgOverrides.Add( ovrd );
 					ovrd.isCustom = true;
 					ovrd.customType = ced.customType;
+					//set name
+					ovrd.nameOverride = ced.enemyGroupData.cardName;
 					//set egd
 					ovrd.SetEnemyDeploymentOverride( ced.enemyGroupData );
 					//reposition instructions
