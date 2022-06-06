@@ -61,6 +61,8 @@ public class TitleController : MonoBehaviour
 			PlayerPrefs.SetInt( "vignette", 1 );
 		if ( !PlayerPrefs.HasKey( "language" ) )
 			PlayerPrefs.SetInt( "language", 0 );
+		if ( !PlayerPrefs.HasKey( "ambient" ) )
+			PlayerPrefs.SetInt( "ambient", 1 );
 		//save defaults
 		PlayerPrefs.Save();
 

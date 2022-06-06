@@ -51,7 +51,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			//bootstrapDEBUG();
+			bootstrapDEBUG();
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();

@@ -41,7 +41,7 @@ public class Sound : MonoBehaviour
 		musicSource.volume = maxMusicVolume;
 		if ( PlayerPrefs.GetInt( "music" ) == 0 )
 			musicSource.Stop();
-		if ( PlayerPrefs.GetInt( "sound" ) == 0 )
+		if ( PlayerPrefs.GetInt( "ambient" ) == 0 )
 			ambientSource.Stop();
 	}
 
@@ -67,6 +67,6 @@ public class Sound : MonoBehaviour
 
 	public void FadeOutMusic()
 	{
-		musicSource.DOFade( 0, 1 );
+		musicSource.DOFade( 0, 1 ).OnComplete( () => StopMusic() );
 	}
 }

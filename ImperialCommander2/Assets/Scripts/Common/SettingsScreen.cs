@@ -1,5 +1,5 @@
-﻿using DG.Tweening;
-using System;
+﻿using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
@@ -10,7 +10,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -35,6 +35,7 @@ public class SettingsScreen : MonoBehaviour
 		soundToggle.isOn = PlayerPrefs.GetInt( "sound" ) == 1;
 		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom" ) == 1;
 		vignetteToggle.isOn = PlayerPrefs.GetInt( "vignette" ) == 1;
+		ambientToggle.isOn = PlayerPrefs.GetInt( "ambient" ) == 1;
 
 		//set the translated UI strings
 		languageController.SetTranslatedUI();
@@ -48,6 +49,7 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "bloom", bloomToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "vignette", vignetteToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "ambient", ambientToggle.isOn ? 1 : 0 );
 		PlayerPrefs.Save();
 
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
@@ -69,14 +71,10 @@ public class SettingsScreen : MonoBehaviour
 			if ( t.isOn )
 				sound.PlayMusic();
 			else
-				sound.StopMusic();
+				sound.FadeOutMusic();
 		}
 		else if ( t.name.ToLower() == "sound toggle" )
 		{
-			if ( t.isOn )
-				sound.StartAmbientSound();
-			else
-				sound.StopAmbientSound();
 			PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
 		}
 		else if ( t.name.ToLower() == "bloom toggle" )
@@ -85,8 +83,17 @@ public class SettingsScreen : MonoBehaviour
 				bloom.active = t.isOn;
 		}
 		else if ( t.name.ToLower() == "vignette toggle" )
+		{
 			if ( volume.TryGet<Vignette>( out var vig ) )
 				vig.active = t.isOn;
+		}
+		else if ( t.name.ToLower() == "ambient toggle" )
+		{
+			if ( t.isOn )
+				sound.StartAmbientSound();
+			else
+				sound.StopAmbientSound();
+		}
 	}
 
 	public void OnQuit()

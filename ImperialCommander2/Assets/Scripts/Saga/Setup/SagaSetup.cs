@@ -107,6 +107,7 @@ namespace Saga
 
 		public void OnCancel()
 		{
+			sound.FadeOutMusic();
 			thrusterRoot.DOMoveZ( -30, .5f );
 			faderCG.DOFade( 0, .5f ).OnComplete( () => SceneManager.LoadScene( "Title" ) );
 		}
@@ -265,7 +266,7 @@ namespace Saga
 					.OnComplete( () =>
 					{
 						//all effects/music finish, load the mission
-						GlowTimer.SetTimer( 2, () =>
+						GlowTimer.SetTimer( 3, () =>
 						{
 							SceneManager.LoadScene( "Saga" );
 						} );
