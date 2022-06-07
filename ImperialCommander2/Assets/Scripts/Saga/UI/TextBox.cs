@@ -15,6 +15,7 @@ namespace Saga
 		Action callback;
 		RectTransform rect;
 		Vector2 ap;
+		bool acceptInput = true;
 
 		void Awake()
 		{
@@ -51,6 +52,10 @@ namespace Saga
 
 		public void OnClose()
 		{
+			if ( !acceptInput )
+				return;
+			acceptInput = false;
+
 			callback?.Invoke();
 			popupBase.Close( () =>
 			{

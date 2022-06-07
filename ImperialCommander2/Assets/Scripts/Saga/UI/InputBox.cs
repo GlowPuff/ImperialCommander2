@@ -18,6 +18,7 @@ namespace Saga
 		InputPrompt inputPrompt;
 		Action callback;
 		int inputValue;
+		bool acceptInput = true;
 
 		private void Awake()
 		{
@@ -68,6 +69,10 @@ namespace Saga
 
 		public void OnSubmitValue()
 		{
+			if ( !acceptInput )
+				return;
+			acceptInput = false;
+
 			Debug.Log( "OnSubmitValue()::" + inputValue );
 			foreach ( var item in inputPrompt.inputList )
 			{

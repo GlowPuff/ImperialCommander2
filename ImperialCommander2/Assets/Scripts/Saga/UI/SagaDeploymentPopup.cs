@@ -35,6 +35,7 @@ namespace Saga
 		Action postAction;
 		bool pauseKeyInput;
 		DeploymentGroupOverride deploymentOverride;
+		bool acceptInput = true;
 
 		public void Show( DeployMode mode, bool skipThreatIncrease, bool isOptionalDeployment, Action callback = null, DeploymentGroupOverride ovrd = null )
 		{
@@ -100,6 +101,10 @@ namespace Saga
 
 		public void OnClose()
 		{
+			if ( !acceptInput )
+				return;
+			acceptInput = false;
+
 			FindObjectOfType<Sound>().PlaySound( FX.Click );
 			cg.DOFade( 0, .2f );
 			transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );

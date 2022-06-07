@@ -19,6 +19,8 @@ namespace Saga
 		Vector2 ap;
 		QuestionPrompt questionPrompt;
 		Action callback;
+		bool acceptInput = true;
+		bool acceptInput2 = true;
 
 		void Awake()
 		{
@@ -69,6 +71,10 @@ namespace Saga
 
 		public void OnClose()
 		{
+			if ( !acceptInput )
+				return;
+			acceptInput = false;
+
 			callback?.Invoke();
 			popupBase.Close( () =>
 			{
@@ -78,6 +84,10 @@ namespace Saga
 
 		public void OnButton( int index )
 		{
+			if ( !acceptInput || !acceptInput2 )
+				return;
+			acceptInput2 = false;
+
 			Debug.Log( $"CHOICE: {questionPrompt.buttonList[index].buttonText}, {questionPrompt.buttonList[index].triggerGUID}" );
 			FindObjectOfType<TriggerManager>().FireTrigger( questionPrompt.buttonList[index].triggerGUID );
 			FindObjectOfType<SagaEventManager>().DoEvent( questionPrompt.buttonList[index].eventGUID );
