@@ -542,10 +542,6 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	public void OnRollAttackDice()
 	{
-		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
-		if ( ovrd != null && ovrd.useGenericMugshot )
-			return;
-
 		if ( cardDescriptor.attacks == null )
 			return;
 
@@ -557,10 +553,6 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	public void OnRollDefenseDice()
 	{
-		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
-		if ( ovrd != null && ovrd.useGenericMugshot )
-			return;
-
 		if ( cardDescriptor.defense == null )
 			return;
 

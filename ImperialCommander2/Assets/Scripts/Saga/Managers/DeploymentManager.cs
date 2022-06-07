@@ -346,6 +346,9 @@ namespace Saga
 
 		void DoMultipleDeployment( DeploymentGroupOverride ovrd, Action callback = null )
 		{
+			string cardID = ovrd.ID;
+			if ( ovrd.isCustom )
+				cardID = "Custom";
 			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 			FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
 			var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint();
@@ -363,7 +366,7 @@ namespace Saga
 
 			//string enemyName = ovrd.useGenericMugshot ? "Rebel" : ovrd.nameOverride;
 			string enemyName = ovrd.nameOverride;
-			FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{ovrd.ID}]</color>", () =>
+			FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{cardID}]</color>", () =>
 			{
 				//hide all DPs used
 				foreach ( var dp in ovrd.GetDeploymentPoints() )

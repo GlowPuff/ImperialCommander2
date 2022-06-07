@@ -60,10 +60,6 @@ public class CardViewPopup : MonoBehaviour
 
 	public void OnRollAttack()
 	{
-		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( card.id );
-		if ( ovrd != null && ovrd.useGenericMugshot )
-			return;
-
 		OnOK();
 		DiceRoller diceRoller = GlowEngine.FindUnityObject<DiceRoller>();
 		diceRoller.Show( card, true );
@@ -71,10 +67,6 @@ public class CardViewPopup : MonoBehaviour
 
 	public void OnRollDefense()
 	{
-		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( card.id );
-		if ( ovrd != null && ovrd.useGenericMugshot )
-			return;
-
 		OnOK();
 		DiceRoller diceRoller = GlowEngine.FindUnityObject<DiceRoller>();
 		diceRoller.Show( card, false );

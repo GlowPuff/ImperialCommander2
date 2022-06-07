@@ -9,6 +9,7 @@ public class Dice : MonoBehaviour
 	public GameObject[] diceYellow;
 	public GameObject[] diceBlack;
 	public GameObject[] diceWhite;
+	public GameObject[] diceGrey;
 
 	[HideInInspector]
 	public DiceColor diceColor;
@@ -40,6 +41,9 @@ public class Dice : MonoBehaviour
 				break;
 			case DiceColor.Black:
 				MakeDice( diceBlack );
+				break;
+			case DiceColor.Grey:
+				MakeDice( diceGrey );
 				break;
 		}
 	}
