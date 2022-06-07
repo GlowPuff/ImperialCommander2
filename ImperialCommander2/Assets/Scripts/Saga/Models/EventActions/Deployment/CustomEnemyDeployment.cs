@@ -26,6 +26,7 @@ namespace Saga
 		public bool canBeDefeated;
 		public bool useDeductCost;
 		public bool useCustomInstructions;
+		public bool useThreatMultiplier;
 		//public bool useGenericMugshot;
 		//public bool showMod;
 		public Guid specificDeploymentPoint;

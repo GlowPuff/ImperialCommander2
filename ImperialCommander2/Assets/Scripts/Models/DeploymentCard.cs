@@ -103,6 +103,10 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			attackType = AttackType.Ranged
 		};
 
+		//health multiplier
+		if ( ced.useThreatMultiplier )
+			card.health *= DataStore.sagaSessionData.setupOptions.threatLevel;
+
 		string[] alist = ced.abilities.Split( '\n' );
 		var gaList = new List<GroupAbility>();
 		foreach ( var item in alist )
