@@ -39,6 +39,7 @@ namespace Saga
 
 		public void Show( DeployMode mode, bool skipThreatIncrease, bool isOptionalDeployment, Action callback = null, DeploymentGroupOverride ovrd = null )
 		{
+			acceptInput = true;
 			gameObject.SetActive( true );
 			fader.color = new Color( 0, 0, 0, 0 );
 			fader.DOFade( .75f, 1 );//.95
