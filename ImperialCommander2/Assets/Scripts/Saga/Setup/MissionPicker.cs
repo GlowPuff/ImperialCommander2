@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -23,6 +24,8 @@ namespace Saga
 		public TileInfoPopup tileInfoPopup;
 		public Text modeToggleBtnText;
 		public CanvasGroup canvasGroup;
+		public Transform busyIcon;
+		public GameObject busyPanel;
 
 		[HideInInspector]
 		public ProjectItem selectedMission;
@@ -54,6 +57,8 @@ namespace Saga
 					Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
 				}
 			}
+
+			busyIcon.DORotate( new Vector3( 0, 0, 360 ), 1f, RotateMode.FastBeyond360 ).SetEase( Ease.InOutQuad ).SetLoops( -1 );
 
 			basePath = "BuiltIn";
 			StartCoroutine( GetMissionsAvailable() );
@@ -170,7 +175,9 @@ namespace Saga
 		IEnumerator CreateBuiltInPickersFromAddressables( IList<IResourceLocation> locations )
 		{
 			isBusy = true;
-			bool first = true;
+			Dictionary<string, string[]> missionList = new Dictionary<string, string[]>();
+			List<ProjectItem> piList = new List<ProjectItem>();
+
 			foreach ( var item in locations )
 			{
 				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( item );
@@ -178,17 +185,42 @@ namespace Saga
 					yield return null;
 				if ( loadHandle.Status == AsyncOperationStatus.Succeeded )
 				{
-					var picker = Instantiate( missionItemPrefab, missionContainer );
-					var pi = picker.GetComponent<MissionPickerItem>();
-					pi.GetComponent<Toggle>().group = toggleGroup;
 					string[] loadedMission = loadHandle.Result.text.Split( '\n' );
-					//create a project item from the loaded mission
-					var projectItem = CreateProjectItem( loadedMission, item.PrimaryKey, item.PrimaryKey );
-					pi.Init( projectItem, first, PickerMode.BuiltIn );
-					first = false;
+					missionList.Add( item.PrimaryKey, loadedMission );
+
 				}
 				Addressables.Release( loadHandle );
 			}
+
+			//create project items from mission list
+			foreach ( var item in missionList.Keys )
+			{
+				piList.Add( CreateProjectItem( missionList[item], item, item ) );
+			}
+
+			//sort the pi list
+			piList.Sort( ( ProjectItem i1, ProjectItem i2 ) =>
+			{
+				int n1 = int.Parse( i1.missionID.Split( ' ' )[1] );
+				int n2 = int.Parse( i2.missionID.Split( ' ' )[1] );
+				if ( n1 < n2 )
+					return -1;
+				else if ( n1 > n2 )
+					return 1;
+				else
+					return 0;
+			} );
+
+			bool first = true;
+			foreach ( var item in piList )
+			{
+				var picker = Instantiate( missionItemPrefab, missionContainer );
+				var pi = picker.GetComponent<MissionPickerItem>();
+				pi.GetComponent<Toggle>().group = toggleGroup;
+				pi.Init( item, first, PickerMode.BuiltIn );
+				first = false;
+			}
+
 			isBusy = false;
 		}
 
@@ -369,6 +401,7 @@ namespace Saga
 			tilesButton.interactable = selectedMission != null && !isBusy;
 			modeToggleButton.interactable = !isBusy;
 			canvasGroup.interactable = !isBusy;
+			busyPanel.SetActive( isBusy );
 		}
 	}
 }

@@ -98,7 +98,7 @@ namespace Saga
 			DataStore.InitData();
 			DataStore.StartNewSagaSession( new SagaSetupOptions()
 			{
-				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "glitch.json" ) },
+				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
 				difficulty = Difficulty.Medium,
 				threatLevel = 3,
 				useAdaptiveDifficulty = false,
@@ -109,6 +109,9 @@ namespace Saga
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+
+			//try to load the mission
+			DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
 		}
 
 		public void ShowError( string m )

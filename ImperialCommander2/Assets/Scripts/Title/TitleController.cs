@@ -139,7 +139,10 @@ public class TitleController : MonoBehaviour
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
-			return true;
+			//try to load the mission
+			DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename );
+			if ( DataStore.mission != null )
+				return true;
 		}
 		return false;
 	}

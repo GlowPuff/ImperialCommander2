@@ -18,7 +18,8 @@ namespace Saga
 			if ( mode == PickerMode.Custom )
 				versionText.text = $"Version: {pi.fileVersion}";
 			else
-				versionText.text = $"{pi.missionID}";
+				versionText.text = pi.missionID;
+
 			GetComponent<Toggle>().isOn = ison;
 		}
 
