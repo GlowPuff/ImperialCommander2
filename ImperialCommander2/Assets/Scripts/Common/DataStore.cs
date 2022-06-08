@@ -8,7 +8,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.B14";
+	public static readonly string appVersion = "v.2.0.B15";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Mission mission;
@@ -83,6 +83,7 @@ public static class DataStore
 		villainsToManuallyAdd = new List<DeploymentCard>();
 		deploymentSounds = new List<DeploymentSound>();
 		missionPresets = new Dictionary<string, List<MissionPreset>>();
+		mission = null;
 
 		cardEvents = new List<CardEvent>();
 		activationInstructions = new List<CardInstruction>();

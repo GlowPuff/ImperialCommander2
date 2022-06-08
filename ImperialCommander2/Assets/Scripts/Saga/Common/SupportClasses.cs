@@ -140,6 +140,7 @@ namespace Saga
 		public string missionID;
 		public string missionGUID;
 		public string fullPathWithFilename;
+		public PickerMode pickerMode;
 
 		public int CompareTo( ProjectItem other ) => timeTicks > other.timeTicks ? -1 : timeTicks < other.timeTicks ? 1 : 0;
 	}

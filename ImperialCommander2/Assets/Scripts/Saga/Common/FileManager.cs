@@ -80,34 +80,44 @@ namespace Saga
 			return projectItem;
 		}
 
+		public static Mission LoadMissionFromString( string json )
+		{
+			try
+			{
+				var m = JsonConvert.DeserializeObject<Mission>( json );
+				Debug.Log( "Loaded Mission: " + m.fileName );
+				return m;
+			}
+			catch ( Exception e )
+			{
+				Utils.LogError( "LoadMissionFromString()::Could not load the Mission. Exception: " + e.Message );
+				return null;
+			}
+		}
+
 		/// <summary>
 		/// Loads a mission from its FULL PATH .json.
 		/// </summary>
 		public static Mission LoadMission( string filename )
 		{
 			string json = "";
-			//string basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 
 			try
 			{
-				using ( StreamReader sr = new StreamReader( filename ) )// Path.Combine( basePath, filename ) ) )
+				using ( StreamReader sr = new StreamReader( filename ) )
 				{
 					json = sr.ReadToEnd();
 				}
 
 				var m = JsonConvert.DeserializeObject<Mission>( json );
-				//overwrite fileName, relativePath and fileVersion properties so they are up-to-date
+				//overwrite fileName so it's up-to-date
 				FileInfo fi = new FileInfo( filename );
 				m.fileName = fi.Name;
-				//for Saga, no need to set current version or relative path
-				//m.relativePath = Path.GetRelativePath( basePath, new DirectoryInfo( filename ).FullName );
-				//m.fileVersion = Utils.formatVersion;
 				Debug.Log( "Loaded Mission: " + m.fileName );
 				return m;
 			}
 			catch ( Exception e )
 			{
-				//MessageBox.Show( "Could not load the Mission.\r\n\r\nException:\r\n" + e.Message, "App Exception", MessageBoxButton.OK, MessageBoxImage.Error );
 				Utils.LogError( "LoadMission()::Could not load the Mission. Exception: " + e.Message );
 				return null;
 			}

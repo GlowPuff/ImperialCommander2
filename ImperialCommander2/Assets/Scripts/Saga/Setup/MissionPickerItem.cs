@@ -10,11 +10,15 @@ namespace Saga
 
 		ProjectItem projectItem;
 
-		public void Init( ProjectItem pi, bool ison )
+		public void Init( ProjectItem pi, bool ison, PickerMode mode )
 		{
+			pi.pickerMode = mode;
 			projectItem = pi;
 			missionNameText.text = pi.Title;
-			versionText.text = $"Version: {pi.fileVersion}";
+			if ( mode == PickerMode.Custom )
+				versionText.text = $"Version: {pi.fileVersion}";
+			else
+				versionText.text = $"{pi.missionID}";
 			GetComponent<Toggle>().isOn = ison;
 		}
 

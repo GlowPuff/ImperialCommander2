@@ -13,6 +13,8 @@ namespace Saga
 		[HideInInspector]
 		public MapTile mapTile;
 		TileDescriptor tileDescriptor;
+		//handle used to load and release tile asset
+		AsyncOperationHandle<Sprite> loadHandle;
 
 		public void LoadTile( MapTile t, TileDescriptor td )
 		{
@@ -20,7 +22,8 @@ namespace Saga
 			tileDescriptor = td;
 			//Debug.Log( "LoadTile()::" + mapTile.tileID );
 			var textname = $"{t.expansion}_{t.tileID}{t.tileSide}";
-			Addressables.LoadAssetAsync<Sprite>( textname ).Completed += TileRenderer_Completed;
+			loadHandle = Addressables.LoadAssetAsync<Sprite>( textname );
+			loadHandle.Completed += TileRenderer_Completed;
 		}
 
 		private void TileRenderer_Completed( AsyncOperationHandle<Sprite> tex )
@@ -73,6 +76,11 @@ namespace Saga
 				ShowTile();
 			else
 				HideTile();
+		}
+
+		private void OnDestroy()
+		{
+			Addressables.Release( loadHandle );
 		}
 	}
 }

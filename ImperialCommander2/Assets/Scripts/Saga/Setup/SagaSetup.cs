@@ -2,9 +2,11 @@ using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -117,9 +119,31 @@ namespace Saga
 			setupOptions.threatLevel = threatValue.wheelValue;
 			setupOptions.addtlThreat = addtlThreatValue.wheelValue;
 			setupOptions.projectItem = missionPicker.selectedMission;
-
 			DataStore.sagaSessionData.setupOptions = setupOptions;
-			Warp();
+
+			missionPicker.isBusy = true;
+
+			//load/validate the mission
+			if ( missionPicker.pickerMode == PickerMode.Custom )
+			{
+				DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename );
+				if ( DataStore.mission != null )
+					Warp();
+			}
+			else
+			{
+				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( setupOptions.projectItem.fullPathWithFilename );
+				loadHandle.Completed += ( x ) =>
+				{
+					if ( x.Status == AsyncOperationStatus.Succeeded )
+					{
+						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
+						if ( DataStore.mission != null )
+							Warp();
+					}
+					Addressables.Release( loadHandle );
+				};
+			}
 		}
 
 		public void AddHero()
@@ -205,12 +229,16 @@ namespace Saga
 			//add default ignored
 			//ignore "Other" expansion enemy groups by default
 			DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
-			//get ignored from preset
-			var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
-			DataStore.sagaSessionData.MissionIgnored.AddRange( ign );
 
-			threatValue.ResetWheeler( mp.defaultThreat );
-			initialText.text = mp.defaultThreat.ToString();
+			if ( mp != null )
+			{
+				//get ignored from preset
+				var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
+				DataStore.sagaSessionData.MissionIgnored.AddRange( ign );
+
+				threatValue.ResetWheeler( mp.defaultThreat );
+				initialText.text = mp.defaultThreat.ToString();
+			}
 		}
 
 		/// <summary>
@@ -277,7 +305,9 @@ namespace Saga
 
 		private void Update()
 		{
-			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0 && missionPicker.selectedMission != null )
+			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0
+				&& missionPicker.selectedMission != null
+				&& !missionPicker.isBusy )
 				startMissionButton.interactable = true;
 			else
 				startMissionButton.interactable = false;

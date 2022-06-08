@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.UI;
 
 namespace Saga
@@ -15,34 +19,63 @@ namespace Saga
 		public Transform missionContainer;
 		//UI
 		public TextMeshProUGUI missionNameText, missionDescriptionText;
-		public Button tilesButton;
+		public Button tilesButton, modeToggleButton;
 		public TileInfoPopup tileInfoPopup;
+		public Text modeToggleBtnText;
+		public CanvasGroup canvasGroup;
 
 		[HideInInspector]
 		public ProjectItem selectedMission;
+		[HideInInspector]
+		public bool isBusy = false;
+		[HideInInspector]
+		public PickerMode pickerMode { get; private set; }
 
 		string currentFolder, basePath, prevFolder;
 		ProjectItem[] projectItems;
 		ToggleGroup toggleGroup;
+		List<string> expansionsAvailable = new List<string>();
 
 		private void Start()
 		{
+			pickerMode = PickerMode.BuiltIn;
 			selectedMission = null;
 			toggleGroup = missionContainer.GetComponent<ToggleGroup>();
 
-			basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+			//basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 
-			//make sure the project folder exists
-			if ( !Directory.Exists( basePath ) )
+			string customPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+			//make sure the custom folder exists
+			if ( !Directory.Exists( customPath ) )
 			{
-				var dinfo = Directory.CreateDirectory( basePath );
+				var dinfo = Directory.CreateDirectory( customPath );
 				if ( dinfo == null )
 				{
-					Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + basePath );
+					Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
 				}
 			}
 
-			OnChangeFolder( basePath );
+			basePath = "BuiltIn";
+			StartCoroutine( GetMissionsAvailable() );
+		}
+
+		IEnumerator GetMissionsAvailable()
+		{
+			isBusy = true;
+			foreach ( var item in Enum.GetValues( typeof( Expansion ) ) )
+			{
+				AsyncOperationHandle<IList<IResourceLocation>> handle = Addressables.LoadResourceLocationsAsync( item.ToString() );
+				while ( !handle.IsDone )
+					yield return null;
+
+				if ( handle.Result.Count > 0 )
+					expansionsAvailable.Add( item.ToString() );
+				Addressables.Release( handle );
+			}
+			isBusy = false;
+
+			Debug.Log( "GetMissionsAvailable()::FOUND " + expansionsAvailable.Aggregate( "", ( acc, next ) => acc + next + ", " ) );
+			OnChangeBuiltinFolder( basePath );
 		}
 
 		public void OnChangeFolder( string path )
@@ -83,7 +116,7 @@ namespace Saga
 				var picker = Instantiate( missionItemPrefab, missionContainer );
 				var pi = picker.GetComponent<MissionPickerItem>();
 				pi.GetComponent<Toggle>().group = toggleGroup;
-				pi.Init( item, first );
+				pi.Init( item, first, PickerMode.Custom );
 				first = false;
 			}
 
@@ -91,6 +124,89 @@ namespace Saga
 			{
 				selectedMission = projectItems[0];
 				OnMissionSelected( selectedMission );
+			}
+		}
+
+		public void OnChangeBuiltinFolder( string expansion )
+		{
+			selectedMission = null;
+			OnMissionSelected( null );
+			prevFolder = currentFolder;
+			currentFolder = expansion.ToString();
+
+			//populate mission picker items
+			for ( int i = 1; i < missionContainer.childCount; i++ )
+			{
+				//get rid of all items except the UP FOLDER item
+				Destroy( missionContainer.GetChild( i ).gameObject );
+			}
+			//disable UP folder if we're at the root
+			if ( basePath == currentFolder )
+				missionContainer.GetChild( 0 ).gameObject.SetActive( false );
+			else
+				missionContainer.GetChild( 0 ).gameObject.SetActive( true );
+
+			//if this is the top, add folders
+			if ( currentFolder == "BuiltIn" )
+			{
+				foreach ( var folder in expansionsAvailable )
+				{
+					var fi = Instantiate( folderItemPrefab, missionContainer );
+					fi.GetComponent<MissionPickerFolder>().InitBuiltin( folder.ToString() );
+				}
+			}
+			else//otherwise we're in a built-in folder, so populate with missions
+			{
+				Debug.Log( "OnChangeBuiltinFolder()::READING FOLDER::" + expansion );
+				AsyncOperationHandle<IList<IResourceLocation>> handle = Addressables.LoadResourceLocationsAsync( expansion );
+				handle.Completed += ( x ) =>
+				{
+					StartCoroutine( CreateBuiltInPickersFromAddressables( x.Result ) );
+					Addressables.Release( handle );
+				};
+			}
+		}
+
+		IEnumerator CreateBuiltInPickersFromAddressables( IList<IResourceLocation> locations )
+		{
+			isBusy = true;
+			bool first = true;
+			foreach ( var item in locations )
+			{
+				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( item );
+				while ( !loadHandle.IsDone )
+					yield return null;
+				if ( loadHandle.Status == AsyncOperationStatus.Succeeded )
+				{
+					var picker = Instantiate( missionItemPrefab, missionContainer );
+					var pi = picker.GetComponent<MissionPickerItem>();
+					pi.GetComponent<Toggle>().group = toggleGroup;
+					string[] loadedMission = loadHandle.Result.text.Split( '\n' );
+					//create a project item from the loaded mission
+					var projectItem = CreateProjectItem( loadedMission, item.PrimaryKey, item.PrimaryKey );
+					pi.Init( projectItem, first, PickerMode.BuiltIn );
+					first = false;
+				}
+				Addressables.Release( loadHandle );
+			}
+			isBusy = false;
+		}
+
+		public void OnChangeMode()
+		{
+			if ( pickerMode == PickerMode.Custom )
+			{
+				pickerMode = PickerMode.BuiltIn;
+				modeToggleBtnText.text = "official";
+				basePath = "BuiltIn";
+				OnChangeBuiltinFolder( basePath );
+			}
+			else
+			{
+				pickerMode = PickerMode.Custom;
+				modeToggleBtnText.text = "custom";
+				basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+				OnChangeFolder( basePath );
 			}
 		}
 
@@ -102,8 +218,8 @@ namespace Saga
 				selectedMission = pi;
 				missionNameText.text = pi?.Title;
 				missionDescriptionText.text = pi?.Description;
-				tilesButton.interactable = true;
-				if ( pi.missionID != "Custom" )
+				//tilesButton.interactable = true;
+				if ( pi.missionID != "Custom" )//official mission
 				{
 					var expansion = pi.missionID.Split( ' ' )[0].ToLower();
 					var id = pi.missionID.Split( ' ' )[1].ToLower();
@@ -111,7 +227,7 @@ namespace Saga
 					var mp = presets.Where( x => x.id.ToLower() == $"{expansion}{id}" ).FirstOr( null );
 					FindObjectOfType<SagaSetup>().OnMissionSelected( mp );
 				}
-				else
+				else//custom mission
 					FindObjectOfType<SagaSetup>().OnMissionSelected( pi );
 			}
 			else
@@ -119,7 +235,7 @@ namespace Saga
 				selectedMission = null;
 				missionNameText.text = "";
 				missionDescriptionText.text = "";
-				tilesButton.interactable = false;
+				//tilesButton.interactable = false;
 			}
 		}
 
@@ -127,22 +243,47 @@ namespace Saga
 		{
 			EventSystem.current.SetSelectedGameObject( null );
 			OnMissionSelected( null );
-			OnChangeFolder( prevFolder );
+			if ( pickerMode == PickerMode.Custom )
+				OnChangeFolder( prevFolder );
+			else
+				OnChangeBuiltinFolder( "BuiltIn" );
 		}
 
 		public void OnTiles()
 		{
 			EventSystem.current.SetSelectedGameObject( null );
-			Mission m = FileManager.LoadMission( selectedMission.fullPathWithFilename );
-			List<string> tiles = new List<string>();
-			if ( m != null )
+			Mission m = null;
+			Action doneAction = () =>
 			{
-				foreach ( var section in m.mapSections )
+				List<string> tiles = new List<string>();
+				if ( m != null )
 				{
-					foreach ( var tile in section.mapTiles )
-						tiles.Add( tile.expansion + " " + tile.tileID );
+					foreach ( var section in m.mapSections )
+					{
+						foreach ( var tile in section.mapTiles )
+							tiles.Add( tile.expansion + " " + tile.tileID );
+					}
+					tileInfoPopup.Show( tiles.ToArray() );
 				}
-				tileInfoPopup.Show( tiles.ToArray() );
+			};
+
+			if ( pickerMode == PickerMode.Custom )
+			{
+				m = FileManager.LoadMission( selectedMission.fullPathWithFilename );
+				doneAction();
+			}
+			else
+			{
+				isBusy = true;
+				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( selectedMission.fullPathWithFilename );
+				loadHandle.Completed += ( x ) =>
+				{
+					if ( x.Status == AsyncOperationStatus.Succeeded )
+						m = FileManager.LoadMissionFromString( x.Result.text );
+					Addressables.Release( loadHandle );
+					isBusy = false;
+					doneAction();
+				};
 			}
 		}
 
@@ -157,7 +298,10 @@ namespace Saga
 				//find mission files
 				foreach ( FileInfo fi in files )
 				{
-					var pi = CreateProjectItem( fi.FullName );
+					//FileInfo fi = new FileInfo( filename );
+					string[] text = File.ReadAllLines( fi.FullName );
+					//var pi = CreateProjectItem( fi.FullName );
+					var pi = CreateProjectItem( text, fi.Name, fi.FullName );
 					items.Add( pi );
 				}
 				items.Sort();
@@ -169,19 +313,19 @@ namespace Saga
 			}
 		}
 
-		public static ProjectItem CreateProjectItem( string filename )
+		public static ProjectItem CreateProjectItem( string[] text, string fileName = "", string fullName = "" ) //filename )
 		{
 			ProjectItem projectItem = new ProjectItem();
-			FileInfo fi = new FileInfo( filename );
+			//FileInfo fi = new FileInfo( filename );
 
-			string[] text = File.ReadAllLines( filename );
+			//string[] text = File.ReadAllLines( filename );
 			foreach ( var line in text )
 			{
 				//manually parse each line
 				string[] split = line.Split( ':' );
 				if ( split.Length == 2 )
 				{
-					projectItem.fileName = fi.Name;
+					projectItem.fileName = fileName;//fi.Name;
 
 					split[0] = split[0].Replace( "\"", "" ).Replace( ",", "" ).Trim();
 					split[1] = split[1].Replace( "\"", "" ).Replace( ",", "" ).Trim();
@@ -204,7 +348,7 @@ namespace Saga
 				}
 			}
 
-			projectItem.fullPathWithFilename = fi.FullName;
+			projectItem.fullPathWithFilename = fullName;//fi.FullName;
 
 			//process auto-description for known missions
 			if ( projectItem.missionID != "Custom" )
@@ -218,6 +362,13 @@ namespace Saga
 			}
 
 			return projectItem;
+		}
+
+		private void Update()
+		{
+			tilesButton.interactable = selectedMission != null && !isBusy;
+			modeToggleButton.interactable = !isBusy;
+			canvasGroup.interactable = !isBusy;
 		}
 	}
 }

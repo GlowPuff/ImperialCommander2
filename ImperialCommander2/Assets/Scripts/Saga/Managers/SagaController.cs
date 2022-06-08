@@ -143,7 +143,9 @@ namespace Saga
 			try
 			{
 				//SET the mission object to be used everywhere
-				DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
+				//DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
+				if ( DataStore.mission == null )
+					return false;
 
 				//add threat if it's a side mission
 				if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
