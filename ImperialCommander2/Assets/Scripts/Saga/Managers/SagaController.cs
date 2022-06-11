@@ -51,7 +51,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			//bootstrapDEBUG();
+			bootstrapDEBUG();
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -108,7 +108,7 @@ namespace Saga
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
-			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 
 			//try to load the mission
 			DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
@@ -156,7 +156,7 @@ namespace Saga
 				//ally
 				if ( DataStore.mission.missionProperties.useFixedAlly == YesNoAll.Yes )
 				{
-					DataStore.sagaSessionData.selectedAlly = DataStore.allyCards.GetDeploymentCard( DataStore.mission.missionProperties.fixedAlly );
+					DataStore.sagaSessionData.fixedAlly = DataStore.allyCards.GetDeploymentCard( DataStore.mission.missionProperties.fixedAlly );
 				}
 				//initial groups
 				foreach ( var g in DataStore.mission.initialDeploymentGroups )
@@ -233,6 +233,9 @@ namespace Saga
 			//deploy ally
 			if ( DataStore.sagaSessionData.selectedAlly != null )
 				dgManager.DeployHeroAlly( DataStore.sagaSessionData.selectedAlly );
+			//deploy fixed ally
+			if ( DataStore.sagaSessionData.fixedAlly != null )
+				dgManager.DeployHeroAlly( DataStore.sagaSessionData.fixedAlly );
 
 			//init event manager
 			eventManager.Init( DataStore.mission );

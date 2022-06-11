@@ -8,7 +8,7 @@ namespace Saga
 	public class SagaSession
 	{
 		public SagaSetupOptions setupOptions;
-		public DeploymentCard selectedAlly;
+		public DeploymentCard selectedAlly, fixedAlly;
 		public SagaGameVars gameVars;
 
 		public List<DeploymentCard> MissionStarting;
@@ -177,6 +177,7 @@ namespace Saga
 			MissionIgnored = new List<DeploymentCard>();
 			MissionHeroes = new List<DeploymentCard>();
 			selectedAlly = null;
+			fixedAlly = null;
 
 			gameVars = new SagaGameVars();
 		}
