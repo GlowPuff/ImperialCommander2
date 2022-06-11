@@ -7,6 +7,9 @@ public class PopupBase : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
+	public PopupOpacity popupOpacity = PopupOpacity.Light;
+
+	public enum PopupOpacity { Dark, Light }
 
 	[HideInInspector]
 	public bool isActive = false;
@@ -16,7 +19,8 @@ public class PopupBase : MonoBehaviour
 		isActive = true;
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
-		fader.DOFade( .75f, 1 );//.95
+		float opacity = popupOpacity == PopupOpacity.Light ? .75f : .95f;
+		fader.DOFade( opacity, 1 );//.95
 		cg.DOFade( 1, .5f );
 		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo ).OnComplete( () => callback?.Invoke() );

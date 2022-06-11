@@ -346,7 +346,7 @@ namespace Saga
 			}
 		}
 
-		public static ProjectItem CreateProjectItem( string[] text, string fileName = "", string fullName = "" ) //filename )
+		public ProjectItem CreateProjectItem( string[] text, string fileName = "", string fullName = "" ) //filename )
 		{
 			ProjectItem projectItem = new ProjectItem();
 			//FileInfo fi = new FileInfo( filename );
@@ -376,14 +376,12 @@ namespace Saga
 						projectItem.missionID = split[1];
 					if ( split[0] == "missionGUID" )
 						projectItem.missionGUID = split[1];
-					if ( split[0] == "missionName" )
-						projectItem.Title = split[1];
 				}
 			}
 
 			projectItem.fullPathWithFilename = fullName;//fi.FullName;
 
-			//process auto-description for known missions
+			//process auto-description and translated title for known missions
 			if ( projectItem.missionID != "Custom" )
 			{
 				string[] id = projectItem.missionID.Split( ' ' );
@@ -392,6 +390,13 @@ namespace Saga
 					projectItem.Description = card.descriptionText;
 				else
 					projectItem.Description = "Error parsing description.";
+
+				//for built-in missions, get TRANSLATED mission title also
+				if ( pickerMode == PickerMode.BuiltIn )
+				{
+					if ( card != null )
+						projectItem.Title = card.name;
+				}
 			}
 
 			return projectItem;
