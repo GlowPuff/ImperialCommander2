@@ -228,15 +228,16 @@ namespace Saga
 		{
 			if ( pickerMode == PickerMode.Custom )
 			{
+
 				pickerMode = PickerMode.BuiltIn;
-				modeToggleBtnText.text = "official";
+				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.officialBtn;
 				basePath = "BuiltIn";
 				OnChangeBuiltinFolder( basePath );
 			}
 			else
 			{
 				pickerMode = PickerMode.Custom;
-				modeToggleBtnText.text = "custom";
+				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn;
 				basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 				OnChangeFolder( basePath );
 			}

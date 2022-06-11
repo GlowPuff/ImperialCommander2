@@ -30,7 +30,7 @@ public class UISetup
 
 public class SagaUISetup
 {
-	public string groupsText, villainsBtn, tilesBtn, setupStartBtn;
+	public string groupsText, villainsBtn, tilesBtn, setupStartBtn, officialBtn, customBtn;
 }
 
 public class SagaMainApp

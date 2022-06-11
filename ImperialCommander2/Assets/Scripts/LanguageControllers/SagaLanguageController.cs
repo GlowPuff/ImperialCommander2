@@ -28,6 +28,8 @@ namespace Saga
 			fame2UC.text = uiMain.fame2UC;
 			fame1UC.text = uiMain.fame1UC;
 			fame2UC.text = uiMain.fame2UC;
+			fameItem1UC.text = uiMain.fameItem1UC;
+			fameItem2UC.text = uiMain.fameItem2UC;
 
 			onslaughtDeploy.text = uiMain.deploy;
 			landingDeploy2.text = uiMain.deploy;
