@@ -29,14 +29,13 @@ namespace Saga
 		public SagaModifyGroupsPanel modifyGroupsPanel;
 		//OTHER
 		public GameObject warpEffect;
-		public Transform thrusterRoot;
+		public Transform thrusterRoot, thrusterLeft, thrusterRight;
 		public SagaSetupLanguageController languageController;
 		public CanvasGroup faderCG;
 		public ColorBlock redBlock;
 		public ColorBlock greenBlock;
 		public VolumeProfile volume;
 		public MissionPicker missionPicker;
-		//UI objects using language translations
 
 		Sound sound;
 		SagaSetupOptions setupOptions;
@@ -50,6 +49,15 @@ namespace Saga
 			versionText.text = "App Mission Format: " + Utils.formatVersion;
 
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+			int pixelHeightOfCurrentScreen = Screen.currentResolution.height;
+			int pixelWidthOfCurrentScreen = Screen.currentResolution.width;
+			float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
+			if ( aspect >= 2f )
+			{
+				thrusterLeft.position = new Vector3( -11.6f, thrusterLeft.position.y, thrusterLeft.position.z );
+				thrusterRight.position = new Vector3( 11.6f, thrusterRight.position.y, thrusterRight.position.z );
+			}
 
 			//bootstrap the setup screen for debugging
 			//bootstrapDEBUG();
