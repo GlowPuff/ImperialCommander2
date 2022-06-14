@@ -47,7 +47,7 @@ namespace Saga
 			if ( ovrd != null && ovrd.isCustom )
 				cardDescriptor = ovrd.customCard;
 
-			cardDescriptor.hasDeployed = true;
+			//cardDescriptor.hasDeployed = true;
 			if ( cd.id == "DG070" )//handle custom group (this isn't even in Saga)
 				iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
 			else
@@ -162,7 +162,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Visually remove, adds card back to hand (if not villain/custom)
+		/// Visually remove the groups
 		/// </summary>
 		public void RemoveSelf()
 		{
@@ -173,42 +173,6 @@ namespace Saga
 			Transform tf = transform.GetChild( 0 );
 			tf.DOScale( 0, .35f ).SetEase( Ease.InCirc ).OnComplete( () =>
 			{
-				//add card back to deployment hand ONLY IF:
-				//not custom group DG070
-				//not a villain or a custom deployment
-				//can be redeployed
-				//not using generic mugshot
-				bool returnToHand = true;
-				var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
-				if ( ovrd != null && (ovrd.isCustom || ovrd.useGenericMugshot || !ovrd.canRedeploy) )
-					returnToHand = false;
-
-				if ( cardDescriptor.id != "DG070"
-				&& !DataStore.villainCards.ContainsCard( cardDescriptor )
-				&& returnToHand )
-					DataStore.deploymentHand.Add( cardDescriptor );
-				//remove it from deployed list
-				DataStore.deployedEnemies.Remove( cardDescriptor );
-				//if it is an EARNED villain, add it back into manual deploy list
-				if ( DataStore.sagaSessionData.EarnedVillains.ContainsCard( cardDescriptor ) && !DataStore.manualDeploymentList.ContainsCard( cardDescriptor ) )
-				{
-					DataStore.manualDeploymentList.Add( cardDescriptor );
-					DataStore.SortManualDeployList();
-				}
-
-				if ( DataStore.deployedEnemies.Count == 0 )
-					FindObjectOfType<SagaController>().eventManager.CheckIfEventsTriggered();
-
-				if ( DataStore.sagaSessionData.setupOptions.useAdaptiveDifficulty )
-				{
-					//add fame value
-					DataStore.sagaSessionData.gameVars.fame += cardDescriptor.fame;
-					//reimburse some Threat
-					DataStore.sagaSessionData.ModifyThreat( cardDescriptor.reimb );
-					//show fame popup
-					GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"green\">{cardDescriptor.fame}</color>" );
-				}
-
 				UnityEngine.Object.Destroy( gameObject );
 			} );
 		}
@@ -319,6 +283,7 @@ namespace Saga
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
 			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 
+			//visually remove group from screen
 			if ( ovrd == null || (ovrd != null && ovrd.canBeDefeated) )
 			{
 				FindObjectOfType<ConfirmPopup>().Hide( () =>
@@ -334,9 +299,10 @@ namespace Saga
 			{
 				FindObjectOfType<SagaController>().triggerManager.FireTrigger( ovrd.setTrigger );
 				FindObjectOfType<SagaController>().eventManager.DoEvent( ovrd.setEvent );
-				//soft reset of override
-				ovrd.SoftReset();
 			}
+
+			if ( ovrd == null || (ovrd != null && ovrd.canBeDefeated) )
+				ProcessCardDefeated();
 		}
 
 		public void OnExhaust()
@@ -353,6 +319,56 @@ namespace Saga
 				cardDescriptor.instructionOption = null;
 				cardDescriptor.bonusName = null;
 				cardDescriptor.bonusText = null;
+			}
+		}
+
+		/// <summary>
+		/// check whether we can add card back to hand
+		/// </summary>
+		private void ProcessCardDefeated()
+		{
+			//add card back to deployment hand ONLY IF:
+			//not custom group DG070
+			//not a villain
+			//can be redeployed (from potential override)
+
+			//normal, non-overridden cards return to hand
+			bool returnToHand = true;
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
+			//test if it can redeploy
+			if ( ovrd != null && !ovrd.canRedeploy )
+			{
+				DataStore.sagaSessionData.CannotRedeployList.Add( ovrd.ID );
+				returnToHand = false;
+			}
+
+			if ( cardDescriptor.id != "DG070"
+			&& !DataStore.villainCards.ContainsCard( cardDescriptor )
+			&& returnToHand )
+				DataStore.deploymentHand.Add( cardDescriptor );
+			//remove it from deployed list
+			DataStore.deployedEnemies.Remove( cardDescriptor );
+			//if it is an EARNED villain, add it back into manual deploy list
+			if ( DataStore.sagaSessionData.EarnedVillains.ContainsCard( cardDescriptor ) && !DataStore.manualDeploymentList.ContainsCard( cardDescriptor ) )
+			{
+				DataStore.manualDeploymentList.Add( cardDescriptor );
+				DataStore.SortManualDeployList();
+			}
+			//finally, reset the group if needed
+			if ( ovrd != null && ovrd.canRedeploy && ovrd.useResetOnRedeployment )
+				DataStore.sagaSessionData.gameVars.RemoveOverride( ovrd.ID );
+
+			if ( DataStore.deployedEnemies.Count == 0 )
+				FindObjectOfType<SagaController>().eventManager.CheckIfEventsTriggered();
+
+			if ( DataStore.sagaSessionData.setupOptions.useAdaptiveDifficulty )
+			{
+				//add fame value
+				DataStore.sagaSessionData.gameVars.fame += cardDescriptor.fame;
+				//reimburse some Threat
+				DataStore.sagaSessionData.ModifyThreat( cardDescriptor.reimb );
+				//show fame popup
+				GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"green\">{cardDescriptor.fame}</color>" );
 			}
 		}
 	}

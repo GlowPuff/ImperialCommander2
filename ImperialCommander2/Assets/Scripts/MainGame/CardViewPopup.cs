@@ -24,6 +24,8 @@ public class CardViewPopup : MonoBehaviour
 		fader.color = new Color( 0, 0, 0, 0 );
 		fader.DOFade( .95f, .5f );
 		cg.DOFade( 1, .5f );
+		if ( cg2 != null )
+			cg2.DOFade( 1, .5f );
 		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 	}
@@ -53,7 +55,8 @@ public class CardViewPopup : MonoBehaviour
 			dynamicMissionCard?.gameObject.SetActive( false );
 		} );
 		cg?.DOFade( 0, .2f );
-		cg2?.DOFade( 0, .2f );
+		if ( cg2 != null )
+			cg2.DOFade( 0, .2f );
 		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 		transform.GetChild( 2 )?.DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}

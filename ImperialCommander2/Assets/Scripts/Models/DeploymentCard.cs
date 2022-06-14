@@ -52,7 +52,6 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	public InstructionOption instructionOption;
 	public bool isDummy;
 	public HeroState heroState;
-	public bool hasDeployed = false;
 	public bool isCustom = false;
 	public string mugShotPath;
 	//==end upkeep
@@ -107,15 +106,26 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 		if ( ced.useThreatMultiplier )
 			card.health *= DataStore.sagaSessionData.setupOptions.threatLevel;
 
-		string[] alist = ced.abilities.Split( '\n' );
-		var gaList = new List<GroupAbility>();
-		foreach ( var item in alist )
+		if ( !string.IsNullOrEmpty( ced.abilities.Trim() ) )
 		{
-			string[] a = item.Split( ':' );
-			GroupAbility ab = new GroupAbility() { name = a[0], text = a[1] };
-			gaList.Add( ab );
+			string[] alist = ced.abilities.Split( '\n' );
+			var gaList = new List<GroupAbility>();
+			foreach ( var item in alist )
+			{
+				string[] a = item.Split( ':' );
+				if ( a.Length == 2 )
+				{
+					GroupAbility ab = new GroupAbility() { name = a[0], text = a[1] };
+					gaList.Add( ab );
+				}
+				else
+				{
+					GroupAbility ab = new GroupAbility() { name = "", text = a[0] };
+					gaList.Add( ab );
+				}
+			}
+			card.abilities = gaList.ToArray();
 		}
-		card.abilities = gaList.ToArray();
 
 		if ( ced.customType == MarkerType.Rebel )
 		{

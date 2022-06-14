@@ -19,13 +19,17 @@ namespace Saga
 
 		//private Sound sound;
 		private bool acceptNavivation = true;
-		private Vector3 dragOrigin, rotOrigin, camLocalOrigin, camNormal;
+		private Vector3 dragOrigin, rotOrigin, camLocalOrigin, camNormal, touchStart;
 		private float rotStart;
 		private bool mButtonDown = false;
 
 		bool oneClick = false;
+		bool isTouching = false;
 		float doubleClickTimer;
 		float delay = .35f;
+		TouchMode touchMode = TouchMode.Idle;
+
+		public enum TouchMode { Rotating, Zooming, Idle }
 
 		private void Start()
 		{
@@ -40,15 +44,81 @@ namespace Saga
 			if ( Input.touchCount > 0 && Input.GetTouch( 0 ).phase == TouchPhase.Began )
 			{
 				pointerID = Input.GetTouch( 0 ).fingerId;
+				touchStart = cam2D.ScreenToViewportPoint( Input.GetTouch( 0 ).position );
+				rotStart = camRotator.rotation.eulerAngles.y;
+			}
+
+			isTouching = Input.touchCount == 0 ? false : true;
+			if ( !isTouching )
+				touchMode = TouchMode.Idle;
+
+			if ( Input.touchCount == 2 )
+			{
+				HandleTouchRotateZoom();
 			}
 
 			if ( acceptNavivation )
 			{
-				updateTranslation( pointerID );
-				updateRotation();
-				updateZoom();
-				updateReset();
+				if ( Input.touchCount < 2 )
+					updateTranslation( pointerID );
+
+				if ( !isTouching )
+				{
+					updateRotation();
+					updateZoom();
+					updateReset();
+				}
+
 				updateDoubleClick( pointerID );
+			}
+		}
+
+		void HandleTouchRotateZoom()
+		{
+			if ( FindObjectOfType<SagaEventManager>().UIShowing
+				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+				return;
+
+			if ( Input.GetTouch( 0 ).phase == TouchPhase.Moved )
+			{
+				Vector3 curPosition = cam2D.ScreenToViewportPoint( Input.GetTouch( 0 ).position );
+				//rotate
+				float diff = touchStart.x - curPosition.x;
+				//zoom
+				float diff2 = touchStart.y - curPosition.y;
+
+				Vector2 delta = Input.GetTouch( 0 ).deltaPosition;
+
+				//only allow one movement per touchdown
+				if ( touchMode == TouchMode.Idle && Math.Abs( delta.x ) > Math.Abs( delta.y ) )
+					touchMode = TouchMode.Rotating;
+				else if ( touchMode == TouchMode.Idle && Math.Abs( delta.x ) < Math.Abs( delta.y ) )
+					touchMode = TouchMode.Zooming;
+
+				if ( touchMode == TouchMode.Rotating )
+				{
+					camRotator.rotation = Quaternion.Euler( 0, rotStart + diff * -rotationSensitivity * 1.5f, 0 );
+				}
+				else
+				{
+					touchMode = TouchMode.Zooming;
+					if ( diff2 < 0 )
+					{
+						wheelValue += interval / 2f;
+						wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
+						Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+						nv.x = 0;
+						cam.transform.localPosition = nv;
+					}
+					else
+					{
+						wheelValue -= interval / 2f;
+						wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
+						Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+						nv.x = 0;
+						cam.transform.localPosition = nv;
+					}
+				}
 			}
 		}
 
@@ -56,7 +126,7 @@ namespace Saga
 		{
 			//make sure not clicking UI
 			//get mouse world coords on first click
-			if ( Input.GetMouseButtonDown( 0 ) && !EventSystem.current.IsPointerOverGameObject( pointerID ) )
+			if ( (Input.GetMouseButtonDown( 0 ) && !EventSystem.current.IsPointerOverGameObject( pointerID )) )
 			{
 				dragOrigin = GetMousePosition();
 				mButtonDown = true;
@@ -140,6 +210,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// moves camera to d-clicked position
+		/// </summary>
 		void updateDoubleClick( int pointerID )
 		{
 			if ( Input.GetMouseButtonDown( 0 ) && !EventSystem.current.IsPointerOverGameObject( pointerID ) )

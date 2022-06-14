@@ -199,7 +199,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			//replace glyphs
 			string item = Saga.Utils.ReplaceGlyphs( card.surges[i] );
 
-			nt.text = $"<color=#00A4FF>{i + 1 })</color> {item}";
+			nt.text = $"<color=#00A4FF>{i + 1})</color> {item}";
 		}
 	}
 
@@ -272,7 +272,10 @@ public class DynamicCardPrefab : MonoBehaviour
 				string aName = Saga.Utils.ReplaceGlyphs( card.abilities[i].name );
 				string item = Saga.Utils.ReplaceGlyphs( card.abilities[i].text );
 
-				ntt.text = $"<size=25><b><color=orange>{aName}:</color></b> ";
+				if ( !string.IsNullOrEmpty( aName ) )
+					ntt.text = $"<size=25><b><color=orange>{aName}:</color></b> ";
+				else
+					ntt.text = "<size=25>";
 				ntt.text += item + "</size>";
 			}
 		}

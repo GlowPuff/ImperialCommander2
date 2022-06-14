@@ -277,6 +277,7 @@ namespace Saga
 					.MinusReserved()
 					.MinusIgnored()
 					.FilterByFaction()
+					.MinusCannotRedeploy()
 					.Concat( DataStore.sagaSessionData.EarnedVillains )
 					.Where( x => x.cost <= threatLimit && !list.ContainsCard( x ) )
 					.ToList();
@@ -481,6 +482,7 @@ namespace Saga
 			{
 				string t = FindObjectOfType<SagaController>().tileManager.DeactivateTile( mm.mapTileRemove );
 
+				FindObjectOfType<TileManager>().CamToTile( mm.mapTileRemove );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmRemoveTilesUC}:\n\n<color=orange>{t}</color>", () =>
 				{
 					NextEventAction();

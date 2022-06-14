@@ -261,9 +261,18 @@ public class EnemyActivationPopup : MonoBehaviour
 			if ( !string.IsNullOrEmpty( e ) )
 			{
 				//get the bonus name
-				int idx = e.IndexOf( ':' );
-				bonusNameText.text = e.Substring( 0, idx );
-				bonusText.text = ReplaceGlyphs( e.Substring( idx + 1 ) ).Trim();
+				string[] b = e.Split( ':' );
+				if ( b.Length == 2 )
+				{
+					bonusNameText.text = b[0];//e.Substring( 0, idx );
+					bonusText.text = ReplaceGlyphs( b[1] ).Trim();//e.Substring( idx + 1 ) ).Trim();
+				}
+				else if ( b.Length == 1 )
+				{
+					bonusNameText.text = "";
+					bonusText.text = ReplaceGlyphs( b[0] ).Trim();
+				}
+				//int idx = e.IndexOf( ':' );
 			}
 		}
 		else
@@ -378,10 +387,33 @@ public class EnemyActivationPopup : MonoBehaviour
 			item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1 + "</color>" );
 		}
 
+		//Saga formatting
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			//trigger value
+			Regex regex = new Regex( @"&[\w\s]*&" );
+			foreach ( var match in regex.Matches( item ) )
+			{
+				var t = DataStore.mission.GetTriggerFromName( match.ToString().Replace( "&", "" ) );
+				if ( t != null )
+				{
+					int curValue = GlowEngine.FindUnityObject<TriggerManager>().CurrentTriggerValue( t.GUID );
+					item = item.Replace( match.ToString(), curValue.ToString() );
+				}
+			}
+
+			//threat multiplier
+			regex = new Regex( @"\*[\w\s]*\*" );
+			foreach ( var match in regex.Matches( item ) )
+			{
+				int mul = int.Parse( match.ToString().Replace( "*", "" ) );
+				item = item.Replace( match.ToString(), (DataStore.sagaSessionData.setupOptions.threatLevel * mul).ToString() );
+			}
+		}
+
 		//random rebel
-		Regex regex = new Regex( @"\{rebel\}", RegexOptions.IgnoreCase );
-		var m = regex.Matches( item );
-		foreach ( var match in regex.Matches( item ) )
+		Regex rebelregex = new Regex( @"\{rebel\}", RegexOptions.IgnoreCase );
+		foreach ( var match in rebelregex.Matches( item ) )
 		{
 			item = item.Replace( match.ToString(), "<color=#00A4FF>" + rebel1 + "</color>" );
 		}

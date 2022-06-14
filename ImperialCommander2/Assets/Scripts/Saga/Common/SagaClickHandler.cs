@@ -5,12 +5,15 @@ using UnityEngine.EventSystems;
 namespace Saga
 {
 
-	public class SagaClickHandler : MonoBehaviour, IPointerClickHandler//, IDragHandler
+	public class SagaClickHandler : MonoBehaviour, IPointerClickHandler/*, IBeginDragHandler, IDragHandler, IEndDragHandler*/
 	{
 		public UnityEvent clickCallback;
 		public UnityEvent doubleClickCallback;
 		public UnityEvent rightClickCallback;
 		public UnityEvent swipeCallback;
+
+		//private Vector2 deltaValue = Vector2.zero;
+		float lastTimeClick;
 
 		//public void OnDrag( PointerEventData eventData )
 		//{
@@ -24,6 +27,26 @@ namespace Saga
 		//	swipeCallback.Invoke();
 		//}
 
+		//public void OnBeginDrag( PointerEventData data )
+		//{
+		//	deltaValue = Vector2.zero;
+		//}
+
+		//public void OnEndDrag( PointerEventData data )
+		//{
+		//	deltaValue = Vector2.zero;
+		//}
+
+		//public void OnDrag( PointerEventData data )
+		//{
+		//	deltaValue += data.delta;
+		//	if ( data.dragging && deltaValue.magnitude > .3f && inputTimer == 0 )
+		//	{
+		//		inputTimer = 2;
+		//		doubleClickCallback?.Invoke();
+		//	}
+		//}
+
 		public void OnPointerClick( PointerEventData eventData )
 		{
 			//handle single click mouse and touch
@@ -33,36 +56,34 @@ namespace Saga
 					clickCallback?.Invoke();
 				else if ( eventData.button == PointerEventData.InputButton.Right )
 					rightClickCallback?.Invoke();
-				//else if ( eventData.pointerId == 1 )//touch
-				//	clickCallback.Invoke();
 			}
-			//handle double click mouse and touch
-			else if ( eventData.clickCount == 2 )
+			//handle double click
+			else if ( eventData.clickCount == 2
+				&& eventData.button == PointerEventData.InputButton.Left )
 			{
-				if ( eventData.button == PointerEventData.InputButton.Left )
-					doubleClickCallback?.Invoke();
-				else if ( eventData.pointerId == 1 )//touch
-					doubleClickCallback?.Invoke();
+				doubleClickCallback?.Invoke();
 			}
+
+			//handle double tap
+			float currentTimeClick = eventData.clickTime;
+			if ( Mathf.Abs( currentTimeClick - lastTimeClick ) < 0.75f )
+			{
+				doubleClickCallback?.Invoke();
+			}
+
+			lastTimeClick = currentTimeClick;
 		}
 
 		private void Update()
 		{
-			//handle single touch (left click)
-			if ( Input.touchCount == 1 )
-			{
-				var touch = Input.GetTouch( 0 );
-				if ( touch.phase == TouchPhase.Began )
-					clickCallback?.Invoke();
-			}
-			//handle 2-finger touch input (right click)
-			else if ( Input.touchCount == 2 )
-			{
-				var touch = Input.GetTouch( 0 );
-				var touch2 = Input.GetTouch( 1 );
-				if ( touch.phase == TouchPhase.Began && touch2.phase == TouchPhase.Began )
-					rightClickCallback?.Invoke();
-			}
+			//handle double tap
+			//foreach ( var touch in Input.touches )
+			//{
+			//	if ( touch.tapCount == 2 )
+			//	{
+			//		doubleClickCallback?.Invoke();
+			//	}
+			//}
 		}
 	}
 }

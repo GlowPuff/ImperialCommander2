@@ -8,7 +8,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.B16";
+	public static readonly string appVersion = "v.2.0.17";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Mission mission;
@@ -716,7 +716,10 @@ public static class DataStore
 			{
 				var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( valid[i].id );
 				if ( ovrd != null && !ovrd.canReinforce )
+				{
+					Debug.Log( "GetReinforcement()::SKIPPING CANNOT REINFORCE::" + ovrd.ID + "::" + ovrd.nameOverride );
 					valid.RemoveAt( i );
+				}
 			}
 		}
 
@@ -762,15 +765,15 @@ public static class DataStore
 		}
 		//check for "canRedeploy" override and remove those cards if they can't
 		//this might be redundant now that exhausting an enemy will not add it back to the hand anyways
-		if ( gameType == GameType.Saga && tier1Group.Count > 0 )
-		{
-			for ( int i = tier1Group.Count - 1; i >= 0; i-- )
-			{
-				var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( tier1Group[i].id );
-				if ( ovrd != null && tier1Group[i].hasDeployed && !ovrd.canRedeploy )
-					tier1Group.RemoveAt( i );
-			}
-		}
+		//if ( gameType == GameType.Saga && tier1Group.Count > 0 )
+		//{
+		//	for ( int i = tier1Group.Count - 1; i >= 0; i-- )
+		//	{
+		//		var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( tier1Group[i].id );
+		//		if ( ovrd != null && tier1Group[i].hasDeployed && !ovrd.canRedeploy )
+		//			tier1Group.RemoveAt( i );
+		//	}
+		//}
 
 		//get tier 2 affordable groups
 		if ( deploymentHand.Any( x =>
@@ -783,15 +786,15 @@ public static class DataStore
 			.ToList();
 		}
 		//check for "canRedeploy" override and remove those cards if they can't
-		if ( gameType == GameType.Saga && tier2Group.Count > 0 )
-		{
-			for ( int i = tier2Group.Count - 1; i >= 0; i-- )
-			{
-				var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( tier2Group[i].id );
-				if ( ovrd != null && tier2Group[i].hasDeployed && !ovrd.canRedeploy )
-					tier2Group.RemoveAt( i );
-			}
-		}
+		//if ( gameType == GameType.Saga && tier2Group.Count > 0 )
+		//{
+		//	for ( int i = tier2Group.Count - 1; i >= 0; i-- )
+		//	{
+		//		var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( tier2Group[i].id );
+		//		if ( ovrd != null && tier2Group[i].hasDeployed && !ovrd.canRedeploy )
+		//			tier2Group.RemoveAt( i );
+		//	}
+		//}
 
 		//concatenate the tier 1 and tier 2 groups
 		tier23Group = tier1Group.Concat( tier2Group ).ToList();
@@ -818,15 +821,15 @@ public static class DataStore
 			).ToList();
 
 			//check for "canRedeploy" override and remove those cards if they can't
-			if ( gameType == GameType.Saga && t3.Count > 0 )
-			{
-				for ( int i = t3.Count - 1; i >= 0; i-- )
-				{
-					var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( t3[i].id );
-					if ( ovrd != null && t3[i].hasDeployed && !ovrd.canRedeploy )
-						t3.RemoveAt( i );
-				}
-			}
+			//if ( gameType == GameType.Saga && t3.Count > 0 )
+			//{
+			//	for ( int i = t3.Count - 1; i >= 0; i-- )
+			//	{
+			//		var ovrd = sagaSessionData.gameVars.GetDeploymentOverride( t3[i].id );
+			//		if ( ovrd != null && t3[i].hasDeployed && !ovrd.canRedeploy )
+			//			t3.RemoveAt( i );
+			//	}
+			//}
 
 			if ( t3.Count > 0 )
 			{

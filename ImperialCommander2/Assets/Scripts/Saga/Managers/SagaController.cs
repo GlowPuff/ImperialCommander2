@@ -51,7 +51,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			bootstrapDEBUG();
+			//bootstrapDEBUG();
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -108,7 +108,7 @@ namespace Saga
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
-			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 
 			//try to load the mission
 			DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
@@ -163,7 +163,11 @@ namespace Saga
 				{
 					DeploymentCard card = DataStore.GetEnemy( g.cardID );
 					//create override for enemyGroupData
-					DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( g.cardID ).SetEnemyDeploymentOverride( g );
+					var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( g.cardID );
+					ovrd.SetEnemyDeploymentOverride( g );
+					//if it's using a generic mugshot, mark cannot redeploy since ICE does not have this option for initial groups
+					//if ( g.useGenericMugshot )
+					//	ovrd.canRedeploy = false;
 					DataStore.sagaSessionData.MissionStarting.Add( card );
 				}
 				//reserved groups

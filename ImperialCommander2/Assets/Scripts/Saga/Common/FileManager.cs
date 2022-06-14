@@ -14,17 +14,29 @@ namespace Saga
 		/// </summary>
 		public static IEnumerable<ProjectItem> GetProjects()
 		{
+#if UNITY_ANDROID
+			string basePath = Application.persistentDataPath + "/CustomMissions";
+#else
 			string basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+#endif
 
-			//make sure the project folder exists
-			if ( !Directory.Exists( basePath ) )
+			try
 			{
-				var dinfo = Directory.CreateDirectory( basePath );
-				if ( dinfo == null )
+				//make sure the project folder exists
+				if ( !Directory.Exists( basePath ) )
 				{
-					Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + basePath );
-					return null;
+					var dinfo = Directory.CreateDirectory( basePath );
+					if ( dinfo == null )
+					{
+						Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + basePath );
+						return null;
+					}
 				}
+			}
+			catch ( Exception )
+			{
+				Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + basePath );
+				return null;
 			}
 
 			List<ProjectItem> items = new List<ProjectItem>();
@@ -52,7 +64,6 @@ namespace Saga
 		{
 			ProjectItem projectItem = new ProjectItem();
 			FileInfo fi = new FileInfo( filename );
-			string basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 
 			string[] text = File.ReadAllLines( filename );
 			foreach ( var line in text )

@@ -47,15 +47,28 @@ namespace Saga
 
 			//basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 
+#if UNITY_ANDROID
+			// /storage/emulated/0/Android/data/com.GlowPuff.ImperialCommander2/files
+			//string customPath = "/storage/emulated/0/ImperialCommander2";
+			string customPath = Application.persistentDataPath + "/CustomMissions";
+#else
 			string customPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+#endif
 			//make sure the custom folder exists
-			if ( !Directory.Exists( customPath ) )
+			try
 			{
-				var dinfo = Directory.CreateDirectory( customPath );
-				if ( dinfo == null )
+				if ( !Directory.Exists( customPath ) )
 				{
-					Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
+					var dinfo = Directory.CreateDirectory( customPath );
+					if ( dinfo == null )
+					{
+						Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
+					}
 				}
+			}
+			catch ( Exception )
+			{
+				Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
 			}
 
 			busyIcon.DORotate( new Vector3( 0, 0, 360 ), 1f, RotateMode.FastBeyond360 ).SetEase( Ease.InOutQuad ).SetLoops( -1 );
@@ -238,7 +251,12 @@ namespace Saga
 			{
 				pickerMode = PickerMode.Custom;
 				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn;
+#if UNITY_ANDROID
+				string basePath = Application.persistentDataPath + "/ImperialCommander2";
+#else
+
 				basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+#endif
 				OnChangeFolder( basePath );
 			}
 		}

@@ -171,6 +171,10 @@ public static class Extensions
 			return null;
 		}
 	}
+	public static List<DeploymentCard> MinusCannotRedeploy( this List<DeploymentCard> thisCD )
+	{
+		return thisCD.Where( x => !DataStore.sagaSessionData.CannotRedeployList.Contains( x.id ) ).ToList();
+	}
 
 	public static T FirstOr<T>( this IEnumerable<T> thisEnum, T def )
 	{

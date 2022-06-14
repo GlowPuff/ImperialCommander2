@@ -9,7 +9,6 @@ namespace Saga
 		public string ID = "";//for identification of override
 		public ChangeInstructions changeInstructions;
 		public ChangeTarget changeTarget;
-		//public ChangeReposition changeReposition;
 
 		///EnemyDeployment properties
 		public string nameOverride;
@@ -19,6 +18,7 @@ namespace Saga
 		public bool canReinforce;
 		public bool canRedeploy;
 		public bool canBeDefeated;
+		public bool useResetOnRedeployment;
 		public bool useThreat;//use threat cost
 		public bool showMod;
 		public bool useGenericMugshot;
@@ -28,8 +28,6 @@ namespace Saga
 		public DeploymentSpot deploymentPoint;
 		///EnemyGroupData properties
 		public List<DPData> pointList = new List<DPData>();
-		///Deployment
-		public bool hasDeployed;
 		///Custom properties
 		public bool isCustom;
 		public MarkerType customType;
@@ -55,6 +53,7 @@ namespace Saga
 			canReinforce = true;
 			canRedeploy = true;
 			canBeDefeated = true;
+			useResetOnRedeployment = false;
 			useThreat = false;
 			showMod = false;
 			useGenericMugshot = false;
@@ -62,9 +61,6 @@ namespace Saga
 			setEvent = Guid.Empty;
 			specificDeploymentPoint = Guid.Empty;
 			deploymentPoint = DeploymentSpot.Active;
-			hasDeployed = false;
-
-			//groupTraits = null;
 
 			changeInstructions = null;
 			changeTarget = null;
@@ -80,6 +76,7 @@ namespace Saga
 			canReinforce = ed.canReinforce;
 			canRedeploy = ed.canRedeploy;
 			canBeDefeated = ed.canBeDefeated;
+			useResetOnRedeployment = ed.useResetOnRedeployment;
 			useThreat = ed.useThreat;
 			showMod = ed.showMod;
 			setTrigger = ed.enemyGroupData.defeatedTrigger;
@@ -163,19 +160,6 @@ namespace Saga
 				else
 					return pointList.Select( x => x.GUID ).ToArray();
 			}
-		}
-
-		public void SoftReset()
-		{
-			deploymentPoint = DeploymentSpot.Active;
-			specificDeploymentPoint = Guid.Empty;
-			setTrigger = Guid.Empty;
-			setEvent = Guid.Empty;
-			threatCost = 0;
-			canReinforce = true;
-			canRedeploy = true;
-			canBeDefeated = true;
-			useThreat = false;
 		}
 	}
 }

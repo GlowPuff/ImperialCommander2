@@ -52,7 +52,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//bootstrap the setup screen for debugging
-			bootstrapDEBUG();
+			//bootstrapDEBUG();
 
 			//set translated UI
 			languageController.SetTranslatedUI();

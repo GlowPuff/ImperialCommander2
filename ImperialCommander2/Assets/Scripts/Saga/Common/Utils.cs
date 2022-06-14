@@ -8,11 +8,12 @@ namespace Saga
 {
 	public static class Utils
 	{
-		public const string formatVersion = "14";//the EXPECTED mission format
+		public const string formatVersion = "15";//the EXPECTED mission format
 
 		public static void LogError( string error )
 		{
 			string basePath = Application.persistentDataPath;
+
 			File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "ERROR TRACE:\r\n" + error );
 			Debug.Log( "ERROR TRACE:\r\n" + error );
 		}
@@ -85,7 +86,6 @@ namespace Saga
 			{
 				//trigger value
 				Regex regex = new Regex( @"&[\w\s]*&" );
-				var m = regex.Matches( item );
 				foreach ( var match in regex.Matches( item ) )
 				{
 					var t = DataStore.mission.GetTriggerFromName( match.ToString().Replace( "&", "" ) );
@@ -98,7 +98,6 @@ namespace Saga
 
 				//threat multiplier
 				regex = new Regex( @"\*[\w\s]*\*" );
-				m = regex.Matches( item );
 				foreach ( var match in regex.Matches( item ) )
 				{
 					int mul = int.Parse( match.ToString().Replace( "*", "" ) );
@@ -107,7 +106,6 @@ namespace Saga
 
 				//random rebel
 				regex = new Regex( @"\{rebel\}", RegexOptions.IgnoreCase );
-				m = regex.Matches( item );
 				string rebelName = "";
 				foreach ( var match in regex.Matches( item ) )
 				{

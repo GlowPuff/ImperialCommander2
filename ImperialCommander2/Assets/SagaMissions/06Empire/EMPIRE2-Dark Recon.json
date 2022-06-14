@@ -2,9 +2,9 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE2-Dark Recon.json",
   "relativePath": "06 - Heart of the Empire\\EMPIRE2-Dark Recon.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896841051281269,
+  "fileVersion": "15",
+  "saveDate": "6/13/2022",
+  "timeTicks": 637907567985515213,
   "missionProperties": {
     "missionName": "Dark Recon",
     "campaignName": "Heart of the Empire",
@@ -1218,7 +1218,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1226,6 +1225,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "7acd9b82-3d8a-4417-92f0-7822422d5b58",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1297,7 +1297,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1305,6 +1304,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "bcda820d-2db2-47b0-936b-6e5ac149b2ad",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1394,6 +1394,14 @@
           "GUID": "1a02d84a-b79d-4079-80ab-ebc83de5add1",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
+        },
+        {
+          "theText": "Block access to the diner.",
+          "useSpecific": false,
+          "repoGroups": [],
+          "GUID": "950ba821-7b47-410e-a00c-2b4ab7dc139f",
+          "eventActionType": 17,
+          "displayName": "Change Reposition Instructions"
         },
         {
           "entitiesToModify": [
@@ -1493,13 +1501,13 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "threatModifierType": 1,
+          "threatAction": 0,
           "fixedValue": 3,
           "threatValue": 0,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 1,
           "GUID": "35b9db82-5c33-4db2-b087-47a7024240be",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     },
@@ -1576,7 +1584,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": false,
           "canRedeploy": false,
           "canBeDefeated": true,
@@ -1584,6 +1591,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "e3d904a8-b867-4ae6-8a6b-bb38cbdcc8b6",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1626,7 +1634,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": false,
           "canRedeploy": false,
           "canBeDefeated": true,
@@ -1634,6 +1641,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "e3d904a8-b867-4ae6-8a6b-bb38cbdcc8b6",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1782,6 +1790,14 @@
           "GUID": "7634d1f6-e133-4366-be51-ca591d3c2377",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "theText": "Block access to the Overpass.",
+          "useSpecific": false,
+          "repoGroups": [],
+          "GUID": "27dbe18a-ceff-4ca0-bb84-79219f91ddbf",
+          "eventActionType": 17,
+          "displayName": "Change Reposition Instructions"
         }
       ]
     },

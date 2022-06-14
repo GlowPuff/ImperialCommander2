@@ -17,6 +17,8 @@ namespace Saga
 		public List<DeploymentCard> MissionIgnored;
 		public List<DeploymentCard> MissionHeroes;
 
+		public HashSet<string> CannotRedeployList;
+
 		public class SagaGameVars
 		{
 			public int round;
@@ -176,6 +178,7 @@ namespace Saga
 			EarnedVillains = new List<DeploymentCard>();
 			MissionIgnored = new List<DeploymentCard>();
 			MissionHeroes = new List<DeploymentCard>();
+			CannotRedeployList = new HashSet<string>();
 			selectedAlly = null;
 			fixedAlly = null;
 

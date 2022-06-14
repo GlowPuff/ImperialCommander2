@@ -16,9 +16,10 @@ namespace Saga
 		public Camera cam;
 		public SagaEventManager eventManager;
 
-		Vector3 dragOrigin, dragDistance;
-		bool mButtonDown = false;
-		List<IMapEntity> mapEntities = new List<IMapEntity>();
+		private Vector3 dragOrigin, dragDistance;
+		private bool mButtonDown = false;
+		private List<IMapEntity> mapEntities = new List<IMapEntity>();
+		private float inputTimer = 0;
 
 		/// <summary>
 		/// Builds ALL entities but does not SHOW or ACTIVATE them
@@ -255,7 +256,9 @@ namespace Saga
 
 		private void Update()
 		{
-			if ( FindObjectOfType<SagaEventManager>().IsProcessingEvents )//!HandleObjectSelection )
+			inputTimer = Mathf.Max( inputTimer - Time.deltaTime, 0 );
+
+			if ( FindObjectOfType<SagaEventManager>().IsProcessingEvents || inputTimer != 0 )
 				return;
 
 			int pointerID = -1;//mouse
@@ -279,14 +282,27 @@ namespace Saga
 				dragDistance = dragOrigin - GetMousePosition();
 			}
 
+			Vector3 mousePosition = Input.mousePosition;
+
+			bool touchClick = false;
+			if ( Input.touchCount == 1
+				&& Input.GetTouch( 0 ).phase == TouchPhase.Began
+				&& !eventManager.IsUIHidden
+				&& !EventSystem.current.IsPointerOverGameObject( pointerID ) )
+			{
+				touchClick = true;
+				mousePosition = Input.GetTouch( 0 ).position;
+			}
+
 			//mouse released, didn't drag
-			if ( Input.GetMouseButtonUp( 0 )
+			if ( touchClick
+				|| (Input.GetMouseButtonUp( 0 )
 				&& mButtonDown
-				&& dragDistance.magnitude == 0 )
+				&& dragDistance.magnitude == 0) )
 			{
 				LayerMask mask = LayerMask.GetMask( "MapEntities" );
 				RaycastHit hit;
-				Ray ray = cam.ScreenPointToRay( Input.mousePosition );
+				Ray ray = cam.ScreenPointToRay( mousePosition );// Input.mousePosition );
 				if ( Physics.Raycast( ray, out hit, 1000, mask ) )
 				{
 					Transform objectHit = hit.transform;
@@ -295,26 +311,31 @@ namespace Saga
 					{
 						var e = objectHit.parent.GetComponent<CratePrefab>().mapEntity;//.crate;
 						ProcessQuestionPrompt( e.entityProperties );
+						inputTimer = 2;
 					}
 					else if ( objectHit.name == "terminal" )
 					{
 						var e = objectHit.parent.GetComponent<TerminalPrefab>().mapEntity;//terminal;
 						ProcessQuestionPrompt( e.entityProperties );
+						inputTimer = 2;
 					}
 					else if ( objectHit.name == "door" )
 					{
 						var e = objectHit.parent.GetComponent<DoorPrefab>().mapEntity;//door;
 						ProcessQuestionPrompt( e.entityProperties );
+						inputTimer = 2;
 					}
 					else if ( objectHit.name.Contains( "Highlight" ) )
 					{
 						var e = objectHit.GetComponent<HighlightPrefab>().mapEntity;//spaceHighlight;
 						ProcessQuestionPrompt( e.entityProperties );
+						inputTimer = 2;
 					}
 					else if ( objectHit.name == "token" )
 					{
 						var e = objectHit.parent.GetComponent<TokenPrefab>().mapEntity;//token;
 						ProcessQuestionPrompt( e.entityProperties );
+						inputTimer = 2;
 					}
 				}
 			}
