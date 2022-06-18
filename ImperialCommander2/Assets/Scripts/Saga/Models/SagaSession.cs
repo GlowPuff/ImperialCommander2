@@ -18,6 +18,9 @@ namespace Saga
 		public List<DeploymentCard> MissionHeroes;
 
 		public HashSet<string> CannotRedeployList;
+		//list of heroes that finish taking part in an Event with "any hero wounded"
+		//makes sure they don't keep firing said Event
+		public HashSet<string> AnyHeroWoundedEventDone;
 
 		public class SagaGameVars
 		{
@@ -179,6 +182,7 @@ namespace Saga
 			MissionIgnored = new List<DeploymentCard>();
 			MissionHeroes = new List<DeploymentCard>();
 			CannotRedeployList = new HashSet<string>();
+			AnyHeroWoundedEventDone = new HashSet<string>();
 			selectedAlly = null;
 			fixedAlly = null;
 

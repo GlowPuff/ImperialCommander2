@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class DiceRoller : MonoBehaviour
 {
-	public CanvasGroup cg, cg2, cardcg;
+	public CanvasGroup cg, cg2, cardcg, mainContainerCG;
 	public Image fader, attackRanged, attackMelee, defenseIcon, bgIconColor, outlineColor;
-	public GameObject container, diceObject, modifierBox;
+	public GameObject container, diceObject, modifierBox, visToggleBtn;
 	public Text okBtn;
 	public GameObject addAttackContainer, addDefenseContainer;
 	public DynamicCardPrefab dynamicCard;
@@ -17,14 +17,17 @@ public class DiceRoller : MonoBehaviour
 	DeploymentCard card;
 	Action<bool> callback;
 	GridLayoutGroup gridLayout;
+	bool visible;
 
 	public void Show( DeploymentCard cd, bool isAttack, Action<bool> ac = null )
 	{
+		visible = true;
 		callback = ac;
 		okBtn.text = DataStore.uiLanguage.uiSettings.ok;
 		gridLayout = container.GetComponent<GridLayoutGroup>();
 		dynamicCard.InitCard( cd, true );
 
+		visToggleBtn.SetActive( true );
 		addAttackContainer.SetActive( false );
 		addDefenseContainer.SetActive( false );
 		if ( isAttack )
@@ -94,13 +97,18 @@ public class DiceRoller : MonoBehaviour
 		cg.DOFade( 1, .5f );
 		cg2.DOFade( 1, .5f );
 		cardcg.DOFade( 1, .5f );
+		mainContainerCG.DOFade( 1, .5f );
 		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 	}
 
 	public void OnOK()
 	{
+		if ( !visible )
+			return;
+
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
+		visToggleBtn.SetActive( false );
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			callback?.Invoke( true );
@@ -140,5 +148,20 @@ public class DiceRoller : MonoBehaviour
 	{
 		if ( container.transform.childCount < 8 )
 			CreateDice( (DiceColor)c );
+	}
+
+	public void OnHideToggle()
+	{
+		visible = !visible;
+		if ( !visible )
+		{
+			mainContainerCG.DOFade( 0, .5f );
+			fader.DOFade( 0, .5f );
+		}
+		else
+		{
+			mainContainerCG.DOFade( 1, .5f );
+			fader.DOFade( .95f, .5f );
+		}
 	}
 }

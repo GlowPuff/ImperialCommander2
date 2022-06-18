@@ -339,6 +339,8 @@ namespace Saga
 			if ( ovrd != null && !ovrd.canRedeploy )
 			{
 				DataStore.sagaSessionData.CannotRedeployList.Add( ovrd.ID );
+				//compltely reset if it can't redeploy, so it can be manually deployed "clean" later
+				DataStore.sagaSessionData.gameVars.RemoveOverride( ovrd.ID );
 				returnToHand = false;
 			}
 
@@ -355,8 +357,13 @@ namespace Saga
 				DataStore.SortManualDeployList();
 			}
 			//finally, reset the group if needed
-			if ( ovrd != null && ovrd.canRedeploy && ovrd.useResetOnRedeployment )
-				DataStore.sagaSessionData.gameVars.RemoveOverride( ovrd.ID );
+			if ( ovrd != null && ovrd.canRedeploy )
+			{
+				if ( ovrd.useResetOnRedeployment )
+					DataStore.sagaSessionData.gameVars.RemoveOverride( ovrd.ID );
+				else if ( !ovrd.useResetOnRedeployment )
+					ovrd.ResetDP();
+			}
 
 			if ( DataStore.deployedEnemies.Count == 0 )
 				FindObjectOfType<SagaController>().eventManager.CheckIfEventsTriggered();

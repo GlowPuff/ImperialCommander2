@@ -161,6 +161,15 @@ namespace Saga
 					return pointList.Select( x => x.GUID ).ToArray();
 			}
 		}
+
+		public void ResetDP()
+		{
+			deploymentPoint = DeploymentSpot.Active;
+			foreach ( var item in pointList )
+			{
+				item.GUID = Guid.Empty;
+			}
+		}
 	}
 }
 

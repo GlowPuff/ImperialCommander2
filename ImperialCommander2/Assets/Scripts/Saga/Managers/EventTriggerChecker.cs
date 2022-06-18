@@ -111,7 +111,13 @@ namespace Saga
 
 		public bool CheckAnyHeroWounded()
 		{
-			return DataStore.deployedHeroes.Any( x => x.isHero && x.heroState.heroHealth == HeroHealth.Wounded );
+			//get list of deployed heroes that have NOT participated in an "any hero wounded" Event yet
+			var h = from dh in DataStore.deployedHeroes
+							where !DataStore.sagaSessionData.AnyHeroWoundedEventDone.Contains( dh.id )
+							select dh;
+
+			//return DataStore.deployedHeroes.Any( x => x.isHero && x.heroState.heroHealth == HeroHealth.Wounded );
+			return h.Any( x => x.isHero && x.heroState.heroHealth == HeroHealth.Wounded );
 		}
 
 		public bool CheckAllGroupsDefeated()

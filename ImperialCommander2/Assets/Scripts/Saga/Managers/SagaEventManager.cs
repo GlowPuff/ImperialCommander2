@@ -123,6 +123,12 @@ namespace Saga
 
 					if ( check )
 					{
+						if ( ev.useAnyHeroWounded )
+						{
+							var h = DataStore.deployedHeroes.Where( x => x.isHero && x.heroState.heroHealth == HeroHealth.Wounded );
+							foreach ( var item in h )
+								DataStore.sagaSessionData.AnyHeroWoundedEventDone.Add( item.id );
+						}
 						//if ( ev.usesEnd )
 						//	ev.hasActivatedThisRound = true;
 						Debug.Log( "CheckIfEventsTriggered()::EVENT TRIGGERED::" + ev.name );

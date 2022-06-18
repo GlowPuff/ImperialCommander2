@@ -230,11 +230,11 @@ namespace Saga
 
 			FindObjectOfType<SagaController>().eventManager.CheckIfEventsTriggered();
 
-			//trigger on defeated Trigger, if it exists
-			//(?? heroes and allies don't have a defeated trigger ??)
+			//trigger on defeated Event/Trigger, if it exists
 			if ( ovrd != null && !cardDescriptor.isHero )//not really necessary to check isAlly
 			{
 				FindObjectOfType<SagaController>().triggerManager.FireTrigger( ovrd.setTrigger );
+				FindObjectOfType<SagaController>().eventManager.DoEvent( ovrd.setEvent );
 			}
 		}
 
