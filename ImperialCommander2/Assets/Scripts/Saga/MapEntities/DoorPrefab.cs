@@ -8,9 +8,11 @@ public class DoorPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 	public MeshRenderer meshRenderer;
 
 	public IMapEntity mapEntity { get; set; }
+	public bool isAnimationBusy { get; set; }
 
 	public void Init( Door d )
 	{
+		isAnimationBusy = false;
 		meshRenderer.material.color = Color.green;
 		//new Color( 74f / 255f, 125f / 255f, 63f / 255f );
 		//rgb(52, 87, 44)
@@ -69,24 +71,26 @@ public class DoorPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 
 	public void ShowEntity()
 	{
-		//if ( mapEntity.entityProperties.isActive )
-		//{
-		//Debug.Log( "ShowEntity()::DOOR" );
 		if ( FindObjectOfType<SagaController>().tileManager.IsMapSectionActive( mapEntity.mapSectionOwner ) )
 		{
+			isAnimationBusy = true;
 			gameObject.SetActive( true );
-			transform.DOScale( Vector3.one, 1f ).SetEase( Ease.OutBounce );
+			transform.DOScale( Vector3.one, 1f ).SetEase( Ease.OutBounce ).OnComplete( () => isAnimationBusy = false );
 			if ( (mapEntity as Door).doorOpen )
 				OpenDoor();
 			else
 				CloseDoor();
 		}
-		//}
 	}
 
 	public void HideEntity()
 	{
-		transform.DOScale( Vector3.zero, 1f ).SetEase( Ease.InBounce ).OnComplete( () => gameObject.SetActive( false ) );
+		isAnimationBusy = true;
+		transform.DOScale( Vector3.zero, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+		{
+			isAnimationBusy = false;
+			gameObject.SetActive( false );
+		} );
 	}
 
 	public void ModifyEntity( EntityProperties props )

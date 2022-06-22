@@ -178,72 +178,76 @@ public class EnemyActivationPopup : MonoBehaviour
 				modifierBox.SetActive( false );
 		}
 
-		DeploymentCard potentialRebel = FindRebelSaga();
-		if ( potentialRebel != null )
+		//rebel target
+		if ( cardDescriptor.hasActivated && cardDescriptor.rebelName != null )
 		{
-			rebel1 = potentialRebel.name;
-			//check for a target name override, id will be null if this is using "Other" as a target
-			//sending null as the id will return a null instead of the All override
-			var povrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( potentialRebel.id );
-			if ( povrd != null )
-				rebel1 = povrd.nameOverride;
+			Debug.Log( "***RE-USING PREVIOUS ACTIVATION DATA::rebelName***" );
+			rebel1 = cardDescriptor.rebelName;
 		}
 		else
-			rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
-
-		cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
-		if ( cardInstruction != null )
 		{
-			//if multiple card instructions, pick 1
-			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
-			InstructionOption io = cardInstruction.content[rnd[0]];
-			List<string> instructions = io.instruction;
-			//check for instruction/repositioning override, which are appended to 'instructions' list
-			instructions = GetModifiedInstructions( cd.id, instructions );
-			instructions = GetModifiedRepositioning( cd.id, instructions );
-			//rebel1 has been set, now it's safe to parse instructions that use it for targeting
-			ParseInstructions( instructions );
-			//save card's state
-			cardDescriptor.instructionOption = io;
-		}
-		else if ( ovrd != null && ovrd.isCustom )
-		{
-			if ( ovrd.changeInstructions != null )
-				ParseInstructions( ovrd.changeInstructions.theText.Split( '\n' ).ToList() );
-		}
-		ParseBonusSaga( cd.id, difficulty );
-
-		//if this card has activated, we're just showing it again - redisplay data from previous attack
-		if ( cardDescriptor.hasActivated )
-		{
-			Debug.Log( "***RE-USING PREVIOUS ACTIVATION DATA***" );
-			//re-use target
-			if ( cardDescriptor.rebelName != null )
-				rebel1 = cardDescriptor.rebelName;
-			//re-use instructions
-			if ( cardDescriptor.instructionOption != null )
+			DeploymentCard potentialRebel = FindRebelSaga();
+			if ( potentialRebel != null )
 			{
-				List<string> instructions = cardDescriptor.instructionOption.instruction;
-				//check for instruction override
-				//Transform content = transform.Find( "Panel/content" );
-				//foreach ( Transform tf in content )
-				//	Destroy( tf.gameObject );
+				rebel1 = potentialRebel.name;
+				//check for a target name override, id will be null if this is using "Other" as a target
+				//sending null as the id will return a null instead of the All override
+				var povrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( potentialRebel.id );
+				if ( povrd != null )
+					rebel1 = povrd.nameOverride;
+			}
+			else
+				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
+
+			//store activation data
+			cardDescriptor.rebelName = rebel1;
+		}
+
+		//instruction
+		if ( cardDescriptor.hasActivated && cardDescriptor.instructionOption != null )
+		{
+			Debug.Log( "***RE-USING PREVIOUS ACTIVATION DATA::instructionOption***" );
+			ParseInstructions( cardDescriptor.instructionOption.instruction );
+		}
+		else
+		{
+			cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
+			InstructionOption savedInstruction = null;
+			if ( cardInstruction != null )
+			{
+				//if multiple card instructions, pick 1
+				int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
+				InstructionOption io = cardInstruction.content[rnd[0]];
+				List<string> instructions = io.instruction;
+				//check for instruction/repositioning override, which are appended to 'instructions' list
+				instructions = GetModifiedInstructions( cd.id, instructions );
+				instructions = GetModifiedRepositioning( cd.id, instructions );
+				savedInstruction = new InstructionOption() { instruction = instructions };
+				//rebel1 has been set, now it's safe to parse instructions that use it for targeting
 				ParseInstructions( instructions );
+				//store activation data
+				cardDescriptor.instructionOption = savedInstruction;
 			}
-			//re-use activation bonus
-			if ( cardDescriptor.bonusName != null
-				&& cardDescriptor.bonusText != null )
+			else if ( ovrd != null && ovrd.isCustom )
 			{
-				bonusNameText.text = cardDescriptor.bonusName;
-				bonusText.text = cardDescriptor.bonusText;
+				if ( ovrd.changeInstructions != null )
+					ParseInstructions( ovrd.changeInstructions.theText.Split( '\n' ).ToList() );
 			}
 		}
 
-		//save this card's activation state
+		//bonus
+		if ( cardDescriptor.hasActivated
+			&& cardDescriptor.bonusName != null
+			&& cardDescriptor.bonusText != null )
+		{
+			Debug.Log( "***RE-USING PREVIOUS ACTIVATION DATA::bonus***" );
+			cardDescriptor.bonusName = bonusNameText.text;
+			cardDescriptor.bonusText = bonusText.text;
+		}
+		else
+			ParseBonusSaga( cd.id, difficulty );
+
 		cardDescriptor.hasActivated = true;
-		cardDescriptor.rebelName = rebel1;
-		cardDescriptor.bonusName = bonusNameText.text;
-		cardDescriptor.bonusText = bonusText.text;
 	}
 
 	void ParseBonusSaga( string id, Difficulty difficulty )

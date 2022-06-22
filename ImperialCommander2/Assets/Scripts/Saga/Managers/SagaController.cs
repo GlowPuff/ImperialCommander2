@@ -162,12 +162,12 @@ namespace Saga
 				foreach ( var g in DataStore.mission.initialDeploymentGroups )
 				{
 					DeploymentCard card = DataStore.GetEnemy( g.cardID );
+					//try setting the translated name if it's not custom
+					if ( !g.useInitialGroupCustomName )
+						g.cardName = card.name;
 					//create override for enemyGroupData
 					var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( g.cardID );
 					ovrd.SetEnemyDeploymentOverride( g );
-					//if it's using a generic mugshot, mark cannot redeploy since ICE does not have this option for initial groups
-					//if ( g.useGenericMugshot )
-					//	ovrd.canRedeploy = false;
 					DataStore.sagaSessionData.MissionStarting.Add( card );
 				}
 				//reserved groups

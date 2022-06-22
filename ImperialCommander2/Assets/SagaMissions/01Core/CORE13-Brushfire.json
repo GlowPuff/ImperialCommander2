@@ -2,9 +2,9 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE13-Brushfire.json",
   "relativePath": "01 - Core Game\\Side Missions\\CORE13-Brushfire.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896841624881693,
+  "fileVersion": "15",
+  "saveDate": "6/20/2022",
+  "timeTicks": 637913051238617592,
   "missionProperties": {
     "missionName": "Brushfire",
     "campaignName": "Core Game",
@@ -375,7 +375,7 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
-      "initialValue": 1,
+      "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
@@ -800,26 +800,17 @@
       "eventActions": [
         {
           "theText": "Alerted by the explosion, snarling bounty hunters storm the clearing.",
+          "displayName": "Text Box",
           "GUID": "354f0120-b152-4949-9601-1c700776c6be",
-          "eventActionType": 16,
-          "displayName": "Text Box"
+          "eventActionType": 16
         },
         {
-          "enemyName": null,
           "deploymentGroup": "DG015",
-          "repositionInstructions": "",
-          "threatCost": 0,
-          "modification": null,
-          "sourceType": 1,
-          "canReinforce": true,
+          "enemyName": null,
           "canRedeploy": true,
+          "useResetOnRedeployment": false,
+          "canReinforce": true,
           "canBeDefeated": true,
-          "useThreat": false,
-          "useCustomInstructions": false,
-          "useGenericMugshot": false,
-          "showMod": false,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "deploymentPoint": 0,
           "enemyGroupData": {
             "GUID": "1045cba4-f403-4e93-b8db-a91236820bb2",
             "cardName": "Trandoshan Hunter",
@@ -856,9 +847,18 @@
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
             "useGenericMugshot": false
           },
+          "deploymentPoint": 0,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "useThreat": false,
+          "threatCost": 0,
+          "showMod": false,
+          "modification": null,
+          "useCustomInstructions": false,
+          "displayName": "Deploy: DG015/Trandoshan Hunter",
+          "repositionInstructions": "",
+          "useGenericMugshot": false,
           "GUID": "2904f8f0-27e1-4711-9e6d-6fe982442cf1",
-          "eventActionType": 6,
-          "displayName": "Deploy: DG015/Trandoshan Hunter"
+          "eventActionType": 6
         }
       ]
     },
@@ -890,22 +890,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "fd505249-4374-463f-a9a5-88b494878eab",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "fd505249-4374-463f-a9a5-88b494878eab",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "9720e2cb-60f9-4855-916a-7240dba7a5e2",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -965,14 +965,14 @@
           "triggerList": [
             {
               "triggerName": "Explosives disarmed",
-              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14",
               "setValue": -1,
-              "modifyValue": 1
+              "modifyValue": 1,
+              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "3282c155-a877-4f5b-8566-5f4368c220dc",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -1032,14 +1032,14 @@
           "triggerList": [
             {
               "triggerName": "Explosives disarmed",
-              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14",
               "setValue": -1,
-              "modifyValue": 1
+              "modifyValue": 1,
+              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "dc5aa664-75b0-41e0-96b4-8ed8e127c257",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -1099,14 +1099,14 @@
           "triggerList": [
             {
               "triggerName": "Explosives disarmed",
-              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14",
               "setValue": -1,
-              "modifyValue": 1
+              "modifyValue": 1,
+              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "80d9c329-ec35-4890-951b-00a842b9101e",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -1166,14 +1166,14 @@
           "triggerList": [
             {
               "triggerName": "Explosives disarmed",
-              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14",
               "setValue": -1,
-              "modifyValue": 1
+              "modifyValue": 1,
+              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "15b2970d-9de7-41cf-9f7c-3367b83acdac",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -1233,14 +1233,14 @@
           "triggerList": [
             {
               "triggerName": "Explosives disarmed",
-              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14",
               "setValue": -1,
-              "modifyValue": 1
+              "modifyValue": 1,
+              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "26c6b5f3-bde4-4b66-a158-c27f9e5249ff",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -1300,14 +1300,14 @@
           "triggerList": [
             {
               "triggerName": "Explosives disarmed",
-              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14",
               "setValue": -1,
-              "modifyValue": 1
+              "modifyValue": 1,
+              "triggerGUID": "56ba684e-a7ba-4092-a637-c9b35559da14"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "d9a1f623-d4f6-4884-a911-31eaf15a75ec",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -1339,22 +1339,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "a9b67c92-9a22-4150-9754-11b20c11f616",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "a9b67c92-9a22-4150-9754-11b20c11f616",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "60925ddc-c5ca-4ec2-bce5-e42043360dad",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -1386,22 +1386,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "5182cbe7-f5de-4371-8270-054bd9b76240",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "5182cbe7-f5de-4371-8270-054bd9b76240",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "442169a2-d50c-4f3f-bf9c-dfd72dd3c4c3",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -1433,22 +1433,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "cd289916-9030-472d-b8e4-c161521182e8",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "cd289916-9030-472d-b8e4-c161521182e8",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "971a13a9-dccc-48a7-bf81-094bd6b434bc",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -1480,22 +1480,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "ff6a17c0-6bf8-4db4-b43d-b18d5dadf062",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "ff6a17c0-6bf8-4db4-b43d-b18d5dadf062",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "6c6ea62e-3460-4b1b-b9e5-1f5e0be7e142",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -1527,22 +1527,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "c245a1b8-7c83-4b51-b53f-9ac791b9fa34",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "c245a1b8-7c83-4b51-b53f-9ac791b9fa34",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "e902b0bf-3de6-46e8-88a4-76b3fe3b23a0",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -1589,14 +1589,14 @@
           "eventActionType": 4
         },
         {
-          "isOnslaught": false,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": false,
           "GUID": "3cdbc9d3-6deb-406e-8660-e150d0da7922",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "theText": "Which supply crate is the farthest from any hero?\r\n\r\n(If there are multiple at the same distance, choose one.)",
@@ -1628,22 +1628,9 @@
               "eventGUID": "c0951a94-3966-48c0-86fc-b1ffd22caacd"
             }
           ],
+          "displayName": "Question Prompt",
           "GUID": "96c2b799-cb5f-445c-88d9-0ec8295f6067",
-          "eventActionType": 5,
-          "displayName": "Question Prompt"
-        },
-        {
-          "triggerList": [
-            {
-              "triggerName": "Bonus explosive disarmed",
-              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a",
-              "setValue": 0,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "7a3d245b-9327-4d1d-9c1a-67131b203e7a",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 5
         }
       ]
     },
@@ -1702,9 +1689,9 @@
         {
           "theText": "Disarm the explosives (&Explosives disarmed&/6). Disarm the bonus explosive (&Bonus explosive disarmed&/1).",
           "longText": null,
+          "displayName": "Change Objective",
           "GUID": "ab77ebf5-e436-4220-9cf6-52eff2f034dd",
-          "eventActionType": 2,
-          "displayName": "Change Objective"
+          "eventActionType": 2
         }
       ]
     },
@@ -1763,9 +1750,9 @@
         {
           "theText": "Disarm the explosives (&Explosives disarmed&/6). Disarm the bonus explosive (&Bonus explosive disarmed&/1).",
           "longText": null,
+          "displayName": "Change Objective",
           "GUID": "0ed11110-e9a8-415d-b1ec-19c0b12e378d",
-          "eventActionType": 2,
-          "displayName": "Change Objective"
+          "eventActionType": 2
         }
       ]
     },
@@ -1824,9 +1811,9 @@
         {
           "theText": "Disarm the explosives (&Explosives disarmed&/6). Disarm the bonus explosive (&Bonus explosive disarmed&/1).",
           "longText": null,
+          "displayName": "Change Objective",
           "GUID": "e2a03c09-c18c-4acb-884e-7c613692123e",
-          "eventActionType": 2,
-          "displayName": "Change Objective"
+          "eventActionType": 2
         }
       ]
     },
@@ -1885,9 +1872,9 @@
         {
           "theText": "Disarm the explosives (&Explosives disarmed&/6). Disarm the bonus explosive (&Bonus explosive disarmed&/1).",
           "longText": null,
+          "displayName": "Change Objective",
           "GUID": "86e273a7-806c-4205-bf43-5adad937a0e7",
-          "eventActionType": 2,
-          "displayName": "Change Objective"
+          "eventActionType": 2
         }
       ]
     },
@@ -1947,14 +1934,14 @@
           "triggerList": [
             {
               "triggerName": "Bonus explosive disarmed",
-              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a",
               "setValue": 1,
-              "modifyValue": 0
+              "modifyValue": 0,
+              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "0da2473f-1485-4890-8317-234477b3d0bf",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -2014,14 +2001,14 @@
           "triggerList": [
             {
               "triggerName": "Bonus explosive disarmed",
-              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a",
               "setValue": 1,
-              "modifyValue": 0
+              "modifyValue": 0,
+              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "5b0a48c6-c6c3-4a57-9cd1-9bbc17ff754a",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -2081,14 +2068,14 @@
           "triggerList": [
             {
               "triggerName": "Bonus explosive disarmed",
-              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a",
               "setValue": 1,
-              "modifyValue": 0
+              "modifyValue": 0,
+              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "b0c4eea2-d938-4991-b026-5b0b0af73aba",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -2148,14 +2135,14 @@
           "triggerList": [
             {
               "triggerName": "Bonus explosive disarmed",
-              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a",
               "setValue": 1,
-              "modifyValue": 0
+              "modifyValue": 0,
+              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a"
             }
           ],
+          "displayName": "Modify Variable(s)",
           "GUID": "c01a4953-cfe2-4ed0-acdd-58c620872eb7",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "eventActionType": 3
         }
       ]
     },
@@ -2187,22 +2174,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "37e80b48-4623-43fc-a261-f824d49b3031",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "37e80b48-4623-43fc-a261-f824d49b3031",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "356c9ecd-217e-4b1b-be49-5a3563a77978",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -2234,22 +2221,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "15065ab8-74df-4331-940c-972040dfc960",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "15065ab8-74df-4331-940c-972040dfc960",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "fee3077d-088e-4ae0-82d9-43af5a467cf1",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -2281,22 +2268,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "bc057d39-27d0-4a99-93d4-7e4bc7a3819f",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "bc057d39-27d0-4a99-93d4-7e4bc7a3819f",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "27e846f4-5803-4ed4-83e4-f3e11dc5657a",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -2328,22 +2315,22 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "failText": "",
           "theText": "Trying to stay calm, you start disarming the charge.\r\n\r\nTest {I}. Apply +1 {B} for each strain token on the explosive, then discard all strain tokens on the explosive. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "c149d113-120f-4650-822c-0b5e15ecb172",
           "inputList": [
             {
-              "theText": null,
               "fromValue": 0,
               "toValue": 0,
+              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "10ce166c-8383-4827-914d-16a2a8f244f1"
             }
           ],
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "c149d113-120f-4650-822c-0b5e15ecb172",
+          "displayName": "Input Prompt",
+          "failText": "",
           "GUID": "ce64c5a8-4567-413a-b1bd-a987eeafad2c",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
+          "eventActionType": 20
         }
       ]
     },
@@ -2373,7 +2360,21 @@
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
       "additionalTriggers": [],
-      "eventActions": []
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Bonus explosive disarmed",
+              "setValue": 1,
+              "modifyValue": 0,
+              "triggerGUID": "e1fd327e-a534-49ef-b964-aea0f44f753a"
+            }
+          ],
+          "displayName": "Modify Variable(s)",
+          "GUID": "88b8d8d3-8c8d-4f99-89a0-2648ac9ab0ba",
+          "eventActionType": 3
+        }
+      ]
     }
   ],
   "mapEntities": [
@@ -2701,11 +2702,7 @@
       }
     },
     {
-      "GUID": "0bec3438-0de0-4d5d-9806-266641b91f3b",
       "name": "Explosive Yellow 1",
-      "entityType": 4,
-      "entityPosition": "930,1000",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Yellow 1",
         "isActive": true,
@@ -2719,16 +2716,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Yellow",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "0bec3438-0de0-4d5d-9806-266641b91f3b",
+      "entityType": 4,
+      "entityPosition": "930,1000",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "c5e338e4-c85e-4a26-9024-0400af91b03a",
       "name": "Explosive Yellow 2",
-      "entityType": 4,
-      "entityPosition": "960,950",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Yellow 1 (Duplicate)",
         "isActive": true,
@@ -2742,16 +2739,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Yellow",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "c5e338e4-c85e-4a26-9024-0400af91b03a",
+      "entityType": 4,
+      "entityPosition": "960,950",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "300976af-f05e-44a5-a7cb-62cf9801cb55",
       "name": "Explosive Red 1",
-      "entityType": 4,
-      "entityPosition": "1000,980",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Red 1",
         "isActive": true,
@@ -2765,16 +2762,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "300976af-f05e-44a5-a7cb-62cf9801cb55",
+      "entityType": 4,
+      "entityPosition": "1000,980",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "f02c11ea-3c10-4ba8-af28-4e7a77ab1752",
       "name": "Explosive Red 2",
-      "entityType": 4,
-      "entityPosition": "1020,1010",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Red 1 (Duplicate)",
         "isActive": true,
@@ -2788,16 +2785,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "f02c11ea-3c10-4ba8-af28-4e7a77ab1752",
+      "entityType": 4,
+      "entityPosition": "1020,1010",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "90c2e692-01c7-42f2-98dd-afc361e496b5",
       "name": "Explosive Blue 1",
-      "entityType": 4,
-      "entityPosition": "1000,1040",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Blue 1",
         "isActive": true,
@@ -2811,16 +2808,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Blue",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "90c2e692-01c7-42f2-98dd-afc361e496b5",
+      "entityType": 4,
+      "entityPosition": "1000,1040",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "aec6ab34-be74-41df-aaed-4a73669bc276",
       "name": "Explosive Blue 2",
-      "entityType": 4,
-      "entityPosition": "1060,960",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Blue 2",
         "isActive": true,
@@ -2834,16 +2831,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Blue",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "aec6ab34-be74-41df-aaed-4a73669bc276",
+      "entityType": 4,
+      "entityPosition": "1060,960",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "bc0783a4-93f6-4750-9778-5177e29571f5",
       "name": "Explosive Crate Grey",
-      "entityType": 4,
-      "entityPosition": "950,1030",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Yellow 1 (Duplicate)",
         "isActive": false,
@@ -2857,16 +2854,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Green",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "bc0783a4-93f6-4750-9778-5177e29571f5",
+      "entityType": 4,
+      "entityPosition": "950,1030",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "8581d38b-f6c6-4291-b26e-a0dc42361a67",
       "name": "Explosive Crate Blue",
-      "entityType": 4,
-      "entityPosition": "1010,990",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Crate Blue",
         "isActive": false,
@@ -2880,16 +2877,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Green",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "8581d38b-f6c6-4291-b26e-a0dc42361a67",
+      "entityType": 4,
+      "entityPosition": "1010,990",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "92778663-3eec-4073-aa23-5c6adfe9e697",
       "name": "Explosive Crate Yellow",
-      "entityType": 4,
-      "entityPosition": "1040,960",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Crate Yellow",
         "isActive": false,
@@ -2903,16 +2900,16 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Green",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "92778663-3eec-4073-aa23-5c6adfe9e697",
+      "entityType": 4,
+      "entityPosition": "1040,960",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "6eca7df8-8c33-4678-bb6d-18e0f25d8b96",
       "name": "Explosive Crate Red",
-      "entityType": 4,
-      "entityPosition": "980,1050",
-      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Explosive Crate Red",
         "isActive": false,
@@ -2926,9 +2923,13 @@
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Green",
-      "markerType": 2
+      "markerType": 2,
+      "GUID": "6eca7df8-8c33-4678-bb6d-18e0f25d8b96",
+      "entityType": 4,
+      "entityPosition": "980,1050",
+      "entityRotation": 0.0,
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
       "GUID": "477a0385-7c66-46af-b725-dfa0853c1b26",

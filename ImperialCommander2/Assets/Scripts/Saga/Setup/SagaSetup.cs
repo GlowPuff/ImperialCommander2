@@ -55,8 +55,8 @@ namespace Saga
 			float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
 			if ( aspect >= 2f )
 			{
-				thrusterLeft.position = new Vector3( -11.6f, thrusterLeft.position.y, thrusterLeft.position.z );
-				thrusterRight.position = new Vector3( 11.6f, thrusterRight.position.y, thrusterRight.position.z );
+				thrusterLeft.position = new Vector3( -12f, thrusterLeft.position.y, thrusterLeft.position.z );
+				thrusterRight.position = new Vector3( 12f, thrusterRight.position.y, thrusterRight.position.z );
 			}
 
 			//bootstrap the setup screen for debugging

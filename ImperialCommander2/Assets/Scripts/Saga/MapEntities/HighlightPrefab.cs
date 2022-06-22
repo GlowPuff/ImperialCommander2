@@ -7,9 +7,11 @@ public class HighlightPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 	//public SpaceHighlight spaceHighlight;
 
 	public IMapEntity mapEntity { get; set; }
+	public bool isAnimationBusy { get; set; }
 
 	public void Init( SpaceHighlight s )
 	{
+		isAnimationBusy = false;
 		mapEntity = s;
 		GetComponent<SpriteRenderer>().color = Utils.String2UnityColor( s.deploymentColor );
 		transform.position = new Vector3( (s.entityPosition.X / 10), 0, (-s.entityPosition.Y / 10) );

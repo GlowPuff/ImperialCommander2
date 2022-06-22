@@ -10,9 +10,11 @@ namespace Saga
 		//public Token token;
 
 		public IMapEntity mapEntity { get; set; }
+		public bool isAnimationBusy { get; set; }
 
 		public void Init( Token t )
 		{
+			isAnimationBusy = false;
 			mapEntity = t;
 			baseMesh.material.color = Utils.String2UnityColor( t.tokenColor );
 			transform.position = new Vector3( (t.entityPosition.X / 10) + .5f, 0, (-t.entityPosition.Y / 10) - .5f );
@@ -46,15 +48,21 @@ namespace Saga
 		{
 			if ( mapEntity.entityProperties.isActive && FindObjectOfType<SagaController>().tileManager.IsMapSectionActive( mapEntity.mapSectionOwner ) )
 			{
+				isAnimationBusy = true;
 				gameObject.SetActive( true );
 				transform.localScale = Vector3.zero;
-				transform.DOScale( Vector3.one, 1f ).SetEase( Ease.OutBounce );
+				transform.DOScale( Vector3.one, 1f ).SetEase( Ease.OutBounce ).OnComplete( () => isAnimationBusy = false );
 			}
 		}
 
 		public void HideEntity()
 		{
-			transform.DOScale( Vector3.zero, 1f ).SetEase( Ease.InBounce ).OnComplete( () => gameObject.SetActive( false ) );
+			isAnimationBusy = true;
+			transform.DOScale( Vector3.zero, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+			{
+				isAnimationBusy = false;
+				gameObject.SetActive( false );
+			} );
 		}
 
 		public void ModifyEntity( EntityProperties props )
@@ -63,7 +71,12 @@ namespace Saga
 
 			if ( !mapEntity.entityProperties.isActive )
 			{
-				transform.DOScale( Vector3.zero, 1f ).SetEase( Ease.InBounce ).OnComplete( () => gameObject.SetActive( false ) );
+				isAnimationBusy = true;
+				transform.DOScale( Vector3.zero, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+				{
+					isAnimationBusy = false;
+					gameObject.SetActive( false );
+				} );
 			}
 			else
 			{

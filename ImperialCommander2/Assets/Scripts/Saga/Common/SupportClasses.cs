@@ -157,6 +157,7 @@ namespace Saga
 		public Guid defeatedTrigger;
 		public Guid defeatedEvent;
 		public bool useGenericMugshot;
+		public bool useInitialGroupCustomName;
 
 		public EnemyGroupData()
 		{

@@ -74,9 +74,8 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			isCustom = true,
 			isDummy = false,
 			name = ced.enemyGroupData.cardName,
-			id = ced.enemyGroupData.cardID,//Guid.NewGuid().ToString(),
+			id = ced.enemyGroupData.cardID,
 			tier = 1,
-			//faction = "Imperial",
 			priority = 2,
 			cost = ced.groupCost,
 			rcost = ced.groupRedeployCost,
@@ -130,22 +129,28 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 		if ( ced.customType == MarkerType.Rebel )
 		{
 			card.faction = "Mercenary";
-			if ( ced.enemyGroupData.useGenericMugshot )
-				card.mugShotPath = "Cards/genericAlly";
-			else
-				card.mugShotPath = $"Cards/Allies/{ced.thumbnailGroupRebel.Replace( "A", "M" )}";
 		}
 		else
 		{
 			card.faction = "Imperial";
-			if ( ced.enemyGroupData.useGenericMugshot )
-				card.mugShotPath = "Cards/genericEnemy";
-			else
-			{
-				var dc = DataStore.GetEnemy( ced.thumbnailGroupImperial );
-				card.mugShotPath = dc.mugShotPath;
-			}
 		}
+
+		if ( ced.iconType == MarkerType.Rebel )
+			card.mugShotPath = $"Cards/Allies/{ced.thumbnailGroupRebel.Replace( "A", "M" )}";
+		else
+		{
+			var dc = DataStore.GetEnemy( ced.thumbnailGroupImperial );
+			card.mugShotPath = dc.mugShotPath;
+		}
+
+		if ( ced.enemyGroupData.useGenericMugshot )
+		{
+			if ( ced.iconType == MarkerType.Rebel )
+				card.mugShotPath = "Cards/genericAlly";
+			else
+				card.mugShotPath = "Cards/genericEnemy";
+		}
+
 		return card;
 	}
 }

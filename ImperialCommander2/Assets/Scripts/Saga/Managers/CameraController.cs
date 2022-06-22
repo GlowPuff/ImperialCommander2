@@ -27,9 +27,8 @@ namespace Saga
 		bool isTouching = false;
 		float doubleClickTimer;
 		float delay = .35f;
-		TouchMode touchMode = TouchMode.Idle;
-
-		public enum TouchMode { Rotating, Zooming, Idle }
+		float prevDistance = 0;
+		float curDistance = 0;
 
 		private void Start()
 		{
@@ -50,12 +49,14 @@ namespace Saga
 
 			isTouching = Input.touchCount == 0 ? false : true;
 			if ( !isTouching )
-				touchMode = TouchMode.Idle;
+			{
+				prevDistance = curDistance = 0;
+			}
 
 			if ( Input.touchCount == 2 )
-			{
-				HandleTouchRotateZoom();
-			}
+				HandleTouchZoom();
+			else if ( Input.touchCount == 3 )
+				HandleTouchRotate();
 
 			if ( acceptNavivation )
 			{
@@ -73,7 +74,7 @@ namespace Saga
 			}
 		}
 
-		void HandleTouchRotateZoom()
+		void HandleTouchRotate()
 		{
 			if ( FindObjectOfType<SagaEventManager>().UIShowing
 				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
@@ -84,41 +85,44 @@ namespace Saga
 				Vector3 curPosition = cam2D.ScreenToViewportPoint( Input.GetTouch( 0 ).position );
 				//rotate
 				float diff = touchStart.x - curPosition.x;
-				//zoom
-				float diff2 = touchStart.y - curPosition.y;
-
 				Vector2 delta = Input.GetTouch( 0 ).deltaPosition;
-
 				//only allow one movement per touchdown
-				if ( touchMode == TouchMode.Idle && Math.Abs( delta.x ) > Math.Abs( delta.y ) )
-					touchMode = TouchMode.Rotating;
-				else if ( touchMode == TouchMode.Idle && Math.Abs( delta.x ) < Math.Abs( delta.y ) )
-					touchMode = TouchMode.Zooming;
+				camRotator.rotation = Quaternion.Euler( 0, rotStart + diff * -rotationSensitivity * 1.5f, 0 );
+			}
+		}
 
-				if ( touchMode == TouchMode.Rotating )
+		void HandleTouchZoom()
+		{
+			if ( FindObjectOfType<SagaEventManager>().UIShowing
+				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+				return;
+
+			if ( Input.GetTouch( 0 ).phase == TouchPhase.Moved )
+			{
+				Vector2 curPosition = Input.GetTouch( 0 ).position;
+				Vector2 curPosition2 = Input.GetTouch( 1 ).position;
+
+				curDistance = Vector2.Distance( curPosition, curPosition2 );
+				if ( curDistance > prevDistance )
 				{
-					camRotator.rotation = Quaternion.Euler( 0, rotStart + diff * -rotationSensitivity * 1.5f, 0 );
+					//zooming out
+					wheelValue += interval / 3f;
+					wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
+					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+					nv.x = 0;
+					cam.transform.localPosition = nv;
 				}
-				else
+				else if ( curDistance < prevDistance )
 				{
-					touchMode = TouchMode.Zooming;
-					if ( diff2 < 0 )
-					{
-						wheelValue += interval / 2f;
-						wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
-						Vector3 nv = camLocalOrigin + camNormal * wheelValue;
-						nv.x = 0;
-						cam.transform.localPosition = nv;
-					}
-					else
-					{
-						wheelValue -= interval / 2f;
-						wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
-						Vector3 nv = camLocalOrigin + camNormal * wheelValue;
-						nv.x = 0;
-						cam.transform.localPosition = nv;
-					}
+					//zooming in
+					wheelValue -= interval / 3f;
+					wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
+					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+					nv.x = 0;
+					cam.transform.localPosition = nv;
 				}
+
+				prevDistance = curDistance;
 			}
 		}
 

@@ -15,21 +15,26 @@ namespace Saga
 		public Text depTypeText;
 		public TextMeshProUGUI warning;
 
+		//calm
+		public TextMeshProUGUI calmText;
+
 		//reinforce
 		public ReinforcePrefab topR1, topR2, bottomR1, bottomR2;
 		public GameObject topPanel, bottomPanel;//panels
+		public TextMeshProUGUI reinforceMessage;
 
 		//landing
 		public ReinforcePrefab landing1, landing2;
 		public GameObject topLanding, bottomLanding;//panels
 		public GameObject landingMessage;
+		public TextMeshProUGUI landingMessageText;
 
 		//onslaught
 		public ReinforcePrefab on1R1, on1R2, on2R1, on2R2;
 		public GameObject topOnslaught, bottomOnslaught;//panels
 		public GameObject onR1Group, onR2Group;//containers for reinforcements
 		public GameObject depPrefab, depGrid, onslaughtMessage;
-		public TextMeshProUGUI onslaughtRWarning, onslaughtDWarning;
+		public TextMeshProUGUI onslaughtRWarning, onslaughtDWarning, onslaughtMessageText, onslaughtWarningText;
 
 		List<DeploymentCard> groupsToDeploy;
 		Action postAction;
@@ -73,21 +78,25 @@ namespace Saga
 			onslaughtRWarning.gameObject.SetActive( false );
 			onslaughtDWarning.gameObject.SetActive( false );
 
+			mode = DeployMode.Onslaught;
 			switch ( mode )
 			{
 				case DeployMode.Calm:
 					calmPanel.SetActive( true );
 					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeCalm;
+					calmText.text = DataStore.uiLanguage.uiMainApp.calmMessageUC;
 					HandleCalm();
 					break;
 				case DeployMode.Reinforcements:
 					reinforcePanel.SetActive( true );
 					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeReinforcements;
+					reinforceMessage.text = DataStore.uiLanguage.uiMainApp.threatIncreasedUC;
 					HandleReinforcements();
 					break;
 				case DeployMode.Landing:
 					landingPanel.SetActive( true );
 					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeLanding;
+					landingMessageText.text = DataStore.uiLanguage.uiMainApp.threatIncreasedUC;
 					if ( isOptionalDeployment )
 						depTypeText.text = DataStore.uiLanguage.uiSetup.deploymentHeading;
 					HandleLanding( skipThreatIncrease, isOptionalDeployment );
@@ -95,6 +104,10 @@ namespace Saga
 				case DeployMode.Onslaught:
 					onslaughtPanel.SetActive( true );
 					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeOnslaught;
+					onslaughtMessageText.text = DataStore.uiLanguage.uiMainApp.threatIncreasedUC;
+					onslaughtRWarning.text = DataStore.uiLanguage.uiMainApp.reinforceWarningUC;
+					onslaughtDWarning.text = DataStore.uiLanguage.uiMainApp.deploymentWarningUC;
+					onslaughtWarningText.text = DataStore.uiLanguage.uiMainApp.reinforceWarningUC;
 					HandleOnslaught( skipThreatIncrease );
 					break;
 			}

@@ -1,10 +1,16 @@
 ﻿using System;
+using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Saga
 {
 	public class CustomEnemyDeployment : EventAction
 	{
+
 		public MarkerType customType;
+		[DefaultValue( MarkerType.Rebel )]
+		[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
+		public MarkerType iconType;
 		public string thumbnailGroupImperial;
 		public string thumbnailGroupRebel;
 		public string repositionInstructions;

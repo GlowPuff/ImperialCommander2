@@ -174,9 +174,15 @@ namespace Saga
 			var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ed.deploymentGroup );
 			//name
 			if ( !string.IsNullOrEmpty( ed.enemyName ) )
+			{
 				ovrd.nameOverride = ed.enemyName;
+				ed.enemyGroupData.cardName = ed.enemyName;
+			}
 			else
+			{
 				ovrd.nameOverride = card.name;
+				ed.enemyGroupData.cardName = card.name;
+			}
 			//custom instructions
 			if ( ed.useCustomInstructions )
 				ovrd.SetInstructionOverride( new ChangeInstructions()
@@ -186,7 +192,7 @@ namespace Saga
 				} );
 			//set the main override data
 			ovrd.SetEnemyDeploymentOverride( ed );
-			//generic mugshot
+			//generic mugshot (DEPRECATED)
 			ovrd.useGenericMugshot = ed.useGenericMugshot;
 
 			//check if this deployment uses threat cost, and apply any modification
@@ -211,6 +217,8 @@ namespace Saga
 				var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ad.allyID );
 				//generic mugshot
 				ovrd.useGenericMugshot = ad.useGenericMugshot;
+				if ( ovrd.useGenericMugshot )
+					card.mugShotPath = "Cards/genericAlly";
 				//name
 				if ( !string.IsNullOrEmpty( ad.allyName ) )
 					ovrd.nameOverride = ad.allyName;

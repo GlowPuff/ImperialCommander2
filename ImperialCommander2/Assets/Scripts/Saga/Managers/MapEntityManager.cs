@@ -309,33 +309,48 @@ namespace Saga
 					//Debug.Log( objectHit.name );
 					if ( objectHit.name == "crate" )
 					{
-						var e = objectHit.parent.GetComponent<CratePrefab>().mapEntity;//.crate;
-						ProcessQuestionPrompt( e.entityProperties );
-						inputTimer = 2;
+						var e = objectHit.parent.GetComponent<CratePrefab>();//.crate;
+						if ( !e.isAnimationBusy )
+						{
+							ProcessQuestionPrompt( e.mapEntity.entityProperties );
+							inputTimer = 2;
+						}
 					}
 					else if ( objectHit.name == "terminal" )
 					{
-						var e = objectHit.parent.GetComponent<TerminalPrefab>().mapEntity;//terminal;
-						ProcessQuestionPrompt( e.entityProperties );
-						inputTimer = 2;
+						var e = objectHit.parent.GetComponent<TerminalPrefab>();//terminal;
+						if ( !e.isAnimationBusy )
+						{
+							ProcessQuestionPrompt( e.mapEntity.entityProperties );
+							inputTimer = 2;
+						}
 					}
 					else if ( objectHit.name == "door" )
 					{
-						var e = objectHit.parent.GetComponent<DoorPrefab>().mapEntity;//door;
-						ProcessQuestionPrompt( e.entityProperties );
-						inputTimer = 2;
+						var e = objectHit.parent.GetComponent<DoorPrefab>();//door;
+						if ( !e.isAnimationBusy )
+						{
+							ProcessQuestionPrompt( e.mapEntity.entityProperties );
+							inputTimer = 2;
+						}
 					}
 					else if ( objectHit.name.Contains( "Highlight" ) )
 					{
-						var e = objectHit.GetComponent<HighlightPrefab>().mapEntity;//spaceHighlight;
-						ProcessQuestionPrompt( e.entityProperties );
-						inputTimer = 2;
+						var e = objectHit.GetComponent<HighlightPrefab>();//spaceHighlight;
+						if ( !e.isAnimationBusy )
+						{
+							ProcessQuestionPrompt( e.mapEntity.entityProperties );
+							inputTimer = 2;
+						}
 					}
 					else if ( objectHit.name == "token" )
 					{
-						var e = objectHit.parent.GetComponent<TokenPrefab>().mapEntity;//token;
-						ProcessQuestionPrompt( e.entityProperties );
-						inputTimer = 2;
+						var e = objectHit.parent.GetComponent<TokenPrefab>();//token;
+						if ( !e.isAnimationBusy )
+						{
+							ProcessQuestionPrompt( e.mapEntity.entityProperties );
+							inputTimer = 2;
+						}
 					}
 				}
 			}

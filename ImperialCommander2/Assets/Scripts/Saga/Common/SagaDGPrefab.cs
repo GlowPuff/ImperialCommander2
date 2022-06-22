@@ -52,8 +52,17 @@ namespace Saga
 				iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
 			else
 				iconImage.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
+
 			if ( ovrd != null && ovrd.useGenericMugshot )
+			{
 				iconImage.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+				//custom groups can use either a Rebel OR Imperial mugshot
+				if ( ovrd.isCustom )//this isn't necessary, correct sprite already set at #54
+				{
+					iconImage.sprite = Resources.Load<Sprite>( ovrd.customCard.mugShotPath );
+				}
+			}
+
 			if ( cardDescriptor.isElite )
 				outlineColor.color = eliteColor;
 

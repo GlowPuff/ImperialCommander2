@@ -9,9 +9,11 @@ namespace Saga
 		//DeploymentPoint dPoint;
 
 		public IMapEntity mapEntity { get; set; }
+		public bool isAnimationBusy { get; set; }
 
 		public void Init( DeploymentPoint dp, LifeSpan life )
 		{
+			isAnimationBusy = false;
 			//DPs are only visible at the moment a group deploys on it
 			mapEntity = dp;
 			lifeSpan = life;

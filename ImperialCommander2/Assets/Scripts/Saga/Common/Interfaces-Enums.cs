@@ -39,6 +39,7 @@ namespace Saga
 	public interface IEntityPrefab
 	{
 		IMapEntity mapEntity { get; set; }
+		bool isAnimationBusy { get; set; }
 		void ModifyEntity( EntityProperties mod );
 		/// <summary>
 		/// Makes an entity visible IF isActive=true
