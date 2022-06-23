@@ -6,7 +6,7 @@ namespace Saga
 {
 	public class CustomEnemyDeployment : EventAction
 	{
-
+		//card properties
 		public MarkerType customType;
 		[DefaultValue( MarkerType.Rebel )]
 		[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
@@ -25,6 +25,7 @@ namespace Saga
 		public int groupSize;
 		public int groupHealth;
 		public int groupSpeed;
+		//deployment properties
 		public bool canReinforce;
 		public bool canRedeploy;
 		public bool canBeDefeated;

@@ -147,6 +147,11 @@ namespace Saga
 					ovrd.thumbnailGroupRebel = ced.thumbnailGroupRebel;
 					//bonuses
 					ovrd.customBonuses = ced.bonuses.Split( '\n' );
+					//deployment
+					ovrd.canReinforce = ced.canReinforce;
+					ovrd.canRedeploy = ced.canRedeploy;
+					ovrd.canBeDefeated = ced.canBeDefeated;
+					ovrd.useResetOnRedeployment = ced.useResetOnRedeployment;
 
 					return ovrd;
 				}

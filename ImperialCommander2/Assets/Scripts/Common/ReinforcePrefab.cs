@@ -31,17 +31,9 @@ public class ReinforcePrefab : MonoBehaviour
 
 		nameText.text = cd.name;
 
-		if ( DataStore.villainCards.ContainsCard( cd ) )
-		{
-			thumbnail.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
+		thumbnail.sprite = Resources.Load<Sprite>( cd.mugShotPath );
+		if ( cd.isElite )
 			outline.effectColor = Color.red;
-		}
-		else
-		{
-			thumbnail.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-			if ( cd.name.Contains( "Elite" ) )
-				outline.effectColor = Color.red;
-		}
 		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
 	}
 }

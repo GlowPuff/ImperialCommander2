@@ -47,7 +47,7 @@ namespace Saga
 		/// </summary>
 		public void ShowTile( bool immediate = false )
 		{
-			Debug.Log( $"SHOWING TILE::{tileDescriptor.id}" );
+			//Debug.Log( $"SHOWING TILE::{tileDescriptor.id}" );
 			if ( mapTile.entityProperties.isActive )
 			{
 				if ( immediate )

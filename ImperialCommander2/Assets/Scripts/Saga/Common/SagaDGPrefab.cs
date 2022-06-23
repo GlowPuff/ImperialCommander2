@@ -348,7 +348,7 @@ namespace Saga
 			if ( ovrd != null && !ovrd.canRedeploy )
 			{
 				DataStore.sagaSessionData.CannotRedeployList.Add( ovrd.ID );
-				//compltely reset if it can't redeploy, so it can be manually deployed "clean" later
+				//completely reset if it can't redeploy, so it can be manually deployed "clean" later
 				DataStore.sagaSessionData.gameVars.RemoveOverride( ovrd.ID );
 				returnToHand = false;
 			}
@@ -356,7 +356,9 @@ namespace Saga
 			if ( cardDescriptor.id != "DG070"
 			&& !DataStore.villainCards.ContainsCard( cardDescriptor )
 			&& returnToHand )
+			{
 				DataStore.deploymentHand.Add( cardDescriptor );
+			}
 			//remove it from deployed list
 			DataStore.deployedEnemies.Remove( cardDescriptor );
 			//if it is an EARNED villain, add it back into manual deploy list
