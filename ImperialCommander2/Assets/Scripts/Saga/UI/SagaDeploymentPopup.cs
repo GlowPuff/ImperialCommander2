@@ -78,7 +78,6 @@ namespace Saga
 			onslaughtRWarning.gameObject.SetActive( false );
 			onslaughtDWarning.gameObject.SetActive( false );
 
-			mode = DeployMode.Onslaught;
 			switch ( mode )
 			{
 				case DeployMode.Calm:

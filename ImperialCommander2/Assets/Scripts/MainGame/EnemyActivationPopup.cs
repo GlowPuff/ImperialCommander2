@@ -241,11 +241,15 @@ public class EnemyActivationPopup : MonoBehaviour
 			&& cardDescriptor.bonusText != null )
 		{
 			Debug.Log( "***RE-USING PREVIOUS ACTIVATION DATA::bonus***" );
+			bonusNameText.text = cardDescriptor.bonusName;
+			bonusText.text = cardDescriptor.bonusText;
+		}
+		else
+		{
+			ParseBonusSaga( cd.id, difficulty );
 			cardDescriptor.bonusName = bonusNameText.text;
 			cardDescriptor.bonusText = bonusText.text;
 		}
-		else
-			ParseBonusSaga( cd.id, difficulty );
 
 		cardDescriptor.hasActivated = true;
 	}
