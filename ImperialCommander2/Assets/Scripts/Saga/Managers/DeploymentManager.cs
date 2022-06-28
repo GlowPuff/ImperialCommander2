@@ -276,7 +276,7 @@ namespace Saga
 				if ( ovrd.deploymentPoint == DeploymentSpot.Active )
 				{
 					Debug.Log( "EnemyDeployment::ACTIVE DP" );
-					var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint();
+					var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint( enemyToAdd );
 					if ( adp != Guid.Empty )
 					{
 						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
@@ -311,16 +311,16 @@ namespace Saga
 						callback?.Invoke();
 					} );
 				}
-				else
+				else//multiple specific DPs
 				{
 					Debug.Log( "EnemyDeployment::MULTIPLE DPs" );
-					DoMultipleDeployment( ovrd, callback );
+					DoMultipleDeployment( enemyToAdd, ovrd, callback );
 					//StartCoroutine( NavToDeployment( ovrd, callback ) );//also invokes callback when finished
 				}
 			}
 			else//no override, just use Active DP
 			{
-				var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint();
+				var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint( enemyToAdd );
 				if ( adp != Guid.Empty )
 				{
 					FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
@@ -344,14 +344,13 @@ namespace Saga
 			}
 		}
 
-		void DoMultipleDeployment( DeploymentGroupOverride ovrd, Action callback = null )
+		void DoMultipleDeployment( DeploymentCard enemyToAdd, DeploymentGroupOverride ovrd, Action callback = null )
 		{
 			string cardID = ovrd.ID;
 			if ( ovrd.isCustom )
 				cardID = "Custom";
-			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
 			FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
-			var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint();
+			var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint( enemyToAdd );
 
 			//show all DPs used
 			var allDPs = ovrd.GetDeploymentPoints();
@@ -374,7 +373,6 @@ namespace Saga
 					Guid guid = dp == Guid.Empty ? adp : dp;
 					FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( guid, false );
 				}
-				//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 				FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
 				callback?.Invoke();
 			} );

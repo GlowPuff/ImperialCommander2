@@ -326,7 +326,7 @@ namespace Saga
 		void CustomDeployment( CustomEnemyDeployment ced )
 		{
 			Debug.Log( "SagaEventManager()::PROCESSING CustomDeployment" );
-			var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( ced );
+			var ovrd = DataStore.sagaSessionData.gameVars.CreateCustomDeploymentOverride( ced );
 			if ( ced.useDeductCost )
 				DataStore.sagaSessionData.ModifyThreat( -ced.groupCost );
 

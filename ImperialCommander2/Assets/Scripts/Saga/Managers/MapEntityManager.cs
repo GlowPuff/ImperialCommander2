@@ -384,7 +384,7 @@ namespace Saga
 		/// <summary>
 		/// Returns the Active DP, or a random one if >1, or empty GUID if there is no active DP
 		/// </summary>
-		public Guid GetActiveDeploymentPoint()
+		public Guid GetActiveDeploymentPoint( DeploymentCard enemyToAdd )
 		{
 			List<IMapEntity> dps = new List<IMapEntity>();
 			foreach ( var e in mapEntities )
@@ -397,11 +397,41 @@ namespace Saga
 						dps.Add( e );
 				}
 			}
+			//filter out DPs with properties that don't comply with the deployment
+			if ( enemyToAdd != null && dps.Count > 0 )
+			{
+				Debug.Log( "GetActiveDeploymentPoint()::FILTERING DPs" );
+				dps = FilterDP( dps, enemyToAdd );
+			}
 			//if more than 1 active DP, choose one randomly
 			if ( dps.Count > 0 )
 				return dps[GlowEngine.GenerateRandomNumbers( dps.Count )[0]].GUID;
 			else
 				return Guid.Empty;
+		}
+
+		List<IMapEntity> FilterDP( List<IMapEntity> dps, DeploymentCard enemyToAdd )
+		{
+			IMapEntity[] tempDPs = new IMapEntity[dps.Count];
+			dps.CopyTo( tempDPs );
+
+			tempDPs = tempDPs.Where( x =>
+			{
+				var dp = x as DeploymentPoint;
+				if ( dp.deploymentPointProps.IsFilteredOut( enemyToAdd ) )
+					return false;
+
+				Debug.Log( $"GetActiveDeploymentPoint()::{x.name} NOT FILTERED OUT FOR {enemyToAdd.name}" );
+				return true;
+			} ).ToArray();
+			//return filtered DP list, otherwise return original list
+			if ( tempDPs.Length > 0 )
+				return new List<IMapEntity>( tempDPs );
+			else
+			{
+				Debug.Log( "GetActiveDeploymentPoint()::NO DPs LEFT AFTER FILTERING" );
+				return dps;
+			}
 		}
 
 		public void ToggleHighlightDeploymentPoint( Guid guid, bool visible )
