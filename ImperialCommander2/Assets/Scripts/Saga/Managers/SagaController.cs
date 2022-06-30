@@ -266,17 +266,21 @@ namespace Saga
 
 		void DoStartupTasks( Tuple<List<string>, List<string>> tiles )
 		{
-			var tmsg = string.Join( ", ", tiles.Item1 );
-			var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
-			var emsg2 = string.Join( "\n", tiles.Item2 );
-			emsg = string.IsNullOrEmpty( emsg2.Trim() ) ? "" : emsg + emsg2;
-
-			//eventManager.toggleVisButton.SetActive( true );
-			eventManager.ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{tmsg}</color>\n\n{emsg}", () =>
+			//if no tiles are initially shown, skip the placement window
+			if ( tiles.Item1.Count > 0 )
 			{
-				//eventManager.toggleVisButton.SetActive( false );
+				var tmsg = string.Join( ", ", tiles.Item1 );
+				var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
+				var emsg2 = string.Join( "\n", tiles.Item2 );
+				emsg = string.IsNullOrEmpty( emsg2.Trim() ) ? "" : emsg + emsg2;
+
+				eventManager.ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{tmsg}</color>\n\n{emsg}", () =>
+				{
+					StartupLayoutAndEvents();
+				} );
+			}
+			else
 				StartupLayoutAndEvents();
-			} );
 		}
 
 		void StartupLayoutAndEvents()

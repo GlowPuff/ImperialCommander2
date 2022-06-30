@@ -23,6 +23,7 @@ namespace Saga
 		public bool incSpy;
 		public bool incTrooper;
 		public bool incWookiee;
+		public bool incVehicle;
 
 		public DeploymentPointProps()
 		{
@@ -78,6 +79,8 @@ namespace Saga
 				traits.Add( "Trooper" );
 			if ( incWookiee )
 				traits.Add( "Wookiee" );
+			if ( incVehicle )
+				traits.Add( "Vehicle" );
 
 			if ( !traits.Any( x => enemyToAdd.traits.Contains( x ) ) )
 				return true;
