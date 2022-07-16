@@ -11,6 +11,7 @@ namespace Saga
 		public Outline outline;
 		public Color eliteColor;
 		public GameObject exhaustedOverlay;
+		public DeploymentCard Card { get { return cardDescriptor; } }
 
 		DeploymentCard cardDescriptor;
 		//bool isAlly = false;
@@ -231,10 +232,13 @@ namespace Saga
 			FindObjectOfType<SagaController>().eventManager.CheckIfEventsTriggered();
 
 			//trigger on defeated Event/Trigger, if it exists
-			if ( ovrd != null && !cardDescriptor.isHero )//not really necessary to check isAlly
+			//not really necessary to check isAlly - heroes do not have an override
+			if ( ovrd != null && !cardDescriptor.isHero )
 			{
 				FindObjectOfType<SagaController>().triggerManager.FireTrigger( ovrd.setTrigger );
 				FindObjectOfType<SagaController>().eventManager.DoEvent( ovrd.setEvent );
+				DataStore.deployedHeroes.Remove( Card );
+				RemoveSelf();
 			}
 		}
 
@@ -251,6 +255,18 @@ namespace Saga
 			woundToggle.gameObject.SetActive( true );
 
 			FindObjectOfType<SagaController>().eventManager.CheckIfEventsTriggered();
+		}
+
+		/// <summary>
+		/// Visually remove the group
+		/// </summary>
+		public void RemoveSelf()
+		{
+			Transform tf = transform.GetChild( 0 );
+			tf.DOScale( 0, .35f ).SetEase( Ease.InCirc ).OnComplete( () =>
+			{
+				UnityEngine.Object.Destroy( gameObject );
+			} );
 		}
 	}
 }

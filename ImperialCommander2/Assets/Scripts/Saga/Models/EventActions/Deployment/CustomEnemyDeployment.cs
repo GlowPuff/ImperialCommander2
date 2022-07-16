@@ -11,6 +11,7 @@ namespace Saga
 		[DefaultValue( MarkerType.Rebel )]
 		[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
 		public MarkerType iconType;
+		public AttackType attackType;
 		public string thumbnailGroupImperial;
 		public string thumbnailGroupRebel;
 		public string repositionInstructions;

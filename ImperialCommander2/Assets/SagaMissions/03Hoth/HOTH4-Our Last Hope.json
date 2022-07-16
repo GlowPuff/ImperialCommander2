@@ -2,9 +2,9 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH4-Our Last Hope.json",
   "relativePath": "HOTH4-Our Last Hope.json",
-  "fileVersion": "15",
-  "saveDate": "6/20/2022",
-  "timeTicks": 637913135274755090,
+  "fileVersion": "16",
+  "saveDate": "7/1/2022",
+  "timeTicks": 637923107163874447,
   "missionProperties": {
     "missionName": "Our Last Hope",
     "campaignName": "Return to Hoth",
@@ -963,44 +963,53 @@
       "eventActions": [
         {
           "theText": "Going through the hold as suggested, you gather up ammunition, medical supplies, and harsh environment gear — everything you can think of that might be useful in the struggle to follow. You have a substantial stock, but it’s clear that you wont be able to rely on any resupply.\r\n\r\n{-} The Rebels claim 12 neutral mission tokens.\r\n{-} Discard 1 neutral mission token for each Bane in the Imperial player's play area.",
-          "displayName": "Text Box",
           "GUID": "6196d06e-8f21-4214-a53d-6d7740433c49",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "You are going to need to be careful with how to use your supplies.\r\n\r\n{-} Each time a hero performs a rest, the heroes discard 1 neutral mission token. If the heroes have no neutral mission tokens remaining, they cannot rest. The optional healing rules (medpacs) are not used in this mission.\r\n{-} At the start of a hero's activation, that hero may discard 1 neutral mission token to recover 2 {C} or discard 1 condition.\r\n{-} During a wounded hero's activation, if he has suffered no {H}, the heroes may discard 2 neutral mission tokens (3 if he has 2 activation tokens), to flip that hero's sheet to the healthy side. Then, that hero suffers {H} equal to his Health minus 5.\r\n{-} When a hero is wounded, do not mark him as wounded in the app until the heroes no longer have enough neutral mission tokens to un-wound him. When an unmarked wounded hero becomes the target of an attack, the attack instead targets the closest healthy Rebel.",
-          "displayName": "Text Box",
           "GUID": "a8db80d8-d852-4be9-8437-6c08ee777318",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "When you reach your destination, your pilot’s voice sounds over the ship’s speakers. “Buckle up, everyone. Sorin's ship is already in the atmosphere, and I'm about to do something stupid.” No sooner have you buckled your crash webbing than the ship accelerates fiercely and then crashes to a shocking halt. You rush to the airlock and find your ship clamped to the hull of Sorin’s Star Destroyer. Recklessly, you jump down and cut your way inside.",
-          "displayName": "Text Box",
           "GUID": "8f6b24ed-4fb0-4d10-963b-f951478bfc54",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "mapSection": "11111111-1111-1111-1111-111111111111",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "11111111-1111-1111-1111-111111111111",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "bfd99427-4649-44ae-824a-ce1421a645ce",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "Soon, you find yourself on the bridge of Sorin's Star Destroyer. The General is standing next to one of the ship's control systems. If you manage to destroy the control systems, you should be able to bring the ship down.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.",
-          "displayName": "Text Box",
           "GUID": "11b4bce2-c658-4641-8d8b-a17c782f9eac",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG078",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG078",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "81ead058-7663-414c-aed5-13a096cc71f9",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "3974ed9a-082d-4661-bb37-853b4a5b9a2a",
             "cardName": "General Sorin",
@@ -1025,24 +1034,17 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "47fc5916-63a9-4990-ad65-b9356d84b664",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "81ead058-7663-414c-aed5-13a096cc71f9",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG078/General Sorin",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "7b75a789-1946-43d5-92d8-be5f8dc88654",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG078/General Sorin"
         },
         {
           "entitiesToModify": [
@@ -1089,23 +1091,32 @@
         },
         {
           "theText": "{-} A Rebel figure can attack a terminal (Health: 6, Defense: 2 {G}).\r\n{-} The mission will progress when all terminals are destroyed and <color=\"red\">General Sorin</color> is defeated.\r\n{-} The Rebels lose when all heroes are wounded.",
-          "displayName": "Text Box",
           "GUID": "1ce63096-4672-42b5-9b55-a4bf16039761",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "The General turns toward you, his face twisted with rage. \"Seize them!\", he snarls, and more troops rush forward to stop you.",
-          "displayName": "Text Box",
           "GUID": "9bc6a96f-9ef7-4268-8bff-03d2dfb998df",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG011",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG011",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "494b1c57-306d-4f3d-bfcb-c2419ceacac6",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "c0325a47-bc27-4ac7-a567-f1fdf6d194f2",
             "cardName": "Probe Droid",
@@ -1130,32 +1141,34 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "494b1c57-306d-4f3d-bfcb-c2419ceacac6",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG011/Probe Droid",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "89733fda-be9d-4001-9bc0-aec0234c81fe",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG011/Probe Droid"
         },
         {
-          "deploymentGroup": "DG001",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG001",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "421805cf-02dd-498e-a45d-18f52c995e6f",
             "cardName": "Stormtrooper",
@@ -1186,32 +1199,34 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG001/Stormtrooper",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "b9d3dd86-f339-4870-88ac-2c017a52764b",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG001/Stormtrooper"
         },
         {
-          "deploymentGroup": "DG015",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG015",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "0f096edf-603c-4208-b08d-a8fccc358a23",
             "cardName": "Trandoshan Hunter",
@@ -1239,37 +1254,30 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG015/Trandoshan Hunter",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "3b0a6b88-a472-42ad-a3b5-d874152f42b0",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG015/Trandoshan Hunter"
         },
         {
           "theText": "Destroy the Star Destroyer's control systems (&Stations Destroyed&/2).",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "64a86b2f-8004-47ec-aa76-35f90f8ecf09",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} The Rebels claim 12 neutral mission tokens.\r\n{-} Each time a hero performs a rest, the heroes discard 1 neutral mission token. If the heroes have no neutral mission tokens remaining, they cannot rest. The optional healing rules (medpacs) are not used in this mission.\r\n{-} At the start of a hero's activation, that hero may discard 1 neutral mission token to recover 2 {C} or discard 1 condition.\r\n{-} During a wounded hero's activation, if he has suffered no {H}, the heroes may discard 2 neutral mission tokens (3 if he has 2 activation tokens), to flip that hero's sheet to the healthy side. Then, that hero suffers {H} equal to his Health minus 5.\r\n{-} When a hero is wounded, do not mark him as wounded in the app until the heroes no longer have enough neutral mission tokens to un-wound him. When an unmarked wounded hero becomes the target of an attack, the attack instead targets the closest healthy Rebel.\r\n{-} A Rebel figure can attack a terminal (Health: 6, Defense: 2 {G}).\r\n{-} The mission will progress when all terminals are destroyed and <color=\"red\">General Sorin</color> is defeated.\r\n{-} The Rebels lose when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "291cb32c-69d5-4e7f-88d7-648b6581b424",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1395,14 +1403,14 @@
           "triggerList": [
             {
               "triggerName": "Stations Destroyed",
+              "triggerGUID": "276726bf-91c8-4f27-bc94-273a5fa443cb",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "276726bf-91c8-4f27-bc94-273a5fa443cb"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "783974aa-8a6c-4e38-9b4e-bc2e0f9cedc7",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "entitiesToModify": [
@@ -1462,14 +1470,14 @@
           "triggerList": [
             {
               "triggerName": "Stations Destroyed",
+              "triggerGUID": "276726bf-91c8-4f27-bc94-273a5fa443cb",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "276726bf-91c8-4f27-bc94-273a5fa443cb"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "61722e81-d6c2-4e83-9710-741054c9621d",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "entitiesToModify": [
@@ -1529,14 +1537,14 @@
           "triggerList": [
             {
               "triggerName": "Sorin Defeated",
+              "triggerGUID": "163e5d54-50ae-416b-be3f-8c542d427a20",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "163e5d54-50ae-416b-be3f-8c542d427a20"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "f67cbda7-d014-457b-b88a-720782366df6",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1692,33 +1700,42 @@
           "eventActionType": 10
         },
         {
-          "mapSection": "1554bbfb-e43e-452e-8457-e76beffeab98",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "1554bbfb-e43e-452e-8457-e76beffeab98",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "4994726b-e05a-4d5c-8ec9-695146a74f58",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "{-} Walls between Snow tiles and tiles  of another tile type do not block movement, line of sight, adjacency, or counting spaces.",
-          "displayName": "Text Box",
           "GUID": "6a4ce041-eee3-4549-a5e0-61dae327700b",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Imperial troops are already moving to attack the base.",
-          "displayName": "Text Box",
           "GUID": "f9308b8c-4546-416b-9e12-e6e3fe4f5d9f",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG024",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG024",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "2884f784-f882-4084-ad65-6357645eeafe",
             "cardName": "Snowtrooper (Elite)",
@@ -1749,32 +1766,34 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG024/Snowtrooper (Elite)",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "4c2113dc-d23a-4d8e-afac-9b931b6f8438",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG024/Snowtrooper (Elite)"
         },
         {
-          "deploymentGroup": "DG013",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG013",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "e854773c-397d-44ed-9a34-8f8b5f44a086",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "fab1fef2-1d66-4552-b84c-021c8558229e",
             "cardName": "Probe Droid (Elite)",
@@ -1799,30 +1818,23 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "e854773c-397d-44ed-9a34-8f8b5f44a086",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG013/Probe Droid (Elite)",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "64ea3826-e6d8-4b96-9b48-7f42f927ff52",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG013/Probe Droid (Elite)"
         },
         {
           "theText": "As you pull yourselves to your feet, you  see the shield controls not far from the ship. If you can reach them and reactivate the shields, the base can be saved.\r\n\r\n{-} Heroes claim 1 neutral mission token.\r\n{-} The mission will progress when a Rebel figure enters the Command Center (red highlight). When this happens, click the red highlight and select \"Enter Command Center\".",
-          "displayName": "Text Box",
           "GUID": "a7570a85-50e0-4d36-bf85-4dc25db05149",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1854,15 +1866,15 @@
         {
           "theText": "Enter the Command Center.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "a8c196e8-d780-4af3-bad8-ec1b97a7b52c",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} Walls between Snow tiles and tiles  of another tile type do not block movement, line of sight, adjacency, or counting spaces.\r\n{-} Each time a hero performs a rest, the heroes discard 1 neutral mission token. If the heroes have no neutral mission tokens remaining, they cannot rest. The optional healing rules (medpacs) are not used in this mission.\r\n{-} At the start of a hero's activation, that hero may discard 1 neutral mission token to recover 2 {C} or discard 1 condition.\r\n{-} During a wounded hero's activation, if he has suffered no {H}, the heroes may discard 2 neutral mission tokens (3 if he has 2 activation tokens), to flip that hero's sheet to the healthy side. Then, that hero suffers {H} equal to his Health minus 5.\r\n{-} When a hero is wounded, do not mark him as wounded in the app until the heroes no longer have enough neutral mission tokens to un-wound him. When an unmarked wounded hero becomes the target of an attack, the attack instead targets the closest healthy Rebel.\r\n{-} The mission will progress when a Rebel figure enters the Command Center (red highlight). When this happens, click the red highlight and select \"Enter Command Center\".\r\n{-} The Rebels lose when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "11f23b79-f4e5-4792-bfd5-35bfa25396a9",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1932,34 +1944,34 @@
         },
         {
           "theText": "{-} A hero can interact with the red terminal to activate the shields.\r\n{-} The mission will progress when the shields are activated.",
-          "displayName": "Text Box",
           "GUID": "c48a633b-0773-449e-923e-d7d2ff374564",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Activate the shields.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "99086aa1-2fcd-414f-939e-a5739d66504e",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} Walls between Snow tiles and tiles  of another tile type do not block movement, line of sight, adjacency, or counting spaces.\r\n{-} Each time a hero performs a rest, the heroes discard 1 neutral mission token. If the heroes have no neutral mission tokens remaining, they cannot rest. The optional healing rules (medpacs) are not used in this mission.\r\n{-} At the start of a hero's activation, that hero may discard 1 neutral mission token to recover 2 {C} or discard 1 condition.\r\n{-} During a wounded hero's activation, if he has suffered no {H}, the heroes may discard 2 neutral mission tokens (3 if he has 2 activation tokens), to flip that hero's sheet to the healthy side. Then, that hero suffers {H} equal to his Health minus 5.\r\n{-} When a hero is wounded, do not mark him as wounded in the app until the heroes no longer have enough neutral mission tokens to un-wound him. When an unmarked wounded hero becomes the target of an attack, the attack instead targets the closest healthy Rebel.\r\n{-} A hero can interact with the red terminal to activate the shields.\r\n{-} The mission will progress when the shields are activated.\r\n{-} The Rebels lose when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "69401d8e-858b-4bd2-9d5e-160cd6f923fa",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         },
         {
           "theText": "As you approach the shield control, you notice blaster scorches on the wall. Apparently, there has been some fighting here - and not long ago. You raise your weapons, and sure enough, a figure moves in the twilight of the back corridors. You see a familiar scarred face over metal armor, and a grim expression. Dengar has come to finish this once and for all.",
-          "displayName": "Text Box",
           "GUID": "aad9b82a-af6c-4f7c-8e21-aea8b4097229",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "“Dengar!” you shout. “Whatever Sorin is paying you, it’s not worth it. We've taken everything the Empire can throw at us, and were still here. Be smart; join the winning side!”\r\n\r\nDengar pauses, considering his options.",
-          "displayName": "Text Box",
           "GUID": "b02844aa-f999-41b5-a1ea-aed6fdafc442",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Block access to the terminal.",
@@ -1989,9 +2001,9 @@
               "eventGUID": "e6796060-0d5c-4b78-a75c-7feeb0521f6a"
             }
           ],
-          "displayName": "Question Prompt",
           "GUID": "eb0d411e-ea0b-469c-ac2c-f7d28bb931ac",
-          "eventActionType": 5
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -2023,12 +2035,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG077",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG077",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "28968543-57f8-44fc-8511-7a1fac6e7f13",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "d99700dc-bf07-4988-ac80-4aacaa7843e4",
             "cardName": "Dengar",
@@ -2053,24 +2074,17 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "28968543-57f8-44fc-8511-7a1fac6e7f13",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG077/Dengar",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "6e0bba92-58a2-49b8-a782-bdb1be232f41",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG077/Dengar"
         }
       ]
     },
@@ -2130,6 +2144,32 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "customType": 1,
+          "iconType": 2,
+          "thumbnailGroupImperial": "DG077",
+          "thumbnailGroupRebel": "A001",
+          "repositionInstructions": "",
+          "groupAttack": "1Green 1Yellow",
+          "groupDefense": "1Black",
+          "surges": "{B}: +2 {H}",
+          "bonuses": "",
+          "keywords": "+2 Accuracy",
+          "abilities": "Contempt: While attacking, if the target does not have a HARMFUL condition, Dengar applies +1 {B} to the attack results.\r\n{B} Punishment: After the attack resolves, if the target suffered 1 or more {H}, choose 1 HARMFUL condition. The target gains that condition. This ability can be triggered multiple times in the same attack.",
+          "groupCost": 0,
+          "groupRedeployCost": 0,
+          "groupSize": 1,
+          "groupHealth": 8,
+          "groupSpeed": 4,
+          "modification": null,
+          "canReinforce": false,
+          "canRedeploy": false,
+          "canBeDefeated": true,
+          "useDeductCost": false,
+          "useCustomInstructions": false,
+          "useThreatMultiplier": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "28968543-57f8-44fc-8511-7a1fac6e7f13",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "e34bed77-6b96-4ef6-9915-89bd1a03f8dd",
             "cardName": "Dengar (Ruthless Killer)",
@@ -2154,40 +2194,17 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": true
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "customType": 1,
-          "thumbnailGroupRebel": "A001",
-          "thumbnailGroupImperial": "DG001",
-          "useDeductCost": false,
-          "groupCost": 0,
-          "groupRedeployCost": 0,
-          "groupSize": 1,
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
-          "canReinforce": false,
-          "canBeDefeated": true,
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "28968543-57f8-44fc-8511-7a1fac6e7f13",
-          "groupHealth": 8,
-          "useThreatMultiplier": false,
-          "groupSpeed": 4,
-          "groupAttack": "1Green 1Yellow",
-          "groupDefense": "1Black",
-          "displayName": "Custom Deployment: Dengar (Ruthless Killer)",
-          "repositionInstructions": "",
-          "surges": "{B}: +2 {H}",
-          "bonuses": "",
-          "keywords": "+2 Accuracy",
-          "abilities": "Contempt: While attacking, if the target does not have a HARMFUL condition, Dengar applies +1 {B} to the attack results.\r\n{B} Punishment: After the attack resolves, if the target suffered 1 or more {H}, choose 1 HARMFUL condition. The target gains that condition. This ability can be triggered multiple times in the same attack.",
-          "modification": null,
-          "useCustomInstructions": false,
           "GUID": "a8929b96-4536-4761-b699-7487d0a71fbf",
-          "eventActionType": 21
+          "eventActionType": 21,
+          "displayName": "Custom Deployment: Dengar (Ruthless Killer)"
         }
       ]
     },
@@ -2219,12 +2236,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG078",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG078",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": "+2 Health, +1 {B}",
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "e0d55fc0-2bce-4d74-a5a2-f0429c5fe941",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "fe7f1253-1731-4eee-bbac-44d89c89c17d",
             "cardName": "General Sorin",
@@ -2249,32 +2275,34 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "bfe836f4-3320-4bfb-83ca-0e05fb472a34",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "e0d55fc0-2bce-4d74-a5a2-f0429c5fe941",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": true,
-          "modification": "+2 Health, +1 {B}",
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG078/General Sorin",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "b065f2a3-c269-49af-b908-847ebac8bfa8",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG078/General Sorin"
         },
         {
-          "deploymentGroup": "DG025",
           "enemyName": "Sorin-class Tank (<color=\"red\">SC2-M Repulsor Tank</color>)",
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG025",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": "+8 Health, +1 {G}",
           "canReinforce": false,
+          "canRedeploy": false,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": true,
+          "useGenericMugshot": false,
+          "showMod": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "e0d55fc0-2bce-4d74-a5a2-f0429c5fe941",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "a8707439-489c-485e-9bcd-c2513fcb6208",
             "cardName": "SC2-M Repulsor Tank",
@@ -2299,30 +2327,23 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "4f10bc26-6ef8-4d06-85f3-e3957a18f250",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "e0d55fc0-2bce-4d74-a5a2-f0429c5fe941",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": true,
-          "modification": "+8 Health, +1 {G}",
-          "useCustomInstructions": true,
-          "displayName": "Deploy: DG025/SC2-M Repulsor Tank",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "b5c1e3a0-87ce-4999-abfb-4b8bdc449113",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG025/SC2-M Repulsor Tank"
         },
         {
           "theText": "Even with the shields back online, Sorin and his strange new tank remain a threat to the base and the survivors of Hoth. You'll have to eliminate them and end this once and for all.\r\n\r\n{-} The Rebels win when <color=\"red\">General Sorin</color> and the Sorin-class Tank are defeated.",
-          "displayName": "Text Box",
           "GUID": "52b52392-13c0-4a16-8e53-86bc82b1a300",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": null,
@@ -2335,15 +2356,15 @@
         {
           "theText": "Defeat <color=\"red\">General Sorin</color> and the Sorin-class tank.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "43c27f8d-99e5-4bc7-99a4-ae90f13f3571",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} Walls between Snow tiles and tiles  of another tile type do not block movement, line of sight, adjacency, or counting spaces.\r\n{-} Each time a hero performs a rest, the heroes discard 1 neutral mission token. If the heroes have no neutral mission tokens remaining, they cannot rest. The optional healing rules (medpacs) are not used in this mission.\r\n{-} At the start of a hero's activation, that hero may discard 1 neutral mission token to recover 2 {C} or discard 1 condition.\r\n{-} During a wounded hero's activation, if he has suffered no {H}, the heroes may discard 2 neutral mission tokens (3 if he has 2 activation tokens), to flip that hero's sheet to the healthy side. Then, that hero suffers {H} equal to his Health minus 5.\r\n{-} When a hero is wounded, do not mark him as wounded in the app until the heroes no longer have enough neutral mission tokens to un-wound him. When an unmarked wounded hero becomes the target of an attack, the attack instead targets the closest healthy Rebel.\r\n{-} The Rebels win when <color=\"red\">Sorin</color> and the Sorin-class Tank are defeated.\r\n{-} The Rebels lose when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "51cfe800-f4f8-4539-9ed9-6ba011c73a4d",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -2383,9 +2404,9 @@
         {
           "theText": "Defeat the Sorin-class Tank.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "99f8b9eb-ce65-4371-9a97-dbf1c718283b",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         }
       ]
     },
@@ -2425,9 +2446,9 @@
         {
           "theText": "Defeat <color=\"red\">General Sorin</color>.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "9bd87b2b-562e-4bec-bfe4-f480e5e3469e",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         }
       ]
     }
@@ -2529,7 +2550,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2565,7 +2587,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2601,7 +2624,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2637,7 +2661,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2673,7 +2698,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2709,7 +2735,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2745,7 +2772,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2781,7 +2809,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2817,7 +2846,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2853,11 +2883,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "f15d54d3-008a-41aa-bc09-3c191d959f56",
       "name": "Control System 1",
+      "entityType": 1,
+      "entityPosition": "1020,960",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Control System 1",
         "isActive": false,
@@ -2871,15 +2906,15 @@
           }
         ]
       },
-      "deploymentColor": "Gray",
-      "GUID": "f15d54d3-008a-41aa-bc09-3c191d959f56",
-      "entityType": 1,
-      "entityPosition": "1020,960",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Gray"
     },
     {
+      "GUID": "9b7e7a58-c51f-4f11-b9ce-2f8cfa6102e0",
       "name": "Control System 2",
+      "entityType": 1,
+      "entityPosition": "1030,1060",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Control System 2",
         "isActive": false,
@@ -2893,12 +2928,8 @@
           }
         ]
       },
-      "deploymentColor": "Gray",
-      "GUID": "9b7e7a58-c51f-4f11-b9ce-2f8cfa6102e0",
-      "entityType": 1,
-      "entityPosition": "1030,1060",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Gray"
     },
     {
       "GUID": "7725075e-faf7-406f-b6e0-0ec9223e2207",
@@ -2933,7 +2964,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2969,7 +3001,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3005,7 +3038,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3041,7 +3075,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3077,7 +3112,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3113,7 +3149,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3149,7 +3186,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3185,7 +3223,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3246,11 +3285,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "ba8809fd-ddca-4a27-9546-5bdf8c3ee97e",
       "name": "Shield Terminal",
+      "entityType": 1,
+      "entityPosition": "1160,1080",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Shield Terminal",
         "isActive": false,
@@ -3264,12 +3308,8 @@
           }
         ]
       },
-      "deploymentColor": "Red",
-      "GUID": "ba8809fd-ddca-4a27-9546-5bdf8c3ee97e",
-      "entityType": 1,
-      "entityPosition": "1160,1080",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "1554bbfb-e43e-452e-8457-e76beffeab98"
+      "mapSectionOwner": "1554bbfb-e43e-452e-8457-e76beffeab98",
+      "deploymentColor": "Red"
     },
     {
       "GUID": "e0d55fc0-2bce-4d74-a5a2-f0429c5fe941",
@@ -3304,7 +3344,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -3334,11 +3375,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "b2cee955-14ae-4e0f-a9fd-3b0a6ee8e265",
@@ -3364,11 +3407,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "d6f085de-6c88-4951-af4b-810e3bf0408a",
@@ -3400,11 +3445,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "52a9dc6b-a98f-43dc-897d-468bbb484d90",
@@ -3433,11 +3480,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "ffd96dcd-d6d5-4b17-be0f-e7ea0ceea94d",
@@ -3463,11 +3512,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "b6f4ff1e-3880-4df9-8d5c-440968987faf",
@@ -3493,11 +3544,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "a313512a-4d69-4660-aed2-5dcdd4601b18",
@@ -3523,11 +3576,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "43e08522-43b5-47a5-84c0-60b57678268f",
@@ -3559,11 +3614,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

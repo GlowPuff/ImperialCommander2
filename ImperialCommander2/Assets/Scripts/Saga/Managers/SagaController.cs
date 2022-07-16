@@ -101,7 +101,7 @@ namespace Saga
 				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
 				difficulty = Difficulty.Medium,
 				threatLevel = 3,
-				useAdaptiveDifficulty = false,
+				useAdaptiveDifficulty = true,
 			} );
 			DataStore.sagaSessionData.gameVars.pauseDeployment = true;
 			DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
@@ -157,6 +157,11 @@ namespace Saga
 				if ( DataStore.mission.missionProperties.useFixedAlly == YesNoAll.Yes )
 				{
 					DataStore.sagaSessionData.fixedAlly = DataStore.allyCards.GetDeploymentCard( DataStore.mission.missionProperties.fixedAlly );
+				}
+				//add threat if player added an ally
+				if ( DataStore.sagaSessionData.selectedAlly != null )
+				{
+					DataStore.sagaSessionData.ModifyThreat( DataStore.sagaSessionData.selectedAlly.cost );
 				}
 				//initial groups
 				foreach ( var g in DataStore.mission.initialDeploymentGroups )
@@ -280,7 +285,14 @@ namespace Saga
 				} );
 			}
 			else
+			{
+				//if ( !string.IsNullOrEmpty( DataStore.mission.missionProperties.missionInfo.Trim() ) )
+				//{
+				//	eventManager.ShowTextBox( DataStore.mission.missionProperties.missionInfo, StartupLayoutAndEvents );
+				//}
+				//else
 				StartupLayoutAndEvents();
+			}
 		}
 
 		void StartupLayoutAndEvents()
@@ -301,7 +313,8 @@ namespace Saga
 					 };
 
 					 //perform optional deployment if it's a side mission
-					 if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
+					 if ( DataStore.mission.missionProperties.missionType == MissionType.Side
+					 || DataStore.sagaSessionData.selectedAlly != null )
 						 deploymentPopup.Show( DeployMode.Landing, false, true, action );
 					 else
 						 action();

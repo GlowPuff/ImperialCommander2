@@ -2,9 +2,9 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "OTHER39-The Pirate's Ploy.json",
   "relativePath": "OTHER39-The Pirate's Ploy.json",
-  "fileVersion": "15",
-  "saveDate": "6/13/2022",
-  "timeTicks": 637907607264537785,
+  "fileVersion": "16",
+  "saveDate": "7/8/2022",
+  "timeTicks": 637928799339492238,
   "missionProperties": {
     "missionName": "The Pirate's Ploy",
     "campaignName": "Hondo Ohnaka (Friend for Hire) Villain Pack",
@@ -660,6 +660,32 @@
           "displayName": "Modify Map Entity"
         },
         {
+          "customType": 2,
+          "iconType": 2,
+          "thumbnailGroupImperial": "DG001",
+          "thumbnailGroupRebel": "A001",
+          "repositionInstructions": "",
+          "groupAttack": "2Red",
+          "groupDefense": "1Black",
+          "surges": "{B}: Pierce 2",
+          "bonuses": "CHARGE GENERATORS: This figure gains 1 {h}.\nAUTOMATED REPAIRS: This figure recovers 2 {H}.",
+          "keywords": "+5 Health\r\n+4 Accuracy",
+          "abilities": "None:None",
+          "groupCost": 0,
+          "groupRedeployCost": 0,
+          "groupSize": 1,
+          "groupHealth": 2,
+          "groupSpeed": 4,
+          "modification": null,
+          "canReinforce": false,
+          "canRedeploy": false,
+          "canBeDefeated": true,
+          "useDeductCost": false,
+          "useCustomInstructions": false,
+          "useThreatMultiplier": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "10f7ba61-8ed7-449a-ae19-423bf4735016",
             "cardName": "E-XD Infiltrator Droid",
@@ -684,40 +710,17 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "9cb3b762-aece-40a2-9fb2-c6e9d8228221",
-            "useGenericMugshot": true
+            "useGenericMugshot": true,
+            "useInitialGroupCustomName": false
           },
-          "customType": 2,
-          "thumbnailGroupRebel": "A001",
-          "thumbnailGroupImperial": "DG001",
-          "useDeductCost": false,
-          "groupCost": 0,
-          "groupRedeployCost": 0,
-          "groupSize": 1,
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
-          "canReinforce": false,
-          "canBeDefeated": true,
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
-          "groupHealth": 2,
-          "useThreatMultiplier": true,
-          "groupSpeed": 4,
-          "groupAttack": "2Red",
-          "groupDefense": "1Black",
-          "displayName": "Custom Deployment: E-XD Infiltrator Droid",
-          "repositionInstructions": "",
-          "surges": "{B}: Pierce 2",
-          "bonuses": "CHARGE GENERATORS: This figure gains 1 {h}.\nAUTOMATED REPAIRS: This figure recovers 2 {H}.",
-          "keywords": "+5 Health\r\n+4 Accuracy",
-          "abilities": "None:None",
-          "modification": null,
-          "useCustomInstructions": false,
           "GUID": "ae59cebd-1c6b-4a4d-8338-88fe0c34020b",
-          "eventActionType": 21
+          "eventActionType": 21,
+          "displayName": "Custom Deployment: E-XD Infiltrator Droid"
         },
         {
           "theText": "{-} The Imperial mission token represents the E-XD Infiltrator Droid.\r\n{-} If the E-XD has been defeated, a figure can interact with the door ({K} or {I}) to try and open it. That figure may suffer 1 {C} during that test to reroll any number of dice.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
@@ -1093,14 +1096,14 @@
           "displayName": "Modify Threat"
         },
         {
-          "isOnslaught": false,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": false,
           "GUID": "58982b4d-d3cd-4fff-bb44-634010c14a30",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         }
       ]
     },
@@ -1246,14 +1249,14 @@
           "displayName": "Text Box"
         },
         {
-          "isOnslaught": true,
           "deploymentPoint": 1,
-          "specificDeploymentPoint": "0330dab6-0fa0-4f7a-8456-c55c76a40d51",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "0330dab6-0fa0-4f7a-8456-c55c76a40d51",
+          "isOnslaught": true,
           "GUID": "312ec8e1-03ed-454d-b2bb-2a3ab9243d7c",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "theText": "To the side, you see Hondo Ohnaka grinning apologetically. \"I am so sorry, my friends, but I am sure we can still make business in the future, no?\", he says, drawing his blaster.",
@@ -1301,11 +1304,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "67c65489-09d2-4e60-9416-b81482e8c845",
           "eventActionType": 6,
@@ -1337,6 +1342,32 @@
           "displayName": "Modify Map Entity"
         },
         {
+          "customType": 2,
+          "iconType": 2,
+          "thumbnailGroupImperial": "DG001",
+          "thumbnailGroupRebel": "A001",
+          "repositionInstructions": "",
+          "groupAttack": "2Red",
+          "groupDefense": "1Black",
+          "surges": "{B}: Pierce 2",
+          "bonuses": "CHARGE GENERATORS: This figure gains 1 {h}.\r\nAUTOMATED REPAIRS: This figure recovers 2 {H}.",
+          "keywords": "+5 Health\r\n+4 Accuracy\r\n+1 {G}",
+          "abilities": "None:None",
+          "groupCost": 0,
+          "groupRedeployCost": 0,
+          "groupSize": 1,
+          "groupHealth": 2,
+          "groupSpeed": 4,
+          "modification": null,
+          "canReinforce": false,
+          "canRedeploy": false,
+          "canBeDefeated": true,
+          "useDeductCost": false,
+          "useCustomInstructions": false,
+          "useThreatMultiplier": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "4ef0839d-8355-4b16-abd2-0f674bc22abb",
             "cardName": "E-XD Infiltrator Droid",
@@ -1361,40 +1392,17 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "844e4120-d90d-452b-9fb7-2571996f8fc0",
-            "useGenericMugshot": true
+            "useGenericMugshot": true,
+            "useInitialGroupCustomName": false
           },
-          "customType": 2,
-          "thumbnailGroupRebel": "A001",
-          "thumbnailGroupImperial": "DG001",
-          "useDeductCost": false,
-          "groupCost": 0,
-          "groupRedeployCost": 0,
-          "groupSize": 1,
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
-          "canReinforce": false,
-          "canBeDefeated": true,
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
-          "groupHealth": 2,
-          "useThreatMultiplier": true,
-          "groupSpeed": 4,
-          "groupAttack": "2Red",
-          "groupDefense": "1Black",
-          "displayName": "Custom Deployment: E-XD Infiltrator Droid",
-          "repositionInstructions": "",
-          "surges": "{B}: Pierce 2",
-          "bonuses": "CHARGE GENERATORS: This figure gains 1 {h}.\r\nAUTOMATED REPAIRS: This figure recovers 2 {H}.",
-          "keywords": "+5 Health\r\n+4 Accuracy\r\n+1 {G}",
-          "abilities": "None:None",
-          "modification": null,
-          "useCustomInstructions": false,
           "GUID": "47e01a30-efc4-40ab-85e1-638a0acdf7d5",
-          "eventActionType": 21
+          "eventActionType": 21,
+          "displayName": "Custom Deployment: E-XD Infiltrator Droid"
         },
         {
           "theText": "{-} When the E-XD would be defeated, it is incapacitated instead. \r\n{-} The mission will progress when the E-XD is incapacitated.",
@@ -1684,7 +1692,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1720,7 +1729,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1756,7 +1766,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1792,7 +1803,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1860,7 +1872,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1896,7 +1909,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1932,7 +1946,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1968,7 +1983,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2004,7 +2020,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2070,11 +2087,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2102,11 +2121,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

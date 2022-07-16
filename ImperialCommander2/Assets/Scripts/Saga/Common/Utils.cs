@@ -8,7 +8,7 @@ namespace Saga
 {
 	public static class Utils
 	{
-		public const string formatVersion = "16";//the EXPECTED mission format
+		public const string formatVersion = "17";//the EXPECTED mission format
 
 		public static void LogError( string error )
 		{

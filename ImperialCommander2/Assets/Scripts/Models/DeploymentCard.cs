@@ -98,7 +98,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			traits = new string[0],//English version of groupTraits
 			groupTraits = new GroupTraits[0],
 			preferredTargets = ced.enemyGroupData.groupPriorityTraits.GetTraitArray(),
-			attackType = AttackType.Ranged
+			attackType = ced.attackType
 		};
 
 		//health multiplier

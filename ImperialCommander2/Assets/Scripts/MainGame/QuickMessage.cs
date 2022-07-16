@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ public class QuickMessage : MonoBehaviour
 
 	Sequence sequence = null;
 
-	public void Show( string m, Action cb = null )
+	public void Show( string m )
 	{
 		InitTween();
 		if ( sequence != null && sequence.IsPlaying() )
@@ -37,6 +36,15 @@ public class QuickMessage : MonoBehaviour
 				.Join( t1 )
 				.Join( t2 );
 			sequence.OnKill( () => { sequence = null; } );
+		}
+	}
+
+	public void Close()
+	{
+		if ( sequence != null && sequence.IsPlaying() )
+		{
+			sequence.Kill();
+			cg.DOFade( 0, .25f ).OnComplete( () => { gameObject.SetActive( false ); } );
 		}
 	}
 }

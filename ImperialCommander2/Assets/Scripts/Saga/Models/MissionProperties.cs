@@ -5,7 +5,7 @@ namespace Saga
 {
 	public class MissionProperties
 	{
-		public string missionName, missionID, fixedAlly, bannedAlly, missionInfo, specificAlly, specificHero, priorityOther, missionDescription, campaignName, startingObjective;
+		public string missionName, missionID, fixedAlly, bannedAlly, missionInfo, specificAlly, specificHero, priorityOther, missionDescription, campaignName, startingObjective, additionalMissionInfo;
 		public bool optionalDeployment, factionImperial, factionMercenary;
 		public YesNoAll useFixedAlly, useBannedAlly, banAllAllies;
 		public CustomInstructionType customInstructionType;

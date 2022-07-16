@@ -205,6 +205,28 @@ namespace Saga
 			}
 		}
 
+		public void RemoveGroup( string id )
+		{
+			foreach ( Transform c in enemyContainer )
+			{
+				var pf = c.GetComponent<SagaDGPrefab>();
+				if ( pf.Card.id == id )
+				{
+					pf.RemoveSelf();
+					return;
+				}
+			}
+			foreach ( Transform c in heroContainer )
+			{
+				var pf = c.GetComponent<SagaHGPrefab>();
+				if ( pf.Card.id == id )
+				{
+					pf.RemoveSelf();
+					return;
+				}
+			}
+		}
+
 		public void ReadyGroup( string id )
 		{
 			foreach ( Transform c in enemyContainer )

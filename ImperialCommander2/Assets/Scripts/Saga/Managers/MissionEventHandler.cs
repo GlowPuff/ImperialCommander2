@@ -226,6 +226,8 @@ namespace Saga
 					ovrd.nameOverride = card.name;
 				//trigger
 				ovrd.setTrigger = ad.setTrigger;
+				//event
+				ovrd.setEvent = ad.setEvent;
 				//dp
 				ovrd.deploymentPoint = ad.deploymentPoint;
 				ovrd.specificDeploymentPoint = ad.specificDeploymentPoint;
@@ -439,6 +441,42 @@ namespace Saga
 				foreach ( var item in rg.groupsToAdd )
 				{
 					DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
+				}
+			}
+
+			NextEventAction();
+		}
+
+		void RemoveGroup( RemoveGroup rg )
+		{
+			Debug.Log( "SagaEventManager()::PROCESSING RemoveGroup" );
+			foreach ( var item in rg.groupsToRemove )
+			{
+				//remove any override
+				DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
+				var card = DataStore.allEnemyDeploymentCards.Where( x => x.id == item.id ).FirstOr( null );
+				if ( card != null )
+				{
+					//remove it from the hand
+					DataStore.deploymentHand.Add( card );
+					//remove it from the deployment list
+					DataStore.deployedEnemies.Remove( card );
+					//remove icon from the enemy column
+					FindObjectOfType<SagaController>().dgManager.RemoveGroup( card.id );
+				}
+
+			}
+			foreach ( var item in rg.allyGroupsToRemove )
+			{
+				//remove any override
+				DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
+				var card = DataStore.allyCards.Where( x => x.id == item.id ).FirstOr( null );
+				if ( card != null )
+				{
+					//remove it from the deployed heroes list
+					DataStore.deployedHeroes.Remove( card );
+					//remove icon from the ally column
+					FindObjectOfType<SagaController>().dgManager.RemoveGroup( card.id );
 				}
 			}
 

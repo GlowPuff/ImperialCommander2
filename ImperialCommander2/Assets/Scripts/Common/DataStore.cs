@@ -8,7 +8,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.20";
+	public static readonly string appVersion = "v.2.0.21";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Mission mission;
@@ -44,14 +44,15 @@ public static class DataStore
 	public static List<BonusEffect> bonusEffects;
 	public static List<DeploymentSound> deploymentSounds;
 	public static Dictionary<string, List<MissionPreset>> missionPresets;
-	public static Vector3[] pipColors = new Vector3[6]
+	public static Vector3[] pipColors = new Vector3[7]
 	{
 		(0.3301887f).ToVector3(),
 		new Vector3(0.6784314f,0,1),
 		new Vector3(0,0,0),
 		new Vector3(0,0.3294118f,1),
 		new Vector3(0,0.735849f,0.1056484f),
-		new Vector3(1,0,0)
+		new Vector3(1,0,0),
+		new Vector3(1, 202f / 255f, 40f / 255f)
 	};
 	public static int languageCode;
 	public static UILanguage uiLanguage;

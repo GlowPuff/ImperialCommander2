@@ -1,14 +1,15 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE3-Chain of Command.json",
-  "relativePath": "01 - Core Game\\Story Missions\\CORE3-Chain of Command.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896845416227049,
+  "relativePath": "CORE3-Chain of Command.json",
+  "fileVersion": "17",
+  "saveDate": "7/10/2022",
+  "timeTicks": 637930357016418317,
   "missionProperties": {
     "missionName": "Chain of Command",
     "campaignName": "Core Game",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "Defeat Weiss.",
@@ -686,7 +687,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": "+6 H, +1 {G}",
-          "sourceType": 1,
           "canReinforce": false,
           "canRedeploy": false,
           "canBeDefeated": true,
@@ -694,6 +694,7 @@
           "useCustomInstructions": true,
           "useGenericMugshot": false,
           "showMod": true,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "dd3e22eb-527f-432b-b887-f087b8f65907",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -720,11 +721,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "f9fe20c5-414b-465e-a0b7-a7b76499e6d8",
           "eventActionType": 6,
@@ -1008,7 +1011,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": "+1 {G}",
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1016,6 +1018,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": true,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1042,11 +1045,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "cad8b3a6-7edb-4dbb-8661-1a594c7a99ea",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "092cc3fa-ef93-4e6b-b477-3f6337c7232c",
           "eventActionType": 6,
@@ -1306,7 +1311,7 @@
       "GUID": "afb0c075-09b9-47fd-8152-15f9f954792d",
       "isGlobal": true,
       "name": "Invulnerable",
-      "eventText": "Covered by his troops, Weiss makes a mad dash toward his vehicle, palming the entrance hatch and slipping inside. \r\n\r\n\"Yes. This is much better.\" His augmented voice echoes in the wide hangar as the walker powers up and swivels toward you. \"Now, where were we?\"\r\n\r\n{-} <color=\"red\">General Weiss</color> recovers 6 {H}.\r\n{-} Discard the <color=\"red\">Imperial Officer</color> figure and exhaust him. He is not defeated.\r\n{-} <color=\"red\">General Weiss</color> now activates as normal. Apply +1 {G} to each of his defense results.\r\n{-} The Rebels win when <color=\"red\">General Weiss</color> is defeated.",
+      "eventText": "Covered by his troops, Weiss makes a mad dash toward his vehicle, palming the entrance hatch and slipping inside. \r\n\r\n\"Yes. This is much better.\" His augmented voice echoes in the wide hangar as the walker powers up and swivels toward you. \"Now, where were we?\"\r\n\r\n{-} Discard the <color=\"red\">Imperial Officer</color> figure and its Deployment card. It is not defeated.\r\n{-} <color=\"red\">General Weiss</color> recovers 6 {H}.\r\n{-} <color=\"red\">General Weiss</color> now activates as normal. Apply +1 {G} to each of his defense results.\r\n{-} The Rebels win when <color=\"red\">General Weiss</color> is defeated.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1329,6 +1334,18 @@
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "groupsToRemove": [
+            {
+              "name": "Imperial Officer (Elite)",
+              "id": "DG006"
+            }
+          ],
+          "allyGroupsToRemove": [],
+          "displayName": "Remove Group",
+          "GUID": "6e82382c-63ec-43d4-91e0-41139cbc003b",
+          "eventActionType": 22
+        },
         {
           "theText": "Defeat <color=\"red\">General Weiss</color>",
           "longText": null,
@@ -1402,53 +1419,6 @@
           ],
           "exhaustGroups": [],
           "GUID": "18d1872f-b10f-407e-bc89-931833713e60",
-          "eventActionType": 13,
-          "displayName": "Ready / Exhaust a Group"
-        }
-      ]
-    },
-    {
-      "GUID": "8883b03c-6065-41c2-81db-606d154c3c60",
-      "isGlobal": true,
-      "name": "Exhaust Weiss",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": true,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useActivation": false,
-      "isRepeatable": true,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "AT-ST activated",
-          "triggerGUID": "8f3cef65-238c-4443-b4df-649cf9f168ae",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "readyGroups": [],
-          "exhaustGroups": [
-            {
-              "name": "Imperial Officer (Elite)",
-              "id": "DG006"
-            }
-          ],
-          "GUID": "3aa60ec7-d9c6-4f97-93e6-4db4220af1a7",
           "eventActionType": 13,
           "displayName": "Ready / Exhaust a Group"
         }
@@ -1648,13 +1618,13 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "threatModifierType": 1,
+          "threatAction": 0,
           "fixedValue": 2,
           "threatValue": 0,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 1,
           "GUID": "697ce554-0f2c-4e56-9489-e1fe2141fd4a",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     },
@@ -2079,7 +2049,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2115,7 +2086,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2151,7 +2123,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2187,7 +2160,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2223,7 +2197,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2259,7 +2234,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2295,7 +2271,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2331,7 +2308,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2367,7 +2345,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2403,7 +2382,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2439,7 +2419,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2475,7 +2456,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2511,7 +2493,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2674,7 +2657,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -2703,11 +2687,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "d04e7ac8-6925-49bc-9581-8d7628d76472",
@@ -2736,11 +2722,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "416c2e3e-b568-4716-9cca-45e94f4c83dd",
@@ -2772,11 +2760,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "98918f36-8db4-4a37-9ac5-9bb5a98e43d6",
@@ -2808,11 +2798,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "9e33a1e3-abbf-46dd-ac84-a196382809cc",
@@ -2838,11 +2830,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2870,11 +2864,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "c9667e79-5652-4e11-ad23-ea66c38881d3",
@@ -2900,11 +2896,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

@@ -19,7 +19,7 @@ namespace Saga
 		public GameObject missionItemPrefab, folderItemPrefab;
 		public Transform missionContainer;
 		//UI
-		public TextMeshProUGUI missionNameText, missionDescriptionText;
+		public TextMeshProUGUI missionNameText, missionDescriptionText, additionalInfoText;
 		public Button tilesButton, modeToggleButton;
 		public TileInfoPopup tileInfoPopup;
 		public Text modeToggleBtnText;
@@ -241,7 +241,6 @@ namespace Saga
 		{
 			if ( pickerMode == PickerMode.Custom )
 			{
-
 				pickerMode = PickerMode.BuiltIn;
 				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.officialBtn;
 				basePath = "BuiltIn";
@@ -259,6 +258,8 @@ namespace Saga
 #endif
 				OnChangeFolder( basePath );
 			}
+
+			FindObjectOfType<SagaSetup>().OnModeChange( pickerMode );
 		}
 
 		public void OnMissionSelected( ProjectItem pi )
@@ -269,6 +270,7 @@ namespace Saga
 				selectedMission = pi;
 				missionNameText.text = pi?.Title;
 				missionDescriptionText.text = pi?.Description;
+				additionalInfoText.text = pi?.AdditionalInfo;
 				//tilesButton.interactable = true;
 				if ( pi.missionID != "Custom" )//official mission
 				{
@@ -286,7 +288,7 @@ namespace Saga
 				selectedMission = null;
 				missionNameText.text = "";
 				missionDescriptionText.text = "";
-				//tilesButton.interactable = false;
+				additionalInfoText.text = "";
 			}
 		}
 
@@ -394,6 +396,8 @@ namespace Saga
 						projectItem.missionID = split[1];
 					if ( split[0] == "missionGUID" )
 						projectItem.missionGUID = split[1];
+					if ( split[0] == "additionalMissionInfo" )
+						projectItem.AdditionalInfo = split[1];
 				}
 			}
 

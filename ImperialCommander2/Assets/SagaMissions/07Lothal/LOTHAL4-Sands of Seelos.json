@@ -2,13 +2,14 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "LOTHAL4-Sands of Seelos.json",
   "relativePath": "07 - Tyrants of Lothal\\LOTHAL4-Sands of Seelos.json",
-  "fileVersion": "14",
-  "saveDate": "6/11/2022",
-  "timeTicks": 637905671533541640,
+  "fileVersion": "17",
+  "saveDate": "7/10/2022",
+  "timeTicks": 637930359479981557,
   "missionProperties": {
     "missionName": "Sands of Seelos",
     "campaignName": "Tyrants of Lothal",
     "missionDescription": "If playing a mini campaign, heroes must bring a Spectre ally that they have not brought to a mission during this mini campaign. ==== Upon hearing that his commander during the Clone Wars, Wolffe, is not only alive but an ally to the Rebellion, CT-1701 volunteers his team to travel to Seelos to pick up useful intelligence gathered from Wolffe's stolen AT-AT walker. But the Empire arrives first, pursuing Wolffe's walker with their own armored war machines.",
+    "additionalMissionInfo": "If playing a mini campaign, heroes must bring a Spectre ally that they have not brought to a mission during this mini campaign.",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "",
@@ -925,9 +926,9 @@
       "eventActions": [
         {
           "theText": "From up here, the towering war machines in the desert almost look like toys. Your pilot accelerates towards them, and soon the true size of the intimidating AT-AT walkers becomes obvious.\r\n\r\n{-} The Seelos map and all tokens on it cannot be affected by card effects.",
-          "displayName": "Text Box",
           "GUID": "9e5cdd57-ca7e-4958-b834-cb2e983d3648",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -950,15 +951,15 @@
         },
         {
           "theText": "Wolffe's walker is battered with scorch marks. \r\n\r\n{-} The Rebel mission token represents the Rebel AT-AT.",
-          "displayName": "Text Box",
           "GUID": "148debf2-ccc7-4f80-b8a8-ca31e1dd5088",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Behind Wolffe's walker, two more AT-ATs loom in the distance. Their lumbering steps look slow, but they are in hot pursuit of Wolffe, their cannons blazing.",
-          "displayName": "Text Box",
           "GUID": "8e9771aa-7e1d-493f-bf11-b98aec43f537",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -993,38 +994,47 @@
         },
         {
           "theText": "{-} The Imperial mission tokens represent the Imperial AT-ATs.\r\n{-} AT-ATs have Health: 9, Defense: None, Attack: {O} 1 blue die and Speed 1.\r\n{-} Rebel mission tokens are Rebel figures and Imperial mission tokens are Imperial figures. \r\n{-} Rebel AT-ATs cannot attack.\r\n{-} AT-ATs do not activate as normal. Instead, at the end of the activation phase, each Rebel AT-AT activates. Then, each Imperial AT-AT activates.",
-          "displayName": "Text Box",
           "GUID": "10dfa0a8-db85-4611-8e38-d074f14626b0",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "\"Brace\", your pilot says. \"I'm going down.\" Your shuttle lands on top of one of the walkers, and you breach it through an escape hatch.",
-          "displayName": "Text Box",
           "GUID": "c93d9492-1f2f-4977-9d0d-8eb79fd8494f",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "mapSection": "e9c17ee0-bfdb-4f41-9726-4403a61ddcfc",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "e9c17ee0-bfdb-4f41-9726-4403a61ddcfc",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "725fff6d-8dca-456b-b8c7-465c27255117",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "You climb down and find yourselves facing down a full contingent of Imperial troops.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.",
-          "displayName": "Text Box",
           "GUID": "af2a2205-73db-4170-a9f2-0749d9800829",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG001",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG001",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "a03c3730-5379-42e0-9852-8fe0d4830ef1",
             "cardName": "Stormtrooper",
@@ -1043,7 +1053,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1055,31 +1064,35 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG001/Stormtrooper",
-          "repositionInstructions": "",
           "GUID": "bc186a0b-e449-43fa-a181-a566d7cdde5e",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG001/Stormtrooper"
         },
         {
-          "deploymentGroup": "DG004",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG004",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "6257c339-ff9e-4093-ae3d-597be1873adf",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "4007b3aa-268e-4a95-848e-cb129b866046",
             "cardName": "Imperial Officer",
@@ -1092,7 +1105,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1104,31 +1116,35 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "6257c339-ff9e-4093-ae3d-597be1873adf",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG004/Imperial Officer",
-          "repositionInstructions": "",
           "GUID": "b252ddff-d004-457d-adeb-192ea150e815",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG004/Imperial Officer"
         },
         {
-          "deploymentGroup": "DG056",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG056",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "8c01f03c-8e3b-4b28-9424-174a7b3789f4",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "121ad793-7ff8-425a-9a43-6a1fa72483b4",
             "cardName": "Death Trooper",
@@ -1141,7 +1157,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1153,29 +1168,24 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "8c01f03c-8e3b-4b28-9424-174a7b3789f4",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG056/Death Trooper",
-          "repositionInstructions": "",
           "GUID": "0e89fab0-438f-4d56-8961-f49478ddae3e",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG056/Death Trooper"
         },
         {
           "theText": "If you want to give Wolffe a fighting chance, you need to seize this walker as soon as possible.\r\n\r\n{-} The mission will progress when the Rebels reach the cockpit.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\".\r\n{-} The Rebels lose when a Rebel AT-AT is defeated, at the end of Round 5, or when all heroes are wounded.",
-          "displayName": "Text Box",
           "GUID": "560fafe8-2aeb-4b58-a583-5c211a581a32",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1241,15 +1251,15 @@
         {
           "theText": "Reach the cockpit.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "f31b9a3b-28b4-4f8c-a2d0-e3a3c45e64d5",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
-          "theText": "{-} The Seelos map and all tokens on it cannot be affected by card effects.\r\n{-} The Rebel mission token represents the Rebel AT-AT.\r\n{-} The Imperial mission tokens represent the Imperial AT-ATs.\r\n{-} AT-ATs have Health: 9, Defense: None, Attack: {P} 1 blue die and Speed 1.\r\n{-} Rebel mission tokens are Rebel figures and Imperial mission tokens are Imperial figures.\r\n{-} Rebel AT-ATs cannot attack.\r\n{-} AT-ATs do not activate as normal. Instead, at the end of the activation phase, each Rebel AT-AT activates. Then, each Imperial AT-AT activates.\r\n{-} The mission will progress when the Rebels reach the cockpit.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\".\r\n{-} The Rebels lose when a Rebel AT-AT is defeated, at the end of Round 5, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} The Seelos map and all tokens on it cannot be affected by card effects.\r\n{-} The Rebel mission token represents the Rebel AT-AT.\r\n{-} The Imperial mission tokens represent the Imperial AT-ATs.\r\n{-} AT-ATs have Health: 9, Defense: None, Attack: {O} 1 blue die and Speed 1.\r\n{-} Rebel mission tokens are Rebel figures and Imperial mission tokens are Imperial figures.\r\n{-} Rebel AT-ATs cannot attack.\r\n{-} AT-ATs do not activate as normal. Instead, at the end of the activation phase, each Rebel AT-AT activates. Then, each Imperial AT-AT activates.\r\n{-} The mission will progress when the Rebels reach the cockpit.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\".\r\n{-} The Rebels lose when a Rebel AT-AT is defeated, at the end of Round 5, or when all heroes are wounded.",
           "GUID": "52795fcb-08c7-44a4-94d8-e7519eb9fd2d",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1708,14 +1718,14 @@
           "triggerList": [
             {
               "triggerName": "Rebels lose",
+              "triggerGUID": "34be4064-31f3-495d-bf7c-681ba66fa733",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "34be4064-31f3-495d-bf7c-681ba66fa733"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "466e40d3-5fae-45c2-aadf-cd3c9e6a7b80",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1723,7 +1733,7 @@
       "GUID": "04bf8ddb-7b81-4456-8363-cc47e16423d5",
       "isGlobal": true,
       "name": "AT-AT Activation uncaptured",
-      "eventText": "The entire floor sways as the AT-ATs lumber on.\r\n\r\n{-} Activate the Rebel AT-AT. The Rebel AT-AT cannot attack.\r\n{-} Then, each Imperial AT-AT resolves the following instructions, starting with the AT-AT farther away from the Rebel AT-AT:\r\n\r\n{A} Move 1 toward the Rebel AT-AT.\r\n{Q} Attack the Rebel AT-AT.\r\n\r\n(AT-ATs have Health: 9, Defense: None, Attack: {P} 1 blue die and Speed 1.)",
+      "eventText": "The entire floor sways as the AT-ATs lumber on.\r\n\r\n{-} Activate the Rebel AT-AT. The Rebel AT-AT cannot attack.\r\n{-} Then, each Imperial AT-AT resolves the following instructions, starting with the AT-AT farther away from the Rebel AT-AT:\r\n\r\n{A} Move 1 toward the Rebel AT-AT.\r\n{Q} Attack the Rebel AT-AT.\r\n\r\n(AT-ATs have Health: 9, Defense: None, Attack: {O} 1 blue die and Speed 1.)",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1757,7 +1767,7 @@
       "GUID": "7c682a51-7630-4c28-bc80-dcd3edc13169",
       "isGlobal": true,
       "name": "AT-AT Activation captured",
-      "eventText": "The entire floor sways as the AT-ATs lumber on.\r\n\r\n{-} Activate both Rebel AT-ATs.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the steering control (blue terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 movement point.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control (red terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 {h}.\r\n\r\n{-} After the Rebel AT-ATs' activations, the Imperial AT-AT resolves the following instructions:\r\n\r\n{A} Move 1 toward the Rebel AT-AT that has suffered the most {H}.\r\n{Q} Attack the Rebel AT-AT that has suffered the most {H}.\r\n\r\n(AT-ATs have Health: 9, Defense: None, Attack: {P} 1 blue die and Speed 1.)",
+      "eventText": "The entire floor sways as the AT-ATs lumber on.\r\n\r\n{-} Activate both Rebel AT-ATs.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the steering control (blue terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 movement point.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control (red terminal) may test {I} or {K}. If successful, the captured AT-AT gains 1 {h}.\r\n\r\n{-} After the Rebel AT-ATs' activations, the Imperial AT-AT resolves the following instructions:\r\n\r\n{A} Move 1 toward the Rebel AT-AT that has suffered the most {H}.\r\n{Q} Attack the Rebel AT-AT that has suffered the most {H}.\r\n\r\n(AT-ATs have Health: 9, Defense: None, Attack: {O} 1 blue die and Speed 1.)",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1840,22 +1850,22 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "mapSection": "c02c396d-6b4d-4079-b88e-9448a298f0ad",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "c02c396d-6b4d-4079-b88e-9448a298f0ad",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "0c7b1a76-0cf7-4a7a-be9f-5ce78e4617a5",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "f308b15f-6109-4e8a-8e55-7dad3b820ecc",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
           "deploymentPoint": 1,
@@ -1934,27 +1944,36 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "mapSection": "1739a0e8-fe42-4b78-9f67-f7ba12dc3c45",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "1739a0e8-fe42-4b78-9f67-f7ba12dc3c45",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "07021824-315f-48ca-a0d7-2f5d544e4729",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "Immediately, the AT-AT's crew turns towards you.",
-          "displayName": "Text Box",
           "GUID": "bef80eae-8e19-423a-ad89-e49cfac1e2dc",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG006",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG006",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "d07e3f74-e71e-424d-a836-5c1e587b1627",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "4513851f-a0cf-4352-9f58-a8df19d4036d",
             "cardName": "Imperial Officer (Elite)",
@@ -1967,7 +1986,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1979,31 +1997,35 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "d07e3f74-e71e-424d-a836-5c1e587b1627",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG006/Imperial Officer (Elite)",
-          "repositionInstructions": "",
           "GUID": "4fadfcb2-99f1-4005-ac1e-5352f381e01b",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG006/Imperial Officer (Elite)"
         },
         {
-          "deploymentGroup": "DG057",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG057",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "d07e3f74-e71e-424d-a836-5c1e587b1627",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "4f9be5ea-3b01-4b0a-801e-3f392abb61a5",
             "cardName": "Death Trooper",
@@ -2016,7 +2038,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -2028,31 +2049,35 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "d07e3f74-e71e-424d-a836-5c1e587b1627",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG057/Death Trooper",
-          "repositionInstructions": "",
           "GUID": "f6c2f7f8-472d-48c5-87f4-3d530557984d",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG057/Death Trooper"
         },
         {
-          "deploymentGroup": "DG058",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG058",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "07401005-142e-403a-8271-a557ff97b877",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "f77c516b-03d5-4818-9d55-2236312a17cd",
             "cardName": "Death Trooper (Elite)",
@@ -2065,7 +2090,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -2077,29 +2101,24 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "07401005-142e-403a-8271-a557ff97b877",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG058/Death Trooper (Elite)",
-          "repositionInstructions": "",
           "GUID": "2e251528-91d9-4b70-b60a-15ea8bf1d98f",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG058/Death Trooper (Elite)"
         },
         {
           "theText": "Behind the troops, you can see the walker's controls, ready for the taking.",
-          "displayName": "Text Box",
           "GUID": "51343bd9-c96c-4940-b738-a9864ae940cd",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -2146,9 +2165,9 @@
         },
         {
           "theText": "{-} A hero can interact with either terminal to take control of the walker.\r\n{-} The mission will progress when a hero takes control of the walker.",
-          "displayName": "Text Box",
           "GUID": "c685b3db-0a4e-4f89-bd67-ca1dae20bb37",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Block access to the terminals.",
@@ -2161,15 +2180,15 @@
         {
           "theText": "Take control of the walker.",
           "longText": "",
-          "displayName": "Change Objective",
           "GUID": "2c515325-c97c-439d-945e-ec9f5e6e02ab",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
-          "theText": "{-} The Seelos map and all tokens on it cannot be affected by card effects.\r\n{-} The Rebel mission token represents the Rebel AT-AT.\r\n{-} The Imperial mission tokens represent the Imperial AT-ATs.\r\n{-} AT-ATs have Health: 9, Defense: None, Attack: {P} 1 blue die and Speed 1.\r\n{-} Rebel mission tokens are Rebel figures and Imperial mission tokens are Imperial figures.\r\n{-} Rebel AT-ATs cannot attack.\r\n{-} AT-ATs do not activate as normal. Instead, at the end of the activation phase, each Rebel AT-AT activates. Then, each Imperial AT-AT activates.\r\n{-} A hero can interact with either terminal to take control of the walker.\r\n{-} The mission will progress when a hero takes control of the walker.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\".\r\n{-} The Rebels lose when a Rebel AT-AT is defeated, at the end of Round 5, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} The Seelos map and all tokens on it cannot be affected by card effects.\r\n{-} The Rebel mission token represents the Rebel AT-AT.\r\n{-} The Imperial mission tokens represent the Imperial AT-ATs.\r\n{-} AT-ATs have Health: 9, Defense: None, Attack: {O} 1 blue die and Speed 1.\r\n{-} Rebel mission tokens are Rebel figures and Imperial mission tokens are Imperial figures.\r\n{-} Rebel AT-ATs cannot attack.\r\n{-} AT-ATs do not activate as normal. Instead, at the end of the activation phase, each Rebel AT-AT activates. Then, each Imperial AT-AT activates.\r\n{-} A hero can interact with either terminal to take control of the walker.\r\n{-} The mission will progress when a hero takes control of the walker.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\".\r\n{-} The Rebels lose when a Rebel AT-AT is defeated, at the end of Round 5, or when all heroes are wounded.",
           "GUID": "7242278f-a3db-4b86-aed1-240a23de8058",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -2204,20 +2223,20 @@
           "triggerList": [
             {
               "triggerName": "AT-AT captured",
+              "triggerGUID": "b909dd72-624b-4539-919b-153e56a394df",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "b909dd72-624b-4539-919b-153e56a394df"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "93d12ac8-ffb1-4bbe-a4cc-caf657915186",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
-          "theText": "{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the steering control (blue terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 movement point.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control (red terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 {h}.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\". When an Imperial AT-AT is defeated, click the highlight on the Seelos map and select \"Imperial AT-AT defeated\".\r\n{-} The Rebels win when the Imperial AT-AT is defeated.",
-          "displayName": "Text Box",
+          "theText": "{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the steering control (blue terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 movement point.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control (red terminal) may test {I} or {K}. If successful, the captured AT-AT gains 1 {h}.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\". When an Imperial AT-AT is defeated, click the highlight on the Seelos map and select \"Imperial AT-AT defeated\".\r\n{-} The Rebels win when the Imperial AT-AT is defeated.",
           "GUID": "ee1695c3-fc5d-4133-b4a6-0e7dd8b8d70b",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -2263,7 +2282,7 @@
               "entityProperties": {
                 "name": "Fire control",
                 "isActive": true,
-                "theText": "The fire control coordinates the walker's cannons.\r\n\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control may test {I} or {J}. If successful, the captured AT-AT gains 1 {h}.",
+                "theText": "The fire control coordinates the walker's cannons.\r\n\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control may test {I} or {K}. If successful, the captured AT-AT gains 1 {h}.",
                 "entityColor": "Red",
                 "buttonActions": []
               }
@@ -2284,15 +2303,15 @@
         {
           "theText": "Destroy the Imperial AT-AT.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "8e242316-4d7a-460a-bb73-e4909ff92f86",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
-          "theText": "{-} The Seelos map and all tokens on it cannot be affected by card effects.\r\n{-} The Rebel mission tokens represents the Rebel AT-ATs.\r\n{-} The Imperial mission token represent the Imperial AT-AT.\r\n{-} AT-ATs have Health: 9, Defense: None, Attack: {P} 1 blue die and Speed 1.\r\n{-} Rebel mission tokens are Rebel figures and Imperial mission tokens are Imperial figures.\r\n{-} AT-ATs do not activate as normal. Instead, at the end of the activation phase, each Rebel AT-AT activates. Then, each Imperial AT-AT activates.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the steering control (blue terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 movement point.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control (red terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 {h}.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\". When an Imperial AT-AT is defeated, click the highlight on the Seelos map and select \"Imperial AT-AT defeated\".\r\n{-} The Rebels win when the Imperial AT-AT is defeated.\r\n{-} The Rebels lose when a Rebel AT-AT is defeated, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} The Seelos map and all tokens on it cannot be affected by card effects.\r\n{-} The Rebel mission tokens represents the Rebel AT-ATs.\r\n{-} The Imperial mission token represent the Imperial AT-AT.\r\n{-} AT-ATs have Health: 9, Defense: None, Attack: {O} 1 blue die and Speed 1.\r\n{-} Rebel mission tokens are Rebel figures and Imperial mission tokens are Imperial figures.\r\n{-} AT-ATs do not activate as normal. Instead, at the end of the activation phase, each Rebel AT-AT activates. Then, each Imperial AT-AT activates.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the steering control (blue terminal) may test {I} or {J}. If successful, the captured AT-AT gains 1 movement point.\r\n{-} At the start of the captured AT-AT's activation, a hero on or adjacent to the fire control (red terminal) may test {I} or {K}. If successful, the captured AT-AT gains 1 {h}.\r\n{-} When a Rebel AT-AT is defeated, click the highlight on the Seelos map and select \"Rebel AT-AT defeated\". When an Imperial AT-AT is defeated, click the highlight on the Seelos map and select \"Imperial AT-AT defeated\".\r\n{-} The Rebels win when the Imperial AT-AT is defeated.\r\n{-} The Rebels lose when a Rebel AT-AT is defeated, or when all heroes are wounded.",
           "GUID": "414300af-efb1-4768-bf57-1f36b58f7773",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -2324,13 +2343,13 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "9711ffc5-217a-4b04-9cef-c0e15c1e1eb9",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
           "deploymentPoint": 0,
@@ -2464,7 +2483,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2500,7 +2520,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2536,11 +2557,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "e9c1cbbf-fb11-4e9c-bdc9-391c5e21377b",
       "name": "Rebel AT-AT",
+      "entityType": 4,
+      "entityPosition": "960,990",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "New Marker",
         "isActive": false,
@@ -2548,16 +2574,16 @@
         "entityColor": "Red",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 1,
-      "GUID": "e9c1cbbf-fb11-4e9c-bdc9-391c5e21377b",
-      "entityType": 4,
-      "entityPosition": "960,990",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 1
     },
     {
+      "GUID": "3bcdb08b-a233-46ff-86fd-236485efb6ef",
       "name": "Imperial AT-AT 1",
+      "entityType": 4,
+      "entityPosition": "970,960",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Imperial AT-AT 1",
         "isActive": false,
@@ -2565,16 +2591,16 @@
         "entityColor": "Green",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Green",
-      "markerType": 2,
-      "GUID": "3bcdb08b-a233-46ff-86fd-236485efb6ef",
-      "entityType": 4,
-      "entityPosition": "970,960",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 2
     },
     {
+      "GUID": "d8bffe12-afdf-4659-8240-2b86c43d0660",
       "name": "Imperial AT-AT 2",
+      "entityType": 4,
+      "entityPosition": "980,970",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Imperial AT-AT 1 (Duplicate)",
         "isActive": false,
@@ -2582,13 +2608,9 @@
         "entityColor": "Blue",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Blue",
-      "markerType": 2,
-      "GUID": "d8bffe12-afdf-4659-8240-2b86c43d0660",
-      "entityType": 4,
-      "entityPosition": "980,970",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 2
     },
     {
       "GUID": "c44a77fb-4a32-4735-a075-af4c9ecbcb0d",
@@ -2648,7 +2670,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2684,7 +2707,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2720,11 +2744,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "466bc0cd-7b86-4a75-8848-50888f3d1f23",
       "name": "Mid Section Door",
+      "entityType": 6,
+      "entityPosition": "1070,1010",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Mid Section Door",
         "isActive": false,
@@ -2738,14 +2767,14 @@
           }
         ]
       },
-      "GUID": "466bc0cd-7b86-4a75-8848-50888f3d1f23",
-      "entityType": 6,
-      "entityPosition": "1070,1010",
-      "entityRotation": 0.0,
       "mapSectionOwner": "e9c17ee0-bfdb-4f41-9726-4403a61ddcfc"
     },
     {
+      "GUID": "c062a2fd-f6af-4100-b717-58fe76f63b47",
       "name": "Cockpit Door",
+      "entityType": 6,
+      "entityPosition": "1070,950",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Cockpit Door",
         "isActive": false,
@@ -2759,10 +2788,6 @@
           }
         ]
       },
-      "GUID": "c062a2fd-f6af-4100-b717-58fe76f63b47",
-      "entityType": 6,
-      "entityPosition": "1070,950",
-      "entityRotation": 0.0,
       "mapSectionOwner": "c02c396d-6b4d-4079-b88e-9448a298f0ad"
     },
     {
@@ -2798,7 +2823,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2834,11 +2860,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "3d230cce-bc92-4b85-bc13-eedca8f46692",
       "name": "Steering control",
+      "entityType": 1,
+      "entityPosition": "1090,920",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Steering control",
         "isActive": false,
@@ -2852,15 +2883,15 @@
           }
         ]
       },
-      "deploymentColor": "Blue",
-      "GUID": "3d230cce-bc92-4b85-bc13-eedca8f46692",
-      "entityType": 1,
-      "entityPosition": "1090,920",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "1739a0e8-fe42-4b78-9f67-f7ba12dc3c45"
+      "mapSectionOwner": "1739a0e8-fe42-4b78-9f67-f7ba12dc3c45",
+      "deploymentColor": "Blue"
     },
     {
+      "GUID": "282ba109-02fb-4d00-8bb8-14b382bd3864",
       "name": "Fire control",
+      "entityType": 1,
+      "entityPosition": "1060,920",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Weapons control",
         "isActive": false,
@@ -2874,12 +2905,8 @@
           }
         ]
       },
-      "deploymentColor": "Red",
-      "GUID": "282ba109-02fb-4d00-8bb8-14b382bd3864",
-      "entityType": 1,
-      "entityPosition": "1060,920",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "1739a0e8-fe42-4b78-9f67-f7ba12dc3c45"
+      "mapSectionOwner": "1739a0e8-fe42-4b78-9f67-f7ba12dc3c45",
+      "deploymentColor": "Red"
     },
     {
       "GUID": "8c01f03c-8e3b-4b28-9424-174a7b3789f4",
@@ -2914,7 +2941,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2950,7 +2978,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2986,7 +3015,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -3004,7 +3034,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3016,11 +3045,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "2e5ad218-b0c0-42d8-b776-886280099e91",
@@ -3034,7 +3066,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3046,11 +3077,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "3bc0ac61-3fbb-4f7f-9161-4c2777f5a223",
@@ -3064,7 +3098,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3076,11 +3109,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "a30979ca-fa43-46d7-ab9f-f93b086051e0",
@@ -3100,7 +3136,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3112,11 +3147,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "f7a28edc-adab-4c89-9aa3-6dc7a0e48785",
@@ -3130,7 +3168,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3142,11 +3179,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "4e8cac23-b679-49b2-b65d-3721fe72f023",
@@ -3160,7 +3200,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3172,11 +3211,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

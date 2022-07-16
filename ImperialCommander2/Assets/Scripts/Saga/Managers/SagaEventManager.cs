@@ -378,6 +378,9 @@ namespace Saga
 				case EventActionType.GM5:
 					ResetGroup( eventAction as ResetGroup );
 					break;
+				case EventActionType.GM6:
+					RemoveGroup( eventAction as RemoveGroup );
+					break;
 				case EventActionType.D1:
 					EnemyDeployment( eventAction as EnemyDeployment );
 					break;

@@ -179,7 +179,7 @@ public class DGPrefab : MonoBehaviour
 	public void ToggleColor()
 	{
 		//red black purple blue green gray
-		colorIndex = colorIndex == 5 ? 0 : colorIndex + 1;
+		colorIndex = colorIndex == 6 ? 0 : colorIndex + 1;
 		colorPip.color = DataStore.pipColors[colorIndex].ToColor();
 		cardDescriptor.colorIndex = colorIndex;
 	}

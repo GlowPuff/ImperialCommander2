@@ -7,6 +7,7 @@ namespace Saga
 		public string allyName;
 		public string allyID;
 		public Guid setTrigger;
+		public Guid setEvent;
 		public DeploymentSpot deploymentPoint;
 		public Guid specificDeploymentPoint;
 		public int threatCost;

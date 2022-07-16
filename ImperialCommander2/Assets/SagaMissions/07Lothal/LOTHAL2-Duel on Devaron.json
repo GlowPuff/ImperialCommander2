@@ -2,13 +2,14 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "LOTHAL2-Duel on Devaron.json",
   "relativePath": "07 - Tyrants of Lothal\\LOTHAL2-Duel on Devaron.json",
-  "fileVersion": "14",
-  "saveDate": "6/11/2022",
-  "timeTicks": 637905671333462099,
+  "fileVersion": "17",
+  "saveDate": "7/10/2022",
+  "timeTicks": 637930359052629257,
   "missionProperties": {
     "missionName": "Duel on Devaron",
     "campaignName": "Tyrants of Lothal",
     "missionDescription": "If playing a mini campaign, heroes must bring a Spectre ally that they have not brought to a mission during this mini campaign. ==== Tress's father used to tell the wildest stories of his days smuggling spice all over the Outer Rim. She remembers his bravado... and his obsessive need to record and protect every clever hyperroute he ever used. Though he is gone, these navigational records could help Rebel smugglers, but to get it, Tress will have to return to a home of which she has only bad memories.",
+    "additionalMissionInfo": "If playing a mini campaign, heroes must bring a Spectre ally that they have not brought to a mission during this mini campaign.",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "",
@@ -579,9 +580,9 @@
       "eventActions": [
         {
           "theText": "The forest is overgrown with long vines hanging from the canopy.",
-          "displayName": "Text Box",
           "GUID": "bb25a8db-2dd8-4722-b4d4-c61dc5dc3076",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -676,9 +677,9 @@
         },
         {
           "theText": "{-} Neutral mission tokens represent vines. A CREATURE can climb vines when instructed.\r\n{-} The mission will progress when the door to the Hacnua lodge opens.\r\n{-} The Rebels lose at the end of Round 6 or when all heroes are wounded.",
-          "displayName": "Text Box",
           "GUID": "c29e29f7-d7cf-4a3a-9f43-9a26184adcc9",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -786,15 +787,15 @@
         {
           "theText": "Enter the Hacnua lodge.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "b50c24ec-93a2-4b80-8a69-532e8d844db1",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} Neutral mission tokens represent vines. A CREATURE can climb vines when instructed.\r\n{-} The mission will progress when the door to the Hacnua lodge opens.\r\n{-} The Rebels lose at the end of Round 6 or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "14cca3ca-2041-4325-8788-956583cc21cd",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1257,19 +1258,19 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "mapSection": "da5c7f0f-a2af-4e8c-b29c-845dd85ceb99",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "da5c7f0f-a2af-4e8c-b29c-845dd85ceb99",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "5245498f-03dc-445b-8301-65fbba5f4234",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "Another vine hangs through the broken ceiling.",
-          "displayName": "Text Box",
           "GUID": "b7a80ce4-7a69-410f-bc9c-c51c53042971",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1292,9 +1293,9 @@
         },
         {
           "theText": "A loth-cat gnaws on the remains ofa navchip. It cocks its head and takes the navchip in its jaws.",
-          "displayName": "Text Box",
           "GUID": "871ca9fc-1947-4cdb-bea9-0e407f781152",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1316,12 +1317,21 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "deploymentGroup": "DG061",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG061",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "c1190b98-7117-438f-9407-221347070ad8",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "41922b58-0e5d-46bb-b89d-9b9c07fd251b",
             "cardName": "Loth-cat (Elite)",
@@ -1337,7 +1347,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1349,29 +1358,24 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "c1190b98-7117-438f-9407-221347070ad8",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG061/Loth-cat (Elite)",
-          "repositionInstructions": "",
           "GUID": "fefc0fd5-c142-41ce-a4aa-c9e6cb9654a0",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG061/Loth-cat (Elite)"
         },
         {
           "theText": "{-} The blue Rebel mission token represents the navchip.\r\n{-} The first <color=\"red\">Loth-cat</color> deployed interrupts to retrieve the navchip and gains 1 {g}.\r\n{-} The mission will progress when the <color=\"red\">Loth-cat</color> carrying the navchip is defeated. When this happens, click the Entrance and select \"Loth-cat defeated\".",
-          "displayName": "Text Box",
           "GUID": "bccb10f0-08e6-488f-aecf-83e7fc0d18ba",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1433,15 +1437,15 @@
         {
           "theText": "Chase and defeat the <color=\"red\">Loth-cat</color> carrying the navchip.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "5ae2eded-aa51-4ca3-8cf2-14a9d7413867",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} Neutral mission tokens represent vines. A CREATURE can climb vines when instructed.\r\n{-} The mission will progress when the <color=\"red\">Loth-cat</color> carrying the navchip is defeated. When this happens, click the Entrance and select \"Loth-cat defeated\".\r\n{-} The Rebels lose at the end of Round 6 or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "597da244-7793-4e23-945b-a9424a653f96",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1501,12 +1505,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG018",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG018",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": "+*2* Health",
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": true,
+          "useGenericMugshot": false,
+          "showMod": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "07306bfd-7a66-4c17-bdd7-faa63d00878b",
             "cardName": "Nexu (Elite)",
@@ -1519,7 +1532,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1531,44 +1543,39 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": true,
-          "modification": "+*2* Health",
-          "useCustomInstructions": true,
-          "displayName": "Deploy: DG018/Nexu (Elite)",
-          "repositionInstructions": "",
           "GUID": "4ed19448-de6e-4c76-bbfe-ddead3bc66fe",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG018/Nexu (Elite)"
         },
         {
           "theText": "{-} Deploy the <color=\"red\">Nexu</color> to the space the defeated <color=\"red\">Loth-cat</color> just occupied.\r\n{-} Apply additional Health to the <color=\"red\">Nexu</color> equal to twice the threat level. \r\n{-} The <color=\"red\">Nexu</color> loses “Non-Sentient.”\r\n{-} The <color=\"red\">Nexu</color> interrupts to retrieve the navchip.\r\n{-} The Rebels win when the <color=\"red\">Nexu</color> is defeated.",
-          "displayName": "Text Box",
           "GUID": "b38fc6ac-7559-465e-8479-9222c29cd78e",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Alerted by the commotion, more enemies rush in.",
-          "displayName": "Text Box",
           "GUID": "19cdecbd-4a5d-4197-b4ea-e806461cfb93",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "94140728-1192-4fb8-af85-f711b854f76c",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
           "deploymentPoint": 0,
@@ -1591,15 +1598,15 @@
         {
           "theText": "Catch and defeat the <color=\"red\">Nexu</color>.",
           "longText": "",
-          "displayName": "Change Objective",
           "GUID": "2f26c715-3d89-47e8-9b1d-ff196fe4e4fd",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} Neutral mission tokens represent vines. A CREATURE can climb vines when instructed.\r\n{-} The mission will progress when the door to the Hacnua lodge opens.\r\n{-} The Rebels win when the <color=\"red\">Nexu</color> is defeated.\r\n{-} The Rebels lose at the end of Round 6 or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "79495923-f11f-4f79-be85-5c58771e6293",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         },
         {
           "theText": "Is Tress Hacnua one of the heroes?",
@@ -1770,7 +1777,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1806,7 +1814,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1842,7 +1851,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1878,11 +1888,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "97717a60-2e42-467d-a90b-e67162d5b1aa",
       "name": "Door 1",
+      "entityType": 6,
+      "entityPosition": "1000,970",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Door 1",
         "isActive": false,
@@ -1896,10 +1911,6 @@
           }
         ]
       },
-      "GUID": "97717a60-2e42-467d-a90b-e67162d5b1aa",
-      "entityType": 6,
-      "entityPosition": "1000,970",
-      "entityRotation": 0.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
@@ -1935,7 +1946,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1971,7 +1983,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2007,7 +2020,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2043,11 +2057,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "874c2793-e70c-42f3-8a98-11898f3b51f5",
       "name": "Navchip",
+      "entityType": 4,
+      "entityPosition": "1010,960",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Navchip",
         "isActive": false,
@@ -2055,16 +2074,16 @@
         "entityColor": "Blue",
         "buttonActions": []
       },
+      "mapSectionOwner": "da5c7f0f-a2af-4e8c-b29c-845dd85ceb99",
       "tokenColor": "Blue",
-      "markerType": 1,
-      "GUID": "874c2793-e70c-42f3-8a98-11898f3b51f5",
-      "entityType": 4,
-      "entityPosition": "1010,960",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "da5c7f0f-a2af-4e8c-b29c-845dd85ceb99"
+      "markerType": 1
     },
     {
+      "GUID": "32c578c2-d79a-4f1a-bedd-f5bb883008aa",
       "name": "Vine 1",
+      "entityType": 4,
+      "entityPosition": "1050,1030",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Vine 1",
         "isActive": false,
@@ -2072,33 +2091,16 @@
         "entityColor": "Gray",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "32c578c2-d79a-4f1a-bedd-f5bb883008aa",
-      "entityType": 4,
-      "entityPosition": "1050,1030",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
-      "name": "Vine 2",
-      "entityProperties": {
-        "name": "Vine 1 (Duplicate)",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Gray",
-        "buttonActions": []
-      },
-      "tokenColor": "Gray",
-      "markerType": 0,
       "GUID": "75080cb7-c3ca-4fd1-888d-d88fd564c5a1",
+      "name": "Vine 2",
       "entityType": 4,
       "entityPosition": "1020,1010",
       "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-    },
-    {
-      "name": "Vine 3",
       "entityProperties": {
         "name": "Vine 1 (Duplicate)",
         "isActive": false,
@@ -2106,16 +2108,33 @@
         "entityColor": "Gray",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
+      "markerType": 0
+    },
+    {
       "GUID": "b04f277c-6d94-48a9-b3e8-8f99c523276f",
+      "name": "Vine 3",
       "entityType": 4,
       "entityPosition": "1030,1040",
       "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "entityProperties": {
+        "name": "Vine 1 (Duplicate)",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Gray",
+        "buttonActions": []
+      },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "tokenColor": "Gray",
+      "markerType": 0
     },
     {
+      "GUID": "57c9f3b2-e64a-4579-a35b-069e48aabb8d",
       "name": "Vine 4",
+      "entityType": 4,
+      "entityPosition": "1000,1050",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Vine 4",
         "isActive": false,
@@ -2123,16 +2142,16 @@
         "entityColor": "Gray",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "57c9f3b2-e64a-4579-a35b-069e48aabb8d",
-      "entityType": 4,
-      "entityPosition": "1000,1050",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
+      "GUID": "6e02440f-cb50-41fb-a4b8-03e933bc7994",
       "name": "Vine 5",
+      "entityType": 4,
+      "entityPosition": "980,1020",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Vine 5",
         "isActive": false,
@@ -2140,16 +2159,16 @@
         "entityColor": "Gray",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "6e02440f-cb50-41fb-a4b8-03e933bc7994",
-      "entityType": 4,
-      "entityPosition": "980,1020",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
+      "GUID": "e7bbc8e1-6979-485f-9a85-fe076ee2dfaf",
       "name": "Vine 6",
+      "entityType": 4,
+      "entityPosition": "970,1070",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Vine 6",
         "isActive": false,
@@ -2157,16 +2176,16 @@
         "entityColor": "Gray",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "e7bbc8e1-6979-485f-9a85-fe076ee2dfaf",
-      "entityType": 4,
-      "entityPosition": "970,1070",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
+      "GUID": "648f70a1-999f-4508-9b40-6ac0466106b4",
       "name": "Vine 7",
+      "entityType": 4,
+      "entityPosition": "1000,1090",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Vine 7",
         "isActive": false,
@@ -2174,16 +2193,16 @@
         "entityColor": "Gray",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "648f70a1-999f-4508-9b40-6ac0466106b4",
-      "entityType": 4,
-      "entityPosition": "1000,1090",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
+      "GUID": "646b9209-0e23-4580-8350-1f5627cad8f0",
       "name": "Vine 8",
+      "entityType": 4,
+      "entityPosition": "1000,950",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Vine 8",
         "isActive": false,
@@ -2191,13 +2210,9 @@
         "entityColor": "Gray",
         "buttonActions": []
       },
+      "mapSectionOwner": "da5c7f0f-a2af-4e8c-b29c-845dd85ceb99",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "646b9209-0e23-4580-8350-1f5627cad8f0",
-      "entityType": 4,
-      "entityPosition": "1000,950",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "da5c7f0f-a2af-4e8c-b29c-845dd85ceb99"
+      "markerType": 0
     }
   ],
   "initialDeploymentGroups": [
@@ -2213,7 +2228,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -2225,11 +2239,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "d94b70ef-fe57-45b5-8cf8-b733abcd7c48",
@@ -2243,7 +2260,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -2255,11 +2271,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "0d8252ed-8067-4f9c-a31c-75f438d39999",
@@ -2276,7 +2295,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -2288,11 +2306,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2311,7 +2332,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -2323,11 +2343,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "6b919efb-b57e-4fba-81a6-d0e96c885f0b",
@@ -2341,7 +2364,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -2353,11 +2375,14 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

@@ -133,6 +133,7 @@ namespace Saga
 		public string Title;
 		public string Date;
 		public string Description;
+		public string AdditionalInfo;
 		public string fileName;
 		public string relativePath;
 		public string fileVersion;

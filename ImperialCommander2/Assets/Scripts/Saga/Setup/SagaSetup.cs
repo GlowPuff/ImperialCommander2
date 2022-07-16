@@ -17,16 +17,18 @@ namespace Saga
 	{
 		public Camera theCamera;
 		//UI TRINKETS
+		public GameObject descriptionTextBox;
 		public Text difficultyText, initialText, additionalText;
 		public Transform heroContainer;
-		public Button adaptiveButton, startMissionButton;
+		public Button adaptiveButton, startMissionButton, viewMissionCardButton;
 		public GameObject miniMugPrefab;
 		public Image allyImage;
 		public MWheelHandler threatValue, addtlThreatValue;
-		public TextMeshProUGUI versionText;
+		public TextMeshProUGUI versionText, additionalInfoText;
 		//UI PANELS
 		public SagaAddHeroPanel addHeroPanel;
 		public SagaModifyGroupsPanel modifyGroupsPanel;
+		public MissionCardZoom missionCardZoom;
 		//OTHER
 		public GameObject warpEffect;
 		public Transform thrusterRoot, thrusterLeft, thrusterRight;
@@ -271,6 +273,20 @@ namespace Saga
 			}
 		}
 
+		public void OnModeChange( PickerMode pmode )
+		{
+			if ( pmode == PickerMode.Custom )
+			{
+				descriptionTextBox.gameObject.SetActive( true );
+				viewMissionCardButton.gameObject.SetActive( false );
+			}
+			else
+			{
+				descriptionTextBox.gameObject.SetActive( false );
+				viewMissionCardButton.gameObject.SetActive( true );
+			}
+		}
+
 		public void OnDifficulty( Button thisButton )
 		{
 			sound.PlaySound( FX.Click );
@@ -282,6 +298,26 @@ namespace Saga
 			sound.PlaySound( FX.Click );
 			setupOptions.useAdaptiveDifficulty = !setupOptions.useAdaptiveDifficulty;
 			thisButton.colors = setupOptions.useAdaptiveDifficulty ? greenBlock : redBlock;
+		}
+
+		public void OnViewMissionCard()
+		{
+			if ( missionPicker.pickerMode == PickerMode.BuiltIn )
+			{
+				sound.PlaySound( FX.Click );
+
+				MissionCard mc;
+				string mID = missionPicker.selectedMission.missionID.Replace( " ", "" );
+				foreach ( var key in DataStore.missionCards.Keys )
+				{
+					mc = DataStore.missionCards[key].Where( x => x.id == mID ).FirstOr( null );
+					if ( mc != null )
+					{
+						missionCardZoom.Show( mc );
+						break;
+					}
+				}
+			}
 		}
 
 		public void Warp()
@@ -316,9 +352,23 @@ namespace Saga
 			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0
 				&& missionPicker.selectedMission != null
 				&& !missionPicker.isBusy )
+			{
 				startMissionButton.interactable = true;
+			}
 			else
+			{
 				startMissionButton.interactable = false;
+			}
+
+			if ( missionPicker.selectedMission != null
+				&& !missionPicker.isBusy )
+			{
+				viewMissionCardButton.interactable = true;
+			}
+			else
+			{
+				viewMissionCardButton.interactable = false;
+			}
 		}
 	}
 }
