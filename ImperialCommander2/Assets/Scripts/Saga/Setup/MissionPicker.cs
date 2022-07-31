@@ -214,6 +214,8 @@ namespace Saga
 			//sort the pi list
 			piList.Sort( ( ProjectItem i1, ProjectItem i2 ) =>
 			{
+				//Debug.Log( $"SORTING::{i1.Title}.......{i2.Title}" );
+				//TODO - BLOCK "CUSTOM" MISSION IDs
 				int n1 = int.Parse( i1.missionID.Split( ' ' )[1] );
 				int n2 = int.Parse( i2.missionID.Split( ' ' )[1] );
 				if ( n1 < n2 )

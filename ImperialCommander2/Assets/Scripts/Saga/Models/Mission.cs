@@ -7,6 +7,7 @@ namespace Saga
 {
 	public class Mission
 	{
+		public string languageID;
 		public MissionProperties missionProperties;
 		public Guid missionGUID;
 		/// <summary>
