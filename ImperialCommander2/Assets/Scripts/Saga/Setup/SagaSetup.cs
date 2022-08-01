@@ -12,7 +12,6 @@ using UnityEngine.UI;
 
 namespace Saga
 {
-
 	public class SagaSetup : MonoBehaviour
 	{
 		public Camera theCamera;
