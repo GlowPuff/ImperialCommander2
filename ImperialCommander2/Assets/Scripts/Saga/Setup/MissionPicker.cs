@@ -215,15 +215,22 @@ namespace Saga
 			piList.Sort( ( ProjectItem i1, ProjectItem i2 ) =>
 			{
 				//Debug.Log( $"SORTING::{i1.Title}.......{i2.Title}" );
-				//TODO - BLOCK "CUSTOM" MISSION IDs
-				int n1 = int.Parse( i1.missionID.Split( ' ' )[1] );
-				int n2 = int.Parse( i2.missionID.Split( ' ' )[1] );
-				if ( n1 < n2 )
-					return -1;
-				else if ( n1 > n2 )
-					return 1;
+				if ( i1.missionID != "Custom" && i2.missionID != "Custom" )
+				{
+					int n1 = int.Parse( i1.missionID.Split( ' ' )[1] );
+					int n2 = int.Parse( i2.missionID.Split( ' ' )[1] );
+					if ( n1 < n2 )
+						return -1;
+					else if ( n1 > n2 )
+						return 1;
+					else
+						return 0;
+				}
 				else
-					return 0;
+				{
+					Debug.Log( $"ERROR PARSING MISSION::i1={i1.missionID}, i2={i2.missionID}" );
+					return 1;
+				}
 			} );
 
 			bool first = true;
