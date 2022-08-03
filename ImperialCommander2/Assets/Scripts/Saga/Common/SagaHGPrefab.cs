@@ -217,10 +217,17 @@ namespace Saga
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
 			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 
+			FindObjectOfType<ConfirmPopup>().Hide();
+
+			if ( ovrd != null && !ovrd.canBeDefeated )
+			{
+				GlowEngine.FindUnityObject<QuickMessage>().Show( "This Ally cannot be defeated." );
+				return;
+			}
+
 			cardDescriptor.heroState.isHealthy = false;
 			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
 
-			FindObjectOfType<ConfirmPopup>().Hide();
 			woundToggle.gameObject.SetActive( false );
 			woundToggle.isOn = false;
 			woundToggle.gameObject.SetActive( true );
