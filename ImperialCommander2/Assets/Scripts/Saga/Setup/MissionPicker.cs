@@ -260,7 +260,7 @@ namespace Saga
 				pickerMode = PickerMode.Custom;
 				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn;
 #if UNITY_ANDROID
-				string basePath = Application.persistentDataPath + "/ImperialCommander2";
+				string basePath = Application.persistentDataPath + "/CustomMissions";
 #else
 
 				basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
@@ -407,6 +407,18 @@ namespace Saga
 						projectItem.missionGUID = split[1];
 					if ( split[0] == "additionalMissionInfo" )
 						projectItem.AdditionalInfo = split[1];
+				}
+				else if ( split.Length > 2 )//mission name with a colon
+				{
+					for ( int i = 0; i < split.Length; i++ )
+						split[i] = split[i].Replace( "\"", "" ).Replace( ",", "" ).Trim();
+					if ( split[0] == "missionName" )
+					{
+						int idx = line.IndexOf( ':' );
+						int c = line.LastIndexOf( ',' );
+						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
+						projectItem.Title = mname;
+					}
 				}
 			}
 

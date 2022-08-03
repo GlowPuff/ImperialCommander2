@@ -249,8 +249,8 @@ namespace Saga
 
 		public void OnPointerClick()
 		{
-			if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
-				return;
+			//if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
+			//	return;
 
 			if ( !cardDescriptor.hasActivated )
 			{
