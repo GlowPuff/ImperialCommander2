@@ -149,7 +149,7 @@ namespace Saga
 					var list = await Addressables.LoadResourceLocationsAsync( $"{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" ).Task;
 					if ( list != null && list.Count > 0 )
 					{
-						Debug.Log( "OnStartMission::Found translation" );
+						Debug.Log( "OnStartMission::Found translation::" + $"{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" );
 						StartMission( $"{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" );
 					}
 					else
