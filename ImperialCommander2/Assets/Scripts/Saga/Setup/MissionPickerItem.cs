@@ -16,7 +16,7 @@ namespace Saga
 			projectItem = pi;
 			missionNameText.text = pi.Title;
 			if ( mode == PickerMode.Custom )
-				versionText.text = $"Version: {pi.fileVersion}";
+				versionText.text = pi.fileName;
 			else
 				versionText.text = pi.missionID;
 

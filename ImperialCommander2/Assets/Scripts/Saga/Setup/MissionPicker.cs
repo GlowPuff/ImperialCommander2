@@ -399,14 +399,24 @@ namespace Saga
 						projectItem.fileVersion = split[1];
 					if ( split[0] == "timeTicks" )
 						projectItem.timeTicks = long.Parse( split[1] );
-					if ( split[0] == "missionDescription" )
-						projectItem.Description = split[1];
+					if ( split[0] == "missionDescription" && !string.IsNullOrEmpty( split[1] ) )
+					{
+						string[] aiSplit = line.Split( ':' );
+						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
+						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
+						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 2 );
+					}
 					if ( split[0] == "missionID" )
 						projectItem.missionID = split[1];
 					if ( split[0] == "missionGUID" )
 						projectItem.missionGUID = split[1];
 					if ( split[0] == "additionalMissionInfo" )
-						projectItem.AdditionalInfo = split[1];
+					{
+						string[] aiSplit = line.Split( ':' );
+						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
+						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
+						projectItem.AdditionalInfo = aiSplit[1].Substring( 0, aiSplit[1].Length - 2 );
+					}
 				}
 				else if ( split.Length > 2 )//mission name with a colon
 				{
