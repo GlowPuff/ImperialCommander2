@@ -146,7 +146,7 @@ namespace Saga
 					StartMission( setupOptions.projectItem.fullPathWithFilename );
 				else
 				{
-					var list = await Addressables.LoadResourceLocationsAsync( "{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" ).Task;
+					var list = await Addressables.LoadResourceLocationsAsync( $"{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" ).Task;
 					if ( list != null && list.Count > 0 )
 					{
 						Debug.Log( "OnStartMission::Found translation" );
@@ -154,7 +154,8 @@ namespace Saga
 					}
 					else
 					{
-						Debug.Log( "OnStartMission::No translation found" );
+						Debug.Log( "OnStartMission::No translation found for "
+							+ $"{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" );
 						StartMission( setupOptions.projectItem.fullPathWithFilename );
 					}
 				}
