@@ -211,7 +211,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Positive or negative number to add/decrease
+		/// Positive or negative number to add/decrease. force(TRUE)=don't use difficulty scale
 		/// </summary>
 		public void ModifyThreat( int amount, bool force = false )
 		{

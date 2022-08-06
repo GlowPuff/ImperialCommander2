@@ -613,6 +613,22 @@ namespace Saga
 			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sagaSessionData.gameVars.round.ToString();
 		}
 
+		public void OnPauseThreat( Toggle t )
+		{
+			sound.PlaySound( FX.Click );
+			DataStore.sagaSessionData.gameVars.pauseThreatIncrease = t.isOn;
+			string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC : DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC;
+			GlowEngine.FindUnityObject<QuickMessage>().Show( s );
+		}
+
+		public void OnPauseDeploy( Toggle t )
+		{
+			sound.PlaySound( FX.Click );
+			DataStore.sagaSessionData.gameVars.pauseDeployment = t.isOn;
+			string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseDepMsgUC : DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC;
+			GlowEngine.FindUnityObject<QuickMessage>().Show( s );
+		}
+
 		private void Update()
 		{
 			bool allActivated = false;
