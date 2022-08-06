@@ -123,7 +123,7 @@ namespace Saga
 			faderCG.DOFade( 0, .5f ).OnComplete( () => SceneManager.LoadScene( "Title" ) );
 		}
 
-		public void OnStartMission()
+		public async void OnStartMission()
 		{
 			setupOptions.threatLevel = threatValue.wheelValue;
 			setupOptions.addtlThreat = addtlThreatValue.wheelValue;
@@ -141,18 +141,39 @@ namespace Saga
 			}
 			else
 			{
-				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( setupOptions.projectItem.fullPathWithFilename );
-				loadHandle.Completed += ( x ) =>
+				//if not English, try finding the translation
+				if ( DataStore.languageCode == 0 )//En
+					StartMission( setupOptions.projectItem.fullPathWithFilename );
+				else
 				{
-					if ( x.Status == AsyncOperationStatus.Succeeded )
+					var list = await Addressables.LoadResourceLocationsAsync( "{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" ).Task;
+					if ( list != null && list.Count > 0 )
 					{
-						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
-						if ( DataStore.mission != null )
-							Warp();
+						Debug.Log( "OnStartMission::Found translation" );
+						StartMission( $"{DataStore.languageCodeList[DataStore.languageCode].ToUpper()}-{setupOptions.projectItem.fullPathWithFilename}" );
 					}
-					Addressables.Release( loadHandle );
-				};
+					else
+					{
+						Debug.Log( "OnStartMission::No translation found" );
+						StartMission( setupOptions.projectItem.fullPathWithFilename );
+					}
+				}
 			}
+		}
+
+		void StartMission( string missionAddressableKey )
+		{
+			AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
+			loadHandle.Completed += ( x ) =>
+			{
+				if ( x.Status == AsyncOperationStatus.Succeeded )
+				{
+					DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
+					if ( DataStore.mission != null )
+						Warp();
+				}
+				Addressables.Release( loadHandle );
+			};
 		}
 
 		public void AddHero()

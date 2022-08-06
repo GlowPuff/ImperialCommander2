@@ -175,7 +175,6 @@ namespace Saga
 			}
 			else//otherwise we're in a built-in folder, so populate with missions
 			{
-				Debug.Log( "OnChangeBuiltinFolder()::READING FOLDER::" + expansion );
 				AsyncOperationHandle<IList<IResourceLocation>> handle = Addressables.LoadResourceLocationsAsync( expansion );
 				handle.Completed += ( x ) =>
 				{
@@ -410,7 +409,7 @@ namespace Saga
 						projectItem.missionID = split[1];
 					if ( split[0] == "missionGUID" )
 						projectItem.missionGUID = split[1];
-					if ( split[0] == "additionalMissionInfo" )
+					if ( split[0] == "additionalMissionInfo" && !string.IsNullOrEmpty( split[1] ) )
 					{
 						string[] aiSplit = line.Split( ':' );
 						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
@@ -422,7 +421,7 @@ namespace Saga
 				{
 					for ( int i = 0; i < split.Length; i++ )
 						split[i] = split[i].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-					if ( split[0] == "missionName" )
+					if ( split[0] == "missionName" && !string.IsNullOrEmpty( split[1] ) )
 					{
 						int idx = line.IndexOf( ':' );
 						int c = line.LastIndexOf( ',' );
