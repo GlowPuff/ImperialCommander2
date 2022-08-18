@@ -697,7 +697,7 @@ namespace Saga
 			sound.PlaySound( FX.Click );
 			DataStore.sagaSessionData.gameVars.pauseThreatIncrease = t.isOn;
 			string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC : DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC;
-			GlowEngine.FindUnityObject<QuickMessage>().Show( s.Replace( "<color=\"red\">", "<color=\"black\"><b>" ) );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( s );
 		}
 
 		public void OnPauseDeploy( Toggle t )
@@ -708,7 +708,7 @@ namespace Saga
 			sound.PlaySound( FX.Click );
 			DataStore.sagaSessionData.gameVars.pauseDeployment = t.isOn;
 			string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseDepMsgUC : DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC;
-			GlowEngine.FindUnityObject<QuickMessage>().Show( s.Replace( "<color=\"red\">", "<color=\"black\"><b>" ) );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( s );
 		}
 
 		public void DEBUGsaveState()
