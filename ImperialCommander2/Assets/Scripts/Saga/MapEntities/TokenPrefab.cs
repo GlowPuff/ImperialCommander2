@@ -12,12 +12,15 @@ namespace Saga
 		public IMapEntity mapEntity { get; set; }
 		public bool isAnimationBusy { get; set; }
 
-		public void Init( Token t )
+		public void Init( Token t, bool restoring )
 		{
 			isAnimationBusy = false;
 			mapEntity = t;
 			baseMesh.material.color = Utils.String2UnityColor( t.tokenColor );
-			transform.position = new Vector3( (t.entityPosition.X / 10) + .5f, 0, (-t.entityPosition.Y / 10) - .5f );
+			if ( restoring )
+				transform.position = new Vector3( t.entityPosition.X, t.entityPosition.Y, t.entityPosition.Z );
+			else
+				transform.position = new Vector3( (t.entityPosition.X / 10) + .5f, 0, (-t.entityPosition.Y / 10) - .5f );
 			switch ( t.markerType )
 			{
 				case MarkerType.Neutral:

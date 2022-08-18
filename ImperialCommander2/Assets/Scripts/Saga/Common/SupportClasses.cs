@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Saga
 {
@@ -57,6 +58,8 @@ namespace Saga
 		public int threatLevel;
 		public int addtlThreat;
 		public ProjectItem projectItem;
+		public bool isTutorial;
+		public int tutorialIndex;
 
 		public SagaSetupOptions()
 		{
@@ -70,6 +73,8 @@ namespace Saga
 			useAdaptiveDifficulty = false;
 			threatLevel = 3;
 			addtlThreat = 0;
+			isTutorial = false;
+			tutorialIndex = 0;
 		}
 
 		public string ToggleDifficulty()
@@ -204,6 +209,23 @@ namespace Saga
 		}
 	}
 
+	public class TriggerManagerState
+	{
+		public List<TriggerState> triggerStateList = new List<TriggerState>();
+		public List<EventGroup> eventGroupList = new List<EventGroup>();
+	}
+
+	public class EntityManagerState
+	{
+		[JsonConverter( typeof( MapEntityConverter ) )]
+		public List<IMapEntity> mapEntities = new List<IMapEntity>();
+	}
+
+	public class TileManagerState
+	{
+		public List<MapSection> mapSections;
+		public List<TileDescriptor> tileDescriptors;
+	}
 
 	//public class SagaDeploymentCard
 	//{

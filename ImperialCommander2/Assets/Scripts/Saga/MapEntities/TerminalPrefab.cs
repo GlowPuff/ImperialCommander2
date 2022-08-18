@@ -12,12 +12,15 @@ namespace Saga
 		public IMapEntity mapEntity { get; set; }
 		public bool isAnimationBusy { get; set; }
 
-		public void Init( Terminal t )
+		public void Init( Terminal t, bool restoring )
 		{
 			isAnimationBusy = false;
 			mapEntity = t;
 			spotRenderer.color = Utils.String2UnityColor( t.deploymentColor );
-			transform.position = new Vector3( (t.entityPosition.X / 10) + .5f, 0, (-t.entityPosition.Y / 10) - .5f );
+			if ( restoring )
+				transform.position = new Vector3( t.entityPosition.X, t.entityPosition.Y, t.entityPosition.Z );
+			else
+				transform.position = new Vector3( (t.entityPosition.X / 10) + .5f, 0, (-t.entityPosition.Y / 10) - .5f );
 
 			mapEntity.entityPosition = transform.position.ToSagaVector();
 			gameObject.SetActive( false );

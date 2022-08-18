@@ -9,6 +9,7 @@ namespace Saga
 		public GameObject handItemPrefab;
 		public Text titleText, closeButtonText, threatText;
 		public TextMeshProUGUI threat, depMod, threatValue, depmodValue;
+		public Toggle threatToggle, deployToggle;
 		public Transform container;
 		//public CanvasGroup cg;
 		public PopupBase popupBase;
@@ -23,6 +24,14 @@ namespace Saga
 			closeButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn;
 			threatText.text = DataStore.uiLanguage.uiMainApp.modThreatHeading;
 
+			//set toggle values
+			//toggle pause threat/deployment buttons
+			threatToggle.gameObject.SetActive( false );
+			deployToggle.gameObject.SetActive( false );
+			threatToggle.isOn = DataStore.sagaSessionData.gameVars.pauseThreatIncrease;
+			deployToggle.isOn = DataStore.sagaSessionData.gameVars.pauseDeployment;
+			threatToggle.gameObject.SetActive( true );
+			deployToggle.gameObject.SetActive( true );
 			popupBase.Show( () =>
 			{
 				foreach ( var item in DataStore.deploymentHand )
@@ -55,6 +64,5 @@ namespace Saga
 			DataStore.sagaSessionData.ModifyThreat( -1, true );
 			threatValue.text = DataStore.sagaSessionData.gameVars.currentThreat.ToString();
 		}
-
 	}
 }

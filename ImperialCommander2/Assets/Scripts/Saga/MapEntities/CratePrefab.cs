@@ -12,13 +12,16 @@ namespace Saga
 		public IMapEntity mapEntity { get; set; }
 		public bool isAnimationBusy { get; set; }
 
-		public void Init( Crate c )
+		public void Init( Crate c, bool restoring )
 		{
 			isAnimationBusy = false;
 			mapEntity = c;
 			meshRenderer.material.color = Utils.String2UnityColor( c.deploymentColor );
 			//meshRenderer.sharedMaterial.color = Color.gray;//CHANGES ALL MATERIALS~!
-			transform.position = new Vector3( (c.entityPosition.X / 10) + .5f, 0, (-c.entityPosition.Y / 10) - .5f );
+			if ( restoring )
+				transform.position = new Vector3( c.entityPosition.X, c.entityPosition.Y, c.entityPosition.Z );
+			else
+				transform.position = new Vector3( (c.entityPosition.X / 10) + .5f, 0, (-c.entityPosition.Y / 10) - .5f );
 
 			mapEntity.entityPosition = transform.position.ToSagaVector();
 			gameObject.SetActive( false );

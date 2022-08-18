@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 
 namespace Saga
 {
@@ -16,6 +17,7 @@ namespace Saga
 		//public bool isActive { get; set; } = false;//track visibility status in Saga
 
 		//unity props
+		[JsonIgnore]
 		public TileRenderer tileRenderer { get; set; }
 
 		//tile props

@@ -10,7 +10,7 @@ public class DoorPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 	public IMapEntity mapEntity { get; set; }
 	public bool isAnimationBusy { get; set; }
 
-	public void Init( Door d )
+	public void Init( Door d, bool restoring )
 	{
 		isAnimationBusy = false;
 		meshRenderer.material.color = Color.green;
@@ -33,17 +33,29 @@ public class DoorPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 			ymod = -1;
 		}
 		mapEntity = d;
-		//initially, isActive is used to set the door open status
-		(mapEntity as Door).doorOpen = d.entityProperties.isActive;
+
+		if ( restoring )
+			transform.position = new Vector3( d.entityPosition.X, d.entityPosition.Y, d.entityPosition.Z );
+		else
+		{
+			transform.position = new Vector3( (d.entityPosition.X / 10) + xmod, 0, (-d.entityPosition.Y / 10) - ymod );
+			//initially, isActive is used to set the door open status
+			(mapEntity as Door).doorOpen = d.entityProperties.isActive;
+		}
 		//then just set isActive to true so it can show itself when asked
 		mapEntity.entityProperties.isActive = true;
-		transform.position = new Vector3( (d.entityPosition.X / 10) + xmod, 0, (-d.entityPosition.Y / 10) - ymod );
+
 		transform.localScale = Vector3.zero;
 		doorModel.transform.rotation = Quaternion.Euler( -90, d.entityRotation, 0 );
 		doorOpenModel.transform.rotation = Quaternion.Euler( -90, d.entityRotation, 0 );
 
 		mapEntity.entityPosition = transform.position.ToSagaVector();
 		gameObject.SetActive( false );
+
+		if ( restoring && (mapEntity as Door).doorOpen )
+			OpenDoor();
+		else if ( restoring && !(mapEntity as Door).doorOpen )
+			CloseDoor();
 	}
 
 	public void OpenDoor()

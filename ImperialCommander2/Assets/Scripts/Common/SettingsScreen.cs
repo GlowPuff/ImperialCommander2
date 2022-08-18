@@ -16,11 +16,11 @@ public class SettingsScreen : MonoBehaviour
 	public VolumeProfile volume;
 	public SettingsLanguageController languageController;
 
-	Action<SettingsCommand> closeAction;
+	Action<SettingsCommand> quitAction;
 
-	public void Show( Action<SettingsCommand> a, bool fromTitle = false )
+	public void Show( Action<SettingsCommand> onQuit, bool fromTitle = false )
 	{
-		closeAction = a;
+		quitAction = onQuit;
 		//remove return to title button
 		returnButton.SetActive( !fromTitle );
 
@@ -100,7 +100,7 @@ public class SettingsScreen : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		closeAction?.Invoke( SettingsCommand.Quit );
+		quitAction?.Invoke( SettingsCommand.Quit );
 	}
 
 	public void OnReturnTitles()
@@ -110,7 +110,7 @@ public class SettingsScreen : MonoBehaviour
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );
-			closeAction?.Invoke( SettingsCommand.ReturnTitles );
+			quitAction?.Invoke( SettingsCommand.ReturnTitles );
 		} );
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );

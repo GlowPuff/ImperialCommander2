@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Saga
@@ -188,6 +189,15 @@ namespace Saga
 			return new Tuple<List<string>, List<string>>( tiles, entities );
 		}
 
+		public void RestoreTiles()
+		{
+			for ( int i = 0; i < mapSections.Count; i++ )
+			{
+				if ( mapSections[i].isActive )
+					ActivateMapSection( i );
+			}
+		}
+
 		public string ActivateTile( Guid guid )
 		{
 			foreach ( var tr in tileRenderers )
@@ -227,5 +237,20 @@ namespace Saga
 		//			tr.ShowTile();
 		//	}
 		//}
+
+		public string GetState()
+		{
+			var state = new TileManagerState();
+			state.mapSections = mapSections;
+			state.tileDescriptors = tileDescriptors;
+
+			return JsonConvert.SerializeObject( state, Formatting.Indented );
+		}
+
+		public void RestoreState( TileManagerState state )
+		{
+			mapSections = state.mapSections;
+			tileDescriptors = state.tileDescriptors;
+		}
 	}
 }

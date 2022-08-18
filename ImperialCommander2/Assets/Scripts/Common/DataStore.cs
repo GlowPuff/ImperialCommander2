@@ -542,6 +542,9 @@ public static class DataStore
 		deploymentHand = available.ToList();
 	}
 
+	/// <summary>
+	/// Classic mode
+	/// </summary>
 	public static bool LoadState()
 	{
 		string basePath = Path.Combine( Application.persistentDataPath, "Session" );

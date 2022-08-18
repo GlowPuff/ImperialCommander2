@@ -13,6 +13,8 @@ namespace Saga
 		public bool hasColor { get; }
 		public EntityProperties entityProperties { get; set; }
 		public Guid mapSectionOwner { get; set; }
+
+		//entity state
 		public bool doorOpen;
 	}
 }

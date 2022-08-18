@@ -8,13 +8,11 @@ namespace Saga
 	{
 		public Text endRoundBtn, roundHeading, onslaughtDeploy, landingDeploy1, landingDeploy2, fameHeading, awardsHeading, fameContinueBtn, depTypeHeading, eventHeading, eventContinueBtn, deploymentContinueBtn, activateContinueBtn;
 
-		public TextMeshProUGUI fameItem1UC, fameItem2UC, fame1UC, fame2UC, onslaughtIncreasedUC, landingIncreasedUC, reinforceIncreasedUC, reinforceWarningUC, deploymentWarningUC, depWarningUC, calmMessageUC;
+		public TextMeshProUGUI fameItem1UC, fameItem2UC, fame1UC, fame2UC, onslaughtIncreasedUC, landingIncreasedUC, reinforceIncreasedUC, reinforceWarningUC, deploymentWarningUC, depWarningUC, calmMessageUC, woundUC, withdrawUC, exhaustUC, heroDefeatUC, enemyDefeatUC;
 
 		public void SetTranslatedUI()
 		{
-			//SagaMainApp ui = DataStore.uiLanguage.sagaMainApp;
-
-
+			SagaMainApp uiSaga = DataStore.uiLanguage.sagaMainApp;
 			UIMainApp uiMain = DataStore.uiLanguage.uiMainApp;
 
 			fameContinueBtn.text = uiMain.continueBtn;
@@ -38,6 +36,12 @@ namespace Saga
 
 			roundHeading.text = uiMain.roundHeading;
 			endRoundBtn.text = uiMain.endRoundBtn;
+
+			woundUC.text = uiSaga.woundUC;
+			//withdrawUC.text = uiSaga.withdrawUC;
+			exhaustUC.text = uiSaga.exhaustUC;
+			heroDefeatUC.text = uiSaga.defeatUC;
+			enemyDefeatUC.text = uiSaga.defeatUC;
 		}
 	}
 }

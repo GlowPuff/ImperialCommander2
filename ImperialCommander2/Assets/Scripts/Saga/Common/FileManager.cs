@@ -109,7 +109,7 @@ namespace Saga
 		/// <summary>
 		/// Loads a mission from its FULL PATH .json.
 		/// </summary>
-		public static Mission LoadMission( string filename )
+		public static Mission LoadMission( string filename, out string missionStringified )
 		{
 			string json = "";
 
@@ -120,6 +120,7 @@ namespace Saga
 					json = sr.ReadToEnd();
 				}
 
+				missionStringified = json;
 				var m = JsonConvert.DeserializeObject<Mission>( json );
 				//overwrite fileName so it's up-to-date
 				FileInfo fi = new FileInfo( filename );
@@ -130,8 +131,14 @@ namespace Saga
 			catch ( Exception e )
 			{
 				Utils.LogError( "LoadMission()::Could not load the Mission. Exception: " + e.Message );
+				missionStringified = null;
 				return null;
 			}
+		}
+
+		public static Mission LoadMission( string filename )
+		{
+			return LoadMission( filename, out string foo );
 		}
 	}
 }

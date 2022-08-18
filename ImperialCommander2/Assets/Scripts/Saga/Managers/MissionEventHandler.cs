@@ -157,6 +157,7 @@ namespace Saga
 				FindObjectOfType<SagaController>().triggerManager.FireEventGroup( eg.GUID );
 			NextEventAction();
 		}
+
 		void ShowInputBox( InputPrompt ip )
 		{
 			Debug.Log( "ShowInputBox()::PROCESSING ShowTextBox" );

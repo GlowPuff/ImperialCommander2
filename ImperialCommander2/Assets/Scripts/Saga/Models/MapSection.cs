@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace Saga
 {
@@ -11,8 +11,8 @@ namespace Saga
 		public bool isActive;
 		public bool invisibleUntilActivated;
 
-		public ObservableCollection<Trigger> triggers;
-		public ObservableCollection<MissionEvent> missionEvents;
-		public ObservableCollection<MapTile> mapTiles;
+		public List<Trigger> triggers;
+		public List<MissionEvent> missionEvents;
+		public List<MapTile> mapTiles;
 	}
 }

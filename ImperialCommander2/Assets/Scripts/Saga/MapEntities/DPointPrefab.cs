@@ -5,20 +5,19 @@ namespace Saga
 {
 	public class DPointPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 	{
-		LifeSpan lifeSpan;
-		//DeploymentPoint dPoint;
-
 		public IMapEntity mapEntity { get; set; }
 		public bool isAnimationBusy { get; set; }
 
-		public void Init( DeploymentPoint dp, LifeSpan life )
+		public void Init( DeploymentPoint dp, bool restoring )
 		{
 			isAnimationBusy = false;
 			//DPs are only visible at the moment a group deploys on it
 			mapEntity = dp;
-			lifeSpan = life;
 			GetComponent<SpriteRenderer>().color = Utils.String2UnityColor( dp.deploymentColor );
-			transform.position = new Vector3( (dp.entityPosition.X / 10) + .5f, 0, (-dp.entityPosition.Y / 10) - .5f );
+			if ( restoring )
+				transform.position = new Vector3( dp.entityPosition.X, dp.entityPosition.Y, dp.entityPosition.Z );
+			else
+				transform.position = new Vector3( (dp.entityPosition.X / 10) + .5f, 0, (-dp.entityPosition.Y / 10) - .5f );
 
 			mapEntity.entityPosition = transform.position.ToSagaVector();
 			gameObject.SetActive( false );
@@ -26,9 +25,6 @@ namespace Saga
 
 		public void EndTurnCleanup()
 		{
-			//if ( lifeSpan == LifeSpan.EndTurn
-			//	|| !mapEntity.entityProperties.isActive )
-			//	RemoveEntity();
 		}
 
 		public void RemoveEntity()

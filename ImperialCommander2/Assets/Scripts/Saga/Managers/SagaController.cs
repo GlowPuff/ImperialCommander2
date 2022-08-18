@@ -52,6 +52,7 @@ namespace Saga
 
 			//DEBUG BOOTSTRAP A MISSION
 			//bootstrapDEBUG();
+			//restoreDEBUG();
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -66,6 +67,32 @@ namespace Saga
 			//if ( volume.TryGet<Vignette>( out var vig ) )
 			//	vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
+			if ( DataStore.sagaSessionData.setupOptions.isTutorial )
+				StartTutorial();
+			else
+				StartSaga();
+		}
+
+		void StartTutorial()
+		{
+			Debug.Log( $"STARTING TUTORIAL {DataStore.sagaSessionData.setupOptions.tutorialIndex}" );
+
+			DataStore.sagaSessionData.InitGameVars();
+			ResetUI( () =>
+			{
+				//load the Mission parameters
+				if ( !ParseMission() )
+				{
+					errorPanel.Show( "Failed to load the tutorial." );
+					return;
+				}
+
+				StartNewGame();
+			} );
+		}
+
+		void StartSaga()
+		{
 			//see if it's a new game or restoring state
 			if ( DataStore.sagaSessionData.gameVars.isNewGame )
 			{
@@ -87,8 +114,21 @@ namespace Saga
 			{
 				Debug.Log( "CONTINUING GAME" );
 				ResetUI();
-				ContinueGame();
+				if ( !ContinueGame() )
+				{
+					errorPanel.Show( DataStore.uiLanguage.uiMainApp.restoreErrorMsgUC );
+					return;
+				}
 			}
+		}
+
+		void restoreDEBUG()
+		{
+			Debug.Log( "***BOOTSTRAP RESTORE DEBUG***" );
+			DataStore.InitData();
+
+			DataStore.StartNewSagaSession( new SagaSetupOptions() );
+			DataStore.sagaSessionData.gameVars.isNewGame = false;
 		}
 
 		void bootstrapDEBUG()
@@ -96,6 +136,7 @@ namespace Saga
 			//in a non-debug game, the following is already set at the Saga setup screen
 			Debug.Log( "***BOOTSTRAP DEBUG***" );
 			DataStore.InitData();
+
 			DataStore.StartNewSagaSession( new SagaSetupOptions()
 			{
 				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
@@ -103,15 +144,16 @@ namespace Saga
 				threatLevel = 3,
 				useAdaptiveDifficulty = true,
 			} );
-			DataStore.sagaSessionData.gameVars.pauseDeployment = true;
-			DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
+			//DataStore.sagaSessionData.gameVars.pauseDeployment = true;
+			//DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 
 			//try to load the mission
-			DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
+			DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename, out string missionStringified );
+			DataStore.sagaSessionData.missionStringified = missionStringified;
 		}
 
 		public void ShowError( string m )
@@ -128,7 +170,6 @@ namespace Saga
 				faderOverlay.gameObject.SetActive( false );
 				callback?.Invoke();
 			} );
-			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n1";
 		}
 
 		public void EndMission()
@@ -145,8 +186,6 @@ namespace Saga
 		{
 			try
 			{
-				//SET the mission object to be used everywhere
-				//DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
 				if ( DataStore.mission == null )
 					return false;
 
@@ -228,6 +267,7 @@ namespace Saga
 		/// </summary>
 		void StartNewGame()
 		{
+			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n1";
 			//create deployment hand and manual deploy list
 			DataStore.CreateDeploymentHand( DataStore.sagaSessionData.EarnedVillains, DataStore.sagaSessionData.setupOptions.threatLevel );
 			DataStore.CreateManualDeployment();
@@ -253,7 +293,8 @@ namespace Saga
 			//initialize tile manager (loads all tiles in mission)
 			tileManager.InstantiateTiles( DataStore.mission.mapSections );
 			//initialize map entities, handle random entity groups
-			mapEntityManager.InstantiateEntities();
+			mapEntityManager.ConfigureEntityGroups();
+			mapEntityManager.InstantiateEntities( DataStore.mission.mapEntities, false );
 			//after tiles load, activate first section and process starting Event
 			StartCoroutine( "WaitForTilesLoaded" );
 		}
@@ -286,11 +327,6 @@ namespace Saga
 			}
 			else
 			{
-				//if ( !string.IsNullOrEmpty( DataStore.mission.missionProperties.missionInfo.Trim() ) )
-				//{
-				//	eventManager.ShowTextBox( DataStore.mission.missionProperties.missionInfo, StartupLayoutAndEvents );
-				//}
-				//else
 				StartupLayoutAndEvents();
 			}
 		}
@@ -321,9 +357,48 @@ namespace Saga
 				 } );
 		}
 
-		void ContinueGame()
+		bool ContinueGame()
 		{
+			StateManager sm = new StateManager();
+			//Restore session, hand, manual deck, deployed enemies, allies/heroes
+			if ( !sm.LoadSession() )
+				return false;
 
+			//init event manager
+			eventManager.Init( DataStore.mission );
+			//init trigger manager
+			triggerManager.RestoreState( sm.managerStates.triggerManagerState );
+			//initialize tile manager (loads all tiles in mission)
+			tileManager.InstantiateTiles( DataStore.mission.mapSections );
+			//initialize map entities
+			mapEntityManager.RestoreState( sm.managerStates.entityManagerState );
+
+			//retore UI elements
+			//round
+			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sagaSessionData.gameVars.round;
+			//restore deployed enemies and heroes/allies
+			dgManager.RestoreState();
+			//fame button
+			fameButton.interactable = DataStore.sagaSessionData.setupOptions.useAdaptiveDifficulty;
+			//set objective
+			if ( !string.IsNullOrEmpty( DataStore.sagaSessionData.gameVars.currentObjective ) )
+				OnChangeObjective( DataStore.sagaSessionData.gameVars.currentObjective );
+
+			StartCoroutine( "WaitForRestoredTiles", sm );
+
+			return true;
+		}
+
+		IEnumerator WaitForRestoredTiles( StateManager state )
+		{
+			while ( !tileManager.tilesLoaded )
+				yield return null;
+
+			tileManager.RestoreState( state.managerStates.tileManagerState );
+			tileManager.CamToSection( 0, true );
+			tileManager.RestoreTiles();
+
+			GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoredMsgUC );
 		}
 
 		/// <summary>
@@ -514,9 +589,7 @@ namespace Saga
 		{
 			Debug.Log( "OnStartTurn()::STARTING NEW TURN============================" );
 			//at this point, the previous round is COMPLETELY finished
-			DataStore.sagaSessionData.SaveSession( "SagaSession" );
-
-			//eventManager.ResetEndOfEvents();
+			DataStore.sagaSessionData.SaveState();
 
 			IncreaseRound();
 
@@ -524,7 +597,6 @@ namespace Saga
 			eventManager.CheckIfEventsTriggered( () =>
 			{
 				DataStore.sagaSessionData.gameVars.isStartTurn = false;
-				//eventManager.ResetEndOfEvents();
 			} );
 		}
 
@@ -557,7 +629,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			if ( !eventManager.IsUIHidden )
 			{
-				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose );
+				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnQuitSaga );
 			}
 		}
 
@@ -573,14 +645,18 @@ namespace Saga
 
 		public void OnChangeObjective( string o, Action callback = null )
 		{
+			if ( string.IsNullOrEmpty( o ) )
+				return;
+
+			DataStore.sagaSessionData.gameVars.currentObjective = o;
 			objectivePanel.Show( o, callback );
 		}
 
-		void OnSettingsClose( SettingsCommand c )
+		void OnQuitSaga( SettingsCommand c )
 		{
 			//save the state on exit
 			//OnSettingsClose() can only be called when the game is in a state that can be saved
-			DataStore.sagaSessionData.SaveSession( "SagaSession" );
+			DataStore.sagaSessionData.SaveState();
 
 			if ( c == SettingsCommand.ReturnTitles )
 			{
@@ -615,18 +691,34 @@ namespace Saga
 
 		public void OnPauseThreat( Toggle t )
 		{
+			if ( !t.gameObject.activeInHierarchy )
+				return;
+			EventSystem.current.SetSelectedGameObject( null );
 			sound.PlaySound( FX.Click );
 			DataStore.sagaSessionData.gameVars.pauseThreatIncrease = t.isOn;
 			string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC : DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC;
-			GlowEngine.FindUnityObject<QuickMessage>().Show( s );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( s.Replace( "<color=\"red\">", "<color=\"black\"><b>" ) );
 		}
 
 		public void OnPauseDeploy( Toggle t )
 		{
+			if ( !t.gameObject.activeInHierarchy )
+				return;
+			EventSystem.current.SetSelectedGameObject( null );
 			sound.PlaySound( FX.Click );
 			DataStore.sagaSessionData.gameVars.pauseDeployment = t.isOn;
 			string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseDepMsgUC : DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC;
-			GlowEngine.FindUnityObject<QuickMessage>().Show( s );
+			GlowEngine.FindUnityObject<QuickMessage>().Show( s.Replace( "<color=\"red\">", "<color=\"black\"><b>" ) );
+		}
+
+		public void DEBUGsaveState()
+		{
+			DataStore.sagaSessionData.SaveState();
+		}
+
+		public void DEBUGloadState()
+		{
+
 		}
 
 		private void Update()

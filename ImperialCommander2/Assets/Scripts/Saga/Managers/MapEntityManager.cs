@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -24,40 +25,41 @@ namespace Saga
 		/// <summary>
 		/// Builds ALL entities but does not SHOW or ACTIVATE them
 		/// </summary>
-		public void InstantiateEntities()
+		public void InstantiateEntities( List<IMapEntity> entities, bool restoring )
 		{
-			HandleEntityGroups();
-
-			foreach ( IMapEntity e in DataStore.mission.mapEntities )
+			foreach ( IMapEntity e in entities )//DataStore.mission.mapEntities )
 			{
 				if ( e.entityType == EntityType.DeploymentPoint )
 				{
-					AddDP( e as DeploymentPoint, LifeSpan.Manual );
+					AddDP( e as DeploymentPoint, restoring );
 				}
 				else if ( e.entityType == EntityType.Terminal )
 				{
-					AddTerminal( e as Terminal );
+					AddTerminal( e as Terminal, restoring );
 				}
 				else if ( e.entityType == EntityType.Crate )
 				{
-					AddCrate( e as Crate );
+					AddCrate( e as Crate, restoring );
 				}
 				else if ( e.entityType == EntityType.Door )
 				{
-					AddDoor( e as Door );
+					AddDoor( e as Door, restoring );
 				}
 				else if ( e.entityType == EntityType.Highlight )
 				{
-					AddHighlight( e as SpaceHighlight );
+					AddHighlight( e as SpaceHighlight, restoring );
 				}
 				else if ( e.entityType == EntityType.Token )
 				{
-					AddToken( e as Token );
+					AddToken( e as Token, restoring );
 				}
 			}
 		}
 
-		void HandleEntityGroups()
+		/// <summary>
+		/// Swap positions in Random Entity Groups
+		/// </summary>
+		public void ConfigureEntityGroups()
 		{
 			//for random entity groups, we need to swap their positions and section owner
 			//go through each group
@@ -168,57 +170,57 @@ namespace Saga
 			callback?.Invoke();
 		}
 
-		private void AddDP( DeploymentPoint dpoint, LifeSpan life )
+		private void AddDP( DeploymentPoint dpoint, bool restoring )
 		{
 			GameObject go = Instantiate( deploymentSpotPrefab, transform );
 
 			var dp = go.GetComponent<DPointPrefab>();
-			dp.Init( dpoint, life );
+			dp.Init( dpoint, restoring );
 			mapEntities.Add( dpoint );
 		}
 
-		private void AddTerminal( Terminal t )
+		private void AddTerminal( Terminal t, bool restoring )
 		{
 			GameObject go = Instantiate( terminalPrefab, transform );
 
 			var dp = go.GetComponent<TerminalPrefab>();
-			dp.Init( t );
+			dp.Init( t, restoring );
 			mapEntities.Add( t );
 		}
 
-		private void AddCrate( Crate c )
+		private void AddCrate( Crate c, bool restoring )
 		{
 			GameObject go = Instantiate( cratePrefab, transform );
 
 			var dp = go.GetComponent<CratePrefab>();
-			dp.Init( c );
+			dp.Init( c, restoring );
 			mapEntities.Add( c );
 		}
 
-		private void AddDoor( Door d )
+		private void AddDoor( Door d, bool restoring )
 		{
 			GameObject go = Instantiate( doorPrefab, transform );
 
 			var dp = go.GetComponent<DoorPrefab>();
-			dp.Init( d );
+			dp.Init( d, restoring );
 			mapEntities.Add( d );
 		}
 
-		public void AddHighlight( SpaceHighlight s )
+		public void AddHighlight( SpaceHighlight s, bool restoring )
 		{
 			GameObject go = Instantiate( spacePrefab, transform );
 
 			var dp = go.GetComponent<HighlightPrefab>();
-			dp.Init( s );
+			dp.Init( s, restoring );
 			mapEntities.Add( s );
 		}
 
-		public void AddToken( Token t )
+		public void AddToken( Token t, bool restoring )
 		{
 			GameObject go = Instantiate( tokenPrefab, transform );
 
 			var dp = go.GetComponent<TokenPrefab>();
-			dp.Init( t );
+			dp.Init( t, restoring );
 			mapEntities.Add( t );
 		}
 
@@ -450,6 +452,19 @@ namespace Saga
 						pf.HideEntity();
 				}
 			}
+		}
+
+		public string GetState()
+		{
+			var state = new EntityManagerState();
+			state.mapEntities = mapEntities;
+
+			return JsonConvert.SerializeObject( state, Formatting.Indented );
+		}
+
+		public void RestoreState( EntityManagerState state )
+		{
+			InstantiateEntities( state.mapEntities, true );
 		}
 	}
 }

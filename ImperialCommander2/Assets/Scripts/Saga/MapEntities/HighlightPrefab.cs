@@ -9,12 +9,15 @@ public class HighlightPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 	public IMapEntity mapEntity { get; set; }
 	public bool isAnimationBusy { get; set; }
 
-	public void Init( SpaceHighlight s )
+	public void Init( SpaceHighlight s, bool restoring )
 	{
 		isAnimationBusy = false;
 		mapEntity = s;
 		GetComponent<SpriteRenderer>().color = Utils.String2UnityColor( s.deploymentColor );
-		transform.position = new Vector3( (s.entityPosition.X / 10), 0, (-s.entityPosition.Y / 10) );
+		if ( restoring )
+			transform.position = new Vector3( s.entityPosition.X, s.entityPosition.Y, s.entityPosition.Z );
+		else
+			transform.position = new Vector3( (s.entityPosition.X / 10), 0, (-s.entityPosition.Y / 10) );
 		transform.localScale = new Vector3( s.Width * .78f, s.Height * .78f, 1 );
 
 		mapEntity.entityPosition = transform.position.ToSagaVector();
@@ -42,6 +45,12 @@ public class HighlightPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 
 	public void ShowEntity()
 	{
+		//if highlight is active and older than lifespan, just return
+		if ( mapEntity.entityProperties.isActive
+			&& DataStore.sagaSessionData.gameVars.highlightLifeTimes.ContainsKey( mapEntity.GUID )
+			&& DataStore.sagaSessionData.gameVars.highlightLifeTimes[mapEntity.GUID] >= (mapEntity as SpaceHighlight).Duration )
+			return;
+
 		if ( mapEntity.entityProperties.isActive && FindObjectOfType<SagaController>().tileManager.IsMapSectionActive( mapEntity.mapSectionOwner ) )
 		{
 			gameObject.SetActive( true );

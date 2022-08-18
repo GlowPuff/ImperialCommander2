@@ -10,7 +10,6 @@ namespace Saga
 		public GameObject textBoxPrefab, promptBoxPrefab, toggleVisButton, inputBoxPrefab;
 		public Transform infoButtonTX;
 		public EnemyActivationPopup enemyActivationPopup;
-		public ImperialPopup imperialPopup;
 
 		bool[] hiddenChildren = new bool[0];
 
@@ -460,6 +459,16 @@ namespace Saga
 					vis = true;
 			}
 			toggleVisButton.SetActive( vis );
+		}
+
+		public void SaveState()
+		{
+
+		}
+
+		public void LoadState()
+		{
+
 		}
 	}
 }

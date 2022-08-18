@@ -22,15 +22,16 @@ public class TitleController : MonoBehaviour
 	public Sound soundController;
 	public NewGameScreen newGameScreen;
 	public TitleText titleText;
-	public GameObject donateButton, docsButton, versionButton;
+	public GameObject donateButton, docsButton, versionButton, tutorialGoButton;
 	public VolumeProfile volume;
 	public Button continueButton;
 	public Transform busyIconTF;
 	public TextMeshProUGUI versionText;
 	public MissionTextBox versionPopup;
-	public TMP_Dropdown languageDropdown;
+	public TMP_Dropdown languageDropdown, tutorialDropdown;
 	public TextMeshProUGUI donateText, docsText;
 	public Toggle sagaToggle, classicToggle;
+	public TutorialPanel tutorialPanel;
 
 	//UI objects using language translations
 	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
@@ -170,7 +171,9 @@ public class TitleController : MonoBehaviour
 		donateButton.SetActive( true );
 		docsButton.SetActive( true );
 		versionButton.SetActive( true );
+		tutorialGoButton.SetActive( true );
 		languageDropdown.gameObject.SetActive( true );
+		tutorialDropdown.gameObject.SetActive( true );
 	}
 
 	public void OnNewGame()
@@ -185,7 +188,9 @@ public class TitleController : MonoBehaviour
 		donateButton.SetActive( false );
 		docsButton.SetActive( false );
 		versionButton.SetActive( false );
+		tutorialGoButton.SetActive( false );
 		languageDropdown.gameObject.SetActive( false );
+		tutorialDropdown.gameObject.SetActive( false );
 
 		if ( DataStore.gameType == GameType.Classic )
 		{
@@ -208,25 +213,78 @@ public class TitleController : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 
-		SessionData session = LoadSession();
-		if ( session != null )
+		if ( DataStore.gameType == GameType.Classic )
 		{
-			DataStore.sessionData = session;
+			SessionData session = LoadSession();
+			if ( session != null )
+			{
+				DataStore.sessionData = session;
 
-			animator.SetBool( m_OpenParameterId, false );
-			animator.SetBool( expID, false );
-			titleText.FlipOut();
-			donateButton.SetActive( false );
-			docsButton.SetActive( false );
-			versionButton.SetActive( false );
-			languageDropdown.gameObject.SetActive( false );
-			soundController.FadeOutMusic();
-			FadeOut( 1 );
+				animator.SetBool( m_OpenParameterId, false );
+				animator.SetBool( expID, false );
+				titleText.FlipOut();
+				donateButton.SetActive( false );
+				docsButton.SetActive( false );
+				versionButton.SetActive( false );
+				tutorialGoButton.SetActive( false );
+				languageDropdown.gameObject.SetActive( false );
+				tutorialDropdown.gameObject.SetActive( false );
+				soundController.FadeOutMusic();
+				FadeOut( 1 );
 
-			float foo = 1;
-			DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
-			 SceneManager.LoadScene( "Main" ) );
+				float foo = 1;
+				DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+				 SceneManager.LoadScene( "Main" ) );
+			}
+			else
+				continueButton.interactable = false;
 		}
+		else
+		{
+			SagaSession session = LoadSagaSession();
+			if ( session != null )
+			{
+				DataStore.sagaSessionData = session;
+				DataStore.sagaSessionData.gameVars.isNewGame = false;
+
+				animator.SetBool( m_OpenParameterId, false );
+				animator.SetBool( expID, false );
+				titleText.FlipOut();
+				donateButton.SetActive( false );
+				docsButton.SetActive( false );
+				versionButton.SetActive( false );
+				tutorialGoButton.SetActive( false );
+				languageDropdown.gameObject.SetActive( false );
+				tutorialDropdown.gameObject.SetActive( false );
+				soundController.FadeOutMusic();
+				FadeOut( 1 );
+
+				float foo = 1;
+				DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+				 SceneManager.LoadScene( "Saga" ) );
+			}
+			else
+				continueButton.interactable = false;
+		}
+	}
+
+	public void StartTutorial()
+	{
+		animator.SetBool( m_OpenParameterId, false );
+		animator.SetBool( expID, false );
+		titleText.FlipOut();
+		donateButton.SetActive( false );
+		docsButton.SetActive( false );
+		versionButton.SetActive( false );
+		tutorialGoButton.SetActive( false );
+		languageDropdown.gameObject.SetActive( false );
+		tutorialDropdown.gameObject.SetActive( false );
+		soundController.FadeOutMusic();
+		FadeOut( 1 );
+
+		float foo = 1;
+		DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+		 SceneManager.LoadScene( "Saga" ) );
 	}
 
 	public void OnExpansions()
@@ -317,6 +375,11 @@ public class TitleController : MonoBehaviour
 		SetTranslatedUI();
 	}
 
+	public void OnTutorialGo()
+	{
+		tutorialPanel.Show( tutorialDropdown.value );
+	}
+
 	private void SetTranslatedUI()
 	{
 		UITitle ui = DataStore.uiLanguage.uiTitle;
@@ -366,7 +429,28 @@ public class TitleController : MonoBehaviour
 
 	private bool IsSagaSessionValid()
 	{
-		return false;
+		string basePath = Path.Combine( Application.persistentDataPath, "SagaSession", "sessiondata.json" );
+
+		if ( !File.Exists( basePath ) )
+			return false;
+
+		string json = "";
+		try
+		{
+			using ( StreamReader sr = new StreamReader( basePath ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			SagaSession session = JsonConvert.DeserializeObject<SagaSession>( json );
+
+			return session.stateManagementVersion == 1;
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "***ERROR*** IsSagaSessionValid:: " + e.Message );
+			File.WriteAllText( Path.Combine( Application.persistentDataPath, "SagaSession", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			return false;
+		}
 	}
 
 	private SessionData LoadSession()
@@ -389,6 +473,30 @@ public class TitleController : MonoBehaviour
 		{
 			Debug.Log( "***ERROR*** LoadSession:: " + e.Message );
 			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Session", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			return null;
+		}
+	}
+
+	private SagaSession LoadSagaSession()
+	{
+		string basePath = Path.Combine( Application.persistentDataPath, "SagaSession", "sessiondata.json" );
+
+		string json = "";
+
+		try
+		{
+			using ( StreamReader sr = new StreamReader( basePath ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			SagaSession session = JsonConvert.DeserializeObject<SagaSession>( json );
+
+			return session;
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "***ERROR*** LoadSagaSession:: " + e.Message );
+			File.WriteAllText( Path.Combine( Application.persistentDataPath, "SagaSession", "error_log.txt" ), "TRACE:\r\n" + e.Message );
 			return null;
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Saga
@@ -165,6 +166,23 @@ namespace Saga
 					return item.currentValue;
 			}
 			return 0;
+		}
+
+		public string GetState()
+		{
+			var state = new TriggerManagerState();
+			state.eventGroupList = eventGroupList;
+			state.triggerStateList = triggerStateList;
+
+			return JsonConvert.SerializeObject( state, Formatting.Indented );
+		}
+
+		public void RestoreState( TriggerManagerState state )
+		{
+			eventGroupList = state.eventGroupList;
+			triggerStateList = state.triggerStateList;
+
+			FindObjectOfType<ObjectivePanel>().NotifyValueUpdated();
 		}
 	}
 }

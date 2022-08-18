@@ -135,7 +135,7 @@ namespace Saga
 			//load/validate the mission
 			if ( missionPicker.pickerMode == PickerMode.Custom )
 			{
-				DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename );
+				DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename, out DataStore.sagaSessionData.missionStringified );
 				if ( DataStore.mission != null )
 					Warp();
 			}
@@ -169,6 +169,7 @@ namespace Saga
 			{
 				if ( x.Status == AsyncOperationStatus.Succeeded )
 				{
+					DataStore.sagaSessionData.missionStringified = x.Result.text;
 					DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
 					if ( DataStore.mission != null )
 						Warp();

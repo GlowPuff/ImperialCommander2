@@ -7,6 +7,7 @@ namespace Saga
 {
 	public class SagaSession
 	{
+		public int stateManagementVersion = 1;
 		public SagaSetupOptions setupOptions;
 		public DeploymentCard selectedAlly, fixedAlly;
 		public SagaGameVars gameVars;
@@ -22,6 +23,8 @@ namespace Saga
 		//makes sure they don't keep firing said Event
 		public HashSet<string> AnyHeroWoundedEventDone;
 
+		public string missionStringified;
+
 		public class SagaGameVars
 		{
 			public int round;
@@ -36,7 +39,7 @@ namespace Saga
 			//temporary event conditions
 			public bool isEndTurn = false;
 			public bool isStartTurn = false;
-			//public bool checkHealth = false;
+			public string currentObjective;
 			public DeploymentCard activatedGroup = null;
 			//keep track of the end of current round events
 			//keep track of events that have already fired (for use with certain TriggeredBy)
@@ -253,9 +256,15 @@ namespace Saga
 			Debug.Log( "Set DeploymentModifier: " + gameVars.deploymentModifier );
 		}
 
-		public void SaveSession( string n )
+		public void SaveState()
 		{
-			Debug.Log( "SaveSession()::SAVING SESSION" );
+			if ( setupOptions.isTutorial )
+			{
+				Debug.Log( "SaveState()::Canceled save state - this is a tutorial" );
+				return;
+			}
+
+			StateManager.SaveState();
 		}
 	}
 }
