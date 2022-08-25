@@ -39,7 +39,7 @@ namespace Saga
 					}
 				}
 			}
-			else
+			else//allies
 			{
 				int i = 0;
 				foreach ( var item in DataStore.allyCards.MinusElite() )
