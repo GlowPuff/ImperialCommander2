@@ -174,6 +174,9 @@ namespace Saga
 
 		public void EndMission()
 		{
+			//remove the state
+			StateManager.RemoveState();
+
 			faderOverlay.gameObject.SetActive( true );
 			faderOverlay.color = new Color( 0, 0, 0, 0 );
 			faderOverlay.DOFade( 1, 2 ).OnComplete( () =>

@@ -13,6 +13,25 @@ namespace Saga
 	{
 		public ManagerStates managerStates;
 
+		public static void RemoveState()
+		{
+			Debug.Log( "RemoveState()::REMOVING SESSION" );
+
+			string basePath = Path.Combine( Application.persistentDataPath, "SagaSession" );
+
+			try
+			{
+				if ( Directory.Exists( basePath ) )
+					Directory.Delete( basePath, true );
+				Debug.Log( "***SESSION REMOVED***" );
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( "***ERROR*** RemoveState(Saga):: " + e.Message );
+				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "SaveState() TRACE:\r\n" + e.Message );
+			}
+		}
+
 		public static void SaveState()
 		{
 			Debug.Log( "SaveSession()::SAVING SESSION" );

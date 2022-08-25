@@ -261,7 +261,7 @@ public class TitleController : MonoBehaviour
 
 				float foo = 1;
 				DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
-				 SceneManager.LoadScene( "Saga" ) );
+				 SceneManager.LoadScene( "Warp" ) );
 			}
 			else
 				continueButton.interactable = false;
@@ -284,7 +284,7 @@ public class TitleController : MonoBehaviour
 
 		float foo = 1;
 		DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
-		 SceneManager.LoadScene( "Saga" ) );
+		 SceneManager.LoadScene( "Warp" ) );
 	}
 
 	public void OnExpansions()
@@ -341,7 +341,7 @@ public class TitleController : MonoBehaviour
 
 	public void OnWikiDocs()
 	{
-		Application.OpenURL( "https://github.com/Noldorion/IA-Imperial-Commander/wiki" );
+		Application.OpenURL( "https://github.com/GlowPuff/ImperialCommander2/wiki" );
 	}
 
 	public void OnVersionPopup()

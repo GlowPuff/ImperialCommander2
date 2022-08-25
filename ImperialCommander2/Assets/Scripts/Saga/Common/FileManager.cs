@@ -15,7 +15,7 @@ namespace Saga
 		public static IEnumerable<ProjectItem> GetProjects()
 		{
 #if UNITY_ANDROID
-			string basePath = Application.persistentDataPath + "/CustomMissions";
+			string basePath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
 #else
 			string basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 #endif

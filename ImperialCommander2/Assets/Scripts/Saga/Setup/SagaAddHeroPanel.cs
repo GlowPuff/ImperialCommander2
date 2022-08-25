@@ -42,7 +42,7 @@ namespace Saga
 			else
 			{
 				int i = 0;
-				foreach ( var item in DataStore.allyCards )
+				foreach ( var item in DataStore.allyCards.MinusElite() )
 				{
 					var mug = Instantiate( heroMugPrefab, mugContainer );
 					mug.GetComponent<MugshotToggle>().Init( dataMode, item, i++ );
