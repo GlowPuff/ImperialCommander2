@@ -140,5 +140,58 @@ namespace Saga
 		{
 			return LoadMission( filename, out string foo );
 		}
+
+		public static List<SagaCampaign> GetCampaigns()
+		{
+			List<SagaCampaign> clist = new List<SagaCampaign>();
+			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
+
+			string json = "";
+			List<string> filenames = Directory.GetFiles( basePath ).ToList();
+
+			try
+			{
+				foreach ( var item in filenames )
+				{
+					string path = Path.Combine( basePath, item );
+					using ( StreamReader sr = new StreamReader( path ) )
+					{
+						json = sr.ReadToEnd();
+					}
+					var campaign = JsonConvert.DeserializeObject<SagaCampaign>( json );
+					clist.Add( campaign );
+				}
+
+				return clist;
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( "***ERROR*** GetCampaigns():: " + e.Message );
+				File.WriteAllText( Path.Combine( Application.persistentDataPath, "error_log.txt" ), "LOAD CAMPAIGNS TRACE:\r\n" + e.Message );
+				return null;
+			}
+		}
+
+		public static void DeleteCampaign( Guid guid )
+		{
+			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
+			DirectoryInfo di = new DirectoryInfo( basePath );
+
+			try
+			{
+
+				List<string> filenames = di.GetFiles().Where( file => file.Extension == ".json" ).Select( x => x.Name ).ToList();
+				if ( filenames.Contains( $"{guid.ToString()}.json" ) )
+				{
+					var file = filenames.Where( x => x.Contains( $"{guid.ToString()}.json" ) ).First();
+					File.Delete( Path.Combine( basePath, file ) );
+				}
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( "***ERROR*** DeleteCampaign():: " + e.Message );
+				File.WriteAllText( Path.Combine( Application.persistentDataPath, "error_log.txt" ), "DeleteCampaign() TRACE:\r\n" + e.Message );
+			}
+		}
 	}
 }

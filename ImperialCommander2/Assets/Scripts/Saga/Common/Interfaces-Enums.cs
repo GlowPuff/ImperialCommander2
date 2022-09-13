@@ -64,7 +64,7 @@ namespace Saga
 	public enum DeploymentSpot { Active, Specific, None }
 	public enum GroupType { All, Specific }
 	public enum MarkerType { Neutral, Rebel, Imperial }
-	public enum MissionType { Story, Side, Forced }
+	public enum MissionType { Story, Side, Forced, Introduction, Interlude, Finale }
 	public enum MissionSubType { Agenda, Threat, Other, Finale, General, Personal, Villain, Ally }
 	public enum PickerMode { BuiltIn, Custom }
 	//public enum DiceColor { White, Black, Yellow, Red, Green, Blue, Grey }

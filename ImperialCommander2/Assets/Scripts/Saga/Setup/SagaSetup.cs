@@ -21,7 +21,7 @@ namespace Saga
 		public Transform heroContainer;
 		public Button adaptiveButton, startMissionButton, viewMissionCardButton;
 		public GameObject miniMugPrefab;
-		public Image allyImage;
+		public Image allyImage, allyBG;
 		public MWheelHandler threatValue, addtlThreatValue;
 		public TextMeshProUGUI versionText, additionalInfoText;
 		//UI PANELS
@@ -203,6 +203,7 @@ namespace Saga
 			{
 				DataStore.sagaSessionData.selectedAlly = null;
 				allyImage.gameObject.SetActive( false );
+				allyBG.gameObject.SetActive( false );
 			}
 		}
 
@@ -242,12 +243,15 @@ namespace Saga
 				heroContainer.parent.GetChild( 0 ).gameObject.SetActive( true );
 
 			//ally
+			allyBG.gameObject.SetActive( false );
 			if ( DataStore.sagaSessionData.selectedAlly == null )
 				allyImage.gameObject.SetActive( false );
 			else
 			{
 				allyImage.gameObject.SetActive( true );
 				allyImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{DataStore.sagaSessionData.selectedAlly.id.Replace( "A", "M" )}" );
+				if ( DataStore.sagaSessionData.selectedAlly.isElite )
+					allyBG.gameObject.SetActive( true );
 			}
 		}
 

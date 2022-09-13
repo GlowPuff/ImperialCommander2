@@ -181,6 +181,11 @@ public static class Extensions
 		return thisCD.Where( x => !x.isElite ).ToList();
 	}
 
+	public static List<DeploymentCard> OnlyElite( this List<DeploymentCard> thisCD )
+	{
+		return thisCD.Where( x => x.isElite ).ToList();
+	}
+
 	public static T FirstOr<T>( this IEnumerable<T> thisEnum, T def )
 	{
 		foreach ( var item in thisEnum )

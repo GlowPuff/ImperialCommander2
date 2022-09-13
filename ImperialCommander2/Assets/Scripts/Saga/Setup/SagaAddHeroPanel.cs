@@ -52,6 +52,16 @@ namespace Saga
 						mug.GetComponent<MugshotToggle>().UpdateToggle();
 					}
 				}
+				foreach ( var item in DataStore.allyCards.OnlyElite() )
+				{
+					var mug = Instantiate( heroMugPrefab, mugContainer );
+					mug.GetComponent<MugshotToggle>().Init( dataMode, item, i++ );
+					if ( DataStore.sagaSessionData.selectedAlly == item )
+					{
+						mug.GetComponent<MugshotToggle>().isOn = true;
+						mug.GetComponent<MugshotToggle>().UpdateToggle();
+					}
+				}
 			}
 		}
 

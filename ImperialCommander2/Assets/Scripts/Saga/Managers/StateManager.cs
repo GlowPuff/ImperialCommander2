@@ -219,7 +219,7 @@ namespace Saga
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** LoadState:: " + e.Message );
-				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "LOAD STATE TRACE:\r\n" + e.Message );
 				return false;
 			}
 		}

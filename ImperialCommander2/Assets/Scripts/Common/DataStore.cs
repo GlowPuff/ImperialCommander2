@@ -8,12 +8,13 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.23";
+	public static readonly string appVersion = "v.2.0.24";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Mission mission;
 	public static GameType gameType;
 	public static Dictionary<string, List<MissionCard>> missionCards;
+	public static Dictionary<string, string> translatedExpansionNames;//key = expansion code ie: Core
 	/// <summary>
 	/// all enemies (excluding villains)
 	/// </summary>
@@ -347,6 +348,7 @@ public static class DataStore
 	static void LoadMissionCardTranslations()
 	{
 		string asset = "";
+		translatedExpansionNames = new Dictionary<string, string>();
 		try
 		{
 			for ( int i = 0; i < Enum.GetNames( typeof( Expansion ) ).Length; i++ )
@@ -369,6 +371,8 @@ public static class DataStore
 					missionCards[((Expansion)i).ToString()][e].rebelRewardText = cards[e].rebelRewardText;
 					missionCards[((Expansion)i).ToString()][e].imperialRewardText = cards[e].imperialRewardText;
 				}
+
+				translatedExpansionNames.Add( ((Expansion)i).ToString(), missionCards[((Expansion)i).ToString()][0].expansionText );
 			}
 		}
 		catch ( JsonReaderException e )
@@ -645,6 +649,16 @@ public static class DataStore
 		}
 
 		return retval;
+	}
+
+	public static DeploymentCard GetHero( string id )
+	{
+		return heroCards.First( x => x.id == id );
+	}
+
+	public static DeploymentCard GetAlly( string id )
+	{
+		return allyCards.First( x => x.id == id );
 	}
 
 	/// <summary>

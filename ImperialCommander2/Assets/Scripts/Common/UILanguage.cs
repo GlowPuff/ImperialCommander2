@@ -11,6 +11,7 @@ public class UILanguage
 	public UIExpansions uiExpansions;
 	public UIDeploymentGroups uiDeploymentGroups;
 	public List<MissionCard> uiMissionCards;
+	public UICampaign uiCampaign;
 }
 
 public class UISettings
@@ -54,4 +55,9 @@ public class UIDeploymentGroups
 	public List<CardLanguage> villainCards;
 	public List<CardLanguage> allyCards;
 	public List<CardLanguage> heroCards;
+}
+
+public class UICampaign
+{
+
 }

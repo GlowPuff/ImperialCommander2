@@ -22,7 +22,7 @@ public class TitleController : MonoBehaviour
 	public Sound soundController;
 	public NewGameScreen newGameScreen;
 	public TitleText titleText;
-	public GameObject donateButton, docsButton, versionButton, tutorialGoButton;
+	public GameObject donateButton, docsButton, versionButton, tutorialGoButton, sagaClassicLayoutContainer, campaignContainer;
 	public VolumeProfile volume;
 	public Button continueButton;
 	public Transform busyIconTF;
@@ -30,11 +30,13 @@ public class TitleController : MonoBehaviour
 	public MissionTextBox versionPopup;
 	public TMP_Dropdown languageDropdown, tutorialDropdown;
 	public TextMeshProUGUI donateText, docsText;
-	public Toggle sagaToggle, classicToggle;
+	public Toggle sagaToggle, classicToggle, campaignToggle;
 	public TutorialPanel tutorialPanel;
+	public NewCampaignPanel newCampaignPanel;
+	public ContinueCampaignPanel continueCampaignPanel;
 
 	//UI objects using language translations
-	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiExpansionsBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -67,6 +69,7 @@ public class TitleController : MonoBehaviour
 		//save defaults
 		PlayerPrefs.Save();
 
+		RunningCampaign.Remove();
 		//create all card lists, load app settings, mission presets and translations
 		DataStore.InitData();
 
@@ -386,7 +389,7 @@ public class TitleController : MonoBehaviour
 		uiMenuHeader.text = ui.menuHeading;
 		uiNewGameBtn.text = ui.newGameBtn;
 		uiContinueBtn.text = ui.continueBtn;
-		uiCampaignBtn.text = ui.campaignsBtn;
+		uiExpansionsBtn.text = ui.campaignsBtn;
 		uiOptionsBtn.text = ui.optionsBtn;
 		donateText.text = ui.supportUC;
 		docsText.text = ui.docsUC;
@@ -565,19 +568,68 @@ public class TitleController : MonoBehaviour
 		yield return null;
 	}
 
+	public void OnNewCampaign()
+	{
+		EventSystem.current.SetSelectedGameObject( null );
+		soundController.PlaySound( FX.Click );
+		animator.SetBool( m_OpenParameterId, false );
+		animator.SetBool( expID, false );
+
+		newCampaignPanel.Show( () =>
+		{
+			animator.SetBool( m_OpenParameterId, true );
+		} );
+	}
+
+	public void OnContinueCampaign()
+	{
+		EventSystem.current.SetSelectedGameObject( null );
+		soundController.PlaySound( FX.Click );
+		animator.SetBool( m_OpenParameterId, false );
+		animator.SetBool( expID, false );
+
+		continueCampaignPanel.Show( () =>
+		{
+			animator.SetBool( m_OpenParameterId, true );
+		} );
+	}
+
+	public void NavToCampaignScreen( SagaCampaign campaign )
+	{
+		RunningCampaign.sagaCampaignGUID = campaign.GUID;
+		RunningCampaign.expansionCode = campaign.campaignExpansionCode;
+
+		soundController.FadeOutMusic();
+		FadeOut( 1 );
+
+		float foo = 1;
+		DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+		 SceneManager.LoadScene( "Campaign" ) );
+	}
+
 	public void OnToggleMode( Toggle toggle )
 	{
 		if ( sagaToggle.isOn )
 		{
 			DataStore.gameType = GameType.Saga;
+			sagaClassicLayoutContainer.SetActive( true );
+			campaignContainer.SetActive( false );
 			//check if saved state is valid
 			continueButton.interactable = IsSagaSessionValid();
 		}
 		else if ( classicToggle.isOn )
 		{
 			DataStore.gameType = GameType.Classic;
+			sagaClassicLayoutContainer.SetActive( true );
+			campaignContainer.SetActive( false );
 			//check if saved state is valid
 			continueButton.interactable = IsSessionValid();
+		}
+		else if ( campaignToggle.isOn )
+		{
+			continueButton.interactable = false;
+			sagaClassicLayoutContainer.SetActive( false );
+			campaignContainer.SetActive( true );
 		}
 	}
 }
