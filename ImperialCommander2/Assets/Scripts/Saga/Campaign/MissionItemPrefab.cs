@@ -13,29 +13,29 @@ namespace Saga
 		public Text threatLevelText;
 		public Toggle itemToggle;
 		public TextMeshProUGUI missionType, missionName, itemText, agendaIcon;
-		public GameObject removeForcedButton, agendaButton, dummyAgenda;
+		public GameObject removeForcedButton, agendaButton, dummyAgenda, dummyItemToggle;
 		public Image bgImage, nameButtonImage;
 
 		public void Init( CampaignStructure cs )
 		{
 			//story
 			bgImage.color = new Vector3( 0f, 0.6440244f, 1f ).ToColor();
+
 			if ( cs.missionType == MissionType.Side )
 				bgImage.color = new Vector3( .5f, 0.8362323f, 1f ).ToColor();
 			if ( cs.missionType == MissionType.Forced )
 			{
-				nameButtonImage.enabled = false;
+				dummyItemToggle.SetActive( true );
 				bgImage.color = new Vector3( 1f, 0.1568628f, 0f ).ToColor();
 			}
 			if ( cs.missionType == MissionType.Finale )
 			{
-				nameButtonImage.enabled = false;
+				dummyItemToggle.SetActive( true );
 				bgImage.color = new Vector3( 1f, 0.7863293f, 0f ).ToColor();
 			}
 			if ( cs.missionType == MissionType.Introduction
 				|| cs.missionType == MissionType.Interlude )
 			{
-				nameButtonImage.enabled = false;
 				bgImage.color = new Vector3( 0f, 0.3215685f, .5f ).ToColor();
 			}
 
@@ -48,7 +48,7 @@ namespace Saga
 			campaignStructure = cs;
 
 			missionType.text = cs.missionType.ToString();
-			string mn = DataStore.missionCards[cs.expansionCode].Where( x => x.id == cs.missionID ).FirstOr( null )?.name;
+			string mn = DataStore.GetMissionCard( cs.missionID )?.name;
 			if ( !string.IsNullOrEmpty( mn ) )
 				missionName.text = mn + "\n<color=orange>" + DataStore.translatedExpansionNames[cs.expansionCode] + "</color>";
 			else
@@ -64,13 +64,8 @@ namespace Saga
 			else
 				itemText.transform.parent.gameObject.SetActive( false );
 
-			if ( cs.missionType == MissionType.Introduction
-				|| cs.missionType == MissionType.Forced
-				|| cs.missionType == MissionType.Finale
-				|| cs.missionType == MissionType.Interlude )
-			{
-				missionName.transform.parent.GetComponent<Button>().interactable = false;
-			}
+			missionName.transform.parent.GetComponent<Button>().interactable = string.IsNullOrEmpty( cs.missionID );
+			nameButtonImage.enabled = string.IsNullOrEmpty( cs.missionID );
 
 			if ( cs.isForced )
 			{

@@ -30,6 +30,7 @@ namespace Saga
 		public Text campaignExpansion;
 
 		Sound sound;
+		int view = 1;//0=left, 1=right
 
 		void Start()
 		{
@@ -39,13 +40,14 @@ namespace Saga
 
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-			int pixelHeightOfCurrentScreen = Screen.currentResolution.height;
-			int pixelWidthOfCurrentScreen = Screen.currentResolution.width;
+			float pixelHeightOfCurrentScreen = Screen.height;//.currentResolution.height;
+			float pixelWidthOfCurrentScreen = Screen.width;//.currentResolution.width;
 			float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
 			if ( aspect < 1.7f )//less than 16:9, such as 16:10 and 4:3
 			{
 				//switch to single view
-
+				switchButton.SetActive( true );
+				leftPanel.SetActive( false );
 			}
 
 			//DEBUG BOOTSTRAP A CAMPAIGN
@@ -79,8 +81,8 @@ namespace Saga
 			}
 			else//setup new test campaign
 			{
-				RunningCampaign.expansionCode = "Hoth";
-				sagaCampaign = SagaCampaign.CreateNewCampaign( "Default", "Hoth" );
+				RunningCampaign.expansionCode = "Core";
+				sagaCampaign = SagaCampaign.CreateNewCampaign( "Default", RunningCampaign.expansionCode );
 			}
 		}
 
@@ -284,6 +286,18 @@ namespace Saga
 			}
 
 			sagaCampaign.SaveCampaignState( list );
+		}
+
+		public void OnInfoClicked()
+		{
+			GlowEngine.FindUnityObject<CampaignMessagePopup>().Show( "campaign setup", Utils.ReplaceGlyphs( sagaCampaign.GetCampaignInfo() ), 700 );
+		}
+
+		public void OnSwitchViewClicked()
+		{
+			view = view == 0 ? 1 : 0;
+			leftPanel.SetActive( view == 0 );
+			rightPanel.SetActive( view == 1 );
 		}
 
 		public void OnExitCampaignScreen()

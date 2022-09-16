@@ -180,5 +180,11 @@ namespace Saga
 
 		public CampaignItem GetItemFromID( string id ) => campaignDataItems.First( x => x.id == id );
 		public CampaignSkill GetSkillFromID( string id ) => campaignDataSkills.First( x => x.id == id );
+
+		public string GetCampaignInfo()
+		{
+			TextAsset text = Resources.Load<TextAsset>( $"CampaignData/{campaignExpansionCode}Info" );
+			return text?.text;
+		}
 	}
 }

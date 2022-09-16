@@ -135,7 +135,8 @@ namespace Saga
 				Destroy( item.gameObject );
 
 			selectedExpansion = "Core";
-			if ( missionType == MissionType.Story )//restricted to expansion missions
+			//restricted to current expansion missions
+			if ( missionType == MissionType.Story || missionType == MissionType.Finale )
 				selectedExpansion = expansionCode;
 			expansionDropdown.ClearOptions();
 
@@ -153,7 +154,7 @@ namespace Saga
 
 			addMissionCallback = callback;
 			Show();
-			if ( missionType != MissionType.Story )
+			if ( missionType != MissionType.Story && missionType != MissionType.Finale )
 			{
 				scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -155 );
 				expansionDropdown.gameObject.SetActive( true );

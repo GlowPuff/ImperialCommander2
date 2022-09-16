@@ -14,12 +14,3 @@
 		public bool isForced = false;
 	}
 }
-
-/*
- * 	{
-		"missionType": "Introduction",
-		"missionID": "Hoth7",
-		"threatLevel": 2,
-		"itemTier": [1]
-	},
-*/

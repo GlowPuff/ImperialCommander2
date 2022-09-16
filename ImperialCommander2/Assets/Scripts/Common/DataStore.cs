@@ -876,4 +876,18 @@ public static class DataStore
 		//finally try to return the tier1/2 group, even if it's null
 		return validEnemy;
 	}
+
+	public static MissionCard GetMissionCard( string id )
+	{
+		foreach ( var item in missionCards.Keys )
+		{
+			foreach ( var card in missionCards[item] )
+			{
+				if ( card.id.ToLower() == id.ToLower() )
+					return card;
+			}
+		}
+
+		return null;
+	}
 }

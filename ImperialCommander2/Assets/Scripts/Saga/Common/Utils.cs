@@ -46,6 +46,9 @@ namespace Saga
 
 		public static string ReplaceGlyphs( string item )
 		{
+			if ( string.IsNullOrEmpty( item ) )
+				return "";
+
 			//symbols
 			item = item.Replace( "{H}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">H</font></color>" );
 			item = item.Replace( "{C}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">C</font></color>" );

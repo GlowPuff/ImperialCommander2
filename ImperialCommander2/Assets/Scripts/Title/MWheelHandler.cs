@@ -10,6 +10,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	public int wheelValue;
 	public int maxValue = 10;
 	public int minValue = 0;
+	public int stepValue = 1;
 	public Text numberText;
 	public TextMeshProUGUI numberTextTMP;
 
@@ -38,13 +39,13 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		{
 			if ( Input.mouseScrollDelta.y == 1 )
 			{
-				wheelValue = Mathf.Min( maxValue, wheelValue + 1 );
+				wheelValue = Mathf.Min( maxValue, wheelValue + stepValue );
 				wheelValueChanged?.Invoke();
 				sound.PlaySound( FX.Click );
 			}
 			else if ( Input.mouseScrollDelta.y == -1 )
 			{
-				wheelValue = Mathf.Max( minValue, wheelValue - 1 );
+				wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
 				wheelValueChanged?.Invoke();
 				sound.PlaySound( FX.Click );
 			}
@@ -85,9 +86,9 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		{
 			currentDistance = 0;
 			if ( eventData.delta.x > 0 || eventData.delta.y > 0 )
-				wheelValue = Mathf.Min( maxValue, wheelValue + 1 );
+				wheelValue = Mathf.Min( maxValue, wheelValue + stepValue );
 			else
-				wheelValue = Mathf.Max( minValue, wheelValue - 1 );
+				wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
 
 			wheelValueChanged?.Invoke();
 		}
