@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA15-Extortion.json",
-  "relativePath": "JABBA15-Extortion.json",
-  "fileVersion": "15",
-  "saveDate": "6/21/2022",
-  "timeTicks": 637914498617734035,
+  "relativePath": "Update\\05Jabba\\JABBA15-Extortion.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637988895239618726,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Extortion",
     "campaignName": "Jabba's Realm",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "",
@@ -790,15 +792,15 @@
         {
           "theText": "Get into the cellar.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "b4113f5f-ce8e-4766-afc4-c566a2228195",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} The door is locked. A Rebel figure can interact with the door ({K} or {I}) to try and open it.\r\n{-} The mission will progress when the door to the cellar opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "6211ef4b-eb17-471e-ac07-9e54466557a9",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -910,29 +912,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "The door is fortified, but you start to work on forcing it open.\r\n\r\n{-} Test {K} or {I}. Apply +1 {B} for each strain token on the door, then discard all strain tokens on the door. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You make some progress, but the door is still shut tight. You need to keep trying.\r\n\r\n{-} Place 1 strain token on the door for each {B} result gained.",
               "fromValue": 0,
               "toValue": 3,
-              "theText": "You make some progress, but the door is still shut tight. You need to keep trying.\r\n\r\n{-} Place 1 strain token on the door for each {B} result gained.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 4,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "953139fb-98ef-43d0-9e4a-943a55ab82f7"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "555a91ce-1233-472e-8d7e-1401d974be52",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1037,13 +1039,13 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "mapSection": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "991d1165-200a-4d6b-9cc3-a0cd7374cf42",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "Block access to the doors.",
@@ -1055,25 +1057,25 @@
         },
         {
           "theText": "Mercenary goons are already waiting for you, their weapons drawn.",
-          "displayName": "Text Box",
           "GUID": "4960e5a2-5bb2-42da-93ac-db27fa208e83",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "isOnslaught": false,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": false,
           "GUID": "8467f9a8-00d3-48a0-89d3-e9f94184b1e8",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "theText": "Locked behind the doors are several Aqualish, thin, but unharmed. One calls to Onar impatiently, yet obviously elated. \"Took your time, my love.\"",
-          "displayName": "Text Box",
           "GUID": "94f2d9f2-48eb-4ad8-9441-27a50d0446f0",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1108,7 +1110,7 @@
               "entityProperties": {
                 "name": "Captive 3",
                 "isActive": true,
-                "theText": "A slender Aqualish woman is watching Onar with a mixture of amusement and affection. This is Botha, Onar's fiancee.\r\n\r\n{-} During his activation, while he has line of sight to Botha, Onar may become Focused. Limit once per round.",
+                "theText": "A slender Aqualish woman is watching Onar with a mixture of amusement and affection. This is Botha, Onar's fiancee.\r\n\r\n{-} During his activation, while he has line of sight to Botha, Onar may become <color=\"red\">Focused</color>. Limit once per round.",
                 "entityColor": "Red",
                 "buttonActions": []
               }
@@ -1119,23 +1121,23 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} Doors are locked. During his activation, a hero can choose an adjacent door and test {K} or {I}. If he passes, open that door. Limit once per activation.\r\n{-} Rebel mission tokens represent captives. Captives are neutral figures.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become Focused. Limit once per round.\r\n{-} The mission will progress when a cell door opens.",
-          "displayName": "Text Box",
+          "theText": "{-} Doors are locked. During his activation, a hero can choose an adjacent door and test {K} or {I}. If he passes, open that door. Limit once per activation.\r\n{-} Rebel mission tokens represent captives. Captives are neutral figures.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become <color=\"red\">Focused</color>. Limit once per round.\r\n{-} The mission will progress when a cell door opens.",
           "GUID": "a114e5ad-0fe9-42b5-8c0c-58627eae08fa",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Open the cell doors.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "edc0f88a-7733-4cb9-885a-bd6d3dfd9239",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Doors are locked. During his activation, a hero can choose an adjacent door and test {K} or {I}. If he passes, open that door. Limit once per activation.\r\n{-} Rebel mission tokens represent captives. Captives are neutral figures. At the start of each Status Phase, Rebels can move each captive up to 5 spaces minus 1 space for each Imperial figure adjacent to that captive at the start of the Status Phase.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become Focused. Limit once per round.\r\n{-} The mission will progress when a cell door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} Doors are locked. During his activation, a hero can choose an adjacent door and test {K} or {I}. If he passes, open that door. Limit once per activation.\r\n{-} Rebel mission tokens represent captives. Captives are neutral figures. At the start of each Status Phase, Rebels can move each captive up to 5 spaces minus 1 space for each Imperial figure adjacent to that captive at the start of the Status Phase.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become <color=\"red\">Focused</color>. Limit once per round.\r\n{-} The mission will progress when a cell door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
           "GUID": "ad65c6da-709a-46a7-8198-81d1f104e5e3",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1195,14 +1197,14 @@
           "triggerList": [
             {
               "triggerName": "Cell Doors Open",
+              "triggerGUID": "a99f46c3-8de5-460f-97c8-40e898fcbd9d",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "a99f46c3-8de5-460f-97c8-40e898fcbd9d"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "4b9a5225-a021-4062-911d-838e71f1432b",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1262,14 +1264,14 @@
           "triggerList": [
             {
               "triggerName": "Cell Doors Open",
+              "triggerGUID": "a99f46c3-8de5-460f-97c8-40e898fcbd9d",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "a99f46c3-8de5-460f-97c8-40e898fcbd9d"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "e14028d8-7519-45a6-b278-cb137822ef3c",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1329,14 +1331,14 @@
           "triggerList": [
             {
               "triggerName": "Cell Doors Open",
+              "triggerGUID": "a99f46c3-8de5-460f-97c8-40e898fcbd9d",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "a99f46c3-8de5-460f-97c8-40e898fcbd9d"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "35f25fd6-fda2-46e6-93e0-29c85fbdb5ce",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1344,7 +1346,7 @@
       "GUID": "56590ea8-ffdb-42da-bf25-e9860a398c26",
       "isGlobal": true,
       "name": "First door open",
-      "eventText": "Now that you are about to free the captives, you can focus on escaping. Through the back door, various escape routes lead away from the Andoan.",
+      "eventText": "Now that you are about to free the captives, you can focus on escaping. Through the back door, various escape routes lead away from the gambling den.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1390,7 +1392,7 @@
               "entityProperties": {
                 "name": "Exit 1",
                 "isActive": true,
-                "theText": "Multiple escape routes lead away from the Andoan.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
+                "theText": "Multiple escape routes lead away from the gambling den.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
@@ -1408,7 +1410,7 @@
               "entityProperties": {
                 "name": "Exit 2",
                 "isActive": true,
-                "theText": "Multiple escape routes lead away from the Andoan.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
+                "theText": "Multiple escape routes lead away from the gambling den.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
@@ -1426,7 +1428,7 @@
               "entityProperties": {
                 "name": "Exit 3",
                 "isActive": true,
-                "theText": "Multiple escape routes lead away from the Andoan.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
+                "theText": "Multiple escape routes lead away from the gambling den.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
@@ -1444,22 +1446,22 @@
         },
         {
           "theText": "{-} Neutral mission tokens represent exits.\r\n{-} When all captives are adjacent to an exit, the captives escape. Click an exit and select \"Captives escape\".\r\n{-} The Rebels win when the captives escape.",
-          "displayName": "Text Box",
           "GUID": "24d7cb3a-0922-4183-9cd0-8fefa2e87c43",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "triggerList": [
             {
               "triggerName": "Move Captives",
+              "triggerGUID": "124ae202-d2b6-4d12-9c8f-5795c1c22cb7",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "124ae202-d2b6-4d12-9c8f-5795c1c22cb7"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "9a4aef05-51f0-41fb-8f7c-d744ff17a1ce",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "entitiesToModify": [
@@ -1494,7 +1496,7 @@
               "entityProperties": {
                 "name": "Captive 3",
                 "isActive": false,
-                "theText": "A slender Aqualish woman is watching Onar with a mixture of amusement and affection. This is Botha, Onar's fiancee.\r\n\r\n{-} During his activation, while he has line of sight to Botha, Onar may become Focused. Limit once per round.",
+                "theText": "A slender Aqualish woman is watching Onar with a mixture of amusement and affection. This is Botha, Onar's fiancee.\r\n\r\n{-} During his activation, while he has line of sight to Botha, Onar may become <color=\"red\">Focused</color>. Limit once per round.",
                 "entityColor": "Red",
                 "buttonActions": []
               }
@@ -1507,15 +1509,15 @@
         {
           "theText": "Help the captives escape.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "d68594f2-fe34-4991-8281-6c2039bd5fce",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Doors are locked. During his activation, a hero can choose an adjacent door and test {K} or {I}. If he passes, open that door. Limit once per activation.\r\n{-} Rebel mission tokens represent captives. Captives are neutral figures. At the start of each Status Phase, Rebels can move each captive up to 5 spaces minus 1 space for each Imperial figure adjacent to that captive at the start of the Status Phase.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become Focused. Limit once per round.\r\n{-} Neutral mission tokens represent exits.\r\n{-} When all captives are adjacent to an exit, the captives escape. Click an exit and select \"Captives escape\".\r\n{-} The Rebels win when the captives escape.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} Doors are locked. During his activation, a hero can choose an adjacent door and test {K} or {I}. If he passes, open that door. Limit once per activation.\r\n{-} Rebel mission tokens represent captives. Captives are neutral figures. At the start of each Status Phase, Rebels can move each captive up to 5 spaces minus 1 space for each Imperial figure adjacent to that captive at the start of the Status Phase.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become <color=\"red\">Focused</color>. Limit once per round.\r\n{-} Neutral mission tokens represent exits.\r\n{-} When all captives are adjacent to an exit, the captives escape. Click an exit and select \"Captives escape\".\r\n{-} The Rebels win when the captives escape.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
           "GUID": "8c343e75-8e79-4509-a0e0-8574b5e09118",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1553,20 +1555,20 @@
       ],
       "eventActions": [
         {
-          "isOnslaught": true,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": true,
           "GUID": "fa80573e-2b46-401c-ae5b-239d823d8191",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
-          "theText": "{-} Rebel mission tokens represent captives. Captives are neutral figures. At the start of each Status Phase, Rebels can move each captive up to 5 spaces minus 1 space for each Imperial figure adjacent to that captive at the start of the Status Phase.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become Focused. Limit once per round.\r\n{-} Neutral mission tokens represent exits.\r\n{-} When all captives are adjacent to an exit, the captives escape. Click an exit and select \"Captives escape\".\r\n{-} The Rebels win when the captives escape.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} Rebel mission tokens represent captives. Captives are neutral figures. At the start of each Status Phase, Rebels can move each captive up to 5 spaces minus 1 space for each Imperial figure adjacent to that captive at the start of the Status Phase.\r\n{-} During his activation, while he has line of sight to Botha (the red captive), Onar may become <color=\"red\">Focused</color>. Limit once per round.\r\n{-} Neutral mission tokens represent exits.\r\n{-} When all captives are adjacent to an exit, the captives escape. Click an exit and select \"Captives escape\".\r\n{-} The Rebels win when the captives escape.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
           "GUID": "4ed2c193-c92b-42ac-8429-1fc8ee3a0e6b",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1724,7 +1726,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1760,7 +1763,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1796,7 +1800,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1832,7 +1837,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1868,7 +1874,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1904,7 +1911,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1940,7 +1948,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1976,7 +1985,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2012,7 +2022,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2048,11 +2059,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "8a8a1e30-7856-4868-a1e9-b78e8d600725",
       "name": "Cellar Door",
+      "entityType": 6,
+      "entityPosition": "980,1030",
+      "entityRotation": 90.0,
       "entityProperties": {
         "name": "Cellar Door",
         "isActive": false,
@@ -2066,14 +2082,14 @@
           }
         ]
       },
-      "GUID": "8a8a1e30-7856-4868-a1e9-b78e8d600725",
-      "entityType": 6,
-      "entityPosition": "980,1030",
-      "entityRotation": 90.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "82e1f0e9-61b8-497f-b015-b5e619a5b2ad",
       "name": "Cell Door 1",
+      "entityType": 6,
+      "entityPosition": "1020,1080",
+      "entityRotation": 180.0,
       "entityProperties": {
         "name": "Cell Door 1",
         "isActive": false,
@@ -2087,14 +2103,14 @@
           }
         ]
       },
-      "GUID": "82e1f0e9-61b8-497f-b015-b5e619a5b2ad",
-      "entityType": 6,
-      "entityPosition": "1020,1080",
-      "entityRotation": 180.0,
       "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
     },
     {
+      "GUID": "121189a8-fd43-4b1d-ad1c-44939bfa59ef",
       "name": "Cell Door 2",
+      "entityType": 6,
+      "entityPosition": "1010,1070",
+      "entityRotation": 270.0,
       "entityProperties": {
         "name": "Cell Door 2",
         "isActive": false,
@@ -2108,14 +2124,14 @@
           }
         ]
       },
-      "GUID": "121189a8-fd43-4b1d-ad1c-44939bfa59ef",
-      "entityType": 6,
-      "entityPosition": "1010,1070",
-      "entityRotation": 270.0,
       "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
     },
     {
+      "GUID": "8c4277e9-0eb2-4f36-ad9f-a0e1b45b71bf",
       "name": "Cell Door 3",
+      "entityType": 6,
+      "entityPosition": "1030,1030",
+      "entityRotation": 270.0,
       "entityProperties": {
         "name": "Cell Door 3",
         "isActive": false,
@@ -2129,14 +2145,14 @@
           }
         ]
       },
-      "GUID": "8c4277e9-0eb2-4f36-ad9f-a0e1b45b71bf",
-      "entityType": 6,
-      "entityPosition": "1030,1030",
-      "entityRotation": 270.0,
       "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
     },
     {
+      "GUID": "233e43fb-d859-4228-8c41-17ea5d58246f",
       "name": "Captive 1",
+      "entityType": 4,
+      "entityPosition": "1010,1070",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Captive 1",
         "isActive": false,
@@ -2144,16 +2160,16 @@
         "entityColor": "Yellow",
         "buttonActions": []
       },
+      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
       "tokenColor": "Yellow",
-      "markerType": 1,
-      "GUID": "233e43fb-d859-4228-8c41-17ea5d58246f",
-      "entityType": 4,
-      "entityPosition": "1010,1070",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
+      "markerType": 1
     },
     {
+      "GUID": "1837f7fc-d0ea-4ff6-bd70-e690a85e18b8",
       "name": "Captive 2",
+      "entityType": 4,
+      "entityPosition": "1040,1010",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Captive 2",
         "isActive": false,
@@ -2161,60 +2177,37 @@
         "entityColor": "Yellow",
         "buttonActions": []
       },
+      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
       "tokenColor": "Yellow",
-      "markerType": 1,
-      "GUID": "1837f7fc-d0ea-4ff6-bd70-e690a85e18b8",
-      "entityType": 4,
-      "entityPosition": "1040,1010",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
+      "markerType": 1
     },
     {
-      "name": "Captive 3",
-      "entityProperties": {
-        "name": "Captive 3",
-        "isActive": false,
-        "theText": "A slender Aqualish woman is watching Onar with a mixture of amusement and affection. This is Botha, Onar's fiancee.\r\n\r\n{-} During his activation, while he has line of sight to Botha, Onar may become Focused. Limit once per round.",
-        "entityColor": "Red",
-        "buttonActions": []
-      },
-      "tokenColor": "Red",
-      "markerType": 1,
       "GUID": "637072a0-8dd9-48ae-80f7-e940c493946f",
+      "name": "Captive 3",
       "entityType": 4,
       "entityPosition": "1020,1050",
       "entityRotation": 0.0,
-      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
+      "entityProperties": {
+        "name": "Captive 3",
+        "isActive": false,
+        "theText": "A slender Aqualish woman is watching Onar with a mixture of amusement and affection. This is Botha, Onar's fiancee.\r\n\r\n{-} During his activation, while he has line of sight to Botha, Onar may become <color=\"red\">Focused</color>. Limit once per round.",
+        "entityColor": "Red",
+        "buttonActions": []
+      },
+      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
+      "tokenColor": "Red",
+      "markerType": 1
     },
     {
-      "name": "Exit 1",
-      "entityProperties": {
-        "name": "Exit 1",
-        "isActive": false,
-        "theText": "Multiple escape routes lead away from the Andoan.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
-        "entityColor": "Gray",
-        "buttonActions": [
-          {
-            "buttonText": "Captives escape",
-            "triggerGUID": "00000000-0000-0000-0000-000000000000",
-            "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6"
-          }
-        ]
-      },
-      "tokenColor": "Gray",
-      "markerType": 0,
       "GUID": "2f4e8d2c-8e11-4b0d-8d33-97f948f98afc",
+      "name": "Exit 1",
       "entityType": 4,
       "entityPosition": "990,930",
       "entityRotation": 0.0,
-      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
-    },
-    {
-      "name": "Exit 2",
       "entityProperties": {
-        "name": "Exit 2",
+        "name": "Exit 1",
         "isActive": false,
-        "theText": "Multiple escape routes lead away from the Andoan.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
+        "theText": "Multiple escape routes lead away from the gambling den.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
         "entityColor": "Gray",
         "buttonActions": [
           {
@@ -2224,20 +2217,20 @@
           }
         ]
       },
+      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
       "tokenColor": "Gray",
-      "markerType": 0,
+      "markerType": 0
+    },
+    {
       "GUID": "3e2a15e1-9e49-4bda-abcd-6ebfebe549ba",
+      "name": "Exit 2",
       "entityType": 4,
       "entityPosition": "970,960",
       "entityRotation": 0.0,
-      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
-    },
-    {
-      "name": "Exit 3",
       "entityProperties": {
-        "name": "Exit 3",
+        "name": "Exit 2",
         "isActive": false,
-        "theText": "Multiple escape routes lead away from the Andoan.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
+        "theText": "Multiple escape routes lead away from the gambling den.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
         "entityColor": "Gray",
         "buttonActions": [
           {
@@ -2247,13 +2240,32 @@
           }
         ]
       },
+      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
       "tokenColor": "Gray",
-      "markerType": 0,
+      "markerType": 0
+    },
+    {
       "GUID": "0ec996d9-3856-4a48-91ae-65956db147d7",
+      "name": "Exit 3",
       "entityType": 4,
       "entityPosition": "1050,940",
       "entityRotation": 0.0,
-      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c"
+      "entityProperties": {
+        "name": "Exit 3",
+        "isActive": false,
+        "theText": "Multiple escape routes lead away from the gambling den.\r\n\r\n{-} When all captives are adjacent to an exit, the captives escape. Click \"Captives escape\".",
+        "entityColor": "Gray",
+        "buttonActions": [
+          {
+            "buttonText": "Captives escape",
+            "triggerGUID": "00000000-0000-0000-0000-000000000000",
+            "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6"
+          }
+        ]
+      },
+      "mapSectionOwner": "6ccd3ba0-a532-45f0-a249-95e76ad1bd6c",
+      "tokenColor": "Gray",
+      "markerType": 0
     }
   ],
   "initialDeploymentGroups": [
@@ -2281,11 +2293,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "c2b25a55-85ce-43cb-b6b8-1778a8dcd260",
@@ -2314,11 +2328,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "c0c622f3-91dd-4cca-be8a-305619e8c680",
@@ -2344,11 +2360,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "90190cdd-ab7b-4010-8deb-4afaaaf0eac1",
@@ -2377,11 +2395,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [],

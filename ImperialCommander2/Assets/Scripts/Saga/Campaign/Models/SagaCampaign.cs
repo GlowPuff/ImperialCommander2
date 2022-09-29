@@ -11,11 +11,13 @@ namespace Saga
 	{
 		public static Guid sagaCampaignGUID;
 		public static string expansionCode;
+		public static CampaignStructure campaignStructure;
 
 		public static void Remove()
 		{
 			sagaCampaignGUID = Guid.Empty;
 			expansionCode = "";
+			campaignStructure = null;
 		}
 	}
 
@@ -88,7 +90,25 @@ namespace Saga
 				villainDataCards = LoadAsset<List<DeploymentCard>>( "CardData/villains" );
 
 				//mission structure
-				campaignStructures = LoadAsset<List<CampaignStructure>>( $"CampaignData/{campaignExpansionCode}" );
+				if ( campaignExpansionCode != "Custom" )
+				{
+					campaignStructures = LoadAsset<List<CampaignStructure>>( $"CampaignData/{campaignExpansionCode}" );
+				}
+				else
+				{
+					campaignStructures = new List<CampaignStructure>();
+					campaignStructures.Add( new CampaignStructure()
+					{
+						missionType = MissionType.Introduction,
+						missionID = "",
+						threatLevel = 1,
+						expansionCode = "",
+						isAgendaMission = false,
+						isCustom = true,
+						itemTier = new string[] { "1" }
+					} );
+				}
+
 			}
 			catch ( JsonReaderException e )
 			{

@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH7-The Battle of Hoth.json",
-  "relativePath": "03 - Return to Hoth\\HOTH7-The Battle of Hoth.json",
-  "fileVersion": "15",
-  "saveDate": "6/14/2022",
-  "timeTicks": 637908086243867872,
+  "relativePath": "HOTH7-The Battle of Hoth.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637989168300907997,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "The Battle of Hoth",
     "campaignName": "Return to Hoth",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A009",
     "startingObjective": "",
@@ -465,6 +467,24 @@
       "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Win",
+      "GUID": "ee667d78-fd9f-4c5f-b3e3-597b1cf0e6d6",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Listen for Win",
+      "GUID": "14cd02a7-2d25-41fc-875d-258bae720314",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "globalEvents": [
@@ -674,17 +694,18 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "allyID": "A009",
           "allyName": null,
-          "useGenericMugshot": false,
+          "allyID": "A009",
           "setTrigger": "3d819884-ad2a-4785-9fa2-715d07a822ca",
+          "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "1c810083-1f59-409e-bd91-c69d4bd3333f",
-          "useThreat": false,
           "threatCost": 0,
-          "displayName": "Ally Deployment",
+          "useThreat": false,
+          "useGenericMugshot": false,
           "GUID": "c9de1e47-0d63-4fa4-8563-7ca3e425a4ed",
-          "eventActionType": 7
+          "eventActionType": 7,
+          "displayName": "Ally Deployment"
         },
         {
           "theText": "As the main body of the assault closes in on the base, smaller squads break through the thin defensive line to attack evacuating Rebels.",
@@ -732,11 +753,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "bbdb1197-5241-4599-b25d-c32fa8d38246",
           "eventActionType": 6,
@@ -782,11 +805,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "7de2bf74-2376-40f2-9637-23571a6fb962",
           "eventActionType": 6,
@@ -832,11 +857,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "0f37c263-596e-47e0-b5fc-4766d87cf929",
           "eventActionType": 6,
@@ -882,11 +909,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "1a248bb8-55ee-470e-9389-4329adc7e552",
           "eventActionType": 6,
@@ -938,11 +967,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "90a53c1b-e312-485f-9491-d8f7a74ec726",
           "eventActionType": 6,
@@ -1172,7 +1203,7 @@
       "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
-      "useAllGroupsDefeated": true,
+      "useAllGroupsDefeated": false,
       "useAllHeroesWounded": false,
       "useAllyDefeated": false,
       "useHeroWounded": false,
@@ -1184,8 +1215,8 @@
       "behaviorAll": true,
       "additionalTriggers": [
         {
-          "triggerName": "Stations Online",
-          "triggerGUID": "558b63f8-1ee9-42e1-8e97-98d044a2ac8f",
+          "triggerName": "Rebels Win",
+          "triggerGUID": "ee667d78-fd9f-4c5f-b3e3-597b1cf0e6d6",
           "triggerValue": 1
         }
       ],
@@ -2186,11 +2217,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "cac799bb-9e44-447f-a754-d2379e128789",
           "eventActionType": 6,
@@ -2265,11 +2298,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "c17d8157-3370-4df5-a099-d1f3d75d2269",
           "eventActionType": 6,
@@ -2723,14 +2758,14 @@
           "displayName": "Modify Variable(s)"
         },
         {
-          "isOnslaught": true,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": true,
           "GUID": "0d54f846-c15c-4561-984c-d1791515e74c",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "incRoundCounter": false,
@@ -2742,12 +2777,6 @@
           "GUID": "17a541b2-139b-4d18-a8b1-ac9a5e42b65a",
           "eventActionType": 0,
           "displayName": "Mission Management"
-        },
-        {
-          "theText": "{-} The Rebels win when all Imperial figures have been defeated.",
-          "GUID": "bbb0c7c2-2a18-4cef-bec8-349b9a1ddfe4",
-          "eventActionType": 16,
-          "displayName": "Text Box"
         },
         {
           "theText": null,
@@ -2763,7 +2792,7 @@
       "GUID": "b86c6554-a770-4949-a15c-33d907d9b2e7",
       "isGlobal": true,
       "name": "Rigged to Blow",
-      "eventText": "As the second powers station activates, suddenly a surge of electricity rushes through the stations.\r\n\r\n{-} Choose the active power station with the most Rebel figures on or adjacent to it and roll 1 red die. Each Rebel figure on or adjacent to that power station suffers {H} equal to the {H} results and becomes Bleeding.",
+      "eventText": "As the second powers station activates, suddenly a surge of electricity rushes through the stations.\r\n\r\n{-} Choose the active power station with the most Rebel figures on or adjacent to it and roll 1 red die. Each Rebel figure on or adjacent to that power station suffers {H} equal to the {H} results and becomes <color=\"red\">Bleeding</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2834,6 +2863,102 @@
           "GUID": "63f90d52-3847-4cf0-a44e-4f801b0f16dd",
           "eventActionType": 4,
           "displayName": "Modify Threat"
+        }
+      ]
+    },
+    {
+      "GUID": "e47908d3-a735-407e-847a-a6c04d6f6078",
+      "isGlobal": true,
+      "name": "Rebels Win",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": true,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Listen for Win",
+          "triggerGUID": "14cd02a7-2d25-41fc-875d-258bae720314",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Rebels Win",
+              "triggerGUID": "ee667d78-fd9f-4c5f-b3e3-597b1cf0e6d6",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "fe55eb77-1192-4b75-b351-8b73b465c745",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "b0e7033a-5ae0-483f-81cf-dc9587ca9e01",
+      "isGlobal": true,
+      "name": "Stations Online",
+      "eventText": "{-} The Rebels win when all Imperial figures have been defeated.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Stations Online",
+          "triggerGUID": "558b63f8-1ee9-42e1-8e97-98d044a2ac8f",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Listen for Win",
+              "triggerGUID": "14cd02a7-2d25-41fc-875d-258bae720314",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "dc202ac3-f7aa-4377-8bf9-e6baf1550ddb",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     }
@@ -2957,7 +3082,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2993,7 +3119,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3029,7 +3156,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3065,7 +3193,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3101,7 +3230,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3137,7 +3267,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3173,7 +3304,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3209,7 +3341,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3245,7 +3378,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3281,7 +3415,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3317,7 +3452,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3353,7 +3489,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3631,11 +3768,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "eaaf68a0-64f0-471f-b461-6cefc0eb55ad",
@@ -3661,11 +3800,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "c746d3f5-67e6-4bda-91ad-ca7aa10bb85f",
@@ -3691,11 +3832,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "25e31143-ff10-4527-80b4-fb99f5dfd52c",
@@ -3721,11 +3864,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "7ee98b4f-a4d6-4dd8-94cc-0d1e45e9faa0",
@@ -3757,11 +3902,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "64780c22-9a7b-4d17-8207-7edfc1b6f227",
@@ -3787,11 +3934,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "55b5a352-1e23-4d3f-8850-d04f05f4f612",
@@ -3817,11 +3966,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

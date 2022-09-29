@@ -198,6 +198,11 @@ public static class Extensions
 		return new Color( c.x, c.y, c.z, 1 );
 	}
 
+	public static Color ToColor( this Vector4 c )
+	{
+		return new Color( c.x, c.y, c.z, c.w );
+	}
+
 	public static Vector3 ToUnityV3( this Saga.Vector v )
 	{
 		return new Vector3( v.X, v.Y, v.Z );

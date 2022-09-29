@@ -29,7 +29,7 @@ namespace Saga
 		public SagaModifyGroupsPanel modifyGroupsPanel;
 		public MissionCardZoom missionCardZoom;
 		//OTHER
-		public GameObject warpEffect;
+		public GameObject warpEffect, rightPanel;
 		public Transform thrusterRoot, thrusterLeft, thrusterRight;
 		public SagaSetupLanguageController languageController;
 		public CanvasGroup faderCG;
@@ -39,7 +39,8 @@ namespace Saga
 		public MissionPicker missionPicker;
 
 		Sound sound;
-		SagaSetupOptions setupOptions;
+		SagaSetupOptions setupOptions { get; set; }
+		bool isFromCampaign = false;
 
 		void Awake()
 		{
@@ -51,8 +52,8 @@ namespace Saga
 
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-			int pixelHeightOfCurrentScreen = Screen.currentResolution.height;
-			int pixelWidthOfCurrentScreen = Screen.currentResolution.width;
+			int pixelHeightOfCurrentScreen = Screen.height;//.currentResolution.height;
+			int pixelWidthOfCurrentScreen = Screen.width;//.currentResolution.width;
 			float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
 			if ( aspect >= 2f )
 			{
@@ -76,10 +77,22 @@ namespace Saga
 			sound.CheckAudio();
 
 			setupOptions = new SagaSetupOptions();
-			threatValue.ResetWheeler( 0 );
-			addtlThreatValue.ResetWheeler();
 			DataStore.StartNewSagaSession( setupOptions );
+			//check if we're loading in from  the campaign manager
+			//single shot mission, not from a campaign
+			if ( RunningCampaign.campaignStructure == null )
+			{
+				threatValue.ResetWheeler( 0 );
+			}
+			else//from campaign manager
+			{
+				//setupOptions is set here
+				SetupCampaignMission();
+			}
+
 			ResetSetup();
+			UpdateHeroes();
+			addtlThreatValue.ResetWheeler();
 
 			faderCG.alpha = 0;
 			faderCG.DOFade( 1, .5f );
@@ -99,6 +112,7 @@ namespace Saga
 			difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
 			//adaptive
 			adaptiveButton.colors = setupOptions.useAdaptiveDifficulty ? greenBlock : redBlock;
+			//clear hero panel if not loading from campaign
 			if ( heroContainer.childCount > 0 )
 			{
 				for ( int i = 1; i < heroContainer.childCount; i++ )
@@ -106,8 +120,9 @@ namespace Saga
 					Destroy( heroContainer.GetChild( i ).gameObject );
 				}
 			}
-			//threat
+			//threat value
 			initialText.text = setupOptions.threatLevel.ToString();
+			//additional threat value
 			additionalText.text = setupOptions.addtlThreat.ToString();
 			//clear ignored groups
 			DataStore.sagaSessionData.MissionIgnored.Clear();
@@ -120,7 +135,63 @@ namespace Saga
 		{
 			sound.FadeOutMusic();
 			thrusterRoot.DOMoveZ( -30, .5f );
-			faderCG.DOFade( 0, .5f ).OnComplete( () => SceneManager.LoadScene( "Title" ) );
+			if ( !isFromCampaign )
+				faderCG.DOFade( 0, .5f ).OnComplete( () => SceneManager.LoadScene( "Title" ) );
+			else
+				faderCG.DOFade( 0, .5f ).OnComplete( () => SceneManager.LoadScene( "Campaign" ) );
+		}
+
+		/// <summary>
+		/// setup the screen when loaded from the campaign manager
+		/// </summary>
+		void SetupCampaignMission()
+		{
+			isFromCampaign = true;
+			var campaign = SagaCampaign.LoadCampaignState( RunningCampaign.sagaCampaignGUID );
+			if ( campaign == null )
+			{
+				Debug.Log( "SetupCampaignMission()::Could not load the campaign" );
+				return;
+			}
+
+			var structure = RunningCampaign.campaignStructure;
+			//deactivate mission picker
+			rightPanel.SetActive( false );
+			//add heroes
+			foreach ( var item in campaign.campaignHeroes )
+			{
+				var hero = DataStore.GetHero( item.heroID );
+				DataStore.sagaSessionData.MissionHeroes.Add( hero );
+			}
+
+			setupOptions = new SagaSetupOptions()
+			{
+				threatLevel = structure.threatLevel,
+				projectItem = structure.projectItem,
+			};
+			//set the mission
+			missionPicker.selectedMission = setupOptions.projectItem;
+			//set mission name
+			missionPicker.missionNameText.text = structure.projectItem.Title;
+			//set description
+			missionPicker.missionDescriptionText.text = structure.projectItem.Description;
+			//set additional text
+			missionPicker.additionalInfoText.text = structure.projectItem.AdditionalInfo;
+			//set threat
+			threatValue.ResetWheeler( structure.threatLevel );
+			//set text based on custom or built-in mission
+			if ( structure.missionID == "Custom" )
+			{
+				missionPicker.pickerMode = PickerMode.Custom;
+				descriptionTextBox.gameObject.SetActive( true );
+				viewMissionCardButton.gameObject.SetActive( false );
+			}
+			else
+			{
+				missionPicker.pickerMode = PickerMode.BuiltIn;
+				descriptionTextBox.gameObject.SetActive( false );
+				viewMissionCardButton.gameObject.SetActive( true );
+			}
 		}
 
 		public async void OnStartMission()

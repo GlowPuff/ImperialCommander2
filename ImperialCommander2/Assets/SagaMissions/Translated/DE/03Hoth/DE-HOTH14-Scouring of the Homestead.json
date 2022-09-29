@@ -1,18 +1,19 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "German\\03Hoth\\HOTH14-Scouring of the Homestead.json",
-  "fileVersion": "16",
-  "saveDate": "8.14.2022",
-  "timeTicks": 637961006097319119,
+  "fileName": "HOTH14-Scouring of the Homestead.json",
+  "relativePath": "Update\\Translated\\De\\03Hoth\\HOTH14-Scouring of the Homestead.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637989137836982426,
   "languageID": "German (DE)",
   "missionProperties": {
     "missionName": "Vernichtung der Farm",
     "campaignName": "Rückkehr nach Hoth",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A001",
     "bannedAlly": "A008",
     "startingObjective": "",
-    "additionalMissionInfo": null,
     "missionID": "Hoth 14",
     "missionInfo": "",
     "optionalDeployment": false,
@@ -50,7 +51,6 @@
       "DG029"
     ]
   },
-  "fileName": "HOTH14-Scouring of the Homestead.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -816,6 +816,7 @@
           "allyName": null,
           "allyID": "A008",
           "setTrigger": "00000000-0000-0000-0000-000000000000",
+          "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "7590703b-5004-4eb7-8e47-7f076e8a11a5",
           "threatCost": 0,
@@ -883,6 +884,7 @@
         {
           "customType": 2,
           "iconType": 0,
+          "attackType": 0,
           "thumbnailGroupImperial": "DG019",
           "thumbnailGroupRebel": "A001",
           "repositionInstructions": "",
@@ -912,7 +914,7 @@
             "cardName": "Verbrennungskommandos",
             "cardID": "929cf7d3-3f30-40f0-aa07-2d889e65edce",
             "customInstructionType": 2,
-            "customText": "{-} LETZTES GEFECHT: Wenn sich weniger als 3 Figuren in dieser Gruppe befinden, werde fokussiert. Nur einmal pro Gruppenaktivierung.\n{-} FEUERFEST: Diese Figur erleidet keinen {H}, wenn sie Felder mit Feuer betritt. Sie kann ihre Bewegung freiwillig auf einem Feld beenden, das ein Feuer enthält.\n{Q} Bewegung 1, um {rebel} anzugreifen.\n{A} Bewegung 2 in Richtung des nächsten Farm-Spielplanteils ohne Feuer.\n{A} Bewegung 4 in Richtung des nächsten Farm-Spielplanteils ohne Feuer.\n{-} Platziere 1 Feuer auf einem leeren benachbarten Feld. Wenn möglich, wähle ein Feld auf einem Farm-Spielplanteil ohne Feuer.",
+            "customText": "{-} LETZTES GEFECHT: Wenn sich weniger als 3 Figuren in dieser Gruppe befinden, werde <color=\"red\">Fokussiert</color>. Nur einmal pro Gruppenaktivierung.\n{-} FEUERFEST: Diese Figur erleidet keinen {H}, wenn sie Felder mit Feuer betritt. Sie kann ihre Bewegung freiwillig auf einem Feld beenden, das ein Feuer enthält.\n{Q} Bewegung 1, um {rebel} anzugreifen.\n{A} Bewegung 2 in Richtung des nächsten Farm-Spielplanteils ohne Feuer.\n{A} Bewegung 4 in Richtung des nächsten Farm-Spielplanteils ohne Feuer.\n{-} Platziere 1 Feuer auf einem leeren benachbarten Feld. Wenn möglich, wähle ein Feld auf einem Farm-Spielplanteil ohne Feuer.",
             "pointList": [
               {
                 "GUID": "11111111-1111-1111-1111-111111111111"
@@ -937,6 +939,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1114,7 +1117,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Die verbliebenen imperialen Truppen ziehen sich nach Mos Eisley zurück und lassen die Farm in Frieden. Die überlebenden Farmer weinen vor Freude und sind euch zutiefst dankbar für eure Hilfe.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten die Belohnungskarte \"Neuer Mut\".\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Das Imperium legt die Belohnungskarte \"Immer im Vorteil\" ab.",
+      "eventText": "Die verbliebenen imperialen Truppen ziehen sich nach Mos Eisley zurück und lassen die Farm in Frieden. Die überlebenden Farmer weinen vor Freude und sind euch zutiefst dankbar für eure Hilfe.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten die Belohnungskarte \"Neuer Mut\". (Diese Belohnungskarte funktioniert anders, wenn man mit <b>Imperial Commander</b> spielt. Siehe den Abschnitt <b>Rules Change</b> in der Wiki-Dokumentation für Details).\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Das Imperium legt die Belohnungskarte \"Immer im Vorteil\" ab.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1509,7 +1512,7 @@
                 "entityColor": "Blue",
                 "buttonActions": [
                   {
-                    "buttonText": "Fires extinguished (End Mission)",
+                    "buttonText": "Feuer gelöscht (Einsatz beenden)",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6"
                   }
@@ -1520,6 +1523,14 @@
           "GUID": "2f5c2f0e-08ed-4cac-8b1b-7bb36282c934",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "theText": null,
+          "useSpecific": false,
+          "repoGroups": [],
+          "GUID": "221ace82-e754-4caf-82c0-0f4245f7d846",
+          "eventActionType": 17,
+          "displayName": "Change Reposition Instructions"
         },
         {
           "theText": "Löscht alle Feuer.",
@@ -1540,7 +1551,7 @@
       "GUID": "24161f96-5d9c-487f-8dc5-3b23e8af1966",
       "isGlobal": true,
       "name": "Mass Combustion",
-      "eventText": "Der Wind hat Funken über die ganze Feuchtfarm geweht. Weitere Feuer werden entfacht.",
+      "eventText": "",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1603,6 +1614,55 @@
             }
           ],
           "GUID": "550cf360-d961-4329-a1d1-e34436183f98",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
+        },
+        {
+          "theText": "Der Wind hat Funken über die ganze Feuchtfarm geweht. Weitere Feuer werden entfacht.",
+          "GUID": "a0f79740-7bb2-4b07-901a-65d14f938ff7",
+          "eventActionType": 16,
+          "displayName": "Text Box"
+        },
+        {
+          "entitiesToModify": [
+            {
+              "sourceGUID": "5a4c20c9-db4e-4f18-9e06-fe877e52da77",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Fire 1",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Gray",
+                "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "1a29130e-ffe3-43da-9a71-e4d7e88daad8",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Fire 2",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Gray",
+                "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "cf5b5d78-9970-4614-a86d-fd19dc5f027d",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Fire 3",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Gray",
+                "buttonActions": []
+              }
+            }
+          ],
+          "GUID": "b6111a4f-5133-490c-b5ad-4138307f8e6b",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
         }
@@ -2138,7 +2198,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2174,7 +2235,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2210,7 +2272,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2246,7 +2309,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2282,7 +2346,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2318,7 +2383,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2354,7 +2420,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2390,7 +2457,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2477,7 +2545,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2513,7 +2582,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2549,7 +2619,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2711,6 +2782,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2742,6 +2814,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2773,6 +2846,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",

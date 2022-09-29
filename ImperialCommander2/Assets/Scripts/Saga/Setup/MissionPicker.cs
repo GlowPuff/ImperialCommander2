@@ -32,7 +32,7 @@ namespace Saga
 		[HideInInspector]
 		public bool isBusy = false;
 		[HideInInspector]
-		public PickerMode pickerMode { get; private set; }
+		public PickerMode pickerMode { get; set; }
 
 		string currentFolder, basePath, prevFolder;
 		ProjectItem[] projectItems;
@@ -125,7 +125,7 @@ namespace Saga
 			}
 
 			//then add files
-			projectItems = GetProjects( currentFolder ).ToArray();
+			projectItems = FileManager.GetProjects( currentFolder ).ToArray();
 			//sort alphabetically
 			projectItems = projectItems.OrderBy( x => x.Title ).ToArray();
 			bool first = true;
@@ -348,33 +348,7 @@ namespace Saga
 			}
 		}
 
-		IEnumerable<ProjectItem> GetProjects( string pathToUse )
-		{
-			List<ProjectItem> items = new List<ProjectItem>();
-			DirectoryInfo di = new DirectoryInfo( pathToUse );
-			FileInfo[] files = di.GetFiles().Where( file => file.Extension == ".json" ).ToArray();
-
-			try
-			{
-				//find mission files
-				foreach ( FileInfo fi in files )
-				{
-					//FileInfo fi = new FileInfo( filename );
-					string[] text = File.ReadAllLines( fi.FullName );
-					//var pi = CreateProjectItem( fi.FullName );
-					var pi = CreateProjectItem( text, fi.Name, fi.FullName );
-					items.Add( pi );
-				}
-				items.Sort();
-				return items;
-			}
-			catch ( Exception )
-			{
-				return null;
-			}
-		}
-
-		public ProjectItem CreateProjectItem( string[] text, string fileName = "", string fullName = "" ) //filename )
+		public ProjectItem CreateProjectItem( string[] text, string fileName = "", string fullName = "" )
 		{
 			ProjectItem projectItem = new ProjectItem();
 			//FileInfo fi = new FileInfo( filename );

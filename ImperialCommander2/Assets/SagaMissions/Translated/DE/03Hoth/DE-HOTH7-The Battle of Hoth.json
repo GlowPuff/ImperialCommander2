@@ -1,18 +1,19 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "German\\03Hoth\\HOTH7-The Battle of Hoth.json",
-  "fileVersion": "16",
-  "saveDate": "8.14.2022",
-  "timeTicks": 637960880204763966,
+  "fileName": "HOTH7-The Battle of Hoth.json",
+  "relativePath": "HOTH7-The Battle of Hoth.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637989173924929265,
   "languageID": "German (DE)",
   "missionProperties": {
     "missionName": "Die Schlacht von Hoth",
     "campaignName": "Rückkehr nach Hoth",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A001",
     "bannedAlly": "A009",
     "startingObjective": "",
-    "additionalMissionInfo": null,
     "missionID": "Hoth 7",
     "missionInfo": "",
     "optionalDeployment": false,
@@ -49,7 +50,6 @@
       "DG045"
     ]
   },
-  "fileName": "HOTH7-The Battle of Hoth.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -467,6 +467,24 @@
       "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Win",
+      "GUID": "8f492fd5-e69c-4601-a2f7-3cef10ffabe6",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Listen for Win",
+      "GUID": "60b0959d-e6d9-40aa-a5a6-709640a24b59",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "globalEvents": [
@@ -679,6 +697,7 @@
           "allyName": null,
           "allyID": "A009",
           "setTrigger": "3d819884-ad2a-4785-9fa2-715d07a822ca",
+          "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "1c810083-1f59-409e-bd91-c69d4bd3333f",
           "threatCost": 0,
@@ -734,6 +753,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -785,6 +805,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -836,6 +857,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -887,6 +909,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -944,6 +967,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1179,7 +1203,7 @@
       "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
-      "useAllGroupsDefeated": true,
+      "useAllGroupsDefeated": false,
       "useAllHeroesWounded": false,
       "useAllyDefeated": false,
       "useHeroWounded": false,
@@ -1191,8 +1215,8 @@
       "behaviorAll": true,
       "additionalTriggers": [
         {
-          "triggerName": "Stations Online",
-          "triggerGUID": "558b63f8-1ee9-42e1-8e97-98d044a2ac8f",
+          "triggerName": "Rebels Win",
+          "triggerGUID": "8f492fd5-e69c-4601-a2f7-3cef10ffabe6",
           "triggerValue": 1
         }
       ],
@@ -2193,6 +2217,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2273,6 +2298,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2753,12 +2779,6 @@
           "displayName": "Mission Management"
         },
         {
-          "theText": "{-} Die Rebellen gewinnen, wenn alle imperialen Figuren besiegt worden sind.",
-          "GUID": "bbb0c7c2-2a18-4cef-bec8-349b9a1ddfe4",
-          "eventActionType": 16,
-          "displayName": "Text Box"
-        },
-        {
           "theText": null,
           "useSpecific": false,
           "repoGroups": [],
@@ -2772,7 +2792,7 @@
       "GUID": "b86c6554-a770-4949-a15c-33d907d9b2e7",
       "isGlobal": true,
       "name": "Rigged to Blow",
-      "eventText": "Als die zweite Energiezelle aktiviert wird, strömt plötzlich ein Stromstoß durch die Stationen.\n\n{-} Wähle die aktive Energiezelle mit den meisten Rebellenfiguren auf oder benachbart zu ihr und wirf 1 roten Würfel. Jede Rebellenfigur, die auf oder benachbart zu dieser Energiezelle ist, erleidet {H} in Höhe des {H}-Ergebnisses und wird blutend.",
+      "eventText": "Als die zweite Energiezelle aktiviert wird, strömt plötzlich ein Stromstoß durch die Stationen.\n\n{-} Wähle die aktive Energiezelle mit den meisten Rebellenfiguren auf oder benachbart zu ihr und wirf 1 roten Würfel. Jede Rebellenfigur, die auf oder benachbart zu dieser Energiezelle ist, erleidet {H} in Höhe des {H}-Ergebnisses und wird <color=\"red\">Blutend</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2843,6 +2863,102 @@
           "GUID": "63f90d52-3847-4cf0-a44e-4f801b0f16dd",
           "eventActionType": 4,
           "displayName": "Modify Threat"
+        }
+      ]
+    },
+    {
+      "GUID": "0d803fde-4204-462b-8f6a-17f1b0e3ba8f",
+      "isGlobal": true,
+      "name": "Stations Online",
+      "eventText": "{-} Die Rebellen gewinnen, wenn alle imperialen Figuren besiegt worden sind.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Stations Online",
+          "triggerGUID": "558b63f8-1ee9-42e1-8e97-98d044a2ac8f",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Listen for Win",
+              "triggerGUID": "60b0959d-e6d9-40aa-a5a6-709640a24b59",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "87ba5a6f-c08a-4b8d-bb05-efc9e70ef6ba",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "ce68ab30-23ff-411d-883a-1b6edcf7d8e7",
+      "isGlobal": true,
+      "name": "Rebels Win",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": true,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Listen for Win",
+          "triggerGUID": "60b0959d-e6d9-40aa-a5a6-709640a24b59",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Rebels Win",
+              "triggerGUID": "8f492fd5-e69c-4601-a2f7-3cef10ffabe6",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "f0d0d53d-f268-4341-91ed-851cad2c8949",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     }
@@ -2966,7 +3082,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3002,7 +3119,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3038,7 +3156,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3074,7 +3193,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3110,7 +3230,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3146,7 +3267,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3182,7 +3304,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3218,7 +3341,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3254,7 +3378,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3290,7 +3415,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3326,7 +3452,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3362,7 +3489,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3640,6 +3768,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3671,6 +3800,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3702,6 +3832,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3733,6 +3864,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3770,6 +3902,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3801,6 +3934,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3832,6 +3966,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": false,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",

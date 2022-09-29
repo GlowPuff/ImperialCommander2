@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -22,7 +23,8 @@ namespace Saga
 		Action<CampaignSkill> addSkillCallback;
 		Action<MissionCard> addMissionCallback;
 
-		string selectedExpansion;
+		string selectedExpansion = "";
+		List<string> expansionCodes = new List<string>();
 		//scrollview top=60
 
 		void Show()
@@ -114,37 +116,31 @@ namespace Saga
 			Show();
 		}
 
-		public void AddForcedMission( string expansionCode, Action<MissionCard> callback )
-		{
-			foreach ( Transform item in itemContainer )
-				Destroy( item.gameObject );
-
-			foreach ( var item in DataStore.missionCards[expansionCode] )
-			{
-				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
-			}
-
-			addMissionCallback = callback;
-			Show();
-		}
-
 		public void AddMission( string expansionCode, MissionType missionType, Action<MissionCard> callback )
 		{
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
 
 			selectedExpansion = "Core";
-			//restricted to current expansion missions
-			if ( missionType == MissionType.Story || missionType == MissionType.Finale )
+			expansionCodes.Clear();
+			//restricted to current expansion missions (story and finale)
+			if ( expansionCode != "Custom"
+				&& (missionType == MissionType.Story || missionType == MissionType.Finale) )
 				selectedExpansion = expansionCode;
 			expansionDropdown.ClearOptions();
-
 			expansionDropdown.AddOptions(
 				DataStore.translatedExpansionNames
 				.Where( x => DataStore.ownedExpansions.Contains( x.Key.ToEnum( Expansion.Core ) ) )
 				.Select( y => y.Value )
 				.ToList() );
+
+			expansionCodes = DataStore.ownedExpansions.Select( x => x.ToString() ).ToList();
+
+			if ( expansionCode == "Custom" )
+			{
+				expansionDropdown.AddOptions( (new string[] { "Custom Mission" }).ToList() );
+				expansionCodes.Add( "Custom" );
+			}
 
 			foreach ( var item in DataStore.missionCards[selectedExpansion] )
 			{
@@ -154,7 +150,7 @@ namespace Saga
 
 			addMissionCallback = callback;
 			Show();
-			if ( missionType != MissionType.Story && missionType != MissionType.Finale )
+			if ( expansionCode == "Custom" || (missionType != MissionType.Story && missionType != MissionType.Finale) )
 			{
 				scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -155 );
 				expansionDropdown.gameObject.SetActive( true );
@@ -204,14 +200,41 @@ namespace Saga
 
 		public void OnExpansionChanged()
 		{
-			selectedExpansion = DataStore.ownedExpansions[expansionDropdown.value].ToString();
+			//get string from selection dropdown value
+			selectedExpansion = expansionCodes[expansionDropdown.value];
 
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
-			foreach ( var item in DataStore.missionCards[selectedExpansion] )
+
+			if ( selectedExpansion != "Custom" )
 			{
-				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+				foreach ( var card in DataStore.missionCards[selectedExpansion] )
+				{
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( card );
+				}
+			}
+			else
+			{
+				var missions = FileManager.GetCustomMissions();
+				//sort alphabetically
+				missions = missions.OrderBy( x => x.Title ).ToList();
+
+				foreach ( var item in missions )
+				{
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					//store path into 'hero'
+					//store additional info into 'bonusText'
+					var card = new MissionCard()
+					{
+						name = item.Title,
+						id = "Custom",
+						hero = item.fullPathWithFilename,
+						bonusText = item.AdditionalInfo,
+						descriptionText = item.Description,
+					};
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( card );
+				}
 			}
 		}
 

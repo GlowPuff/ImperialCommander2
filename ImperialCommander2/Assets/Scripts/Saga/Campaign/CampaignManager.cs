@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -19,15 +20,17 @@ namespace Saga
 		public VolumeProfile volume;
 		public GameObject leftPanel, rightPanel, switchButton;
 		//prefabs
-		public GameObject forceMissionItemPrefab, listItemPrefab, missionItemPrefab;
+		public GameObject forceMissionItemPrefab, listItemPrefab, missionItemPrefab, customAddMissionBarPrefab;
 		//UI
 		public AddItemHeroAllyVillainPopup addItemHeroAllyVillainPopup;
+		public ModifyCustomPropsPopup modifyCustomPropsPopup;
 		public TMP_InputField campaignNameInputField;
 		public Transform villainContainer, allyContainer, itemContainer, structureContainer;
 		public CampaignHeroPrefab[] heroPrefabs;
 		public TextMeshProUGUI xpText, creditsText, fameText, awardsText;
 		public MWheelHandler xpWheel, creditsWheel, fameWheel, awardsWheel;
 		public Text campaignExpansion;
+		public CanvasGroup topButtonsGroup, rightPanelGroup;
 
 		Sound sound;
 		int view = 1;//0=left, 1=right
@@ -72,7 +75,7 @@ namespace Saga
 
 		void bootstrapDEBUG()
 		{
-			Debug.Log( "***BOOTSTRAP DEBUG***" );
+			Debug.Log( "***BOOTSTRAP DEBUG (Campaign Manager)***" );
 			DataStore.InitData();
 			//campaign is already setup from Title screen
 			if ( RunningCampaign.sagaCampaignGUID != null && RunningCampaign.sagaCampaignGUID != Guid.Empty )
@@ -81,7 +84,7 @@ namespace Saga
 			}
 			else//setup new test campaign
 			{
-				RunningCampaign.expansionCode = "Core";
+				RunningCampaign.expansionCode = "Custom";
 				sagaCampaign = SagaCampaign.CreateNewCampaign( "Default", RunningCampaign.expansionCode );
 			}
 		}
@@ -93,7 +96,11 @@ namespace Saga
 		{
 			campaignNameInputField.text = sagaCampaign.campaignName;
 			//use translated expansion name
-			campaignExpansion.text = DataStore.translatedExpansionNames[sagaCampaign.campaignExpansionCode];
+			if ( sagaCampaign.campaignExpansionCode != "Custom" )
+				campaignExpansion.text = DataStore.translatedExpansionNames[sagaCampaign.campaignExpansionCode];
+			else
+				campaignExpansion.text = "custom";
+
 			creditsWheel.ResetWheeler( sagaCampaign.credits );
 			xpWheel.ResetWheeler( sagaCampaign.XP );
 			fameWheel.ResetWheeler( sagaCampaign.fame );
@@ -114,14 +121,24 @@ namespace Saga
 			//campaign structure
 			foreach ( Transform item in structureContainer )
 				Destroy( item.gameObject );
+			//if it's a custom campaign, add the custom add mission bar
+			if ( sagaCampaign.campaignExpansionCode == "Custom" )
+			{
+				var cgo = Instantiate( customAddMissionBarPrefab, structureContainer );
+			}
+			//add campaign structure
 			foreach ( var item in sagaCampaign.campaignStructure )
 			{
 				var go = Instantiate( missionItemPrefab, structureContainer );
 				go.GetComponent<MissionItemPrefab>().Init( item );
 			}
-			//add 1 force mission item
-			var fgo = Instantiate( forceMissionItemPrefab, structureContainer );
-			fgo.GetComponent<ForceMissionItemPrefab>().Init( OnAddForcedMissionClick );
+			//add forced mission bar
+			if ( sagaCampaign.campaignExpansionCode != "Custom" )
+			{
+				//add 1 force mission item
+				var fgo = Instantiate( forceMissionItemPrefab, structureContainer );
+				fgo.GetComponent<ForceMissionItemPrefab>().Init( OnAddForcedMissionClick );
+			}
 		}
 
 		void SetTranslatedUI()
@@ -230,12 +247,61 @@ namespace Saga
 
 		public void OnAddForcedMissionClick()
 		{
-			addItemHeroAllyVillainPopup.AddForcedMission( sagaCampaign.campaignExpansionCode, AddForcedMission );
+			addItemHeroAllyVillainPopup.AddMission( sagaCampaign.campaignExpansionCode, MissionType.Forced, AddForcedMission );
 		}
 
 		public void OnMissionNameClick( MissionType missionType, Action<MissionCard> callback )
 		{
 			addItemHeroAllyVillainPopup.AddMission( sagaCampaign.campaignExpansionCode, missionType, callback );
+		}
+
+		public void OnAddCustomMission( MissionType missionType )
+		{
+			modifyCustomPropsPopup.Show( new CampaignModify()
+			{
+				missionType = missionType,
+				threatValue = 1,
+				itemTierArray = new string[] { "1" },
+				missionID = "",
+				expansionCode = ""
+			}, AddCustomMission );
+		}
+
+		public void OnModifyCustomMission( MissionItemPrefab missionItem )
+		{
+			CampaignModify modifier = new CampaignModify()
+			{
+				missionType = missionItem.campaignStructure.missionType,
+				threatValue = missionItem.campaignStructure.threatLevel,
+				itemTierArray = missionItem.campaignStructure.itemTier,
+				agendaToggle = missionItem.campaignStructure.isAgendaMission,
+				missionID = missionItem.campaignStructure.missionID,
+				expansionCode = missionItem.campaignStructure.expansionCode
+			};
+
+			modifyCustomPropsPopup.Show( modifier, ( mod ) =>
+			{
+				missionItem.OnModify( mod );
+				//go back to normal campaign list mode
+				FindObjectOfType<CustomAddMissionBarPrefab>().DeactivateModifyMode();
+			} );
+		}
+
+		void AddCustomMission( CampaignModify modifier )
+		{
+			var cs = new CampaignStructure()
+			{
+				missionType = modifier.missionType,
+				missionID = modifier.missionID,
+				threatLevel = modifier.threatValue,
+				itemTier = modifier.itemTierArray,
+				expansionCode = modifier.expansionCode,
+				isAgendaMission = modifier.agendaToggle,
+				isCustom = true
+			};
+			//add the newly added mission
+			var go = Instantiate( missionItemPrefab, structureContainer );
+			go.GetComponent<MissionItemPrefab>().Init( cs );
 		}
 
 		void AddForcedMission( MissionCard card )
@@ -246,7 +312,15 @@ namespace Saga
 				missionID = card.id,
 				threatLevel = SagaCampaign.GetMissionPreset( card.expansion, card.id ).defaultThreat,
 				isForced = true,
-				expansionCode = card.expansion.ToString()
+				expansionCode = card.expansion.ToString(),
+				projectItem = new ProjectItem()
+				{
+					missionID = card.id,
+					Description = card.descriptionText,
+					AdditionalInfo = card.bonusText,
+					fullPathWithFilename = $"{card.id.ToUpper()}-{card.name}",
+					Title = DataStore.missionCards[card.expansion.ToString()].Where( x => x.id == card.id ).FirstOr( new MissionCard() { name = card.name } )?.name
+				}
 			};
 			//remove the "add forced mission" prefab
 			foreach ( Transform item in structureContainer )
@@ -262,15 +336,30 @@ namespace Saga
 			fgo.GetComponent<ForceMissionItemPrefab>().Init( OnAddForcedMissionClick );
 		}
 
-		public void RemoveForcedMission( string missionID )
+		public void RemoveMission( Guid GUID )
 		{
 			foreach ( Transform item in structureContainer )
 			{
 				var pf = item.GetComponent<MissionItemPrefab>();
 				if ( pf != null )
 				{
-					if ( pf.campaignStructure.missionID.ToLower() == missionID.ToLower() )
+					if ( pf.campaignStructure.isCustom )
+						FindObjectOfType<CustomAddMissionBarPrefab>().DeactivateModifyMode();
+					if ( pf.campaignStructure.GUID == GUID )
 						Destroy( item.gameObject );
+				}
+			}
+		}
+
+		public void ToggleDisableUI( bool disable )
+		{
+			topButtonsGroup.interactable = rightPanelGroup.interactable = disable;
+			foreach ( Transform item in structureContainer )
+			{
+				var prefab = item.GetComponent<MissionItemPrefab>();
+				if ( prefab != null )
+				{
+					prefab.ToggleModifyMode( !disable );
 				}
 			}
 		}
@@ -311,6 +400,20 @@ namespace Saga
 		public void OnEndEditCampaignName()
 		{
 			sagaCampaign.campaignName = campaignNameInputField.text;
+		}
+
+		public void StartMission( CampaignStructure campaignStructure )
+		{
+			//auto-save if player forgot to save before starting
+			OnSaveCampaign();
+
+			RunningCampaign.campaignStructure = campaignStructure;
+			RunningCampaign.sagaCampaignGUID = sagaCampaign.GUID;
+
+			fader.Fade();
+			float foo = 1;
+			DOTween.To( () => foo, x => foo = x, 0, .5f ).OnComplete( () =>
+			 SceneManager.LoadScene( "SagaSetup" ) );
 		}
 	}
 }

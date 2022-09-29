@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE11-Under Siege.json",
-  "relativePath": "01 - Core Game\\Story Missions\\CORE11-Under Siege.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896846684410700,
+  "relativePath": "Update\\Assets\\SagaMissions\\01Core\\CORE11-Under Siege.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637988864075652340,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Under Siege",
     "campaignName": "Core Game",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "Protect the capture sites. (Capture sites taken by the Empire: &Sites taken&/4)",
@@ -1449,7 +1451,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1457,6 +1458,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 0,
           "enemyGroupData": {
@@ -1489,11 +1491,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "e95ee450-b488-4c50-9191-9dc5fb37620c",
           "eventActionType": 6,
@@ -1592,13 +1596,13 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "threatModifierType": 1,
+          "threatAction": 0,
           "fixedValue": 3,
           "threatValue": 0,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 1,
           "GUID": "1917a487-a52d-47f2-a2fd-b078c2720ab8",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     },
@@ -1635,7 +1639,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1643,6 +1646,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 0,
           "enemyGroupData": {
@@ -1675,24 +1679,26 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "15a9f143-7ba1-49c0-9994-f546c883e522",
           "eventActionType": 6,
           "displayName": "Deploy: DG003/Stormtrooper (Elite)"
         },
         {
-          "threatModifierType": 1,
+          "threatAction": 0,
           "fixedValue": 3,
           "threatValue": 0,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 1,
           "GUID": "24652eb6-8c42-476a-bbd9-e53c32326a68",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     },
@@ -1764,7 +1770,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1772,6 +1777,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "9eda6375-5593-488d-9833-572a5104767f",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1804,11 +1810,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "4ab567b6-13de-48ed-a3e5-1eb060925285",
           "eventActionType": 6,
@@ -1820,7 +1828,7 @@
       "GUID": "7d96e633-09e6-4e52-b783-2c49f29424e3",
       "isGlobal": true,
       "name": "Specialists-2",
-      "eventText": "You hear the hissing sound of a cutting torch, then a short, but violent explosion as an air vent flies open. Enemies flood in, right into the heart of the compound. Their sudden arrival takes you completely by surprise.\r\n\r\n{-} The groups just deployed activate before the heroes in this round. Click the arrow symbol on their thumbnail to activate them manually before any heroes act.",
+      "eventText": "You hear the hissing sound of a cutting torch, then a short, but violent explosion as an air vent flies open. Enemies flood in, right into the heart of the compound. Their sudden arrival takes you completely by surprise.\r\n\r\n{-} In this round, the Empire gets the first two activations. Click the \"Next activation\" icon to activate the first two groups without performing Rebel activations.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1844,14 +1852,14 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "isOnslaught": false,
           "deploymentPoint": 1,
-          "specificDeploymentPoint": "96096f01-99e7-4761-9729-319564f73ad8",
-          "useThreat": true,
           "threatCost": -1,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "96096f01-99e7-4761-9729-319564f73ad8",
+          "isOnslaught": false,
           "GUID": "b39105ee-00b8-4336-9133-13184557bd7e",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         }
       ]
     },
@@ -1888,7 +1896,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1896,6 +1903,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 0,
           "enemyGroupData": {
@@ -1928,34 +1936,36 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "1fe83cbc-fc56-444a-a03e-bdeaf44c76aa",
           "eventActionType": 6,
           "displayName": "Deploy: DG072/Darth Vader"
         },
         {
-          "threatModifierType": 1,
+          "threatAction": 0,
           "fixedValue": 3,
           "threatValue": 0,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 1,
           "GUID": "4aa60d1d-f35e-4aeb-b312-3c4285e4d636",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
-          "isOnslaught": true,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": true,
           "GUID": "459d2a1d-f866-40cc-988b-b3d0176b1c9a",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         }
       ]
     }
@@ -2082,7 +2092,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2118,7 +2129,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2274,7 +2286,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2310,7 +2323,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2346,7 +2360,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2382,7 +2397,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2418,7 +2434,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2454,7 +2471,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2567,11 +2585,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "22074d82-3621-4327-85ba-aab807a6c558",
@@ -2597,11 +2617,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "5c045e69-3cb4-4056-a26a-ab78801cc3e1",
@@ -2633,11 +2655,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2665,11 +2689,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "0cf37295-7563-4a16-a0f4-d6fea124c8c5",
@@ -2695,11 +2721,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "7b8e1787-cd26-4a89-9ada-077ad13ea2d1",
@@ -2728,11 +2756,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "3e2dbb8b-451c-49a9-af80-de9d7fa6fe57",
@@ -2764,11 +2794,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [

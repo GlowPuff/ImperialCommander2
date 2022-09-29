@@ -1,10 +1,10 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "LOTHAL1-Call to Action.json",
-  "relativePath": "07 - Tyrants of Lothal\\LOTHAL1-Call to Action.json",
-  "fileVersion": "14",
-  "saveDate": "6/11/2022",
-  "timeTicks": 637905671807217843,
+  "relativePath": "Update\\07Lothal\\LOTHAL1-Call to Action.json",
+  "fileVersion": "16",
+  "saveDate": "9.16.2022",
+  "timeTicks": 637989205623294546,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Call to Action",
     "campaignName": "Tyrants of Lothal",
@@ -12,6 +12,7 @@
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "",
+    "additionalMissionInfo": null,
     "missionID": "Lothal 1",
     "missionInfo": "",
     "optionalDeployment": false,
@@ -53,6 +54,7 @@
       "DG067"
     ]
   },
+  "fileName": "LOTHAL1-Call to Action.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -625,9 +627,9 @@
       "eventActions": [
         {
           "theText": "The shipment is heavy, but the repulsor sled makes moving it at least possible.",
-          "displayName": "Text Box",
           "GUID": "61789c71-c004-42fd-bd1c-d8bee072fedd",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -650,15 +652,15 @@
         },
         {
           "theText": "{-} The Imperial mission token represents the shipment. Once during their activation, a hero on or adjacent to the shipment may push the shipment 1 space.",
-          "displayName": "Text Box",
           "GUID": "5175e5bf-9801-4f56-9e2c-8e8265bb7f9f",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Your contact gave you very specific coordinates where you need to bring the shipment.",
-          "displayName": "Text Box",
           "GUID": "3ee188f9-43d6-4bcd-855f-b17c32c94af4",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -699,22 +701,22 @@
         },
         {
           "theText": "{-} The Rebel mission token represents the extraction point. When the shipment enters the extraction point, click the token and select \"Shipment extracted\".\r\n{-} The mission will progress when the shipment is extracted.\r\n{-} The mission ends at the end of Round 4 if the shipment is not extracted, at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Text Box",
           "GUID": "049ac23d-9fe8-497a-9d28-dfc5bc7d7778",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Take the shipment to the extraction point.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "d6db4f3a-3883-4f20-ac31-9d9151a54b3c",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} When a hero withdraws, they are incapacitated instead. When activating, they receive only 1 action and can only use that action to perform a move.\r\n{-} The Imperial mission token represents the shipment. Once during their activation, a hero on or adjacent to the shipment may push the shipment 1 space.\r\n{-} The Rebel mission token represents the extraction point. When the shipment enters the extraction point, click the token and select \"Shipment extracted\".\r\n{-} The mission will progress when the shipment is extracted.\r\n{-} The mission ends at the end of Round 4 if the shipment is not extracted, at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "a5de9754-b29b-4604-99fb-0cd8e527f0e3",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1058,34 +1060,43 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "3d4085c6-abe7-4de1-8a81-5b1b98e10456",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
           "triggerList": [
             {
               "triggerName": "Shipment extracted",
+              "triggerGUID": "cff3811e-6fbe-44b1-b10e-13bdb13c1d38",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "cff3811e-6fbe-44b1-b10e-13bdb13c1d38"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "d7f54e7b-60cc-4867-b688-c2a1b5523fc3",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
-          "deploymentGroup": "DG086",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG086",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": "+*1* Health",
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "d1bc238a-30f2-4090-b981-7a772daee38b",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "c31ca21a-22e4-4f28-9d1e-3f68961b22ab",
             "cardName": "Hondo Ohnaka",
@@ -1098,7 +1109,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1110,31 +1120,34 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "d1bc238a-30f2-4090-b981-7a772daee38b",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": true,
-          "modification": "+*1* Health",
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG086/Hondo Ohnaka",
-          "repositionInstructions": "",
           "GUID": "ff06cb3b-b18f-4033-bdf6-1e5c642b6248",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG086/Hondo Ohnaka"
         },
         {
-          "deploymentGroup": "DG057",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG057",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "c6afcb04-34c4-4bdc-86a5-a579dd780c2c",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "82b8aec9-fbc5-41e7-959e-5e0123f81bf7",
             "cardName": "Death Trooper",
@@ -1147,7 +1160,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1159,31 +1171,34 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "c6afcb04-34c4-4bdc-86a5-a579dd780c2c",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG057/Death Trooper",
-          "repositionInstructions": "",
           "GUID": "55f717fa-8c0a-4318-a57c-82e3ad8e01bd",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG057/Death Trooper"
         },
         {
-          "deploymentGroup": "DG005",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG005",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "c6afcb04-34c4-4bdc-86a5-a579dd780c2c",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "d87e2579-bd1d-4b4a-ad63-dd9ff488defe",
             "cardName": "Imperial Officer",
@@ -1196,7 +1211,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1208,23 +1222,17 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "c6afcb04-34c4-4bdc-86a5-a579dd780c2c",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG005/Imperial Officer",
-          "repositionInstructions": "",
           "GUID": "f0eecc17-35eb-44f0-8377-00969e7dd3d6",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG005/Imperial Officer"
         },
         {
           "entitiesToModify": [
@@ -1313,42 +1321,42 @@
         },
         {
           "theText": "A voice crackles over your com. “Any enemy of the Empire is a friend of ours. Hold on, we're coming!”\r\n\r\nFar in the distance, you can see a ship descending through Lothal's atmosphere towards nearby hill-strewn fields.",
-          "displayName": "Text Box",
           "GUID": "23956a87-99c9-4c58-89d4-3399a3f20942",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "mapSection": "00000000-0000-0000-0000-000000000000",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "c0547dd7-f091-456f-83ef-9c6e82809a92",
-          "displayName": "Map Management",
-          "GUID": "20b001bf-99fb-4854-8e2d-f7c684199394",
-          "eventActionType": 14
-        },
-        {
           "mapSection": "00000000-0000-0000-0000-000000000000",
-          "mapTile": "00000000-0000-0000-0000-000000000000",
           "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
-          "mapTileRemove": "5032c3db-c3c2-4c9f-a383-bc8773520e4f",
-          "displayName": "Map Management",
-          "GUID": "a1b82d60-8a25-456a-be7b-dde370aa8449",
-          "eventActionType": 14
+          "GUID": "20b001bf-99fb-4854-8e2d-f7c684199394",
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
-          "mapSection": "b6121d27-1647-4c44-b702-413320d98dee",
           "mapTile": "00000000-0000-0000-0000-000000000000",
+          "mapTileRemove": "5032c3db-c3c2-4c9f-a383-bc8773520e4f",
+          "mapSection": "00000000-0000-0000-0000-000000000000",
           "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
+          "GUID": "a1b82d60-8a25-456a-be7b-dde370aa8449",
+          "eventActionType": 14,
+          "displayName": "Map Management"
+        },
+        {
+          "mapTile": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "b6121d27-1647-4c44-b702-413320d98dee",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "9f28b9b7-e954-453d-9c3d-efe094f354e4",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "\"We can't get a reading on your position,\" comes the voice over com. \"There should be some old signal flares down there. Find them and light one, then you only need to hold out until we're with you!\"",
-          "displayName": "Text Box",
           "GUID": "42a00ded-0412-4aed-9ec5-60831a2ea12e",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1394,10 +1402,10 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} Neutral mission tokens represent flares. A healthy hero can interact with a flare to light it.\r\n{-} During Round 6, at the start of the Status Phase, if all heroes are on the Fields (tile Lothal 1B + endcaps) and a flare has been lit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.\r\n",
-          "displayName": "Text Box",
+          "theText": "{-} Neutral mission tokens represent flares. A healthy hero can interact with a flare to light it.\r\n{-} During Round 6, at the start of the Status Phase, if all heroes are on the Fields (tile Lothal 1B + endcaps) and a flare has been lit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.",
           "GUID": "3fcbc2af-f689-4078-9e2d-77346a297fc2",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Block access to the Fields and the flares.",
@@ -1410,15 +1418,15 @@
         {
           "theText": "Get on the Fields and light a flare.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "d692bd06-79b5-4093-816c-9b461bcd332a",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} When a hero withdraws, they are incapacitated instead. When activating, they receive only 1 action and can only use that action to perform a move.\r\n{-} Neutral mission tokens represent flares. A healthy hero can interact with a flare to light it. During Round 6, at the start of the Status Phase, if all heroes are on the Fields (tile Lothal 1B + endcaps) and a flare has been lit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.",
-          "displayName": "Change Mission Info",
           "GUID": "3355f52c-c2fe-49b4-89e8-921293ea2274",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1451,9 +1459,9 @@
       "eventActions": [
         {
           "eventGroupGUID": "c2370da4-53b4-4700-b308-382b3af81e3e",
-          "displayName": "Activate Event Group",
           "GUID": "516de58d-89a3-46ee-99e2-32128594a8d4",
-          "eventActionType": 19
+          "eventActionType": 19,
+          "displayName": "Activate Event Group"
         }
       ]
     },
@@ -1485,12 +1493,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG060",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG060",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "a92e178c-0773-4db0-bef7-1fc6211f0544",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "5f7b03e8-cc1d-435c-a4ef-c7e00259b742",
             "cardName": "Loth-cat",
@@ -1506,7 +1523,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1518,23 +1534,17 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "a92e178c-0773-4db0-bef7-1fc6211f0544",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG060/Loth-cat",
-          "repositionInstructions": "",
           "GUID": "a0fd6641-f4c6-4c06-9973-328e2525a9cc",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG060/Loth-cat"
         }
       ]
     },
@@ -1566,12 +1576,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG060",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG060",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "43de767d-41cc-4c6a-87bc-4c6ae20bb83a",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "5f7b03e8-cc1d-435c-a4ef-c7e00259b742",
             "cardName": "Loth-cat",
@@ -1587,7 +1606,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1599,23 +1617,17 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "43de767d-41cc-4c6a-87bc-4c6ae20bb83a",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG060/Loth-cat",
-          "repositionInstructions": "",
           "GUID": "f0579950-6dab-401e-b0b9-a2f9e9adc14c",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG060/Loth-cat"
         }
       ]
     },
@@ -1647,12 +1659,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG060",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG060",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "f042d66b-ebf2-4988-85e7-df9ac4b13939",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "5f7b03e8-cc1d-435c-a4ef-c7e00259b742",
             "cardName": "Loth-cat",
@@ -1668,7 +1689,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -1680,23 +1700,17 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "f042d66b-ebf2-4988-85e7-df9ac4b13939",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG060/Loth-cat",
-          "repositionInstructions": "",
           "GUID": "5fa42b6a-3841-4359-a311-25bc7735bcf8",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG060/Loth-cat"
         }
       ]
     },
@@ -1822,14 +1836,14 @@
           "triggerList": [
             {
               "triggerName": "Flares lit",
+              "triggerGUID": "5a3c50c2-2869-4343-abc1-5baa36d71146",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "5a3c50c2-2869-4343-abc1-5baa36d71146"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "bd8a832f-2258-4ae6-8c55-ceb56a0dbbf2",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1907,14 +1921,14 @@
           "triggerList": [
             {
               "triggerName": "Flares lit",
+              "triggerGUID": "5a3c50c2-2869-4343-abc1-5baa36d71146",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "5a3c50c2-2869-4343-abc1-5baa36d71146"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "5ae24310-3030-489f-92da-2f1742e74b2a",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2055,9 +2069,9 @@
       "eventActions": [
         {
           "eventGroupGUID": "3b3c8a59-b2b6-41fc-8101-4989555a24f1",
-          "displayName": "Activate Event Group",
           "GUID": "0bbbef74-addf-4199-a092-2fc2c7620984",
-          "eventActionType": 19
+          "eventActionType": 19,
+          "displayName": "Activate Event Group"
         }
       ]
     },
@@ -2089,12 +2103,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG058",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG058",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "f0b362ab-ed1f-4b50-84fb-63b6c6389f8a",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "b2f29644-9495-4189-8cdb-b35be9f84f71",
             "cardName": "Death Trooper (Elite)",
@@ -2107,7 +2130,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -2119,23 +2141,17 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "f0b362ab-ed1f-4b50-84fb-63b6c6389f8a",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG058/Death Trooper (Elite)",
-          "repositionInstructions": "",
           "GUID": "0b44fbdb-01b6-4e0c-bb48-13a9c383c06c",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG058/Death Trooper (Elite)"
         }
       ]
     },
@@ -2167,12 +2183,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG058",
           "enemyName": null,
-          "useGenericMugshot": false,
+          "deploymentGroup": "DG058",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "567b4688-4d18-4d5f-ba35-b076b643c91b",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "b2f29644-9495-4189-8cdb-b35be9f84f71",
             "cardName": "Death Trooper (Elite)",
@@ -2185,7 +2210,6 @@
               }
             ],
             "groupPriorityTraits": {
-              "useDefaultPriority": true,
               "incBrawler": true,
               "incCreature": true,
               "incDroid": true,
@@ -2197,23 +2221,17 @@
               "incSmuggler": true,
               "incSpy": true,
               "incTrooper": true,
-              "incWookiee": true
+              "incWookiee": true,
+              "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "567b4688-4d18-4d5f-ba35-b076b643c91b",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG058/Death Trooper (Elite)",
-          "repositionInstructions": "",
           "GUID": "d1408fb0-631a-4fc1-973e-8b58cff8b388",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG058/Death Trooper (Elite)"
         }
       ]
     },
@@ -2253,15 +2271,15 @@
         {
           "theText": "Get on the Fields and hold your ground until the end of Round 6.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "934de7db-bb04-4e4f-beeb-c87dfda44ac9",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} During Round 6, at the start of the Status Phase, if all heroes are on the Fields (tile Lothal 1B + endcaps) and a flare has been lit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.",
-          "displayName": "Change Mission Info",
           "GUID": "63eb5410-e28a-4074-aa84-a92a5948c1c6",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         },
         {
           "theText": "Block access to the Fields.",
@@ -2627,7 +2645,11 @@
       }
     },
     {
+      "GUID": "809ffe1c-f923-4dfb-a405-857eb3da9bc8",
       "name": "Shipment",
+      "entityType": 4,
+      "entityPosition": "970,960",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Shipment",
         "isActive": false,
@@ -2635,16 +2657,16 @@
         "entityColor": "Red",
         "buttonActions": []
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 2,
-      "GUID": "809ffe1c-f923-4dfb-a405-857eb3da9bc8",
-      "entityType": 4,
-      "entityPosition": "970,960",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 2
     },
     {
+      "GUID": "5623f69a-1069-4eaa-a0f9-149868929344",
       "name": "Extraction Point",
+      "entityType": 4,
+      "entityPosition": "1050,1010",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Extraction Point",
         "isActive": false,
@@ -2658,13 +2680,9 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Green",
-      "markerType": 1,
-      "GUID": "5623f69a-1069-4eaa-a0f9-149868929344",
-      "entityType": 4,
-      "entityPosition": "1050,1010",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 1
     },
     {
       "GUID": "97874263-64e3-4d2e-a6de-e70812d70ca2",
@@ -2991,7 +3009,11 @@
       }
     },
     {
+      "GUID": "068d38fd-3572-4214-9dcf-3d9381f7e5dd",
       "name": "Flare 1",
+      "entityType": 4,
+      "entityPosition": "990,1070",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Flare 1",
         "isActive": false,
@@ -3005,16 +3027,16 @@
           }
         ]
       },
+      "mapSectionOwner": "b6121d27-1647-4c44-b702-413320d98dee",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "068d38fd-3572-4214-9dcf-3d9381f7e5dd",
-      "entityType": 4,
-      "entityPosition": "990,1070",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "b6121d27-1647-4c44-b702-413320d98dee"
+      "markerType": 0
     },
     {
+      "GUID": "52404f4c-cce7-4d88-8450-00bec3c2c091",
       "name": "Flare 2",
+      "entityType": 4,
+      "entityPosition": "1050,1070",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Flare 2",
         "isActive": false,
@@ -3028,13 +3050,9 @@
           }
         ]
       },
+      "mapSectionOwner": "b6121d27-1647-4c44-b702-413320d98dee",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "52404f4c-cce7-4d88-8450-00bec3c2c091",
-      "entityType": 4,
-      "entityPosition": "1050,1070",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "b6121d27-1647-4c44-b702-413320d98dee"
+      "markerType": 0
     }
   ],
   "initialDeploymentGroups": [
@@ -3050,7 +3068,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3062,11 +3079,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "9f5f6623-cb08-4d07-9ad2-7efe886fdd5a",
@@ -3086,7 +3105,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3098,11 +3116,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "fd86699e-af6f-4a72-8533-ecd59e7fad7a",
@@ -3116,7 +3136,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3128,11 +3147,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -3148,7 +3169,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3160,11 +3180,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "0dd6302f-c44f-412f-9c65-370ce5ade395",
@@ -3178,7 +3200,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3190,11 +3211,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "7346b261-4acf-41a8-8b94-47163b4a499e",
@@ -3208,7 +3231,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3220,11 +3242,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "056168bb-81d5-459e-bf28-40ee0c354581",
@@ -3238,7 +3262,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3250,11 +3273,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "d76b6568-ee7b-462c-a16f-0ee4577a9437",
@@ -3271,7 +3296,6 @@
         }
       ],
       "groupPriorityTraits": {
-        "useDefaultPriority": true,
         "incBrawler": true,
         "incCreature": true,
         "incDroid": true,
@@ -3283,11 +3307,13 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [

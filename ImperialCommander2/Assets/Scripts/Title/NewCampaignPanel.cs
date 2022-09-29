@@ -14,6 +14,7 @@ namespace Saga
 		public TMP_InputField campaignNameInputField;
 		public Text startText, cancelText;
 		public Button startButton;
+		public Toggle customToggle;
 
 		Action callback;
 		string selectedExpansion;
@@ -56,11 +57,17 @@ namespace Saga
 			startButton.interactable = nameGood;
 		}
 
+		public void OnCustomToggle()
+		{
+			campaignExpansionDropdown.interactable = !customToggle.isOn;
+		}
+
 		public void StartCampaign()
 		{
 			//create and save the new campaign
 			Close( false );
-			var c = SagaCampaign.CreateNewCampaign( campaignNameInputField.text, selectedExpansion );
+			var c = SagaCampaign.CreateNewCampaign( campaignNameInputField.text,
+				!customToggle.isOn ? selectedExpansion : "Custom" );
 			FindObjectOfType<TitleController>().NavToCampaignScreen( c );
 			c.SaveCampaignState();
 		}

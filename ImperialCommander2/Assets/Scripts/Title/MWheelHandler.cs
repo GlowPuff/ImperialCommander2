@@ -26,6 +26,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 	private void Start()
 	{
+		string f = name;
 		if ( numberText == null )
 			numberText = GetComponent<Text>();
 		if ( numberTextTMP == null )

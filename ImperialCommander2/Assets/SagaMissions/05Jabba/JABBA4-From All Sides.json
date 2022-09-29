@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA4-From All Sides.json",
-  "relativePath": "05 - Jabba's Realm\\JABBA4-From All Sides.json",
-  "fileVersion": "16",
-  "saveDate": "6/29/2022",
-  "timeTicks": 637921200374865288,
+  "relativePath": "Update\\05Jabba\\JABBA4-From All Sides.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637989187609407268,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "From All Sides",
     "campaignName": "Jabba's Realm",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A011",
     "startingObjective": "",
@@ -969,18 +971,18 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "instructionType": 0,
           "theText": "{-} Imperial figures target doors if a door is between the figure and its target.",
+          "instructionType": 0,
           "groupsToAdd": [],
-          "displayName": "Change Group Instructions",
           "GUID": "9bedb630-7e8d-41e9-8f6e-2348f64fa505",
-          "eventActionType": 11
+          "eventActionType": 11,
+          "displayName": "Change Group Instructions"
         },
         {
           "theText": "A couple of emergency medpacks are stored in the hangar. This is going to come in handy - you won't have much time to take proper care of your wounds.",
-          "displayName": "Text Box",
           "GUID": "e7388161-2918-49a3-b385-194e8d59b5f1",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -991,7 +993,7 @@
               "entityProperties": {
                 "name": "Medpack 1",
                 "isActive": true,
-                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
+                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
                 "entityColor": "Red",
                 "buttonActions": [
                   {
@@ -1019,7 +1021,7 @@
               "entityProperties": {
                 "name": "Medpack 2",
                 "isActive": true,
-                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
+                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
                 "entityColor": "Red",
                 "buttonActions": [
                   {
@@ -1046,33 +1048,42 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
-          "displayName": "Text Box",
+          "theText": "{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
           "GUID": "2dc21eff-cb08-4399-a449-a80ec1b37efa",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "As you move out into the twin sunlight, a shadow passes overhead and you look up to see Jabba’s ship, the <i>Khetanna</i>, making its landing nearby. Soon, the Hutt's mercenaries advance toward the hangar.",
-          "displayName": "Text Box",
           "GUID": "af5d77fc-4da4-421f-8804-6035cbe7b90f",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "mapSection": "b86a9c17-9682-4429-a30d-4f68a8baf2cf",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "b86a9c17-9682-4429-a30d-4f68a8baf2cf",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "a89256de-7341-4a77-89be-df50dc853f4b",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
-          "deploymentGroup": "DG015",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG015",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "fb58749f-e260-44d0-8b83-4e0ce00b31d1",
             "cardName": "Trandoshan Hunter",
@@ -1100,6 +1111,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1107,26 +1119,26 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG015/Trandoshan Hunter",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "605eaf13-6014-45a5-b3f7-840cc365feb8",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG015/Trandoshan Hunter"
         },
         {
-          "deploymentGroup": "DG042",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG042",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "94707172-4eb8-4fc8-a2f5-bc6613864271",
             "cardName": "Weequay Pirate",
@@ -1154,6 +1166,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1161,26 +1174,26 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG042/Weequay Pirate",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "003b9e15-82b8-4869-b893-50e1e208f6ac",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG042/Weequay Pirate"
         },
         {
-          "deploymentGroup": "DG041",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG041",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "abf84781-6281-4f0e-8b93-5ab1f884e2b3",
             "cardName": "Gamorrean Guard (Elite)",
@@ -1208,6 +1221,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1215,32 +1229,32 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG041/Gamorrean Guard (Elite)",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "8f3be41e-ac95-420c-83a2-2903650b8596",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG041/Gamorrean Guard (Elite)"
         },
         {
           "theText": "The same Alliance pilot hails you on your comlink again: \"You guys sure know how to make friends out here...\" As if on cue, Imperial soldiers appear over the sand dunes.",
-          "displayName": "Text Box",
           "GUID": "1f7a98a0-6c71-40f3-9062-a53137491943",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG004",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG004",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "81ead058-7663-414c-aed5-13a096cc71f9",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "158a4bae-bc9c-4d2e-b112-9fd28c9a3ba4",
             "cardName": "Imperial Officer",
@@ -1265,6 +1279,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1272,26 +1287,26 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "81ead058-7663-414c-aed5-13a096cc71f9",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG004/Imperial Officer",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "bb2e96fb-e580-46da-9199-5465f16eff52",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG004/Imperial Officer"
         },
         {
-          "deploymentGroup": "DG011",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG011",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "e631eafc-1575-4038-bec5-5f6ef61aa5e6",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "c07d69ce-7c21-4309-80e5-c2f47cfa19cd",
             "cardName": "Probe Droid",
@@ -1316,6 +1331,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1323,26 +1339,26 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "e631eafc-1575-4038-bec5-5f6ef61aa5e6",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG011/Probe Droid",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "73df037d-b3ef-4573-a99e-5e74a9d75afa",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG011/Probe Droid"
         },
         {
-          "deploymentGroup": "DG036",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG036",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "11460411-28a4-407f-b52e-f2c014ea7ae2",
             "cardName": "Jet Trooper",
@@ -1370,6 +1386,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1377,26 +1394,26 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG036/Jet Trooper",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "a700ad20-265a-4739-b890-446b71adde94",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG036/Jet Trooper"
         },
         {
-          "deploymentGroup": "DG038",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG038",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "8012491a-9b69-4301-9f5f-3f3baea4a1ad",
             "cardName": "Jet Trooper (Elite)",
@@ -1424,6 +1441,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1431,37 +1449,28 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG038/Jet Trooper (Elite)",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "956569f1-4d06-4d0e-aba7-7128f245e216",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG038/Jet Trooper (Elite)"
         },
         {
           "theText": "You move into defensive position, ready to hold out as long as you have to.\r\n\r\n{-} The Rebels win at the end of Round 5.\r\n{-} The Rebels lose when there are no healthy heroes on the Hangar.",
-          "displayName": "Text Box",
           "GUID": "16aad43e-12e0-4b65-b63e-6b557921d1e4",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Survive. Rounds left: &Countdown&",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "63398ac8-fb36-4380-b984-7ae265780dfb",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".\r\n{-} Doors are locked. A door adjacent to a Rebel figure does not block movement, line of sight, adjacency, or counting spaces. An Imperial figure can attack a door (Health: 10, Defense: 2 {G}).\r\n{-} The Rebels win at the end of Round 5.\r\n{-} The Rebels lose when there are no healthy heroes on the Hangar.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".\r\n{-} Doors are locked. A door adjacent to a Rebel figure does not block movement, line of sight, adjacency, or counting spaces. An Imperial figure can attack a door (Health: 10, Defense: 2 {G}).\r\n{-} The Rebels win at the end of Round 5.\r\n{-} The Rebels lose when there are no healthy heroes on the Hangar.",
           "GUID": "6b0b53b9-4abe-41cb-aa7e-73b0f1acab17",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1581,7 +1590,7 @@
               "entityProperties": {
                 "name": "Medpack 1",
                 "isActive": false,
-                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.",
+                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.",
                 "entityColor": "Red",
                 "buttonActions": [
                   {
@@ -1663,7 +1672,7 @@
               "entityProperties": {
                 "name": "Medpack 2",
                 "isActive": false,
-                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.",
+                "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.",
                 "entityColor": "Red",
                 "buttonActions": [
                   {
@@ -1737,13 +1746,13 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "threatModifierType": 1,
+          "threatAction": 0,
           "fixedValue": 2,
           "threatValue": 0,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 1,
           "GUID": "60f625fb-e3f6-4d70-859b-c9edbcb412c9",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     },
@@ -1940,14 +1949,14 @@
           "triggerList": [
             {
               "triggerName": "Merc DP",
+              "triggerGUID": "49351746-8a56-496c-9d61-7a109ca2a402",
               "setValue": 2,
-              "modifyValue": 0,
-              "triggerGUID": "49351746-8a56-496c-9d61-7a109ca2a402"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "42dd044e-dd3b-43f6-b7df-8877936394b3",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1982,14 +1991,14 @@
           "triggerList": [
             {
               "triggerName": "Merc DP",
+              "triggerGUID": "49351746-8a56-496c-9d61-7a109ca2a402",
               "setValue": 3,
-              "modifyValue": 0,
-              "triggerGUID": "49351746-8a56-496c-9d61-7a109ca2a402"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "c8fb3cf0-c20c-4c71-a056-fb33aa147f4f",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2024,14 +2033,14 @@
           "triggerList": [
             {
               "triggerName": "Imp DP",
+              "triggerGUID": "92fc06e3-2b3f-4ef5-8aa3-597bd04cf12d",
               "setValue": 2,
-              "modifyValue": 0,
-              "triggerGUID": "92fc06e3-2b3f-4ef5-8aa3-597bd04cf12d"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "eddbb0c8-7402-4944-a605-924b48de414e",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2066,14 +2075,14 @@
           "triggerList": [
             {
               "triggerName": "Imp DP",
+              "triggerGUID": "92fc06e3-2b3f-4ef5-8aa3-597bd04cf12d",
               "setValue": 3,
-              "modifyValue": 0,
-              "triggerGUID": "92fc06e3-2b3f-4ef5-8aa3-597bd04cf12d"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "90a86d5e-8400-4f6e-9dc8-83231772bb56",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2106,23 +2115,32 @@
       "eventActions": [
         {
           "eventGroupGUID": "19ad335a-c37d-4fe2-a330-13d3737f4257",
-          "displayName": "Activate Event Group",
           "GUID": "e641de46-7ff8-4eeb-a26b-443bb38dc20d",
-          "eventActionType": 19
+          "eventActionType": 19,
+          "displayName": "Activate Event Group"
         },
         {
           "eventGroupGUID": "cf1f294f-54ba-463e-8b5d-31db0a9b532a",
-          "displayName": "Activate Event Group",
           "GUID": "a9ccf0d8-3026-4bd7-b753-369ee41e8661",
-          "eventActionType": 19
+          "eventActionType": 19,
+          "displayName": "Activate Event Group"
         },
         {
-          "deploymentGroup": "DG005",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG005",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
             "GUID": "06518ac8-a5e6-4fe6-bf1d-ea344d9e4e9e",
             "cardName": "Imperial Officer",
@@ -2147,6 +2165,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2154,26 +2173,26 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG005/Imperial Officer",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "d79000dd-4115-483e-9cb0-79b7773c867b",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG005/Imperial Officer"
         },
         {
-          "deploymentGroup": "DG012",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG012",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
             "GUID": "e677449e-7fd3-4e40-b03e-5504c02a4798",
             "cardName": "Probe Droid",
@@ -2198,6 +2217,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2205,26 +2225,26 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG012/Probe Droid",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "bab5c8eb-7246-4361-90a2-611a84f09909",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG012/Probe Droid"
         },
         {
-          "deploymentGroup": "DG039",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG039",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
             "GUID": "291b6e8b-6831-46f5-9aa8-49370d3f6d6c",
             "cardName": "Gamorrean Guard",
@@ -2252,6 +2272,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2259,18 +2280,9 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG039/Gamorrean Guard",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "4f860548-476f-498c-896a-e9c87bf5780b",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG039/Gamorrean Guard"
         }
       ]
     },
@@ -3262,12 +3274,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG082",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG082",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
             "GUID": "93e4e23f-fef2-4135-92ea-0b09d4872d68",
             "cardName": "Captain Terro",
@@ -3292,6 +3313,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3299,32 +3321,32 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG082/Captain Terro",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "67802649-1ec0-47e0-99c6-7b55a4faf049",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG082/Captain Terro"
         },
         {
           "theText": "At the same time, you see the bulbous form of Jabba the Hutt emerge on the bridge of the <i>Khetanna</i>, giving commands to his underlings.",
-          "displayName": "Text Box",
           "GUID": "ec4e5b46-9ff0-4b24-a1bb-a5845643a5a9",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG081",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG081",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "78ca65a1-8a3c-41d2-8dfb-b7eb42719f66",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "caa51c47-e7b4-4227-8680-d2db4f5b9005",
             "cardName": "Jabba the Hutt",
@@ -3349,6 +3371,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3356,37 +3379,29 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "78ca65a1-8a3c-41d2-8dfb-b7eb42719f66",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG081/Jabba the Hutt",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "be72a02d-a7f0-44df-8bf8-5a67e49975b4",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG081/Jabba the Hutt"
         },
         {
           "theText": "The blaster fire grows more intense as the heat of the suns becomes more unbearable, when the roar of a transport shuttle landing in the hangar catches your attention. You turn to see Luke Skywalker emerge, smiling a crooked grin.\r\n\r\n\"Command thought this mission was worth a little extra help,\" he says to you, smiling. He looks around at the scope of the battle and says, “I see we need it. With a snap and a hum, he ignites a green-glowing lightsaber. \"May the Force be with you,\" he calls, then leaps into battle.",
-          "displayName": "Text Box",
           "GUID": "2bd09251-14fe-42c6-bb82-d737341390be",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "allyID": "A011",
           "allyName": null,
-          "useGenericMugshot": false,
+          "allyID": "A011",
           "setTrigger": "00000000-0000-0000-0000-000000000000",
+          "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "268eedfc-506a-4a4b-9780-99abadf5b15a",
-          "useThreat": false,
           "threatCost": 0,
-          "displayName": "Ally Deployment",
+          "useThreat": false,
+          "useGenericMugshot": false,
           "GUID": "44c32cec-584a-4e25-815b-13cccef0ea5f",
-          "eventActionType": 7
+          "eventActionType": 7,
+          "displayName": "Ally Deployment"
         }
       ]
     },
@@ -3418,23 +3433,23 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "threatModifierType": 1,
+          "threatAction": 0,
           "fixedValue": 5,
           "threatValue": 0,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 1,
           "GUID": "d897de68-c684-4af6-82d3-b3690a59e845",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
-          "isOnslaught": true,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": true,
           "GUID": "bde47b30-5a99-4c41-8a8a-99ff97b5de0a",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         }
       ]
     },
@@ -3469,14 +3484,14 @@
           "triggerList": [
             {
               "triggerName": "Countdown",
+              "triggerGUID": "cfe4d21a-873c-4eda-b3a9-cecab0e658b2",
               "setValue": -1,
-              "modifyValue": -1,
-              "triggerGUID": "cfe4d21a-873c-4eda-b3a9-cecab0e658b2"
+              "modifyValue": -1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "e16db113-abbe-47d1-9b87-6c67ba765186",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     }
@@ -3603,7 +3618,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3639,7 +3655,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3675,7 +3692,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3711,7 +3729,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3747,7 +3766,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3783,7 +3803,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3819,7 +3840,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3855,7 +3877,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3891,7 +3914,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3927,7 +3951,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3963,7 +3988,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3999,7 +4025,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4035,7 +4062,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4071,7 +4099,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4107,7 +4136,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4143,7 +4173,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4179,7 +4210,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4215,7 +4247,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4251,7 +4284,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4287,15 +4321,20 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "6b21cc03-5ad0-4c67-9261-cca5d75db957",
       "name": "Medpack 1",
+      "entityType": 4,
+      "entityPosition": "940,990",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Medpack 1",
         "isActive": false,
-        "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
+        "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
         "entityColor": "Red",
         "buttonActions": [
           {
@@ -4315,20 +4354,20 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 1,
-      "GUID": "6b21cc03-5ad0-4c67-9261-cca5d75db957",
-      "entityType": 4,
-      "entityPosition": "940,990",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 1
     },
     {
+      "GUID": "c9b476aa-fc76-4fb1-9797-e8ff228d1e41",
       "name": "Medpack 2",
+      "entityType": 4,
+      "entityPosition": "990,990",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Medpack 2",
         "isActive": false,
-        "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
+        "theText": "An emergency medpack is stored on a shelf in the corner of the hangar.\r\n\r\n{-} Rebel mission tokens represent unused medpacks. Imperial mission tokens represent used medpacks. During his activation, a hero on or adjacent to an unused medpack can flip that medpack and test {J} to recover 6 {C} plus 1 {C} for each success. For each {C} he recovers above 0, he recovers 1 {H}.\r\n{-} Each time a hero performs a rest, click any medpack and select \"Hero rests\" to increase {D} by 2. After Round 4, heroes cannot recover {H} while performing a rest.\r\n{-} When there are no healthy heroes on the Hangar (blue highlight), click any medpack and select \"No healthy heroes\".",
         "entityColor": "Red",
         "buttonActions": [
           {
@@ -4348,16 +4387,16 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 1,
-      "GUID": "c9b476aa-fc76-4fb1-9797-e8ff228d1e41",
+      "markerType": 1
+    },
+    {
+      "GUID": "c7e69a70-19f1-411a-ba89-3b291c1952ec",
+      "name": "Medpack Used 2",
       "entityType": 4,
       "entityPosition": "990,990",
       "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-    },
-    {
-      "name": "Medpack Used 2",
       "entityProperties": {
         "name": "Medpack Used 2",
         "isActive": false,
@@ -4376,16 +4415,16 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 2,
-      "GUID": "c7e69a70-19f1-411a-ba89-3b291c1952ec",
-      "entityType": 4,
-      "entityPosition": "990,990",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 2
     },
     {
+      "GUID": "8b9b84cf-2719-4aea-ab5a-cf53b09ea1a8",
       "name": "Medpack Used 1",
+      "entityType": 4,
+      "entityPosition": "940,990",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Medpack Used 1",
         "isActive": false,
@@ -4404,13 +4443,9 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Red",
-      "markerType": 2,
-      "GUID": "8b9b84cf-2719-4aea-ab5a-cf53b09ea1a8",
-      "entityType": 4,
-      "entityPosition": "940,990",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 2
     },
     {
       "GUID": "af317ad4-b955-489e-8c33-86b3fe3f2c84",
@@ -4470,7 +4505,11 @@
       "Duration": 1
     },
     {
+      "GUID": "262971f6-4869-4d63-a243-7f99c26c4aad",
       "name": "Door 1",
+      "entityType": 6,
+      "entityPosition": "940,1010",
+      "entityRotation": 90.0,
       "entityProperties": {
         "name": "Door 1",
         "isActive": false,
@@ -4484,14 +4523,14 @@
           }
         ]
       },
-      "GUID": "262971f6-4869-4d63-a243-7f99c26c4aad",
-      "entityType": 6,
-      "entityPosition": "940,1010",
-      "entityRotation": 90.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "edc3fc97-68ee-4259-a789-662c259ca985",
       "name": "Door 2",
+      "entityType": 6,
+      "entityPosition": "980,990",
+      "entityRotation": 180.0,
       "entityProperties": {
         "name": "Door 2",
         "isActive": false,
@@ -4505,14 +4544,14 @@
           }
         ]
       },
-      "GUID": "edc3fc97-68ee-4259-a789-662c259ca985",
-      "entityType": 6,
-      "entityPosition": "980,990",
-      "entityRotation": 180.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "259f458b-872a-4fda-b100-b8778b86ab5d",
       "name": "Door 3",
+      "entityType": 6,
+      "entityPosition": "990,1030",
+      "entityRotation": 270.0,
       "entityProperties": {
         "name": "Door 3",
         "isActive": false,
@@ -4526,10 +4565,6 @@
           }
         ]
       },
-      "GUID": "259f458b-872a-4fda-b100-b8778b86ab5d",
-      "entityType": 6,
-      "entityPosition": "990,1030",
-      "entityRotation": 270.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
@@ -4565,7 +4600,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4601,7 +4637,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4637,7 +4674,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4673,7 +4711,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4709,7 +4748,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4745,7 +4785,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4781,7 +4822,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4817,7 +4859,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4853,7 +4896,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4889,7 +4933,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -4925,7 +4970,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -4958,6 +5004,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -4989,6 +5036,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5023,6 +5071,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5057,6 +5106,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5088,6 +5138,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5122,6 +5173,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5156,6 +5208,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5190,6 +5243,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5221,6 +5275,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5252,6 +5307,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5283,6 +5339,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -5314,6 +5371,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",

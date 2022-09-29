@@ -25,6 +25,7 @@ namespace Saga
 		{
 			itemType = 1;
 			campaignSkill = item;
+			typeText.text = "A";
 			nameText.text = $"{item.name}";
 			costText.text = $"Cost: {item.cost}";
 		}

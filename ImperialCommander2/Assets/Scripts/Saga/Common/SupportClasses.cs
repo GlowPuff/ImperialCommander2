@@ -42,6 +42,16 @@ namespace Saga
 	//	public Color disabledColor { get { return new Color( 0, 115f / 255f, 72f / 255f ); } }
 	//}
 
+	public struct CampaignModify
+	{
+		public MissionType missionType;
+		public int threatValue;
+		public bool agendaToggle;
+		public string missionID;
+		public string expansionCode;
+		public string[] itemTierArray;
+	}
+
 	public class SagaSetupOptions
 	{
 		/*

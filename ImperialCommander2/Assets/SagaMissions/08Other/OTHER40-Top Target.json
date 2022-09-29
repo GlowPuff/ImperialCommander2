@@ -1,10 +1,11 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "OTHER40-Top Target.json",
-  "relativePath": "OTHER40-Top Target.json",
-  "fileVersion": "17",
-  "saveDate": "7/12/2022",
-  "timeTicks": 637932162499378984,
+  "relativePath": "Update\\08Other\\OTHER40-Top Target.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637988891022615540,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Top Target",
     "campaignName": "Greedo (Ambitious Mercenary) Villain Pack",
@@ -749,13 +750,12 @@
         },
         {
           "targetType": 3,
-          "specificHero": "H1",
-          "specificAlly": "A001",
-          "otherTarget": "the marked hero",
-          "percentChance": 85,
           "groupType": 0,
+          "otherTarget": "the marked hero",
+          "specificAlly": "A001",
+          "specificHero": "H1",
+          "percentChance": 85,
           "groupsToAdd": [],
-          "displayName": "Change Priority Target",
           "groupPriorityTraits": {
             "incBrawler": true,
             "incCreature": true,
@@ -773,38 +773,39 @@
             "useDefaultPriority": false
           },
           "GUID": "21a4b659-01d4-47c7-868e-3df7bb20e4c6",
-          "eventActionType": 12
+          "eventActionType": 12,
+          "displayName": "Change Priority Target"
         },
         {
           "theText": "{-} The Imperial mission token represents the locked trap door.",
-          "displayName": "Text Box",
           "GUID": "a7ddc621-8198-42e0-a364-6f0c513fbf5f",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "The Imperials and bounty hunters rush in. One of them points in {rebel}'s direction and snarls, \"That one.\"\r\n\r\n{-} The selected hero becomes the marked hero. If the app chose an ally as marked, the hero closest to that ally becomes the marked hero.\r\n{-} Imperial figures cannot declare attacks targeting the marked hero if he is adjacent to a healthy Rebel figure. In that case, the attack targets the closest healthy Rebel figure.",
-          "displayName": "Text Box",
           "GUID": "a4e8bdaf-5712-4ebd-b126-c99547d1b1c4",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "You need to get out. But to get out, you need to open the door. Maybe the computer consoles in the area hold pieces of the door code.\r\n\r\n{-} A hero can interact with a terminal to perform an attribute test based on the color of the terminal to try and download the code fragment. Apply -1 {B} if there are 1 or more Imperial figures on or adjacent to the terminal. Blue terminals: {I} or {J}; red terminals: {I} or {K}.\r\n{-} The mission will progress when all code fragments have been downloaded.\r\n{-} The Rebels lose when the marked hero is wounded. When that happens, click the trap door and select \"Target Wounded\".",
-          "displayName": "Text Box",
           "GUID": "43965ab4-3bcc-4488-8ef3-1e7c0d3cf778",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Find the consoles and download the code fragments (&Terminals&/4).",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "8859bf5e-e743-49ac-97ac-79eb07537a3e",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} Imperial figures cannot declare attacks targeting the marked hero if he is adjacent to a healthy Rebel figure. In that case, the attack targets the closest healthy Rebel figure.\r\n{-} A hero can interact with a terminal to perform an attribute test based on the color of the terminal to try and download the code fragment. Apply -1 {B} if there are 1 or more Imperial figures on or adjacent to the terminal. Blue terminals: {I} or {J}; red terminals: {I} or {K}.\r\n{-} The Imperial mission token represents the locked trap door.\r\n{-} The mission will progress when all code fragments have been downloaded.\r\n{-} The Rebels lose when the marked hero is wounded. When that happens, click the trap door and select \"Target Wounded\".",
-          "displayName": "Change Mission Info",
           "GUID": "7635633b-004a-4029-8e46-99583a01e952",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -916,29 +917,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You quickly begin to work on the terminal.\r\n\r\n{-} Test {J} or {I}. Apply -1 {B} if there are 1 or more Imperial figures on or adjacent to the terminal. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "2a66c9e1-903e-4988-9971-cec9fed690c8"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "f581f6bd-cd6c-4c29-b1d2-43683a8ad1e6",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -998,14 +999,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals",
+              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "5781a569-35f4-44d4-b2a5-9c9a5eb9a3a7",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1037,29 +1038,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You quickly begin to work on the terminal.\r\n\r\n{-} Test {J} or {I}. Apply -1 {B} if there are 1 or more Imperial figures on or adjacent to the terminal. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "6e21d9d7-e174-4cd2-bdb2-3ca034b33a98"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "05148dd0-c84f-4204-b266-ee01cc5b6059",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1119,14 +1120,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals",
+              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "2579c63d-316d-4646-8480-6db42730e5a3",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1158,29 +1159,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You quickly begin to work on the terminal.\r\n\r\n{-} Test {K} or {I}. Apply -1 {B} if there are 1 or more Imperial figures on or adjacent to the terminal. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "0bb08edd-8a15-4961-bb30-0521faac3e70"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "8fb2339e-1538-4204-a35c-c68d600047d2",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1240,14 +1241,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals",
+              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "bea12e17-2577-4c9a-a05e-6112abb9c52c",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1279,29 +1280,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You quickly begin to work on the terminal.\r\n\r\n{-} Test {K} or {I}. Apply -1 {B} if there are 1 or more Imperial figures on or adjacent to the terminal. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00ac2a95-2853-4f6c-86d7-e4ecbc300d14"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "c50eb16e-43d3-433d-97d0-f9f5b1784057",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1361,14 +1362,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals",
+              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "1e3873a0-6ba3-4e1c-a9fa-55c645ef7538"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "3a4f3456-f54d-4f1c-93af-fe75289fa028",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1376,7 +1377,7 @@
       "GUID": "11089a48-b30a-4845-a5cf-883386f9586f",
       "isGlobal": true,
       "name": "Ambition",
-      "eventText": "You spot some movement, and out of the shadows emerges a green-skinned Rodian, a blaster in his hands. \"Oot wan ka noota,\" he says. Well, he's about to find out you're not [i]that[/i] easy money.",
+      "eventText": "You spot some movement, and out of the shadows emerges a green-skinned Rodian, a blaster in his hands. \"Oot wan ka noota,\" he says. Well, he's about to find out you're not <i>that</i> easy money.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1400,12 +1401,21 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "deploymentGroup": "DG090",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG090",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": "+*1* Health",
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": true,
+          "useGenericMugshot": false,
+          "showMod": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
             "GUID": "9c654150-7818-4a6f-9357-f4a40518f0ee",
             "cardName": "Greedo",
@@ -1438,18 +1448,9 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": true,
-          "modification": "+*1* Health",
-          "useCustomInstructions": true,
-          "displayName": "Deploy: DG090/Greedo",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
           "GUID": "048fdc42-9551-46ec-bdb9-61bf2de422b8",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG090/Greedo"
         }
       ]
     },
@@ -1484,23 +1485,23 @@
           "triggerList": [
             {
               "triggerName": "Surrounded",
+              "triggerGUID": "dfbf40f3-afd8-4d53-b8b8-243e4019c338",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "dfbf40f3-afd8-4d53-b8b8-243e4019c338"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "5bed16fd-4653-4121-ae47-7a9d9d0463a0",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "914ad707-cb43-445b-9dd6-09bfc8de7fbb",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     },
@@ -1538,13 +1539,13 @@
       ],
       "eventActions": [
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "f42f2a88-5d12-4fac-9dc9-2b6fbe36c2f1",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     },
@@ -1604,14 +1605,14 @@
           "triggerList": [
             {
               "triggerName": "Cantina Revealed",
+              "triggerGUID": "b07635a1-c199-4344-b886-1ba0f2b14abd",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "b07635a1-c199-4344-b886-1ba0f2b14abd"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "58ce9c84-1564-4a20-9d79-632f325f952c",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1671,14 +1672,14 @@
           "triggerList": [
             {
               "triggerName": "Cantina Revealed",
+              "triggerGUID": "b07635a1-c199-4344-b886-1ba0f2b14abd",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "b07635a1-c199-4344-b886-1ba0f2b14abd"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "4f288667-b1d2-4a0e-95ca-2e9df62a7bbc",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1738,14 +1739,14 @@
           "triggerList": [
             {
               "triggerName": "Cantina Revealed",
+              "triggerGUID": "b07635a1-c199-4344-b886-1ba0f2b14abd",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "b07635a1-c199-4344-b886-1ba0f2b14abd"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "d269609e-1a5c-4d12-8fbf-33bfb536ec24",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1783,28 +1784,28 @@
       ],
       "eventActions": [
         {
-          "mapSection": "3d9b8f98-933f-4642-a0cb-ec8d806982fe",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "3d9b8f98-933f-4642-a0cb-ec8d806982fe",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "5763d68f-f3db-40bd-9466-5909927d8740",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "ea2b8440-de42-441f-8755-0e75d0717557",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
           "eventGroupGUID": "c57f0e76-0b5e-43f0-9121-d1e852186c5f",
-          "displayName": "Activate Event Group",
           "GUID": "022943a9-d8bb-468c-bcaa-2149a7dd976f",
-          "eventActionType": 19
+          "eventActionType": 19,
+          "displayName": "Activate Event Group"
         }
       ]
     },
@@ -1837,9 +1838,9 @@
       "eventActions": [
         {
           "theText": "{-} Imperial figures cannot declare attacks targeting the marked hero if he is adjacent to a healthy Rebel figure. In that case, the attack targets the closest healthy Rebel figure.\r\n{-} A hero can interact with a terminal to perform an attribute test based on the color of the terminal to try and download the code fragment. Apply -1 {B} if there are 1 or more Imperial figures on or adjacent to the terminal. Blue terminals: {I} or {J}; red terminals: {I} or {K}.\r\n{-} When a figure on the Cantina (tile CORE 21B) performs a test, apply -1 {B} to the results.\r\n{-} The Imperial mission token represents the locked trap door.\r\n{-} The mission will progress when all code fragments have been downloaded.\r\n{-} The Rebels lose when the marked hero is wounded. When that happens, click the trap door and select \"Target Wounded\".",
-          "displayName": "Change Mission Info",
           "GUID": "8b42e002-0595-4992-8838-e60a7bd26c56",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1952,38 +1953,38 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "mapSection": "b43ae3c6-e014-4300-b1e9-4156b5122dd1",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "b43ae3c6-e014-4300-b1e9-4156b5122dd1",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "497fe6bd-9bb4-4f6c-aa25-6320fbeb82a0",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "Enemies are already waiting for you inside.",
-          "displayName": "Text Box",
           "GUID": "6fd412f4-5a8c-45ce-a07c-e41608744dc1",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "04e29644-9184-4be7-bc5f-2858bc207b2d",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
-          "isOnslaught": true,
           "deploymentPoint": 1,
-          "specificDeploymentPoint": "8b502450-a1df-4cb0-9cd4-c9412392ecff",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "8b502450-a1df-4cb0-9cd4-c9412392ecff",
+          "isOnslaught": true,
           "GUID": "fae1d9a1-a0f2-4d81-b337-a41afaf2b4ca",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         }
       ]
     },
@@ -2079,15 +2080,15 @@
         {
           "theText": "Help the target escape.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "a6f8e2cc-433a-4cab-aded-0923c0490b11",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} The Rebel mission token represents the unlocked trap door.\r\n{-} The marked hero can escape through the trap door. When he does, click the trap door and select \"Target Escapes\".\r\n{-} The Rebels win when the marked hero escapes.\r\n{-} The Rebels lose when the marked hero is wounded. When that happens, click the trap door and select \"Target Wounded\".",
-          "displayName": "Change Mission Info",
           "GUID": "4511b4fe-7329-4702-aadf-c45127c16886",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     }
@@ -2490,7 +2491,11 @@
       }
     },
     {
+      "GUID": "1368ddaa-5ea0-42dd-b0ad-76163539d64c",
       "name": "Cantina Door N",
+      "entityType": 6,
+      "entityPosition": "1040,960",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Cantina Door N",
         "isActive": false,
@@ -2504,14 +2509,14 @@
           }
         ]
       },
-      "GUID": "1368ddaa-5ea0-42dd-b0ad-76163539d64c",
-      "entityType": 6,
-      "entityPosition": "1040,960",
-      "entityRotation": 0.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "be167455-9e12-45e7-a4d8-d6d429ea2f27",
       "name": "Cantina Door W",
+      "entityType": 6,
+      "entityPosition": "1030,990",
+      "entityRotation": 90.0,
       "entityProperties": {
         "name": "Cantina Door W",
         "isActive": false,
@@ -2525,14 +2530,14 @@
           }
         ]
       },
-      "GUID": "be167455-9e12-45e7-a4d8-d6d429ea2f27",
-      "entityType": 6,
-      "entityPosition": "1030,990",
-      "entityRotation": 90.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "3896bc47-0b3d-43f1-88ec-8afebf9ef4ef",
       "name": "Cantina Door S",
+      "entityType": 6,
+      "entityPosition": "1050,1030",
+      "entityRotation": 180.0,
       "entityProperties": {
         "name": "Cantina Door S",
         "isActive": false,
@@ -2546,14 +2551,14 @@
           }
         ]
       },
-      "GUID": "3896bc47-0b3d-43f1-88ec-8afebf9ef4ef",
-      "entityType": 6,
-      "entityPosition": "1050,1030",
-      "entityRotation": 180.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "924286a9-bb61-4478-86d8-55bf1a36509f",
       "name": "Storage Door",
+      "entityType": 6,
+      "entityPosition": "930,1050",
+      "entityRotation": 270.0,
       "entityProperties": {
         "name": "Storage Door",
         "isActive": false,
@@ -2567,14 +2572,14 @@
           }
         ]
       },
-      "GUID": "924286a9-bb61-4478-86d8-55bf1a36509f",
-      "entityType": 6,
-      "entityPosition": "930,1050",
-      "entityRotation": 270.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "56fe6313-fe43-483b-afa4-3281085e66e2",
       "name": "Terminal Blue 1",
+      "entityType": 1,
+      "entityPosition": "1000,1060",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Blue 1",
         "isActive": true,
@@ -2588,15 +2593,15 @@
           }
         ]
       },
-      "deploymentColor": "Blue",
-      "GUID": "56fe6313-fe43-483b-afa4-3281085e66e2",
-      "entityType": 1,
-      "entityPosition": "1000,1060",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Blue"
     },
     {
+      "GUID": "8257ce90-3ccc-4a5e-bcf9-83c41689d487",
       "name": "Terminal Blue 2",
+      "entityType": 1,
+      "entityPosition": "1080,950",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Blue 2",
         "isActive": true,
@@ -2610,15 +2615,15 @@
           }
         ]
       },
-      "deploymentColor": "Blue",
-      "GUID": "8257ce90-3ccc-4a5e-bcf9-83c41689d487",
-      "entityType": 1,
-      "entityPosition": "1080,950",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Blue"
     },
     {
+      "GUID": "e05d24e0-0f43-4a41-8f4a-42e9aa48dd81",
       "name": "Terminal Red 1",
+      "entityType": 1,
+      "entityPosition": "940,1000",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Blue 2 (Duplicate)",
         "isActive": true,
@@ -2632,15 +2637,15 @@
           }
         ]
       },
-      "deploymentColor": "Red",
-      "GUID": "e05d24e0-0f43-4a41-8f4a-42e9aa48dd81",
-      "entityType": 1,
-      "entityPosition": "940,1000",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "b43ae3c6-e014-4300-b1e9-4156b5122dd1"
+      "mapSectionOwner": "b43ae3c6-e014-4300-b1e9-4156b5122dd1",
+      "deploymentColor": "Red"
     },
     {
+      "GUID": "144b8307-24af-4773-81c2-3c1a4f963208",
       "name": "Terminal Red 2",
+      "entityType": 1,
+      "entityPosition": "1020,970",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Red 2",
         "isActive": true,
@@ -2654,12 +2659,8 @@
           }
         ]
       },
-      "deploymentColor": "Red",
-      "GUID": "144b8307-24af-4773-81c2-3c1a4f963208",
-      "entityType": 1,
-      "entityPosition": "1020,970",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "3d9b8f98-933f-4642-a0cb-ec8d806982fe"
+      "mapSectionOwner": "3d9b8f98-933f-4642-a0cb-ec8d806982fe",
+      "deploymentColor": "Red"
     },
     {
       "GUID": "8b502450-a1df-4cb0-9cd4-c9412392ecff",
@@ -2699,7 +2700,11 @@
       }
     },
     {
+      "GUID": "fa2be1d7-0fb3-409c-8daa-ba3697be792d",
       "name": "Trap Door Locked",
+      "entityType": 4,
+      "entityPosition": "980,990",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Trap Door Locked",
         "isActive": false,
@@ -2713,16 +2718,16 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Blue",
-      "markerType": 2,
-      "GUID": "fa2be1d7-0fb3-409c-8daa-ba3697be792d",
+      "markerType": 2
+    },
+    {
+      "GUID": "65e87d57-cf1f-4151-b460-25d369c16178",
+      "name": "Trap Door Open",
       "entityType": 4,
       "entityPosition": "980,990",
       "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-    },
-    {
-      "name": "Trap Door Open",
       "entityProperties": {
         "name": "Trap Door Open",
         "isActive": false,
@@ -2741,13 +2746,9 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Blue",
-      "markerType": 1,
-      "GUID": "65e87d57-cf1f-4151-b460-25d369c16178",
-      "entityType": 4,
-      "entityPosition": "980,990",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 1
     }
   ],
   "initialDeploymentGroups": [

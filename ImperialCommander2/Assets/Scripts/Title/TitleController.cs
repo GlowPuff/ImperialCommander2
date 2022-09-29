@@ -24,19 +24,19 @@ public class TitleController : MonoBehaviour
 	public TitleText titleText;
 	public GameObject donateButton, docsButton, versionButton, tutorialGoButton, sagaClassicLayoutContainer, campaignContainer;
 	public VolumeProfile volume;
-	public Button continueButton;
+	public Button continueButton, campaignContinueButton;
 	public Transform busyIconTF;
 	public TextMeshProUGUI versionText;
 	public MissionTextBox versionPopup;
 	public TMP_Dropdown languageDropdown, tutorialDropdown;
-	public TextMeshProUGUI donateText, docsText;
+	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText;
 	public Toggle sagaToggle, classicToggle, campaignToggle;
 	public TutorialPanel tutorialPanel;
 	public NewCampaignPanel newCampaignPanel;
 	public ContinueCampaignPanel continueCampaignPanel;
 
 	//UI objects using language translations
-	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiExpansionsBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, uiExpansionsBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -86,6 +86,7 @@ public class TitleController : MonoBehaviour
 
 		//check if saved state is valid
 		continueButton.interactable = IsSagaSessionValid();
+		campaignContinueButton.interactable = IsCampaignSessionValid();
 
 		FindObjectOfType<Sound>().CheckAudio();
 
@@ -387,8 +388,15 @@ public class TitleController : MonoBehaviour
 	{
 		UITitle ui = DataStore.uiLanguage.uiTitle;
 		uiMenuHeader.text = ui.menuHeading;
+
 		uiNewGameBtn.text = ui.newGameBtn;
+		uiCampaignNewBtn.text = ui.newGameBtn;
+
 		uiContinueBtn.text = ui.continueBtn;
+		uiCampaignContinueBtn.text = ui.continueBtn;
+
+		uiCampaignLoadBtn.text = "load";//needs translation
+
 		uiExpansionsBtn.text = ui.campaignsBtn;
 		uiOptionsBtn.text = ui.optionsBtn;
 		donateText.text = ui.supportUC;
@@ -454,6 +462,18 @@ public class TitleController : MonoBehaviour
 			File.WriteAllText( Path.Combine( Application.persistentDataPath, "SagaSession", "error_log.txt" ), "TRACE:\r\n" + e.Message );
 			return false;
 		}
+	}
+
+	private bool IsCampaignSessionValid()
+	{
+		if ( PlayerPrefs.HasKey( "campaignGUID" ) )
+		{
+			string guid = PlayerPrefs.GetString( "campaignGUID" );
+			guid = Path.Combine( Application.persistentDataPath, "SagaCampaigns", $"{guid}.json" );
+			if ( File.Exists( guid ) )
+				return true;
+		}
+		return false;
 	}
 
 	private SessionData LoadSession()
@@ -581,7 +601,7 @@ public class TitleController : MonoBehaviour
 		} );
 	}
 
-	public void OnContinueCampaign()
+	public void OnLoadCampaign()
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
@@ -591,13 +611,37 @@ public class TitleController : MonoBehaviour
 		continueCampaignPanel.Show( () =>
 		{
 			animator.SetBool( m_OpenParameterId, true );
+			//if last campaign used was just deleted, disable continue button
+			campaignContinueButton.interactable = IsCampaignSessionValid();
 		} );
+	}
+
+	public void OnContinueCampaign()
+	{
+		EventSystem.current.SetSelectedGameObject( null );
+		soundController.PlaySound( FX.Click );
+		if ( PlayerPrefs.HasKey( "campaignGUID" ) )
+		{
+			Guid guid = Guid.Parse( PlayerPrefs.GetString( "campaignGUID" ) );
+			var c = SagaCampaign.LoadCampaignState( guid );
+			if ( c != null )
+			{
+				animator.SetBool( m_OpenParameterId, false );
+				animator.SetBool( expID, false );
+				NavToCampaignScreen( c );
+			}
+		}
 	}
 
 	public void NavToCampaignScreen( SagaCampaign campaign )
 	{
+		if ( campaign == null )
+			return;
+
 		RunningCampaign.sagaCampaignGUID = campaign.GUID;
 		RunningCampaign.expansionCode = campaign.campaignExpansionCode;
+		//set "last campaign used"
+		PlayerPrefs.SetString( "campaignGUID", campaign.GUID.ToString() );
 
 		soundController.FadeOutMusic();
 		FadeOut( 1 );
@@ -616,6 +660,7 @@ public class TitleController : MonoBehaviour
 			campaignContainer.SetActive( false );
 			//check if saved state is valid
 			continueButton.interactable = IsSagaSessionValid();
+			panelDescriptionText.text = "Play a single, narratively driven mission with a 3D map presentation.";
 		}
 		else if ( classicToggle.isOn )
 		{
@@ -624,12 +669,15 @@ public class TitleController : MonoBehaviour
 			campaignContainer.SetActive( false );
 			//check if saved state is valid
 			continueButton.interactable = IsSessionValid();
+			panelDescriptionText.text = "Play a single mission using your mission guide book and no 3D map.";
 		}
 		else if ( campaignToggle.isOn )
 		{
 			continueButton.interactable = false;
 			sagaClassicLayoutContainer.SetActive( false );
 			campaignContainer.SetActive( true );
+			campaignContinueButton.interactable = IsCampaignSessionValid();
+			campaignPanelDescriptionText.text = "Embark on a new or existing Campaign through the galaxy.";
 		}
 	}
 }

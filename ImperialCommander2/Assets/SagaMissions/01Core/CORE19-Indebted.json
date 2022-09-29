@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE19-Indebted.json",
-  "relativePath": "01 - Core Game\\Side Missions\\CORE19-Indebted.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896842311446788,
+  "relativePath": "Update\\Assets\\SagaMissions\\01Core\\CORE19-Indebted.json",
+  "fileVersion": "18",
+  "saveDate": "9/16/2022",
+  "timeTicks": 637989356462185821,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Indebted",
     "campaignName": "Core Game",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "Find Shortatha.",
@@ -799,7 +801,7 @@
       "GUID": "945b4df8-295a-4c19-9fe2-864ce7d7ff86",
       "isGlobal": true,
       "name": "Green Cannon Fires",
-      "eventText": "The green-tinted cannon powers up and discharges a blast towards {rebel}.\r\n\r\nRoll 1 red and 1 yellow die. {rebel} suffers {H} equal to the {H} results. If {rebel} is not within line of sight of the green pulse cannon, choose the closest Rebel who is.\r\n\r\nIf Gaarkhan was attacked by the cannon, he becomes Focused.",
+      "eventText": "The green-tinted cannon powers up and discharges a blast towards {rebel}.\r\n\r\nRoll 1 red and 1 yellow die. {rebel} suffers {H} equal to the {H} results. If {rebel} is not within line of sight of the green pulse cannon, choose the closest Rebel who is.\r\n\r\nIf Gaarkhan was attacked by the cannon, he becomes <color=\"red\">Focused</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -833,7 +835,7 @@
       "GUID": "8bc9a4cc-ca91-4124-bf26-65fc053a17e1",
       "isGlobal": true,
       "name": "Yellow Cannon Fires",
-      "eventText": "The yellow-tinted cannon powers up and discharges a blast towards {rebel}.\r\n\r\nRoll 1 red and 1 yellow die. {rebel} suffers {H} equal to the {H} results. If {rebel} is not within line of sight of the yellow pulse cannon, choose the closest Rebel who is.\r\n\r\nIf Gaarkhan was attacked by the cannon, he becomes Focused.",
+      "eventText": "The yellow-tinted cannon powers up and discharges a blast towards {rebel}.\r\n\r\nRoll 1 red and 1 yellow die. {rebel} suffers {H} equal to the {H} results. If {rebel} is not within line of sight of the yellow pulse cannon, choose the closest Rebel who is.\r\n\r\nIf Gaarkhan was attacked by the cannon, he becomes <color=\"red\">Focused</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -867,7 +869,7 @@
       "GUID": "8b0f1f9a-afc2-4a36-8783-acba668e1db9",
       "isGlobal": true,
       "name": "Red Cannon Fires",
-      "eventText": "The red-tinted cannon powers up and discharges a blast towards {rebel}.\r\n\r\nRoll 1 red and 1 yellow die. {rebel} suffers {H} equal to the {H} results. If {rebel} is not within line of sight of the red pulse cannon, choose the closest Rebel who is.\r\n\r\nIf Gaarkhan was attacked by the cannon, he becomes Focused.",
+      "eventText": "The red-tinted cannon powers up and discharges a blast towards {rebel}.\r\n\r\nRoll 1 red and 1 yellow die. {rebel} suffers {H} equal to the {H} results. If {rebel} is not within line of sight of the red pulse cannon, choose the closest Rebel who is.\r\n\r\nIf Gaarkhan was attacked by the cannon, he becomes <color=\"red\">Focused</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1669,7 +1671,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1677,6 +1678,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "8822feb0-98f5-43ab-a88a-0e2946a86435",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1709,11 +1711,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "eafee143-2bb5-4815-867b-c6bcf3dfad5d",
           "eventActionType": 6,
@@ -1768,13 +1772,13 @@
       ],
       "eventActions": [
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "89ca07cd-e80a-4ead-a3e0-dc4e7b561c27",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         }
       ]
     }
@@ -1920,7 +1924,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1956,7 +1961,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1992,7 +1998,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2028,7 +2035,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2064,7 +2072,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2100,7 +2109,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2136,7 +2146,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2338,11 +2349,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "778694b1-72a3-443a-a379-bc630d622b03",
@@ -2374,11 +2387,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2406,11 +2421,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

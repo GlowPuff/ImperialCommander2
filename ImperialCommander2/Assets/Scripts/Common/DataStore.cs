@@ -879,12 +879,15 @@ public static class DataStore
 
 	public static MissionCard GetMissionCard( string id )
 	{
-		foreach ( var item in missionCards.Keys )
+		if ( id != null && id != "Custom" )
 		{
-			foreach ( var card in missionCards[item] )
+			foreach ( var item in missionCards.Keys )
 			{
-				if ( card.id.ToLower() == id.ToLower() )
-					return card;
+				foreach ( var card in missionCards[item] )
+				{
+					if ( card.id.ToLower() == id.ToLower() )
+						return card;
+				}
 			}
 		}
 

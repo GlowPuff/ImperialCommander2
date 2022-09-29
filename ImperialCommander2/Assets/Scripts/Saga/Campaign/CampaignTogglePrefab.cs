@@ -19,7 +19,7 @@ namespace Saga
 			if ( c.campaignExpansionCode != "Custom" )
 				expansionText.text = DataStore.translatedExpansionNames[c.campaignExpansionCode];
 			else
-				expansionText.text = "custom";
+				expansionText.text = "Custom";
 			campaignGUID = c.GUID;
 			callback = cb;
 			GetComponent<Toggle>().group = tg;
@@ -39,6 +39,12 @@ namespace Saga
 					FileManager.DeleteCampaign( campaignGUID );
 					Destroy( gameObject );
 					FindObjectOfType<ContinueCampaignPanel>().startButton.interactable = false;
+					if ( PlayerPrefs.HasKey( "campaignGUID" ) )
+					{
+						string guid = PlayerPrefs.GetString( "campaignGUID" );
+						if ( guid == campaignGUID.ToString() )
+							PlayerPrefs.DeleteKey( "campaignGUID" );
+					}
 				} );
 		}
 	}
