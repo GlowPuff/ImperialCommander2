@@ -80,8 +80,6 @@ namespace Saga
 
 		public bool CheckEndOfCurrentRound()
 		{
-			//if ( missionEvent.hasActivatedThisRound )
-			//	return false;
 			//since this check is ONLY called at the end of a round, no need to check if this is the end of the round first
 			return DataStore.sagaSessionData.gameVars.ShouldFireEndCurrentRoundEvent( missionEvent.GUID );
 		}
@@ -94,19 +92,19 @@ namespace Saga
 		public bool CheckAllyDefeated()
 		{
 			var player = DataStore.deployedHeroes.Where( x => x.id == missionEvent.allyDefeated ).FirstOr( null );
-			return player != null && player.heroState.heroHealth == HeroHealth.Defeated;
+			return player != null && player.heroState.isDefeated;
 		}
 
 		public bool CheckHeroWounded()
 		{
 			var player = DataStore.deployedHeroes.Where( x => x.id == missionEvent.heroWounded ).FirstOr( null );
-			return player != null && player.heroState.heroHealth == HeroHealth.Wounded;
+			return player != null && player.heroState.isWounded;
 		}
 
 		public bool CheckHeroDefeated()
 		{
 			var player = DataStore.deployedHeroes.Where( x => x.id == missionEvent.heroWithdraws ).FirstOr( null );
-			return player != null && player.heroState.heroHealth == HeroHealth.Defeated;
+			return player != null && player.heroState.isDefeated;
 		}
 
 		public bool CheckAnyHeroWounded()
@@ -116,8 +114,7 @@ namespace Saga
 							where !DataStore.sagaSessionData.AnyHeroWoundedEventDone.Contains( dh.id )
 							select dh;
 
-			//return DataStore.deployedHeroes.Any( x => x.isHero && x.heroState.heroHealth == HeroHealth.Wounded );
-			return h.Any( x => x.isHero && x.heroState.heroHealth == HeroHealth.Wounded );
+			return h.Any( x => x.isHero && x.heroState.isWounded );
 		}
 
 		public bool CheckAllGroupsDefeated()
@@ -127,7 +124,7 @@ namespace Saga
 
 		public bool CheckAllHeroesWounded()
 		{
-			return DataStore.sagaSessionData.MissionHeroes.All( x => x.heroState.heroHealth == HeroHealth.Wounded );
+			return DataStore.sagaSessionData.MissionHeroes.All( x => x.heroState.isWounded );
 		}
 	}
 }

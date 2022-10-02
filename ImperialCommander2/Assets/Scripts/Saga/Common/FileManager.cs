@@ -275,7 +275,7 @@ namespace Saga
 						string[] aiSplit = line.Split( ':' );
 						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
 						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
-						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 2 );
+						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
 					}
 					if ( split[0] == "missionID" )
 						projectItem.missionID = split[1];
@@ -286,7 +286,7 @@ namespace Saga
 						string[] aiSplit = line.Split( ':' );
 						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
 						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
-						projectItem.AdditionalInfo = aiSplit[1].Substring( 0, aiSplit[1].Length - 2 );
+						projectItem.AdditionalInfo = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
 					}
 				}
 				else if ( split.Length > 2 )//mission name with a colon
@@ -299,6 +299,20 @@ namespace Saga
 						int c = line.LastIndexOf( ',' );
 						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
 						projectItem.Title = mname;
+					}
+					if ( split[0] == "missionDescription" && !string.IsNullOrEmpty( split[1] ) )
+					{
+						int idx = line.IndexOf( ':' );
+						int c = line.LastIndexOf( ',' );
+						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
+						projectItem.Description = mname;
+					}
+					if ( split[0] == "additionalMissionInfo" && !string.IsNullOrEmpty( split[1] ) )
+					{
+						int idx = line.IndexOf( ':' );
+						int c = line.LastIndexOf( ',' );
+						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
+						projectItem.AdditionalInfo = mname;
 					}
 				}
 			}

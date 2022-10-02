@@ -468,7 +468,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		//find a rebel with no targeting
 		DeploymentCard defaultRebel = FindRebel();
 		//if finding a specific hero bombs, just find ANY rebel
-		defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificHero && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+		defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificHero && !x.heroState.isDefeated ).FirstOr( null ) ?? defaultRebel;
 
 		return defaultRebel;
 	}
@@ -479,7 +479,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		//find a rebel with no targeting
 		DeploymentCard defaultRebel = FindRebel();
 		//if finding a specific ally bombs, just find ANY rebel
-		defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificAlly && x.heroState.heroHealth != HeroHealth.Defeated ).FirstOr( null ) ?? defaultRebel;
+		defaultRebel = DataStore.deployedHeroes.Where( x => x.id == ovrd.specificAlly && !x.heroState.isDefeated ).FirstOr( null ) ?? defaultRebel;
 
 		return defaultRebel;
 	}

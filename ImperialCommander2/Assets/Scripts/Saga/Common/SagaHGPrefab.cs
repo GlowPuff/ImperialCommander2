@@ -53,7 +53,7 @@ namespace Saga
 				cd.heroState.Init();
 			}
 
-			SetHealth( cd.heroState.heroHealth );
+			SetHealth( cd.heroState );
 			SetActivation();
 
 			Transform tf = transform.GetChild( 0 );
@@ -115,7 +115,7 @@ namespace Saga
 		public void OnClickSelf()
 		{
 			if ( cardDescriptor.isDummy
-				|| cardDescriptor.heroState.heroHealth == HeroHealth.Defeated
+				|| cardDescriptor.heroState.isDefeated
 				|| FindObjectOfType<SagaEventManager>().IsUIHidden )
 				return;
 
@@ -128,7 +128,7 @@ namespace Saga
 					this,
 					cardDescriptor.name,
 					cardDescriptor.isHero,
-					cardDescriptor.heroState.heroHealth == HeroHealth.Wounded,
+					cardDescriptor.heroState.isWounded,
 					OnDefeat,
 					OnWound );
 			}
@@ -156,19 +156,18 @@ namespace Saga
 			//cardViewPopup.Show( cardDescriptor );
 		}
 
-		public void SetHealth( HeroHealth heroHealth )
+		public void SetHealth( HeroState heroState )
 		{
 			if ( cardDescriptor.isDummy )
 				return;
 
-			cardDescriptor.heroState.heroHealth = heroHealth;
+			cardDescriptor.heroState = heroState;
 			woundToggle.gameObject.SetActive( false );//skip callback
 
-			if ( heroHealth == HeroHealth.Wounded || heroHealth == HeroHealth.Defeated )
-			{
+			if ( heroState.isWounded || heroState.isDefeated )
 				woundToggle.isOn = false;
-			}
-			if ( cardDescriptor.heroState.heroHealth == HeroHealth.Defeated )
+
+			if ( cardDescriptor.heroState.isDefeated )
 				exhaustedOverlay.SetActive( true );
 
 			woundToggle.gameObject.SetActive( true );
@@ -225,8 +224,8 @@ namespace Saga
 				return;
 			}
 
-			cardDescriptor.heroState.isHealthy = false;
-			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
+			cardDescriptor.heroState.isDefeated = true;
+			cardDescriptor.heroState.isWounded = true;
 
 			woundToggle.gameObject.SetActive( false );
 			woundToggle.isOn = false;
@@ -253,8 +252,7 @@ namespace Saga
 		{
 			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 
-			cardDescriptor.heroState.isHealthy = false;
-			cardDescriptor.heroState.heroHealth = HeroHealth.Wounded;
+			cardDescriptor.heroState.isWounded = true;
 
 			FindObjectOfType<ConfirmPopup>().Hide();
 			woundToggle.gameObject.SetActive( false );

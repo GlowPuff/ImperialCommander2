@@ -124,7 +124,7 @@ namespace Saga
 					{
 						if ( ev.useAnyHeroWounded )
 						{
-							var h = DataStore.deployedHeroes.Where( x => x.isHero && x.heroState.heroHealth == HeroHealth.Wounded );
+							var h = DataStore.deployedHeroes.Where( x => x.isHero && x.heroState.isWounded );
 							foreach ( var item in h )
 								DataStore.sagaSessionData.AnyHeroWoundedEventDone.Add( item.id );
 						}

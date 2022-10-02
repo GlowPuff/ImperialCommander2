@@ -51,10 +51,10 @@ public class HGPrefab : MonoBehaviour
 		if ( cd.heroState == null )
 		{
 			cd.heroState = new HeroState();
-			cd.heroState.Init();// DataStore.sessionData.MissionHeroes.Count );
+			cd.heroState.Init();
 		}
 
-		SetHealth( cd.heroState.heroHealth );
+		SetHealth( cd.heroState );
 		SetActivation();
 
 		Transform tf = transform.GetChild( 0 );
@@ -62,28 +62,32 @@ public class HGPrefab : MonoBehaviour
 		tf.DOScale( 1, 1f ).SetEase( Ease.OutBounce );
 	}
 
+	/// <summary>
+	/// Red status pip clicked
+	/// </summary>
 	public void OnCount1( Toggle t )
 	{
 		if ( !woundToggle.gameObject.activeInHierarchy )
 			return;
 
-		cardDescriptor.heroState.isHealthy = t.isOn;
+		cardDescriptor.heroState.isWounded = t.isOn;
 		if ( cardDescriptor.heroState.isHealthy )
-		{
-			cardDescriptor.heroState.heroHealth = HeroHealth.Healthy;
 			exhaustedOverlay.SetActive( false );
-		}
 		else
-			cardDescriptor.heroState.heroHealth = HeroHealth.Wounded;
+			cardDescriptor.heroState.isWounded = true;
 
 		if ( exhaustedOverlay.activeInHierarchy )
-			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
+		{
+			cardDescriptor.heroState.isDefeated = true;
+			cardDescriptor.heroState.isWounded = true;
+		}
 
 		//if it's an ally, mark it defeated
 		if ( cardDescriptor.id[0] == 'A' )
 		{
 			exhaustedOverlay.SetActive( !cardDescriptor.heroState.isHealthy );
-			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
+			cardDescriptor.heroState.isDefeated = true;
+			//cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
 		}
 
 		//Debug.Log( "HEALTHY: " + cardDescriptor.isHealthy );
@@ -113,7 +117,7 @@ public class HGPrefab : MonoBehaviour
 		exhaustedOverlay.SetActive( !exhaustedOverlay.activeInHierarchy );
 		woundToggle.isOn = !exhaustedOverlay.activeInHierarchy;
 		if ( exhaustedOverlay.activeInHierarchy )
-			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
+			cardDescriptor.heroState.isDefeated = true;
 	}
 
 	public void OnPointerClick()
@@ -124,19 +128,18 @@ public class HGPrefab : MonoBehaviour
 		cardViewPopup.Show( cardDescriptor );
 	}
 
-	public void SetHealth( HeroHealth heroHealth )
+	public void SetHealth( HeroState heroState )
 	{
 		if ( cardDescriptor.isDummy )
 			return;
 
-		cardDescriptor.heroState.heroHealth = heroHealth;
+		cardDescriptor.heroState = heroState;
 		woundToggle.gameObject.SetActive( false );//skip callback
 
-		if ( heroHealth == HeroHealth.Wounded || heroHealth == HeroHealth.Defeated )
-		{
+		if ( heroState.isWounded || heroState.isDefeated )
 			woundToggle.isOn = false;
-		}
-		if ( cardDescriptor.heroState.heroHealth == HeroHealth.Defeated )
+
+		if ( cardDescriptor.heroState.isDefeated )
 			exhaustedOverlay.SetActive( true );
 
 		woundToggle.gameObject.SetActive( true );
