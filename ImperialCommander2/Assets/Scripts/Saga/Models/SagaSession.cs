@@ -225,10 +225,11 @@ namespace Saga
 			//force=true is also used for the ModifyThreat event action
 			if ( amount > 0 && !force )
 			{
+				//round to nearest whole number, with X.5 rounding UP
 				if ( setupOptions.difficulty == Difficulty.Easy )
-					amount = (int)Math.Floor( amount * .7f );
+					amount = (int)Math.Round( amount * .7f, 0, MidpointRounding.AwayFromZero );
 				else if ( setupOptions.difficulty == Difficulty.Hard )
-					amount = (int)Math.Floor( amount * 1.3f );
+					amount = (int)Math.Round( amount * 1.3f, 0, MidpointRounding.AwayFromZero );
 			}
 			Debug.Log( "UpdateThreat()::AMOUNT = " + amount );
 
