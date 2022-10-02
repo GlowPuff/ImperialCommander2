@@ -40,6 +40,7 @@ namespace Saga
 		public VolumeProfile volume;
 
 		Sound sound;
+		bool isError = false;
 
 		// Start is called before the first frame update
 		void Start()
@@ -83,7 +84,7 @@ namespace Saga
 				//load the Mission parameters
 				if ( !ParseMission() )
 				{
-					errorPanel.Show( "Failed to load the tutorial." );
+					ShowError( "Failed to load the tutorial." );
 					return;
 				}
 
@@ -103,7 +104,8 @@ namespace Saga
 					//load the Mission parameters
 					if ( !ParseMission() )
 					{
-						errorPanel.Show( "Failed to load the mission." );
+						isError = true;
+						ShowError( "Failed to load the mission." );
 						return;
 					}
 
@@ -116,7 +118,8 @@ namespace Saga
 				ResetUI();
 				if ( !ContinueGame() )
 				{
-					errorPanel.Show( DataStore.uiLanguage.uiMainApp.restoreErrorMsgUC );
+					isError = true;
+					ShowError( DataStore.uiLanguage.uiMainApp.restoreErrorMsgUC );
 					return;
 				}
 			}
@@ -159,6 +162,7 @@ namespace Saga
 		public void ShowError( string m )
 		{
 			Debug.Log( "ShowError()::" + m );
+			isError = true;
 			errorPanel.Show( m );
 		}
 
@@ -193,8 +197,21 @@ namespace Saga
 					return false;
 
 				//add threat if it's a side mission
-				if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
+				var missionCard = DataStore.GetMissionCard( DataStore.mission.missionProperties.missionID );
+				//if this is an official mission, grab the mission type from the card list
+				if ( missionCard != null )
+				{
+					if ( missionCard.missionType.Contains( global::MissionType.Side ) )
+					{
+						Debug.Log( "ParseMission()::SIDE MISSION DETECTED" );
+						DataStore.sagaSessionData.ModifyThreat( 2 * DataStore.sagaSessionData.setupOptions.threatLevel, true );
+					}
+				}//else if it's a custom ission, grab mission type from the Properties
+				else if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
+				{
+					Debug.Log( "ParseMission()::SIDE MISSION DETECTED" );
 					DataStore.sagaSessionData.ModifyThreat( 2 * DataStore.sagaSessionData.setupOptions.threatLevel, true );
+				}
 				//ally
 				if ( DataStore.mission.missionProperties.useFixedAlly == YesNoAll.Yes )
 				{
@@ -352,9 +369,22 @@ namespace Saga
 					 };
 
 					 //perform optional deployment if it's a side mission
-					 if ( DataStore.mission.missionProperties.missionType == MissionType.Side
+					 var missionCard = DataStore.GetMissionCard( DataStore.mission.missionProperties.missionID );
+					 //if this is an official mission, grab the mission type from the card list
+					 if ( missionCard != null )
+					 {
+						 if ( missionCard.missionType.Contains( global::MissionType.Side ) )
+						 {
+							 Debug.Log( "StartupLayoutAndEvents()::SIDE MISSION DETECTED" );
+							 deploymentPopup.Show( DeployMode.Landing, false, true, action );
+						 }
+					 }//else if it's a custom ission, grab mission type from the Properties
+					 else if ( DataStore.mission.missionProperties.missionType == MissionType.Side
 					 || DataStore.sagaSessionData.selectedAlly != null )
+					 {
+						 Debug.Log( "StartupLayoutAndEvents()::SIDE MISSION DETECTED" );
 						 deploymentPopup.Show( DeployMode.Landing, false, true, action );
+					 }
 					 else
 						 action();
 				 } );
@@ -592,7 +622,8 @@ namespace Saga
 		{
 			Debug.Log( "OnStartTurn()::STARTING NEW TURN============================" );
 			//at this point, the previous round is COMPLETELY finished
-			DataStore.sagaSessionData.SaveState();
+			if ( !isError )
+				DataStore.sagaSessionData.SaveState();
 
 			IncreaseRound();
 
@@ -659,7 +690,8 @@ namespace Saga
 		{
 			//save the state on exit
 			//OnSettingsClose() can only be called when the game is in a state that can be saved
-			DataStore.sagaSessionData.SaveState();
+			if ( !isError )
+				DataStore.sagaSessionData.SaveState();
 
 			if ( c == SettingsCommand.ReturnTitles )
 			{
@@ -717,11 +749,6 @@ namespace Saga
 		public void DEBUGsaveState()
 		{
 			DataStore.sagaSessionData.SaveState();
-		}
-
-		public void DEBUGloadState()
-		{
-
 		}
 
 		private void Update()

@@ -885,7 +885,7 @@ public static class DataStore
 			{
 				foreach ( var card in missionCards[item] )
 				{
-					if ( card.id.ToLower() == id.ToLower() )
+					if ( card.id.ToLower() == id.ToLower().Replace( " ", "" ) )
 						return card;
 				}
 			}

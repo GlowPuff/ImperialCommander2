@@ -53,8 +53,8 @@ namespace Saga
 				leftPanel.SetActive( false );
 			}
 
-			//DEBUG BOOTSTRAP A CAMPAIGN
-			bootstrapDEBUG();
+			//BOOTSTRAP CAMPAIGN
+			bootstrapCampaign( true );
 
 			fader.UnFade( 2 );
 
@@ -73,19 +73,21 @@ namespace Saga
 			InitUI();
 		}
 
-		void bootstrapDEBUG()
+		void bootstrapCampaign( bool isProduction )
 		{
-			Debug.Log( "***BOOTSTRAP DEBUG (Campaign Manager)***" );
-			DataStore.InitData();
+			Debug.Log( "***BOOTSTRAP (Campaign Manager)***" );
+			if ( !isProduction )
+				DataStore.InitData();
+
 			//campaign is already setup from Title screen
 			if ( RunningCampaign.sagaCampaignGUID != null && RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				sagaCampaign = SagaCampaign.LoadCampaignState( RunningCampaign.sagaCampaignGUID );
 			}
-			else//setup new test campaign
+			else//error or debugging, setup new test campaign
 			{
 				RunningCampaign.expansionCode = "Custom";
-				sagaCampaign = SagaCampaign.CreateNewCampaign( "Default", RunningCampaign.expansionCode );
+				sagaCampaign = SagaCampaign.CreateNewCampaign( "Error/Debug - No Campaign Found", RunningCampaign.expansionCode );
 			}
 		}
 
