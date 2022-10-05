@@ -13,30 +13,30 @@ namespace Saga
 	{
 		public ManagerStates managerStates;
 
-		public static void RemoveState()
+		public static void RemoveState( string sessionFolderName )
 		{
-			Debug.Log( "RemoveState()::REMOVING SESSION" );
+			Debug.Log( $"RemoveState()::REMOVING SESSION ({sessionFolderName})" );
 
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaSession" );
+			string basePath = Path.Combine( Application.persistentDataPath, sessionFolderName );
 
 			try
 			{
 				if ( Directory.Exists( basePath ) )
 					Directory.Delete( basePath, true );
-				Debug.Log( "***SESSION REMOVED***" );
+				Debug.Log( $"***SESSION REMOVED ({sessionFolderName})***" );
 			}
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** RemoveState(Saga):: " + e.Message );
-				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "SaveState() TRACE:\r\n" + e.Message );
+				DataStore.LogError( "RemoveState() TRACE:\r\n" + e.Message );
 			}
 		}
 
-		public static void SaveState()
+		public static void SaveState( string sessionFolderName )
 		{
-			Debug.Log( "SaveSession()::SAVING SESSION" );
+			Debug.Log( $"SaveSession()::SAVING SESSION ({sessionFolderName})" );
 
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaSession" );
+			string basePath = Path.Combine( Application.persistentDataPath, sessionFolderName );
 
 			try
 			{
@@ -117,18 +117,18 @@ namespace Saga
 					stream.Write( output );
 				}
 
-				Debug.Log( "***SESSION SAVED***" );
+				Debug.Log( $"***SESSION SAVED ({sessionFolderName})***" );
 			}
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** SaveSession(Saga):: " + e.Message );
-				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "SaveState() TRACE:\r\n" + e.Message );
+				DataStore.LogError( "SaveSession(Saga) TRACE:\r\n" + e.Message );
 			}
 		}
 
-		public bool LoadSession()
+		public bool LoadState( string sessionFolderName )
 		{
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaSession" );
+			string basePath = Path.Combine( Application.persistentDataPath, sessionFolderName );
 
 			string json = "";
 			try
@@ -213,13 +213,13 @@ namespace Saga
 				DataStore.SetCardTranslations( DataStore.deployedEnemies );
 				DataStore.SetCardTranslations( DataStore.deployedHeroes );
 
-				Debug.Log( "***SESSION LOADED***" );
+				Debug.Log( $"***SESSION LOADED ({sessionFolderName})***" );
 				return true;
 			}
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** LoadState:: " + e.Message );
-				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "LOAD STATE TRACE:\r\n" + e.Message );
+				DataStore.LogError( "LoadState() TRACE:\r\n" + e.Message );
 				return false;
 			}
 		}

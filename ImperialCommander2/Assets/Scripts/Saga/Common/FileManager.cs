@@ -171,7 +171,7 @@ namespace Saga
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** GetCampaigns():: " + e.Message );
-				File.WriteAllText( Path.Combine( Application.persistentDataPath, "error_log.txt" ), "LOAD CAMPAIGNS TRACE:\r\n" + e.Message );
+				DataStore.LogError( "GetCampaigns() TRACE:\r\n" + e.Message );
 				return null;
 			}
 		}
@@ -194,7 +194,7 @@ namespace Saga
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** DeleteCampaign():: " + e.Message );
-				File.WriteAllText( Path.Combine( Application.persistentDataPath, "error_log.txt" ), "DeleteCampaign() TRACE:\r\n" + e.Message );
+				DataStore.LogError( "DeleteCampaign() TRACE:\r\n" + e.Message );
 			}
 		}
 

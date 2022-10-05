@@ -179,7 +179,7 @@ namespace Saga
 		public void EndMission()
 		{
 			//remove the state
-			StateManager.RemoveState();
+			DataStore.sagaSessionData.RemoveState();
 
 			faderOverlay.gameObject.SetActive( true );
 			faderOverlay.color = new Color( 0, 0, 0, 0 );
@@ -385,7 +385,7 @@ namespace Saga
 		{
 			StateManager sm = new StateManager();
 			//Restore session, hand, manual deck, deployed enemies, allies/heroes
-			if ( !sm.LoadSession() )
+			if ( !DataStore.sagaSessionData.LoadState( sm ) )
 				return false;
 
 			//init event manager

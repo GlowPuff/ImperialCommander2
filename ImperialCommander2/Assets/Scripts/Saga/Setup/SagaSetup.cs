@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DG.Tweening;
 using TMPro;
@@ -80,7 +81,7 @@ namespace Saga
 			DataStore.StartNewSagaSession( setupOptions );
 			//check if we're loading in from  the campaign manager
 			//single shot mission, not from a campaign
-			if ( RunningCampaign.campaignStructure == null )
+			if ( RunningCampaign.sagaCampaignGUID == Guid.Empty )
 			{
 				threatValue.ResetWheeler( 0 );
 			}

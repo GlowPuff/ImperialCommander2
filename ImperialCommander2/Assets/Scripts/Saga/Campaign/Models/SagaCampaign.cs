@@ -9,11 +9,11 @@ namespace Saga
 {
 	public static class RunningCampaign
 	{
-		public static Guid sagaCampaignGUID;
+		public static Guid sagaCampaignGUID = Guid.Empty;
 		public static string expansionCode;
 		public static CampaignStructure campaignStructure;
 
-		public static void Remove()
+		public static void Reset()
 		{
 			sagaCampaignGUID = Guid.Empty;
 			expansionCode = "";
@@ -148,7 +148,7 @@ namespace Saga
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** LoadCampaignState():: " + e.Message );
-				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "LOAD STATE TRACE:\r\n" + e.Message );
+				DataStore.LogError( "LoadCampaignState() TRACE:\r\n" + e.Message );
 				return null;
 			}
 		}
@@ -179,7 +179,7 @@ namespace Saga
 			catch ( Exception e )
 			{
 				Debug.Log( "***ERROR*** SaveCampaignState():: " + e.Message );
-				File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "SaveCampaignState() TRACE:\r\n" + e.Message );
+				DataStore.LogError( "SaveCampaignState() TRACE:\r\n" + e.Message );
 			}
 		}
 

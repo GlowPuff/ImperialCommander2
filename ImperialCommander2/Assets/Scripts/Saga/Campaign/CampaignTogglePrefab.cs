@@ -39,12 +39,7 @@ namespace Saga
 					FileManager.DeleteCampaign( campaignGUID );
 					Destroy( gameObject );
 					FindObjectOfType<ContinueCampaignPanel>().startButton.interactable = false;
-					if ( PlayerPrefs.HasKey( "campaignGUID" ) )
-					{
-						string guid = PlayerPrefs.GetString( "campaignGUID" );
-						if ( guid == campaignGUID.ToString() )
-							PlayerPrefs.DeleteKey( "campaignGUID" );
-					}
+					FindObjectOfType<TitleController>().DeleteCampaignState( campaignGUID );
 				} );
 		}
 	}

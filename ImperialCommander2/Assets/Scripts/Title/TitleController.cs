@@ -72,7 +72,7 @@ public class TitleController : MonoBehaviour
 		//save defaults
 		PlayerPrefs.Save();
 
-		RunningCampaign.Remove();
+		RunningCampaign.Reset();
 		//create all card lists, load app settings, mission presets and translations
 		DataStore.InitData();
 
@@ -88,8 +88,8 @@ public class TitleController : MonoBehaviour
 			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 		//check if saved state is valid
-		continueButton.interactable = IsSagaSessionValid();
-		campaignContinueButton.interactable = IsCampaignSessionValid();
+		continueButton.interactable = IsSagaSessionValid( "SagaSession" );
+		campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
 
 		FindObjectOfType<Sound>().CheckAudio();
 
@@ -248,7 +248,7 @@ public class TitleController : MonoBehaviour
 		}
 		else
 		{
-			SagaSession session = LoadSagaSession();
+			SagaSession session = LoadSagaSession( "SagaSession" );
 			if ( session != null )
 			{
 				DataStore.sagaSessionData = session;
@@ -436,14 +436,14 @@ public class TitleController : MonoBehaviour
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** IsSessionValid:: " + e.Message );
-			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Session", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			DataStore.LogError( "IsSessionValid() TRACE:\r\n" + e.Message );
 			return false;
 		}
 	}
 
-	private bool IsSagaSessionValid()
+	private bool IsSagaSessionValid( string sessionFolder )
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, "SagaSession", "sessiondata.json" );
+		string basePath = Path.Combine( Application.persistentDataPath, sessionFolder, "sessiondata.json" );
 
 		if ( !File.Exists( basePath ) )
 			return false;
@@ -462,21 +462,9 @@ public class TitleController : MonoBehaviour
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** IsSagaSessionValid:: " + e.Message );
-			File.WriteAllText( Path.Combine( Application.persistentDataPath, "SagaSession", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			DataStore.LogError( "IsSagaSessionValid() TRACE:\r\n" + e.Message );
 			return false;
 		}
-	}
-
-	private bool IsCampaignSessionValid()
-	{
-		if ( PlayerPrefs.HasKey( "campaignGUID" ) )
-		{
-			string guid = PlayerPrefs.GetString( "campaignGUID" );
-			guid = Path.Combine( Application.persistentDataPath, "SagaCampaigns", $"{guid}.json" );
-			if ( File.Exists( guid ) )
-				return true;
-		}
-		return false;
 	}
 
 	private SessionData LoadSession()
@@ -498,14 +486,14 @@ public class TitleController : MonoBehaviour
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** LoadSession:: " + e.Message );
-			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Session", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			DataStore.LogError( "TRACE:\r\n" + e.Message );
 			return null;
 		}
 	}
 
-	private SagaSession LoadSagaSession()
+	private SagaSession LoadSagaSession( string sessionFolder )
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, "SagaSession", "sessiondata.json" );
+		string basePath = Path.Combine( Application.persistentDataPath, sessionFolder, "sessiondata.json" );
 
 		string json = "";
 
@@ -522,7 +510,7 @@ public class TitleController : MonoBehaviour
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** LoadSagaSession:: " + e.Message );
-			File.WriteAllText( Path.Combine( Application.persistentDataPath, "SagaSession", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			DataStore.LogError( "LoadSagaSession() TRACE:\r\n" + e.Message );
 			return null;
 		}
 	}
@@ -615,7 +603,7 @@ public class TitleController : MonoBehaviour
 		{
 			animator.SetBool( m_OpenParameterId, true );
 			//if last campaign used was just deleted, disable continue button
-			campaignContinueButton.interactable = IsCampaignSessionValid();
+			campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
 		} );
 	}
 
@@ -623,16 +611,47 @@ public class TitleController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
-		if ( PlayerPrefs.HasKey( "campaignGUID" ) )
+
+		SagaSession session = LoadSagaSession( "CampaignSession" );
+		if ( session != null )
 		{
-			Guid guid = Guid.Parse( PlayerPrefs.GetString( "campaignGUID" ) );
-			var c = SagaCampaign.LoadCampaignState( guid );
-			if ( c != null )
-			{
-				animator.SetBool( m_OpenParameterId, false );
-				animator.SetBool( expID, false );
-				NavToCampaignScreen( c );
-			}
+			var cs = SagaCampaign.LoadCampaignState( session.campaignGUID );
+
+			RunningCampaign.sagaCampaignGUID = session.campaignGUID;
+			RunningCampaign.expansionCode = cs.campaignExpansionCode;
+
+			DataStore.sagaSessionData.gameVars.isNewGame = false;
+
+			animator.SetBool( m_OpenParameterId, false );
+			animator.SetBool( expID, false );
+			titleText.FlipOut();
+			donateButton.SetActive( false );
+			docsButton.SetActive( false );
+			versionButton.SetActive( false );
+			tutorialGoButton.SetActive( false );
+			languageDropdown.gameObject.SetActive( false );
+			tutorialDropdown.gameObject.SetActive( false );
+			soundController.FadeOutMusic();
+			FadeOut( 1 );
+
+			float foo = 1;
+			DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+			 SceneManager.LoadScene( "Warp" ) );
+		}
+		else
+			campaignContinueButton.interactable = false;
+	}
+
+	public void DeleteCampaignState( Guid guid )
+	{
+		//if a campaign is deleted, check if any saved state belongs to that campaign, and remove that if it is
+		SagaSession session = LoadSagaSession( "CampaignSession" );
+		if ( session != null && session.campaignGUID == guid )
+		{
+			campaignContinueButton.interactable = false;
+			RunningCampaign.sagaCampaignGUID = session.campaignGUID;
+			session.RemoveState();
+			RunningCampaign.Reset();
 		}
 	}
 
@@ -643,8 +662,6 @@ public class TitleController : MonoBehaviour
 
 		RunningCampaign.sagaCampaignGUID = campaign.GUID;
 		RunningCampaign.expansionCode = campaign.campaignExpansionCode;
-		//set "last campaign used"
-		PlayerPrefs.SetString( "campaignGUID", campaign.GUID.ToString() );
 
 		soundController.FadeOutMusic();
 		FadeOut( 1 );
@@ -662,7 +679,7 @@ public class TitleController : MonoBehaviour
 			sagaClassicLayoutContainer.SetActive( true );
 			campaignContainer.SetActive( false );
 			//check if saved state is valid
-			continueButton.interactable = IsSagaSessionValid();
+			continueButton.interactable = IsSagaSessionValid( "SagaSession" );
 			panelDescriptionText.text = "Play a single, narratively driven mission with a 3D map presentation.";
 		}
 		else if ( classicToggle.isOn )
@@ -676,10 +693,11 @@ public class TitleController : MonoBehaviour
 		}
 		else if ( campaignToggle.isOn )
 		{
+			DataStore.gameType = GameType.Saga;
 			continueButton.interactable = false;
 			sagaClassicLayoutContainer.SetActive( false );
 			campaignContainer.SetActive( true );
-			campaignContinueButton.interactable = IsCampaignSessionValid();
+			campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
 			campaignPanelDescriptionText.text = "Embark on a new or existing Campaign through the galaxy.";
 		}
 	}
