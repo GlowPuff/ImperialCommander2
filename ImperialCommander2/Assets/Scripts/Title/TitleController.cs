@@ -50,6 +50,9 @@ public class TitleController : MonoBehaviour
 		System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 		System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
 
+#if !UNITY_ANDROID
+		Application.runInBackground = true;
+#endif
 		Screen.fullScreen = true;
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
