@@ -54,7 +54,7 @@ namespace Saga
 			}
 
 			//BOOTSTRAP CAMPAIGN
-			bootstrapCampaign( true );
+			bootstrapCampaign( true );//true = production build
 
 			fader.UnFade( 2 );
 

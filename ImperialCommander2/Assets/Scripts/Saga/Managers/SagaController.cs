@@ -52,8 +52,8 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			//bootstrapDEBUG();
-			//restoreDEBUG();
+			//bootstrapDEBUG();//comment this out for production build
+			//restoreDEBUG();//comment this out for production build
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -196,18 +196,19 @@ namespace Saga
 				if ( DataStore.mission == null )
 					return false;
 
-				//add threat if it's a side mission
-				var missionCard = DataStore.GetMissionCard( DataStore.mission.missionProperties.missionID );
+				//var missionCard = DataStore.GetMissionCard( DataStore.mission.missionProperties.missionID );
 				//if this is an official mission, grab the mission type from the card list
-				if ( missionCard != null )
-				{
-					if ( missionCard.missionType.Contains( global::MissionType.Side ) )
-					{
-						Debug.Log( "ParseMission()::SIDE MISSION DETECTED" );
-						DataStore.sagaSessionData.ModifyThreat( 2 * DataStore.sagaSessionData.setupOptions.threatLevel, true );
-					}
-				}//else if it's a custom ission, grab mission type from the Properties
-				else if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
+				//if ( missionCard != null )
+				//{
+				//	if ( missionCard.missionType.Contains( global::MissionType.Side ) )
+				//	{
+				//		Debug.Log( "ParseMission()::SIDE MISSION DETECTED" );
+				//		DataStore.sagaSessionData.ModifyThreat( 2 * DataStore.sagaSessionData.setupOptions.threatLevel, true );
+				//	}
+				//}//else if it's a custom ission, grab mission type from the Properties
+
+				//add threat if it's a side mission
+				if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
 				{
 					Debug.Log( "ParseMission()::SIDE MISSION DETECTED" );
 					DataStore.sagaSessionData.ModifyThreat( 2 * DataStore.sagaSessionData.setupOptions.threatLevel, true );
@@ -369,17 +370,7 @@ namespace Saga
 					 };
 
 					 //perform optional deployment if it's a side mission
-					 var missionCard = DataStore.GetMissionCard( DataStore.mission.missionProperties.missionID );
-					 //if this is an official mission, grab the mission type from the card list
-					 if ( missionCard != null )
-					 {
-						 if ( missionCard.missionType.Contains( global::MissionType.Side ) )
-						 {
-							 Debug.Log( "StartupLayoutAndEvents()::SIDE MISSION DETECTED" );
-							 deploymentPopup.Show( DeployMode.Landing, false, true, action );
-						 }
-					 }//else if it's a custom ission, grab mission type from the Properties
-					 else if ( DataStore.mission.missionProperties.missionType == MissionType.Side
+					 if ( DataStore.mission.missionProperties.missionType == MissionType.Side
 					 || DataStore.sagaSessionData.selectedAlly != null )
 					 {
 						 Debug.Log( "StartupLayoutAndEvents()::SIDE MISSION DETECTED" );

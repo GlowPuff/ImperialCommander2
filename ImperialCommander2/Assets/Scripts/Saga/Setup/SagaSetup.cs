@@ -62,7 +62,7 @@ namespace Saga
 			}
 
 			//bootstrap the setup screen for debugging
-			//bootstrapDEBUG();
+			//bootstrapDEBUG();//comment this out for production build
 
 			//set translated UI
 			languageController.SetTranslatedUI();
