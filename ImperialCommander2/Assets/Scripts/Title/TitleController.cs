@@ -34,6 +34,7 @@ public class TitleController : MonoBehaviour
 	public TutorialPanel tutorialPanel;
 	public NewCampaignPanel newCampaignPanel;
 	public ContinueCampaignPanel continueCampaignPanel;
+	public CanvasGroup buttonContainer;
 
 	//UI objects using language translations
 	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, uiExpansionsBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
@@ -178,9 +179,7 @@ public class TitleController : MonoBehaviour
 		donateButton.SetActive( true );
 		docsButton.SetActive( true );
 		versionButton.SetActive( true );
-		tutorialGoButton.SetActive( true );
-		languageDropdown.gameObject.SetActive( true );
-		tutorialDropdown.gameObject.SetActive( true );
+		buttonContainer.interactable = true;
 	}
 
 	public void OnNewGame()
@@ -195,9 +194,8 @@ public class TitleController : MonoBehaviour
 		donateButton.SetActive( false );
 		docsButton.SetActive( false );
 		versionButton.SetActive( false );
-		tutorialGoButton.SetActive( false );
-		languageDropdown.gameObject.SetActive( false );
-		tutorialDropdown.gameObject.SetActive( false );
+
+		buttonContainer.interactable = false;
 
 		if ( DataStore.gameType == GameType.Classic )
 		{
@@ -233,9 +231,7 @@ public class TitleController : MonoBehaviour
 				donateButton.SetActive( false );
 				docsButton.SetActive( false );
 				versionButton.SetActive( false );
-				tutorialGoButton.SetActive( false );
-				languageDropdown.gameObject.SetActive( false );
-				tutorialDropdown.gameObject.SetActive( false );
+				buttonContainer.interactable = false;
 				soundController.FadeOutMusic();
 				FadeOut( 1 );
 
@@ -260,9 +256,7 @@ public class TitleController : MonoBehaviour
 				donateButton.SetActive( false );
 				docsButton.SetActive( false );
 				versionButton.SetActive( false );
-				tutorialGoButton.SetActive( false );
-				languageDropdown.gameObject.SetActive( false );
-				tutorialDropdown.gameObject.SetActive( false );
+				buttonContainer.interactable = false;
 				soundController.FadeOutMusic();
 				FadeOut( 1 );
 
@@ -283,9 +277,7 @@ public class TitleController : MonoBehaviour
 		donateButton.SetActive( false );
 		docsButton.SetActive( false );
 		versionButton.SetActive( false );
-		tutorialGoButton.SetActive( false );
-		languageDropdown.gameObject.SetActive( false );
-		tutorialDropdown.gameObject.SetActive( false );
+		buttonContainer.interactable = false;
 		soundController.FadeOutMusic();
 		FadeOut( 1 );
 
@@ -628,9 +620,7 @@ public class TitleController : MonoBehaviour
 			donateButton.SetActive( false );
 			docsButton.SetActive( false );
 			versionButton.SetActive( false );
-			tutorialGoButton.SetActive( false );
-			languageDropdown.gameObject.SetActive( false );
-			tutorialDropdown.gameObject.SetActive( false );
+			buttonContainer.interactable = false;
 			soundController.FadeOutMusic();
 			FadeOut( 1 );
 
