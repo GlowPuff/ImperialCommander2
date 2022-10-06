@@ -38,6 +38,7 @@ namespace Saga
 		public ColorBlock greenBlock;
 		public VolumeProfile volume;
 		public MissionPicker missionPicker;
+		public TextMeshProUGUI warpTitleText;
 
 		Sound sound;
 		SagaSetupOptions setupOptions { get; set; }
@@ -424,11 +425,16 @@ namespace Saga
 			sound.FadeOutMusic();
 
 			thrusterRoot.DOMoveZ( -30, 2 );
+			warpTitleText.text = setupOptions.projectItem.Title;
 
 			faderCG.DOFade( 0, .5f ).OnComplete( () =>
 			{
+				warpTitleText.transform.DOMove( warpTitleText.transform.position + warpTitleText.transform.up * 100f, 5 );
+				warpTitleText.DOFade( 1, 2 );
+
 				sound.PlaySound( 1 );
 				sound.PlaySound( 2 );
+
 				GlowTimer.SetTimer( 1.5f, () => warpEffect.SetActive( true ) );
 				GlowTimer.SetTimer( 5, () =>
 				{

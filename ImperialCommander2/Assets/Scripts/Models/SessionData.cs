@@ -288,12 +288,12 @@ public class SessionData
 				stream.Write( output );
 			}
 
-			Debug.Log( "***SESSION SAVED***" );
+			Debug.Log( "***SESSION SAVED (Classic)***" );
 		}
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** SaveSession:: " + e.Message );
-			File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+			DataStore.LogError( "SaveSession() TRACE:\r\n" + e.Message );
 		}
 	}
 
@@ -318,7 +318,7 @@ public class SessionData
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** SaveDefaults:: " + e.Message );
-			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Defaults", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			DataStore.LogError( "SaveDefaults() TRACE:\r\n" + e.Message );
 			return false;
 		}
 	}

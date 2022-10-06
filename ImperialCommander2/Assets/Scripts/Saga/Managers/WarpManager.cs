@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,7 @@ public class WarpManager : MonoBehaviour
 {
 	public Camera theCamera;
 	public GameObject warpEffect;
+	public TextMeshProUGUI titleText;
 
 	Sound sound;
 
@@ -21,8 +23,27 @@ public class WarpManager : MonoBehaviour
 	{
 		float timer = 3;
 
+		if ( DataStore.sagaSessionData != null
+			&& DataStore.sagaSessionData.setupOptions.isTutorial )
+			titleText.text = $"Tutorial {DataStore.sagaSessionData.setupOptions.tutorialIndex}";
+		else if ( DataStore.sagaSessionData != null )
+		{
+			//get translated mission name
+			var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
+			if ( card != null )//official mission
+				titleText.text = card.name;
+			else//custom mission
+				titleText.text = DataStore.sagaSessionData.setupOptions.projectItem.Title;
+		}
+		else
+			titleText.text = "";
+
+		titleText.transform.DOMove( titleText.transform.position + titleText.transform.up * 100f, 5 );
+		titleText.DOFade( 1, 2 );
+
 		sound.PlaySound( 1 );
 		sound.PlaySound( 2 );
+
 		GlowTimer.SetTimer( 1.5f, () => warpEffect.SetActive( true ) );
 		GlowTimer.SetTimer( 5, () =>
 		{
