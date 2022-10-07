@@ -22,10 +22,10 @@ namespace Saga
 		//prefabs
 		public GameObject forceMissionItemPrefab, listItemPrefab, missionItemPrefab, customAddMissionBarPrefab;
 		//UI
-		public AddItemHeroAllyVillainPopup addItemHeroAllyVillainPopup;
+		public AddCampaignItemPopup addCampaignItemPopup;
 		public ModifyCustomPropsPopup modifyCustomPropsPopup;
 		public TMP_InputField campaignNameInputField;
-		public Transform villainContainer, allyContainer, itemContainer, structureContainer;
+		public Transform villainContainer, allyContainer, itemContainer, structureContainer, rewardContainer;
 		public CampaignHeroPrefab[] heroPrefabs;
 		public TextMeshProUGUI xpText, creditsText, fameText, awardsText;
 		public MWheelHandler xpWheel, creditsWheel, fameWheel, awardsWheel;
@@ -54,7 +54,7 @@ namespace Saga
 			}
 
 			//BOOTSTRAP CAMPAIGN
-			bootstrapCampaign( true );//true = production build
+			bootstrapCampaign( false );//true = production build
 
 			fader.UnFade( 2 );
 
@@ -87,7 +87,7 @@ namespace Saga
 			else//error or debugging, setup new test campaign
 			{
 				RunningCampaign.expansionCode = "Custom";
-				sagaCampaign = SagaCampaign.CreateNewCampaign( "Error/Debug - No Campaign Found", RunningCampaign.expansionCode );
+				sagaCampaign = SagaCampaign.CreateNewCampaign( "Error/Debug - Not Found", RunningCampaign.expansionCode );
 			}
 		}
 
@@ -120,6 +120,9 @@ namespace Saga
 			int c = sagaCampaign.campaignHeroes.Count;
 			for ( int i = 0; i < c; i++ )
 				heroPrefabs[i].AddHeroToUI( sagaCampaign.campaignHeroes[i] );
+			//rewards
+			foreach ( var item in sagaCampaign.campaignRewards )
+				AddRewardToUI( sagaCampaign.GetRewardFromID( item ) );
 			//campaign structure
 			foreach ( Transform item in structureContainer )
 				Destroy( item.gameObject );
@@ -149,7 +152,7 @@ namespace Saga
 
 		}
 
-		#region CAMPAIGN UI
+		#region UI callbacks from "AddCampaignItemPopup" window
 		void AddAllyToUI( DeploymentCard a )
 		{
 			var go = Instantiate( listItemPrefab, allyContainer );
@@ -180,39 +183,13 @@ namespace Saga
 			} );
 		}
 
-		public void OnAddAlly()
+		void AddRewardToUI( CampaignReward item )
 		{
-			addItemHeroAllyVillainPopup.AddAlly( ( a ) =>
+			var go = Instantiate( listItemPrefab, rewardContainer );
+			go.GetComponent<CampaignListItemPrefab>().InitGeneralItem( item.name, ( n ) =>
 			{
-				if ( !sagaCampaign.campaignAllies.Contains( a.id ) )
-				{
-					sagaCampaign.campaignAllies.Add( a.id );
-					AddAllyToUI( a );
-				}
-			} );
-		}
-
-		public void OnAddVillain()
-		{
-			addItemHeroAllyVillainPopup.AddVillain( ( v ) =>
-			{
-				if ( !sagaCampaign.campaignVillains.Contains( v.id ) )
-				{
-					sagaCampaign.campaignVillains.Add( v.id );
-					AddVillainToUI( v );
-				}
-			} );
-		}
-
-		public void OnAddItem()
-		{
-			addItemHeroAllyVillainPopup.AddItem( ( item ) =>
-			{
-				if ( !sagaCampaign.campaignItems.Contains( item.id ) )
-				{
-					sagaCampaign.campaignItems.Add( item.id );
-					AddItemToUI( item );
-				}
+				sagaCampaign.campaignRewards.Remove( item.id );
+				Destroy( go );
 			} );
 		}
 
@@ -237,6 +214,56 @@ namespace Saga
 		}
 		#endregion
 
+		#region ADD BUTTONS
+		public void OnAddAlly()
+		{
+			addCampaignItemPopup.AddAlly( ( a ) =>
+			{
+				if ( !sagaCampaign.campaignAllies.Contains( a.id ) )
+				{
+					sagaCampaign.campaignAllies.Add( a.id );
+					AddAllyToUI( a );
+				}
+			} );
+		}
+
+		public void OnAddVillain()
+		{
+			addCampaignItemPopup.AddVillain( ( v ) =>
+			{
+				if ( !sagaCampaign.campaignVillains.Contains( v.id ) )
+				{
+					sagaCampaign.campaignVillains.Add( v.id );
+					AddVillainToUI( v );
+				}
+			} );
+		}
+
+		public void OnAddItem()
+		{
+			addCampaignItemPopup.AddItem( ( item ) =>
+			{
+				if ( !sagaCampaign.campaignItems.Contains( item.id ) )
+				{
+					sagaCampaign.campaignItems.Add( item.id );
+					AddItemToUI( item );
+				}
+			} );
+		}
+
+		public void OnAddReward()
+		{
+			addCampaignItemPopup.AddReward( ( item ) =>
+			{
+				if ( !sagaCampaign.campaignRewards.Contains( item.id ) )
+				{
+					sagaCampaign.campaignRewards.Add( item.id );
+					AddRewardToUI( item );
+				}
+			} );
+		}
+		#endregion
+
 		public void AddHeroToCampaign( CampaignHero hero )
 		{
 			sagaCampaign.campaignHeroes.Add( hero );
@@ -249,12 +276,12 @@ namespace Saga
 
 		public void OnAddForcedMissionClick()
 		{
-			addItemHeroAllyVillainPopup.AddMission( sagaCampaign.campaignExpansionCode, MissionType.Forced, AddForcedMission );
+			addCampaignItemPopup.AddMission( sagaCampaign.campaignExpansionCode, MissionType.Forced, AddForcedMission );
 		}
 
 		public void OnMissionNameClick( MissionType missionType, Action<MissionCard> callback )
 		{
-			addItemHeroAllyVillainPopup.AddMission( sagaCampaign.campaignExpansionCode, missionType, callback );
+			addCampaignItemPopup.AddMission( sagaCampaign.campaignExpansionCode, missionType, callback );
 		}
 
 		public void OnAddCustomMission( MissionType missionType )
@@ -393,6 +420,11 @@ namespace Saga
 
 		public void OnExitCampaignScreen()
 		{
+			//auto-save
+			OnSaveCampaign();
+
+			RunningCampaign.Reset();
+
 			fader.Fade();
 			float foo = 1;
 			DOTween.To( () => foo, x => foo = x, 0, .5f ).OnComplete( () =>
@@ -406,7 +438,7 @@ namespace Saga
 
 		public void StartMission( CampaignStructure campaignStructure )
 		{
-			//auto-save if player forgot to save before starting
+			//auto-save
 			OnSaveCampaign();
 
 			RunningCampaign.campaignStructure = campaignStructure;

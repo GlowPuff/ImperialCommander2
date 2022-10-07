@@ -6,7 +6,7 @@ namespace Saga
 {
 	public class ImperialPopup : MonoBehaviour
 	{
-		public GameObject handItemPrefab;
+		public GameObject handItemPrefab, handBlocker;
 		public Text titleText, closeButtonText, threatText;
 		public TextMeshProUGUI threat, depMod, threatValue, depmodValue;
 		public Toggle threatToggle, deployToggle;
@@ -25,6 +25,7 @@ namespace Saga
 			threatText.text = DataStore.uiLanguage.uiMainApp.modThreatHeading;
 
 			//set toggle values
+			handBlocker.SetActive( true );
 			//toggle pause threat/deployment buttons
 			threatToggle.gameObject.SetActive( false );
 			deployToggle.gameObject.SetActive( false );
@@ -63,6 +64,11 @@ namespace Saga
 		{
 			DataStore.sagaSessionData.ModifyThreat( -1, true );
 			threatValue.text = DataStore.sagaSessionData.gameVars.currentThreat.ToString();
+		}
+
+		public void ToggleHandVisibility()
+		{
+			handBlocker.SetActive( !handBlocker.activeSelf );
 		}
 	}
 }

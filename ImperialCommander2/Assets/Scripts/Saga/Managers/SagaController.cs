@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
@@ -19,6 +20,7 @@ namespace Saga
 		public Transform infoBtnTX;
 		public Text roundText;
 		public Button activateImperialButton, endTurnButton, fameButton;
+		public TextMeshProUGUI missionTitleText;
 		//POPUPS
 		public SagaEventPopup eventPopup;
 		public SettingsScreen settingsScreen;
@@ -78,6 +80,10 @@ namespace Saga
 		{
 			Debug.Log( $"STARTING TUTORIAL {DataStore.sagaSessionData.setupOptions.tutorialIndex}" );
 
+			missionTitleText.text = $"Tutorial {DataStore.sagaSessionData.setupOptions.tutorialIndex}";
+			missionTitleText.DOFade( 1, 1 );
+			missionTitleText.DOFade( 0, 2 ).SetDelay( 3 );
+
 			DataStore.sagaSessionData.InitGameVars();
 			ResetUI( () =>
 			{
@@ -108,6 +114,14 @@ namespace Saga
 						ShowError( "Failed to load the mission." );
 						return;
 					}
+
+					var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
+					if ( card != null )//official mission
+						missionTitleText.text = card.name;
+					else//custom mission
+						missionTitleText.text = DataStore.sagaSessionData.setupOptions.projectItem.Title;
+					missionTitleText.DOFade( 1, 1 );
+					missionTitleText.DOFade( 0, 2 ).SetDelay( 3 );
 
 					StartNewGame();
 				} );
@@ -387,6 +401,15 @@ namespace Saga
 			//Restore session, hand, manual deck, deployed enemies, allies/heroes
 			if ( !DataStore.sagaSessionData.LoadState( sm ) )
 				return false;
+
+			var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
+			if ( card != null )//official mission
+				missionTitleText.text = card.name;
+			else//custom mission
+				missionTitleText.text = DataStore.sagaSessionData.setupOptions.projectItem.Title;
+
+			missionTitleText.DOFade( 1, 1 );
+			missionTitleText.DOFade( 0, 2 ).SetDelay( 3 );
 
 			//init event manager
 			eventManager.Init( DataStore.mission );

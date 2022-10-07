@@ -39,11 +39,11 @@ namespace Saga
 		public void OnAdd()
 		{
 			if ( toonType == 0 )
-				FindObjectOfType<AddItemHeroAllyVillainPopup>().OnAddVillain( card );
+				FindObjectOfType<AddCampaignItemPopup>().OnAddVillain( card );
 			else if ( toonType == 1 )
-				FindObjectOfType<AddItemHeroAllyVillainPopup>().OnAddHero( card );
+				FindObjectOfType<AddCampaignItemPopup>().OnAddHero( card );
 			else if ( toonType == 2 )
-				FindObjectOfType<AddItemHeroAllyVillainPopup>().OnAddAlly( card );
+				FindObjectOfType<AddCampaignItemPopup>().OnAddAlly( card );
 		}
 	}
 }

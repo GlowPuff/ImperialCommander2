@@ -26,24 +26,6 @@ namespace Saga
 		}
 	}
 
-	//public struct RedButtonColor
-	//{
-	//	public Color normalColor { get { return new Color( 1, 40f / 255f, 0 ); } }
-	//	public Color highlightedColor { get { return new Color( 1, 142f / 255f, 0 ); } }
-	//	public Color pressedColor { get { return new Color( 135f / 255f, 21f / 255f, 0 ); } }
-	//	public Color selectedColor { get { return new Color( 1, 40f / 255f, 0 ); } }
-	//	public Color disabledColor { get { return new Color( 110f / 255f, 18f / 255f, 0 ); } }
-	//}
-
-	//public struct GreenButtonColor
-	//{
-	//	public Color normalColor { get { return new Color( 0, 1f, 160f / 255f ); } }
-	//	public Color highlightedColor { get { return new Color( 0, 1f, 0 ); } }
-	//	public Color pressedColor { get { return new Color( 0, 135f / 255f, 85f / 255f ); } }
-	//	public Color selectedColor { get { return new Color( 0, 1f, 160f / 255f ); } }
-	//	public Color disabledColor { get { return new Color( 0, 115f / 255f, 72f / 255f ); } }
-	//}
-
 	public struct CampaignModify
 	{
 		public MissionType missionType;
@@ -389,22 +371,4 @@ namespace Saga
 		public List<MapSection> mapSections;
 		public List<TileDescriptor> tileDescriptors;
 	}
-
-	//public class SagaDeploymentCard
-	//{
-	//	public DeploymentCard deploymentCard;
-	//	public EnemyGroupData enemyGroupData;
-	//}
-
-	//public class CardLanguage
-	//{
-	//	public string id;
-	//	public string name;
-	//	public string subname;
-	//	public string ignored;
-	//	public string[] traits;
-	//	public string[] surges;
-	//	public string[] keywords;
-	//	public GroupAbility[] abilities;
-	//}
 }

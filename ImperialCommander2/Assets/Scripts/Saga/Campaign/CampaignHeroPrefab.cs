@@ -15,7 +15,7 @@ namespace Saga
 
 		public void AddHero()
 		{
-			GlowEngine.FindUnityObject<AddItemHeroAllyVillainPopup>().AddHero( OnHeroAdded );
+			GlowEngine.FindUnityObject<AddCampaignItemPopup>().AddHero( OnHeroAdded );
 		}
 
 		public void RemoveHero()
@@ -29,12 +29,12 @@ namespace Saga
 
 		public void AddSkill()
 		{
-			GlowEngine.FindUnityObject<AddItemHeroAllyVillainPopup>().AddSkill( campaignHero.heroID, OnSkillAdded );
+			GlowEngine.FindUnityObject<AddCampaignItemPopup>().AddSkill( campaignHero.heroID, OnSkillAdded );
 		}
 
 		public void AddItem()
 		{
-			GlowEngine.FindUnityObject<AddItemHeroAllyVillainPopup>().AddItem( OnItemAdded );
+			GlowEngine.FindUnityObject<AddCampaignItemPopup>().AddItem( OnItemAdded );
 		}
 
 		void OnHeroAdded( DeploymentCard card )

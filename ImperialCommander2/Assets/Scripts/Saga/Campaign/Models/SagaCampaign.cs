@@ -36,6 +36,7 @@ namespace Saga
 		public List<string> campaignVillains = new List<string>();
 		public List<string> campaignAllies = new List<string>();
 		public List<string> campaignItems = new List<string>();
+		public List<string> campaignRewards = new List<string>();
 
 		//data sets
 		[JsonIgnore]
@@ -48,6 +49,8 @@ namespace Saga
 		public static List<DeploymentCard> villainDataCards;
 		[JsonIgnore]
 		public static List<CampaignStructure> campaignStructures;
+		[JsonIgnore]
+		public static List<CampaignReward> campaignDataRewards;
 
 		/// <summary>
 		/// use CreateNewCampaign() to create new campaigns
@@ -88,6 +91,9 @@ namespace Saga
 
 				//villains
 				villainDataCards = LoadAsset<List<DeploymentCard>>( "CardData/villains" );
+
+				//rewards
+				campaignDataRewards = LoadAsset<List<CampaignReward>>( "CardData/rewards" );
 
 				//mission structure
 				if ( campaignExpansionCode != "Custom" )
@@ -192,7 +198,7 @@ namespace Saga
 			}
 			catch ( JsonReaderException e )
 			{
-				Debug.Log( $"LoadCampaignData() ERROR:\r\nError parsing Campaign data" );
+				Debug.Log( $"LoadCampaignData() ERROR:\r\nError parsing Campaign data [{assetName}]" );
 				Debug.Log( e.Message );
 				throw e;
 			}
@@ -200,6 +206,7 @@ namespace Saga
 
 		public CampaignItem GetItemFromID( string id ) => campaignDataItems.First( x => x.id == id );
 		public CampaignSkill GetSkillFromID( string id ) => campaignDataSkills.First( x => x.id == id );
+		public CampaignReward GetRewardFromID( string id ) => campaignDataRewards.First( x => x.id == id );
 
 		public string GetCampaignInfo()
 		{

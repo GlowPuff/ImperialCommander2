@@ -245,7 +245,7 @@ namespace Saga
 			if ( playMissionButton.interactable )
 				chevronImage.color = new Vector3( 0, 1, 0 ).ToColor();
 			else
-				chevronImage.color = new Vector4( 0, .5f, 0, .5f );
+				chevronImage.color = new Vector4( 0, .5f, 0, .75f );
 		}
 	}
 }

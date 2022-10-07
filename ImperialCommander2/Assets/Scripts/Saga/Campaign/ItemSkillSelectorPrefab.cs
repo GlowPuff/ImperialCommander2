@@ -10,7 +10,10 @@ namespace Saga
 		CampaignItem campaignItem;
 		CampaignSkill campaignSkill;
 		MissionCard missionCard;
-		int itemType;//0=item, 1=skill, 2=mission
+		CampaignReward campaignReward;
+		int itemType;//0=item, 1=skill, 2=mission, 3=reward
+
+		//Init() called from AddCampaignItemPopup window to add specified item types
 
 		public void Init( CampaignItem item )
 		{
@@ -40,14 +43,28 @@ namespace Saga
 			costText.text = "";
 		}
 
+		public void Init( CampaignReward item )
+		{
+			itemType = 3;
+			campaignReward = item;
+			if ( !string.IsNullOrEmpty( item.extra ) )
+				nameText.text = $"{item.name} ({item.extra})";
+			else
+				nameText.text = $"{item.name}";
+			typeText.text = "V";
+			costText.text = item.type.ToString();
+		}
+
 		public void OnAdd()
 		{
 			if ( itemType == 0 )
-				FindObjectOfType<AddItemHeroAllyVillainPopup>().OnAddItem( campaignItem );
+				FindObjectOfType<AddCampaignItemPopup>().OnAddItem( campaignItem );
 			else if ( itemType == 1 )
-				FindObjectOfType<AddItemHeroAllyVillainPopup>().OnAddSkill( campaignSkill );
+				FindObjectOfType<AddCampaignItemPopup>().OnAddSkill( campaignSkill );
 			else if ( itemType == 2 )
-				FindObjectOfType<AddItemHeroAllyVillainPopup>().OnAddMission( missionCard );
+				FindObjectOfType<AddCampaignItemPopup>().OnAddMission( missionCard );
+			else if ( itemType == 3 )
+				FindObjectOfType<AddCampaignItemPopup>().OnAddReward( campaignReward );
 		}
 	}
 }

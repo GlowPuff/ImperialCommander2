@@ -73,4 +73,5 @@ namespace Saga
 	//public enum GroupTraits { Trooper, Leader, HeavyWeapon, Guardian, Brawler, Droid, Vehicle, Hunter, Creature, Smuggler, Spy, ForceUser, Wookiee, Hero }
 	public enum LifeSpan { Manual, EndTurn }
 	public enum AgendaType { NotSet, Rebel, Imperial }
+	public enum RewardType { Campaign, General, HeroNumber, Personal }
 }
