@@ -8,10 +8,11 @@ namespace Saga
 		public GameObject addPanel, heroPanel, listItem;
 		public CampaignHero campaignHero;
 		public Transform contentContainer;
+		public Button addItemButton;
 		//UI
 		public Image mug;
 
-		//Guid GUID;
+		SagaCampaign sagaCampaign;
 
 		public void AddHero()
 		{
@@ -34,18 +35,19 @@ namespace Saga
 
 		public void AddItem()
 		{
-			GlowEngine.FindUnityObject<AddCampaignItemPopup>().AddItem( OnItemAdded );
+			GlowEngine.FindUnityObject<AddCampaignItemPopup>().AddItem( OnItemAdded, true );
 		}
 
 		void OnHeroAdded( DeploymentCard card )
 		{
+			sagaCampaign = FindObjectOfType<CampaignManager>().sagaCampaign;
+
 			addPanel.SetActive( false );
 			heroPanel.SetActive( true );
 
 			foreach ( Transform child in contentContainer )
 				Destroy( child.gameObject );
 
-			//GUID = Guid.NewGuid();
 			campaignHero = new CampaignHero()
 			{
 				heroID = card.id
@@ -72,9 +74,16 @@ namespace Saga
 			}
 		}
 
+		private void Update()
+		{
+			addItemButton.interactable = sagaCampaign?.campaignItems.Count > 0;
+		}
+
 		//resets/adds the hero along with all items/skills
 		public void AddHeroToUI( CampaignHero hero )
 		{
+			sagaCampaign = FindObjectOfType<CampaignManager>().sagaCampaign;
+
 			addPanel.SetActive( false );
 			heroPanel.SetActive( true );
 

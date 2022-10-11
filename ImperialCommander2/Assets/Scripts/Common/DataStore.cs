@@ -8,7 +8,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.24B2";
+	public static readonly string appVersion = "v.2.0.24B3";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Mission mission;
@@ -372,7 +372,10 @@ public static class DataStore
 					missionCards[((Expansion)i).ToString()][e].imperialRewardText = cards[e].imperialRewardText;
 				}
 
-				translatedExpansionNames.Add( ((Expansion)i).ToString(), missionCards[((Expansion)i).ToString()][0].expansionText );
+				if ( ((Expansion)i) != Expansion.Other )
+					translatedExpansionNames.Add( ((Expansion)i).ToString(), missionCards[((Expansion)i).ToString()][0].expansionText );
+				else
+					translatedExpansionNames.Add( "Other", "Other" );//translate Other
 			}
 		}
 		catch ( JsonReaderException e )

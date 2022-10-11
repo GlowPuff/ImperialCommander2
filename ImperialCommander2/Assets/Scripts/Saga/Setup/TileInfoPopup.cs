@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,6 +19,9 @@ namespace Saga
 			{
 				Destroy( item.gameObject );
 			}
+
+			//sort tiles by number
+			tiles = tiles.OrderBy( x => int.Parse( x.Split( ' ' )[1] ) ).ToArray();
 
 			foreach ( var item in tiles )
 			{

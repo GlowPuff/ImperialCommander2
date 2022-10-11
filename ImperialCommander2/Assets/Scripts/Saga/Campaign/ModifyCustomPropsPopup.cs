@@ -54,6 +54,9 @@ namespace Saga
 					items = new string[] { "1", "2" };
 					break;
 				case 4:
+					items = new string[] { "2", "3" };
+					break;
+				case 5:
 					items = new string[] { "1", "2", "3" };
 					break;
 			}
@@ -63,6 +66,8 @@ namespace Saga
 		int GetValue( string[] array )
 		{
 			if ( array.Contains( "1" ) && array.Contains( "2" ) && array.Contains( "3" ) )
+				return 5;
+			if ( array.Contains( "2" ) && array.Contains( "3" ) )
 				return 4;
 			if ( array.Contains( "1" ) && array.Contains( "2" ) )
 				return 3;

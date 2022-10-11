@@ -279,7 +279,6 @@ namespace Saga
 				missionNameText.text = pi?.Title;
 				missionDescriptionText.text = pi?.Description;
 				additionalInfoText.text = pi?.AdditionalInfo;
-				//tilesButton.interactable = true;
 				if ( pi.missionID != "Custom" )//official mission
 				{
 					var expansion = pi.missionID.Split( ' ' )[0].ToLower();
@@ -401,6 +400,20 @@ namespace Saga
 						int c = line.LastIndexOf( ',' );
 						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
 						projectItem.Title = mname;
+					}
+					if ( split[0] == "missionDescription" && !string.IsNullOrEmpty( split[1] ) )
+					{
+						int idx = line.IndexOf( ':' );
+						int c = line.LastIndexOf( ',' );
+						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
+						projectItem.Description = mname;
+					}
+					if ( split[0] == "additionalMissionInfo" && !string.IsNullOrEmpty( split[1] ) )
+					{
+						int idx = line.IndexOf( ':' );
+						int c = line.LastIndexOf( ',' );
+						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
+						projectItem.AdditionalInfo = mname;
 					}
 				}
 			}

@@ -16,6 +16,14 @@ public class WarpManager : MonoBehaviour
 		sound = FindObjectOfType<Sound>();
 		sound.CheckAudio();
 
+		float pixelHeightOfCurrentScreen = Screen.height;//.currentResolution.height;
+		float pixelWidthOfCurrentScreen = Screen.width;//.currentResolution.width;
+		float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
+		if ( aspect < 1.7f )//less than 16:9, such as 16:10 and 4:3
+		{
+			titleText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 175 );
+		}
+
 		Warp();
 	}
 

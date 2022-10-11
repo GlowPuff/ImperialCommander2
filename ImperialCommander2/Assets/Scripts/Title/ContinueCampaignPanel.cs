@@ -21,6 +21,8 @@ namespace Saga
 			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
 			callback = onClose;
 
+			selectedCampaign = Guid.Empty;
+
 			//popuplate existing campaigns
 			foreach ( Transform item in toggleContainer.transform )
 				Destroy( item.gameObject );
@@ -32,14 +34,19 @@ namespace Saga
 				go.GetComponent<CampaignTogglePrefab>().Init( item, toggleGroup, OnToggleCallback );
 			}
 
+			startButton.interactable = false;
+
 			popupBase.Show();
 		}
 
 		public void StartCampaign()
 		{
 			Close( false );
-			var c = SagaCampaign.LoadCampaignState( selectedCampaign );
-			FindObjectOfType<TitleController>().NavToCampaignScreen( c );
+			if ( selectedCampaign != Guid.Empty )
+			{
+				var c = SagaCampaign.LoadCampaignState( selectedCampaign );
+				FindObjectOfType<TitleController>().NavToCampaignScreen( c );
+			}
 		}
 
 		public void Close( bool doCallback = true )

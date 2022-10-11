@@ -70,5 +70,11 @@ namespace Saga
 		{
 			handBlocker.SetActive( !handBlocker.activeSelf );
 		}
+
+		private void Update()
+		{
+			if ( Input.GetKeyDown( KeyCode.Space ) )
+				Close();
+		}
 	}
 }

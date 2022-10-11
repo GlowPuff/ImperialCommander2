@@ -54,7 +54,7 @@ namespace Saga
 			}
 
 			//BOOTSTRAP CAMPAIGN
-			bootstrapCampaign( false );//true = production build
+			bootstrapCampaign( true );//true = production build
 
 			fader.UnFade( 2 );
 
@@ -248,7 +248,7 @@ namespace Saga
 					sagaCampaign.campaignItems.Add( item.id );
 					AddItemToUI( item );
 				}
-			} );
+			}, false );
 		}
 
 		public void OnAddReward()

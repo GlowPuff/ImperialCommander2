@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class ClickHandler : MonoBehaviour, IPointerClickHandler, IDragHandler
+public class ClickHandlerForced : MonoBehaviour, IPointerClickHandler, IDragHandler
 {
 	public UnityEvent clickCallback;
 	public UnityEvent doubleClickCallback;
@@ -10,7 +10,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler, IDragHandler
 	public UnityEvent swipeCallback;
 
 	/// <summary>
-	/// ClickHandler respects the "close window" Setting for closing windows by clicking/tapping outside
+	/// ClickHandlerForced will respond to clicks regardless of the "close window" Setting
 	/// </summary>
 
 	public void OnDrag( PointerEventData eventData )
@@ -20,10 +20,6 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler, IDragHandler
 
 	public void OnPointerClick( PointerEventData eventData )
 	{
-		//only allow tap/click outside window if that option is true
-		if ( PlayerPrefs.GetInt( "closeWindowToggle" ) == 0 )
-			return;
-
 		if ( eventData.clickCount == 1 )
 		{
 			if ( eventData.button == PointerEventData.InputButton.Left )

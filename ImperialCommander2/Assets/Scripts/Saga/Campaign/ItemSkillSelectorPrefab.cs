@@ -33,14 +33,14 @@ namespace Saga
 			costText.text = $"Cost: {item.cost}";
 		}
 
-		public void Init( MissionCard card )
+		public void Init( MissionCard card, string filename = "" )
 		{
 			itemType = 2;
 			missionCard = card;
 			nameText.text = missionCard.name;
 			typeText.text = "U";
 			typeText.color = new Vector3( 1f, 0.1568628f, 0f ).ToColor();
-			costText.text = "";
+			costText.text = filename;
 		}
 
 		public void Init( CampaignReward item )
@@ -52,7 +52,8 @@ namespace Saga
 			else
 				nameText.text = $"{item.name}";
 			typeText.text = "V";
-			costText.text = item.type.ToString();
+			costText.text = "";
+			//costText.text = item.type.ToString();
 		}
 
 		public void OnAdd()

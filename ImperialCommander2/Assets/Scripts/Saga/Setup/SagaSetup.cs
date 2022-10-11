@@ -20,7 +20,7 @@ namespace Saga
 		public GameObject descriptionTextBox;
 		public Text difficultyText, initialText, additionalText;
 		public Transform heroContainer;
-		public Button adaptiveButton, startMissionButton, viewMissionCardButton;
+		public Button adaptiveButton, startMissionButton, viewMissionCardButton, campaignTilesButton;
 		public GameObject miniMugPrefab;
 		public Image allyImage, allyBG;
 		public MWheelHandler threatValue, addtlThreatValue;
@@ -54,13 +54,17 @@ namespace Saga
 
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-			int pixelHeightOfCurrentScreen = Screen.height;//.currentResolution.height;
-			int pixelWidthOfCurrentScreen = Screen.width;//.currentResolution.width;
+			float pixelHeightOfCurrentScreen = Screen.height;//.currentResolution.height;
+			float pixelWidthOfCurrentScreen = Screen.width;//.currentResolution.width;
 			float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
 			if ( aspect >= 2f )
 			{
 				thrusterLeft.position = new Vector3( -12f, thrusterLeft.position.y, thrusterLeft.position.z );
 				thrusterRight.position = new Vector3( 12f, thrusterRight.position.y, thrusterRight.position.z );
+			}
+			if ( aspect < 1.7f )//less than 16:9, such as 16:10 and 4:3
+			{
+				warpTitleText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 175 );
 			}
 
 			//bootstrap the setup screen for debugging
@@ -156,6 +160,8 @@ namespace Saga
 				return;
 			}
 
+			campaignTilesButton.gameObject.SetActive( true );
+
 			var structure = RunningCampaign.campaignStructure;
 			//deactivate mission picker
 			rightPanel.SetActive( false );
@@ -163,7 +169,15 @@ namespace Saga
 			foreach ( var item in campaign.campaignHeroes )
 			{
 				var hero = DataStore.GetHero( item.heroID );
-				DataStore.sagaSessionData.MissionHeroes.Add( hero );
+				if ( hero != null )
+					DataStore.sagaSessionData.MissionHeroes.Add( hero );
+			}
+			//add villains
+			foreach ( var item in campaign.campaignVillains )
+			{
+				var villain = DataStore.GetEnemy( item );
+				if ( villain != null )
+					DataStore.sagaSessionData.EarnedVillains.Add( villain );
 			}
 
 			setupOptions = new SagaSetupOptions()

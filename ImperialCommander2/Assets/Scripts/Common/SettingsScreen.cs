@@ -10,7 +10,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -18,11 +18,11 @@ public class SettingsScreen : MonoBehaviour
 
 	Action<SettingsCommand> quitAction;
 
-	public void Show( Action<SettingsCommand> onQuit, bool fromTitle = false )
+	public void Show( Action<SettingsCommand> onQuit )
 	{
 		quitAction = onQuit;
-		//remove return to title button
-		returnButton.SetActive( !fromTitle );
+		//remove return to title button only if we're already on the title screen
+		returnButton.SetActive( FindObjectOfType<TitleController>() == null );
 
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
@@ -36,6 +36,7 @@ public class SettingsScreen : MonoBehaviour
 		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom" ) == 1;
 		vignetteToggle.isOn = PlayerPrefs.GetInt( "vignette" ) == 1;
 		ambientToggle.isOn = PlayerPrefs.GetInt( "ambient" ) == 1;
+		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
 
 		//set the translated UI strings
 		languageController.SetTranslatedUI();
@@ -50,6 +51,8 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "bloom", bloomToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "vignette", vignetteToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "ambient", ambientToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "closeWindowToggle", closeWindowToggle.isOn ? 1 : 0 );
+
 		PlayerPrefs.Save();
 
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
@@ -75,7 +78,7 @@ public class SettingsScreen : MonoBehaviour
 		}
 		else if ( t.name.ToLower() == "sound toggle" )
 		{
-			PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
+			PlayerPrefs.SetInt( "sound", t.isOn ? 1 : 0 );
 		}
 		else if ( t.name.ToLower() == "bloom toggle" )
 		{
@@ -93,6 +96,10 @@ public class SettingsScreen : MonoBehaviour
 				sound.StartAmbientSound();
 			else
 				sound.StopAmbientSound();
+		}
+		else if ( t.name.ToLower() == "close window toggle" )
+		{
+			PlayerPrefs.SetInt( "closeWindowToggle", t.isOn ? 1 : 0 );
 		}
 	}
 

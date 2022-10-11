@@ -18,6 +18,7 @@ namespace Saga
 		public bool isCustom = false;//is part of a custom campaign
 		public ProjectItem projectItem;
 		public Guid GUID;
+		public bool canModify = true;
 
 		public CampaignStructure()
 		{

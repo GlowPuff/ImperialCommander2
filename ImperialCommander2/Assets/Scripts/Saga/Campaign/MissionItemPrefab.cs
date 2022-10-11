@@ -23,6 +23,7 @@ namespace Saga
 		{
 			campaignStructure = cs;
 
+			///set colors
 			//story
 			bgImage.color = new Vector3( 0f, 0.6440244f, 1f ).ToColor();
 
@@ -94,8 +95,12 @@ namespace Saga
 			else
 				itemText.transform.parent.gameObject.SetActive( false );
 
-			missionName.transform.parent.GetComponent<Button>().interactable = cs.isCustom || string.IsNullOrEmpty( cs.missionID );
-			nameButtonImage.enabled = cs.isCustom || string.IsNullOrEmpty( cs.missionID );
+			//make the mission selectable or not (selectable by default)
+			if ( !cs.canModify )
+			{
+				missionName.transform.parent.GetComponent<Button>().interactable = false;
+				nameButtonImage.enabled = false;
+			}
 
 			if ( cs.isForced )
 			{
@@ -104,17 +109,22 @@ namespace Saga
 			}
 
 			//if it's not a custom campaign, fill in the project item properties
-			if ( !cs.isCustom && !string.IsNullOrEmpty( cs.missionID ) )
+			if ( !cs.isCustom
+				&& !string.IsNullOrEmpty( cs.missionID )
+				&& cs.missionID != "Custom" )
 			{
 				var card = DataStore.GetMissionCard( cs.missionID );
-				campaignStructure.projectItem = new ProjectItem()
+				if ( card != null )
 				{
-					missionID = card.id,
-					Description = card.descriptionText,
-					AdditionalInfo = card.bonusText,
-					fullPathWithFilename = $"{card.id.ToUpper()}-{card.name}",
-					Title = DataStore.missionCards[campaignStructure.expansionCode].Where( x => x.id == campaignStructure.missionID ).FirstOr( new MissionCard() { name = card.name } )?.name
-				};
+					campaignStructure.projectItem = new ProjectItem()
+					{
+						missionID = card.id,
+						Description = card.descriptionText,
+						AdditionalInfo = card.bonusText,
+						fullPathWithFilename = $"{card.id.ToUpper()}-{card.name}",
+						Title = DataStore.missionCards[campaignStructure.expansionCode].Where( x => x.id == campaignStructure.missionID ).FirstOr( new MissionCard() { name = card.name } )?.name
+					};
+				}
 			}
 		}
 

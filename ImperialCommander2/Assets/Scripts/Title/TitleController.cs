@@ -24,9 +24,9 @@ public class TitleController : MonoBehaviour
 	public TitleText titleText;
 	public GameObject donateButton, docsButton, versionButton, tutorialGoButton, sagaClassicLayoutContainer, campaignContainer;
 	public VolumeProfile volume;
-	public Button continueButton, campaignContinueButton;
+	public Button continueButton, campaignContinueButton, campaignLoadButton;
 	public Transform busyIconTF;
-	public TextMeshProUGUI versionText;
+	public TextMeshProUGUI versionText, uiExpansionsBtn;
 	public MissionTextBox versionPopup;
 	public TMP_Dropdown languageDropdown, tutorialDropdown;
 	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText;
@@ -37,7 +37,7 @@ public class TitleController : MonoBehaviour
 	public CanvasGroup buttonContainer;
 
 	//UI objects using language translations
-	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, uiExpansionsBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -70,8 +70,21 @@ public class TitleController : MonoBehaviour
 			PlayerPrefs.SetInt( "language", 0 );
 		if ( !PlayerPrefs.HasKey( "ambient" ) )
 			PlayerPrefs.SetInt( "ambient", 1 );
+		if ( !PlayerPrefs.HasKey( "closeWindowToggle" ) )
+		{
+			//default off (0) for Android
+#if UNITY_ANDROID
+			PlayerPrefs.SetInt( "closeWindowToggle", 0 );
+#else
+			PlayerPrefs.SetInt( "closeWindowToggle", 1 );
+#endif
+		}
+
 		//save defaults
 		PlayerPrefs.Save();
+
+		//create required folders in persistentDataPath
+		FileManager.CreateFolders();
 
 		RunningCampaign.Reset();
 		//create all card lists, load app settings, mission presets and translations
@@ -91,6 +104,7 @@ public class TitleController : MonoBehaviour
 		//check if saved state is valid
 		continueButton.interactable = IsSagaSessionValid( "SagaSession" );
 		campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
+		campaignLoadButton.interactable = FileManager.GetCampaigns().Count > 0;
 
 		FindObjectOfType<Sound>().CheckAudio();
 
@@ -303,7 +317,7 @@ public class TitleController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
-		GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose, true );
+		GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose );
 	}
 
 	void OnSettingsClose( SettingsCommand s )
@@ -392,8 +406,7 @@ public class TitleController : MonoBehaviour
 
 		uiCampaignLoadBtn.text = "load";//needs translation
 
-		uiExpansionsBtn.text = ui.campaignsBtn;
-		uiOptionsBtn.text = ui.optionsBtn;
+		uiExpansionsBtn.text = $"{ui.campaignsBtn[0].ToString().ToUpper()}{ui.campaignsBtn.Substring( 1 )}";
 		donateText.text = ui.supportUC;
 		docsText.text = ui.docsUC;
 
@@ -463,6 +476,9 @@ public class TitleController : MonoBehaviour
 	{
 		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
 
+		if ( !File.Exists( basePath ) )
+			return null;
+
 		string json = "";
 
 		try
@@ -486,6 +502,9 @@ public class TitleController : MonoBehaviour
 	private SagaSession LoadSagaSession( string sessionFolder )
 	{
 		string basePath = Path.Combine( Application.persistentDataPath, sessionFolder, "sessiondata.json" );
+
+		if ( !File.Exists( basePath ) )
+			return null;
 
 		string json = "";
 
@@ -634,6 +653,8 @@ public class TitleController : MonoBehaviour
 
 	public void DeleteCampaignState( Guid guid )
 	{
+		campaignLoadButton.interactable = FileManager.GetCampaigns().Count > 0;
+
 		//if a campaign is deleted, check if any saved state belongs to that campaign, and remove that if it is
 		SagaSession session = LoadSagaSession( "CampaignSession" );
 		if ( session != null && session.campaignGUID == guid )
@@ -684,6 +705,7 @@ public class TitleController : MonoBehaviour
 		else if ( campaignToggle.isOn )
 		{
 			DataStore.gameType = GameType.Saga;
+			campaignLoadButton.interactable = FileManager.GetCampaigns().Count > 0;
 			continueButton.interactable = false;
 			sagaClassicLayoutContainer.SetActive( false );
 			campaignContainer.SetActive( true );

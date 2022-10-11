@@ -91,6 +91,23 @@ namespace Saga
 		//	return projectItem;
 		//}
 
+		public static void CreateFolders()
+		{
+			//campaign folder
+			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
+			if ( !Directory.Exists( basePath ) )
+				Directory.CreateDirectory( basePath );
+
+			//custom mission folder
+#if UNITY_ANDROID
+				basePath = Application.persistentDataPath + "/CustomMissions";
+#else
+			basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+#endif
+			if ( !Directory.Exists( basePath ) )
+				Directory.CreateDirectory( basePath );
+		}
+
 		public static Mission LoadMissionFromString( string json )
 		{
 			try
@@ -146,15 +163,20 @@ namespace Saga
 			List<SagaCampaign> clist = new List<SagaCampaign>();
 			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
 
-			string json = "";
-			List<string> filenames = Directory.GetFiles( basePath ).Where( x =>
+			if ( !Directory.Exists( basePath ) )
 			{
-				FileInfo fi = new FileInfo( x );
-				return fi.Extension == ".json";
-			} ).ToList();
+				Directory.CreateDirectory( basePath );
+			}
 
 			try
 			{
+				string json = "";
+				List<string> filenames = Directory.GetFiles( basePath ).Where( x =>
+				{
+					FileInfo fi = new FileInfo( x );
+					return fi.Extension == ".json";
+				} ).ToList();
+
 				foreach ( var item in filenames )
 				{
 					string path = Path.Combine( basePath, item );
@@ -172,17 +194,17 @@ namespace Saga
 			{
 				Debug.Log( "***ERROR*** GetCampaigns():: " + e.Message );
 				DataStore.LogError( "GetCampaigns() TRACE:\r\n" + e.Message );
-				return null;
+				return clist;
 			}
 		}
 
 		public static void DeleteCampaign( Guid guid )
 		{
 			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
-			DirectoryInfo di = new DirectoryInfo( basePath );
 
 			try
 			{
+				DirectoryInfo di = new DirectoryInfo( basePath );
 
 				List<string> filenames = di.GetFiles().Where( file => file.Extension == ".json" ).Select( x => x.Name ).ToList();
 				if ( filenames.Contains( $"{guid.ToString()}.json" ) )
@@ -209,27 +231,47 @@ namespace Saga
 			string basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 #endif
 
+			if ( !Directory.Exists( basePath ) )
+				Directory.CreateDirectory( basePath );
+
+			try
+			{
+				RecursiveFolderSearch( basePath, missions );
+
+				return missions;
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( "***ERROR*** GetCustomMissions():: " + e.Message );
+				DataStore.LogError( "GetCustomMissions() TRACE:\r\n" + e.Message );
+				return missions;
+			}
+		}
+
+		static void RecursiveFolderSearch( string basePath, List<ProjectItem> missions )
+		{
 			var di = new DirectoryInfo( basePath );
 			var folders = di.GetDirectories();
 
+			//add missions in current folder (basePath)
+			ProjectItem[] projectItems = GetProjects( basePath ).ToArray();
+			missions.AddRange( projectItems );
+
 			foreach ( var folder in folders )
 			{
-				//iterate each folder
-				ProjectItem[] projectItems = GetProjects( basePath ).ToArray();
-				missions.AddRange( projectItems );
+				//iterate each folder within this one
+				RecursiveFolderSearch( folder.FullName, missions );
 			}
-
-			return missions;
 		}
 
 		public static IEnumerable<ProjectItem> GetProjects( string pathToUse )
 		{
 			List<ProjectItem> items = new List<ProjectItem>();
-			DirectoryInfo di = new DirectoryInfo( pathToUse );
-			FileInfo[] files = di.GetFiles().Where( file => file.Extension == ".json" ).ToArray();
 
 			try
 			{
+				DirectoryInfo di = new DirectoryInfo( pathToUse );
+				FileInfo[] files = di.GetFiles().Where( file => file.Extension == ".json" ).ToArray();
 				//find mission files
 				foreach ( FileInfo fi in files )
 				{
@@ -244,7 +286,7 @@ namespace Saga
 			}
 			catch ( Exception )
 			{
-				return null;
+				return items;
 			}
 		}
 

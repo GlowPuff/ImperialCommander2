@@ -11,12 +11,13 @@ namespace Saga
 	public class AddCampaignItemPopup : MonoBehaviour
 	{
 		public PopupBase popupBase;
-		public GameObject itemSkillPrefab, toonPrefab, itemSkillSelectorPrefab;
+		public GameObject itemSkillPrefab, toonPrefab, itemSkillSelectorPrefab, tierFilterContainer, rewardFilterContainer;
 		public Transform itemContainer;
 		public ScrollRect scrollRect;
-		public TMP_Dropdown expansionDropdown;
+		public TMP_Dropdown expansionDropdown, rewardFilterDropdown;
 		public RectTransform scrollRectTransform;
 		public Text cancelText;
+		public Toggle tier1Toggle, tier2Toggle, tier3Toggle;
 
 		Action<DeploymentCard> addHeroCallback, addAllyCallback, addVillainCallback;
 		Action<CampaignItem> addItemCallback;
@@ -26,6 +27,8 @@ namespace Saga
 
 		string selectedExpansion = "";
 		List<string> expansionCodes = new List<string>();
+		bool blockToggle = true;
+		bool useGeneralItemList = false;
 		//scrollview top=60
 
 		void Show()
@@ -38,6 +41,7 @@ namespace Saga
 			scrollRect.normalizedPosition = new Vector2( 0, 200 );
 			scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -60 );
 			expansionDropdown.gameObject.SetActive( false );
+			//tierFilterContainer.SetActive( false );
 		}
 
 		#region CampaignManager callback delegates
@@ -76,7 +80,10 @@ namespace Saga
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
 
-			foreach ( var item in DataStore.villainCards )
+			var sc = FindObjectOfType<CampaignManager>().sagaCampaign.campaignVillains;
+
+			//omit villains already added to campaign
+			foreach ( var item in DataStore.villainCards.Where( x => !sc.Contains( x.id ) ) )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitVillain( item );
@@ -103,16 +110,21 @@ namespace Saga
 			Show();
 		}
 
-		public void AddItem( Action<CampaignItem> callback )
+		public void AddItem( Action<CampaignItem> callback, bool useGeneralItemList )
 		{
-			foreach ( Transform item in itemContainer )
-				Destroy( item.gameObject );
+			this.useGeneralItemList = useGeneralItemList;
 
-			foreach ( var item in SagaCampaign.campaignDataItems )
+			if ( !useGeneralItemList )
 			{
-				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+				blockToggle = true;
+				tier2Toggle.isOn = false;
+				tier3Toggle.isOn = false;
+				tier1Toggle.isOn = true;
+				tierFilterContainer.SetActive( true );
 			}
+			blockToggle = false;
+
+			OnTierFilter( 1 );
 
 			addItemCallback = callback;
 			Show();
@@ -130,6 +142,7 @@ namespace Saga
 				&& (missionType == MissionType.Story || missionType == MissionType.Finale) )
 				selectedExpansion = expansionCode;
 			expansionDropdown.ClearOptions();
+			//add translated expansion name
 			expansionDropdown.AddOptions(
 				DataStore.translatedExpansionNames
 				.Where( x => DataStore.ownedExpansions.Contains( x.Key.ToEnum( Expansion.Core ) ) )
@@ -138,7 +151,12 @@ namespace Saga
 
 			expansionCodes = DataStore.ownedExpansions.Select( x => x.ToString() ).ToList();
 
-			if ( expansionCode == "Custom" )
+			//add "Other" dropdown
+			expansionDropdown.AddOptions( (new string[] { DataStore.translatedExpansionNames["Other"] }).ToList() );
+			expansionCodes.Add( "Other" );
+
+			//side missions have access to custom missions, add "Custom" to dropdown
+			if ( expansionCode == "Custom" || missionType == MissionType.Side || missionType == MissionType.Forced )
 			{
 				expansionDropdown.AddOptions( (new string[] { "Custom Mission" }).ToList() );
 				expansionCodes.Add( "Custom" );
@@ -152,6 +170,7 @@ namespace Saga
 
 			addMissionCallback = callback;
 			Show();
+			//make room for the expansion dropdown
 			if ( expansionCode == "Custom" || (missionType != MissionType.Story && missionType != MissionType.Finale) )
 			{
 				scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -155 );
@@ -164,11 +183,9 @@ namespace Saga
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
 
-			foreach ( var item in SagaCampaign.campaignDataRewards )
-			{
-				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
-			}
+			rewardFilterContainer.SetActive( true );
+			rewardFilterDropdown.value = 0;
+			OnRewardFilter();
 
 			addRewardCallback = callback;
 			Show();
@@ -257,13 +274,75 @@ namespace Saga
 						bonusText = item.AdditionalInfo,
 						descriptionText = item.Description,
 					};
-					go.GetComponent<ItemSkillSelectorPrefab>().Init( card );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( card, item.fileName );
 				}
 			}
 		}
 
+		public void OnTierFilter( int filterValue )
+		{
+			if ( blockToggle )
+				return;
+
+			foreach ( Transform item in itemContainer )
+				Destroy( item.gameObject );
+
+			//showing items heroes can use
+			var sc = FindObjectOfType<CampaignManager>().sagaCampaign.campaignItems;
+			if ( useGeneralItemList )
+			{
+				var items = SagaCampaign.campaignDataItems.Where( x => sc.Contains( x.id ) ).ToList();
+				foreach ( var item in items )
+				{
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+				}
+			}
+			else//showing general items list
+			{
+				//don't show items already added to campaign
+				foreach ( var item in SagaCampaign.campaignDataItems.Where( x => x.tier == filterValue && !sc.Contains( x.id ) ) )
+				{
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+				}
+			}
+
+			//scroll to top
+			scrollRect.verticalNormalizedPosition = 3000;
+		}
+
+		public void OnRewardFilter()
+		{
+			string filter = "Campaign";
+			if ( rewardFilterDropdown.value == 0 )
+				filter = "Campaign";
+			else if ( rewardFilterDropdown.value == 1 )
+				filter = "General";
+			else if ( rewardFilterDropdown.value == 2 )
+				filter = "HeroNumber";
+			else if ( rewardFilterDropdown.value == 3 )
+				filter = "Personal";
+
+			foreach ( Transform item in itemContainer )
+				Destroy( item.gameObject );
+
+			var sc = FindObjectOfType<CampaignManager>().sagaCampaign.campaignRewards;
+			//omit rewards already added to campaign
+			foreach ( var item in SagaCampaign.campaignDataRewards.Where( x => !sc.Contains( x.id ) && x.type.ToString() == filter ) )
+			{
+				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+			}
+
+			//scroll to top
+			scrollRect.verticalNormalizedPosition = 3000;
+		}
+
 		public void OnClose()
 		{
+			tierFilterContainer.SetActive( false );
+			rewardFilterContainer.SetActive( false );
 			popupBase.Close();
 		}
 

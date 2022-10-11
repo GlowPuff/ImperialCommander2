@@ -99,6 +99,13 @@ namespace Saga
 				if ( campaignExpansionCode != "Custom" )
 				{
 					campaignStructures = LoadAsset<List<CampaignStructure>>( $"CampaignData/{campaignExpansionCode}" );
+					//if the mission ID is already set, make it NOT selectable in the future
+					campaignStructures = campaignStructures.Select( x =>
+					{
+						if ( !string.IsNullOrEmpty( x.missionID ) )
+							x.canModify = false;
+						return x;
+					} ).ToList();
 				}
 				else
 				{
@@ -189,7 +196,7 @@ namespace Saga
 			}
 		}
 
-		static T LoadAsset<T>( string assetName )
+		public static T LoadAsset<T>( string assetName )
 		{
 			try
 			{
