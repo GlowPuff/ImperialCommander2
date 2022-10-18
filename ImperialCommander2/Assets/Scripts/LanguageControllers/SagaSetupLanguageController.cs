@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SagaSetupLanguageController : MonoBehaviour
 {
-	public Text difficultyBtn, adaptiveBtn, initialThreatText, addtlThreatText, groupsText, ignoredBtn, villainsBtn, addAllyText, heroesText, tilesBtn, heroCloseBtn, groupCloseBtn, tilesCloseBtn, setupCancelBtn, setupStartBtn, officialCustomBtn, missionCardBtn;
+	public Text difficultyBtn, adaptiveBtn, initialThreatText, addtlThreatText, groupsText, ignoredBtn, villainsBtn, addAllyText, heroesText, tilesBtn, heroCloseBtn, groupCloseBtn, tilesCloseBtn, setupCancelBtn, setupStartBtn, officialCustomBtn, missionCardBtn, campaignTilesButton;
 
 	public TextMeshProUGUI missionTitle;
 
@@ -14,6 +14,7 @@ public class SagaSetupLanguageController : MonoBehaviour
 		groupsText.text = ui.groupsText;
 		villainsBtn.text = ui.villainsBtn;
 		tilesBtn.text = ui.tilesBtn;
+		campaignTilesButton.text = ui.tilesBtn;
 		setupStartBtn.text = ui.setupStartBtn;
 		officialCustomBtn.text = ui.officialBtn;
 		missionCardBtn.text = ui.missionCardBtn;

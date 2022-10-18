@@ -173,7 +173,7 @@ namespace Saga
 					fi.GetComponent<MissionPickerFolder>().InitBuiltin( folder.ToString() );
 				}
 			}
-			else//otherwise we're in a built-in folder, so populate with missions
+			else//otherwise we're in a built-in subfolder, so populate with missions
 			{
 				AsyncOperationHandle<IList<IResourceLocation>> handle = Addressables.LoadResourceLocationsAsync( expansion );
 				handle.Completed += ( x ) =>
@@ -189,25 +189,54 @@ namespace Saga
 			isBusy = true;
 			Dictionary<string, string[]> missionList = new Dictionary<string, string[]>();
 			List<ProjectItem> piList = new List<ProjectItem>();
+			AsyncOperationHandle<TextAsset> loadHandle;
 
 			foreach ( var item in locations )
 			{
-				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( item );
+				if ( Utils.AssetExists( item ) )
+				{
+					loadHandle = Addressables.LoadAssetAsync<TextAsset>( item );
+				}
+				else
+				{
+					FindObjectOfType<SagaSetup>().errorPanel.Show( $"CreateBuiltInPickersFromAddressables()::Asset key doesn't exist:\n{item.PrimaryKey}" );
+					isBusy = false;
+					yield break;
+				}
+
 				while ( !loadHandle.IsDone )
 					yield return null;
+
 				if ( loadHandle.Status == AsyncOperationStatus.Succeeded )
 				{
 					string[] loadedMission = loadHandle.Result.text.Split( '\n' );
 					missionList.Add( item.PrimaryKey, loadedMission );
-
 				}
+				else
+				{
+					Addressables.Release( loadHandle );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( $"CreateBuiltInPickersFromAddressables()::Error in LoadAssetAsync():\n{item.PrimaryKey}" );
+					isBusy = false;
+					yield break;
+				}
+
 				Addressables.Release( loadHandle );
 			}
 
-			//create project items from mission list
-			foreach ( var item in missionList.Keys )
+			try
 			{
-				piList.Add( CreateProjectItem( missionList[item], item, item ) );
+				//create project items from mission list
+				//the Keys are CORE1, JABBA4, etc
+				foreach ( var item in missionList.Keys )
+				{
+					piList.Add( CreateProjectItem( missionList[item], item, item ) );
+				}
+			}
+			catch ( Exception e )
+			{
+				FindObjectOfType<SagaSetup>().errorPanel.Show( $"CreateBuiltInPickersFromAddressables()::Error creating in CreateProjectItem():\n{e.Message}" );
+				isBusy = false;
+				yield break;
 			}
 
 			//sort the pi list
@@ -330,20 +359,41 @@ namespace Saga
 			if ( pickerMode == PickerMode.Custom )
 			{
 				m = FileManager.LoadMission( selectedMission.fullPathWithFilename );
-				doneAction();
+				if ( m != null )
+					doneAction();
+				else
+					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Mission is null\n'{selectedMission.fullPathWithFilename}'" );
 			}
 			else
 			{
 				isBusy = true;
-				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( selectedMission.fullPathWithFilename );
-				loadHandle.Completed += ( x ) =>
+				try
 				{
-					if ( x.Status == AsyncOperationStatus.Succeeded )
-						m = FileManager.LoadMissionFromString( x.Result.text );
-					Addressables.Release( loadHandle );
+					if ( Utils.AssetExists( selectedMission.fullPathWithFilename ) )
+					{
+						AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( selectedMission.fullPathWithFilename );
+						loadHandle.Completed += ( x ) =>
+						{
+							if ( x.Status == AsyncOperationStatus.Succeeded )
+							{
+								m = FileManager.LoadMissionFromString( x.Result.text );
+								doneAction();
+							}
+							else
+								FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Mission is null\n'{selectedMission.fullPathWithFilename}'" );
+
+							Addressables.Release( loadHandle );
+							isBusy = false;
+						};
+					}
+					else
+						FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Can't find asset\n'{selectedMission.fullPathWithFilename}'" );
+				}
+				catch ( Exception e )
+				{
+					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Exception:\n'{e.Message}'\n'{selectedMission.fullPathWithFilename}'" );
 					isBusy = false;
-					doneAction();
-				};
+				}
 			}
 		}
 

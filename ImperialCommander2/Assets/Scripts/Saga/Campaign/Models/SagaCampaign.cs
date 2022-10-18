@@ -37,6 +37,7 @@ namespace Saga
 		public List<string> campaignAllies = new List<string>();
 		public List<string> campaignItems = new List<string>();
 		public List<string> campaignRewards = new List<string>();
+		public List<string> campaignIgnored = new List<string>();
 
 		//data sets
 		[JsonIgnore]
@@ -81,10 +82,10 @@ namespace Saga
 			try
 			{
 				//items
-				campaignDataItems = LoadAsset<List<CampaignItem>>( "CardData/items" );
+				campaignDataItems = LoadAsset<List<CampaignItem>>( $"Languages/{DataStore.Language}/CampaignData/items" );
 
 				//skills
-				campaignDataSkills = LoadAsset<List<CampaignSkill>>( "CardData/skills" );
+				campaignDataSkills = LoadAsset<List<CampaignSkill>>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/CampaignData/skills" );
 
 				//allies
 				allyDataCards = LoadAsset<List<DeploymentCard>>( "CardData/allies" );
@@ -93,7 +94,7 @@ namespace Saga
 				villainDataCards = LoadAsset<List<DeploymentCard>>( "CardData/villains" );
 
 				//rewards
-				campaignDataRewards = LoadAsset<List<CampaignReward>>( "CardData/rewards" );
+				campaignDataRewards = LoadAsset<List<CampaignReward>>( $"Languages/{DataStore.Language}/CampaignData/rewards" );
 
 				//mission structure
 				if ( campaignExpansionCode != "Custom" )
@@ -217,7 +218,7 @@ namespace Saga
 
 		public string GetCampaignInfo()
 		{
-			TextAsset text = Resources.Load<TextAsset>( $"CampaignData/{campaignExpansionCode}Info" );
+			TextAsset text = Resources.Load<TextAsset>( $"Languages/{DataStore.Language}/CampaignData/CampaignInfo/{campaignExpansionCode}Info" );
 			return text?.text;
 		}
 	}

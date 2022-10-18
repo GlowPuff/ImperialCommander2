@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -29,7 +30,6 @@ public class TitleController : MonoBehaviour
 	public TextMeshProUGUI versionText, uiExpansionsBtn;
 	public MissionTextBox versionPopup;
 	public TMP_Dropdown languageDropdown, tutorialDropdown;
-	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText;
 	public Toggle sagaToggle, classicToggle, campaignToggle;
 	public TutorialPanel tutorialPanel;
 	public NewCampaignPanel newCampaignPanel;
@@ -37,7 +37,8 @@ public class TitleController : MonoBehaviour
 	public CanvasGroup buttonContainer;
 
 	//UI objects using language translations
-	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
+	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText, campaignNamePlaceholderText, expansionsText;
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp, newCampaignTitle, customCampaignText, campaignStartText, campaignCancelText, confirmDeleteText, deleteText, uiCampaigns, uiSaga, uiClassic;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -396,19 +397,40 @@ public class TitleController : MonoBehaviour
 	private void SetTranslatedUI()
 	{
 		UITitle ui = DataStore.uiLanguage.uiTitle;
-		uiMenuHeader.text = ui.menuHeading;
 
+		tutorialDropdown.options.Clear();
+		tutorialDropdown.AddOptions( new List<string>( new string[] { ui.tutorialUC + " 1", ui.tutorialUC + " 2", ui.tutorialUC + " 3" } ) );
+
+		uiCampaigns.text = ui.campaigns;
+		uiSaga.text = ui.saga;
+		uiClassic.text = ui.classic;
+		uiMenuHeader.text = ui.menuHeading;
 		uiNewGameBtn.text = ui.newGameBtn;
-		uiCampaignNewBtn.text = ui.newGameBtn;
+		uiCampaignNewBtn.text = ui.newCampaign;
 
 		uiContinueBtn.text = ui.continueBtn;
 		uiCampaignContinueBtn.text = ui.continueBtn;
 
-		uiCampaignLoadBtn.text = "load";//needs translation
+		uiCampaignLoadBtn.text = ui.loadCampaign;
 
 		uiExpansionsBtn.text = $"{ui.campaignsBtn[0].ToString().ToUpper()}{ui.campaignsBtn.Substring( 1 )}";
 		donateText.text = ui.supportUC;
 		docsText.text = ui.docsUC;
+
+		newCampaignTitle.text = DataStore.uiLanguage.uiTitle.newCampaign;
+		campaignNamePlaceholderText.text = DataStore.uiLanguage.uiCampaign.campaignNameUC;
+		customCampaignText.text = DataStore.uiLanguage.uiCampaign.customCampaign;
+		campaignStartText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
+		campaignCancelText.text = DataStore.uiLanguage.uiSetup.cancel;
+		confirmDeleteText.text = ui.confirmDelete;
+		deleteText.text = ui.delete;
+		expansionsText.text = ui.expansions;
+		if ( sagaToggle.isOn )
+			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.sagaDescriptionUC;
+		else if ( classicToggle.isOn )
+			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.classicDescriptionUC;
+		else if ( campaignToggle.isOn )
+			campaignPanelDescriptionText.text = DataStore.uiLanguage.uiCampaign.campaignDescriptionUC;
 
 		//expansion text
 		UIExpansions uie = DataStore.uiLanguage.uiExpansions;
@@ -691,7 +713,7 @@ public class TitleController : MonoBehaviour
 			campaignContainer.SetActive( false );
 			//check if saved state is valid
 			continueButton.interactable = IsSagaSessionValid( "SagaSession" );
-			panelDescriptionText.text = "Play a single, narratively driven mission with a 3D map presentation.";
+			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.sagaDescriptionUC;
 		}
 		else if ( classicToggle.isOn )
 		{
@@ -700,7 +722,7 @@ public class TitleController : MonoBehaviour
 			campaignContainer.SetActive( false );
 			//check if saved state is valid
 			continueButton.interactable = IsSessionValid();
-			panelDescriptionText.text = "Play a single mission using your mission guide book and no 3D map.";
+			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.classicDescriptionUC;
 		}
 		else if ( campaignToggle.isOn )
 		{
@@ -710,7 +732,7 @@ public class TitleController : MonoBehaviour
 			sagaClassicLayoutContainer.SetActive( false );
 			campaignContainer.SetActive( true );
 			campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
-			campaignPanelDescriptionText.text = "Embark on a new or existing Campaign through the galaxy.";
+			campaignPanelDescriptionText.text = DataStore.uiLanguage.uiCampaign.campaignDescriptionUC;
 		}
 	}
 }

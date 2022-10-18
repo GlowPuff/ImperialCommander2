@@ -10,10 +10,11 @@ namespace Saga
 	public class ModifyCustomPropsPopup : MonoBehaviour
 	{
 		public PopupBase popupBase;
-		public Text cancelButtonText, continueButtonText, threatValue;
+		public Text cancelButtonText, continueButtonText, threatValue, threatText;
 		public TMP_Dropdown tierDropdown;
 		public Toggle agendaToggle;
 		public MWheelHandler wheeler;
+		public TextMeshProUGUI agendaText;
 
 		Action<CampaignModify> addCallback;
 		CampaignModify campaignModify;
@@ -23,14 +24,17 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			popupBase.Show();
 
+			//translations
+			threatText.text = DataStore.uiLanguage.uiCampaign.threat;
+			agendaText.text = $"+ {DataStore.uiLanguage.uiCampaign.agendaUC}";
+			cancelButtonText.text = DataStore.uiLanguage.uiSetup.cancel;
+			continueButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+			var s = modifier.itemTierArray.Select( x => $"{DataStore.uiLanguage.uiCampaign.tierUC} " + x );
+			tierDropdown.itemText.text = s.Aggregate( ( acc, cur ) => acc + ", " + cur );
+
 			wheeler.ResetWheeler( modifier.threatValue );
 			tierDropdown.value = GetValue( modifier.itemTierArray );
 			agendaToggle.isOn = modifier.agendaToggle;
-			cancelButtonText.text = DataStore.uiLanguage.uiSetup.cancel;
-			continueButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn;
-
-			var s = modifier.itemTierArray.Select( x => "Tier " + x );
-			tierDropdown.itemText.text = s.Aggregate( ( acc, cur ) => acc + ", " + cur );
 
 			addCallback = callback;
 			campaignModify = modifier;

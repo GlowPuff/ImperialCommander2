@@ -16,12 +16,12 @@ public class UILanguage
 
 public class UISettings
 {
-	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok;
+	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok, quickClose;
 }
 
 public class UITitle
 {
-	public string menuHeading, newGameBtn, continueBtn, campaignsBtn, optionsBtn, supportUC, docsUC;
+	public string menuHeading, newGameBtn, continueBtn, campaignsBtn, optionsBtn, supportUC, docsUC, newCampaign, loadCampaign, confirmDelete, delete, expansions, tutorialUC, saga, campaigns, classic;
 }
 
 public class UISetup
@@ -36,7 +36,7 @@ public class SagaUISetup
 
 public class SagaMainApp
 {
-	public string tooltipHideUIUC, roundIncreasedUC, endOfMissionUC, deployMessageUC, noDPWarningUC, mmAddTilesUC, mmRemoveTilesUC, mmAddEntitiesUC, groupsReadyUC, groupsExhaustUC, repositionTargetUC, doorsUC, cratesUC, terminalsUC, tokensUC, woundUC, withdrawUC, exhaustUC, defeatUC;
+	public string tooltipHideUIUC, roundIncreasedUC, endOfMissionUC, deployMessageUC, noDPWarningUC, mmAddTilesUC, mmRemoveTilesUC, mmAddEntitiesUC, groupsReadyUC, groupsExhaustUC, repositionTargetUC, doorsUC, cratesUC, terminalsUC, tokensUC, woundUC, withdrawUC, exhaustUC, defeatUC, imperialMenu;
 }
 
 public class UIMainApp
@@ -59,5 +59,18 @@ public class UIDeploymentGroups
 
 public class UICampaign
 {
+	public string threatInfoUC, modeIntroductionUC, modeStoryUC, modeSideUC, forcedUC, modeInterludeUC, modeFinaleUC, campaignNameUC, customCampaign, addForcedMissionUC, tierUC, selectMissionUC, customUC, creditsUC, fameUC, awardsUC, campaignSetup, itemsUC, rewardsUC, villainsUC, alliesUC, threat, agendaUC, modifyUC, removeUC, otherUC, campaignUC, generalUC, heroUC, personalUC, campaignSetupUC, campaignDescriptionUC, sagaDescriptionUC, classicDescriptionUC, agendaMission, agendaImperialUC, agendaRebelUC, xpUC;
 
+	public string[] missionTypeStrings;
+
+	public void BuildMissionTypeStrings()
+	{
+		missionTypeStrings = new string[6];
+		missionTypeStrings[0] = modeStoryUC;
+		missionTypeStrings[1] = modeSideUC;
+		missionTypeStrings[2] = forcedUC;
+		missionTypeStrings[3] = modeIntroductionUC;
+		missionTypeStrings[4] = modeInterludeUC;
+		missionTypeStrings[5] = modeFinaleUC;
+	}
 }

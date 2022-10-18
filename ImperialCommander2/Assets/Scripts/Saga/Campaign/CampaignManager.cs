@@ -31,6 +31,8 @@ namespace Saga
 		public MWheelHandler xpWheel, creditsWheel, fameWheel, awardsWheel;
 		public Text campaignExpansion;
 		public CanvasGroup topButtonsGroup, rightPanelGroup;
+		//translatable UI
+		public CampaignLanguageController languageController;
 
 		Sound sound;
 		int view = 1;//0=left, 1=right
@@ -61,8 +63,9 @@ namespace Saga
 			//apply settings
 			sound = FindObjectOfType<Sound>();
 			sound.CheckAudio();
+
 			//set translated UI
-			SetTranslatedUI();
+			languageController.SetTranslatedUI();
 
 			if ( volume.TryGet<Bloom>( out var bloom ) )
 				bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
@@ -101,7 +104,7 @@ namespace Saga
 			if ( sagaCampaign.campaignExpansionCode != "Custom" )
 				campaignExpansion.text = DataStore.translatedExpansionNames[sagaCampaign.campaignExpansionCode];
 			else
-				campaignExpansion.text = "custom";
+				campaignExpansion.text = DataStore.uiLanguage.uiCampaign.customCampaign;
 
 			creditsWheel.ResetWheeler( sagaCampaign.credits );
 			xpWheel.ResetWheeler( sagaCampaign.XP );
@@ -144,12 +147,6 @@ namespace Saga
 				var fgo = Instantiate( forceMissionItemPrefab, structureContainer );
 				fgo.GetComponent<ForceMissionItemPrefab>().Init( OnAddForcedMissionClick );
 			}
-		}
-
-		void SetTranslatedUI()
-		{
-			UICampaign ui = DataStore.uiLanguage.uiCampaign;
-
 		}
 
 		#region UI callbacks from "AddCampaignItemPopup" window
@@ -408,7 +405,7 @@ namespace Saga
 
 		public void OnInfoClicked()
 		{
-			GlowEngine.FindUnityObject<CampaignMessagePopup>().Show( "campaign setup", Utils.ReplaceGlyphs( sagaCampaign.GetCampaignInfo() ), 700 );
+			GlowEngine.FindUnityObject<CampaignMessagePopup>().Show( DataStore.uiLanguage.uiCampaign.campaignSetup, Utils.ReplaceGlyphs( sagaCampaign.GetCampaignInfo() ), 700 );
 		}
 
 		public void OnSwitchViewClicked()

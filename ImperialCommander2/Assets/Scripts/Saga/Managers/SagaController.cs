@@ -18,7 +18,7 @@ namespace Saga
 		//UI OBJECTS
 		public Image faderOverlay;
 		public Transform infoBtnTX;
-		public Text roundText;
+		public Text roundText, currentThreatText;
 		public Button activateImperialButton, endTurnButton, fameButton;
 		public TextMeshProUGUI missionTitleText;
 		//POPUPS
@@ -763,6 +763,12 @@ namespace Saga
 		public void DEBUGsaveState()
 		{
 			DataStore.sagaSessionData.SaveState();
+		}
+
+		public void NotifyThreatUpdated()
+		{
+			//to avoid calling ToString() every single frame (lots of garbage), only notify when it changes
+			currentThreatText.text = DataStore.sagaSessionData.gameVars.currentThreat.ToString();
 		}
 
 		private void Update()

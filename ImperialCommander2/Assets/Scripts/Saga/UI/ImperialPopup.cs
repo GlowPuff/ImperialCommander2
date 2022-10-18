@@ -16,7 +16,7 @@ namespace Saga
 
 		public void Show()
 		{
-			titleText.text = "imperial menu";//DataStore.uiLanguage.uiMainApp.debugDepHandUC.ToLowerInvariant();
+			titleText.text = DataStore.uiLanguage.sagaMainApp.imperialMenu;
 			threat.text = DataStore.uiLanguage.uiMainApp.debugThreatUC;
 			threatValue.text = DataStore.sagaSessionData.gameVars.currentThreat.ToString();
 			depMod.text = DataStore.uiLanguage.uiMainApp.debugDepModUC;

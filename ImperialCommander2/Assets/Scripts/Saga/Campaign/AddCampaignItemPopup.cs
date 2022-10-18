@@ -41,7 +41,6 @@ namespace Saga
 			scrollRect.normalizedPosition = new Vector2( 0, 200 );
 			scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -60 );
 			expansionDropdown.gameObject.SetActive( false );
-			//tierFilterContainer.SetActive( false );
 		}
 
 		#region CampaignManager callback delegates
@@ -50,7 +49,11 @@ namespace Saga
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
 
-			foreach ( var item in DataStore.heroCards )
+			var sc = FindObjectOfType<CampaignManager>().sagaCampaign;
+			var ch = new HashSet<string>( sc.campaignHeroes.Select( x => x.heroID ) );
+			var h = DataStore.heroCards.Where( x => !ch.Contains( x.id ) );
+
+			foreach ( var item in h )//DataStore.heroCards )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitHero( item );
@@ -153,12 +156,12 @@ namespace Saga
 
 			//add "Other" dropdown
 			expansionDropdown.AddOptions( (new string[] { DataStore.translatedExpansionNames["Other"] }).ToList() );
-			expansionCodes.Add( "Other" );
+			expansionCodes.Add( DataStore.uiLanguage.uiCampaign.otherUC );
 
 			//side missions have access to custom missions, add "Custom" to dropdown
 			if ( expansionCode == "Custom" || missionType == MissionType.Side || missionType == MissionType.Forced )
 			{
-				expansionDropdown.AddOptions( (new string[] { "Custom Mission" }).ToList() );
+				expansionDropdown.AddOptions( (new string[] { DataStore.uiLanguage.uiCampaign.customUC }).ToList() );
 				expansionCodes.Add( "Custom" );
 			}
 
@@ -184,6 +187,13 @@ namespace Saga
 				Destroy( item.gameObject );
 
 			rewardFilterContainer.SetActive( true );
+			rewardFilterDropdown.options.Clear();
+			rewardFilterDropdown.AddOptions( new string[] {
+				DataStore.uiLanguage.uiCampaign.campaignUC,
+				DataStore.uiLanguage.uiCampaign.generalUC,
+				DataStore.uiLanguage.uiCampaign.heroUC,
+				DataStore.uiLanguage.uiCampaign.personalUC
+			}.ToList() );
 			rewardFilterDropdown.value = 0;
 			OnRewardFilter();
 

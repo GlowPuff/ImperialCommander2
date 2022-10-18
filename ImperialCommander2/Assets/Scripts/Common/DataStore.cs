@@ -8,8 +8,8 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.24B3";
-	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
+	public static readonly string appVersion = "v.2.0.24B5";
+	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu" };
 
 	public static Mission mission;
 	public static GameType gameType;
@@ -57,6 +57,7 @@ public static class DataStore
 	};
 	public static int languageCode;
 	public static UILanguage uiLanguage;
+	public static string Language { get { return languageCodeList[languageCode]; } }
 	/* Things affected by language
 	 * UI strings
 	 * events, bonus effects, instructions
@@ -375,7 +376,7 @@ public static class DataStore
 				if ( ((Expansion)i) != Expansion.Other )
 					translatedExpansionNames.Add( ((Expansion)i).ToString(), missionCards[((Expansion)i).ToString()][0].expansionText );
 				else
-					translatedExpansionNames.Add( "Other", "Other" );//translate Other
+					translatedExpansionNames.Add( "Other", uiLanguage.uiCampaign.otherUC );
 			}
 		}
 		catch ( JsonReaderException e )

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using TMPro;
@@ -29,6 +30,7 @@ namespace Saga
 		public SagaAddHeroPanel addHeroPanel;
 		public SagaModifyGroupsPanel modifyGroupsPanel;
 		public MissionCardZoom missionCardZoom;
+		public ErrorPanel errorPanel;
 		//OTHER
 		public GameObject warpEffect, rightPanel;
 		public Transform thrusterRoot, thrusterLeft, thrusterRight;
@@ -43,6 +45,23 @@ namespace Saga
 		Sound sound;
 		SagaSetupOptions setupOptions { get; set; }
 		bool isFromCampaign = false;
+
+		//Exception handling for any Unity thrown exception, such as from asset management
+		void OnEnable()
+		{
+			Application.logMessageReceived += LogCallback;
+		}
+		void LogCallback( string condition, string stackTrace, LogType type )
+		{
+			//only capture errors, exceptions, asserts
+			if ( type != LogType.Warning && type != LogType.Log )
+				errorPanel.Show( $"Unity Exception::{type}::{condition}:\n\n{stackTrace}" );
+		}
+
+		void OnDisable()
+		{
+			Application.logMessageReceived -= LogCallback;
+		}
 
 		void Awake()
 		{
@@ -96,7 +115,7 @@ namespace Saga
 				SetupCampaignMission();
 			}
 
-			ResetSetup();
+			ResetSetup( RunningCampaign.sagaCampaignGUID != Guid.Empty );
 			UpdateHeroes();
 			addtlThreatValue.ResetWheeler();
 
@@ -112,7 +131,7 @@ namespace Saga
 		/// <summary>
 		/// set default mission options, add default ignored groups
 		/// </summary>
-		public void ResetSetup()
+		public void ResetSetup( bool isCampaign )
 		{
 			//difficulty
 			difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
@@ -130,11 +149,15 @@ namespace Saga
 			initialText.text = setupOptions.threatLevel.ToString();
 			//additional threat value
 			additionalText.text = setupOptions.addtlThreat.ToString();
-			//clear ignored groups
-			DataStore.sagaSessionData.MissionIgnored.Clear();
-			//add default ignored
-			//ignore "Other" expansion enemy groups by default
-			DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+
+			if ( !isCampaign )
+			{
+				//clear ignored groups
+				DataStore.sagaSessionData.MissionIgnored.Clear();
+				//add default ignored
+				//ignore "Other" expansion enemy groups by default
+				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+			}
 		}
 
 		public void OnCancel()
@@ -157,6 +180,7 @@ namespace Saga
 			if ( campaign == null )
 			{
 				Debug.Log( "SetupCampaignMission()::Could not load the campaign" );
+				errorPanel.Show( $"SetupCampaignMission()::Campaign is null\n'{RunningCampaign.sagaCampaignGUID}'" );
 				return;
 			}
 
@@ -179,6 +203,34 @@ namespace Saga
 				if ( villain != null )
 					DataStore.sagaSessionData.EarnedVillains.Add( villain );
 			}
+			//clear ignored groups
+			DataStore.sagaSessionData.MissionIgnored.Clear();
+			//add default ignored
+			//ignore "Other" expansion enemy groups by default
+			var ignored = new HashSet<DeploymentCard>();
+			DataStore.deploymentCards.Where( x => x.expansion == "Other" ).ToList().ForEach( x => ignored.Add( x ) );
+
+			//add mission specific ignored
+			if ( structure.missionID != "Custom" )
+			{
+				var presets = DataStore.missionPresets[structure.expansionCode.ToLower()];
+				var mp = presets.Where( x => x.id.ToLower() == structure.missionID.ToLower() ).FirstOr( null );
+				var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
+				ign.ToList().ForEach( x => ignored.Add( x ) );
+			}
+			else
+			{
+				Mission m = FileManager.LoadMission( structure.projectItem.fullPathWithFilename );
+				if ( m != null )
+				{
+					var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
+					ign.ToList().ForEach( x => ignored.Add( x ) );
+				}
+				else
+					errorPanel.Show( $"SetupCampaignMission()::Could not load mission:\n{structure.projectItem.fullPathWithFilename}" );
+			}
+			//finally, add the uniquely hashed set of ignored cards (no doubles)
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
 
 			setupOptions = new SagaSetupOptions()
 			{
@@ -251,18 +303,26 @@ namespace Saga
 
 		void StartMission( string missionAddressableKey )
 		{
-			AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
-			loadHandle.Completed += ( x ) =>
+			if ( Utils.AssetExists( missionAddressableKey ) )
 			{
-				if ( x.Status == AsyncOperationStatus.Succeeded )
+				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
+				loadHandle.Completed += ( x ) =>
 				{
-					DataStore.sagaSessionData.missionStringified = x.Result.text;
-					DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
-					if ( DataStore.mission != null )
-						Warp();
-				}
-				Addressables.Release( loadHandle );
-			};
+					if ( x.Status == AsyncOperationStatus.Succeeded )
+					{
+						DataStore.sagaSessionData.missionStringified = x.Result.text;
+						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
+						if ( DataStore.mission != null )
+							Warp();
+						else
+							errorPanel.Show( $"StartMission()::Could not load mission:\n'{missionAddressableKey}'" );
+
+					}
+					Addressables.Release( loadHandle );
+				};
+			}
+			else
+				errorPanel.Show( $"StartMission()::Can't find asset:\n{missionAddressableKey}" );
 		}
 
 		public void AddHero()
@@ -351,17 +411,22 @@ namespace Saga
 			DataStore.sagaSessionData.MissionIgnored.Clear();
 			//add default ignored
 			//ignore "Other" expansion enemy groups by default
-			DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+			var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
 
 			if ( mp != null )
 			{
 				//get ignored from preset
 				var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
-				DataStore.sagaSessionData.MissionIgnored.AddRange( ign );
+				ign.ToList().ForEach( x => ignored.Add( x ) );
 
 				threatValue.ResetWheeler( mp.defaultThreat );
 				initialText.text = mp.defaultThreat.ToString();
 			}
+			else
+				errorPanel.Show( $"OnMissionSelected()::MissionPreset is null" );
+
+			//add the uniquely hashed set of ignored to the real list
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
 		}
 
 		/// <summary>
@@ -379,11 +444,15 @@ namespace Saga
 				DataStore.sagaSessionData.MissionIgnored.Clear();
 				//add default ignored
 				//ignore "Other" expansion enemy groups by default
-				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+				var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
 				//get ignored from mission
 				var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
-				DataStore.sagaSessionData.MissionIgnored.AddRange( ign );
+				ign.ToList().ForEach( x => ignored.Add( x ) );
+				//add the uniquely hashed set of ignored to the real list
+				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
 			}
+			else
+				errorPanel.Show( $"OnMissionSelected()::Could not load mission:\n'{pi.fullPathWithFilename}'" );
 		}
 
 		public void OnModeChange( PickerMode pmode )

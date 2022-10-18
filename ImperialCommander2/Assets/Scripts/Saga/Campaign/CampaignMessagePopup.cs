@@ -14,7 +14,7 @@ public class CampaignMessagePopup : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		popupBase.Show();
 
-		closeText.text = DataStore.uiLanguage.uiMainApp.close;
+		closeText.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 		titleText.text = title;
 		bodyText.text = message;
 

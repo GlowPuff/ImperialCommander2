@@ -13,7 +13,7 @@ namespace Saga
 
 		public Text threatLevelText;
 		public Toggle itemToggle;
-		public TextMeshProUGUI missionType, missionName, itemText, agendaIcon, modMissionNameText;
+		public TextMeshProUGUI missionType, missionName, itemText, agendaIcon, modMissionNameText, modifyText, removeText;
 		public GameObject removeForcedButton, agendaButton, dummyAgenda, dummyItemToggle, modifyMissionPanel;
 		public Image bgImage, nameButtonImage, chevronImage;
 		public CanvasGroup buttonGroup;
@@ -22,6 +22,9 @@ namespace Saga
 		public void Init( CampaignStructure cs )
 		{
 			campaignStructure = cs;
+
+			modifyText.text = DataStore.uiLanguage.uiCampaign.modifyUC;
+			removeText.text = DataStore.uiLanguage.uiCampaign.removeUC;
 
 			///set colors
 			//story
@@ -73,23 +76,23 @@ namespace Saga
 				if ( !string.IsNullOrEmpty( mn ) )
 					missionName.text = mn + "\n<color=orange>" + DataStore.translatedExpansionNames[cs.expansionCode] + "</color>";
 				else
-					missionName.text = "Select Mission";
+					missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
 			}
 			else if ( !string.IsNullOrEmpty( cs.missionID ) && cs.missionID == "Custom" )
 			{
-				missionName.text = cs.projectItem.Title + "\n<color=orange>Custom: " + DataStore.translatedExpansionNames[cs.expansionCode] + "</color>";
+				missionName.text = cs.projectItem.Title + $"\n<color=orange>{DataStore.uiLanguage.uiCampaign.customUC}: " + DataStore.translatedExpansionNames[cs.expansionCode] + "</color>";
 			}
 			else
-				missionName.text = "Select Mission";
+				missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
 
-			missionType.text = cs.missionType.ToString();
+			missionType.text = DataStore.uiLanguage.uiCampaign.missionTypeStrings[(int)cs.missionType];
 			modMissionNameText.text = missionName.text.Replace( "orange", "black" );
 			itemToggle.isOn = cs.isItemChecked;
 			threatLevelText.text = cs.threatLevel.ToString();
 
 			if ( cs.itemTier != null && cs.itemTier.Length > 0 )
 			{
-				var s = cs.itemTier.Select( x => "Tier " + x );
+				var s = cs.itemTier.Select( x => $"{DataStore.uiLanguage.uiCampaign.tierUC} " + x );
 				itemText.text = s.Aggregate( ( acc, cur ) => acc + ", " + cur );
 			}
 			else
@@ -121,7 +124,7 @@ namespace Saga
 						missionID = card.id,
 						Description = card.descriptionText,
 						AdditionalInfo = card.bonusText,
-						fullPathWithFilename = $"{card.id.ToUpper()}-{card.name}",
+						fullPathWithFilename = $"{card.id.ToUpper()}",//-{card.name}",
 						Title = DataStore.missionCards[campaignStructure.expansionCode].Where( x => x.id == campaignStructure.missionID ).FirstOr( new MissionCard() { name = card.name } )?.name
 					};
 				}
@@ -154,7 +157,7 @@ namespace Saga
 
 			agendaButton.SetActive( modifier.agendaToggle );
 			threatLevelText.text = modifier.threatValue.ToString();
-			var s = modifier.itemTierArray.Select( x => "Tier " + x );
+			var s = modifier.itemTierArray.Select( x => $"{DataStore.uiLanguage.uiCampaign.tierUC} " + x );
 			itemText.text = s.Aggregate( ( acc, cur ) => acc + ", " + cur );
 		}
 
@@ -174,19 +177,19 @@ namespace Saga
 			string msg = "";
 			if ( GlowEngine.RandomBool() )//rebel
 			{
-				msg = "The Empire uses its resources elsewhere. Nothing happens.";
+				msg = DataStore.uiLanguage.uiCampaign.agendaRebelUC;
 				agendaIcon.text = "V";
 				agendaIcon.color = new Vector3( 0f, 0.6440244f, 1f ).ToColor();
 				campaignStructure.agendaType = AgendaType.Rebel;
 			}
 			else//imperial
 			{
-				msg = "The Empire sees you as a threat worth stopping. Draw a card from the Imperial Mission Deck and put it into play. If it is a forced mission, immediately resolve that mission. If it is a side mission, it becomes an active side mission.";
+				msg = DataStore.uiLanguage.uiCampaign.agendaImperialUC;
 				agendaIcon.text = "U";
 				agendaIcon.color = new Vector3( 1f, 0.1568628f, 0f ).ToColor();
 				campaignStructure.agendaType = AgendaType.Imperial;
 			}
-			GlowEngine.FindUnityObject<CampaignMessagePopup>().Show( "agenda mission", msg );
+			GlowEngine.FindUnityObject<CampaignMessagePopup>().Show( DataStore.uiLanguage.uiCampaign.agendaMission, msg );
 		}
 
 		public void OnMissionNameClick()
@@ -211,7 +214,7 @@ namespace Saga
 				}
 				else
 				{
-					missionName.text = card.name + "\n<color=orange>Custom: " + DataStore.translatedExpansionNames[campaignStructure.expansionCode] + "</color>";
+					missionName.text = card.name + $"\n<color=orange>{DataStore.uiLanguage.uiCampaign.customUC}: " + DataStore.translatedExpansionNames[campaignStructure.expansionCode] + "</color>";
 
 					//full path to custom mission is stored in 'hero' only for the purpose of getting it into the campaign structure
 					//additional info is stored in 'bonusText'

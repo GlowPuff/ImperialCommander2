@@ -92,6 +92,8 @@ namespace Saga
 			}
 
 			gameVars.currentThreat = Math.Max( 0, gameVars.currentThreat + amount );
+
+			//GlowEngine.FindUnityObject<SagaController>()?.NotifyThreatUpdated();
 			Debug.Log( "UpdateThreat()::NEW VALUE = " + gameVars.currentThreat );
 		}
 
