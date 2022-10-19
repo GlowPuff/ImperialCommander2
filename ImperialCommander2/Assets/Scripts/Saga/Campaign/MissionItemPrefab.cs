@@ -124,7 +124,7 @@ namespace Saga
 						missionID = card.id,
 						Description = card.descriptionText,
 						AdditionalInfo = card.bonusText,
-						fullPathWithFilename = $"{card.id.ToUpper()}",//-{card.name}",
+						fullPathWithFilename = $"{card.id.ToUpper()}",
 						Title = DataStore.missionCards[campaignStructure.expansionCode].Where( x => x.id == campaignStructure.missionID ).FirstOr( new MissionCard() { name = card.name } )?.name
 					};
 				}
@@ -209,7 +209,7 @@ namespace Saga
 					campaignStructure.projectItem.missionID = card.id;
 					campaignStructure.projectItem.Description = card.descriptionText;
 					campaignStructure.projectItem.AdditionalInfo = card.bonusText;
-					campaignStructure.projectItem.fullPathWithFilename = $"{card.id.ToUpper()}-{card.name}";
+					campaignStructure.projectItem.fullPathWithFilename = $"{card.id.ToUpper()}";
 					campaignStructure.projectItem.Title = DataStore.missionCards[campaignStructure.expansionCode].Where( x => x.id == campaignStructure.missionID ).FirstOr( new MissionCard() { name = card.name } )?.name;
 				}
 				else

@@ -6,8 +6,10 @@ using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -54,7 +56,8 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			//bootstrapDEBUG();//comment this out for production build
+			//comment this out for production build
+			//bootstrapDEBUG( "LOTHAL3" );
 			//restoreDEBUG();//comment this out for production build
 
 			//apply settings
@@ -148,29 +151,60 @@ namespace Saga
 			DataStore.sagaSessionData.gameVars.isNewGame = false;
 		}
 
-		void bootstrapDEBUG()
+		void bootstrapDEBUG( string missionCode = "" )
 		{
 			//in a non-debug game, the following is already set at the Saga setup screen
 			Debug.Log( "***BOOTSTRAP DEBUG***" );
 			DataStore.InitData();
 
-			DataStore.StartNewSagaSession( new SagaSetupOptions()
+			if ( string.IsNullOrEmpty( missionCode ) )
 			{
-				projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
-				difficulty = Difficulty.Medium,
-				threatLevel = 3,
-				useAdaptiveDifficulty = true,
-			} );
+				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
+				DataStore.StartNewSagaSession( new SagaSetupOptions()
+				{
+					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
+					difficulty = Difficulty.Medium,
+					threatLevel = 3,
+					useAdaptiveDifficulty = true,
+				} );
+
+				//try to load the mission
+				DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename, out string missionStringified );
+				DataStore.sagaSessionData.missionStringified = missionStringified;
+			}
+			else
+			{
+				Debug.Log( "BOOSTRAP OFFICIAL MISSION" + missionCode );
+				DataStore.StartNewSagaSession( new SagaSetupOptions()
+				{
+					projectItem = new ProjectItem()
+					{
+						missionID = missionCode,
+					},
+					difficulty = Difficulty.Medium,
+					threatLevel = 3,
+					useAdaptiveDifficulty = true,
+				} );
+				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionCode );
+				loadHandle.Completed += ( x ) =>
+				{
+					if ( x.Status == AsyncOperationStatus.Succeeded )
+					{
+						DataStore.sagaSessionData.missionStringified = x.Result.text;
+						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
+						if ( DataStore.mission == null )
+							errorPanel.Show( $"StartMission()::Could not load mission:\n'{missionCode}'" );
+					}
+					Addressables.Release( loadHandle );
+				};
+			}
+
 			//DataStore.sagaSessionData.gameVars.pauseDeployment = true;
 			//DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
-
-			//try to load the mission
-			DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename, out string missionStringified );
-			DataStore.sagaSessionData.missionStringified = missionStringified;
 		}
 
 		public void ShowError( string m )

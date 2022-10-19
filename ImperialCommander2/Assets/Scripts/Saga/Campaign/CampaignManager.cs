@@ -78,7 +78,7 @@ namespace Saga
 
 		void bootstrapCampaign( bool isProduction )
 		{
-			Debug.Log( "***BOOTSTRAP (Campaign Manager)***" );
+			Debug.Log( $"***BOOTSTRAP (Campaign Manager) PRODUCTION={isProduction}***" );
 			if ( !isProduction )
 				DataStore.InitData();
 
@@ -89,7 +89,7 @@ namespace Saga
 			}
 			else//error or debugging, setup new test campaign
 			{
-				RunningCampaign.expansionCode = "Custom";
+				RunningCampaign.expansionCode = "Core";
 				sagaCampaign = SagaCampaign.CreateNewCampaign( "Error/Debug - Not Found", RunningCampaign.expansionCode );
 			}
 		}

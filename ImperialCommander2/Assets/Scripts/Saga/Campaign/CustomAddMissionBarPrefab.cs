@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,8 +7,20 @@ namespace Saga
 	public class CustomAddMissionBarPrefab : MonoBehaviour
 	{
 		public CanvasGroup buttonGroup;
+		public TextMeshProUGUI storyText, sideText, interludeText, finaleText;
 
 		bool disableMode = true;
+
+		private void Awake()
+		{
+			if ( DataStore.uiLanguage == null )
+				return;
+
+			storyText.text = "+ " + DataStore.uiLanguage.uiCampaign.modeStoryUC;
+			sideText.text = "+ " + DataStore.uiLanguage.uiCampaign.modeSideUC;
+			interludeText.text = "+ " + DataStore.uiLanguage.uiCampaign.modeInterludeUC;
+			finaleText.text = "+ " + DataStore.uiLanguage.uiCampaign.modeFinaleUC;
+		}
 
 		public void OnAddMission( int missionType )
 		{

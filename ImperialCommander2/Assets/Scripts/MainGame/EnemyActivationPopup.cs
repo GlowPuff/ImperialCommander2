@@ -19,6 +19,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	public DynamicCardPrefab cardPrefab;
 	public DiceRoller diceRoller;
 	public GameObject modifierBox;
+	public Transform instructionContentContainer;
 	[HideInInspector]
 	public bool isActive = false;
 
@@ -317,17 +318,16 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	void ParseInstructions( List<string> instruction )
 	{
-		Transform content = transform.Find( "Panel/content" );
-		foreach ( Transform tf in content )
+		foreach ( Transform tf in instructionContentContainer )
 			Destroy( tf.gameObject );
 
 		for ( int i = 0; i < instruction.Count; i++ )
 		{
 			string item = instruction[i];
 
-			GameObject go = new GameObject( "content item" );
+			GameObject go = new GameObject( "instruction item" );
 			go.layer = 5;
-			go.transform.SetParent( content );
+			go.transform.SetParent( instructionContentContainer );
 			go.transform.localScale = Vector3.one;
 			go.transform.localEulerAngles = Vector3.zero;
 
@@ -338,10 +338,11 @@ public class EnemyActivationPopup : MonoBehaviour
 			//replace glyphs
 			item = ReplaceGlyphs( item );
 
-			//add bullets
+			//add bullets (light blue text)
 			if ( item.Contains( "{-}" ) )
 			{
-				nt.color = new Color( 0, 0.6440244f, 1, 1 );
+				//nt.color = new Color( 0, 0.6440244f, 1, 1 );
+				nt.color = new Color( 0.4980392f, 0.8266184f, 1, 1 );
 				//nt.margin = new Vector4( 25, 0, 0, 0 );
 				//item = item.Replace( "{-}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color> " );
 				item = item.Replace( "{-}", " \u25A0 " );
@@ -392,7 +393,9 @@ public class EnemyActivationPopup : MonoBehaviour
 
 		if ( item.Contains( "{R1}" ) )
 		{
-			item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1 + "</color>" );
+			//item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1 + "</color>" );
+			//lighter blue color
+			item = item.Replace( "{R1}", "<color=#7FD3FF>" + rebel1 + "</color>" );
 		}
 
 		//Saga formatting
@@ -423,7 +426,9 @@ public class EnemyActivationPopup : MonoBehaviour
 		Regex rebelregex = new Regex( @"\{rebel\}", RegexOptions.IgnoreCase );
 		foreach ( var match in rebelregex.Matches( item ) )
 		{
-			item = item.Replace( match.ToString(), "<color=#00A4FF>" + rebel1 + "</color>" );
+			//item = item.Replace( match.ToString(), "<color=#00A4FF>" + rebel1 + "</color>" );
+			//lighter blue color
+			item = item.Replace( match.ToString(), "<color=#7FD3FF>" + rebel1 + "</color>" );
 		}
 
 		return item;
@@ -564,8 +569,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			isActive = false;
-			Transform content = transform.Find( "Panel/content" );
-			foreach ( Transform tf in content )
+			foreach ( Transform tf in instructionContentContainer )
 				Destroy( tf.gameObject );
 			gameObject.SetActive( false );
 		} );

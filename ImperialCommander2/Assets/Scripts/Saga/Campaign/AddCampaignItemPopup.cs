@@ -152,16 +152,19 @@ namespace Saga
 				.Select( y => y.Value )
 				.ToList() );
 
+			//add owned expansions to codes
 			expansionCodes = DataStore.ownedExpansions.Select( x => x.ToString() ).ToList();
 
 			//add "Other" dropdown
 			expansionDropdown.AddOptions( (new string[] { DataStore.translatedExpansionNames["Other"] }).ToList() );
-			expansionCodes.Add( DataStore.uiLanguage.uiCampaign.otherUC );
+			//add Other to codes
+			expansionCodes.Add( "Other" );
 
 			//side missions have access to custom missions, add "Custom" to dropdown
 			if ( expansionCode == "Custom" || missionType == MissionType.Side || missionType == MissionType.Forced )
 			{
 				expansionDropdown.AddOptions( (new string[] { DataStore.uiLanguage.uiCampaign.customUC }).ToList() );
+				//add Custom to codes
 				expansionCodes.Add( "Custom" );
 			}
 
@@ -289,6 +292,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Items
+		/// </summary>
 		public void OnTierFilter( int filterValue )
 		{
 			if ( blockToggle )
@@ -302,6 +308,11 @@ namespace Saga
 			if ( useGeneralItemList )
 			{
 				var items = SagaCampaign.campaignDataItems.Where( x => sc.Contains( x.id ) ).ToList();
+				items.Sort( ( i1, i2 ) =>
+				{
+					return string.Compare( i1.name, i2.name );
+				} );
+
 				foreach ( var item in items )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
@@ -311,7 +322,9 @@ namespace Saga
 			else//showing general items list
 			{
 				//don't show items already added to campaign
-				foreach ( var item in SagaCampaign.campaignDataItems.Where( x => x.tier == filterValue && !sc.Contains( x.id ) ) )
+				var items = SagaCampaign.campaignDataItems.Where( x => x.tier == filterValue && !sc.Contains( x.id ) );
+				items = items.OrderBy( x => x.name );
+				foreach ( var item in items )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
@@ -338,8 +351,11 @@ namespace Saga
 				Destroy( item.gameObject );
 
 			var sc = FindObjectOfType<CampaignManager>().sagaCampaign.campaignRewards;
+
+			var items = SagaCampaign.campaignDataRewards.Where( x => !sc.Contains( x.id ) && x.type.ToString() == filter );
+			items = items.OrderBy( x => x.name );
 			//omit rewards already added to campaign
-			foreach ( var item in SagaCampaign.campaignDataRewards.Where( x => !sc.Contains( x.id ) && x.type.ToString() == filter ) )
+			foreach ( var item in items )
 			{
 				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
