@@ -30,6 +30,7 @@ namespace Saga
 		public bool behaviorAll;
 		public bool isRepeatable;
 		public bool isEndOfCurrentRound;
+		public bool useAnyHeroDefeated;
 
 		public List<TriggeredBy> additionalTriggers { get; set; }
 

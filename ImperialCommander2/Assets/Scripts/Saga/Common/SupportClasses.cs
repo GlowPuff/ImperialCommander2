@@ -204,6 +204,7 @@ namespace Saga
 		public int addtlThreat;
 		public ProjectItem projectItem;
 		public bool isTutorial;
+		public bool isDebugging;//testing a mission from the command line should not save state
 		public int tutorialIndex;
 
 		public SagaSetupOptions()
@@ -219,6 +220,7 @@ namespace Saga
 			threatLevel = 3;
 			addtlThreat = 0;
 			isTutorial = false;
+			isDebugging = false;
 			tutorialIndex = 0;
 		}
 

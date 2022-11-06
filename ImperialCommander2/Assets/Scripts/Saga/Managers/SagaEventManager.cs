@@ -128,6 +128,12 @@ namespace Saga
 							foreach ( var item in h )
 								DataStore.sagaSessionData.AnyHeroWoundedEventDone.Add( item.id );
 						}
+						if ( ev.useAnyHeroDefeated )
+						{
+							var h = DataStore.deployedHeroes.Where( x => x.isHero && x.heroState.isDefeated );
+							foreach ( var item in h )
+								DataStore.sagaSessionData.AnyHeroWithdrawnEventDone.Add( item.id );
+						}
 						//if ( ev.usesEnd )
 						//	ev.hasActivatedThisRound = true;
 						Debug.Log( "CheckIfEventsTriggered()::EVENT TRIGGERED::" + ev.name );
@@ -172,6 +178,9 @@ namespace Saga
 			//hero defeated
 			if ( me.useHeroWithdraws )
 				result.Add( checker.CheckHeroDefeated() );
+			//any hero defeated
+			if ( me.useAnyHeroDefeated )
+				result.Add( checker.CheckAnyHeroDefeated() );
 			//any hero wounded
 			if ( me.useAnyHeroWounded )
 				result.Add( checker.CheckAnyHeroWounded() );

@@ -426,7 +426,7 @@ namespace Saga
 						string[] aiSplit = line.Split( ':' );
 						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
 						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
-						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 2 );
+						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
 					}
 					if ( split[0] == "missionID" )
 						projectItem.missionID = split[1];
@@ -437,7 +437,9 @@ namespace Saga
 						string[] aiSplit = line.Split( ':' );
 						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
 						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
-						projectItem.AdditionalInfo = aiSplit[1].Substring( 0, aiSplit[1].Length - 2 );
+						var ainfo = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
+						ainfo = ainfo == "null" ? "" : ainfo;
+						projectItem.AdditionalInfo = ainfo;
 					}
 				}
 				else if ( split.Length > 2 )//mission name with a colon

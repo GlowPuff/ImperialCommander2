@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -57,7 +58,7 @@ namespace Saga
 
 			//DEBUG BOOTSTRAP A MISSION
 			//comment this out for production build
-			//bootstrapDEBUG( "LOTHAL3" );
+			//bootstrapDEBUG( "CORE1" );
 			//restoreDEBUG();//comment this out for production build
 
 			//apply settings
@@ -68,10 +69,8 @@ namespace Saga
 			languageController.SetTranslatedUI();
 
 			//apply settings
-			//if ( volume.TryGet<Bloom>( out var bloom ) )
-			//	bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
-			//if ( volume.TryGet<Vignette>( out var vig ) )
-			//	vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
+			if ( volume.TryGet<Vignette>( out var vig ) )
+				vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 			if ( DataStore.sagaSessionData.setupOptions.isTutorial )
 				StartTutorial();
@@ -162,7 +161,7 @@ namespace Saga
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
-					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
+					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "btest.json" ) },
 					difficulty = Difficulty.Medium,
 					threatLevel = 3,
 					useAdaptiveDifficulty = true,

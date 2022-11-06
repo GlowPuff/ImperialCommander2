@@ -390,6 +390,13 @@ public class EnemyActivationPopup : MonoBehaviour
 		item = item.Replace( "{c}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">c</font></color>" );
 		item = item.Replace( "{e}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">e</font></color>" );
 		item = item.Replace( "{s}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">s</font></color>" );
+		item = item.Replace( "{0}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">0</font></color>" );
+		item = item.Replace( "{1}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">1</font></color>" );
+		item = item.Replace( "{2}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">2</font></color>" );
+		item = item.Replace( "{3}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">3</font></color>" );
+		item = item.Replace( "{4}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">4</font></color>" );
+		item = item.Replace( "{5}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">5</font></color>" );
+		item = item.Replace( "{6}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">6</font></color>" );
 
 		if ( item.Contains( "{R1}" ) )
 		{

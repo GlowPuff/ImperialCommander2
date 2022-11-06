@@ -126,5 +126,15 @@ namespace Saga
 		{
 			return DataStore.sagaSessionData.MissionHeroes.All( x => x.heroState.isWounded );
 		}
+
+		public bool CheckAnyHeroDefeated()
+		{
+			//get list of deployed heroes that have NOT participated in an "any hero withdrawn" Event yet
+			var h = from dh in DataStore.deployedHeroes
+							where !DataStore.sagaSessionData.AnyHeroWithdrawnEventDone.Contains( dh.id )
+							select dh;
+
+			return h.Any( x => x.isHero && x.heroState.isDefeated );
+		}
 	}
 }

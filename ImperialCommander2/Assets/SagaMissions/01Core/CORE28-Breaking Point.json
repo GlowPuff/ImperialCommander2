@@ -1,19 +1,21 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE28-Breaking Point.json",
-  "relativePath": "01 - Core Game\\Side Missions\\CORE28-Breaking Point.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896843868940599,
+  "relativePath": "..\\..\\Desktop\\Fall Update\\Updated Files\\Assets\\SagaMissions\\01Core\\CORE28-Breaking Point.json",
+  "fileVersion": "18",
+  "saveDate": "10/7/2022",
+  "timeTicks": 638007421543083394,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Breaking Point",
     "campaignName": "Core Game",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A002",
     "bannedAlly": "A001",
     "startingObjective": "Lose less than 5 supply caches (&Caches destroyed& caches destroyed).",
     "missionID": "Core 28",
-    "missionInfo": "{-} Rebel mission tokens represent supply caches. An Imperial figure can attack a supply cache (Health: *2*, Defense: {G} equal to the number of adjacent Rebel figures).\r\n{-} Neutral mission tokens represent barricades. Barricades are impassible terrain.\r\n{-} Doors are locked. An Imperial figure can attack a door (Health: 5, Defense: 1 {G}).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.\r\n{-} The Imperial player receives the first activation each round.\r\n{-} The Rebels win at the end of Round 5.\r\n{-} The Rebels lose when 5 supply caches are destroyed, or when all heroes are wounded.",
+    "missionInfo": "{-} Rebel mission tokens represent supply caches. An Imperial figure can attack a supply cache (Health: *2*, Defense: {G} equal to the number of adjacent Rebel figures).\r\n{-} Neutral mission tokens represent barricades. Barricades are impassible terrain.\r\n{-} Doors are locked. An Imperial figure can attack a door (Health: 5, Defense: 1 {G}).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.\r\n{-} The Empire receives the first activation each round.\r\n{-} The Rebels win at the end of Round 5.\r\n{-} The Rebels lose when 5 supply caches are destroyed, or when all heroes are wounded.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
@@ -503,7 +505,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "You arrive at a Rebel safe house where crucial supplies are being stored. You've been there a few minutes when the door explodes inward. Imperials rush in, and blaster fire fills the air.\r\n\r\n{-} Rebel figures can deploy to any empty spaces.\r\n{-} Rebel mission tokens represent supply caches. An Imperial figure can attack a supply cache (Health: *2*, Defense: {G} equal to the number of adjacent Rebel figures).\r\n{-} Neutral mission tokens represent barricades. Barricades are impassible terrain.\r\n{-} Doors are locked. An Imperial figure can attack a door (Health: 5, Defense: 1 {G}).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.\r\n{-} The Imperial player receives the first activation each round.\r\n{-} The Rebels win at the end of Round 5.\r\n{-} The Rebels lose when 5 supply caches are destroyed, or when all heroes are wounded.",
+      "eventText": "You arrive at a Rebel safe house where crucial supplies are being stored. You've been there a few minutes when the door explodes inward. Imperials rush in, and blaster fire fills the air.\r\n\r\n{-} Rebel figures can deploy to any empty spaces.\r\n{-} Rebel mission tokens represent supply caches. An Imperial figure can attack a supply cache (Health: *2*, Defense: {G} equal to the number of adjacent Rebel figures).\r\n{-} Neutral mission tokens represent barricades. Barricades are impassible terrain.\r\n{-} Doors are locked. An Imperial figure can attack a door (Health: 5, Defense: 1 {G}).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.\r\n{-} The Empire receives the first activation each round.\r\n{-} The Rebels win at the end of Round 5.\r\n{-} The Rebels lose when 5 supply caches are destroyed, or when all heroes are wounded.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -532,7 +534,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -540,6 +541,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 0,
           "enemyGroupData": {
@@ -572,11 +574,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "f53869c9-8d9c-4e40-b752-202fd80a05c8",
           "eventActionType": 6,
@@ -636,7 +640,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Their work complete, the assault squad slips out of the safe house. With nothing left to defend, you chase after them to no avail. Their transport is away before you can even fire a single shot.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "Their work complete, the assault squad slips out of the safe house. With nothing left to defend, you chase after them to no avail. Their transport is away before you can even fire a single shot.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -927,7 +931,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -935,6 +938,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 0,
           "enemyGroupData": {
@@ -967,11 +971,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "834025d0-285a-4fa0-a4fe-7f6ee775c3f5",
           "eventActionType": 6,
@@ -1713,7 +1719,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1749,7 +1756,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2118,11 +2126,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "7062d988-43da-4896-97eb-27a04eee0f65",
@@ -2148,11 +2158,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [

@@ -155,6 +155,7 @@ public class TitleController : MonoBehaviour
 				difficulty = Difficulty.Medium,
 				threatLevel = 3,
 				projectItem = new ProjectItem() { fullPathWithFilename = path, fileName = args[1] },
+				isDebugging = true
 			};
 
 			Debug.Log( "***BootStrapTestMission***" );

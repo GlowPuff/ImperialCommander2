@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE23-Sympathy for the Rebellion.json",
-  "relativePath": "01 - Core Game\\Side Missions\\CORE23-Sympathy for the Rebellion.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896843177617332,
+  "relativePath": "..\\..\\Desktop\\Fall Update\\Updated Files\\Assets\\SagaMissions\\01Core\\CORE23-Sympathy for the Rebellion.json",
+  "fileVersion": "18",
+  "saveDate": "10/16/2022",
+  "timeTicks": 638015070186437122,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Sympathy for the Rebellion",
     "campaignName": "Luke Skywalker (Hero of the Rebellion) Figure Pack",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "",
@@ -1324,7 +1326,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1332,6 +1333,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "e2c79c07-3386-411d-937c-48b9501fde6b",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1364,11 +1366,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "344896f4-88bb-4cf6-bfcb-45236278def0",
           "eventActionType": 6,
@@ -1393,7 +1397,7 @@
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
       "useAllHeroesWounded": false,
-      "useAllyDefeated": true,
+      "useAllyDefeated": false,
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": true,
@@ -1410,12 +1414,12 @@
             {
               "buttonText": "1 (or ally)",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "00000000-0000-0000-0000-000000000000"
+              "eventGUID": "e5e77ce7-2544-46ce-b845-5cde7564bf89"
             },
             {
               "buttonText": "2",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "00000000-0000-0000-0000-000000000000"
+              "eventGUID": "de35f5f2-ded0-4f88-9228-886ebd0dc9df"
             }
           ],
           "GUID": "7caf112b-9b66-43fd-9486-918eac547a69",
@@ -1505,6 +1509,54 @@
           "GUID": "ddd20452-7590-489b-837d-7e978e53d907",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "6c0eaf17-a414-4da9-a821-385cacd81cb2",
+      "isGlobal": true,
+      "name": "Skywalker wounded",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": true,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": false,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "theText": "As you fall back to treat your wounds for a moment, the Empire uses the chance to detain some recruits.\r\n\r\nHow many activation tokens did the wounded Rebel possess? (If it was an ally, click \"1\".)",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "buttonText": "1 (or ally)",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "e5e77ce7-2544-46ce-b845-5cde7564bf89"
+            },
+            {
+              "buttonText": "2",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "de35f5f2-ded0-4f88-9228-886ebd0dc9df"
+            }
+          ],
+          "GUID": "5a910e65-a036-4f27-b05c-f26b71174a96",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     }
@@ -1628,7 +1680,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1664,7 +1717,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1700,7 +1754,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1736,7 +1791,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1791,7 +1847,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1827,7 +1884,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1863,7 +1921,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1899,7 +1958,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1935,7 +1995,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1971,7 +2032,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2007,7 +2069,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2043,7 +2106,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2399,7 +2463,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -2434,11 +2499,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "249e836e-b3f5-42ab-b38d-2187c882f8dd",
@@ -2470,11 +2537,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "6c78fa87-9a04-4f6b-9db3-9ac09ad5b054",
@@ -2506,11 +2575,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2538,11 +2609,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],

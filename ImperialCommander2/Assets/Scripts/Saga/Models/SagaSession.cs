@@ -19,9 +19,10 @@ namespace Saga
 		public List<DeploymentCard> MissionHeroes;
 
 		public HashSet<string> CannotRedeployList;
-		//list of heroes that finish taking part in an Event with "any hero wounded"
+		//list of heroes that finish taking part in an Event with "any hero wounded" and "any hero withdraws"
 		//makes sure they don't keep firing said Event
 		public HashSet<string> AnyHeroWoundedEventDone;
+		public HashSet<string> AnyHeroWithdrawnEventDone;
 
 		public string missionStringified;
 
@@ -37,6 +38,7 @@ namespace Saga
 			MissionHeroes = new List<DeploymentCard>();
 			CannotRedeployList = new HashSet<string>();
 			AnyHeroWoundedEventDone = new HashSet<string>();
+			AnyHeroWithdrawnEventDone = new HashSet<string>();
 			selectedAlly = null;
 			fixedAlly = null;
 			campaignGUID = Guid.Empty;
@@ -111,9 +113,9 @@ namespace Saga
 
 		public void SaveState()
 		{
-			if ( setupOptions.isTutorial )
+			if ( setupOptions.isTutorial || setupOptions.isDebugging )
 			{
-				Debug.Log( "SaveState()::Canceled SaveState() - this is a tutorial" );
+				Debug.Log( "SaveState()::Canceled SaveState() - this is a tutorial or debug session" );
 				return;
 			}
 
