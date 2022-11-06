@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -96,7 +97,8 @@ namespace Saga
 			foreach ( var skill in campaignHero.campaignSkills )
 			{
 				var go = Instantiate( listItem, contentContainer );
-				go.GetComponent<CampaignListItemPrefab>().InitSkill( skill.name, ( n ) =>
+				string s = SagaCampaign.campaignDataSkills.Where( x => x.id == skill.id ).First().name;
+				go.GetComponent<CampaignListItemPrefab>().InitSkill( s, ( n ) =>
 				{
 					campaignHero.campaignSkills.Remove( skill );
 					Destroy( go );
@@ -106,7 +108,8 @@ namespace Saga
 			foreach ( var item in campaignHero.campaignItems )
 			{
 				var go = Instantiate( listItem, contentContainer );
-				go.GetComponent<CampaignListItemPrefab>().InitItem( item.name, ( n ) =>
+				string s = SagaCampaign.campaignDataItems.Where( x => x.id == item.id ).First().name;
+				go.GetComponent<CampaignListItemPrefab>().InitItem( s, ( n ) =>
 				{
 					campaignHero.campaignItems.Remove( item );
 					Destroy( go );
