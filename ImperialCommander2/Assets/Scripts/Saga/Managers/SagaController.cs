@@ -232,7 +232,12 @@ namespace Saga
 			faderOverlay.color = new Color( 0, 0, 0, 0 );
 			faderOverlay.DOFade( 1, 2 ).OnComplete( () =>
 			{
-				SceneManager.LoadScene( "Title" );
+				//if NOT playing from a campaign, quit to title screen
+				if ( RunningCampaign.sagaCampaignGUID == Guid.Empty )
+					SceneManager.LoadScene( "Title" );
+				else
+					//otherwise, quit back to campaign screen
+					SceneManager.LoadScene( "Campaign" );
 			} );
 		}
 
@@ -746,7 +751,12 @@ namespace Saga
 				faderOverlay.gameObject.SetActive( true );
 				faderOverlay.DOFade( 1, 1 ).OnComplete( () =>
 				{
-					SceneManager.LoadScene( "Title" );
+					//if NOT playing from a campaign, quit to title screen
+					if ( RunningCampaign.sagaCampaignGUID == Guid.Empty )
+						SceneManager.LoadScene( "Title" );
+					else
+						//otherwise, quit back to campaign screen
+						SceneManager.LoadScene( "Campaign" );
 				} );
 			}
 			else
