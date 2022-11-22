@@ -58,8 +58,10 @@ namespace Saga
 
 			//DEBUG BOOTSTRAP A MISSION
 			//comment this out for production build
-			//bootstrapDEBUG( "CORE1" );
+#if DEBUG
+			//bootstrapDEBUG();
 			//restoreDEBUG();//comment this out for production build
+#endif
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
@@ -161,7 +163,7 @@ namespace Saga
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
-					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "btest.json" ) },
+					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "etest.json" ) },
 					difficulty = Difficulty.Medium,
 					threatLevel = 3,
 					useAdaptiveDifficulty = true,
@@ -173,7 +175,7 @@ namespace Saga
 			}
 			else
 			{
-				Debug.Log( "BOOSTRAP OFFICIAL MISSION" + missionCode );
+				Debug.Log( "BOOTSTRAP OFFICIAL MISSION" + missionCode );
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
 					projectItem = new ProjectItem()
@@ -203,7 +205,7 @@ namespace Saga
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
-			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
 
 		public void ShowError( string m )
@@ -421,12 +423,20 @@ namespace Saga
 						 } );
 					 };
 
-					 //perform optional deployment if it's a side mission
+					 //perform optional deployment if it's a side mission or ally is present
 					 if ( DataStore.mission.missionProperties.missionType == MissionType.Side
 					 || DataStore.sagaSessionData.selectedAlly != null )
 					 {
-						 Debug.Log( "StartupLayoutAndEvents()::SIDE MISSION DETECTED" );
-						 deploymentPopup.Show( DeployMode.Landing, false, true, action );
+						 Debug.Log( "StartupLayoutAndEvents()::SIDE MISSION DETECTED OR ALLY PRESENT (Optional Deployment)" );
+						 var dp = mapEntityManager.GetActiveDeploymentPoint( null );
+						 if ( dp != Guid.Empty )
+							 deploymentPopup.Show( DeployMode.Landing, false, true, action );
+						 else
+						 {
+							 Debug.Log( "DELAYING OPTIONAL DEPLOYMENT" );
+							 DataStore.sagaSessionData.gameVars.delayOptionalDeployment = true;
+							 action();
+						 }
 					 }
 					 else
 						 action();
@@ -439,6 +449,8 @@ namespace Saga
 			//Restore session, hand, manual deck, deployed enemies, allies/heroes
 			if ( !DataStore.sagaSessionData.LoadState( sm ) )
 				return false;
+
+			Debug.Log( $"ContinueGame()::{DataStore.mission.fileName}" );
 
 			var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
 			if ( card != null )//official mission

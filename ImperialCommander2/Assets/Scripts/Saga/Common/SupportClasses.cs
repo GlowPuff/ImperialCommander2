@@ -51,6 +51,7 @@ namespace Saga
 		public bool isEndTurn = false;
 		public bool isStartTurn = false;
 		public string currentObjective;
+		public bool delayOptionalDeployment = false;
 		public DeploymentCard activatedGroup = null;
 		//keep track of the end of current round events
 		//keep track of events that have already fired (for use with certain TriggeredBy)

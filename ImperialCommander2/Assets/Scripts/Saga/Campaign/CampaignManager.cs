@@ -55,6 +55,9 @@ namespace Saga
 				leftPanel.SetActive( false );
 			}
 
+			//re-initialize all card data, otherwise deployed cards and other items carry over when coming back from a campaign game
+			DataStore.InitData();
+
 			//BOOTSTRAP CAMPAIGN
 			bootstrapCampaign( true );//true = production build
 

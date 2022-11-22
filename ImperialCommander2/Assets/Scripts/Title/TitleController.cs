@@ -649,12 +649,13 @@ public class TitleController : MonoBehaviour
 		SagaSession session = LoadSagaSession( "CampaignSession" );
 		if ( session != null )
 		{
+			DataStore.sagaSessionData = session;
+			DataStore.sagaSessionData.gameVars.isNewGame = false;
+
 			var cs = SagaCampaign.LoadCampaignState( session.campaignGUID );
 
 			RunningCampaign.sagaCampaignGUID = session.campaignGUID;
 			RunningCampaign.expansionCode = cs.campaignExpansionCode;
-
-			DataStore.sagaSessionData.gameVars.isNewGame = false;
 
 			animator.SetBool( m_OpenParameterId, false );
 			animator.SetBool( expID, false );

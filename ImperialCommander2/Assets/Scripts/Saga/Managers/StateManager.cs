@@ -213,7 +213,7 @@ namespace Saga
 				DataStore.SetCardTranslations( DataStore.deployedEnemies );
 				DataStore.SetCardTranslations( DataStore.deployedHeroes );
 
-				Debug.Log( $"***SESSION LOADED ({sessionFolderName})***" );
+				Debug.Log( $"***SESSION LOADED ({sessionFolderName}, {DataStore.mission.missionProperties.missionName})***" );
 				return true;
 			}
 			catch ( Exception e )

@@ -252,7 +252,7 @@ namespace Saga
 			//if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
 			//	return;
 
-			if ( !cardDescriptor.hasActivated )
+			if ( !cardDescriptor.hasActivated || FindObjectOfType<SagaEventManager>().IsUIHidden )
 			{
 				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 				cardViewPopup.Show( cardDescriptor );

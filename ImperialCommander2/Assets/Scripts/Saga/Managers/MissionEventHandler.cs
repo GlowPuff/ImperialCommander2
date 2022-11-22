@@ -500,7 +500,20 @@ namespace Saga
 
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{tmsg}</color>\n\n{emsg}", () =>
 				{
-					NextEventAction();
+					//see if there is an optional deployment waiting for an Active DP
+					if ( DataStore.sagaSessionData.gameVars.delayOptionalDeployment )
+					{
+						var dp = FindObjectOfType<SagaController>().mapEntityManager.GetActiveDeploymentPoint( null );
+						if ( dp != Guid.Empty )
+						{
+							DataStore.sagaSessionData.gameVars.delayOptionalDeployment = false;
+							FindObjectOfType<SagaController>().deploymentPopup.Show( DeployMode.Landing, false, true, NextEventAction );
+						}
+						else
+							NextEventAction();
+					}
+					else
+						NextEventAction();
 				} );
 			}
 			//deactivate map section
@@ -540,7 +553,23 @@ namespace Saga
 		void ModifyMapEntity( ModifyMapEntity mod )
 		{
 			var em = FindObjectOfType<MapEntityManager>();
-			em.ModifyPrefabs( mod, NextEventAction );
+			em.ModifyPrefabs( mod, () =>
+			{
+				//see if there is an optional deployment waiting for an Active DP
+				if ( DataStore.sagaSessionData.gameVars.delayOptionalDeployment )
+				{
+					var dp = FindObjectOfType<SagaController>().mapEntityManager.GetActiveDeploymentPoint( null );
+					if ( dp != Guid.Empty )
+					{
+						DataStore.sagaSessionData.gameVars.delayOptionalDeployment = false;
+						FindObjectOfType<SagaController>().deploymentPopup.Show( DeployMode.Landing, false, true, NextEventAction );
+					}
+					else
+						NextEventAction();
+				}
+				else
+					NextEventAction();
+			} );
 		}
 
 		/// <summary>

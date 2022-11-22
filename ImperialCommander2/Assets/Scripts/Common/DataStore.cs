@@ -8,8 +8,8 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.0.24";
-	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu" };
+	public static readonly string appVersion = "v.2.0.25";
+	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No" };
 
 	public static Mission mission;
 	public static GameType gameType;
@@ -75,6 +75,7 @@ public static class DataStore
 	/// </summary>
 	public static void InitData()
 	{
+		Debug.Log( "Datastore::InitData()" );
 		gameType = GameType.Saga;
 		string[] expansions = Enum.GetNames( typeof( Expansion ) );
 
