@@ -54,6 +54,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	public HeroState heroState;
 	public bool isCustom = false;
 	public string mugShotPath;
+	public int[] woundTrackerValue = new int[] { 0, 0, 0 };
 	//==end upkeep
 
 	public bool Equals( DeploymentCard obj )

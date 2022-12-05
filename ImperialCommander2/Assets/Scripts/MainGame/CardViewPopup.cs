@@ -9,6 +9,7 @@ public class CardViewPopup : MonoBehaviour
 	public Image fader;
 	public DynamicCardPrefab dynamicCard;
 	public DynamicMissionCardPrefab dynamicMissionCard;
+	public HPTrackerContainer trackerContainer;
 
 	Action<bool> callback;
 	DeploymentCard card;
@@ -57,6 +58,7 @@ public class CardViewPopup : MonoBehaviour
 		cg?.DOFade( 0, .2f );
 		if ( cg2 != null )
 			cg2.DOFade( 0, .2f );
+		trackerContainer?.Hide();
 		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 		transform.GetChild( 2 )?.DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}

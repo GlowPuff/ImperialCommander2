@@ -163,7 +163,7 @@ namespace Saga
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
-					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "etest.json" ) },
+					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
 					difficulty = Difficulty.Medium,
 					threatLevel = 3,
 					useAdaptiveDifficulty = true,
@@ -205,7 +205,7 @@ namespace Saga
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
-			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
 
 		public void ShowError( string m )

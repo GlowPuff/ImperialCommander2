@@ -11,6 +11,7 @@ public class DynamicCardPrefab : MonoBehaviour
 	public Sprite[] factionSprites, expansionSprites;
 	public TextMeshProUGUI cardName, traits, keywords, cost, rcost, health, speed, modText;
 	public Image cardColor;
+	public HPTrackerContainer hpTracker;
 
 	private DeploymentCard card;
 
@@ -39,6 +40,10 @@ public class DynamicCardPrefab : MonoBehaviour
 				cardName.text = card.name;
 			if ( !string.IsNullOrEmpty( card.subname ) )
 				cardName.text += $"\r\n<size=20><color=\"orange\">{card.subname}</color></size>";
+
+			//reset wound tracker
+			if ( hpTracker != null )
+				hpTracker.Reset( card );
 		}
 		else
 		{
