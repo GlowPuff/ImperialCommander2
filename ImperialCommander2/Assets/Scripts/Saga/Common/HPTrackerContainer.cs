@@ -16,9 +16,9 @@ public class HPTrackerContainer : MonoBehaviour
 		}
 
 		//show trackers for the # of enemies in the group
-		for ( int i = 0; i < card.size; i++ )
+		for ( int i = 0; i < trackers.Length; i++ )
 		{
-			trackers[i].SetValue( card, i );
+			trackers[i].SetValue( card, i, i < card.size );
 		}
 	}
 

@@ -17,9 +17,9 @@ public class HPTracker : MonoBehaviour
 		wheelHandler.ResetWheeler();
 	}
 
-	public void SetValue( DeploymentCard c, int idx )
+	public void SetValue( DeploymentCard c, int idx, bool setActive )
 	{
-		gameObject.SetActive( true );
+		gameObject.SetActive( setActive );
 		card = c;
 		index = idx;
 		groupColorImage.color = DataStore.pipColors[c.colorIndex].ToColor();
@@ -28,6 +28,7 @@ public class HPTracker : MonoBehaviour
 
 	public void UpdateWoundValue()
 	{
+		Debug.Log( wheelHandler.wheelValue );
 		if ( card != null )
 			card.woundTrackerValue[index] = wheelHandler.wheelValue;
 	}
