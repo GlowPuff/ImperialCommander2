@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE22-Sorry About the Mess.json",
-  "relativePath": "01 - Core Game\\Side Missions\\CORE22-Sorry About the Mess.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896842839918433,
+  "relativePath": "..\\..\\Desktop\\Fall Update\\Updated Missions\\Assets\\SagaMissions\\01Core\\CORE22-Sorry About the Mess.json",
+  "fileVersion": "19",
+  "saveDate": "11/27/2022",
+  "timeTicks": 638051390677806071,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Sorry About the Mess",
     "campaignName": "Core Game",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A005",
     "bannedAlly": "A001",
     "startingObjective": "Open the door to the Garage.",
@@ -89,6 +91,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -270,6 +273,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -391,6 +395,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -419,6 +424,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -473,6 +479,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -521,6 +528,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -569,6 +577,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -623,6 +632,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -651,6 +661,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -691,6 +702,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -731,12 +743,38 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "entitiesToModify": [
+            {
+              "sourceGUID": "68eb6643-9df0-483a-bb84-87ded987096b",
+              "hasColor": false,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Garage Door",
+                "isActive": true,
+                "theText": "This door leads into the Garage.\r\n\r\nIt is locked to all figures except <color=\"red\">Han Solo</color>.",
+                "entityColor": null,
+                "buttonActions": [
+                  {
+                    "buttonText": "{A} Open",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "fbf51831-db56-4661-b09b-8f2da94a76f7"
+                  }
+                ]
+              }
+            }
+          ],
+          "GUID": "f6690508-01ed-4c6a-a5d2-fa7ae1b4e9ec",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
+        },
         {
           "mapTile": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
@@ -752,7 +790,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": "+*2* Health",
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -760,6 +797,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": true,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "120c6816-a674-42d3-8391-5e76a80c4573",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -786,24 +824,26 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "a19fdd31-a945-4ab6-935b-33f04cb3ab92",
           "eventActionType": 6,
           "displayName": "Deploy: DG006/Imperial Officer (Elite)"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "5c8880c2-5bd8-4a87-9c22-f347b20003f3",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
           "theText": "Reinforcements pour in.",
@@ -812,14 +852,14 @@
           "displayName": "Text Box"
         },
         {
-          "isOnslaught": false,
           "deploymentPoint": 1,
-          "specificDeploymentPoint": "981e94f7-b03c-4748-94c2-eb610128b5d9",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "981e94f7-b03c-4748-94c2-eb610128b5d9",
+          "isOnslaught": false,
           "GUID": "7a6755be-fb7f-4765-b780-fd8af2eddd8d",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "theText": "Gerrin aims at Han, but Han shoots first.\r\n\r\n{-} <color=\"red\">Han Solo</color> may interrupt to perform an attack targeting Gerrin.",
@@ -869,6 +909,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -897,6 +938,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -909,7 +951,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -917,6 +958,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "981e94f7-b03c-4748-94c2-eb610128b5d9",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -949,11 +991,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "835f0563-b360-4a7d-83ce-31444d09ae90",
           "eventActionType": 6,
@@ -982,6 +1026,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -994,7 +1039,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1002,6 +1046,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "c903d3e4-cd49-4dba-8bad-47f702fc475d",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1034,11 +1079,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "4e5432c7-77ac-4668-b86d-633a4c5e13ac",
           "eventActionType": 6,
@@ -1207,7 +1254,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1243,7 +1291,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1279,7 +1328,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1315,7 +1365,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1351,7 +1402,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1387,7 +1439,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1423,7 +1476,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1459,7 +1513,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1516,7 +1571,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -1551,11 +1607,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "1c01a239-1114-4116-a64b-7ab30283114f",
@@ -1581,11 +1639,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -1613,11 +1673,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "254650b6-a90e-4346-b73c-311c7acf37b4",
@@ -1646,11 +1708,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "db795efe-4216-4261-a397-d9fd5937df60",
@@ -1676,11 +1740,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [

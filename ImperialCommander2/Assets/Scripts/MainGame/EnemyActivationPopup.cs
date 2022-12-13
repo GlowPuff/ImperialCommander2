@@ -20,6 +20,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	public DiceRoller diceRoller;
 	public GameObject modifierBox;
 	public Transform instructionContentContainer;
+	public HPTrackerContainer hpTrackerContainer;
 	[HideInInspector]
 	public bool isActive = false;
 
@@ -163,6 +164,11 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	void ShowSaga( DeploymentCard cd, Difficulty difficulty )
 	{
+		//handl wound tracker
+		//reset wound tracker
+		if ( hpTrackerContainer != null )
+			hpTrackerContainer.Reset( cd );
+
 		//check for name override
 		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
 		if ( ovrd != null )
@@ -583,6 +589,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 		callback?.Invoke();
+		hpTrackerContainer?.UpdateAndHide();
 	}
 
 	private void Update()

@@ -3,7 +3,6 @@ using UnityEngine;
 public class HPTrackerContainer : MonoBehaviour
 {
 	public HPTracker[] trackers;
-	public CanvasGroup cg;
 
 	public void Reset( DeploymentCard card )
 	{
@@ -23,7 +22,7 @@ public class HPTrackerContainer : MonoBehaviour
 		}
 	}
 
-	public void Hide()
+	public void UpdateAndHide()
 	{
 		gameObject.SetActive( false );
 		for ( int i = 0; i < 3; i++ )

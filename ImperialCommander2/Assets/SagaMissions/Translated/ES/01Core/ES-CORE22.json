@@ -1,18 +1,19 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "ES\\01 - Core Game\\CORE22-Sorry About the Mess.json",
-  "fileVersion": "18",
-  "saveDate": "11/3/2022",
-  "timeTicks": 638030769717323048,
+  "fileName": "CORE22-Sorry About the Mess.json",
+  "relativePath": "Spanish\\CORE22-Sorry About the Mess.json",
+  "fileVersion": "19",
+  "saveDate": "12/6/2022",
+  "timeTicks": 638059202070483715,
   "languageID": "Spanish (ES)",
   "missionProperties": {
     "missionName": "Perdón por todo el jaleo",
     "campaignName": "Juego Base",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A005",
     "bannedAlly": "A001",
     "startingObjective": "Abrir la puerta del Garaje.",
-    "additionalMissionInfo": null,
     "missionID": "Core 22",
     "missionInfo": "{-} La puerta está sellada para todas las figuras excepto <color=\"red\">Han Solo</color>.\r\n{-} La misión avanza cuando la puerta del Garaje se abre.\r\n{-} Los Rebeldes pierden cuando <color=\"red\">Han Solo</color> es derrotado.",
     "optionalDeployment": false,
@@ -52,7 +53,6 @@
       "DG065"
     ]
   },
-  "fileName": "CORE22-Sorry About the Mess.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -91,6 +91,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -272,6 +273,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -393,6 +395,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -421,6 +424,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -475,6 +479,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -523,6 +528,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -571,6 +577,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -625,6 +632,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -653,6 +661,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -693,6 +702,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -733,12 +743,38 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "entitiesToModify": [
+            {
+              "sourceGUID": "68eb6643-9df0-483a-bb84-87ded987096b",
+              "hasColor": false,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Garage Door",
+                "isActive": true,
+                "theText": "Esta puerta lleva al Garaje.\r\n\r\nEstá bloqueada para todas las figuras excepto para <color=\"red\">Han Solo</color>.",
+                "entityColor": null,
+                "buttonActions": [
+                  {
+                    "buttonText": "{A} Abrir",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "fbf51831-db56-4661-b09b-8f2da94a76f7"
+                  }
+                ]
+              }
+            }
+          ],
+          "GUID": "8b0b8e13-b87c-4b62-972d-3cf90791061d",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
+        },
         {
           "mapTile": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
@@ -788,6 +824,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -872,6 +909,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -900,6 +938,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -952,6 +991,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -986,6 +1026,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1038,6 +1079,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1212,7 +1254,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1248,7 +1291,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1284,7 +1328,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1320,7 +1365,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1356,7 +1402,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1392,7 +1439,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1428,7 +1476,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1464,7 +1513,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1521,7 +1571,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -1556,6 +1607,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1587,6 +1639,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1620,6 +1673,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1654,6 +1708,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1685,6 +1740,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",

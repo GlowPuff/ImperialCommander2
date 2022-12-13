@@ -58,7 +58,7 @@ public class CardViewPopup : MonoBehaviour
 		cg?.DOFade( 0, .2f );
 		if ( cg2 != null )
 			cg2.DOFade( 0, .2f );
-		trackerContainer?.Hide();
+		trackerContainer?.UpdateAndHide();
 		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 		transform.GetChild( 2 )?.DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}
