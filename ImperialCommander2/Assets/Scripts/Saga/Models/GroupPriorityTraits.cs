@@ -16,13 +16,14 @@ namespace Saga
 		public bool incSpy;
 		public bool incTrooper;
 		public bool incWookiee;
+		public bool incVehicle;
 		public bool useDefaultPriority;
 
 		public GroupPriorityTraits()
 		{
 			incBrawler = incCreature = incDroid = incForceUser = true;
 			incGuardian = incHeavyWeapon = incHunter = incLeader = true;
-			incSmuggler = incSpy = incTrooper = incWookiee = true;
+			incSmuggler = incSpy = incTrooper = incWookiee = incVehicle = true;
 			useDefaultPriority = true;
 		}
 
@@ -53,6 +54,8 @@ namespace Saga
 				list.Add( GroupTraits.Trooper );
 			if ( incWookiee )
 				list.Add( GroupTraits.Wookiee );
+			if ( incVehicle )
+				list.Add( GroupTraits.Vehicle );
 
 			return list.ToArray();
 		}
