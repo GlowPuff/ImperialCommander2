@@ -50,7 +50,7 @@ namespace Saga
 #if UNITY_ANDROID
 			// /storage/emulated/0/Android/data/com.GlowPuff.ImperialCommander2/files
 			//string customPath = "/storage/emulated/0/ImperialCommander2";
-			string customPath = Application.persistentDataPath + "/CustomMissions";
+			string customPath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
 #else
 			string customPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 #endif
@@ -63,12 +63,14 @@ namespace Saga
 					if ( dinfo == null )
 					{
 						Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
+						FindObjectOfType<SagaSetup>()?.errorPanel?.Show( $"Could not create the Mission project folder.\r\nTried to create: {customPath}" );
 					}
 				}
 			}
 			catch ( Exception )
 			{
 				Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
+				FindObjectOfType<SagaSetup>()?.errorPanel?.Show( $"Could not create the Mission project folder.\r\nTried to create: {customPath}" );
 			}
 
 			busyIcon.DORotate( new Vector3( 0, 0, 360 ), 1f, RotateMode.FastBeyond360 ).SetEase( Ease.InOutQuad ).SetLoops( -1 );
@@ -116,32 +118,43 @@ namespace Saga
 				missionContainer.GetChild( 0 ).gameObject.SetActive( true );
 
 			//add folders first
-			var di = new DirectoryInfo( currentFolder );
-			var folders = di.GetDirectories();
-			foreach ( var folder in folders )
+			if ( Directory.Exists( currentFolder ) )
 			{
-				var fi = Instantiate( folderItemPrefab, missionContainer );
-				fi.GetComponent<MissionPickerFolder>().Init( folder );
-			}
+				var di = new DirectoryInfo( currentFolder );
+				var folders = di.GetDirectories();
+				try
+				{
+					foreach ( var folder in folders )
+					{
+						var fi = Instantiate( folderItemPrefab, missionContainer );
+						fi.GetComponent<MissionPickerFolder>().Init( folder );
+					}
 
-			//then add files
-			projectItems = FileManager.GetProjects( currentFolder ).ToArray();
-			//sort alphabetically
-			projectItems = projectItems.OrderBy( x => x.Title ).ToArray();
-			bool first = true;
-			foreach ( var item in projectItems )
-			{
-				var picker = Instantiate( missionItemPrefab, missionContainer );
-				var pi = picker.GetComponent<MissionPickerItem>();
-				pi.GetComponent<Toggle>().group = toggleGroup;
-				pi.Init( item, first, PickerMode.Custom );
-				first = false;
-			}
+					//then add files
+					projectItems = FileManager.GetProjects( currentFolder ).ToArray();
+					//sort alphabetically
+					projectItems = projectItems.Where( x => x.missionGUID != null ).OrderBy( x => x.Title ).ToArray();
+					bool first = true;
+					foreach ( var item in projectItems )
+					{
+						var picker = Instantiate( missionItemPrefab, missionContainer );
+						var pi = picker.GetComponent<MissionPickerItem>();
+						pi.GetComponent<Toggle>().group = toggleGroup;
+						pi.Init( item, first, PickerMode.Custom );
+						first = false;
+					}
 
-			if ( projectItems.Length > 0 )
-			{
-				selectedMission = projectItems[0];
-				OnMissionSelected( selectedMission );
+					if ( projectItems.Length > 0 )
+					{
+						selectedMission = projectItems[0];
+						OnMissionSelected( selectedMission );
+					}
+				}
+				catch ( Exception e )
+				{
+					Utils.LogError( $"OnChangeFolder()::Error iterating over '{path}'" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnChangeFolder()::Error iterating over '{path}'" );
+				}
 			}
 		}
 
@@ -288,9 +301,8 @@ namespace Saga
 				pickerMode = PickerMode.Custom;
 				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn;
 #if UNITY_ANDROID
-				string basePath = Application.persistentDataPath + "/CustomMissions";
+				basePath = Application.persistentDataPath + "/CustomMissions";
 #else
-
 				basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 #endif
 				OnChangeFolder( basePath );

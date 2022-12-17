@@ -100,7 +100,7 @@ namespace Saga
 
 			//custom mission folder
 #if UNITY_ANDROID
-				basePath = Application.persistentDataPath + "/CustomMissions";
+			basePath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
 #else
 			basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 #endif

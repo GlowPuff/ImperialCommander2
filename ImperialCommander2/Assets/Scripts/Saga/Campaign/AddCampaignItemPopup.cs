@@ -270,7 +270,7 @@ namespace Saga
 			}
 			else
 			{
-				var missions = FileManager.GetCustomMissions();
+				var missions = FileManager.GetCustomMissions().Where( x => x.missionGUID != null );
 				//sort alphabetically
 				missions = missions.OrderBy( x => x.Title ).ToList();
 
