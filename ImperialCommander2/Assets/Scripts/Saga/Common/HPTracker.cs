@@ -32,4 +32,11 @@ public class HPTracker : MonoBehaviour
 		if ( card != null )
 			card.woundTrackerValue[index] = wheelHandler.wheelValue;
 	}
+
+	public void OnDoubleClicked()
+	{
+		wheelHandler.ResetWheeler();
+		if ( card != null )
+			card.woundTrackerValue[index] = 0;
+	}
 }

@@ -150,7 +150,7 @@ namespace Saga
 						OnMissionSelected( selectedMission );
 					}
 				}
-				catch ( Exception e )
+				catch ( Exception )
 				{
 					Utils.LogError( $"OnChangeFolder()::Error iterating over '{path}'" );
 					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnChangeFolder()::Error iterating over '{path}'" );
