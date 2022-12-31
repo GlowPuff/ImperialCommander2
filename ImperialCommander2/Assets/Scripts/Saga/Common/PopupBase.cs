@@ -3,6 +3,9 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The "Forced" version will respond to clicks regardless of the "close window" Setting
+/// </summary>
 public class PopupBase : MonoBehaviour
 {
 	public CanvasGroup cg;

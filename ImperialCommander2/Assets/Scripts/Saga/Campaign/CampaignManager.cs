@@ -22,6 +22,7 @@ namespace Saga
 		//prefabs
 		public GameObject forceMissionItemPrefab, listItemPrefab, missionItemPrefab, customAddMissionBarPrefab;
 		//UI
+		public CampaignJournal campaignJournal;
 		public AddCampaignItemPopup addCampaignItemPopup;
 		public ModifyCustomPropsPopup modifyCustomPropsPopup;
 		public TMP_InputField campaignNameInputField;
@@ -413,7 +414,7 @@ namespace Saga
 
 		public void OnJournalClicked()
 		{
-
+			campaignJournal.Show( sagaCampaign.campaignJournal, ( text ) => sagaCampaign.campaignJournal = text );
 		}
 
 		public void OnSwitchViewClicked()
