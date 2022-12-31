@@ -411,6 +411,11 @@ namespace Saga
 			GlowEngine.FindUnityObject<CampaignMessagePopup>().Show( DataStore.uiLanguage.uiCampaign.campaignSetup, Utils.ReplaceGlyphs( sagaCampaign.GetCampaignInfo() ), 700 );
 		}
 
+		public void OnJournalClicked()
+		{
+
+		}
+
 		public void OnSwitchViewClicked()
 		{
 			view = view == 0 ? 1 : 0;

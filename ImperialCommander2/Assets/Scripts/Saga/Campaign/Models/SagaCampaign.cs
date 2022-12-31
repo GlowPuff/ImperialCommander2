@@ -28,6 +28,7 @@ namespace Saga
 	{
 		//campaign state
 		public string campaignName, campaignExpansionCode;//campaignExpansion is the CODE, ie: Core
+		public string campaignJournal = "";
 		public int XP, credits, fame, awards;
 		public Guid GUID;
 		public List<CampaignHero> campaignHeroes = new List<CampaignHero>();
