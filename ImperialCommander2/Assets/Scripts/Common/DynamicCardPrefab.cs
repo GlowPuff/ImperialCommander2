@@ -27,6 +27,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			if ( ovrd != null && ovrd.isCustom )
 				card = ovrd.customCard;
 
+			modPanel.gameObject.SetActive( false );
 			if ( ovrd != null && ovrd.showMod && !hideModifier )
 			{
 				modPanel.gameObject.SetActive( true );
