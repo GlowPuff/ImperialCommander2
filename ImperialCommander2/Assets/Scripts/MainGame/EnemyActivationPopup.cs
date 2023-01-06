@@ -170,6 +170,7 @@ public class EnemyActivationPopup : MonoBehaviour
 			hpTrackerContainer.Reset( cd );
 
 		//check for name override
+		modifierBox.SetActive( false );
 		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
 		if ( ovrd != null )
 		{
