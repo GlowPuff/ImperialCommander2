@@ -59,7 +59,7 @@ namespace Saga
 			//DEBUG BOOTSTRAP A MISSION
 			//comment this out for production build
 #if DEBUG
-			//bootstrapDEBUG( "CORE2" );
+			//bootstrapDEBUG();
 			//restoreDEBUG();//comment this out for production build
 #endif
 

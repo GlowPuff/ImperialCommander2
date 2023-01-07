@@ -582,11 +582,11 @@ public class EnemyActivationPopup : MonoBehaviour
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
-			isActive = false;
 			foreach ( Transform tf in instructionContentContainer )
 				Destroy( tf.gameObject );
 			gameObject.SetActive( false );
 		} );
+		isActive = false;
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 		callback?.Invoke();

@@ -247,20 +247,31 @@ namespace Saga
 			exhaustedOverlay.SetActive( isExhausted );
 		}
 
+		///Group was right clicked or double clicked/tapped
+		///NOTE: both input actions fire this method simultaneously
 		public void OnPointerClick()
 		{
-			//if ( FindObjectOfType<SagaEventManager>().IsUIHidden )
-			//	return;
+			var activationPopup = GlowEngine.FindUnityObject<SagaController>().enemyActivationPopup;
+			var cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 
-			if ( !cardDescriptor.hasActivated || FindObjectOfType<SagaEventManager>().IsUIHidden )
+			//if the group has already activated this turn, regardless of whether the UI is hidden or not, show the full activation window
+			//...but NOT if the group activation window itself is already displayed
+			if ( cardDescriptor.hasActivated && !activationPopup.isActive )
 			{
-				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
-				cardViewPopup.Show( cardDescriptor );
+				if ( !cardViewPopup.isActive )//to avoid the simultaneous input
+					activationPopup.Show( cardDescriptor, DataStore.sagaSessionData.setupOptions.difficulty );
 			}
 			else
 			{
-				FindObjectOfType<SagaController>().enemyActivationPopup.Show( cardDescriptor, DataStore.sagaSessionData.setupOptions.difficulty );
+				//otherwise just show the group's card (it has NOT activated, or the UI is hidden, or the UI is NOT hidden
+				if ( !activationPopup.isActive )//to avoid the simultaneous input
+					cardViewPopup.Show( cardDescriptor );
 			}
+			//if ( !cardDescriptor.hasActivated || FindObjectOfType<SagaEventManager>().IsUIHidden )
+			//else
+			//{
+			//activationPopup.Show( cardDescriptor, DataStore.sagaSessionData.setupOptions.difficulty );
+			//}
 		}
 
 		public void SetGroupSize( int size )

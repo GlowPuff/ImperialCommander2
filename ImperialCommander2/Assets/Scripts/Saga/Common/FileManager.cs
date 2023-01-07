@@ -316,7 +316,7 @@ namespace Saga
 					{
 						string[] aiSplit = line.Split( ':' );
 						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
-						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
+						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Replace( @"\r", "" ).Replace( @"\n", "\n" ).Trim();
 						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
 					}
 					if ( split[0] == "missionID" )

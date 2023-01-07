@@ -74,8 +74,10 @@ namespace Saga
 
 		public void ToggleVisibility()
 		{
+			//hide popups
 			if ( hiddenChildren.Length == 0 )
 			{
+				//store the visibility state of each popup under this parent before hiding them
 				hiddenChildren = new bool[transform.childCount];
 				for ( int i = 0; i < hiddenChildren.Length; i++ )
 				{
@@ -83,8 +85,9 @@ namespace Saga
 					transform.GetChild( i ).gameObject.SetActive( false );
 				}
 			}
-			else
+			else//unhide popups
 			{
+				//restore previously hidden popups
 				for ( int i = 0; i < transform.childCount; i++ )
 				{
 					transform.GetChild( i ).gameObject.SetActive( hiddenChildren[i] );
@@ -460,13 +463,25 @@ namespace Saga
 		private void Update()
 		{
 			bool vis = false;
+			int count = 0;
 			foreach ( Transform item in transform )
 			{
 				var popup = item.GetComponent<PopupBase>();
-				if ( (popup != null && popup.isActive)
-					|| enemyActivationPopup.isActive )
+				if ( (popup != null && popup.isActive) )
+				{
+					count++;
+					vis = true;
+				}
+				if ( enemyActivationPopup.isActive )
 					vis = true;
 			}
+
+			if ( enemyActivationPopup.isActive && count > 0 )
+			{
+				//can't hide the UI when it's already hidden AND the activation screen is showing
+				vis = false;
+			}
+
 			toggleVisButton.SetActive( vis );
 		}
 

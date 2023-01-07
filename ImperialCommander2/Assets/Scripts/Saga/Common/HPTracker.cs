@@ -28,7 +28,7 @@ public class HPTracker : MonoBehaviour
 
 	public void UpdateWoundValue()
 	{
-		Debug.Log( wheelHandler.wheelValue );
+		//Debug.Log( wheelHandler.wheelValue );
 		if ( card != null )
 			card.woundTrackerValue[index] = wheelHandler.wheelValue;
 	}

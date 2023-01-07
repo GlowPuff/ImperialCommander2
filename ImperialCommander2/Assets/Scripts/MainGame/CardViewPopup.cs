@@ -10,12 +10,15 @@ public class CardViewPopup : MonoBehaviour
 	public DynamicCardPrefab dynamicCard;
 	public DynamicMissionCardPrefab dynamicMissionCard;
 	public HPTrackerContainer trackerContainer;
+	[HideInInspector]
+	public bool isActive = false;
 
 	Action<bool> callback;
 	DeploymentCard card;
 
 	public void Show( DeploymentCard cd, Action<bool> action = null )
 	{
+		isActive = true;
 		card = cd;
 		dynamicCard.gameObject.SetActive( true );
 		dynamicCard.InitCard( cd );
@@ -50,6 +53,7 @@ public class CardViewPopup : MonoBehaviour
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
+			isActive = false;
 			callback?.Invoke( true );
 			gameObject.SetActive( false );
 			dynamicCard?.gameObject.SetActive( false );
