@@ -29,7 +29,20 @@ public class ReinforcePrefab : MonoBehaviour
 		for ( int i = 0; i < Mathf.Min( cd.size, cd.currentSize + add ); i++ )
 			reinforceCounts[i].color = Color.green;
 
-		nameText.text = cd.name;
+		string groupName = cd.name;
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			//get overridden name
+			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			if ( ovrd != null && ovrd.isCustom )
+				cd = ovrd.customCard;
+
+			if ( ovrd != null )
+				groupName = ovrd.nameOverride;
+			else
+				groupName = cd.name;
+		}
+		nameText.text = groupName;
 
 		thumbnail.sprite = Resources.Load<Sprite>( cd.mugShotPath );
 		if ( cd.isElite )

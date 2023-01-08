@@ -728,7 +728,7 @@ public static class DataStore
 			costModifier = 1;
 
 		var valid = deployedEnemies.Where( x =>
-			x.rcost > 0 &&
+			x.rcost >= 0 &&
 			x.currentSize < x.size &&
 			Math.Max( 1, x.rcost - costModifier ) <= currentThreat ).ToList();
 
