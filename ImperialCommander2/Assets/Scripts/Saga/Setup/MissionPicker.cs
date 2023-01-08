@@ -34,10 +34,11 @@ namespace Saga
 		[HideInInspector]
 		public PickerMode pickerMode { get; set; }
 
-		string currentFolder, basePath, prevFolder;
+		string basePath;
 		ProjectItem[] projectItems;
 		ToggleGroup toggleGroup;
 		List<string> expansionsAvailable = new List<string>();
+		Stack<string> folderBreadcrumbs = new Stack<string>();
 
 		private void Start()
 		{
@@ -98,12 +99,15 @@ namespace Saga
 			OnChangeBuiltinFolder( basePath );
 		}
 
+		/// <summary>
+		/// Change folder for CUSTOM mission mode
+		/// </summary>
 		public void OnChangeFolder( string path )
 		{
 			selectedMission = null;
 			OnMissionSelected( null );
-			prevFolder = currentFolder;
-			currentFolder = path;
+			if ( !folderBreadcrumbs.Contains( path ) )
+				folderBreadcrumbs.Push( path );
 			//populate mission picker items
 			for ( int i = 1; i < missionContainer.childCount; i++ )
 			{
@@ -112,15 +116,15 @@ namespace Saga
 			}
 
 			//disable UP folder if we're at the root
-			if ( basePath == currentFolder )
+			if ( basePath == folderBreadcrumbs.Peek() )
 				missionContainer.GetChild( 0 ).gameObject.SetActive( false );
 			else
 				missionContainer.GetChild( 0 ).gameObject.SetActive( true );
 
 			//add folders first
-			if ( Directory.Exists( currentFolder ) )
+			if ( Directory.Exists( folderBreadcrumbs.Peek() ) )
 			{
-				var di = new DirectoryInfo( currentFolder );
+				var di = new DirectoryInfo( folderBreadcrumbs.Peek() );
 				var folders = di.GetDirectories();
 				try
 				{
@@ -131,7 +135,7 @@ namespace Saga
 					}
 
 					//then add files
-					projectItems = FileManager.GetProjects( currentFolder ).ToArray();
+					projectItems = FileManager.GetProjects( folderBreadcrumbs.Peek() ).ToArray();
 					//sort alphabetically
 					projectItems = projectItems.Where( x => x.missionGUID != null ).OrderBy( x => x.Title ).ToArray();
 					bool first = true;
@@ -162,8 +166,7 @@ namespace Saga
 		{
 			selectedMission = null;
 			OnMissionSelected( null );
-			prevFolder = currentFolder;
-			currentFolder = expansion.ToString();
+			folderBreadcrumbs.Push( (expansion.ToString()) );
 
 			//populate mission picker items
 			for ( int i = 1; i < missionContainer.childCount; i++ )
@@ -172,13 +175,13 @@ namespace Saga
 				Destroy( missionContainer.GetChild( i ).gameObject );
 			}
 			//disable UP folder if we're at the root
-			if ( basePath == currentFolder )
+			if ( basePath == folderBreadcrumbs.Peek() )
 				missionContainer.GetChild( 0 ).gameObject.SetActive( false );
 			else
 				missionContainer.GetChild( 0 ).gameObject.SetActive( true );
 
 			//if this is the top, add folders
-			if ( currentFolder == "BuiltIn" )
+			if ( folderBreadcrumbs.Peek() == "BuiltIn" )
 			{
 				foreach ( var folder in expansionsAvailable )
 				{
@@ -289,6 +292,8 @@ namespace Saga
 
 		public void OnChangeMode()
 		{
+			folderBreadcrumbs.Clear();
+
 			if ( pickerMode == PickerMode.Custom )
 			{
 				pickerMode = PickerMode.BuiltIn;
@@ -345,7 +350,10 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			OnMissionSelected( null );
 			if ( pickerMode == PickerMode.Custom )
-				OnChangeFolder( prevFolder );
+			{
+				folderBreadcrumbs.Pop();
+				OnChangeFolder( folderBreadcrumbs.Peek() );
+			}
 			else
 				OnChangeBuiltinFolder( "BuiltIn" );
 		}
