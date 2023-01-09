@@ -217,6 +217,7 @@ namespace Saga
 			DeploymentCard d1 = DataStore.GetFuzzyDeployable( DataStore.sagaSessionData.gameVars.currentThreat );
 			if ( d1 != null )
 			{
+				d1.ResetWoundTracker();
 				topLanding.SetActive( true );
 				landing1.Init( d1, 3 );//make sure it shows full size
 				groupsToDeploy.Add( d1 );
@@ -237,6 +238,7 @@ namespace Saga
 			DeploymentCard d2 = DataStore.GetFuzzyDeployable( DataStore.sagaSessionData.gameVars.currentThreat );
 			if ( d2 != null )
 			{
+				d2.ResetWoundTracker();
 				bottomLanding.SetActive( true );
 				landing2.Init( d2, 3 );//make sure it shows full size
 				groupsToDeploy.Add( d2 );

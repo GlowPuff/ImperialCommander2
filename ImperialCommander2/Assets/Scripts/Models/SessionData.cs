@@ -231,6 +231,13 @@ public class SessionData
 
 	public void SaveSession( string baseFolder )
 	{
+		//bug out if this was called in Saga mode
+		if ( DataStore.gameType == GameType.Saga )
+		{
+			Debug.Log( "SaveSession() CANCELED: Trying to save CLASSIC state when in SAGA mode." );
+			return;
+		}
+
 		string basePath = Path.Combine( Application.persistentDataPath, baseFolder );
 
 		try

@@ -154,6 +154,11 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 
 		return card;
 	}
+
+	public void ResetWoundTracker()
+	{
+		woundTrackerValue = new int[] { 0, 0, 0 };
+	}
 }
 
 public class GroupAbility
