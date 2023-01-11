@@ -45,6 +45,7 @@ namespace Saga
 			if ( selectedCampaign != Guid.Empty )
 			{
 				var c = SagaCampaign.LoadCampaignState( selectedCampaign );
+				c.FixExpansionCodes();
 				FindObjectOfType<TitleController>().NavToCampaignScreen( c );
 			}
 		}

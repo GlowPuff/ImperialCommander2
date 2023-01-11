@@ -72,9 +72,10 @@ namespace Saga
 			//set translated expansion name IF it's not a custom mission
 			if ( !string.IsNullOrEmpty( cs.missionID ) && cs.missionID != "Custom" )
 			{
-				string mn = DataStore.GetMissionCard( cs.missionID )?.name;
-				if ( !string.IsNullOrEmpty( mn ) )
-					missionName.text = mn + "\n<color=orange>" + DataStore.translatedExpansionNames[cs.expansionCode] + "</color>";
+				var mcard = DataStore.GetMissionCard( cs.missionID );
+				string mn = mcard?.name;
+				if ( mcard != null && !string.IsNullOrEmpty( mn ) )
+					missionName.text = mn + "\n<color=orange>" + DataStore.translatedExpansionNames[mcard.expansion.ToString()] + "</color>";
 				else
 					missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
 			}

@@ -90,6 +90,7 @@ namespace Saga
 			if ( RunningCampaign.sagaCampaignGUID != null && RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				sagaCampaign = SagaCampaign.LoadCampaignState( RunningCampaign.sagaCampaignGUID );
+				sagaCampaign.FixExpansionCodes();
 			}
 			else//error or debugging, setup new test campaign
 			{

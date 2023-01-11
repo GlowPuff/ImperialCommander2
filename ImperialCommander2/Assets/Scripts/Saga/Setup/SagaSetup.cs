@@ -215,8 +215,11 @@ namespace Saga
 			{
 				var presets = DataStore.missionPresets[structure.expansionCode.ToLower()];
 				var mp = presets.Where( x => x.id.ToLower() == structure.missionID.ToLower() ).FirstOr( null );
-				var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
-				ign.ToList().ForEach( x => ignored.Add( x ) );
+				if ( mp != null )
+				{
+					var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
+					ign.ToList().ForEach( x => ignored.Add( x ) );
+				}
 			}
 			else
 			{

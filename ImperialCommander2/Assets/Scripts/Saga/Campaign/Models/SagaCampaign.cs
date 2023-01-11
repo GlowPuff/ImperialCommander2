@@ -27,7 +27,7 @@ namespace Saga
 	public class SagaCampaign
 	{
 		//campaign state
-		public string campaignName, campaignExpansionCode;//campaignExpansion is the CODE, ie: Core
+		public string campaignName, campaignExpansionCode;//campaignExpansionCode is the CODE, ie: Core
 		public string campaignJournal = "";
 		public int XP, credits, fame, awards;
 		public Guid GUID;
@@ -76,6 +76,17 @@ namespace Saga
 		}
 
 		/// <summary>
+		/// For existing campaigns that are loaded, fix the expansion code for "Other" missions which have their "expansionCode" property incorrectly set to the Campaign's expansion code
+		/// </summary>
+		public void FixExpansionCodes()
+		{
+			for ( int i = 0; i < campaignStructures.Count; i++ )
+			{
+				campaignStructure[i].expansionCode = campaignStructures[i].expansionCode;
+			}
+		}
+
+		/// <summary>
 		/// just the card data for lists
 		/// </summary>
 		public void LoadCampaignData()
@@ -111,17 +122,19 @@ namespace Saga
 				}
 				else
 				{
-					campaignStructures = new List<CampaignStructure>();
-					campaignStructures.Add( new CampaignStructure()
+					campaignStructures = new List<CampaignStructure>
 					{
-						missionType = MissionType.Introduction,
-						missionID = "",
-						threatLevel = 1,
-						expansionCode = "",
-						isAgendaMission = false,
-						isCustom = true,
-						itemTier = new string[] { "1" }
-					} );
+						new CampaignStructure()
+						{
+							missionType = MissionType.Introduction,
+							missionID = "",
+							threatLevel = 1,
+							expansionCode = "",
+							isAgendaMission = false,
+							isCustom = true,
+							itemTier = new string[] { "1" }
+						}
+					};
 				}
 
 			}
