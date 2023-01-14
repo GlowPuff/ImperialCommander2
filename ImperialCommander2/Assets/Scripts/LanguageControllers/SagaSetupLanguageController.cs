@@ -11,28 +11,28 @@ public class SagaSetupLanguageController : MonoBehaviour
 	public void SetTranslatedUI()
 	{
 		SagaUISetup ui = DataStore.uiLanguage.sagaUISetup;
-		groupsText.text = ui.groupsText;
-		villainsBtn.text = ui.villainsBtn;
-		tilesBtn.text = ui.tilesBtn;
+		groupsText.text = ui.groupsText.ToUpper();
+		villainsBtn.text = ui.villainsBtn.ToUpper();
+		tilesBtn.text = ui.tilesBtn.ToUpper();
 		campaignTilesButton.text = ui.tilesBtn;
-		setupStartBtn.text = ui.setupStartBtn;
-		officialCustomBtn.text = ui.officialBtn;
-		missionCardBtn.text = ui.missionCardBtn;
+		setupStartBtn.text = ui.setupStartBtn.ToUpper();
+		officialCustomBtn.text = ui.officialBtn.ToUpper();
+		missionCardBtn.text = ui.missionCardBtn.ToUpper();
 
 		UISetup setup = DataStore.uiLanguage.uiSetup;
-		difficultyBtn.text = setup.difficulty;
-		adaptiveBtn.text = setup.adaptive;
-		initialThreatText.text = setup.threatLevelHeading;
-		addtlThreatText.text = setup.addtlThreatHeading;
-		ignoredBtn.text = setup.ignoredHeading;
-		addAllyText.text = setup.addAlly;
-		heroesText.text = setup.addHero;
-		setupCancelBtn.text = setup.cancel;
+		difficultyBtn.text = setup.difficulty.ToUpper();
+		adaptiveBtn.text = setup.adaptive.ToUpper();
+		initialThreatText.text = setup.threatLevelHeading.ToUpper();
+		addtlThreatText.text = setup.addtlThreatHeading.ToUpper();
+		ignoredBtn.text = setup.ignoredHeading.ToUpper();
+		addAllyText.text = setup.addAlly.ToUpper();
+		heroesText.text = setup.addHero.ToUpper();
+		setupCancelBtn.text = setup.cancel.ToUpper();
 
 		UIMainApp uiMain = DataStore.uiLanguage.uiMainApp;
-		heroCloseBtn.text = uiMain.close;
-		groupCloseBtn.text = uiMain.close;
-		tilesCloseBtn.text = uiMain.close;
+		heroCloseBtn.text = uiMain.close.ToUpper();
+		groupCloseBtn.text = uiMain.close.ToUpper();
+		tilesCloseBtn.text = uiMain.close.ToUpper();
 	}
 }
 

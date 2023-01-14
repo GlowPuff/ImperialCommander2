@@ -31,7 +31,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 
 			inputPrompt = eventAction as InputPrompt;
-			submitText.text = DataStore.uiLanguage.uiSettings.ok;
+			submitText.text = DataStore.uiLanguage.uiSettings.ok.ToUpper();
 			callback = action;
 
 			inputValue = 0;

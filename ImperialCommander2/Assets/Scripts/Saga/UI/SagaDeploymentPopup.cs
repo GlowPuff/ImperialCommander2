@@ -82,27 +82,27 @@ namespace Saga
 			{
 				case DeployMode.Calm:
 					calmPanel.SetActive( true );
-					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeCalm;
+					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeCalm.ToUpper();
 					calmText.text = DataStore.uiLanguage.uiMainApp.calmMessageUC;
 					HandleCalm();
 					break;
 				case DeployMode.Reinforcements:
 					reinforcePanel.SetActive( true );
-					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeReinforcements;
+					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeReinforcements.ToUpper();
 					reinforceMessage.text = DataStore.uiLanguage.uiMainApp.threatIncreasedUC;
 					HandleReinforcements();
 					break;
 				case DeployMode.Landing:
 					landingPanel.SetActive( true );
-					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeLanding;
+					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeLanding.ToUpper();
 					landingMessageText.text = DataStore.uiLanguage.uiMainApp.threatIncreasedUC;
 					if ( isOptionalDeployment )
-						depTypeText.text = DataStore.uiLanguage.uiSetup.deploymentHeading;
+						depTypeText.text = DataStore.uiLanguage.uiSetup.deploymentHeading.ToUpper();
 					HandleLanding( skipThreatIncrease, isOptionalDeployment );
 					break;
 				case DeployMode.Onslaught:
 					onslaughtPanel.SetActive( true );
-					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeOnslaught;
+					depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeOnslaught.ToUpper();
 					onslaughtMessageText.text = DataStore.uiLanguage.uiMainApp.threatIncreasedUC;
 					onslaughtRWarning.text = DataStore.uiLanguage.uiMainApp.reinforceWarningUC;
 					onslaughtDWarning.text = DataStore.uiLanguage.uiMainApp.deploymentWarningUC;

@@ -71,24 +71,24 @@ public class DeploymentPopup : MonoBehaviour
 		{
 			case DeployMode.Calm:
 				calmPanel.SetActive( true );
-				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeCalm;
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeCalm.ToUpper();
 				HandleCalm();
 				break;
 			case DeployMode.Reinforcements:
 				reinforcePanel.SetActive( true );
-				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeReinforcements;
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeReinforcements.ToUpper();
 				HandleReinforcements();
 				break;
 			case DeployMode.Landing:
 				landingPanel.SetActive( true );
-				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeLanding;
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeLanding.ToUpper();
 				if ( isOptionalDeployment )
-					depTypeText.text = DataStore.uiLanguage.uiSetup.deploymentHeading;
+					depTypeText.text = DataStore.uiLanguage.uiSetup.deploymentHeading.ToUpper();
 				HandleLanding( skipThreatIncrease, isOptionalDeployment );
 				break;
 			case DeployMode.Onslaught:
 				onslaughtPanel.SetActive( true );
-				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeOnslaught;
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeOnslaught.ToUpper();
 				HandleOnslaught( skipThreatIncrease );
 				break;
 		}

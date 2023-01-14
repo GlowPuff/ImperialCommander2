@@ -24,8 +24,8 @@ namespace Saga
 		public void Show( Action onClose )
 		{
 			campaignNameInputField.text = "";
-			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
-			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
+			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
+			cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
 			callback = onClose;
 			nameGood = false;
 			selectedExpansion = "Core";

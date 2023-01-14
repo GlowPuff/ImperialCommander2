@@ -235,11 +235,11 @@ namespace Saga
 				difficulty = Difficulty.Easy;
 
 			if ( difficulty == Difficulty.Easy )
-				return DataStore.uiLanguage.uiSetup.easy;
+				return DataStore.uiLanguage.uiSetup.easy.ToUpper();
 			else if ( difficulty == Difficulty.Medium )
-				return DataStore.uiLanguage.uiSetup.normal;
+				return DataStore.uiLanguage.uiSetup.normal.ToUpper();
 			else
-				return DataStore.uiLanguage.uiSetup.hard;
+				return DataStore.uiLanguage.uiSetup.hard.ToUpper();
 		}
 	}
 

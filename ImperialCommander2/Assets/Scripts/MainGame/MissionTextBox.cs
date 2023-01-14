@@ -23,7 +23,7 @@ public class MissionTextBox : MonoBehaviour
 		fader.DOFade( .95f, 1 );
 		cg.DOFade( 1, .5f );
 
-		continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn;
+		continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn.ToUpper();
 
 		theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -3000, 0 );
 

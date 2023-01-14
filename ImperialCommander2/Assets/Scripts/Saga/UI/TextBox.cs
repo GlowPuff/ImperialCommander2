@@ -31,7 +31,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 
 			SetText( Utils.ReplaceGlyphs( text ) );
-			continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn;
+			continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn.ToUpper();
 			callback = action;
 
 			popupBase.Show();

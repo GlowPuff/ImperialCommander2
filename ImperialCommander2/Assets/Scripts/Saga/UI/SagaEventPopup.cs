@@ -30,7 +30,7 @@ namespace Saga
 
 			callback = cb;
 			cardEvent = ce;
-			eventTitle.text = ce.eventName.ToLower();
+			eventTitle.text = ce.eventName.ToUpper();
 			eventFlavor.text = ce.eventFlavor;
 			allyToAdd = null;
 			enemyToAdd = null;

@@ -113,7 +113,7 @@ namespace Saga
 			try
 			{
 				var m = JsonConvert.DeserializeObject<Mission>( json );
-				Debug.Log( "Loaded Mission: " + m.fileName );
+				Debug.Log( "Loaded Mission: " + m.missionProperties.missionID );//m.filename
 				return m;
 			}
 			catch ( Exception e )

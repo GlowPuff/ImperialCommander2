@@ -53,16 +53,16 @@ public class GroupChooserScreen : MonoBehaviour
 			switch ( dataGroupIndex )
 			{
 				case 0:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.initialHeading;
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.initialHeading.ToUpper();
 					break;
 				case 1:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.reservedHeading;
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.reservedHeading.ToUpper();
 					break;
 				case 2:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.villainsHeading;
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.villainsHeading.ToUpper();
 					break;
 				case 3:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.ignoredHeading;
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.ignoredHeading.ToUpper();
 					break;
 			}
 			//update the expansion tabs so they display their card counts

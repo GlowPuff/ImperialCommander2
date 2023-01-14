@@ -47,7 +47,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		ignoreText.text = "";
 		spaceListen = true;
 		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
-		continueText.text = DataStore.uiLanguage.uiMainApp.continueBtn;
+		continueText.text = DataStore.uiLanguage.uiMainApp.continueBtn.ToUpper();
 
 		cardDescriptor = cd;
 
@@ -64,7 +64,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		thumbnail.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
 		thumbnail.DOFade( 1, .25f );
 		//name
-		enemyName.text = cd.name.ToLower();
+		enemyName.text = cd.name.ToUpper();
 
 		if ( !string.IsNullOrEmpty( cd.ignored ) )
 			ignoreText.text = $"<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" + cd.ignored;

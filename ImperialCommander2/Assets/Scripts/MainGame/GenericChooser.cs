@@ -32,7 +32,7 @@ public class GenericChooser : MonoBehaviour
 		cg.alpha = 0;
 		cg.DOFade( 1, .5f );
 
-		closeText.text = DataStore.uiLanguage.uiMainApp.close;
+		closeText.text = DataStore.uiLanguage.uiMainApp.close.ToUpper();
 
 		//hide expansion buttons not owned, skipping Core and Other
 		Transform exp = transform.Find( "Panel/expansion selector container" );

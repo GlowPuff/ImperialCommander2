@@ -37,7 +37,7 @@ public class TitleController : MonoBehaviour
 	public CanvasGroup buttonContainer;
 
 	//UI objects using language translations
-	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText, campaignNamePlaceholderText, expansionsText;
+	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText, campaignNamePlaceholderText;
 	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp, newCampaignTitle, customCampaignText, campaignStartText, campaignCancelText, confirmDeleteText, deleteText, uiCampaigns, uiSaga, uiClassic;
 
 	private int m_OpenParameterId;
@@ -402,30 +402,29 @@ public class TitleController : MonoBehaviour
 		tutorialDropdown.options.Clear();
 		tutorialDropdown.AddOptions( new List<string>( new string[] { ui.tutorialUC + " 1", ui.tutorialUC + " 2", ui.tutorialUC + " 3" } ) );
 
-		uiCampaigns.text = ui.campaigns;
-		uiSaga.text = ui.saga;
-		uiClassic.text = ui.classic;
-		uiMenuHeader.text = ui.menuHeading;
-		uiNewGameBtn.text = ui.newGameBtn;
-		uiCampaignNewBtn.text = ui.newCampaign;
+		uiCampaigns.text = ui.campaigns.ToUpper();
+		uiSaga.text = ui.saga.ToUpper();
+		uiClassic.text = ui.classic.ToUpper();
+		uiMenuHeader.text = ui.menuHeading.ToUpper();
+		uiNewGameBtn.text = ui.newGameBtn.ToUpper();
+		uiCampaignNewBtn.text = ui.newCampaign.ToUpper();
 
-		uiContinueBtn.text = ui.continueBtn;
-		uiCampaignContinueBtn.text = ui.continueBtn;
+		uiContinueBtn.text = ui.continueBtn.ToUpper();
+		uiCampaignContinueBtn.text = ui.continueBtn.ToUpper();
 
-		uiCampaignLoadBtn.text = ui.loadCampaign;
+		uiCampaignLoadBtn.text = ui.loadCampaign.ToUpper();
 
-		uiExpansionsBtn.text = $"{ui.campaignsBtn[0].ToString().ToUpper()}{ui.campaignsBtn.Substring( 1 )}";
+		uiExpansionsBtn.text = ui.expansions;
 		donateText.text = ui.supportUC;
 		docsText.text = ui.docsUC;
 
-		newCampaignTitle.text = DataStore.uiLanguage.uiTitle.newCampaign;
+		newCampaignTitle.text = DataStore.uiLanguage.uiTitle.newCampaign.ToUpper();
 		campaignNamePlaceholderText.text = DataStore.uiLanguage.uiCampaign.campaignNameUC;
-		customCampaignText.text = DataStore.uiLanguage.uiCampaign.customCampaign;
-		campaignStartText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
-		campaignCancelText.text = DataStore.uiLanguage.uiSetup.cancel;
-		confirmDeleteText.text = ui.confirmDelete;
-		deleteText.text = ui.delete;
-		expansionsText.text = ui.expansions;
+		customCampaignText.text = DataStore.uiLanguage.uiCampaign.customCampaign.ToUpper();
+		campaignStartText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
+		campaignCancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+		confirmDeleteText.text = ui.confirmDelete.ToUpper();
+		deleteText.text = ui.delete.ToUpper();
 		if ( sagaToggle.isOn )
 			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.sagaDescriptionUC;
 		else if ( classicToggle.isOn )
@@ -435,12 +434,12 @@ public class TitleController : MonoBehaviour
 
 		//expansion text
 		UIExpansions uie = DataStore.uiLanguage.uiExpansions;
-		bespinExp.text = uie.bespin;
-		hothExp.text = uie.hoth;
-		jabbaExp.text = uie.jabba;
-		empireExp.text = uie.empire;
-		lothalExp.text = uie.lothal;
-		twinExp.text = uie.twin;
+		bespinExp.text = uie.bespin.ToUpper();
+		hothExp.text = uie.hoth.ToUpper();
+		jabbaExp.text = uie.jabba.ToUpper();
+		empireExp.text = uie.empire.ToUpper();
+		lothalExp.text = uie.lothal.ToUpper();
+		twinExp.text = uie.twin.ToUpper();
 	}
 
 	private bool IsSessionValid()

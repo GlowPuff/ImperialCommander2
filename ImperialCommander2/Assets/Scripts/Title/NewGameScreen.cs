@@ -89,7 +89,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnDifficulty()
 	{
 		sound.PlaySound( FX.Click );
-		difficultyText.text = DataStore.sessionData.ToggleDifficulty();
+		difficultyText.text = DataStore.sessionData.ToggleDifficulty().ToUpper();
 		ColorBlock cb = difficultyButton.colors;
 		cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
 		difficultyButton.colors = cb;
@@ -98,7 +98,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnOptionalDeployment()
 	{
 		sound.PlaySound( FX.Click );
-		deploymentText.text = DataStore.sessionData.ToggleDeployment();
+		deploymentText.text = DataStore.sessionData.ToggleDeployment().ToUpper();
 	}
 
 	public void OnImperials()
@@ -121,7 +121,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnThreatCost()
 	{
 		sound.PlaySound( FX.Click );
-		threatCostText.text = DataStore.sessionData.ToggleThreatCost();
+		threatCostText.text = DataStore.sessionData.ToggleThreatCost().ToUpper();
 	}
 
 	public void OnViewMissionCard()
@@ -267,7 +267,7 @@ public class NewGameScreen : MonoBehaviour
 			//instead of relying on the saved mission NAME (possibly wrong language), lookup current translated name using the saved id
 			var c = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id.ToLower() == n.ToLower() ).FirstOr( new MissionCard { name = "" } );
 
-			selectedMissionText.text = c.name.ToLower();
+			selectedMissionText.text = c.name.ToUpper();
 		}
 		else
 		{
@@ -277,7 +277,7 @@ public class NewGameScreen : MonoBehaviour
 			DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
 
 			var c = DataStore.missionCards["Core"][0];
-			selectedMissionText.text = c.name.ToLower();
+			selectedMissionText.text = c.name.ToUpper();
 		}
 
 		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = true;
@@ -401,18 +401,18 @@ public class NewGameScreen : MonoBehaviour
 			if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
 			{
 				if ( DataStore.sessionData.difficulty == Difficulty.Easy )
-					difficultyText.text = DataStore.uiLanguage.uiSetup.easy;
+					difficultyText.text = DataStore.uiLanguage.uiSetup.easy.ToUpper();
 				else if ( DataStore.sessionData.difficulty == Difficulty.Medium )
-					difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
+					difficultyText.text = DataStore.uiLanguage.uiSetup.normal.ToUpper();
 				else
-					difficultyText.text = DataStore.uiLanguage.uiSetup.hard;
+					difficultyText.text = DataStore.uiLanguage.uiSetup.hard.ToUpper();
 			}
 			else
-				difficultyText.text = DataStore.uiLanguage.uiSetup.difficulty;
+				difficultyText.text = DataStore.uiLanguage.uiSetup.difficulty.ToUpper();
 
-			threatCostText.text = DataStore.sessionData.allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+			threatCostText.text = DataStore.sessionData.allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes.ToUpper() : DataStore.uiLanguage.uiSetup.no.ToUpper();
 
-			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes.ToUpper() : DataStore.uiLanguage.uiSetup.no.ToUpper();
 
 			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
 			imperialToggle.isOn = DataStore.sessionData.includeImperials;

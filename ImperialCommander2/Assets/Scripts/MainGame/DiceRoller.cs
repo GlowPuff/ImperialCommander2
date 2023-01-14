@@ -23,7 +23,7 @@ public class DiceRoller : MonoBehaviour
 	{
 		visible = true;
 		callback = ac;
-		okBtn.text = DataStore.uiLanguage.uiSettings.ok;
+		okBtn.text = DataStore.uiLanguage.uiSettings.ok.ToUpper();
 		gridLayout = container.GetComponent<GridLayoutGroup>();
 		dynamicCard.InitCard( cd, true );
 

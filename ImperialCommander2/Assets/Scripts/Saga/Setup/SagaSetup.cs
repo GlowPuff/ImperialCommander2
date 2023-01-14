@@ -134,7 +134,7 @@ namespace Saga
 		public void ResetSetup( bool isCampaign )
 		{
 			//difficulty
-			difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
+			difficultyText.text = DataStore.uiLanguage.uiSetup.normal.ToUpper();
 			//adaptive
 			adaptiveButton.colors = setupOptions.useAdaptiveDifficulty ? greenBlock : redBlock;
 			//clear hero panel if not loading from campaign

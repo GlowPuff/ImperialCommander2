@@ -13,8 +13,8 @@ public class TutorialPanel : MonoBehaviour
 
 	public void Show( int index )
 	{
-		startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
-		cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
+		startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
+		cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
 		tutIndex = index + 1;
 
 		//try to load the mission in selected language
@@ -30,7 +30,7 @@ public class TutorialPanel : MonoBehaviour
 
 		if ( DataStore.mission != null )
 		{
-			titleText.text = DataStore.mission.missionProperties.missionName.ToLower();
+			titleText.text = DataStore.mission.missionProperties.missionName.ToUpper();
 			descriptionText.text = DataStore.mission.missionProperties.missionDescription;
 			taglineText.text = DataStore.mission.missionProperties.additionalMissionInfo;
 		}

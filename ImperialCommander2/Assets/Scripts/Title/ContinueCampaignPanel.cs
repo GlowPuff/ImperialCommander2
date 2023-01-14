@@ -7,7 +7,7 @@ namespace Saga
 	public class ContinueCampaignPanel : MonoBehaviour
 	{
 		public PopupBase popupBase;
-		public Text startText, cancelText;
+		public Text startText, cancelText, titleText;
 		public CampaignTogglePrefab campaignTogglePrefab;
 		public GameObject toggleContainer;
 		public Button startButton;
@@ -17,8 +17,9 @@ namespace Saga
 
 		public void Show( Action onClose )
 		{
-			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
-			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
+			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
+			cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+			titleText.text = DataStore.uiLanguage.uiTitle.loadCampaign.ToUpper();
 			callback = onClose;
 
 			selectedCampaign = Guid.Empty;
