@@ -7,7 +7,7 @@ namespace Saga
 	{
 		public string missionName, missionID, fixedAlly, bannedAlly, missionInfo, specificAlly, specificHero, priorityOther, missionDescription, campaignName, startingObjective, additionalMissionInfo;
 		public bool optionalDeployment, factionImperial, factionMercenary;
-		public YesNoAll useFixedAlly, useBannedAlly, banAllAllies;
+		public YesNoAll useFixedAlly, useBannedAlly;//, banAllAllies;
 		public CustomInstructionType customInstructionType;
 		//public ThreatModifierType initialThreatType;
 		public PriorityTargetType priorityTargetType;
@@ -17,5 +17,6 @@ namespace Saga
 		public ChangeReposition changeRepositionOverride;
 		public List<MissionSubType> missionSubType;
 		public List<string> bannedGroups = new List<string>();
+		public List<string> multipleBannedAllies = new List<string>();
 	}
 }
