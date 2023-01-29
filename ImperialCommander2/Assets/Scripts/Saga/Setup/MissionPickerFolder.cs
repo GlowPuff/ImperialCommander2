@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using TMPro;
@@ -27,38 +28,45 @@ namespace Saga
 			builtInFolder = bname;
 
 			string expansion = "";
-			//expected format: Expansion #
-			switch ( bname.Split( ' ' )[0] )
+			try
 			{
-				case "Core":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.core );
-					break;
-				case "Twin":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.twin );
-					break;
-				case "Hoth":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.hoth );
-					break;
-				case "Bespin":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.bespin );
-					break;
-				case "Jabba":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.jabba );
-					break;
-				case "Empire":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.empire );
-					break;
-				case "Lothal":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.lothal );
-					break;
-				case "Other":
-					expansion = Capitalize( DataStore.uiLanguage.uiExpansions.other );
-					break;
-				default:
-					expansion = "Unknown Expansion::" + bname[0];
-					break;
+				//expected format: Expansion #
+				switch ( bname.Split( ' ' )[0] )
+				{
+					case "Core":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.core );
+						break;
+					case "Twin":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.twin );
+						break;
+					case "Hoth":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.hoth );
+						break;
+					case "Bespin":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.bespin );
+						break;
+					case "Jabba":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.jabba );
+						break;
+					case "Empire":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.empire );
+						break;
+					case "Lothal":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.lothal );
+						break;
+					case "Other":
+						expansion = Capitalize( DataStore.uiLanguage.uiExpansions.other );
+						break;
+					default:
+						expansion = "Unknown Expansion::" + bname[0];
+						break;
+				}
+				folderNameText.text = expansion;
 			}
-			folderNameText.text = expansion;
+			catch ( Exception e )
+			{
+				throw e;
+			}
 		}
 
 		string Capitalize( string s )

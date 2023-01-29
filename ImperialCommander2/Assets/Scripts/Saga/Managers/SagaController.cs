@@ -47,9 +47,24 @@ namespace Saga
 		Sound sound;
 		bool isError = false;
 
+		void LogCallback( string condition, string stackTrace, LogType type )
+		{
+			//only capture errors, exceptions, asserts
+			if ( type != LogType.Warning && type != LogType.Log )
+				errorPanel.Show( $"An Error Occurred of Type <color=green>{type}</color>", $"<color=yellow>{condition}</color>\n\n{stackTrace.Replace( "(at", "\n\n(at" )}" );
+		}
+
+		private void OnDestroy()
+		{
+			Application.logMessageReceived -= LogCallback;
+		}
+
 		// Start is called before the first frame update
 		void Start()
 		{
+			//Exception handling for any Unity thrown exception, such as from asset management
+			Application.logMessageReceived += LogCallback;
+
 			System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 			System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 			System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
@@ -68,7 +83,14 @@ namespace Saga
 			sound.CheckAudio();
 
 			//set translated UI
-			languageController.SetTranslatedUI();
+			try
+			{
+				languageController.SetTranslatedUI();
+			}
+			catch ( Exception e )
+			{
+				errorPanel.Show( "SetTranslatedUI()", e );
+			}
 
 			//apply settings
 			if ( volume.TryGet<Vignette>( out var vig ) )
@@ -194,7 +216,7 @@ namespace Saga
 						DataStore.sagaSessionData.missionStringified = x.Result.text;
 						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
 						if ( DataStore.mission == null )
-							errorPanel.Show( $"StartMission()::Could not load mission:\n'{missionCode}'" );
+							errorPanel.Show( "StartMission()", $"Could not load mission:\n'{missionCode}'" );
 					}
 					Addressables.Release( loadHandle );
 				};

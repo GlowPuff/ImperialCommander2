@@ -220,7 +220,7 @@ namespace Saga
 			if ( ev != null )
 				ShowTextBox( ev.eventText );
 			else
-				FindObjectOfType<SagaController>().errorPanel.Show( "PreviewEvent()::GUID not found." );
+				FindObjectOfType<SagaController>().errorPanel.Show( "PreviewEvent()", "GUID not found." );
 		}
 
 		public void DoEvent( Guid guid )

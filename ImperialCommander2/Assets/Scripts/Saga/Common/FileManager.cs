@@ -4,93 +4,13 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Saga
 {
 	public class FileManager
 	{
-		/// <summary>
-		/// Return ProjectItem info for missions in Project folder
-		/// </summary>
-		//		public static IEnumerable<ProjectItem> GetProjects()
-		//		{
-		//#if UNITY_ANDROID
-		//			string basePath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
-		//#else
-		//			string basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
-		//#endif
-
-		//			try
-		//			{
-		//				//make sure the project folder exists
-		//				if ( !Directory.Exists( basePath ) )
-		//				{
-		//					var dinfo = Directory.CreateDirectory( basePath );
-		//					if ( dinfo == null )
-		//					{
-		//						Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + basePath );
-		//						return null;
-		//					}
-		//				}
-		//			}
-		//			catch ( Exception )
-		//			{
-		//				Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + basePath );
-		//				return null;
-		//			}
-
-		//			List<ProjectItem> items = new List<ProjectItem>();
-		//			DirectoryInfo di = new DirectoryInfo( basePath );
-		//			FileInfo[] files = di.GetFiles().Where( file => file.Extension == ".json" ).ToArray();
-
-		//			try
-		//			{
-		//				//find mission files
-		//				foreach ( FileInfo fi in files )
-		//				{
-		//					var pi = CreateProjectItem( fi.FullName );
-		//					items.Add( pi );
-		//				}
-		//				items.Sort();
-		//				return items;
-		//			}
-		//			catch ( Exception )
-		//			{
-		//				return null;
-		//			}
-		//		}
-
-		//public static ProjectItem CreateProjectItem( string filename )
-		//{
-		//	ProjectItem projectItem = new ProjectItem();
-		//	FileInfo fi = new FileInfo( filename );
-
-		//	string[] text = File.ReadAllLines( filename );
-		//	foreach ( var line in text )
-		//	{
-		//		//manually parse each line
-		//		string[] split = line.Split( ':' );
-		//		if ( split.Length == 2 )
-		//		{
-		//			projectItem.fileName = fi.Name;
-		//			//projectItem.relativePath = Path.GetRelativePath( basePath, new DirectoryInfo( filename ).FullName );
-
-		//			split[0] = split[0].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-		//			split[1] = split[1].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-		//			if ( split[0] == "missionName" )
-		//				projectItem.Title = split[1];
-		//			if ( split[0] == "saveDate" )
-		//				projectItem.Date = split[1];
-		//			if ( split[0] == "fileVersion" )
-		//				projectItem.fileVersion = split[1];
-		//			if ( split[0] == "timeTicks" )
-		//				projectItem.timeTicks = long.Parse( split[1] );
-		//		}
-		//	}
-
-		//	return projectItem;
-		//}
-
 		public static void CreateFolders()
 		{
 			//campaign folder
@@ -110,10 +30,14 @@ namespace Saga
 
 		public static Mission LoadMissionFromString( string json )
 		{
+			//make sure it's a mission, simple check for a property in the text
+			if ( !json.Contains( "missionGUID" ) )
+				return null;
+
 			try
 			{
-				var m = JsonConvert.DeserializeObject<Mission>( json );
-				Debug.Log( "Loaded Mission: " + m.missionProperties.missionID );//m.filename
+				var m = JsonConvert.DeserializeObject<Mission>( json + "[]" );
+				Debug.Log( "LoadMissionFromString: " + m.missionProperties.missionID );
 				return m;
 			}
 			catch ( Exception e )
@@ -124,7 +48,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Loads a mission from its FULL PATH .json.
+		/// Loads a mission from its FULL PATH .json
 		/// </summary>
 		public static Mission LoadMission( string filename, out string missionStringified )
 		{
@@ -153,9 +77,35 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Loads a mission from its FULL PATH .json, ignoring the stringified version
+		/// </summary>
 		public static Mission LoadMission( string filename )
 		{
 			return LoadMission( filename, out string foo );
+		}
+
+		public static Mission LoadMissionFromAddressable( string missionAddressableKey, out string stringified )
+		{
+			Mission mission = null;
+			stringified = "";
+			string s = "";
+
+			if ( Utils.AssetExists( missionAddressableKey ) )
+			{
+				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
+				loadHandle.Completed += ( x ) =>
+				{
+					if ( x.Status == AsyncOperationStatus.Succeeded )
+					{
+						s = x.Result.text;
+						mission = FileManager.LoadMissionFromString( x.Result.text );
+					}
+					Addressables.Release( loadHandle );
+				};
+			}
+			stringified = s;
+			return mission;
 		}
 
 		public static List<SagaCampaign> GetCampaigns()
@@ -248,6 +198,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Custom mission recursive folder search
+		/// </summary>
 		static void RecursiveFolderSearch( string basePath, List<ProjectItem> missions )
 		{
 			var di = new DirectoryInfo( basePath );
@@ -264,6 +217,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Custom mission ProjectItem converter 
+		/// </summary>
 		public static IEnumerable<ProjectItem> GetProjects( string pathToUse )
 		{
 			List<ProjectItem> items = new List<ProjectItem>();
@@ -275,9 +231,7 @@ namespace Saga
 				//find mission files
 				foreach ( FileInfo fi in files )
 				{
-					//FileInfo fi = new FileInfo( filename );
-					string[] text = File.ReadAllLines( fi.FullName );
-					//var pi = CreateProjectItem( fi.FullName );
+					string text = File.ReadAllText( fi.FullName );
 					var pi = CreateProjectItem( text, fi.Name, fi.FullName );
 					items.Add( pi );
 				}
@@ -290,76 +244,26 @@ namespace Saga
 			}
 		}
 
-		public static ProjectItem CreateProjectItem( string[] text, string fileName = "", string fullName = "" )
+		public static ProjectItem CreateProjectItem( string stringifiedMission, string fileName = "", string fullName = "" )
 		{
 			ProjectItem projectItem = new ProjectItem();
 
-			foreach ( var line in text )
+			var mission = LoadMissionFromString( stringifiedMission );
+			if ( mission != null )
 			{
-				//manually parse each line
-				string[] split = line.Split( ':' );
-				if ( split.Length == 2 )
-				{
-					projectItem.fileName = fileName;//fi.Name;
-
-					split[0] = split[0].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-					split[1] = split[1].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-					if ( split[0] == "missionName" )
-						projectItem.Title = split[1];
-					if ( split[0] == "saveDate" )
-						projectItem.Date = split[1];
-					if ( split[0] == "fileVersion" )
-						projectItem.fileVersion = split[1];
-					if ( split[0] == "timeTicks" )
-						projectItem.timeTicks = long.Parse( split[1] );
-					if ( split[0] == "missionDescription" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						string[] aiSplit = line.Split( ':' );
-						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
-						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Replace( @"\r", "" ).Replace( @"\n", "\n" ).Trim();
-						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
-					}
-					if ( split[0] == "missionID" )
-						projectItem.missionID = split[1];
-					if ( split[0] == "missionGUID" )
-						projectItem.missionGUID = split[1];
-					if ( split[0] == "additionalMissionInfo" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						string[] aiSplit = line.Split( ':' );
-						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
-						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
-						projectItem.AdditionalInfo = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
-					}
-				}
-				else if ( split.Length > 2 )//mission name with a colon
-				{
-					for ( int i = 0; i < split.Length; i++ )
-						split[i] = split[i].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-					if ( split[0] == "missionName" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						int idx = line.IndexOf( ':' );
-						int c = line.LastIndexOf( ',' );
-						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
-						projectItem.Title = mname;
-					}
-					if ( split[0] == "missionDescription" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						int idx = line.IndexOf( ':' );
-						int c = line.LastIndexOf( ',' );
-						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
-						projectItem.Description = mname;
-					}
-					if ( split[0] == "additionalMissionInfo" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						int idx = line.IndexOf( ':' );
-						int c = line.LastIndexOf( ',' );
-						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
-						projectItem.AdditionalInfo = mname;
-					}
-				}
+				projectItem.fullPathWithFilename = fullName;
+				projectItem.fileName = fileName;
+				projectItem.Title = mission.missionProperties.missionName;
+				projectItem.Date = mission.saveDate;
+				projectItem.fileVersion = mission.fileVersion;
+				projectItem.timeTicks = mission.timeTicks;
+				projectItem.Description = mission.missionProperties.missionDescription;
+				projectItem.missionID = mission.missionProperties.missionID;
+				projectItem.missionGUID = mission.missionGUID.ToString();
+				projectItem.AdditionalInfo = mission.missionProperties.additionalMissionInfo;
 			}
-
-			projectItem.fullPathWithFilename = fullName;
+			else
+				UnityEngine.Object.FindObjectOfType<SagaSetup>()?.errorPanel?.Show( "FileManager::CreateProjectItem()", "Mission is null" );
 
 			return projectItem;
 		}

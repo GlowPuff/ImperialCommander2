@@ -157,7 +157,7 @@ namespace Saga
 				catch ( Exception )
 				{
 					Utils.LogError( $"OnChangeFolder()::Error iterating over '{path}'" );
-					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnChangeFolder()::Error iterating over '{path}'" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( "OnChangeFolder()", $"Error iterating over '{path}'" );
 				}
 			}
 		}
@@ -200,10 +200,14 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// locations is a List of missions by their Addressable name
+		/// </summary>
 		IEnumerator CreateBuiltInPickersFromAddressables( IList<IResourceLocation> locations )
 		{
 			isBusy = true;
-			Dictionary<string, string[]> missionList = new Dictionary<string, string[]>();
+			//Dictionary of <asset name (CORE1, JABBA4, etc), stringified mission json>
+			Dictionary<string, string> missionList = new Dictionary<string, string>();
 			List<ProjectItem> piList = new List<ProjectItem>();
 			AsyncOperationHandle<TextAsset> loadHandle;
 
@@ -215,7 +219,7 @@ namespace Saga
 				}
 				else
 				{
-					FindObjectOfType<SagaSetup>().errorPanel.Show( $"CreateBuiltInPickersFromAddressables()::Asset key doesn't exist:\n{item.PrimaryKey}" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( "CreateBuiltInPickersFromAddressables()", $"Asset key doesn't exist:\n{item.PrimaryKey}" );
 					isBusy = false;
 					yield break;
 				}
@@ -225,13 +229,14 @@ namespace Saga
 
 				if ( loadHandle.Status == AsyncOperationStatus.Succeeded )
 				{
-					string[] loadedMission = loadHandle.Result.text.Split( '\n' );
+					//the stringified mission json
+					string loadedMission = loadHandle.Result.text;
 					missionList.Add( item.PrimaryKey, loadedMission );
 				}
 				else
 				{
 					Addressables.Release( loadHandle );
-					FindObjectOfType<SagaSetup>().errorPanel.Show( $"CreateBuiltInPickersFromAddressables()::Error in LoadAssetAsync():\n{item.PrimaryKey}" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( "CreateBuiltInPickersFromAddressables()", $"Error in LoadAssetAsync():\n{item.PrimaryKey}" );
 					isBusy = false;
 					yield break;
 				}
@@ -245,12 +250,31 @@ namespace Saga
 				//the Keys are CORE1, JABBA4, etc
 				foreach ( var item in missionList.Keys )
 				{
-					piList.Add( CreateProjectItem( missionList[item], item, item ) );
+					var projectItem = FileManager.CreateProjectItem( missionList[item], item, item );
+					//process auto-description and TRANSLATED title for known missions
+					if ( projectItem.missionID != "Custom" )
+					{
+						string[] id = projectItem.missionID.Split( ' ' );
+						var card = DataStore.missionCards[id[0]].Where( x => x.id == $"{id[0]}{id[1]}" ).FirstOr( null );
+						if ( card != null )
+							projectItem.Description = card.descriptionText;
+						else
+							projectItem.Description = "Error parsing description.";
+
+						//for built-in missions, get TRANSLATED mission title also
+						if ( pickerMode == PickerMode.BuiltIn )
+						{
+							if ( card != null )
+								projectItem.Title = card.name;
+						}
+					}
+
+					piList.Add( projectItem );
 				}
 			}
 			catch ( Exception e )
 			{
-				FindObjectOfType<SagaSetup>().errorPanel.Show( $"CreateBuiltInPickersFromAddressables()::Error creating in CreateProjectItem():\n{e.Message}" );
+				FindObjectOfType<SagaSetup>().errorPanel.Show( "CreateBuiltInPickersFromAddressables()", $"Error creating in CreateProjectItem():\n{e.Message}" );
 				isBusy = false;
 				yield break;
 			}
@@ -297,14 +321,14 @@ namespace Saga
 			if ( pickerMode == PickerMode.Custom )
 			{
 				pickerMode = PickerMode.BuiltIn;
-				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.officialBtn;
+				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.officialBtn.ToUpper();
 				basePath = "BuiltIn";
 				OnChangeBuiltinFolder( basePath );
 			}
 			else
 			{
 				pickerMode = PickerMode.Custom;
-				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn;
+				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn.ToUpper();
 #if UNITY_ANDROID
 				basePath = Application.persistentDataPath + "/CustomMissions";
 #else
@@ -325,16 +349,12 @@ namespace Saga
 				missionNameText.text = pi?.Title;
 				missionDescriptionText.text = pi?.Description;
 				additionalInfoText.text = pi?.AdditionalInfo;
-				if ( pi.missionID != "Custom" )//official mission
+				if ( pickerMode == PickerMode.BuiltIn )//official mission
 				{
-					var expansion = pi.missionID.Split( ' ' )[0].ToLower();
-					var id = pi.missionID.Split( ' ' )[1].ToLower();
-					var presets = DataStore.missionPresets[expansion];
-					var mp = presets.Where( x => x.id.ToLower() == $"{expansion}{id}" ).FirstOr( null );
-					FindObjectOfType<SagaSetup>().OnMissionSelected( mp );
+					FindObjectOfType<SagaSetup>().OnOfficialMissionSelected( pi );
 				}
 				else//custom mission
-					FindObjectOfType<SagaSetup>().OnMissionSelected( pi );
+					FindObjectOfType<SagaSetup>().OnCustomMissionSelected( pi );
 			}
 			else
 			{
@@ -382,7 +402,7 @@ namespace Saga
 				if ( m != null )
 					doneAction();
 				else
-					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Mission is null\n'{selectedMission.fullPathWithFilename}'" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
 			}
 			else
 			{
@@ -400,117 +420,21 @@ namespace Saga
 								doneAction();
 							}
 							else
-								FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Mission is null\n'{selectedMission.fullPathWithFilename}'" );
+								FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
 
 							Addressables.Release( loadHandle );
 							isBusy = false;
 						};
 					}
 					else
-						FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Can't find asset\n'{selectedMission.fullPathWithFilename}'" );
+						FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Can't find asset\n'{selectedMission.fullPathWithFilename}'" );
 				}
 				catch ( Exception e )
 				{
-					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles()::Exception:\n'{e.Message}'\n'{selectedMission.fullPathWithFilename}'" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( $"OnTiles() :: '{selectedMission.fullPathWithFilename}'", e );
 					isBusy = false;
 				}
 			}
-		}
-
-		public ProjectItem CreateProjectItem( string[] text, string fileName = "", string fullName = "" )
-		{
-			ProjectItem projectItem = new ProjectItem();
-			//FileInfo fi = new FileInfo( filename );
-
-			//string[] text = File.ReadAllLines( filename );
-			foreach ( var line in text )
-			{
-				//manually parse each line
-				string[] split = line.Split( ':' );
-				if ( split.Length == 2 )
-				{
-					projectItem.fileName = fileName;//fi.Name;
-
-					split[0] = split[0].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-					split[1] = split[1].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-					if ( split[0] == "missionName" )
-						projectItem.Title = split[1];
-					if ( split[0] == "saveDate" )
-						projectItem.Date = split[1];
-					if ( split[0] == "fileVersion" )
-						projectItem.fileVersion = split[1];
-					if ( split[0] == "timeTicks" )
-						projectItem.timeTicks = long.Parse( split[1] );
-					if ( split[0] == "missionDescription" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						string[] aiSplit = line.Split( ':' );
-						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
-						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
-						projectItem.Description = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
-					}
-					if ( split[0] == "missionID" )
-						projectItem.missionID = split[1];
-					if ( split[0] == "missionGUID" )
-						projectItem.missionGUID = split[1];
-					if ( split[0] == "additionalMissionInfo" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						string[] aiSplit = line.Split( ':' );
-						aiSplit[0] = aiSplit[0].Replace( "\"", "" ).Trim();
-						aiSplit[1] = aiSplit[1].Replace( "\"", "" ).Trim();
-						var ainfo = aiSplit[1].Substring( 0, aiSplit[1].Length - 1 );
-						ainfo = ainfo == "null" ? "" : ainfo;
-						projectItem.AdditionalInfo = ainfo;
-					}
-				}
-				else if ( split.Length > 2 )//mission name with a colon
-				{
-					for ( int i = 0; i < split.Length; i++ )
-						split[i] = split[i].Replace( "\"", "" ).Replace( ",", "" ).Trim();
-					if ( split[0] == "missionName" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						int idx = line.IndexOf( ':' );
-						int c = line.LastIndexOf( ',' );
-						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
-						projectItem.Title = mname;
-					}
-					if ( split[0] == "missionDescription" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						int idx = line.IndexOf( ':' );
-						int c = line.LastIndexOf( ',' );
-						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
-						projectItem.Description = mname;
-					}
-					if ( split[0] == "additionalMissionInfo" && !string.IsNullOrEmpty( split[1] ) )
-					{
-						int idx = line.IndexOf( ':' );
-						int c = line.LastIndexOf( ',' );
-						string mname = line.Substring( idx + 1, c - idx - 1 ).Replace( "\"", "" ).Trim();
-						projectItem.AdditionalInfo = mname;
-					}
-				}
-			}
-
-			projectItem.fullPathWithFilename = fullName;//fi.FullName;
-
-			//process auto-description and translated title for known missions
-			if ( projectItem.missionID != "Custom" )
-			{
-				string[] id = projectItem.missionID.Split( ' ' );
-				var card = DataStore.missionCards[id[0]].Where( x => x.id == $"{id[0]}{id[1]}" ).FirstOr( null );
-				if ( card != null )
-					projectItem.Description = card.descriptionText;
-				else
-					projectItem.Description = "Error parsing description.";
-
-				//for built-in missions, get TRANSLATED mission title also
-				if ( pickerMode == PickerMode.BuiltIn )
-				{
-					if ( card != null )
-						projectItem.Title = card.name;
-				}
-			}
-
-			return projectItem;
 		}
 
 		private void Update()

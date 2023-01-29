@@ -154,6 +154,9 @@ namespace Saga
 			return diceColors.ToArray();
 		}
 
+		/// <summary>
+		/// Always returns <see langword="true"/>
+		/// </summary>
 		public static bool AssetExists( object key )
 		{
 			return true;

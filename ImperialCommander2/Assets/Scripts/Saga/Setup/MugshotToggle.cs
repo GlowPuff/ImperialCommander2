@@ -43,20 +43,29 @@ namespace Saga
 		public void UpdateToggle()
 		{
 			EventSystem.current.SetSelectedGameObject( null );
-			if ( isOn )
+			if ( isOn )//button is selected
 			{
-				//if ( card.isElite )
-				//	bgImage.color = new Color( 135f / 255f, 21f / 255f, 0f );
-				//else
 				bgImage.color = Color.green;
 			}
 			else
 			{
+				isOn = false;
+
 				if ( card.isElite )
 					bgImage.color = Color.red;
 				else
 					bgImage.color = Color.white;
-				isOn = false;
+
+				//handle banned allies
+				if ( dataMode == 1 )
+				{
+					bgImage.color = Color.white;
+
+					if ( DataStore.sagaSessionData.BannedAllies.Contains( card.id ) )
+					{
+						bgImage.color = Color.red;
+					}
+				}
 			}
 		}
 

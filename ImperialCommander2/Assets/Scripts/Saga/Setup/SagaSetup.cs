@@ -8,7 +8,6 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -46,25 +45,23 @@ namespace Saga
 		SagaSetupOptions setupOptions { get; set; }
 		bool isFromCampaign = false;
 
-		//Exception handling for any Unity thrown exception, such as from asset management
-		void OnEnable()
-		{
-			Application.logMessageReceived += LogCallback;
-		}
 		void LogCallback( string condition, string stackTrace, LogType type )
 		{
 			//only capture errors, exceptions, asserts
 			if ( type != LogType.Warning && type != LogType.Log )
-				errorPanel.Show( $"Unity Exception::{type}::{condition}:\n\n{stackTrace}" );
+				errorPanel.Show( $"An Error Occurred of Type <color=green>{type}</color>", $"<color=yellow>{condition}</color>\n\n{stackTrace.Replace( "(at", "\n\n(at" )}" );
 		}
 
-		void OnDisable()
+		private void OnDestroy()
 		{
 			Application.logMessageReceived -= LogCallback;
 		}
 
 		void Awake()
 		{
+			//Exception handling for any Unity thrown exception, such as from asset management
+			Application.logMessageReceived += LogCallback;
+
 			System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 			System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 			System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
@@ -90,7 +87,14 @@ namespace Saga
 			//bootstrapDEBUG();//comment this out for production build
 
 			//set translated UI
-			languageController.SetTranslatedUI();
+			try
+			{
+				languageController.SetTranslatedUI();
+			}
+			catch ( Exception e )
+			{
+				errorPanel.Show( "SetTranslatedUI()", e );
+			}
 
 			//apply settings
 			if ( volume.TryGet<Bloom>( out var bloom ) )
@@ -180,7 +184,7 @@ namespace Saga
 			if ( campaign == null )
 			{
 				Debug.Log( "SetupCampaignMission()::Could not load the campaign" );
-				errorPanel.Show( $"SetupCampaignMission()::Campaign is null\n'{RunningCampaign.sagaCampaignGUID}'" );
+				errorPanel.Show( "SetupCampaignMission()", $"Campaign is null\n'{RunningCampaign.sagaCampaignGUID}'" );
 				return;
 			}
 
@@ -230,7 +234,7 @@ namespace Saga
 					ign.ToList().ForEach( x => ignored.Add( x ) );
 				}
 				else
-					errorPanel.Show( $"SetupCampaignMission()::Could not load mission:\n{structure.projectItem.fullPathWithFilename}" );
+					errorPanel.Show( "SetupCampaignMission()", $"Could not load mission:\n{structure.projectItem.fullPathWithFilename}" );
 			}
 			//finally, add the uniquely hashed set of ignored cards (no doubles)
 			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
@@ -308,24 +312,33 @@ namespace Saga
 		{
 			if ( Utils.AssetExists( missionAddressableKey ) )
 			{
-				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
-				loadHandle.Completed += ( x ) =>
+				DataStore.mission = FileManager.LoadMissionFromAddressable( missionAddressableKey, out var stringified );
+				if ( DataStore.mission != null )
 				{
-					if ( x.Status == AsyncOperationStatus.Succeeded )
-					{
-						DataStore.sagaSessionData.missionStringified = x.Result.text;
-						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
-						if ( DataStore.mission != null )
-							Warp();
-						else
-							errorPanel.Show( $"StartMission()::Could not load mission:\n'{missionAddressableKey}'" );
+					DataStore.sagaSessionData.missionStringified = stringified;
+					Warp();
+				}
+				else
+					errorPanel.Show( "StartMission()", $"Could not load mission:\n'{missionAddressableKey}'" );
 
-					}
-					Addressables.Release( loadHandle );
-				};
+				//AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
+				//loadHandle.Completed += ( x ) =>
+				//{
+				//	if ( x.Status == AsyncOperationStatus.Succeeded )
+				//	{
+				//		DataStore.sagaSessionData.missionStringified = x.Result.text;
+				//		DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
+				//		if ( DataStore.mission != null )
+				//			Warp();
+				//		else
+				//			errorPanel.Show( $"StartMission()::Could not load mission:\n'{missionAddressableKey}'" );
+
+				//	}
+				//	Addressables.Release( loadHandle );
+				//};
 			}
 			else
-				errorPanel.Show( $"StartMission()::Can't find asset:\n{missionAddressableKey}" );
+				errorPanel.Show( "StartMission()", $"Can't find asset:\n{missionAddressableKey}" );
 		}
 
 		public void AddHero()
@@ -406,15 +419,22 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Official mission selected
+		/// Official mission selected, pi is guaranteed not null
 		/// </summary>
-		public void OnMissionSelected( MissionPreset mp )
+		public void OnOfficialMissionSelected( ProjectItem pi )
 		{
-			//clear ignored groups
+			//clear ignored groups and banned allies
 			DataStore.sagaSessionData.MissionIgnored.Clear();
-			//add default ignored
+			DataStore.sagaSessionData.BannedAllies.Clear();
+
+			var expansion = pi.missionID.Split( ' ' )[0].ToLower();
+			var id = pi.missionID.Split( ' ' )[1].ToLower();
+			var presets = DataStore.missionPresets[expansion];
+			var mp = presets.Where( x => x.id.ToLower() == $"{expansion}{id}" ).FirstOr( null );
+
 			//ignore "Other" expansion enemy groups by default
 			var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+
 
 			if ( mp != null )
 			{
@@ -426,26 +446,42 @@ namespace Saga
 				initialText.text = mp.defaultThreat.ToString();
 			}
 			else
-				errorPanel.Show( $"OnMissionSelected()::MissionPreset is null" );
+				errorPanel.Show( "OnMissionSelected()", "MissionPreset is null" );
 
 			//add the uniquely hashed set of ignored to the real list
 			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+
+			//add banned allies
+			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
+			if ( m != null )
+			{
+				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )
+					DataStore.sagaSessionData.BannedAllies.Add( m.missionProperties.bannedAlly );
+				else if ( m.missionProperties.useBannedAlly == YesNoAll.Multi )
+					DataStore.sagaSessionData.BannedAllies.AddRange( m.missionProperties.multipleBannedAllies );
+				else if ( m.missionProperties.useBannedAlly == YesNoAll.All )
+					DataStore.sagaSessionData.BannedAllies.AddRange( DataStore.allyCards.Select( x => x.id ) );
+			}
+			else
+				errorPanel.Show( "OnMissionSelected()", "Mission is null" );
 		}
 
 		/// <summary>
-		/// Custom mission selected
+		/// Custom mission selected, pi is guaranteed not null
 		/// </summary>
-		public void OnMissionSelected( ProjectItem pi )
+		public void OnCustomMissionSelected( ProjectItem pi )
 		{
+			//clear ignored groups and banned allies
+			DataStore.sagaSessionData.MissionIgnored.Clear();
+			DataStore.sagaSessionData.BannedAllies.Clear();
+
+			//set default values to UI - they don't exist in a custom mission
 			threatValue.ResetWheeler( 3 );
 			initialText.text = "3";
 
-			Mission m = FileManager.LoadMission( pi.fullPathWithFilename );
+			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
 			if ( m != null )
 			{
-				//clear ignored groups
-				DataStore.sagaSessionData.MissionIgnored.Clear();
-				//add default ignored
 				//ignore "Other" expansion enemy groups by default
 				var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
 				//get ignored from mission
@@ -453,9 +489,16 @@ namespace Saga
 				ign.ToList().ForEach( x => ignored.Add( x ) );
 				//add the uniquely hashed set of ignored to the real list
 				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+				//add banned allies
+				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )
+					DataStore.sagaSessionData.BannedAllies.Add( m.missionProperties.bannedAlly );
+				else if ( m.missionProperties.useBannedAlly == YesNoAll.Multi )
+					DataStore.sagaSessionData.BannedAllies.AddRange( m.missionProperties.multipleBannedAllies );
+				else if ( m.missionProperties.useBannedAlly == YesNoAll.All )
+					DataStore.sagaSessionData.BannedAllies.AddRange( DataStore.allyCards.Select( x => x.id ) );
 			}
 			else
-				errorPanel.Show( $"OnMissionSelected()::Could not load mission:\n'{pi.fullPathWithFilename}'" );
+				errorPanel.Show( "OnMissionSelected()", $"Could not load mission:\n'{pi.fullPathWithFilename}'" );
 		}
 
 		public void OnModeChange( PickerMode pmode )

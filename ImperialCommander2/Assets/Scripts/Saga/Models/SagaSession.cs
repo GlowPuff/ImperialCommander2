@@ -17,6 +17,7 @@ namespace Saga
 		public List<DeploymentCard> EarnedVillains;
 		public List<DeploymentCard> MissionIgnored;
 		public List<DeploymentCard> MissionHeroes;
+		public List<string> BannedAllies;
 
 		public HashSet<string> CannotRedeployList;
 		//list of heroes that finish taking part in an Event with "any hero wounded" and "any hero withdraws"
@@ -36,6 +37,7 @@ namespace Saga
 			EarnedVillains = new List<DeploymentCard>();
 			MissionIgnored = new List<DeploymentCard>();
 			MissionHeroes = new List<DeploymentCard>();
+			BannedAllies = new List<string>();
 			CannotRedeployList = new HashSet<string>();
 			AnyHeroWoundedEventDone = new HashSet<string>();
 			AnyHeroWithdrawnEventDone = new HashSet<string>();
