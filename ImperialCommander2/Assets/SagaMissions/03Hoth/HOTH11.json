@@ -1,14 +1,16 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "HOTH11-Know Your Enemy.json",
-  "relativePath": "HOTH11-Know Your Enemy.json",
-  "fileVersion": "15",
-  "saveDate": "6/16/2022",
-  "timeTicks": 637910193579110302,
+  "fileName": "HOTH11.json",
+  "relativePath": "..\\GitHub\\ImperialCommander2\\ImperialCommander2\\Assets\\SagaMissions\\03Hoth\\HOTH11.json",
+  "fileVersion": "19",
+  "saveDate": "2/25/2023",
+  "timeTicks": 638129379661272505,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Know Your Enemy",
     "campaignName": "Return to Hoth",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "",
@@ -92,6 +94,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -330,6 +333,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -413,6 +417,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -441,6 +446,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -495,6 +501,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -543,6 +550,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -591,6 +599,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -686,13 +695,13 @@
               "id": "DG013"
             }
           ],
-          "displayName": "Add Group(s) to Deployment Hand",
           "GUID": "79c8a0b6-9c7e-4ad8-8362-40aa1b643569",
-          "eventActionType": 10
+          "eventActionType": 10,
+          "displayName": "Add Group(s) to Deployment Hand"
         },
         {
-          "instructionType": 1,
           "theText": "{-} Place 1 Imperial mission token on the hero sheet / deployment card of each Rebel that was attacked during this activation.",
+          "instructionType": 1,
           "groupsToAdd": [
             {
               "name": "Probe Droid",
@@ -727,9 +736,9 @@
               "id": "DG052"
             }
           ],
-          "displayName": "Change Group Instructions",
           "GUID": "61a923a7-4b0e-49a1-a0a0-55e9cec4a4e3",
-          "eventActionType": 11
+          "eventActionType": 11,
+          "displayName": "Change Group Instructions"
         },
         {
           "theText": "Open the door to the command center.",
@@ -767,6 +776,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -807,6 +817,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -847,6 +858,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -913,6 +925,33 @@
           "displayName": "Text Box"
         },
         {
+          "customType": 2,
+          "iconType": 0,
+          "attackType": 0,
+          "thumbnailGroupImperial": "DG006",
+          "thumbnailGroupRebel": "A001",
+          "repositionInstructions": "",
+          "groupAttack": "1Blue 1Yellow",
+          "groupDefense": "1White",
+          "surges": "{B}: +3 Accuracy\r\n{B}: Stun\r\n{B}: Focus\r\n{B}: +2 {H}",
+          "bonuses": "DEFENSE STUDY: Discard 1 Imperial mission token from the sheet / card of the closest Rebel figure with an Imperial mission token on it. Ivan Talos gains +2 {g}.\r\nIMPROVISATION: During this activation, this figure can use IMPROVED CLOSE QUARTERS on Rebel figures without Imperial mission tokens on their sheets.\r\nATTACK STUDY: Distribute X {h} as evenly as possible between Imperial figures within 3 spaces of this figure, where X is the number of Imperial mission tokens on hero sheets.",
+          "keywords": "+1 {G}\r\n+*1* Health",
+          "abilities": "Know Your Enemy:If a Rebel figure with an Imperial mission token on its hero sheet / deployment card is attacking Ivan Talos, apply an additional +1 {G} to the defense results.",
+          "groupCost": 0,
+          "groupRedeployCost": 0,
+          "groupSize": 1,
+          "groupHealth": 5,
+          "groupSpeed": 4,
+          "modification": null,
+          "canReinforce": false,
+          "canRedeploy": false,
+          "canBeDefeated": true,
+          "useDeductCost": false,
+          "useCustomInstructions": false,
+          "useThreatMultiplier": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "c6660dd6-e6f8-4b33-a418-2eb2c741f45c",
             "cardName": "Ivan Talos",
@@ -937,40 +976,17 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-            "useGenericMugshot": true
+            "useGenericMugshot": true,
+            "useInitialGroupCustomName": false
           },
-          "customType": 2,
-          "thumbnailGroupRebel": "A001",
-          "thumbnailGroupImperial": "DG006",
-          "useDeductCost": false,
-          "groupCost": 0,
-          "groupRedeployCost": 0,
-          "groupSize": 1,
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
-          "canReinforce": false,
-          "canBeDefeated": true,
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
-          "groupHealth": 5,
-          "useThreatMultiplier": false,
-          "groupSpeed": 4,
-          "groupAttack": "1Blue 1Yellow",
-          "groupDefense": "1White",
-          "displayName": "Custom Deployment: Ivan Talos",
-          "repositionInstructions": "",
-          "surges": "{B}: +3 Accuracy\r\n{B}: Stun\r\n{B}: Focus\r\n{B}: +2 {H}",
-          "bonuses": "DEFENSE STUDY: Discard 1 Imperial mission token from the sheet / card of the closest Rebel figure with an Imperial mission token on it. Ivan Talos gains +2 {g}.\r\nIMPROVISATION: During this activation, this figure can use IMPROVED CLOSE QUARTERS on Rebel figures without Imperial mission tokens on their sheets.\r\nATTACK STUDY: Distribute X {h} as evenly as possible between Imperial figures within 3 spaces of this figure, where X is the number of Imperial mission tokens on hero sheets.",
-          "keywords": "+1 {G}\r\n+*1* Health",
-          "abilities": "Know Your Enemy:If a Rebel figure with an Imperial mission token on its hero sheet / deployment card is attacking Ivan Talos, apply an additional +1 {G} to the defense results.",
-          "modification": null,
-          "useCustomInstructions": false,
           "GUID": "1615cd73-6182-43f9-b953-c1fa138e0060",
-          "eventActionType": 21
+          "eventActionType": 21,
+          "displayName": "Custom Deployment: Ivan Talos"
         },
         {
           "theText": "Two bodyguards take their positions in front of Verana's brother.",
@@ -1021,11 +1037,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "0a21624f-db09-4760-9e7e-89a24904cd29",
           "eventActionType": 6,
@@ -1191,7 +1209,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1227,7 +1246,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1263,7 +1283,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1299,7 +1320,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1335,7 +1357,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1371,7 +1394,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1445,7 +1469,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1481,7 +1506,45 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
+      }
+    },
+    {
+      "GUID": "f2d7d473-a4e6-48c9-b194-73fb19964be9",
+      "name": "DP EProbe Droid",
+      "entityType": 3,
+      "entityPosition": "900,970",
+      "entityRotation": 0.0,
+      "entityProperties": {
+        "name": "DP Probe Droid (Duplicate)",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Black",
+        "buttonActions": []
+      },
+      "deploymentColor": "Black",
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentPointProps": {
+        "incImperial": true,
+        "incMercenary": true,
+        "incSmall": true,
+        "incMedium": true,
+        "incLarge": true,
+        "incHuge": true,
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -1510,11 +1573,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "33117a48-ed0c-4a2d-97cf-69f4955f879d",
@@ -1543,11 +1608,45 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
+    },
+    {
+      "GUID": "4b72baaa-83c1-42b0-84c2-e7c2d073c33c",
+      "cardName": "Probe Droid (Elite)",
+      "cardID": "DG013",
+      "customInstructionType": 2,
+      "customText": "",
+      "pointList": [
+        {
+          "GUID": "f2d7d473-a4e6-48c9-b194-73fb19964be9"
+        }
+      ],
+      "groupPriorityTraits": {
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
+      },
+      "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+      "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -1578,11 +1677,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],
