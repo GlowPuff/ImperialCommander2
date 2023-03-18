@@ -38,6 +38,7 @@ namespace Saga
 
 	public class SagaGameVars
 	{
+		public int medPacCount = 1;
 		public int round;
 		public int eventsTriggered;
 		public int currentThreat;
@@ -47,9 +48,8 @@ namespace Saga
 		public bool pauseThreatIncrease;
 		public bool isNewGame = true;
 		public string currentMissionInfo;
-		//temporary event conditions
-		public bool isEndTurn = false;
-		public bool isStartTurn = false;
+		public bool isEndTurn = false;//temporary event condition
+		public bool isStartTurn = false;//temporary event condition
 		public string currentObjective;
 		public bool delayOptionalDeployment = false;
 		public DeploymentCard activatedGroup = null;

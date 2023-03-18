@@ -1,4 +1,5 @@
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ namespace Saga
 		public Button addItemButton;
 		//UI
 		public Image mug;
+		public TextMeshProUGUI xpLabelText, xpAmountText;
+		public MWheelHandler mWheelHandler;
 
 		SagaCampaign sagaCampaign;
 
@@ -55,6 +58,7 @@ namespace Saga
 			};
 			FindObjectOfType<CampaignManager>().AddHeroToCampaign( campaignHero );
 			mug.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{card.id}" );
+			xpLabelText.text = DataStore.uiLanguage.uiCampaign.xpUC;
 		}
 
 		void OnItemAdded( CampaignItem item )
@@ -75,6 +79,11 @@ namespace Saga
 			}
 		}
 
+		public void OnXPChanged()
+		{
+			campaignHero.xpAmount = mWheelHandler.wheelValue;
+		}
+
 		private void Update()
 		{
 			addItemButton.interactable = sagaCampaign?.campaignItems.Count > 0;
@@ -93,6 +102,8 @@ namespace Saga
 			//hero
 			campaignHero = hero;
 			mug.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{hero.heroID}" );
+			mWheelHandler.ResetWheeler( hero.xpAmount );
+			xpLabelText.text = DataStore.uiLanguage.uiCampaign.xpUC;
 			//skills
 			foreach ( var skill in campaignHero.campaignSkills )
 			{

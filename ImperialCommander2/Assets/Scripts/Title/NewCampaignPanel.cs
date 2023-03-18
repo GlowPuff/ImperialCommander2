@@ -12,6 +12,7 @@ namespace Saga
 		public PopupBase popupBase;
 		public TMP_Dropdown campaignExpansionDropdown;
 		public TMP_InputField campaignNameInputField;
+		public TextMeshProUGUI placeholderText;
 		public Text startText, cancelText;
 		public Button startButton;
 		public Toggle customToggle;
@@ -26,6 +27,7 @@ namespace Saga
 			campaignNameInputField.text = "";
 			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
 			cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+			placeholderText.text = DataStore.uiLanguage.uiCampaign.campaignNameUC;
 			callback = onClose;
 			nameGood = false;
 			selectedExpansion = "Core";

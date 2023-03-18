@@ -57,8 +57,8 @@ public class NewGameScreen : MonoBehaviour
 		threatWheelHandler.ResetWheeler();
 		addtlThreatWheelHandler.ResetWheeler();
 		for ( int i = 0; i < enemyGroupText.Length; i++ )
-			enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
-		enemyGroupText[3].text = "8 " + DataStore.uiLanguage.uiSetup.selected;
+			enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose.ToUpper();
+		enemyGroupText[3].text = "8 " + DataStore.uiLanguage.uiSetup.selected.ToUpper();
 		//button colors to red
 		ColorBlock cb = difficultyButton.colors;
 		cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
@@ -217,7 +217,7 @@ public class NewGameScreen : MonoBehaviour
 			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
 
 			DataStore.sessionData.optionalDeployment = mp.optionalDeployment == "yes" ? YesNo.Yes : YesNo.No;
-			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes.ToUpper() : DataStore.uiLanguage.uiSetup.no.ToUpper();
 
 			DataStore.sessionData.includeMercs = mp.factionMerc == "yes" ? true : false;
 			DataStore.sessionData.includeImperials = mp.factionImp == "yes" ? true : false;
@@ -290,9 +290,9 @@ public class NewGameScreen : MonoBehaviour
 			//index 4 contains heroes
 			List<DeploymentCard> selectedCards = DataStore.sessionData.selectedDeploymentCards[i];
 			if ( selectedCards.Count > 0 )
-				enemyGroupText[i].text = selectedCards.Count + " " + DataStore.uiLanguage.uiSetup.selected;
+				enemyGroupText[i].text = selectedCards.Count + " " + DataStore.uiLanguage.uiSetup.selected.ToUpper();
 			else
-				enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
+				enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose.ToUpper();
 		}
 
 		//handle selected heroes

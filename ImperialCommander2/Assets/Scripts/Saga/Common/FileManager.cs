@@ -36,7 +36,7 @@ namespace Saga
 
 			try
 			{
-				var m = JsonConvert.DeserializeObject<Mission>( json + "[]" );
+				var m = JsonConvert.DeserializeObject<Mission>( json );
 				Debug.Log( "LoadMissionFromString: " + m.missionProperties.missionID );
 				return m;
 			}
@@ -85,27 +85,23 @@ namespace Saga
 			return LoadMission( filename, out string foo );
 		}
 
-		public static Mission LoadMissionFromAddressable( string missionAddressableKey, out string stringified )
+		public static void LoadMissionFromAddressable( string missionAddressableKey, Action<Mission, string> callback )
 		{
 			Mission mission = null;
-			stringified = "";
 			string s = "";
 
-			if ( Utils.AssetExists( missionAddressableKey ) )
+			AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
+			loadHandle.Completed += ( x ) =>
 			{
-				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
-				loadHandle.Completed += ( x ) =>
+				if ( x.Status == AsyncOperationStatus.Succeeded )
 				{
-					if ( x.Status == AsyncOperationStatus.Succeeded )
-					{
-						s = x.Result.text;
-						mission = FileManager.LoadMissionFromString( x.Result.text );
-					}
-					Addressables.Release( loadHandle );
-				};
-			}
-			stringified = s;
-			return mission;
+					s = x.Result.text;
+					mission = FileManager.LoadMissionFromString( x.Result.text );
+				}
+				Addressables.Release( loadHandle );
+
+				callback( mission, s );
+			};
 		}
 
 		public static List<SagaCampaign> GetCampaigns()
@@ -233,7 +229,8 @@ namespace Saga
 				{
 					string text = File.ReadAllText( fi.FullName );
 					var pi = CreateProjectItem( text, fi.Name, fi.FullName );
-					items.Add( pi );
+					if ( pi != null )
+						items.Add( pi );
 				}
 				items.Sort();
 				return items;
@@ -261,9 +258,12 @@ namespace Saga
 				projectItem.missionID = mission.missionProperties.missionID;
 				projectItem.missionGUID = mission.missionGUID.ToString();
 				projectItem.AdditionalInfo = mission.missionProperties.additionalMissionInfo;
+				projectItem.stringifiedMission = stringifiedMission;
 			}
 			else
-				UnityEngine.Object.FindObjectOfType<SagaSetup>()?.errorPanel?.Show( "FileManager::CreateProjectItem()", "Mission is null" );
+				return null;
+			//else
+			//	UnityEngine.Object.FindObjectOfType<SagaSetup>()?.errorPanel?.Show( "FileManager::CreateProjectItem()", "Mission is null" );
 
 			return projectItem;
 		}

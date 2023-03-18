@@ -152,7 +152,20 @@ namespace Saga
 							{
 								pf.ModifyEntity( mod.entityProperties );
 								FindObjectOfType<SagaController>().cameraController.MoveToEntity( pf.mapEntity.GUID );
-								var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n1 " + pf.mapEntity.entityType;
+								string translatedEntity = "";
+								switch ( pf.mapEntity.entityType )
+								{
+									case EntityType.Terminal:
+										translatedEntity = DataStore.uiLanguage.sagaMainApp.terminalsUC;
+										break;
+									case EntityType.Crate:
+										translatedEntity = DataStore.uiLanguage.sagaMainApp.cratesUC;
+										break;
+									case EntityType.Token:
+										translatedEntity = DataStore.uiLanguage.sagaMainApp.tokensUC;
+										break;
+								}
+								var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n1 " + translatedEntity;// pf.mapEntity.entityType;
 								bool done = false;
 								FindObjectOfType<SagaController>().eventManager.ShowTextBox( emsg, () => done = true );
 								while ( !done )

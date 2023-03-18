@@ -93,8 +93,7 @@ namespace Saga
 
 			if ( cs.itemTier != null && cs.itemTier.Length > 0 )
 			{
-				var s = cs.itemTier.Select( x => $"{DataStore.uiLanguage.uiCampaign.tierUC} " + x );
-				itemText.text = s.Aggregate( ( acc, cur ) => acc + ", " + cur );
+				itemText.text = $"{DataStore.uiLanguage.uiCampaign.tierUC} " + cs.itemTier.Aggregate( ( acc, cur ) => acc + ", " + cur );
 			}
 			else
 				itemText.transform.parent.gameObject.SetActive( false );

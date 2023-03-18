@@ -7,8 +7,10 @@ namespace Saga
 	public class MissionPickerItem : MonoBehaviour
 	{
 		public TextMeshProUGUI missionNameText, versionText;
+		public Toggle pickerToggle;
 
 		ProjectItem projectItem;
+		bool pauseClick;
 
 		public void Init( ProjectItem pi, bool ison, PickerMode mode )
 		{
@@ -20,13 +22,17 @@ namespace Saga
 			else
 				versionText.text = pi.missionID;
 
-			GetComponent<Toggle>().isOn = ison;
+			//setting isOn triggers OnClick()
+			pauseClick = true;
+			pickerToggle.isOn = ison;
+			pauseClick = false;
 		}
 
 		public void OnClick()
 		{
-			if ( GetComponent<Toggle>().isOn )
-				FindObjectOfType<SagaSetup>().missionPicker.OnMissionSelected( projectItem );
+			var s = FindObjectOfType<SagaSetup>();
+			if ( s != null && !pauseClick && pickerToggle.isOn )
+				s.missionPicker.OnMissionSelected( projectItem );
 		}
 	}
 }

@@ -157,29 +157,29 @@ namespace Saga
 		/// <summary>
 		/// Always returns <see langword="true"/>
 		/// </summary>
-		public static bool AssetExists( object key )
-		{
-			return true;
-			//			if ( Application.isEditor )// && !Application.isPlaying )
-			//			{
-			//#if UNITY_EDITOR
-			//				return true;
-			//				// keys are always asset file paths
-			//				//return File.Exists( Path.Combine( Application.dataPath,"SagaMissions", (string)key ) );
-			//#endif
-			//			}
-			//			else if ( Application.isPlaying )
-			//{
-			//	foreach ( var l in Addressables.ResourceLocators )
-			//	{
-			//		IList<IResourceLocation> locs;
-			//		if ( l.Locate( key, null, out locs ) )
-			//			return true;
-			//	}
-			//	return false;
-			//}
+		//public static bool AssetExists( object key )
+		//{
+		//	return true;
+		//			if ( Application.isEditor )// && !Application.isPlaying )
+		//			{
+		//#if UNITY_EDITOR
+		//				return true;
+		//				// keys are always asset file paths
+		//				//return File.Exists( Path.Combine( Application.dataPath,"SagaMissions", (string)key ) );
+		//#endif
+		//			}
+		//			else if ( Application.isPlaying )
+		//{
+		//	foreach ( var l in Addressables.ResourceLocators )
+		//	{
+		//		IList<IResourceLocation> locs;
+		//		if ( l.Locate( key, null, out locs ) )
+		//			return true;
+		//	}
+		//	return false;
+		//}
 
-			//return false;
-		}
+		//return false;
+		//}
 	}
 }

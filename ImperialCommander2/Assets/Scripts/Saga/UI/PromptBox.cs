@@ -37,7 +37,7 @@ namespace Saga
 
 			questionPrompt = eventAction as QuestionPrompt;
 			string c = DataStore.uiLanguage.uiSetup.cancel[0].ToString().ToUpper();
-			cancelText.text = c + DataStore.uiLanguage.uiSetup.cancel.Substring( 1 ).ToUpper();
+			cancelText.text = c + DataStore.uiLanguage.uiSetup.cancel.Substring( 1 );
 			callback = action;
 
 			if ( !questionPrompt.includeCancel )
