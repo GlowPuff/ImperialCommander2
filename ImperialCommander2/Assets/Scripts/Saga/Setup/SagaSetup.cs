@@ -310,35 +310,17 @@ namespace Saga
 
 		void StartMission( string missionAddressableKey )
 		{
-			if ( Utils.AssetExists( missionAddressableKey ) )
+			FileManager.LoadMissionFromAddressable( missionAddressableKey, ( m, s ) =>
 			{
-				DataStore.mission = FileManager.LoadMissionFromAddressable( missionAddressableKey, out var stringified );
+				DataStore.mission = m;
 				if ( DataStore.mission != null )
 				{
-					DataStore.sagaSessionData.missionStringified = stringified;
+					DataStore.sagaSessionData.missionStringified = s;
 					Warp();
 				}
 				else
 					errorPanel.Show( "StartMission()", $"Could not load mission:\n'{missionAddressableKey}'" );
-
-				//AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
-				//loadHandle.Completed += ( x ) =>
-				//{
-				//	if ( x.Status == AsyncOperationStatus.Succeeded )
-				//	{
-				//		DataStore.sagaSessionData.missionStringified = x.Result.text;
-				//		DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
-				//		if ( DataStore.mission != null )
-				//			Warp();
-				//		else
-				//			errorPanel.Show( $"StartMission()::Could not load mission:\n'{missionAddressableKey}'" );
-
-				//	}
-				//	Addressables.Release( loadHandle );
-				//};
-			}
-			else
-				errorPanel.Show( "StartMission()", $"Can't find asset:\n{missionAddressableKey}" );
+			} );
 		}
 
 		public void AddHero()

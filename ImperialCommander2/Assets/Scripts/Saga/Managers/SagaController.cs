@@ -21,7 +21,7 @@ namespace Saga
 		//UI OBJECTS
 		public Image faderOverlay;
 		public Transform infoBtnTX;
-		public Text roundText, currentThreatText;
+		public Text roundText, currentThreatText, medPacText;
 		public Button activateImperialButton, endTurnButton, fameButton;
 		public TextMeshProUGUI missionTitleText;
 		//POPUPS
@@ -33,6 +33,7 @@ namespace Saga
 		public ObjectivePanel objectivePanel;
 		public EnemyActivationPopup enemyActivationPopup;
 		public ImperialPopup imperialPopup;
+		public MedpacPopup medpacPopup;
 		//MANAGERS
 		public CameraController cameraController;
 		public DeploymentManager dgManager;
@@ -74,7 +75,7 @@ namespace Saga
 			//DEBUG BOOTSTRAP A MISSION
 			//comment this out for production build
 #if DEBUG
-			//bootstrapDEBUG();
+			bootstrapDEBUG();
 			//restoreDEBUG();//comment this out for production build
 #endif
 
@@ -750,6 +751,19 @@ namespace Saga
 			if ( !eventManager.IsUIHidden )
 			{
 				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnQuitSaga );
+			}
+		}
+
+		public void OnMedPac()
+		{
+			sound.PlaySound( FX.Click );
+			EventSystem.current.SetSelectedGameObject( null );
+			if ( !eventManager.IsUIHidden )
+			{
+				medpacPopup.Show( () =>
+				{
+					medPacText.text = DataStore.sagaSessionData.gameVars.medPacCount.ToString();
+				} );
 			}
 		}
 

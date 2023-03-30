@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -31,6 +32,7 @@ public class PopupBase : MonoBehaviour
 
 	public void Close( Action callback = null )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		isActive = false;
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () =>

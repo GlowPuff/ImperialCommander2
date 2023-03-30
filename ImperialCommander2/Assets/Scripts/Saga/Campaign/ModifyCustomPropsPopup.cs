@@ -25,10 +25,10 @@ namespace Saga
 			popupBase.Show();
 
 			//translations
-			threatText.text = DataStore.uiLanguage.uiCampaign.threat;
+			threatText.text = DataStore.uiLanguage.uiCampaign.threat.ToUpper();
 			agendaText.text = $"+ {DataStore.uiLanguage.uiCampaign.agendaUC}";
-			cancelButtonText.text = DataStore.uiLanguage.uiSetup.cancel;
-			continueButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+			cancelButtonText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+			continueButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn.ToUpper();
 			var s = modifier.itemTierArray.Select( x => $"{DataStore.uiLanguage.uiCampaign.tierUC} " + x );
 			tierDropdown.itemText.text = s.Aggregate( ( acc, cur ) => acc + ", " + cur );
 

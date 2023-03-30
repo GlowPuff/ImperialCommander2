@@ -154,10 +154,10 @@ namespace Saga
 						OnMissionSelected( selectedMission );
 					}
 				}
-				catch ( Exception )
+				catch ( Exception e )
 				{
 					Utils.LogError( $"OnChangeFolder()::Error iterating over '{path}'" );
-					FindObjectOfType<SagaSetup>().errorPanel.Show( "OnChangeFolder()", $"Error iterating over '{path}'" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( "OnChangeFolder()", $"Error iterating over '{path}'\n\n{e.Message}" );
 				}
 			}
 		}
@@ -213,17 +213,7 @@ namespace Saga
 
 			foreach ( var item in locations )
 			{
-				if ( Utils.AssetExists( item ) )
-				{
-					loadHandle = Addressables.LoadAssetAsync<TextAsset>( item );
-				}
-				else
-				{
-					FindObjectOfType<SagaSetup>().errorPanel.Show( "CreateBuiltInPickersFromAddressables()", $"Asset key doesn't exist:\n{item.PrimaryKey}" );
-					isBusy = false;
-					yield break;
-				}
-
+				loadHandle = Addressables.LoadAssetAsync<TextAsset>( item );
 				while ( !loadHandle.IsDone )
 					yield return null;
 
@@ -252,7 +242,7 @@ namespace Saga
 				{
 					var projectItem = FileManager.CreateProjectItem( missionList[item], item, item );
 					//process auto-description and TRANSLATED title for known missions
-					if ( projectItem.missionID != "Custom" )
+					if ( projectItem != null && projectItem.missionID != "Custom" )
 					{
 						string[] id = projectItem.missionID.Split( ' ' );
 						var card = DataStore.missionCards[id[0]].Where( x => x.id == $"{id[0]}{id[1]}" ).FirstOr( null );
@@ -409,25 +399,20 @@ namespace Saga
 				isBusy = true;
 				try
 				{
-					if ( Utils.AssetExists( selectedMission.fullPathWithFilename ) )
+					AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( selectedMission.fullPathWithFilename );
+					loadHandle.Completed += ( x ) =>
 					{
-						AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( selectedMission.fullPathWithFilename );
-						loadHandle.Completed += ( x ) =>
+						if ( x.Status == AsyncOperationStatus.Succeeded )
 						{
-							if ( x.Status == AsyncOperationStatus.Succeeded )
-							{
-								m = FileManager.LoadMissionFromString( x.Result.text );
-								doneAction();
-							}
-							else
-								FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
+							m = FileManager.LoadMissionFromString( x.Result.text );
+							doneAction();
+						}
+						else
+							FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
 
-							Addressables.Release( loadHandle );
-							isBusy = false;
-						};
-					}
-					else
-						FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Can't find asset\n'{selectedMission.fullPathWithFilename}'" );
+						Addressables.Release( loadHandle );
+						isBusy = false;
+					};
 				}
 				catch ( Exception e )
 				{

@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class CampaignJournal : MonoBehaviour
 {
 	public PopupBase popupBase;
-	public Text titleText, closeText;
+	public Text closeText;
 	public TMP_InputField journalText;
+	public TextMeshProUGUI placeholderText;
 	public Scrollbar scrollbar;
 
 	Action<string> cb;
@@ -18,7 +19,8 @@ public class CampaignJournal : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		popupBase.Show();
 
-		closeText.text = DataStore.uiLanguage.uiMainApp.continueBtn;
+		closeText.text = DataStore.uiLanguage.uiMainApp.continueBtn.ToUpper();
+		placeholderText.text = DataStore.uiLanguage.sagaUISetup.campaignJournalUC;
 		journalText.text = text ?? "";
 		cb = callback;
 

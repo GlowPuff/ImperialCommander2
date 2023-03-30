@@ -40,6 +40,9 @@ public class Tooltip : MonoBehaviour
 			case "MapVisibility":
 				tt = DataStore.uiLanguage.sagaMainApp.tooltipHideUIUC;
 				break;
+			case "MedPac":
+				tt = "MedPac";
+				break;
 			default:
 				tt = "Unknown string code: " + t;
 				break;
