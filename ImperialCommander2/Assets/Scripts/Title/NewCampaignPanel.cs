@@ -25,8 +25,8 @@ namespace Saga
 		public void Show( Action onClose )
 		{
 			campaignNameInputField.text = "";
-			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
-			cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
+			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
 			placeholderText.text = DataStore.uiLanguage.uiCampaign.campaignNameUC;
 			callback = onClose;
 			nameGood = false;

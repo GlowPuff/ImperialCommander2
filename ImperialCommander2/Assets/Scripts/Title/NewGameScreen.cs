@@ -57,8 +57,8 @@ public class NewGameScreen : MonoBehaviour
 		threatWheelHandler.ResetWheeler();
 		addtlThreatWheelHandler.ResetWheeler();
 		for ( int i = 0; i < enemyGroupText.Length; i++ )
-			enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose.ToUpper();
-		enemyGroupText[3].text = "8 " + DataStore.uiLanguage.uiSetup.selected.ToUpper();
+			enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
+		enemyGroupText[3].text = "8 " + DataStore.uiLanguage.uiSetup.selected;
 		//button colors to red
 		ColorBlock cb = difficultyButton.colors;
 		cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
@@ -89,7 +89,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnDifficulty()
 	{
 		sound.PlaySound( FX.Click );
-		difficultyText.text = DataStore.sessionData.ToggleDifficulty().ToUpper();
+		difficultyText.text = DataStore.sessionData.ToggleDifficulty();
 		ColorBlock cb = difficultyButton.colors;
 		cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
 		difficultyButton.colors = cb;
@@ -98,7 +98,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnOptionalDeployment()
 	{
 		sound.PlaySound( FX.Click );
-		deploymentText.text = DataStore.sessionData.ToggleDeployment().ToUpper();
+		deploymentText.text = DataStore.sessionData.ToggleDeployment();
 	}
 
 	public void OnImperials()
@@ -121,7 +121,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnThreatCost()
 	{
 		sound.PlaySound( FX.Click );
-		threatCostText.text = DataStore.sessionData.ToggleThreatCost().ToUpper();
+		threatCostText.text = DataStore.sessionData.ToggleThreatCost();
 	}
 
 	public void OnViewMissionCard()
@@ -217,7 +217,7 @@ public class NewGameScreen : MonoBehaviour
 			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
 
 			DataStore.sessionData.optionalDeployment = mp.optionalDeployment == "yes" ? YesNo.Yes : YesNo.No;
-			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes.ToUpper() : DataStore.uiLanguage.uiSetup.no.ToUpper();
+			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 
 			DataStore.sessionData.includeMercs = mp.factionMerc == "yes" ? true : false;
 			DataStore.sessionData.includeImperials = mp.factionImp == "yes" ? true : false;
@@ -290,9 +290,9 @@ public class NewGameScreen : MonoBehaviour
 			//index 4 contains heroes
 			List<DeploymentCard> selectedCards = DataStore.sessionData.selectedDeploymentCards[i];
 			if ( selectedCards.Count > 0 )
-				enemyGroupText[i].text = selectedCards.Count + " " + DataStore.uiLanguage.uiSetup.selected.ToUpper();
+				enemyGroupText[i].text = selectedCards.Count + " " + DataStore.uiLanguage.uiSetup.selected;
 			else
-				enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose.ToUpper();
+				enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
 		}
 
 		//handle selected heroes
@@ -307,7 +307,7 @@ public class NewGameScreen : MonoBehaviour
 			heroMetas[idx].gameObject.SetActive( true );
 			heroMetas[idx].allyName = dc.name;
 			heroMetas[idx].id = dc.id;
-			heroMetas[idx].allySprite.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{dc.id}" );
+			heroMetas[idx].allySprite.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockHero{dc.id.GetDigits()}" );
 			idx++;
 		}
 		ColorBlock cb = addHeroButton.colors;
@@ -322,7 +322,7 @@ public class NewGameScreen : MonoBehaviour
 		{
 			addAllyButton.SetActive( false );
 			allyImage.gameObject.SetActive( true );
-			allyImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{DataStore.sessionData.selectedAlly.id.Replace( "A", "M" )}" );
+			allyImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockAlly{DataStore.sessionData.selectedAlly.id.GetDigits()}" );
 		}
 		else
 		{
@@ -401,18 +401,18 @@ public class NewGameScreen : MonoBehaviour
 			if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
 			{
 				if ( DataStore.sessionData.difficulty == Difficulty.Easy )
-					difficultyText.text = DataStore.uiLanguage.uiSetup.easy.ToUpper();
+					difficultyText.text = DataStore.uiLanguage.uiSetup.easy;
 				else if ( DataStore.sessionData.difficulty == Difficulty.Medium )
-					difficultyText.text = DataStore.uiLanguage.uiSetup.normal.ToUpper();
+					difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
 				else
-					difficultyText.text = DataStore.uiLanguage.uiSetup.hard.ToUpper();
+					difficultyText.text = DataStore.uiLanguage.uiSetup.hard;
 			}
 			else
-				difficultyText.text = DataStore.uiLanguage.uiSetup.difficulty.ToUpper();
+				difficultyText.text = DataStore.uiLanguage.uiSetup.difficulty;
 
-			threatCostText.text = DataStore.sessionData.allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes.ToUpper() : DataStore.uiLanguage.uiSetup.no.ToUpper();
+			threatCostText.text = DataStore.sessionData.allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 
-			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes.ToUpper() : DataStore.uiLanguage.uiSetup.no.ToUpper();
+			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 
 			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
 			imperialToggle.isOn = DataStore.sessionData.includeImperials;

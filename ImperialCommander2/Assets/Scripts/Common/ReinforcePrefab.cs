@@ -34,7 +34,7 @@ public class ReinforcePrefab : MonoBehaviour
 		{
 			//get overridden name
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && ovrd.isCustom )
+			if ( ovrd != null && ovrd.isCustomDeployment )
 				cd = ovrd.customCard;
 
 			if ( ovrd != null )

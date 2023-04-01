@@ -21,6 +21,7 @@ namespace Saga
 		public Guid specificDeploymentPoint;
 		public DeploymentSpot deploymentPoint;//active or specific
 		public EnemyGroupData enemyGroupData;
+		public Thumbnail thumbnail;
 
 		public EnemyDeployment()
 		{

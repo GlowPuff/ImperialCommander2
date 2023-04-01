@@ -47,7 +47,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		ignoreText.text = "";
 		spaceListen = true;
 		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
-		continueText.text = DataStore.uiLanguage.uiMainApp.continueBtn.ToUpper();
+		continueText.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 
 		cardDescriptor = cd;
 
@@ -239,7 +239,7 @@ public class EnemyActivationPopup : MonoBehaviour
 				//store activation data
 				cardDescriptor.instructionOption = savedInstruction;
 			}
-			else if ( ovrd != null && ovrd.isCustom )
+			else if ( ovrd != null && ovrd.isCustomDeployment )
 			{
 				if ( ovrd.changeInstructions != null )
 					ParseInstructions( ovrd.changeInstructions.theText.Split( '\n' ).ToList() );
@@ -271,10 +271,10 @@ public class EnemyActivationPopup : MonoBehaviour
 		bonusText.text = "";
 
 		var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
-		if ( ovrd != null && !ovrd.isCustom && ovrd.useGenericMugshot )
+		if ( ovrd != null && !ovrd.isCustomDeployment && ovrd.useGenericMugshot )
 			return;
 
-		if ( ovrd != null && ovrd.isCustom )
+		if ( ovrd != null && ovrd.isCustomDeployment )
 		{
 			string e = ovrd.customBonuses[GlowEngine.GenerateRandomNumbers( ovrd.customBonuses.Length )[0]];
 			if ( !string.IsNullOrEmpty( e ) )

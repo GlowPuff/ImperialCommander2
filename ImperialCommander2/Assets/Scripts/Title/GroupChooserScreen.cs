@@ -37,7 +37,7 @@ public class GroupChooserScreen : MonoBehaviour
 		Transform[] expButtons = (from Transform x in transform.Find( "expansion selector container" ) select x).ToArray();
 		for ( int i = 1; i < expButtons.Length; i++ )
 		{
-			if ( !DataStore.ownedExpansions.Contains( (Expansion)Enum.Parse( typeof( Expansion ), expButtons[i].name ) ) )
+			if ( !DataStore.ownedExpansions.Contains( (Expansion)Enum.Parse( typeof( Expansion ), expButtons[i].name, true ) ) )
 				expButtons[i].gameObject.SetActive( false );
 			else
 				expButtons[i].gameObject.SetActive( true );
@@ -53,16 +53,16 @@ public class GroupChooserScreen : MonoBehaviour
 			switch ( dataGroupIndex )
 			{
 				case 0:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.initialHeading.ToUpper();
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.initialHeading;
 					break;
 				case 1:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.reservedHeading.ToUpper();
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.reservedHeading;
 					break;
 				case 2:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.villainsHeading.ToUpper();
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.villainsHeading;
 					break;
 				case 3:
-					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.ignoredHeading.ToUpper();
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.ignoredHeading;
 					break;
 			}
 			//update the expansion tabs so they display their card counts

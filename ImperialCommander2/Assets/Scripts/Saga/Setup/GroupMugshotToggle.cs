@@ -24,10 +24,7 @@ namespace Saga
 		{
 			dataMode = mode;
 			card = cd;
-			if ( mode == 0 )
-				mugImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-			else
-				mugImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
+			mugImage.sprite = Resources.Load<Sprite>( cd.mugShotPath );
 
 			if ( cd.isElite )
 				mugImage.color = new Color( 1, 40f / 255f, 0 );

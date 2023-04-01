@@ -7,7 +7,7 @@ namespace Saga
 	public class MugshotToggle : MonoBehaviour
 	{
 		bool _isOn;
-		int dataMode;
+		CharacterType characterType;
 
 		[HideInInspector]
 		public int index;
@@ -25,15 +25,15 @@ namespace Saga
 		/// <summary>
 		/// 0=hero, 1=ally
 		/// </summary>
-		public void Init( int mode, DeploymentCard cd, int idx )
+		public void Init( DeploymentCard cd, int idx )
 		{
 			index = idx;
-			dataMode = mode;
+			characterType = cd.characterType;
 			card = cd;
-			if ( mode == 0 )
-				mugImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
+			if ( cd.characterType == CharacterType.Hero )
+				mugImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockHero{cd.id.GetDigits()}" );
 			else
-				mugImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
+				mugImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockAlly{cd.id.GetDigits()}" );
 
 			isOn = false;
 
@@ -57,7 +57,7 @@ namespace Saga
 					bgImage.color = Color.white;
 
 				//handle banned allies
-				if ( dataMode == 1 )
+				if ( characterType == CharacterType.Ally )
 				{
 					bgImage.color = Color.white;
 
@@ -77,13 +77,13 @@ namespace Saga
 				isOn = false;
 			if ( !isOn )
 			{
-				if ( dataMode == 0 )
+				if ( characterType == CharacterType.Hero )
 					DataStore.sagaSessionData.MissionHeroes.Remove( card );
 				else
 					DataStore.sagaSessionData.selectedAlly = null;
 			}
 
-			if ( isOn && dataMode == 1 )
+			if ( isOn && characterType == CharacterType.Ally )
 				FindObjectOfType<SagaAddHeroPanel>().AllyToggle( index );
 
 			UpdateToggle();

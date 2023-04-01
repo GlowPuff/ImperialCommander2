@@ -9,6 +9,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	[JsonIgnore]
 	public string name;
 	public string id;
+	public CharacterType characterType;
 	public int tier;
 	public string faction;
 	public int priority;
@@ -21,7 +22,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	[JsonIgnore]
 	public string ignored;
 	public bool isElite;
-	public bool isHero;
+	public bool isHero { get; set; }
 	[JsonIgnore]
 	public string subname;
 	public int health;
@@ -45,34 +46,40 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	//==upkeep properties
 	public int currentSize;
 	public int colorIndex;
-	//[DefaultValue( false )]
-	//[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
 	public bool hasActivated = false;
 	public string bonusName, bonusText, rebelName;
 	public InstructionOption instructionOption;
 	public bool isDummy;
 	public HeroState heroState;
-	public bool isCustom = false;
-	public string mugShotPath;
+	public bool isCustomEnemyDeployment = false;
 	public int[] woundTrackerValue = new int[] { 0, 0, 0 };
 	//==end upkeep
+
+	//==other properties
+	public string mugShotPath;
+	//default deployment thumbnail outline color
+	public string deploymentOutlineColor = "Blue";
+	//==end other properties
 
 	public bool Equals( DeploymentCard obj )
 	{
 		if ( obj == null )
 			return false;
-		DeploymentCard objAsPart = obj as DeploymentCard;
+		DeploymentCard objAsPart = obj;
 		if ( objAsPart == null )
 			return false;
 		else
 			return id == objAsPart.id;
 	}
 
+	/// <summary>
+	/// Create a DeploymentCard from a Custom Enemy Deployment
+	/// </summary>
 	public static DeploymentCard CreateCustomCard( CustomEnemyDeployment ced )
 	{
 		var card = new DeploymentCard()
 		{
-			isCustom = true,
+			isCustomEnemyDeployment = true,
 			isDummy = false,
 			name = ced.enemyGroupData.cardName,
 			id = ced.enemyGroupData.cardID,
@@ -86,6 +93,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			expansion = "Other",
 			ignored = "",
 			isElite = false,
+			characterType = ced.iconType == MarkerType.Rebel ? CharacterType.Rebel : CharacterType.Imperial,
 			isHero = false,
 			subname = "",
 			health = ced.groupHealth,
@@ -99,7 +107,8 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			traits = new string[0],//English version of groupTraits
 			groupTraits = new GroupTraits[0],
 			preferredTargets = ced.enemyGroupData.groupPriorityTraits.GetTraitArray(),
-			attackType = ced.attackType
+			attackType = ced.attackType,
+			deploymentOutlineColor = ced.deploymentOutlineColor ?? "Gray"
 		};
 
 		//health multiplier
@@ -136,20 +145,24 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			card.faction = "Imperial";
 		}
 
+		//thumbnail mugshot
+		//set the thumbnail, CEDs are either Rebel or Imperial
 		if ( ced.iconType == MarkerType.Rebel )
-			card.mugShotPath = $"Cards/Allies/{ced.thumbnailGroupRebel.Replace( "A", "M" )}";
-		else
+			card.mugShotPath = $"CardThumbnails/StockAlly{ced.thumbnailGroupRebel.GetDigits()}";
+		else//Imperial
 		{
-			var dc = DataStore.GetEnemy( ced.thumbnailGroupImperial );
-			card.mugShotPath = dc.mugShotPath;
+			if ( int.Parse( ced.thumbnailGroupImperial.GetDigits() ) >= 71 )
+				card.mugShotPath = $"CardThumbnails/StockVillain{ced.thumbnailGroupImperial.GetDigits()}";
+			else
+				card.mugShotPath = $"CardThumbnails/StockImperial{ced.thumbnailGroupImperial.GetDigits()}";
 		}
 
 		if ( ced.enemyGroupData.useGenericMugshot )
 		{
 			if ( ced.iconType == MarkerType.Rebel )
-				card.mugShotPath = "Cards/genericAlly";
+				card.mugShotPath = "CardThumbnails/genericAlly";
 			else
-				card.mugShotPath = "Cards/genericEnemy";
+				card.mugShotPath = "CardThumbnails/genericEnemy";
 		}
 
 		return card;

@@ -12,26 +12,28 @@ namespace Saga
 		public Transform mugContainer;
 
 		Action callback;
-		int dataMode, prevSelected = -1;
+		int prevSelected = -1;
+		CharacterType characterType;
 
 		/// <summary>
 		/// mode 0=heroes, 1=allies
 		/// </summary>
-		public void Show( int mode, Action cb = null )
+		public void Show( CharacterType cType, Action cb = null )
 		{
 			callback = cb;
-			dataMode = mode;
 			EventSystem.current.SetSelectedGameObject( null );
 			popupBase.Show();
 
+			characterType = cType;
+
 			//populate mugshot toggles
-			if ( dataMode == 0 )
+			if ( characterType == CharacterType.Hero )
 			{
 				int i = 0;
 				foreach ( var item in DataStore.heroCards )
 				{
 					var mug = Instantiate( heroMugPrefab, mugContainer );
-					mug.GetComponent<MugshotToggle>().Init( dataMode, item, i++ );
+					mug.GetComponent<MugshotToggle>().Init( item, i++ );
 					if ( DataStore.sagaSessionData.MissionHeroes.Contains( item ) )
 					{
 						mug.GetComponent<MugshotToggle>().isOn = true;
@@ -45,7 +47,7 @@ namespace Saga
 				foreach ( var item in DataStore.allyCards.MinusElite() )
 				{
 					var mug = Instantiate( heroMugPrefab, mugContainer );
-					mug.GetComponent<MugshotToggle>().Init( dataMode, item, i++ );
+					mug.GetComponent<MugshotToggle>().Init( item, i++ );
 					if ( DataStore.sagaSessionData.selectedAlly == item )
 					{
 						mug.GetComponent<MugshotToggle>().isOn = true;
@@ -55,7 +57,7 @@ namespace Saga
 				foreach ( var item in DataStore.allyCards.OnlyElite() )
 				{
 					var mug = Instantiate( heroMugPrefab, mugContainer );
-					mug.GetComponent<MugshotToggle>().Init( dataMode, item, i++ );
+					mug.GetComponent<MugshotToggle>().Init( item, i++ );
 					if ( DataStore.sagaSessionData.selectedAlly == item )
 					{
 						mug.GetComponent<MugshotToggle>().isOn = true;
@@ -68,7 +70,7 @@ namespace Saga
 		public bool OnToggle( DeploymentCard card )
 		{
 			FindObjectOfType<Sound>().PlaySound( FX.Click );
-			if ( dataMode == 0 )
+			if ( characterType == CharacterType.Hero )
 			{
 				if ( DataStore.sagaSessionData.MissionHeroes.Count < 4 && !DataStore.sagaSessionData.MissionHeroes.Contains( card ) )
 				{

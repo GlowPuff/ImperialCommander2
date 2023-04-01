@@ -36,7 +36,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			popupBase.Show();
 
-			cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
 
 			scrollRect.normalizedPosition = new Vector2( 0, 200 );
 			scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -60 );

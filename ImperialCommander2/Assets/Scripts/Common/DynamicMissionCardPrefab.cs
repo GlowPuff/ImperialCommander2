@@ -65,13 +65,13 @@ public class DynamicMissionCardPrefab : MonoBehaviour
 			heroBox.GetComponent<Image>().color = new Color( 1, 40f / 255f, 0 );
 		//hero icon?
 		if ( !string.IsNullOrEmpty( missionCard.heroText ) )
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{missionCard.hero}" );
+			mugshot.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockHero{missionCard.hero.GetDigits()}" );
 		//villain icon?
 		else if ( missionCard.villain.Length > 0 )
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Villains/{missionCard.villain[0].Replace( "DG", "M" )}" );
+			mugshot.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockVillain{missionCard.villain[0].GetDigits()}" );
 		//ally icon?
 		else if ( missionCard.ally.Length > 0 )
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Allies/{missionCard.ally[0].Replace( "A", "M" )}" );
+			mugshot.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockAlly{missionCard.ally[0].GetDigits()}" );
 
 		//page # and expansion
 		string page = missionCard.page > 0 ? $"{DataStore.uiLanguage.uiMainApp.pageUC} {missionCard.page}, " : "";

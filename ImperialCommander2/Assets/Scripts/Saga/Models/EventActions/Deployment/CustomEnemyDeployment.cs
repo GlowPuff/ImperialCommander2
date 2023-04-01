@@ -12,8 +12,8 @@ namespace Saga
 		[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
 		public MarkerType iconType;
 		public AttackType attackType;
-		public string thumbnailGroupImperial;
-		public string thumbnailGroupRebel;
+		public string thumbnailGroupImperial;//card ID format
+		public string thumbnailGroupRebel;//card ID format
 		public string repositionInstructions;
 		public string groupAttack;
 		public string groupDefense;
@@ -26,6 +26,9 @@ namespace Saga
 		public int groupSize;
 		public int groupHealth;
 		public int groupSpeed;
+		[DefaultValue( "Blue" )]
+		[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
+		public string deploymentOutlineColor;
 		//deployment properties
 		public bool canReinforce;
 		public bool canRedeploy;

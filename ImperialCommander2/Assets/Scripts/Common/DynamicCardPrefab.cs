@@ -24,7 +24,7 @@ public class DynamicCardPrefab : MonoBehaviour
 		{
 			//check for override
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && ovrd.isCustom )
+			if ( ovrd != null && ovrd.isCustomDeployment )
 				card = ovrd.customCard;
 
 			modPanel.gameObject.SetActive( false );
@@ -75,7 +75,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			faction.sprite = factionSprites[1];
 		else
 			faction.sprite = factionSprites[2];
-		if ( card.isCustom )
+		if ( card.isCustomEnemyDeployment )
 			faction.gameObject.SetActive( false );
 
 		//attack type
@@ -100,7 +100,7 @@ public class DynamicCardPrefab : MonoBehaviour
 		if ( DataStore.gameType == GameType.Saga )
 		{
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && !ovrd.isCustom && ovrd.useGenericMugshot )
+			if ( ovrd != null && !ovrd.isCustomDeployment && ovrd.useGenericMugshot )
 			{
 				if ( card.mugShotPath.Contains( "Allies" ) )
 					mugshot.sprite = Resources.Load<Sprite>( "Cards/genericAlly" );
@@ -139,7 +139,7 @@ public class DynamicCardPrefab : MonoBehaviour
 		{
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
 			//handle override of NON-custom groups (applies to enemies only)
-			if ( ovrd != null && ovrd.useGenericMugshot && !ovrd.isCustom )
+			if ( ovrd != null && ovrd.useGenericMugshot && !ovrd.isCustomDeployment )
 			{
 				//mugshot
 				mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );

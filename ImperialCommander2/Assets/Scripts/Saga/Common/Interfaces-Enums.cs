@@ -74,4 +74,7 @@ namespace Saga
 	public enum LifeSpan { Manual, EndTurn }
 	public enum AgendaType { NotSet, Rebel, Imperial }
 	public enum RewardType { Campaign, General, HeroNumber, Personal }
+	public enum CharacterType { Hero, Ally, Imperial, Villain, Rebel }
+	public enum ThumbType { All, Other, Rebel, Imperial, Mercenary, StockImperial, StockAlly, StockHero, StockVillain }
+	public enum Factions { Imperial, Mercenary }
 }

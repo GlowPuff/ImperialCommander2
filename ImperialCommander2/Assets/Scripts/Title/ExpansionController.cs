@@ -10,9 +10,9 @@ public class ExpansionController : MonoBehaviour
 		var props = DataStore.uiLanguage.uiExpansions.GetType().GetFields();
 		string s = props[expansionIndex].GetValue( DataStore.uiLanguage.uiExpansions ) as string;
 		if ( count > 0 )
-			expText[expansionIndex].text = $"{s.ToLower()} ({count})";
+			expText[expansionIndex].text = $"{s} ({count})";
 		else
-			expText[expansionIndex].text = s.ToLower();
+			expText[expansionIndex].text = s;
 	}
 
 	public void ResetText()

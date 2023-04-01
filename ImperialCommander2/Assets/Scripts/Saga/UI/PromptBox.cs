@@ -36,8 +36,9 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 
 			questionPrompt = eventAction as QuestionPrompt;
-			string c = DataStore.uiLanguage.uiSetup.cancel[0].ToString().ToUpper();
-			cancelText.text = c + DataStore.uiLanguage.uiSetup.cancel.Substring( 1 );
+			//uiSetup.cancel is capitalized, make it "Cancel" instead
+			string c = DataStore.uiLanguage.uiSetup.cancel[0].ToString();
+			cancelText.text = c + DataStore.uiLanguage.uiSetup.cancel.Substring( 1 ).ToLower();
 			callback = action;
 
 			if ( !questionPrompt.includeCancel )

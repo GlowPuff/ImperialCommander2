@@ -26,10 +26,12 @@ namespace Saga
 		public Guid setEvent;
 		public Guid specificDeploymentPoint;
 		public DeploymentSpot deploymentPoint;
+		//outline color is only customizable for custom deployments and custom characters
+		public string deploymentOutlineColor = "Blue";
 		///EnemyGroupData properties
 		public List<DPData> pointList = new List<DPData>();
 		///Custom properties
-		public bool isCustom;
+		public bool isCustomDeployment;
 		public MarkerType customType;
 		public string thumbnailGroupImperial;
 		public string thumbnailGroupRebel;
@@ -42,7 +44,7 @@ namespace Saga
 		{
 			//set defaults all groups would use
 			ID = cardID;
-			isCustom = false;
+			isCustomDeployment = false;
 			repositionInstructions = "";
 			nameOverride = "";
 			if ( !string.IsNullOrEmpty( cardID ) )
@@ -61,6 +63,9 @@ namespace Saga
 			setEvent = Guid.Empty;
 			specificDeploymentPoint = Guid.Empty;
 			deploymentPoint = DeploymentSpot.Active;
+			var card = DataStore.GetEnemy( cardID );
+			if ( card != null )
+				deploymentOutlineColor = (bool)(DataStore.GetEnemy( cardID )?.isElite) ? "Red" : "Blue";
 
 			changeInstructions = null;
 			changeTarget = null;

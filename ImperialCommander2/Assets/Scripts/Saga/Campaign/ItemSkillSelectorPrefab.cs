@@ -19,9 +19,9 @@ namespace Saga
 		{
 			itemType = 0;
 			campaignItem = item;
-			nameText.text = $"{item.name} / <color=orange>Tier {item.tier}</color>";
+			nameText.text = $"{item.name} / <color=orange>{DataStore.uiLanguage.uiCampaign.tierUC} {item.tier}</color>";
 			typeText.text = item.type;
-			costText.text = $"Cost: {item.cost}";
+			costText.text = $"{DataStore.uiLanguage.uiCampaign.costUC}: {item.cost}";
 		}
 
 		public void Init( CampaignSkill item )
@@ -30,7 +30,7 @@ namespace Saga
 			campaignSkill = item;
 			typeText.text = "A";
 			nameText.text = $"{item.name}";
-			costText.text = $"Cost: {item.cost}";
+			costText.text = $"{DataStore.uiLanguage.uiCampaign.costUC}: {item.cost}";
 		}
 
 		public void Init( MissionCard card, string filename = "" )
@@ -53,7 +53,6 @@ namespace Saga
 				nameText.text = $"{item.name}";
 			typeText.text = "V";
 			costText.text = "";
-			//costText.text = item.type.ToString();
 		}
 
 		public void OnAdd()

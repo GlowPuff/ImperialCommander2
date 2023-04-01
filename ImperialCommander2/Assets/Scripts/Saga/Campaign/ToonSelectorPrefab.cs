@@ -17,7 +17,7 @@ namespace Saga
 			card = c;
 			toonType = 0;
 			nameText.text = card.name;
-			mugImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{c.id.Replace( "DG", "M" )}" );
+			mugImage.sprite = Resources.Load<Sprite>( c.mugShotPath );
 		}
 
 		public void InitHero( DeploymentCard c )
@@ -25,7 +25,7 @@ namespace Saga
 			card = c;
 			toonType = 1;
 			nameText.text = c.name;
-			mugImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{c.id}" );
+			mugImage.sprite = Resources.Load<Sprite>( c.mugShotPath );
 		}
 
 		public void InitAlly( DeploymentCard c )
@@ -33,7 +33,7 @@ namespace Saga
 			card = c;
 			toonType = 2;
 			nameText.text = card.name;
-			mugImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{card.id.Replace( "A", "M" )}" );
+			mugImage.sprite = Resources.Load<Sprite>( c.mugShotPath );
 		}
 
 		public void OnAdd()

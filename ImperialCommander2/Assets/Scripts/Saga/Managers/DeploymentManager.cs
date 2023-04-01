@@ -292,7 +292,7 @@ namespace Saga
 			//var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( enemyToAdd.id );
 			if ( ovrd != null )
 			{
-				if ( ovrd.isCustom )
+				if ( ovrd.isCustomDeployment )
 					cardID = "Custom";
 
 				if ( ovrd.deploymentPoint == DeploymentSpot.Active )
@@ -369,7 +369,7 @@ namespace Saga
 		void DoMultipleDeployment( DeploymentCard enemyToAdd, DeploymentGroupOverride ovrd, Action callback = null )
 		{
 			string cardID = ovrd.ID;
-			if ( ovrd.isCustom )
+			if ( ovrd.isCustomDeployment )
 				cardID = "Custom";
 			FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
 			var adp = FindObjectOfType<MapEntityManager>().GetActiveDeploymentPoint( enemyToAdd );

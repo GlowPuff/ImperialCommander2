@@ -30,20 +30,19 @@ namespace Saga
 			Debug.Log( "DEPLOYED: " + cd.name );
 			cardDescriptor = cd;
 
-			if ( !cd.isDummy )
+			if ( !cd.isDummy )//if NOT the "bonus" token for 3 player games
 			{
 				var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-				if ( ovrd != null && ovrd.isCustom )
+				if ( ovrd != null && ovrd.isCustomDeployment )
 					cardDescriptor = ovrd.customCard;
-
+				//icon thumbnail
 				iconImage.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
-
-				if ( cd.id[0] == 'A' )
-					outline.effectColor = eliteColor;
+				//outline color
+				outline.effectColor = Utils.String2UnityColor( cardDescriptor.deploymentOutlineColor );
 			}
 			else
 			{
-				iconImage.sprite = Resources.Load<Sprite>( "Cards/Heroes/bonus" );
+				iconImage.sprite = Resources.Load<Sprite>( "CardThumbnails/bonus" );
 				woundToggle.gameObject.SetActive( false );
 			}
 
@@ -144,7 +143,7 @@ namespace Saga
 		{
 			//new - don't show popup for ANY hero/ally since ally might be a generic regel
 			//unless it's a custom ally
-			if ( cardDescriptor.isCustom )
+			if ( cardDescriptor.isCustomEnemyDeployment )
 			{
 				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 				cardViewPopup.Show( cardDescriptor );
@@ -239,7 +238,8 @@ namespace Saga
 
 			//trigger on defeated Event/Trigger, if it exists
 			//not really necessary to check isAlly - heroes do not have an override
-			if ( ovrd != null && !cardDescriptor.isHero )
+			if ( ovrd != null && cardDescriptor.characterType != CharacterType.Hero )
+			//!cardDescriptor.isHero )
 			{
 				FindObjectOfType<SagaController>().triggerManager.FireTrigger( ovrd.setTrigger );
 				FindObjectOfType<SagaController>().eventManager.DoEvent( ovrd.setEvent );

@@ -138,7 +138,7 @@ namespace Saga
 		public void ResetSetup( bool isCampaign )
 		{
 			//difficulty
-			difficultyText.text = DataStore.uiLanguage.uiSetup.normal.ToUpper();
+			difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
 			//adaptive
 			adaptiveButton.colors = setupOptions.useAdaptiveDifficulty ? greenBlock : redBlock;
 			//clear hero panel if not loading from campaign
@@ -327,7 +327,7 @@ namespace Saga
 		{
 			sound.PlaySound( FX.Click );
 			EventSystem.current.SetSelectedGameObject( null );
-			addHeroPanel.Show( 0, () =>
+			addHeroPanel.Show( CharacterType.Hero, () =>
 			 {
 				 UpdateHeroes();
 			 } );
@@ -339,7 +339,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			if ( DataStore.sagaSessionData.selectedAlly == null )
 			{
-				addHeroPanel.Show( 1, () =>
+				addHeroPanel.Show( CharacterType.Ally, () =>
 				{
 					UpdateHeroes();
 				} );
@@ -379,7 +379,7 @@ namespace Saga
 			foreach ( var item in DataStore.sagaSessionData.MissionHeroes )
 			{
 				var mug = Instantiate( miniMugPrefab, heroContainer );
-				mug.transform.GetChild( 0 ).GetComponent<Image>().sprite = Resources.Load<Sprite>( $"Cards/Heroes/{item.id}" );
+				mug.transform.GetChild( 0 ).GetComponent<Image>().sprite = Resources.Load<Sprite>( $"CardThumbnails/StockHero{item.id.GetDigits()}" );
 				mug.GetComponent<MiniMug>().card = item;
 			}
 			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0 )
@@ -394,7 +394,7 @@ namespace Saga
 			else
 			{
 				allyImage.gameObject.SetActive( true );
-				allyImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{DataStore.sagaSessionData.selectedAlly.id.Replace( "A", "M" )}" );
+				allyImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockAlly{DataStore.sagaSessionData.selectedAlly.id.GetDigits()}" );
 				if ( DataStore.sagaSessionData.selectedAlly.isElite )
 					allyBG.gameObject.SetActive( true );
 			}

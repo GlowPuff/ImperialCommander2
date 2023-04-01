@@ -15,13 +15,13 @@ namespace Saga
 			SagaMainApp uiSaga = DataStore.uiLanguage.sagaMainApp;
 			UIMainApp uiMain = DataStore.uiLanguage.uiMainApp;
 
-			fameContinueBtn.text = uiMain.continueBtn.ToUpper();
-			deploymentContinueBtn.text = uiMain.continueBtn.ToUpper();
-			activateContinueBtn.text = uiMain.continueBtn.ToUpper();
-			eventContinueBtn.text = uiMain.continueBtn.ToUpper();
+			fameContinueBtn.text = uiMain.continueBtn;
+			deploymentContinueBtn.text = uiMain.continueBtn;
+			activateContinueBtn.text = uiMain.continueBtn;
+			eventContinueBtn.text = uiMain.continueBtn;
 
-			fameHeading.text = uiMain.fameHeading.ToUpper();
-			awardsHeading.text = uiMain.awardsHeading.ToUpper();
+			fameHeading.text = uiMain.fameHeading;
+			awardsHeading.text = uiMain.awardsHeading;
 			fame1UC.text = uiMain.fame1UC;
 			fame2UC.text = uiMain.fame2UC;
 			fame1UC.text = uiMain.fame1UC;
@@ -29,13 +29,13 @@ namespace Saga
 			fameItem1UC.text = uiMain.fameItem1UC;
 			fameItem2UC.text = uiMain.fameItem2UC;
 
-			onslaughtDeploy.text = uiMain.deploy.ToUpper();
-			landingDeploy2.text = uiMain.deploy.ToUpper();
-			landingDeploy1.text = uiMain.deploy.ToUpper();
-			landingDeploy2.text = uiMain.deploy.ToUpper();
+			onslaughtDeploy.text = uiMain.deploy;
+			landingDeploy2.text = uiMain.deploy;
+			landingDeploy1.text = uiMain.deploy;
+			landingDeploy2.text = uiMain.deploy;
 
-			roundHeading.text = uiMain.roundHeading.ToUpper();
-			endRoundBtn.text = uiMain.endRoundBtn.ToUpper();
+			roundHeading.text = uiMain.roundHeading;
+			endRoundBtn.text = uiMain.endRoundBtn;
 
 			woundUC.text = uiSaga.woundUC;
 			//withdrawUC.text = uiSaga.withdrawUC;

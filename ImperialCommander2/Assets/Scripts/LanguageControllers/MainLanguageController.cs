@@ -15,33 +15,33 @@ public class MainLanguageController : MonoBehaviour
 	{
 		UIMainApp ui = DataStore.uiLanguage.uiMainApp;
 
-		deploymentHeading.text = ui.deploymentHeading.ToUpper();
-		reservedBtn.text = ui.reservedBtn.ToUpper();
-		allyBtn.text = ui.allyBtn.ToUpper();
-		enemyBtn.text = ui.enemyBtn.ToUpper();
-		randomBtn.text = ui.randomBtn.ToUpper();
-		modThreatHeading.text = ui.modThreatHeading.ToUpper();
-		applyBtn.text = ui.applyBtn.ToUpper();
-		roundHeading.text = ui.roundHeading.ToUpper();
-		depTypeHeading.text = ui.depTypeHeading.ToUpper();
-		eventHeading.text = ui.eventHeading.ToUpper();
-		randomHeading.text = ui.randomHeading.ToUpper();
-		randomConfirmBtn.text = ui.confirm.ToUpper();
-		randomCancelBtn.text = ui.cancel.ToUpper();
-		maxThreatHeading.text = ui.maxThreatHeading.ToUpper();
-		endRoundBtn.text = ui.endRoundBtn.ToUpper();
-		fameHeading.text = ui.fameHeading.ToUpper();
-		awardsHeading.text = ui.awardsHeading.ToUpper();
-		fameContinueBtn.text = ui.continueBtn.ToUpper();
-		deploymentContinueBtn.text = ui.continueBtn.ToUpper();
-		onslaughtDeploy.text = ui.deploy.ToUpper();
-		landingDeploy1.text = ui.deploy.ToUpper();
-		landingDeploy2.text = ui.deploy.ToUpper();
-		chooserCloseBtn.text = ui.close.ToUpper();
-		infoContinueBtn.text = ui.continueBtn.ToUpper();
-		zoomCloseBtn.text = ui.close.ToUpper();
-		activateContinueBtn.text = ui.continueBtn.ToUpper();
-		eventContinueBtn.text = ui.continueBtn.ToUpper();
+		deploymentHeading.text = ui.deploymentHeading;
+		reservedBtn.text = ui.reservedBtn;
+		allyBtn.text = ui.allyBtn;
+		enemyBtn.text = ui.enemyBtn;
+		randomBtn.text = ui.randomBtn;
+		modThreatHeading.text = ui.modThreatHeading;
+		applyBtn.text = ui.applyBtn;
+		roundHeading.text = ui.roundHeading;
+		depTypeHeading.text = ui.depTypeHeading;
+		eventHeading.text = ui.eventHeading;
+		randomHeading.text = ui.randomHeading;
+		randomConfirmBtn.text = ui.confirm;
+		randomCancelBtn.text = ui.cancel;
+		maxThreatHeading.text = ui.maxThreatHeading;
+		endRoundBtn.text = ui.endRoundBtn;
+		fameHeading.text = ui.fameHeading;
+		awardsHeading.text = ui.awardsHeading;
+		fameContinueBtn.text = ui.continueBtn;
+		deploymentContinueBtn.text = ui.continueBtn;
+		onslaughtDeploy.text = ui.deploy;
+		landingDeploy1.text = ui.deploy;
+		landingDeploy2.text = ui.deploy;
+		chooserCloseBtn.text = ui.close;
+		infoContinueBtn.text = ui.continueBtn;
+		zoomCloseBtn.text = ui.close;
+		activateContinueBtn.text = ui.continueBtn;
+		eventContinueBtn.text = ui.continueBtn;
 
 		fame1UC.text = ui.fame1UC;
 		fame2UC.text = ui.fame2UC;
@@ -50,7 +50,7 @@ public class MainLanguageController : MonoBehaviour
 		debugThreatUC.text = ui.debugThreatUC;
 		debugDepModUC.text = ui.debugDepModUC;
 		debugDepHandUC.text = ui.debugDepHandUC;
-		debugContinueBtn.text = ui.continueBtn.ToUpper();
+		debugContinueBtn.text = ui.continueBtn;
 		reinforceWarningUC.text = ui.reinforceWarningUC;
 		deploymentWarningUC.text = ui.deploymentWarningUC;
 		depWarningUC.text = ui.reinforceWarningUC;
@@ -58,16 +58,16 @@ public class MainLanguageController : MonoBehaviour
 		landingIncreasedUC.text = ui.threatIncreasedUC;
 		reinforceIncreasedUC.text = ui.threatIncreasedUC;
 		calmMessageUC.text = ui.calmMessageUC;
-		optionDeployment.text = ui.optionalDeployment.ToUpper();
+		optionDeployment.text = ui.optionalDeployment;
 
 		UIExpansions uie = DataStore.uiLanguage.uiExpansions;
-		coreHeading.text = uie.core.ToUpper();
-		twinHeading.text = uie.twin.ToUpper();
-		hothHeading.text = uie.hoth.ToUpper();
-		bespinHeading.text = uie.bespin.ToUpper();
-		jabbaHeading.text = uie.jabba.ToUpper();
-		empireHeading.text = uie.empire.ToUpper();
-		lothalHeading.text = uie.lothal.ToUpper();
-		otherHeading.text = uie.other.ToUpper();
+		coreHeading.text = uie.core;
+		twinHeading.text = uie.twin;
+		hothHeading.text = uie.hoth;
+		bespinHeading.text = uie.bespin;
+		jabbaHeading.text = uie.jabba;
+		empireHeading.text = uie.empire;
+		lothalHeading.text = uie.lothal;
+		otherHeading.text = uie.other;
 	}
 }

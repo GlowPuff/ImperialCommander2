@@ -19,7 +19,7 @@ public class CampaignJournal : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		popupBase.Show();
 
-		closeText.text = DataStore.uiLanguage.uiMainApp.continueBtn.ToUpper();
+		closeText.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 		placeholderText.text = DataStore.uiLanguage.sagaUISetup.campaignJournalUC;
 		journalText.text = text ?? "";
 		cb = callback;

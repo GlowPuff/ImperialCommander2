@@ -12,15 +12,15 @@ public class SettingsLanguageController : MonoBehaviour
 	{
 		UISettings ui = DataStore.uiLanguage.uiSettings;
 
-		settingsHeading.text = ui.settingsHeading.ToUpper();
-		music.text = ui.music.ToUpper();
-		sound.text = ui.sound.ToUpper();
-		bloom.text = ui.bloom.ToUpper();
-		vignette.text = ui.vignette.ToUpper();
-		quitBtn.text = ui.quit.ToUpper();
-		returnBtn.text = ui.returnBtn.ToUpper();
-		okBtn.text = ui.ok.ToUpper();
-		ambient.text = "AMBIENT";
-		quickClose.text = ui.quickClose.ToUpper();
+		settingsHeading.text = ui.settingsHeading;
+		music.text = ui.music;
+		sound.text = ui.sound;
+		bloom.text = ui.bloom;
+		vignette.text = ui.vignette;
+		quitBtn.text = ui.quit;
+		returnBtn.text = ui.returnBtn;
+		okBtn.text = ui.ok;
+		ambient.text = ui.ambient;
+		quickClose.text = ui.quickClose;
 	}
 }

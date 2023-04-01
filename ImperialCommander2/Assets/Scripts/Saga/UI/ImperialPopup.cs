@@ -16,13 +16,13 @@ namespace Saga
 
 		public void Show()
 		{
-			titleText.text = DataStore.uiLanguage.sagaMainApp.imperialMenu.ToUpper();
+			titleText.text = DataStore.uiLanguage.sagaMainApp.imperialMenu;
 			threat.text = DataStore.uiLanguage.uiMainApp.debugThreatUC;
 			threatValue.text = DataStore.sagaSessionData.gameVars.currentThreat.ToString();
 			depMod.text = DataStore.uiLanguage.uiMainApp.debugDepModUC;
 			depmodValue.text = DataStore.sagaSessionData.gameVars.deploymentModifier.ToString();
-			closeButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn.ToUpper();
-			threatText.text = DataStore.uiLanguage.uiMainApp.modThreatHeading.ToUpper();
+			closeButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+			threatText.text = DataStore.uiLanguage.uiMainApp.modThreatHeading;
 
 			//set toggle values
 			handBlocker.SetActive( true );

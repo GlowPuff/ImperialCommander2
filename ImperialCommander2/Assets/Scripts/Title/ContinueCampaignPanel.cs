@@ -17,9 +17,9 @@ namespace Saga
 
 		public void Show( Action onClose )
 		{
-			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
-			cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
-			titleText.text = DataStore.uiLanguage.uiTitle.loadCampaign.ToUpper();
+			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
+			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
+			titleText.text = DataStore.uiLanguage.uiTitle.loadCampaign;
 			callback = onClose;
 
 			selectedCampaign = Guid.Empty;

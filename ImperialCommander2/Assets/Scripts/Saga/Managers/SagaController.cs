@@ -75,8 +75,13 @@ namespace Saga
 			//DEBUG BOOTSTRAP A MISSION
 			//comment this out for production build
 #if DEBUG
-			bootstrapDEBUG();
-			//restoreDEBUG();//comment this out for production build
+			//bootstrapDEBUG() is a testing feature that allows you to enter a mission directly within Unity ("Saga" screen) without having to go through the Title screen first
+			//you can use an official mission code as a parameter, or leave it empty and modify the method directly to load a custom mission file for testing
+
+			//make sure we bootstrap a debug session ONLY within Unity
+			//if ( Application.isEditor )
+			//	bootstrapDEBUG();
+			//restoreDEBUG();//test restore session, comment this out for production build
 #endif
 
 			//apply settings
@@ -107,7 +112,7 @@ namespace Saga
 		{
 			Debug.Log( $"STARTING TUTORIAL {DataStore.sagaSessionData.setupOptions.tutorialIndex}" );
 
-			missionTitleText.text = $"Tutorial {DataStore.sagaSessionData.setupOptions.tutorialIndex}";
+			missionTitleText.text = DataStore.mission.missionProperties.missionName;
 			missionTitleText.DOFade( 1, 1 );
 			missionTitleText.DOFade( 0, 2 ).SetDelay( 3 );
 
@@ -365,7 +370,7 @@ namespace Saga
 		/// </summary>
 		void StartNewGame()
 		{
-			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n1";
+			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading.ToUpper() + "\r\n1";
 			//create deployment hand and manual deploy list
 			DataStore.CreateDeploymentHand( DataStore.sagaSessionData.EarnedVillains, DataStore.sagaSessionData.setupOptions.threatLevel );
 			DataStore.CreateManualDeployment();
@@ -375,7 +380,7 @@ namespace Saga
 			if ( DataStore.sagaSessionData.MissionHeroes.Count == 3 )
 			{
 				Debug.Log( "Creating dummy hero" );
-				dgManager.DeployHeroAlly( new DeploymentCard() { isDummy = true } );
+				dgManager.DeployHeroAlly( new DeploymentCard() { isDummy = true, mugShotPath = "CardThumbnails/bonus" } );
 			}
 			//deploy ally
 			if ( DataStore.sagaSessionData.selectedAlly != null )

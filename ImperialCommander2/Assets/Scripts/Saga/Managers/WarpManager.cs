@@ -33,7 +33,7 @@ public class WarpManager : MonoBehaviour
 
 		if ( DataStore.sagaSessionData != null
 			&& DataStore.sagaSessionData.setupOptions.isTutorial )
-			titleText.text = $"Tutorial {DataStore.sagaSessionData.setupOptions.tutorialIndex}";
+			titleText.text = DataStore.mission.missionProperties.missionName;
 		else if ( DataStore.sagaSessionData != null )
 		{
 			//get translated mission name

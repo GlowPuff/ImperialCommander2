@@ -45,6 +45,7 @@ public static class DataStore
 	public static List<BonusEffect> bonusEffects;
 	public static List<DeploymentSound> deploymentSounds;
 	public static Dictionary<string, List<MissionPreset>> missionPresets;
+	public static ThumbnailData thumbnailData;
 	public static Vector3[] pipColors = new Vector3[7]
 	{
 		(0.3301887f).ToVector3(),
@@ -113,9 +114,11 @@ public static class DataStore
 		LoadTranslatedData();
 
 		//load settings from local storage
-		ownedExpansions = new List<Expansion>();
-		//always add core
-		ownedExpansions.Add( Expansion.Core );
+		ownedExpansions = new List<Expansion>
+		{
+			//always add core
+			Expansion.Core
+		};
 		for ( int i = 0; i < expansions.Length; i++ )
 		{
 			//skip core, already added by default
@@ -161,6 +164,7 @@ public static class DataStore
 			cardEvents = LoadEvents();
 			activationInstructions = LoadInstructions();
 			bonusEffects = LoadBonusEffects();
+			thumbnailData = LoadThumbnailData();
 			//ui
 			uiLanguage = LoadUILanguage();
 			uiLanguage.uiDeploymentGroups = LoadDeploymentCardTranslations();
@@ -209,17 +213,14 @@ public static class DataStore
 		{
 			TextAsset json = Resources.Load<TextAsset>( $"CardData/{asset}" );
 			var obj = JsonConvert.DeserializeObject<List<DeploymentCard>>( json.text );
-			//set thumbnail path
+			//set default thumbnail path and outline color
 			foreach ( var item in obj )
 			{
-				if ( asset == "enemies" )
-					item.mugShotPath = $"Cards/Enemies/{item.expansion}/{item.id.Replace( "DG", "M" )}";
-				else if ( asset == "villains" )
-					item.mugShotPath = $"Cards/Villains/{item.id.Replace( "DG", "M" )}";
-				else if ( asset == "heroes" )
-					item.mugShotPath = $"Cards/Heroes/{item.id}";
-				else if ( asset == "allies" )
-					item.mugShotPath = $"Cards/Allies/{item.id.Replace( "A", "M" )}";
+				item.mugShotPath = $"CardThumbnails/Stock{item.characterType}{item.id.GetDigits()}";
+				if ( item.isElite || item.characterType == CharacterType.Villain )
+					item.deploymentOutlineColor = "Red";//default is already Blue
+				if ( item.characterType == CharacterType.Ally )
+					item.deploymentOutlineColor = "Green";
 			}
 
 			return obj;
@@ -229,7 +230,7 @@ public static class DataStore
 			Debug.Log( $"LoadCards() ERROR:\r\nError parsing {asset}.json" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
-			throw new Exception();
+			throw e;
 		}
 	}
 
@@ -245,7 +246,7 @@ public static class DataStore
 			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Events" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
-			throw new Exception();
+			throw e;
 		}
 	}
 
@@ -261,7 +262,7 @@ public static class DataStore
 			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Instructions" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
-			throw new Exception();
+			throw e;
 		}
 	}
 
@@ -277,7 +278,7 @@ public static class DataStore
 			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
-			throw new Exception();
+			throw e;
 		}
 	}
 
@@ -310,7 +311,7 @@ public static class DataStore
 			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing UI Language" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
-			throw new Exception();
+			throw e;
 		}
 	}
 
@@ -340,7 +341,7 @@ public static class DataStore
 			Debug.Log( $"LoadCardTranslations({asset}) ERROR:\r\nError parsing Card Languages" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
-			throw new Exception();
+			throw e;
 		}
 	}
 
@@ -385,7 +386,7 @@ public static class DataStore
 			Debug.Log( $"LoadMissionCardTranslations({asset}) ERROR:\r\nError parsing Card Languages" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
-			throw new Exception();
+			throw e;
 		}
 	}
 
@@ -426,6 +427,22 @@ public static class DataStore
 			Debug.Log( e );
 			LogError( e.Message );
 			throw new Exception();
+		}
+	}
+
+	public static ThumbnailData LoadThumbnailData()
+	{
+		try
+		{
+			TextAsset json = Resources.Load<TextAsset>( "CardData/thumbnails" );
+			return JsonConvert.DeserializeObject<ThumbnailData>( json.text );
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw e;
 		}
 	}
 

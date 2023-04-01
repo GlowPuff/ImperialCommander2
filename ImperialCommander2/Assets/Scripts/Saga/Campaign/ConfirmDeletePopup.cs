@@ -14,8 +14,8 @@ public class ConfirmDeletePopup : MonoBehaviour
 	public void Show( string name, Action onDelete )
 	{
 		nameText.text = name;
-		startText.text = DataStore.uiLanguage.uiTitle.delete.ToUpper();
-		cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+		startText.text = DataStore.uiLanguage.uiTitle.delete;
+		cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
 		callback = onDelete;
 
 		popupBase.Show();

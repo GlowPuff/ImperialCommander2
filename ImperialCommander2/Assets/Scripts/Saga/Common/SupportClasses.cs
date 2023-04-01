@@ -146,7 +146,8 @@ namespace Saga
 			{
 				var ovrd = new DeploymentGroupOverride( ced.enemyGroupData.cardID );
 				dgOverrides.Add( ovrd );
-				ovrd.isCustom = true;
+
+				ovrd.isCustomDeployment = true;
 				ovrd.customType = ced.customType;
 				//set name
 				ovrd.nameOverride = ced.enemyGroupData.cardName;
@@ -164,6 +165,8 @@ namespace Saga
 				ovrd.canRedeploy = ced.canRedeploy;
 				ovrd.canBeDefeated = ced.canBeDefeated;
 				ovrd.useResetOnRedeployment = ced.useResetOnRedeployment;
+				//outline color
+				ovrd.deploymentOutlineColor = ced.deploymentOutlineColor;
 
 				return ovrd;
 			}
@@ -374,5 +377,57 @@ namespace Saga
 	{
 		public List<MapSection> mapSections;
 		public List<TileDescriptor> tileDescriptors;
+	}
+
+	public class ThumbnailData
+	{
+		public List<Thumbnail> Other, Rebel, Imperial, Mercenary, StockImperial, StockAlly, StockHero, StockVillain;
+		List<Thumbnail> None = new List<Thumbnail>( new Thumbnail[] { new Thumbnail() { Name = "Select a Thumbnail", ID = "None" } } );
+		public Thumbnail NoneThumb => None[0];
+
+		public ThumbnailData()
+		{
+			Other = new List<Thumbnail>();
+			Rebel = new List<Thumbnail>();
+			Imperial = new List<Thumbnail>();
+			Mercenary = new List<Thumbnail>();
+			StockImperial = new List<Thumbnail>();
+			StockAlly = new List<Thumbnail>();
+			StockHero = new List<Thumbnail>();
+			StockVillain = new List<Thumbnail>();
+		}
+
+		public List<Thumbnail> Filter( ThumbType ttype )
+		{
+			switch ( ttype )
+			{
+				case ThumbType.All:
+					return None.Concat( Other ).Concat( Rebel ).Concat( Imperial ).Concat( Mercenary ).Concat( StockImperial ).Concat( StockAlly ).Concat( StockHero ).Concat( StockVillain ).ToList();
+				case ThumbType.Other:
+					return None.Concat( Other ).ToList();
+				case ThumbType.Rebel:
+					return None.Concat( Rebel ).ToList();
+				case ThumbType.Imperial:
+					return None.Concat( Imperial ).ToList();
+				case ThumbType.Mercenary:
+					return None.Concat( Mercenary ).ToList();
+				case ThumbType.StockImperial:
+					return None.Concat( StockImperial ).ToList();
+				case ThumbType.StockAlly:
+					return None.Concat( StockAlly ).ToList();
+				case ThumbType.StockHero:
+					return None.Concat( StockHero ).ToList();
+				case ThumbType.StockVillain:
+					return None.Concat( StockVillain ).ToList();
+				default:
+					return Other;
+			}
+		}
+	}
+
+	public class Thumbnail
+	{
+		public string Name { get; set; }//full name of icon's character
+		public string ID { get; set; }//basically the filename
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,27 +37,36 @@ public class DGPrefab : MonoBehaviour
 
 		ToggleExhausted( cd.hasActivated );
 
-		if ( DataStore.deploymentCards.Any( x => x.id == cd.id ) )
-		{
-			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-		}
-		else if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
-		{
-			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
+		if ( cd.characterType == Saga.CharacterType.Villain )
 			outline.effectColor = eliteColor;
-		}
-		else if ( cd.id == "DG070" )//handle custom group
-		{
-			iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
-		}
-		else//otherwise it's an ally
-		{
-			//Debug.Log( "ally" );
-			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "DG", "M" )}" );
-		}
 
-		if ( cd.isElite )
-			outline.effectColor = eliteColor;
+		//set the thumbnail
+		if ( cd.id == "DG070" )
+			iconImage.sprite = Resources.Load<Sprite>( "CardThumbnails/customToken" );
+		else
+			iconImage.sprite = Resources.Load<Sprite>( cd.mugShotPath ?? "CardThumbnails/none" );
+
+		//if ( DataStore.deploymentCards.Any( x => x.id == cd.id ) )
+		//{
+		//	iconImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
+		//}
+		//else if ( DataStore.villainCards.Any( x => x.id == cd.id ) )
+		//{
+		//	iconImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
+		//	outline.effectColor = eliteColor;
+		//}
+		//else if ( cd.id == "DG070" )//handle custom group
+		//{
+		//	iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
+		//}
+		//else//otherwise it's an ally
+		//{
+		//	//Debug.Log( "ally" );
+		//	iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "DG", "M" )}" );
+		//}
+
+		//if ( cd.isElite )
+		//	outline.effectColor = eliteColor;
 
 		SetColorIndex();
 

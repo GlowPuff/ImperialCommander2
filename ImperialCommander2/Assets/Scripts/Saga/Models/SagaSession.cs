@@ -55,8 +55,6 @@ namespace Saga
 			gameVars.fame = 0;
 
 			gameVars.currentThreat = 0;
-			//if ( allyThreatCost == YesNo.Yes && selectedAlly != null )
-			//	gameVars.currentThreat += selectedAlly.cost;
 			gameVars.currentThreat += setupOptions.addtlThreat;
 
 			gameVars.deploymentModifier = 0;

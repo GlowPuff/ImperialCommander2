@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +11,6 @@ public class HGPrefab : MonoBehaviour
 	public GameObject exhaustedOverlay;
 
 	DeploymentCard cardDescriptor;
-	bool isAlly = false;
-	bool isHero = false;
 
 	private void Awake()
 	{
@@ -28,23 +25,14 @@ public class HGPrefab : MonoBehaviour
 
 		if ( !cd.isDummy )
 		{
-			if ( DataStore.heroCards.Any( x => x.id == cd.id ) )
-			{
-				isHero = true;
-				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
-			}
-			else if ( DataStore.allyCards.Any( x => x.id == cd.id ) )
-			{
-				isAlly = true;
-				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
-			}
+			iconImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/Stock{cd.characterType}{cd.id.GetDigits()}" );
 
-			if ( cd.id[0] == 'A' )
+			if ( cd.characterType == Saga.CharacterType.Ally )
 				outline.effectColor = eliteColor;
 		}
 		else
 		{
-			iconImage.sprite = Resources.Load<Sprite>( "Cards/Heroes/bonus" );
+			iconImage.sprite = Resources.Load<Sprite>( "CardThumbnails/bonus" );
 			woundToggle.gameObject.SetActive( false );
 		}
 
@@ -122,7 +110,7 @@ public class HGPrefab : MonoBehaviour
 
 	public void OnPointerClick()
 	{
-		if ( cardDescriptor.isDummy || isHero )
+		if ( cardDescriptor.isDummy || cardDescriptor.characterType == Saga.CharacterType.Hero )//isHero )
 			return;
 		CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 		cardViewPopup.Show( cardDescriptor );
@@ -151,7 +139,7 @@ public class HGPrefab : MonoBehaviour
 		activationToggle1.gameObject.SetActive( false );
 		activationToggle2.gameObject.SetActive( false );
 
-		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && !isAlly )
+		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType != Saga.CharacterType.Ally )
 		{
 			activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
 			activationToggle2.isOn = cardDescriptor.heroState.hasActivated[1];
@@ -175,7 +163,7 @@ public class HGPrefab : MonoBehaviour
 		cardDescriptor.heroState.hasActivated[0] = false;
 		activationToggle1.gameObject.SetActive( true );
 
-		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && !isAlly )
+		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType != Saga.CharacterType.Ally )
 		{
 			activationToggle2.isOn = false;
 			cardDescriptor.heroState.hasActivated[1] = false;

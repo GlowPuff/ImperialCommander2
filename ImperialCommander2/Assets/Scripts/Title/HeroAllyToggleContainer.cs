@@ -62,17 +62,14 @@ public class HeroAllyToggleContainer : MonoBehaviour
 		else if ( chooserMode == ChooserMode.Ally )
 			heroCards = DataStore.allyCards.Where( x => x.expansion == expansion ).ToList();
 
-		Sprite thumbNail = null;
-
 		//activate toggle btns and change label for each card in list
 		for ( int i = 0; i < heroCards.Count; i++ )
 		{
 			var child = transform.GetChild( i );
 			child.gameObject.SetActive( true );
 
-			thumbNail = Resources.Load<Sprite>( $"Cards/Allies/{heroCards[i].id.Replace( heroCards[i].id[0], 'M' )}" );
 			var thumb = child.Find( "Image" );
-			thumb.GetComponent<Image>().sprite = thumbNail;
+			thumb.GetComponent<Image>().sprite = Resources.Load<Sprite>( heroCards[i].mugShotPath );
 			if ( !heroCards[i].isElite )
 				thumb.GetComponent<Image>().color = new Color( 1, 1, 1, 1 );
 			else

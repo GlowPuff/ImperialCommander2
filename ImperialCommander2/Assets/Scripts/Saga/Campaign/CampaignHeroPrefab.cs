@@ -54,10 +54,11 @@ namespace Saga
 
 			campaignHero = new CampaignHero()
 			{
-				heroID = card.id
+				heroID = card.id,
+				mugShotPath = card.mugShotPath
 			};
 			FindObjectOfType<CampaignManager>().AddHeroToCampaign( campaignHero );
-			mug.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{card.id}" );
+			mug.sprite = Resources.Load<Sprite>( card.mugShotPath );
 			xpLabelText.text = DataStore.uiLanguage.uiCampaign.xpUC;
 		}
 
@@ -101,7 +102,7 @@ namespace Saga
 				Destroy( child.gameObject );
 			//hero
 			campaignHero = hero;
-			mug.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{hero.heroID}" );
+			mug.sprite = Resources.Load<Sprite>( hero.mugShotPath );
 			mWheelHandler.ResetWheeler( hero.xpAmount );
 			xpLabelText.text = DataStore.uiLanguage.uiCampaign.xpUC;
 			//skills

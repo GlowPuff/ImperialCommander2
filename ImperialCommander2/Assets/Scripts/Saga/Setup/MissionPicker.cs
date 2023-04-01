@@ -311,14 +311,14 @@ namespace Saga
 			if ( pickerMode == PickerMode.Custom )
 			{
 				pickerMode = PickerMode.BuiltIn;
-				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.officialBtn.ToUpper();
+				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.officialBtn;
 				basePath = "BuiltIn";
 				OnChangeBuiltinFolder( basePath );
 			}
 			else
 			{
 				pickerMode = PickerMode.Custom;
-				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn.ToUpper();
+				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn;
 #if UNITY_ANDROID
 				basePath = Application.persistentDataPath + "/CustomMissions";
 #else

@@ -13,8 +13,8 @@ public class TutorialPanel : MonoBehaviour
 
 	public void Show( int index )
 	{
-		startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn.ToUpper();
-		cancelText.text = DataStore.uiLanguage.uiSetup.cancel.ToUpper();
+		startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
+		cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
 		tutIndex = index + 1;
 
 		//try to load the mission in selected language

@@ -20,7 +20,7 @@ namespace Saga
 
 			callback = cb;
 
-			continueBtn.text = DataStore.uiLanguage.uiSetup.continueBtn.ToUpper();
+			continueBtn.text = DataStore.uiLanguage.uiSetup.continueBtn;
 			infoText.text = Utils.ReplaceGlyphs( DataStore.uiLanguage.sagaMainApp.medpacInfoUC );
 			medpacCounterText.text = DataStore.sagaSessionData.gameVars.medPacCount.ToString();
 		}

@@ -9,7 +9,6 @@ namespace Saga
 	{
 		public Toggle[] countToggles;
 		public Image colorPip, iconImage, outlineColor;
-		//public Outline outline;
 		public Color eliteColor;
 		public Color[] colors;
 		public GameObject exhaustedOverlay, modifierBox;
@@ -44,27 +43,25 @@ namespace Saga
 			ToggleExhausted( cd.hasActivated );
 
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && ovrd.isCustom )
+			//set cardDescriptor to the custom deployment's DeploymentCard
+			if ( ovrd != null && ovrd.isCustomDeployment )
 				cardDescriptor = ovrd.customCard;
 
-			//cardDescriptor.hasDeployed = true;
 			if ( cd.id == "DG070" )//handle custom group (this isn't even in Saga)
-				iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
+				iconImage.sprite = Resources.Load<Sprite>( "CardThumbnails/customToken" );
 			else
 				iconImage.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
 
+			//initial groups can use a generic mugshot
 			if ( ovrd != null && ovrd.useGenericMugshot )
 			{
-				iconImage.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
-				//custom groups can use either a Rebel OR Imperial mugshot
-				if ( ovrd.isCustom )//this isn't necessary, correct sprite already set at #54
-				{
-					iconImage.sprite = Resources.Load<Sprite>( ovrd.customCard.mugShotPath );
-				}
+				iconImage.sprite = Resources.Load<Sprite>( "CardThumbnails/genericEnemy" );
 			}
 
-			if ( cardDescriptor.isElite )
-				outlineColor.color = eliteColor;
+			//outline color
+			outlineColor.color = Utils.String2UnityColor( cd.deploymentOutlineColor );
+			if ( ovrd != null && !string.IsNullOrEmpty( ovrd.deploymentOutlineColor ) )
+				outlineColor.color = Utils.String2UnityColor( ovrd.deploymentOutlineColor );
 
 			SetColorIndex();
 
@@ -312,7 +309,7 @@ namespace Saga
 				} );
 			}
 			else
-				GlowEngine.FindUnityObject<QuickMessage>().Show( "This group cannot be defeated." );
+				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.sagaMainApp.cannotDefeatUC );
 
 			//trigger on defeated Trigger, if it exists
 			if ( ovrd != null )
@@ -365,7 +362,8 @@ namespace Saga
 			}
 
 			if ( cardDescriptor.id != "DG070"
-			&& !DataStore.villainCards.ContainsCard( cardDescriptor )
+			&& cardDescriptor.characterType != CharacterType.Villain
+			//!DataStore.villainCards.ContainsCard( cardDescriptor )
 			&& returnToHand )
 			{
 				DataStore.deploymentHand.Add( cardDescriptor );
