@@ -178,7 +178,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		if ( ovrd != null )
 		{
 			//name override
-			enemyName.text = ovrd.nameOverride.ToLower();
+			enemyName.text = ovrd.nameOverride.ToUpper();
 			//check for modififier override
 			if ( ovrd.showMod && !string.IsNullOrEmpty( ovrd.modification.Trim() ) )
 			{
