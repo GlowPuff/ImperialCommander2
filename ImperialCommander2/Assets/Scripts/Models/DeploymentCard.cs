@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using Saga;
 
 public class DeploymentCard : IEquatable<DeploymentCard>
 {
 	//== data from JSON
-	[JsonIgnore]
+	//[JsonIgnore]
 	public string name;
 	public string id;
 	public CharacterType characterType;
@@ -19,21 +18,21 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	public int fame;
 	public int reimb;
 	public string expansion;
-	[JsonIgnore]
+	//[JsonIgnore]
 	public string ignored;
 	public bool isElite;
 	public bool isHero { get; set; }
-	[JsonIgnore]
+	//[JsonIgnore]
 	public string subname;
 	public int health;
 	public int speed;
-	[JsonIgnore]
+	//[JsonIgnore]
 	public string[] traits;
-	[JsonIgnore]
+	//[JsonIgnore]
 	public string[] surges;
-	[JsonIgnore]
+	//[JsonIgnore]
 	public string[] keywords;
-	[JsonIgnore]
+	//[JsonIgnore]
 	public GroupAbility[] abilities;
 	public DiceColor[] defense;
 	public DiceColor[] attacks;

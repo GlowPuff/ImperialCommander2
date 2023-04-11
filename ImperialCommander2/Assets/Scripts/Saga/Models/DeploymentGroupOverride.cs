@@ -65,7 +65,7 @@ namespace Saga
 			deploymentPoint = DeploymentSpot.Active;
 			var card = DataStore.GetEnemy( cardID );
 			if ( card != null )
-				deploymentOutlineColor = (bool)(DataStore.GetEnemy( cardID )?.isElite) ? "Red" : "Blue";
+				deploymentOutlineColor = (bool)(DataStore.GetEnemy( cardID )?.isElite) ? "Red" : card.deploymentOutlineColor;
 
 			changeInstructions = null;
 			changeTarget = null;

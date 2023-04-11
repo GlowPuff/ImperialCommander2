@@ -80,7 +80,7 @@ namespace Saga
 
 			//make sure we bootstrap a debug session ONLY within Unity
 			//if ( Application.isEditor )
-			//	bootstrapDEBUG();
+			//bootstrapDEBUG();
 			//restoreDEBUG();//test restore session, comment this out for production build
 #endif
 
@@ -137,6 +137,7 @@ namespace Saga
 			{
 				Debug.Log( "STARTING NEW GAME" );
 				DataStore.sagaSessionData.InitGameVars();
+
 				ResetUI( () =>
 				{
 					//load the Mission parameters
@@ -194,12 +195,14 @@ namespace Saga
 					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
 					difficulty = Difficulty.Medium,
 					threatLevel = 3,
-					useAdaptiveDifficulty = true,
+					useAdaptiveDifficulty = false,
 				} );
 
 				//try to load the mission
 				DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename, out string missionStringified );
 				DataStore.sagaSessionData.missionStringified = missionStringified;
+				//add custom characters and associated data to DataStore
+				DataStore.AddCustomCardsToPools();
 			}
 			else
 			{
@@ -221,6 +224,8 @@ namespace Saga
 					{
 						DataStore.sagaSessionData.missionStringified = x.Result.text;
 						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
+						//add custom characters and associated data to DataStore
+						DataStore.AddCustomCardsToPools();
 						if ( DataStore.mission == null )
 							errorPanel.Show( "StartMission()", $"Could not load mission:\n'{missionCode}'" );
 					}
@@ -370,6 +375,9 @@ namespace Saga
 		/// </summary>
 		void StartNewGame()
 		{
+			//add custom characters and associated data to DataStore
+			DataStore.AddCustomCardsToPools();
+
 			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading.ToUpper() + "\r\n1";
 			//create deployment hand and manual deploy list
 			DataStore.CreateDeploymentHand( DataStore.sagaSessionData.EarnedVillains, DataStore.sagaSessionData.setupOptions.threatLevel );
@@ -436,7 +444,7 @@ namespace Saga
 
 		void StartupLayoutAndEvents()
 		{
-			//layout starting groups
+			//deploy starting groups
 			dgManager.DeployStartingGroups( () =>
 				 {
 					 Action action = () =>
@@ -474,11 +482,14 @@ namespace Saga
 		bool ContinueGame()
 		{
 			StateManager sm = new StateManager();
-			//Restore session, hand, manual deck, deployed enemies, allies/heroes
+			//Restore session, hand, manual deck, deployed enemies, allies/heroes, custom data
 			if ( !DataStore.sagaSessionData.LoadState( sm ) )
 				return false;
 
 			Debug.Log( $"ContinueGame()::{DataStore.mission.fileName}" );
+
+			//add custom characters and associated data to DataStore
+			DataStore.AddCustomCardsToPools();
 
 			var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
 			if ( card != null )//official mission

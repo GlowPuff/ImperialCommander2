@@ -73,6 +73,7 @@ public static class DataStore
 	/// <summary>
 	/// Creates all card lists, load app settings, mission presets and translations, saga mode
 	/// Called when app starts
+	/// Add Custom Characters BEFORE InitData
 	/// </summary>
 	public static void InitData()
 	{
@@ -462,6 +463,35 @@ public static class DataStore
 		Expansion xp = (Expansion)Enum.Parse( typeof( Expansion ), exp );
 		if ( ownedExpansions.Contains( xp ) )
 			ownedExpansions.Remove( xp );
+	}
+
+	/// <summary>
+	/// Adds custom cards and associated data to the DataStore (Imperials, villains, allies, instructions, bonus effects), call AFTER InitData
+	/// </summary>
+	public static void AddCustomCardsToPools()
+	{
+		if ( mission != null )
+		{
+			foreach ( var item in mission.customCharacters )
+			{
+				//add non-villains
+				if ( item.characterType == CharacterType.Imperial )
+					deploymentCards.Add( item.deploymentCard );
+				//add villains
+				else if ( item.characterType == CharacterType.Villain )
+					villainCards.Add( item.deploymentCard );
+				//add allies
+				else if ( item.characterType == CharacterType.Ally )
+					allyCards.Add( item.deploymentCard );
+
+				//activation instructions
+				activationInstructions.Add( item.cardInstruction );
+				//bonus effects
+				bonusEffects.Add( item.bonusEffect );
+			}
+		}
+		else
+			Debug.Log( "AddCustomCardsToPools()::Mission is NULL, skipping" );
 	}
 
 	public static void CreateManualDeployment()

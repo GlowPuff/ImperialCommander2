@@ -97,21 +97,21 @@ public class DynamicCardPrefab : MonoBehaviour
 		//mugshot
 		mugshot.sprite = Resources.Load<Sprite>( card.mugShotPath );
 		//handle override for non-custom groups (generic mugshot)
-		if ( DataStore.gameType == GameType.Saga )
-		{
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-			if ( ovrd != null && !ovrd.isCustomDeployment && ovrd.useGenericMugshot )
-			{
-				if ( card.mugShotPath.Contains( "Allies" ) )
-					mugshot.sprite = Resources.Load<Sprite>( "Cards/genericAlly" );
-				else
-					mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
-			}
-		}
+		//if ( DataStore.gameType == GameType.Saga )
+		//{
+		//	var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+		//	if ( ovrd != null && !ovrd.isCustomDeployment && ovrd.useGenericMugshot )
+		//	{
+		//		if ( card.characterType == CharacterType.Imperial || card.characterType == CharacterType.Villain )
+		//			mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericEnemy" );
+		//		else
+		//			mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericAlly" );
+		//	}
+		//}
 
 		if ( cd.id == "DG070" )//handle custom group
 		{
-			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Enemies/Other/M070" );
+			mugshot.sprite = Resources.Load<Sprite>( $"CardThumbnails/customToken" );
 			faction.gameObject.SetActive( false );
 		}
 
@@ -119,14 +119,15 @@ public class DynamicCardPrefab : MonoBehaviour
 		if ( card.isElite )
 		{
 			cardColor.color = new Color( 1f, 40f / 255f, 0 );
-			mugshotOutline.color = new Color( 1, 40f / 255f, 0 );
+			//mugshotOutline.color = new Color( 1, 40f / 255f, 0 );
 		}
 		else
 		{
 			cardColor.color = new Color( 0, 164 / 255f, 1 );
-			mugshotOutline.color = new Color( 0, 164f / 255f, 1 );
+			//mugshotOutline.color = new Color( 0, 164f / 255f, 1 );
 		}
-		expansion.color = mugshotOutline.color;
+		mugshotOutline.color = Utils.String2UnityColor( card.deploymentOutlineColor );
+		expansion.color = Utils.String2UnityColor( card.deploymentOutlineColor );//mugshotOutline.color;
 
 		///IS COST THE SAME AS THREAT COST FROM OVERRIDE?
 		//numbers
@@ -142,7 +143,11 @@ public class DynamicCardPrefab : MonoBehaviour
 			if ( ovrd != null && ovrd.useGenericMugshot && !ovrd.isCustomDeployment )
 			{
 				//mugshot
-				mugshot.sprite = Resources.Load<Sprite>( "Cards/genericEnemy" );
+				if ( card.characterType == CharacterType.Imperial || card.characterType == CharacterType.Villain )
+					mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericEnemy" );
+				else
+					mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericAlly" );
+				//mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericEnemy" );
 				//and clear out ALL data
 				//no faction
 				faction.gameObject.SetActive( false );

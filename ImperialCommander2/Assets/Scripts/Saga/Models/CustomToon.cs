@@ -12,14 +12,13 @@ namespace Saga
 
 		public string groupAttack;
 		public string groupDefense;
-		public string outlineColor;
 		public GroupPriorityTraits groupPriorityTraits;
 
 		public DeploymentCard deploymentCard;
 
 		public CharacterType characterType;
 		public Thumbnail thumbnail;
-		public string bonuses;
+		public BonusEffect bonusEffect;
 		public CardInstruction cardInstruction;
 
 		public bool canRedeploy;
