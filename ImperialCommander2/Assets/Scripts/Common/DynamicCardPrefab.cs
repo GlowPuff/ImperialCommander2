@@ -96,18 +96,6 @@ public class DynamicCardPrefab : MonoBehaviour
 
 		//mugshot
 		mugshot.sprite = Resources.Load<Sprite>( card.mugShotPath );
-		//handle override for non-custom groups (generic mugshot)
-		//if ( DataStore.gameType == GameType.Saga )
-		//{
-		//	var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
-		//	if ( ovrd != null && !ovrd.isCustomDeployment && ovrd.useGenericMugshot )
-		//	{
-		//		if ( card.characterType == CharacterType.Imperial || card.characterType == CharacterType.Villain )
-		//			mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericEnemy" );
-		//		else
-		//			mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericAlly" );
-		//	}
-		//}
 
 		if ( cd.id == "DG070" )//handle custom group
 		{
@@ -147,7 +135,6 @@ public class DynamicCardPrefab : MonoBehaviour
 					mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericEnemy" );
 				else
 					mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericAlly" );
-				//mugshot.sprite = Resources.Load<Sprite>( "CardThumbnails/genericEnemy" );
 				//and clear out ALL data
 				//no faction
 				faction.gameObject.SetActive( false );

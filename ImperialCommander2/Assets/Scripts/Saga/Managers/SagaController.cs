@@ -73,14 +73,15 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
+			bool debug = false;
 			//comment this out for production build
 #if DEBUG
-			//bootstrapDEBUG() is a testing feature that allows you to enter a mission directly within Unity ("Saga" screen) without having to go through the Title screen first
-			//you can use an official mission code as a parameter, or leave it empty and modify the method directly to load a custom mission file for testing
+			//bootstrapDEBUG() is a testing feature that allows you to enter a mission directly within Unity ( from the "Saga" screen) without having to go through the Title screen first
+			//You can use an official mission code as a parameter, or leave it empty and modify the method directly to load a custom mission file for testing
 
 			//make sure we bootstrap a debug session ONLY within Unity
-			//if ( Application.isEditor )
-			//bootstrapDEBUG();
+			if ( debug && Application.isEditor )
+				bootstrapDEBUG();
 			//restoreDEBUG();//test restore session, comment this out for production build
 #endif
 
@@ -185,6 +186,7 @@ namespace Saga
 		{
 			//in a non-debug game, the following is already set at the Saga setup screen
 			Debug.Log( "***BOOTSTRAP DEBUG***" );
+			FileManager.SetupDefaultFolders();
 			DataStore.InitData();
 
 			if ( string.IsNullOrEmpty( missionCode ) )
@@ -192,7 +194,7 @@ namespace Saga
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
-					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "atest.json" ) },
+					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( FileManager.baseDocumentFolder, "atest.json" ) },
 					difficulty = Difficulty.Medium,
 					threatLevel = 3,
 					useAdaptiveDifficulty = false,
@@ -201,8 +203,6 @@ namespace Saga
 				//try to load the mission
 				DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename, out string missionStringified );
 				DataStore.sagaSessionData.missionStringified = missionStringified;
-				//add custom characters and associated data to DataStore
-				DataStore.AddCustomCardsToPools();
 			}
 			else
 			{
@@ -224,8 +224,6 @@ namespace Saga
 					{
 						DataStore.sagaSessionData.missionStringified = x.Result.text;
 						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
-						//add custom characters and associated data to DataStore
-						DataStore.AddCustomCardsToPools();
 						if ( DataStore.mission == null )
 							errorPanel.Show( "StartMission()", $"Could not load mission:\n'{missionCode}'" );
 					}
@@ -283,16 +281,8 @@ namespace Saga
 				if ( DataStore.mission == null )
 					return false;
 
-				//var missionCard = DataStore.GetMissionCard( DataStore.mission.missionProperties.missionID );
-				//if this is an official mission, grab the mission type from the card list
-				//if ( missionCard != null )
-				//{
-				//	if ( missionCard.missionType.Contains( global::MissionType.Side ) )
-				//	{
-				//		Debug.Log( "ParseMission()::SIDE MISSION DETECTED" );
-				//		DataStore.sagaSessionData.ModifyThreat( 2 * DataStore.sagaSessionData.setupOptions.threatLevel, true );
-				//	}
-				//}//else if it's a custom ission, grab mission type from the Properties
+				//add custom characters and associated data to DataStore
+				DataStore.AddCustomCardsToPools();
 
 				//add threat if it's a side mission
 				if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
@@ -320,7 +310,8 @@ namespace Saga
 					//create override for enemyGroupData
 					var ovrd = DataStore.sagaSessionData.gameVars.CreateDeploymentOverride( g.cardID );
 					ovrd.SetEnemyDeploymentOverride( g );
-					DataStore.sagaSessionData.MissionStarting.Add( card );
+					if ( card != null )
+						DataStore.sagaSessionData.MissionStarting.Add( card );
 				}
 				//reserved groups
 				foreach ( var g in DataStore.mission.reservedDeploymentGroups )
@@ -375,9 +366,6 @@ namespace Saga
 		/// </summary>
 		void StartNewGame()
 		{
-			//add custom characters and associated data to DataStore
-			DataStore.AddCustomCardsToPools();
-
 			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading.ToUpper() + "\r\n1";
 			//create deployment hand and manual deploy list
 			DataStore.CreateDeploymentHand( DataStore.sagaSessionData.EarnedVillains, DataStore.sagaSessionData.setupOptions.threatLevel );

@@ -441,6 +441,7 @@ namespace Saga
 			{
 				foreach ( var item in rg.groupsToAdd )
 				{
+
 					DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
 				}
 			}

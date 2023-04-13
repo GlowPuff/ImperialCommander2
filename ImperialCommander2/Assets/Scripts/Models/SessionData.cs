@@ -5,6 +5,9 @@ using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 
+/// <summary>
+/// Classic mode Session
+/// </summary>
 [JsonObject( MemberSerialization.OptOut )]
 public class SessionData
 {
@@ -229,7 +232,7 @@ public class SessionData
 		Debug.Log( "Set DeploymentModifier: " + gameVars.deploymentModifier );
 	}
 
-	public void SaveSession( string baseFolder )
+	public void SaveSession()
 	{
 		//bug out if this was called in Saga mode
 		if ( DataStore.gameType == GameType.Saga )
@@ -238,17 +241,12 @@ public class SessionData
 			return;
 		}
 
-		string basePath = Path.Combine( Application.persistentDataPath, baseFolder );
-
 		try
 		{
-			if ( !Directory.Exists( basePath ) )
-				Directory.CreateDirectory( basePath );
-
 			//save the session data
 			gameVars.isNewGame = false;//mark this as a saved session
 			string output = JsonConvert.SerializeObject( this, Formatting.Indented );
-			string outpath = Path.Combine( basePath, "sessiondata.json" );
+			string outpath = Path.Combine( Saga.FileManager.classicSessionPath, "sessiondata.json" );
 			using ( var stream = File.CreateText( outpath ) )
 			{
 				stream.Write( output );
@@ -256,7 +254,7 @@ public class SessionData
 
 			//==save card lists
 			//deployment hand
-			outpath = Path.Combine( basePath, "deploymenthand.json" );
+			outpath = Path.Combine( Saga.FileManager.classicSessionPath, "deploymenthand.json" );
 			output = JsonConvert.SerializeObject( DataStore.deploymentHand, Formatting.Indented );
 			using ( var stream = File.CreateText( outpath ) )
 			{
@@ -264,7 +262,7 @@ public class SessionData
 			}
 
 			//manual deployment deck
-			outpath = Path.Combine( basePath, "manualdeployment.json" );
+			outpath = Path.Combine( Saga.FileManager.classicSessionPath, "manualdeployment.json" );
 			output = JsonConvert.SerializeObject( DataStore.manualDeploymentList, Formatting.Indented );
 			using ( var stream = File.CreateText( outpath ) )
 			{
@@ -272,7 +270,7 @@ public class SessionData
 			}
 
 			//deployed enemies
-			outpath = Path.Combine( basePath, "deployedenemies.json" );
+			outpath = Path.Combine( Saga.FileManager.classicSessionPath, "deployedenemies.json" );
 			output = JsonConvert.SerializeObject( DataStore.deployedEnemies, Formatting.Indented );
 			using ( var stream = File.CreateText( outpath ) )
 			{
@@ -280,7 +278,7 @@ public class SessionData
 			}
 
 			//deployed heroes
-			outpath = Path.Combine( basePath, "heroesallies.json" );
+			outpath = Path.Combine( Saga.FileManager.classicSessionPath, "heroesallies.json" );
 			output = JsonConvert.SerializeObject( DataStore.deployedHeroes, Formatting.Indented );
 			using ( var stream = File.CreateText( outpath ) )
 			{
@@ -288,7 +286,7 @@ public class SessionData
 			}
 
 			//remaining events (so same events aren't triggered again when loading a session
-			outpath = Path.Combine( basePath, "events.json" );
+			outpath = Path.Combine( Saga.FileManager.classicSessionPath, "events.json" );
 			output = JsonConvert.SerializeObject( DataStore.cardEvents, Formatting.Indented );
 			using ( var stream = File.CreateText( outpath ) )
 			{
@@ -299,23 +297,17 @@ public class SessionData
 		}
 		catch ( Exception e )
 		{
-			Debug.Log( "***ERROR*** SaveSession:: " + e.Message );
-			DataStore.LogError( "SaveSession() TRACE:\r\n" + e.Message );
+			Saga.Utils.LogError( "SaveSession()::" + e.Message );
 		}
 	}
 
 	public bool SaveDefaults()
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, "Defaults" );
-
 		try
 		{
-			if ( !Directory.Exists( basePath ) )
-				Directory.CreateDirectory( basePath );
-
 			//save the session data
 			string output = JsonConvert.SerializeObject( this, Formatting.Indented );
-			string outpath = Path.Combine( basePath, "sessiondata.json" );
+			string outpath = Path.Combine( Saga.FileManager.classicDefaultsPath, "sessiondata.json" );
 			using ( var stream = File.CreateText( outpath ) )
 			{
 				stream.Write( output );
@@ -325,7 +317,7 @@ public class SessionData
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** SaveDefaults:: " + e.Message );
-			DataStore.LogError( "SaveDefaults() TRACE:\r\n" + e.Message );
+			Saga.Utils.LogError( "SaveDefaults()::" + e.Message );
 			return false;
 		}
 	}

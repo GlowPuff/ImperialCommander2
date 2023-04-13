@@ -46,6 +46,7 @@ public static class DataStore
 	public static List<DeploymentSound> deploymentSounds;
 	public static Dictionary<string, List<MissionPreset>> missionPresets;
 	public static ThumbnailData thumbnailData;
+	public static List<CustomToon> standaloneDesignedCharacters;
 	public static Vector3[] pipColors = new Vector3[7]
 	{
 		(0.3301887f).ToVector3(),
@@ -89,6 +90,7 @@ public static class DataStore
 		villainsToManuallyAdd = new List<DeploymentCard>();
 		deploymentSounds = new List<DeploymentSound>();
 		missionPresets = new Dictionary<string, List<MissionPreset>>();
+		standaloneDesignedCharacters = new List<CustomToon>();
 		mission = null;
 
 		cardEvents = new List<CardEvent>();
@@ -99,6 +101,8 @@ public static class DataStore
 		deploymentSounds = LoadDeploymentSounds();
 		//load mission presets
 		LoadMissionPresets();
+		//load standalone designed characters
+		standaloneDesignedCharacters = FileManager.LoadStandaloneCharacters();
 
 		//setup language
 		//default language playerprefs key should be set by now, but just in case...
@@ -228,9 +232,7 @@ public static class DataStore
 		}
 		catch ( JsonException e )
 		{
-			Debug.Log( $"LoadCards() ERROR:\r\nError parsing {asset}.json" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadCards()::Error parsing {asset}.json\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -244,9 +246,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Events" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadTranslatedData()::Error parsing Events\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -260,9 +260,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Instructions" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadTranslatedData() ERROR:\r\nError parsing Instructions\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -276,9 +274,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -309,9 +305,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing UI Language" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadTranslatedData() ERROR:\r\nError parsing UI Language\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -339,9 +333,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadCardTranslations({asset}) ERROR:\r\nError parsing Card Languages" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadCardTranslations({asset})::Error parsing Card Languages\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -384,9 +376,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadMissionCardTranslations({asset}) ERROR:\r\nError parsing Card Languages" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadMissionCardTranslations({asset})::Error parsing Card Languages\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -424,9 +414,7 @@ public static class DataStore
 		}
 		catch ( Exception e )
 		{
-			Debug.Log( $"SetCardTranslations() ERROR:\r\nError parsing card data" );
-			Debug.Log( e );
-			LogError( e.Message );
+			Utils.LogError( $"SetCardTranslations()::Error parsing card data\n{e.Message}" );
 			throw new Exception();
 		}
 	}
@@ -440,9 +428,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects" );
-			Debug.Log( e.Message );
-			LogError( e.Message );
+			Utils.LogError( $"LoadTranslatedData()::Error parsing Bonus Effects\n{e.Message}" );
 			throw e;
 		}
 	}
@@ -475,13 +461,13 @@ public static class DataStore
 			foreach ( var item in mission.customCharacters )
 			{
 				//add non-villains
-				if ( item.characterType == CharacterType.Imperial )
+				if ( item.deploymentCard.characterType == CharacterType.Imperial )
 					deploymentCards.Add( item.deploymentCard );
 				//add villains
-				else if ( item.characterType == CharacterType.Villain )
+				else if ( item.deploymentCard.characterType == CharacterType.Villain )
 					villainCards.Add( item.deploymentCard );
 				//add allies
-				else if ( item.characterType == CharacterType.Ally )
+				else if ( item.deploymentCard.characterType == CharacterType.Ally )
 					allyCards.Add( item.deploymentCard );
 
 				//activation instructions
@@ -603,13 +589,11 @@ public static class DataStore
 	/// </summary>
 	public static bool LoadState()
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, "Session" );
-
 		string json = "";
 		try
 		{
 			//deployment hand
-			string path = Path.Combine( basePath, "deploymenthand.json" );
+			string path = Path.Combine( FileManager.classicSessionPath, "deploymenthand.json" );
 			using ( StreamReader sr = new StreamReader( path ) )
 			{
 				json = sr.ReadToEnd();
@@ -617,7 +601,7 @@ public static class DataStore
 			deploymentHand = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//manual deployment deck
-			path = Path.Combine( basePath, "manualdeployment.json" );
+			path = Path.Combine( FileManager.classicSessionPath, "manualdeployment.json" );
 			using ( StreamReader sr = new StreamReader( path ) )
 			{
 				json = sr.ReadToEnd();
@@ -625,7 +609,7 @@ public static class DataStore
 			manualDeploymentList = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//deployed enemies
-			path = Path.Combine( basePath, "deployedenemies.json" );
+			path = Path.Combine( FileManager.classicSessionPath, "deployedenemies.json" );
 			using ( StreamReader sr = new StreamReader( path ) )
 			{
 				json = sr.ReadToEnd();
@@ -633,7 +617,7 @@ public static class DataStore
 			deployedEnemies = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//deployed heroes
-			path = Path.Combine( basePath, "heroesallies.json" );
+			path = Path.Combine( FileManager.classicSessionPath, "heroesallies.json" );
 			using ( StreamReader sr = new StreamReader( path ) )
 			{
 				json = sr.ReadToEnd();
@@ -641,7 +625,7 @@ public static class DataStore
 			deployedHeroes = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
 			//remaining events
-			path = Path.Combine( basePath, "events.json" );
+			path = Path.Combine( FileManager.classicSessionPath, "events.json" );
 			using ( StreamReader sr = new StreamReader( path ) )
 			{
 				json = sr.ReadToEnd();
@@ -659,16 +643,9 @@ public static class DataStore
 		}
 		catch ( Exception e )
 		{
-			Debug.Log( "***ERROR*** LoadState:: " + e.Message );
-			File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+			Utils.LogError( "LoadState()::" + e.Message );
 			return false;
 		}
-	}
-
-	public static void LogError( string error )
-	{
-		string basePath = Application.persistentDataPath;
-		File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "ERROR TRACE:\r\n" + error );
 	}
 
 	/// <summary>

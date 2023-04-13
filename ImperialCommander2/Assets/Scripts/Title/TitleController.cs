@@ -84,8 +84,8 @@ public class TitleController : MonoBehaviour
 		//save defaults
 		PlayerPrefs.Save();
 
-		//create required folders in persistentDataPath
-		FileManager.CreateFolders();
+		//create default folders
+		FileManager.SetupDefaultFolders();
 
 		RunningCampaign.Reset();
 		//create all card lists, load app settings, mission presets and translations
@@ -103,8 +103,8 @@ public class TitleController : MonoBehaviour
 			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 		//check if saved state is valid
-		continueButton.interactable = IsSagaSessionValid( "SagaSession" );
-		campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
+		continueButton.interactable = IsSagaSessionValid( SessionMode.Saga );
+		campaignContinueButton.interactable = IsSagaSessionValid( SessionMode.Campaign );
 		campaignLoadButton.interactable = FileManager.GetCampaigns().Count > 0;
 
 		FindObjectOfType<Sound>().CheckAudio();
@@ -149,7 +149,7 @@ public class TitleController : MonoBehaviour
 		//args = new string[2] { "foo.exe", "atest.json" };//"CORE1-A New Threat.json" };//DEBUG TESTING
 		if ( args.Length == 2 )
 		{
-			string path = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", args[1] );
+			string path = Path.Combine( FileManager.baseDocumentFolder, args[1] );
 			var setupOptions = new SagaSetupOptions()
 			{
 				difficulty = Difficulty.Medium,
@@ -260,7 +260,7 @@ public class TitleController : MonoBehaviour
 		}
 		else
 		{
-			SagaSession session = LoadSagaSession( "SagaSession" );
+			SagaSession session = LoadSagaSession( SessionMode.Saga );
 			if ( session != null )
 			{
 				DataStore.sagaSessionData = session;
@@ -444,7 +444,7 @@ public class TitleController : MonoBehaviour
 
 	private bool IsSessionValid()
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
+		string basePath = Path.Combine( FileManager.classicSessionPath, "sessiondata.json" );
 
 		if ( !File.Exists( basePath ) )
 			return false;
@@ -462,15 +462,19 @@ public class TitleController : MonoBehaviour
 		}
 		catch ( Exception e )
 		{
-			Debug.Log( "***ERROR*** IsSessionValid:: " + e.Message );
-			DataStore.LogError( "IsSessionValid() TRACE:\r\n" + e.Message );
+			Utils.LogError( "IsSessionValid()::" + e.Message );
 			return false;
 		}
 	}
 
-	private bool IsSagaSessionValid( string sessionFolder )
+	private bool IsSagaSessionValid( SessionMode sessionMode )
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, sessionFolder, "sessiondata.json" );
+		string basePath = "";
+		if ( sessionMode == SessionMode.Saga )
+			basePath = Path.Combine( FileManager.sagaSessionPath, "sessiondata.json" );
+		else if ( sessionMode == SessionMode.Campaign )
+			basePath = Path.Combine( FileManager.campaignSessionPath, "sessiondata.json" );
+
 
 		if ( !File.Exists( basePath ) )
 			return false;
@@ -488,15 +492,17 @@ public class TitleController : MonoBehaviour
 		}
 		catch ( Exception e )
 		{
-			Debug.Log( "***ERROR*** IsSagaSessionValid:: " + e.Message );
-			DataStore.LogError( "IsSagaSessionValid() TRACE:\r\n" + e.Message );
+			Utils.LogError( "IsSagaSessionValid()::" + e.Message );
 			return false;
 		}
 	}
 
+	/// <summary>
+	/// Load session in Classic mode
+	/// </summary>
 	private SessionData LoadSession()
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
+		string basePath = Path.Combine( FileManager.classicSessionPath, "sessiondata.json" );
 
 		if ( !File.Exists( basePath ) )
 			return null;
@@ -515,15 +521,21 @@ public class TitleController : MonoBehaviour
 		}
 		catch ( Exception e )
 		{
-			Debug.Log( "***ERROR*** LoadSession:: " + e.Message );
-			DataStore.LogError( "TRACE:\r\n" + e.Message );
+			Utils.LogError( "LoadSession()::" + e.Message );
 			return null;
 		}
 	}
 
-	private SagaSession LoadSagaSession( string sessionFolder )
+	/// <summary>
+	/// Load session in Saga or Campaign mode
+	/// </summary>
+	private SagaSession LoadSagaSession( SessionMode sessionMode )
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, sessionFolder, "sessiondata.json" );
+		string basePath = "";
+		if ( sessionMode == SessionMode.Saga )
+			basePath = Path.Combine( FileManager.sagaSessionPath, "sessiondata.json" );
+		else if ( sessionMode == SessionMode.Campaign )
+			basePath = Path.Combine( FileManager.campaignSessionPath, "sessiondata.json" );
 
 		if ( !File.Exists( basePath ) )
 			return null;
@@ -542,8 +554,7 @@ public class TitleController : MonoBehaviour
 		}
 		catch ( Exception e )
 		{
-			Debug.Log( "***ERROR*** LoadSagaSession:: " + e.Message );
-			DataStore.LogError( "LoadSagaSession() TRACE:\r\n" + e.Message );
+			Utils.LogError( "LoadSagaSession()::" + e.Message );
 			return null;
 		}
 	}
@@ -636,7 +647,7 @@ public class TitleController : MonoBehaviour
 		{
 			animator.SetBool( m_OpenParameterId, true );
 			//if last campaign used was just deleted, disable continue button
-			campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
+			campaignContinueButton.interactable = IsSagaSessionValid( SessionMode.Campaign );
 		} );
 	}
 
@@ -645,7 +656,7 @@ public class TitleController : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 
-		SagaSession session = LoadSagaSession( "CampaignSession" );
+		SagaSession session = LoadSagaSession( SessionMode.Campaign );
 		if ( session != null )
 		{
 			DataStore.sagaSessionData = session;
@@ -680,7 +691,7 @@ public class TitleController : MonoBehaviour
 		campaignLoadButton.interactable = FileManager.GetCampaigns().Count > 0;
 
 		//if a campaign is deleted, check if any saved state belongs to that campaign, and remove that if it is
-		SagaSession session = LoadSagaSession( "CampaignSession" );
+		SagaSession session = LoadSagaSession( SessionMode.Campaign );
 		if ( session != null && session.campaignGUID == guid )
 		{
 			campaignContinueButton.interactable = false;
@@ -714,7 +725,7 @@ public class TitleController : MonoBehaviour
 			sagaClassicLayoutContainer.SetActive( true );
 			campaignContainer.SetActive( false );
 			//check if saved state is valid
-			continueButton.interactable = IsSagaSessionValid( "SagaSession" );
+			continueButton.interactable = IsSagaSessionValid( SessionMode.Saga );
 			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.sagaDescriptionUC;
 		}
 		else if ( classicToggle.isOn )
@@ -733,7 +744,7 @@ public class TitleController : MonoBehaviour
 			continueButton.interactable = false;
 			sagaClassicLayoutContainer.SetActive( false );
 			campaignContainer.SetActive( true );
-			campaignContinueButton.interactable = IsSagaSessionValid( "CampaignSession" );
+			campaignContinueButton.interactable = IsSagaSessionValid( SessionMode.Campaign );
 			campaignPanelDescriptionText.text = DataStore.uiLanguage.uiCampaign.campaignDescriptionUC;
 		}
 	}

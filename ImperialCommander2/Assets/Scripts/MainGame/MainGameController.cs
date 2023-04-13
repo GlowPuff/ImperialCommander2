@@ -274,7 +274,7 @@ public class MainGameController : MonoBehaviour
 		{
 			dgManager.ReadyAllGroups();
 			DoEvent();
-			DataStore.sessionData.SaveSession( "Session" );//in case no event activates
+			DataStore.sessionData.SaveSession();//in case no event activates
 		}
 		else if ( !DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
 		{
@@ -343,7 +343,7 @@ public class MainGameController : MonoBehaviour
 			//remove it from the list of events so it won't activate again
 			DataStore.cardEvents.Remove( ev );
 			//activate it
-			eventPopup.Show( ev, () => DataStore.sessionData.SaveSession( "Session" ) );
+			eventPopup.Show( ev, () => DataStore.sessionData.SaveSession() );
 		}
 	}
 
@@ -364,7 +364,7 @@ public class MainGameController : MonoBehaviour
 	void OnSettingsClose( SettingsCommand c )
 	{
 		//save the state on exit
-		DataStore.sessionData.SaveSession( "Session" );
+		DataStore.sessionData.SaveSession();
 
 		if ( c == SettingsCommand.ReturnTitles )
 		{

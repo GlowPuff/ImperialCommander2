@@ -179,15 +179,23 @@ namespace Saga
 			int idx = dgOverrides.FindIndex( x => { return x.ID == id; } );
 			if ( idx >= 0 )
 			{
-				Debug.Log( $"RemoveOverride()::{id}" );
-				dgOverrides.RemoveAt( idx );
+				//all custom deployments get an override, do NOT remove these
+				if ( !dgOverrides[idx].isCustomDeployment )
+				{
+					Debug.Log( $"RemoveOverride()::{id}" );
+					dgOverrides.RemoveAt( idx );
+				}
+				else
+					Debug.Log( $"RemoveOverride()::Custom Deployment, skipping ({id})" );
 			}
 		}
 
 		public void RemoveAllOverrides()
 		{
 			dgOverridesAll = null;
-			dgOverrides.Clear();
+			//only keep overrides that are created from custom deployments
+			dgOverrides = dgOverrides.Where( x => x.isCustomDeployment ).ToList();
+			Debug.Log( $"RemoveAllOverrides()::{dgOverrides.Count} overrides left over" );
 		}
 	}
 

@@ -11,21 +11,70 @@ namespace Saga
 {
 	public class FileManager
 	{
-		public static void CreateFolders()
-		{
-			//campaign folder
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
-			if ( !Directory.Exists( basePath ) )
-				Directory.CreateDirectory( basePath );
+		public static string baseDocumentFolder, campaignPath, customMissionPath, designedCharactersPath, classicSessionPath, sagaSessionPath, campaignSessionPath, classicDefaultsPath;
 
-			//custom mission folder
+		/// <summary>
+		/// Creates default folders and sets up folder path properties
+		/// </summary>
+		public static bool SetupDefaultFolders()
+		{
+			Debug.Log( "SETTING UP DEFAULT FOLDERS" );
+
+			campaignPath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
+			classicSessionPath = Path.Combine( Application.persistentDataPath, "Session" );
+			sagaSessionPath = Path.Combine( Application.persistentDataPath, "SagaSession" );
+			campaignSessionPath = Path.Combine( Application.persistentDataPath, "CampaignSession" );
+			classicDefaultsPath = Path.Combine( Application.persistentDataPath, "Defaults", "" );
+
+			//OS-specific paths
 #if UNITY_ANDROID
-			basePath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
+			baseDocumentFolder = Application.persistentDataPath;
+			customMissionPath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
+			designedCharactersPath = Path.Combine( Application.persistentDataPath, "DesignedCharacters" );
 #else
-			basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+			baseDocumentFolder = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
+			customMissionPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "CustomMissions" );
+			designedCharactersPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "DesignedCharacters" );
 #endif
-			if ( !Directory.Exists( basePath ) )
-				Directory.CreateDirectory( basePath );
+
+
+			try
+			{
+#if !UNITY_ANDROID
+				CreateFolder( baseDocumentFolder );
+#endif
+				CreateFolder( campaignPath );
+				CreateFolder( classicSessionPath );
+				CreateFolder( sagaSessionPath );
+				CreateFolder( campaignSessionPath );
+				CreateFolder( classicDefaultsPath );
+				CreateFolder( customMissionPath );
+				CreateFolder( designedCharactersPath );
+
+				return true;
+			}
+			catch ( Exception e )
+			{
+				Utils.LogError( "CreateFolders()::Could not create default folders. Exception: " + e.Message );
+				return false;
+			}
+		}
+
+		/// <summary>
+		/// If the folder doesn't exist, create it
+		/// </summary>
+		public static bool CreateFolder( string path )
+		{
+			try
+			{
+				if ( !Directory.Exists( path ) )
+					Directory.CreateDirectory( path );
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		public static Mission LoadMissionFromString( string json )
@@ -107,17 +156,11 @@ namespace Saga
 		public static List<SagaCampaign> GetCampaigns()
 		{
 			List<SagaCampaign> clist = new List<SagaCampaign>();
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
-
-			if ( !Directory.Exists( basePath ) )
-			{
-				Directory.CreateDirectory( basePath );
-			}
 
 			try
 			{
 				string json = "";
-				List<string> filenames = Directory.GetFiles( basePath ).Where( x =>
+				List<string> filenames = Directory.GetFiles( campaignPath ).Where( x =>
 				{
 					FileInfo fi = new FileInfo( x );
 					return fi.Extension == ".json";
@@ -125,7 +168,7 @@ namespace Saga
 
 				foreach ( var item in filenames )
 				{
-					string path = Path.Combine( basePath, item );
+					string path = Path.Combine( campaignPath, item );
 					using ( StreamReader sr = new StreamReader( path ) )
 					{
 						json = sr.ReadToEnd();
@@ -138,31 +181,27 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** GetCampaigns():: " + e.Message );
-				DataStore.LogError( "GetCampaigns() TRACE:\r\n" + e.Message );
+				Utils.LogError( "GetCampaigns()::" + e.Message );
 				return clist;
 			}
 		}
 
 		public static void DeleteCampaign( Guid guid )
 		{
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
-
 			try
 			{
-				DirectoryInfo di = new DirectoryInfo( basePath );
+				DirectoryInfo di = new DirectoryInfo( campaignPath );
 
 				List<string> filenames = di.GetFiles().Where( file => file.Extension == ".json" ).Select( x => x.Name ).ToList();
-				if ( filenames.Contains( $"{guid.ToString()}.json" ) )
+				if ( filenames.Contains( $"{guid}.json" ) )
 				{
-					var file = filenames.Where( x => x.Contains( $"{guid.ToString()}.json" ) ).First();
-					File.Delete( Path.Combine( basePath, file ) );
+					var file = filenames.Where( x => x.Contains( $"{guid}.json" ) ).First();
+					File.Delete( Path.Combine( campaignPath, file ) );
 				}
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** DeleteCampaign():: " + e.Message );
-				DataStore.LogError( "DeleteCampaign() TRACE:\r\n" + e.Message );
+				Utils.LogError( "DeleteCampaign()::" + e.Message );
 			}
 		}
 
@@ -170,26 +209,15 @@ namespace Saga
 		{
 			List<ProjectItem> missions = new List<ProjectItem>();
 
-#if UNITY_ANDROID
-				string basePath = Application.persistentDataPath + "/CustomMissions";
-#else
-
-			string basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
-#endif
-
-			if ( !Directory.Exists( basePath ) )
-				Directory.CreateDirectory( basePath );
-
 			try
 			{
-				RecursiveFolderSearch( basePath, missions );
+				RecursiveFolderSearch( customMissionPath, missions );
 
 				return missions;
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** GetCustomMissions():: " + e.Message );
-				DataStore.LogError( "GetCustomMissions() TRACE:\r\n" + e.Message );
+				Utils.LogError( "GetCustomMissions()::" + e.Message );
 				return missions;
 			}
 		}
@@ -266,6 +294,34 @@ namespace Saga
 			//	UnityEngine.Object.FindObjectOfType<SagaSetup>()?.errorPanel?.Show( "FileManager::CreateProjectItem()", "Mission is null" );
 
 			return projectItem;
+		}
+
+		public static List<CustomToon> LoadStandaloneCharacters()
+		{
+			string json = "";
+			List<CustomToon> importedToons = new List<CustomToon>();
+
+			try
+			{
+				var filenames = Directory.GetFiles( designedCharactersPath );
+				foreach ( string filename in filenames )
+				{
+
+					using ( StreamReader sr = new StreamReader( filename ) )
+					{
+						json = sr.ReadToEnd();
+					}
+					var toon = JsonConvert.DeserializeObject<CustomToon>( json );
+					importedToons.Add( toon );
+				}
+
+				return importedToons;
+			}
+			catch ( Exception e )
+			{
+				Utils.LogError( "LoadStandaloneCharacters()::Could not load Designed Characters. Exception: " + e.Message );
+				return importedToons;
+			}
 		}
 	}
 }

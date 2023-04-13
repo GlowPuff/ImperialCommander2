@@ -72,7 +72,7 @@ public class NewGameScreen : MonoBehaviour
 		languageController.SetTranslatedUI();
 
 		//check for default state
-		string path = Path.Combine( Application.persistentDataPath, "Defaults", "sessiondata.json" );
+		string path = Path.Combine( Saga.FileManager.classicDefaultsPath, "sessiondata.json" );
 		loadDefaultsButton.interactable = File.Exists( path );
 
 		//aspect ratio adjustment
@@ -366,7 +366,7 @@ public class NewGameScreen : MonoBehaviour
 			defaultsText.text = "error";
 		}
 
-		string path = Path.Combine( Application.persistentDataPath, "Defaults", "sessiondata.json" );
+		string path = Path.Combine( Saga.FileManager.classicDefaultsPath, "sessiondata.json" );
 		loadDefaultsButton.interactable = File.Exists( path );
 
 		defaultsText.DOFade( 0, 2 ).SetDelay( 1 );
@@ -376,7 +376,7 @@ public class NewGameScreen : MonoBehaviour
 	{
 		defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
 
-		string basePath = Path.Combine( Application.persistentDataPath, "Defaults", "sessiondata.json" );
+		string basePath = Path.Combine( Saga.FileManager.classicDefaultsPath, "sessiondata.json" );
 
 		string json = "";
 		try
@@ -437,7 +437,8 @@ public class NewGameScreen : MonoBehaviour
 		catch ( System.Exception e )
 		{
 			Debug.Log( "***ERROR*** LoadDefaults:: " + e.Message );
-			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Defaults", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+
+			Saga.Utils.LogError( "LoadDefaults()::\n" + e.Message );
 			defaultsText.color = new Color( 1, 0, 0, 1 );
 			defaultsText.text = "error";
 		}

@@ -157,12 +157,10 @@ namespace Saga
 		/// </summary>
 		public static SagaCampaign LoadCampaignState( Guid guid )
 		{
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
-
 			string json = "";
 			try
 			{
-				string path = Path.Combine( basePath, $"{guid}.json" );
+				string path = Path.Combine( FileManager.campaignPath, $"{guid}.json" );
 				using ( StreamReader sr = new StreamReader( path ) )
 				{
 					json = sr.ReadToEnd();
@@ -175,8 +173,7 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** LoadCampaignState():: " + e.Message );
-				DataStore.LogError( "LoadCampaignState() TRACE:\r\n" + e.Message );
+				Utils.LogError( "LoadCampaignState()::" + e.Message );
 				return null;
 			}
 		}
@@ -185,18 +182,13 @@ namespace Saga
 		{
 			Debug.Log( "SaveCampaignState()::SAVING CAMPAIGN" );
 
-			string basePath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
-
 			if ( structures != null )
 				campaignStructure = structures;
 
 			try
 			{
-				if ( !Directory.Exists( basePath ) )
-					Directory.CreateDirectory( basePath );
-
 				string output = JsonConvert.SerializeObject( this, Formatting.Indented );
-				string outpath = Path.Combine( basePath, $"{GUID}.json" );
+				string outpath = Path.Combine( FileManager.campaignPath, $"{GUID}.json" );
 				using ( var stream = File.CreateText( outpath ) )
 				{
 					stream.Write( output );
@@ -206,8 +198,7 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** SaveCampaignState():: " + e.Message );
-				DataStore.LogError( "SaveCampaignState() TRACE:\r\n" + e.Message );
+				Utils.LogError( "SaveCampaignState()::" + e.Message );
 			}
 		}
 

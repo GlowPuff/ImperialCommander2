@@ -110,7 +110,7 @@ public class DeploymentPopup : MonoBehaviour
 			FindObjectOfType<DeploymentGroupManager>().UpdateGroups();
 
 			//save state
-			DataStore.sessionData.SaveSession( "Session" );
+			DataStore.sessionData.SaveSession();
 
 			postAction?.Invoke();
 		} );

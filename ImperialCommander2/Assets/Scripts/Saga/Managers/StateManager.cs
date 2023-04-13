@@ -7,42 +7,46 @@ using UnityEngine;
 namespace Saga
 {
 	/// <summary>
-	/// Saga mode game save/restore
+	/// Saga mode game state save/restore
 	/// </summary>
 	public class StateManager
 	{
 		public ManagerStates managerStates;
 
-		public static void RemoveState( string sessionFolderName )
+		public static void RemoveState( SessionMode sessionMode )
 		{
-			Debug.Log( $"RemoveState()::REMOVING SESSION ({sessionFolderName})" );
-
-			string basePath = Path.Combine( Application.persistentDataPath, sessionFolderName );
+			Debug.Log( $"RemoveState()::REMOVING SESSION (Mode = {sessionMode})" );
 
 			try
 			{
+				string basePath;
+				if ( sessionMode == SessionMode.Saga )
+					basePath = FileManager.sagaSessionPath;
+				else
+					basePath = FileManager.campaignSessionPath;
+
 				if ( Directory.Exists( basePath ) )
 					Directory.Delete( basePath, true );
-				Debug.Log( $"***SESSION REMOVED ({sessionFolderName})***" );
+				Debug.Log( $"***SESSION REMOVED (Mode = {sessionMode})***" );
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** RemoveState(Saga):: " + e.Message );
-				DataStore.LogError( "RemoveState() TRACE:\r\n" + e.Message );
+				Utils.LogError( "RemoveState()::" + e.Message );
 			}
 		}
 
-		public static void SaveState( string sessionFolderName )
+		public static void SaveState( SessionMode sessionMode )
 		{
-			Debug.Log( $"SaveSession()::SAVING SESSION ({sessionFolderName})" );
+			Debug.Log( $"SaveSession()::SAVING SESSION (Mode = {sessionMode})" );
 
-			string basePath = Path.Combine( Application.persistentDataPath, sessionFolderName );
+			string basePath;
+			if ( sessionMode == SessionMode.Saga )
+				basePath = FileManager.sagaSessionPath;
+			else
+				basePath = FileManager.campaignSessionPath;
 
 			try
 			{
-				if ( !Directory.Exists( basePath ) )
-					Directory.CreateDirectory( basePath );
-
 				//save the session data
 				DataStore.sagaSessionData.gameVars.isNewGame = false;//mark this as a saved session
 				string output = JsonConvert.SerializeObject( DataStore.sagaSessionData, Formatting.Indented );
@@ -117,18 +121,21 @@ namespace Saga
 					stream.Write( output );
 				}
 
-				Debug.Log( $"***SESSION SAVED ({sessionFolderName})***" );
+				Debug.Log( $"***SESSION SAVED (Mode = {sessionMode})***" );
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** SaveSession(Saga):: " + e.Message );
-				DataStore.LogError( "SaveSession(Saga) TRACE:\r\n" + e.Message );
+				Utils.LogError( "SaveSession(Saga)::" + e.Message );
 			}
 		}
 
-		public bool LoadState( string sessionFolderName )
+		public bool LoadState( SessionMode sessionMode )
 		{
-			string basePath = Path.Combine( Application.persistentDataPath, sessionFolderName );
+			string basePath;
+			if ( sessionMode == SessionMode.Saga )
+				basePath = FileManager.sagaSessionPath;
+			else
+				basePath = FileManager.campaignSessionPath;
 
 			string json = "";
 			try
@@ -213,13 +220,12 @@ namespace Saga
 				DataStore.SetCardTranslations( DataStore.deployedEnemies );
 				DataStore.SetCardTranslations( DataStore.deployedHeroes );
 
-				Debug.Log( $"***SESSION LOADED ({sessionFolderName}, {DataStore.mission.missionProperties.missionName})***" );
+				Debug.Log( $"***SESSION LOADED (Mode = {sessionMode}, {DataStore.mission.missionProperties.missionName})***" );
 				return true;
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( "***ERROR*** LoadState:: " + e.Message );
-				DataStore.LogError( "LoadState() TRACE:\r\n" + e.Message );
+				Utils.LogError( "LoadState()::" + e.Message );
 				return false;
 			}
 		}

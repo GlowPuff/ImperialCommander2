@@ -122,9 +122,9 @@ namespace Saga
 			campaignGUID = RunningCampaign.sagaCampaignGUID;
 
 			if ( RunningCampaign.sagaCampaignGUID == Guid.Empty )
-				StateManager.SaveState( "SagaSession" );
+				StateManager.SaveState( SessionMode.Saga );
 			else
-				StateManager.SaveState( "CampaignSession" );
+				StateManager.SaveState( SessionMode.Campaign );
 		}
 
 		public bool LoadState( StateManager sm )
@@ -136,9 +136,9 @@ namespace Saga
 			}
 
 			if ( RunningCampaign.sagaCampaignGUID == Guid.Empty )
-				return sm.LoadState( "SagaSession" );
+				return sm.LoadState( SessionMode.Saga );
 			else
-				return sm.LoadState( "CampaignSession" );
+				return sm.LoadState( SessionMode.Campaign );
 		}
 
 		public void RemoveState()
@@ -150,9 +150,9 @@ namespace Saga
 			}
 
 			if ( RunningCampaign.sagaCampaignGUID == Guid.Empty )
-				StateManager.RemoveState( "SagaSession" );
+				StateManager.RemoveState( SessionMode.Saga );
 			else
-				StateManager.RemoveState( "CampaignSession" );
+				StateManager.RemoveState( SessionMode.Campaign );
 		}
 	}
 }

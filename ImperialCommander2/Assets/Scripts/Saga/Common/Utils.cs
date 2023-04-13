@@ -8,14 +8,23 @@ namespace Saga
 {
 	public static class Utils
 	{
-		public const string formatVersion = "20";//the EXPECTED mission format
+		public const string formatVersion = "21";//the EXPECTED mission format
 
-		public static void LogError( string error )
+		/// <summary>
+		/// Logs error to console and to log file
+		/// </summary>
+		public static void LogError( string message )
 		{
-			string basePath = Application.persistentDataPath;
+			Debug.LogError( "***ERROR***:\n" + message );
 
-			File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "ERROR TRACE:\r\n" + error );
-			Debug.Log( "ERROR TRACE:\r\n" + error );
+			try
+			{
+				File.AppendAllText( Path.Combine( FileManager.baseDocumentFolder, "IC2_error_log.txt" ), $"{DateTime.Now} :: ERROR TRACE:\n" + message + "\n\n" );
+			}
+			catch ( Exception e )
+			{
+				Debug.LogError( "LogError::" + e.Message );
+			}
 		}
 
 		public static Color String2UnityColor( string s )

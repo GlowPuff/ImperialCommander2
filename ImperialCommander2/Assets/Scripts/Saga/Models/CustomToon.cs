@@ -16,7 +16,6 @@ namespace Saga
 
 		public DeploymentCard deploymentCard;
 
-		public CharacterType characterType;
 		public Thumbnail thumbnail;
 		public BonusEffect bonusEffect;
 		public CardInstruction cardInstruction;

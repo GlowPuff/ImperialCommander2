@@ -46,32 +46,10 @@ namespace Saga
 			selectedMission = null;
 			toggleGroup = missionContainer.GetComponent<ToggleGroup>();
 
-			//basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
-
-#if UNITY_ANDROID
-			// /storage/emulated/0/Android/data/com.GlowPuff.ImperialCommander2/files
-			//string customPath = "/storage/emulated/0/ImperialCommander2";
-			string customPath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
-#else
-			string customPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
-#endif
-			//make sure the custom folder exists
-			try
+			if ( !FileManager.CreateFolder( FileManager.customMissionPath ) )
 			{
-				if ( !Directory.Exists( customPath ) )
-				{
-					var dinfo = Directory.CreateDirectory( customPath );
-					if ( dinfo == null )
-					{
-						Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
-						FindObjectOfType<SagaSetup>()?.errorPanel?.Show( $"Could not create the Mission project folder.\r\nTried to create: {customPath}" );
-					}
-				}
-			}
-			catch ( Exception )
-			{
-				Utils.LogError( "Could not create the Mission project folder.\r\nTried to create: " + customPath );
-				FindObjectOfType<SagaSetup>()?.errorPanel?.Show( $"Could not create the Mission project folder.\r\nTried to create: {customPath}" );
+				Utils.LogError( "Custom Mission folder doesn't exist.\r\nTried to create: " + FileManager.customMissionPath );
+				FindObjectOfType<SagaSetup>()?.errorPanel?.Show( $"Custom Mission folder doesn't exist.\nTried to create: {FileManager.customMissionPath}" );
 			}
 
 			busyIcon.DORotate( new Vector3( 0, 0, 360 ), 1f, RotateMode.FastBeyond360 ).SetEase( Ease.InOutQuad ).SetLoops( -1 );
@@ -116,7 +94,7 @@ namespace Saga
 			}
 
 			//disable UP folder if we're at the root
-			if ( basePath == folderBreadcrumbs.Peek() )
+			if ( FileManager.customMissionPath == folderBreadcrumbs.Peek() )
 				missionContainer.GetChild( 0 ).gameObject.SetActive( false );
 			else
 				missionContainer.GetChild( 0 ).gameObject.SetActive( true );
@@ -319,12 +297,8 @@ namespace Saga
 			{
 				pickerMode = PickerMode.Custom;
 				modeToggleBtnText.text = DataStore.uiLanguage.sagaUISetup.customBtn;
-#if UNITY_ANDROID
-				basePath = Application.persistentDataPath + "/CustomMissions";
-#else
-				basePath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
-#endif
-				OnChangeFolder( basePath );
+				folderBreadcrumbs.Clear();
+				OnChangeFolder( FileManager.customMissionPath );
 			}
 
 			FindObjectOfType<SagaSetup>().OnModeChange( pickerMode );

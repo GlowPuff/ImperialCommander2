@@ -26,6 +26,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	public HPTrackerContainer hpTrackerContainer;
 	[HideInInspector]
 	public bool isActive = false;
+	public Image outlineColor;
 
 	CardInstruction cardInstruction;
 	DeploymentCard cardDescriptor;
@@ -63,6 +64,8 @@ public class EnemyActivationPopup : MonoBehaviour
 		//mugshot
 		thumbnail.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
 		thumbnail.DOFade( 1, .25f );
+		//outline
+		outlineColor.color = Utils.String2UnityColor( cardDescriptor.deploymentOutlineColor );
 		//name
 		enemyName.text = cd.name.ToUpper();
 
