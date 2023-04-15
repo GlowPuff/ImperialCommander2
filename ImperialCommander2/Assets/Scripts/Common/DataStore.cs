@@ -102,7 +102,7 @@ public static class DataStore
 		//load mission presets
 		LoadMissionPresets();
 		//load standalone designed characters
-		standaloneDesignedCharacters = FileManager.LoadStandaloneCharacters();
+		standaloneDesignedCharacters = FileManager.LoadDesignedCharacters();
 
 		//setup language
 		//default language playerprefs key should be set by now, but just in case...
@@ -222,6 +222,7 @@ public static class DataStore
 			foreach ( var item in obj )
 			{
 				item.mugShotPath = $"CardThumbnails/Stock{item.characterType}{item.id.GetDigits()}";
+				item.deploymentOutlineColor = "LightBlue";
 				if ( item.isElite || item.characterType == CharacterType.Villain )
 					item.deploymentOutlineColor = "Red";//default is already Blue
 				if ( item.characterType == CharacterType.Ally )

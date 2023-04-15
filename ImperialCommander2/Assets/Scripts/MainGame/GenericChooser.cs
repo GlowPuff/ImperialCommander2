@@ -123,16 +123,7 @@ public class GenericChooser : MonoBehaviour
 		//populate thumbnail with images
 		for ( int i = 0; i < cardSet.Count; i++ )
 		{
-			if ( chooserMode == ChooserMode.DeploymentGroups )
-			{
-				if ( DataStore.villainCards.ContainsCard( cardSet[i] ) )
-					imagePath = $"Cards/Villains/{cardSet[i].id.Replace( "DG", "M" )}";
-				else
-					imagePath = $"Cards/Enemies/{cardSet[i].expansion}/{cardSet[i].id.Replace( "DG", "M" )}";
-			}
-			else if ( chooserMode == ChooserMode.Ally )
-				imagePath = $"Cards/Allies/{cardSet[i].id.Replace( "A", "M" )}";
-
+			imagePath = cardSet[i].mugShotPath;
 			images[i] = grid.GetChild( i ).Find( "Image" ).GetComponent<Image>();
 			images[i].sprite = Resources.Load<Sprite>( imagePath );
 			if ( cardSet[i].isElite )

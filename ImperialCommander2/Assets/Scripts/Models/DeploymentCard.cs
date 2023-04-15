@@ -56,8 +56,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 
 	//==other properties
 	public string mugShotPath;
-	//default deployment thumbnail outline color
-	public string deploymentOutlineColor = "Blue";
+	public string deploymentOutlineColor;
 	//==end other properties
 
 	public bool Equals( DeploymentCard obj )

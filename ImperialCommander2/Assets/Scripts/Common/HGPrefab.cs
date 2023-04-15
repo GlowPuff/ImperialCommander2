@@ -25,10 +25,8 @@ public class HGPrefab : MonoBehaviour
 
 		if ( !cd.isDummy )
 		{
-			iconImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/Stock{cd.characterType}{cd.id.GetDigits()}" );
-
-			if ( cd.characterType == Saga.CharacterType.Ally )
-				outline.effectColor = eliteColor;
+			iconImage.sprite = Resources.Load<Sprite>( cd.mugShotPath );
+			outline.effectColor = Saga.Utils.String2UnityColor( cardDescriptor.deploymentOutlineColor );
 		}
 		else
 		{

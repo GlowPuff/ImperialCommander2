@@ -296,7 +296,7 @@ namespace Saga
 			return projectItem;
 		}
 
-		public static List<CustomToon> LoadStandaloneCharacters()
+		public static List<CustomToon> LoadDesignedCharacters()
 		{
 			string json = "";
 			List<CustomToon> importedToons = new List<CustomToon>();
@@ -315,11 +315,12 @@ namespace Saga
 					importedToons.Add( toon );
 				}
 
+				Debug.Log( $"LoadDesignedCharacters()::FOUND {importedToons.Count} CHARACTERS" );
 				return importedToons;
 			}
 			catch ( Exception e )
 			{
-				Utils.LogError( "LoadStandaloneCharacters()::Could not load Designed Characters. Exception: " + e.Message );
+				Utils.LogError( "LoadDesignedCharacters()::Could not load Designed Characters. Exception: " + e.Message );
 				return importedToons;
 			}
 		}

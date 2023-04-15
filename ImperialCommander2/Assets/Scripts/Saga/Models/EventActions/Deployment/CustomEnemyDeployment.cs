@@ -26,7 +26,7 @@ namespace Saga
 		public int groupSize;
 		public int groupHealth;
 		public int groupSpeed;
-		[DefaultValue( "Blue" )]
+		[DefaultValue( "Gray" )]
 		[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
 		public string deploymentOutlineColor;
 		//deployment properties

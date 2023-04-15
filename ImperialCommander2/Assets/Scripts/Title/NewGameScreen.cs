@@ -307,7 +307,7 @@ public class NewGameScreen : MonoBehaviour
 			heroMetas[idx].gameObject.SetActive( true );
 			heroMetas[idx].allyName = dc.name;
 			heroMetas[idx].id = dc.id;
-			heroMetas[idx].allySprite.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockHero{dc.id.GetDigits()}" );
+			heroMetas[idx].allySprite.sprite = Resources.Load<Sprite>( dc.mugShotPath );
 			idx++;
 		}
 		ColorBlock cb = addHeroButton.colors;
@@ -322,7 +322,7 @@ public class NewGameScreen : MonoBehaviour
 		{
 			addAllyButton.SetActive( false );
 			allyImage.gameObject.SetActive( true );
-			allyImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockAlly{DataStore.sessionData.selectedAlly.id.GetDigits()}" );
+			allyImage.sprite = Resources.Load<Sprite>( DataStore.sessionData.selectedAlly.mugShotPath );
 		}
 		else
 		{

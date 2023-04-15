@@ -45,6 +45,8 @@ namespace Saga
 					return Color.red;
 				case "Yellow":
 					return new Color( 1, 202f / 255f, 40f / 255f );
+				case "LightBlue":
+					return new Color( 0, 164f / 255f, 1 );
 				default:
 					Debug.Log( "String2UnityColor()::COLOR NOT FOUND::" + s );
 					return Color.white;

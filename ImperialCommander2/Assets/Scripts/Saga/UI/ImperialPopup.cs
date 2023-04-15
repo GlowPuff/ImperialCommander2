@@ -11,7 +11,6 @@ namespace Saga
 		public TextMeshProUGUI threat, depMod, threatValue, depmodValue;
 		public Toggle threatToggle, deployToggle;
 		public Transform container;
-		//public CanvasGroup cg;
 		public PopupBase popupBase;
 
 		public void Show()

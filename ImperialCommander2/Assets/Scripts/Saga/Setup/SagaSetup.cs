@@ -379,7 +379,7 @@ namespace Saga
 			foreach ( var item in DataStore.sagaSessionData.MissionHeroes )
 			{
 				var mug = Instantiate( miniMugPrefab, heroContainer );
-				mug.transform.GetChild( 0 ).GetComponent<Image>().sprite = Resources.Load<Sprite>( $"CardThumbnails/StockHero{item.id.GetDigits()}" );
+				mug.transform.GetChild( 0 ).GetComponent<Image>().sprite = Resources.Load<Sprite>( item.mugShotPath );
 				mug.GetComponent<MiniMug>().card = item;
 			}
 			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0 )
@@ -394,7 +394,7 @@ namespace Saga
 			else
 			{
 				allyImage.gameObject.SetActive( true );
-				allyImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockAlly{DataStore.sagaSessionData.selectedAlly.id.GetDigits()}" );
+				allyImage.sprite = Resources.Load<Sprite>( DataStore.sagaSessionData.selectedAlly.mugShotPath );
 				if ( DataStore.sagaSessionData.selectedAlly.isElite )
 					allyBG.gameObject.SetActive( true );
 			}

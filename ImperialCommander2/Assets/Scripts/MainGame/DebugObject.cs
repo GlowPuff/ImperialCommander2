@@ -13,11 +13,7 @@ public class DebugObject : MonoBehaviour
 	{
 		cardDescriptor = cd;
 
-		if ( DataStore.villainCards.ContainsCard( cd ) )
-			thumb.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
-		else
-			thumb.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
-
+		thumb.sprite = Resources.Load<Sprite>( cd.mugShotPath );
 		cardName.text = cd.name;
 		cardCost.text = cd.cost.ToString();
 		cardCostHeading.text = DataStore.uiLanguage.uiMainApp.depCostUC + ":";

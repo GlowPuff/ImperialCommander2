@@ -362,7 +362,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// build card decks, activate optional deployment, activate first map section
+		/// build card decks, Hand, activate optional deployment, activate first map section
 		/// </summary>
 		void StartNewGame()
 		{

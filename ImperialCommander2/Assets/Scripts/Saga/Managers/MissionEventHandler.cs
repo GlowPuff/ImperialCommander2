@@ -219,7 +219,7 @@ namespace Saga
 				//generic mugshot
 				ovrd.useGenericMugshot = ad.useGenericMugshot;
 				if ( ovrd.useGenericMugshot )
-					card.mugShotPath = "Cards/genericAlly";
+					card.mugShotPath = "CardThumbnails/genericAlly";
 				//name
 				if ( !string.IsNullOrEmpty( ad.allyName ) )
 					ovrd.nameOverride = ad.allyName;

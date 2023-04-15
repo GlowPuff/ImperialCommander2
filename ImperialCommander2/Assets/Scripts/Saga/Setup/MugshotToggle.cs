@@ -30,10 +30,7 @@ namespace Saga
 			index = idx;
 			characterType = cd.characterType;
 			card = cd;
-			if ( cd.characterType == CharacterType.Hero )
-				mugImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockHero{cd.id.GetDigits()}" );
-			else
-				mugImage.sprite = Resources.Load<Sprite>( $"CardThumbnails/StockAlly{cd.id.GetDigits()}" );
+			mugImage.sprite = Resources.Load<Sprite>( cd.mugShotPath );
 
 			isOn = false;
 

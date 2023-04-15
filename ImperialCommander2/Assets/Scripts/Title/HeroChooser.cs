@@ -56,7 +56,7 @@ public class HeroChooser : MonoBehaviour
 		for ( int i = 0; i < ownedHeroes.Count; i++ )
 		{
 			var child = container.GetChild( i );
-			thumbNail = Resources.Load<Sprite>( $"CardThumbnails/StockHero{ownedHeroes[i].id.GetDigits()}" );
+			thumbNail = Resources.Load<Sprite>( ownedHeroes[i].mugShotPath );
 			var thumb = child.Find( "Image" );
 			thumb.GetComponent<Image>().sprite = thumbNail;
 

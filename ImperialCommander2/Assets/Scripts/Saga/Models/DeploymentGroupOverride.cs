@@ -26,8 +26,8 @@ namespace Saga
 		public Guid setEvent;
 		public Guid specificDeploymentPoint;
 		public DeploymentSpot deploymentPoint;
-		//outline color is only customizable for custom deployments and custom characters
-		public string deploymentOutlineColor = "Blue";
+		//outline color is only customizable for custom deployments and designed characters
+		public string deploymentOutlineColor = "LightBlue";
 		///EnemyGroupData properties
 		public List<DPData> pointList = new List<DPData>();
 		///Custom properties
@@ -64,8 +64,8 @@ namespace Saga
 			specificDeploymentPoint = Guid.Empty;
 			deploymentPoint = DeploymentSpot.Active;
 			var card = DataStore.GetEnemy( cardID );
-			if ( card != null )
-				deploymentOutlineColor = (bool)(DataStore.GetEnemy( cardID )?.isElite) ? "Red" : card.deploymentOutlineColor;
+			if ( card != null )//custom deployments will not have a real card to be found
+				deploymentOutlineColor = card.deploymentOutlineColor;
 
 			changeInstructions = null;
 			changeTarget = null;

@@ -17,8 +17,7 @@ namespace Saga
 			if ( ovrd != null )
 				nameText.text = ovrd.nameOverride;
 
-			if ( card.isElite )
-				mugOutline.color = new Color( 1, 40f / 255f, 0 );
+			mugOutline.color = Utils.String2UnityColor( card.deploymentOutlineColor );
 
 			mugshot.sprite = Resources.Load<Sprite>( card.mugShotPath );
 		}

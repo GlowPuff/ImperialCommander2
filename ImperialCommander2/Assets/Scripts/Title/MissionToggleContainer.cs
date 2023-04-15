@@ -57,7 +57,7 @@ public class MissionToggleContainer : MonoBehaviour
 				var child = transform.GetChild( i );
 				child.GetComponent<Toggle>().isOn = false;
 				var label = child.Find( "Label" );
-				label.GetComponent<Text>().text = missionCards[i].name.ToLower();
+				label.GetComponent<Text>().text = missionCards[i].name;
 
 				child.gameObject.SetActive( true );
 			}
