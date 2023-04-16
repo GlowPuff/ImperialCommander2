@@ -141,6 +141,12 @@ public static class DataStore
 			}
 		}
 		Debug.Log( "OWNED EXPANSIONS: " + String.Join( ", ", ownedExpansions ) );
+		//figure packs
+		for ( int i = 62; i <= 69; i++ )
+		{
+			if ( PlayerPrefs.GetInt( $"figurepack{i}", 0 ) == 1 )
+				ownedFigurePacks.Add( GetEnemy( $"DG0{i}" ) );
+		}
 	}
 
 	public static void LoadTranslatedData()

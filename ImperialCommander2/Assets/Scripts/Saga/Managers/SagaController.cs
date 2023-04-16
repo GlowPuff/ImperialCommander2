@@ -187,6 +187,7 @@ namespace Saga
 			//in a non-debug game, the following is already set at the Saga setup screen
 			Debug.Log( "***BOOTSTRAP DEBUG***" );
 			FileManager.SetupDefaultFolders();
+			RunningCampaign.Reset();
 			DataStore.InitData();
 
 			if ( string.IsNullOrEmpty( missionCode ) )

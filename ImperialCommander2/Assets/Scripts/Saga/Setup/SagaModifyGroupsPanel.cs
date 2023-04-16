@@ -86,6 +86,11 @@ namespace Saga
 			{
 				updating = true;//avoid tripping toggle callback
 				cards = DataStore.deploymentCards.Where( x => x.expansion == expansion ).ToList();
+
+				//if showing OTHER, show only owned Figure Packs
+				if ( expansion == "Other" )
+					cards = cards.Where( x => DataStore.ownedFigurePacks.ContainsCard( x ) ).ToList();
+
 				for ( int i = 0; i < cards.Count; i++ )
 				{
 					var mug = Instantiate( groupMugPrefab, mugContainer );
@@ -147,9 +152,13 @@ namespace Saga
 			{
 				if ( dataMode == 0 && !updating )
 				{
-					var list = DataStore.sagaSessionData.MissionIgnored.Where( x => x.expansion == ((Expansion)i).ToString() ).ToList();
+					int count = DataStore.sagaSessionData.MissionIgnored.Where( x => x.expansion == ((Expansion)i).ToString() ).Count();
 
-					expansionToggles[i].transform.GetChild( 2 ).GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = list.Count.ToString();
+					//even though all 8 Other groups are ignored by default, only show a number up to the number owned to avoid confusion (ie: owning none of them would still show 8 ignored)
+					if ( i == 7 )//Other
+						count = Math.Min( count, DataStore.ownedFigurePacks.Count - (8 - count) );
+
+					expansionToggles[i].transform.GetChild( 2 ).GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = count.ToString();
 				}
 				else
 				{

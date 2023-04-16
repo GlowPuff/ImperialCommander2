@@ -40,6 +40,7 @@ namespace Saga
 		public VolumeProfile volume;
 		public MissionPicker missionPicker;
 		public TextMeshProUGUI warpTitleText;
+		public bool isDebugMode = false;
 
 		Sound sound;
 		SagaSetupOptions setupOptions { get; set; }
@@ -84,7 +85,8 @@ namespace Saga
 			}
 
 			//bootstrap the setup screen for debugging
-			//bootstrapDEBUG();//comment this out for production build
+			if ( isDebugMode && Application.isEditor )
+				bootstrapDEBUG();
 
 			//set translated UI
 			try
@@ -129,6 +131,8 @@ namespace Saga
 
 		void bootstrapDEBUG()
 		{
+			FileManager.SetupDefaultFolders();
+			RunningCampaign.Reset();
 			DataStore.InitData();
 		}
 
