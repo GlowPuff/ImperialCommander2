@@ -44,6 +44,7 @@ namespace Saga
 		//OTHER
 		public SagaLanguageController languageController;
 		public VolumeProfile volume;
+		public bool isDebugMode = false;//can be toggled within Unity
 
 		Sound sound;
 		bool isError = false;
@@ -73,14 +74,13 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			bool debug = true;
-			//comment this out for production build
 #if DEBUG
 			//bootstrapDEBUG() is a testing feature that allows you to enter a mission directly within Unity ( from the "Saga" screen) without having to go through the Title screen first
-			//You can use an official mission code as a parameter, or leave it empty and modify the method directly to load a custom mission file for testing
+			//Inside Unity, toggle "Is Debug Mode" on the Saga Controller object
+			//You can also use an official mission code as a parameter, or leave it empty and modify the method directly to load a custom mission file for testing
 
 			//make sure we bootstrap a debug session ONLY within Unity
-			if ( debug && Application.isEditor )
+			if ( isDebugMode && Application.isEditor )
 				bootstrapDEBUG();
 			//restoreDEBUG();//test restore session, comment this out for production build
 #endif
