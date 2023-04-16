@@ -46,7 +46,7 @@ public class UIMainApp
 
 public class UIExpansions
 {
-	public string core, twin, hoth, bespin, jabba, empire, lothal, other;
+	public string core, twin, hoth, bespin, jabba, empire, lothal, other, figurepacks;
 }
 
 public class UIDeploymentGroups

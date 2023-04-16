@@ -35,10 +35,11 @@ public class TitleController : MonoBehaviour
 	public NewCampaignPanel newCampaignPanel;
 	public ContinueCampaignPanel continueCampaignPanel;
 	public CanvasGroup buttonContainer;
+	public FigurePackPopup FigurePackPopup;
 
 	//UI objects using language translations
 	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText, campaignNamePlaceholderText;
-	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp, newCampaignTitle, customCampaignText, campaignStartText, campaignCancelText, confirmDeleteText, deleteText, uiCampaigns, uiSaga, uiClassic;
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp, figurePacksExp, newCampaignTitle, customCampaignText, campaignStartText, campaignCancelText, confirmDeleteText, deleteText, uiCampaigns, uiSaga, uiClassic;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -344,6 +345,11 @@ public class TitleController : MonoBehaviour
 			DataStore.RemoveExpansions( t.name );
 	}
 
+	public void OnFigurePackClick()
+	{
+		FigurePackPopup.Show();
+	}
+
 	public void FadeOut( float time )
 	{
 		fader.FadeToBlack( time );
@@ -440,6 +446,7 @@ public class TitleController : MonoBehaviour
 		empireExp.text = uie.empire;
 		lothalExp.text = uie.lothal;
 		twinExp.text = uie.twin;
+		figurePacksExp.text = uie.figurepacks;
 	}
 
 	private bool IsSessionValid()

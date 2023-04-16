@@ -8,7 +8,7 @@ public class ExpansionsPanel : MonoBehaviour
 	{
 		foreach ( Transform t in transform )
 		{
-			if ( t.name == "Button" )
+			if ( t.name == "Button" || t.name == "Figure Packs" )
 				continue;
 
 			if ( DataStore.ownedExpansions.Contains( (Expansion)Enum.Parse( typeof( Expansion ), t.name ) ) )

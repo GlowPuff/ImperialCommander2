@@ -73,7 +73,7 @@ namespace Saga
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 			//DEBUG BOOTSTRAP A MISSION
-			bool debug = false;
+			bool debug = true;
 			//comment this out for production build
 #if DEBUG
 			//bootstrapDEBUG() is a testing feature that allows you to enter a mission directly within Unity ( from the "Saga" screen) without having to go through the Title screen first

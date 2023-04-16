@@ -40,6 +40,7 @@ public static class DataStore
 		manualDeploymentList,
 		deployedHeroes,//contains deployed heroes AND allies
 		deployedEnemies;
+	public static List<DeploymentCard> ownedFigurePacks;
 	public static List<CardEvent> cardEvents;
 	public static List<CardInstruction> activationInstructions;
 	public static List<BonusEffect> bonusEffects;
@@ -91,6 +92,7 @@ public static class DataStore
 		deploymentSounds = new List<DeploymentSound>();
 		missionPresets = new Dictionary<string, List<MissionPreset>>();
 		standaloneDesignedCharacters = new List<CustomToon>();
+		ownedFigurePacks = new List<DeploymentCard>();
 		mission = null;
 
 		cardEvents = new List<CardEvent>();
@@ -505,10 +507,10 @@ public static class DataStore
 
 		available.Sort( ( x, y ) =>
 		 {
-			 if ( int.Parse( x.id.Replace( "DG", "" ) ) == int.Parse( y.id.Replace( "DG", "" ) ) )
+			 if ( int.Parse( x.id.GetDigits() ) == int.Parse( y.id.GetDigits() ) )
 				 return 0;
 			 else
-				 return int.Parse( x.id.Replace( "DG", "" ) ) < int.Parse( y.id.Replace( "DG", "" ) ) ? -1 : 1;
+				 return int.Parse( x.id.GetDigits() ) < int.Parse( y.id.GetDigits() ) ? -1 : 1;
 		 } );
 
 		manualDeploymentList = available.ToList();
@@ -519,10 +521,10 @@ public static class DataStore
 	{
 		manualDeploymentList.Sort( ( x, y ) =>
 		{
-			if ( int.Parse( x.id.Replace( "DG", "" ) ) == int.Parse( y.id.Replace( "DG", "" ) ) )
+			if ( int.Parse( x.id.GetDigits() ) == int.Parse( y.id.GetDigits() ) )
 				return 0;
 			else
-				return int.Parse( x.id.Replace( "DG", "" ) ) < int.Parse( y.id.Replace( "DG", "" ) ) ? -1 : 1;
+				return int.Parse( x.id.GetDigits() ) < int.Parse( y.id.GetDigits() ) ? -1 : 1;
 		} );
 	}
 
