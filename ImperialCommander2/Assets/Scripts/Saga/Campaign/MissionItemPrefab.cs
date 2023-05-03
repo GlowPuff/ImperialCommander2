@@ -255,6 +255,7 @@ namespace Saga
 			playMissionButton.interactable =
 				FindObjectOfType<CampaignManager>().sagaCampaign.campaignHeroes.Count > 0
 				&& !string.IsNullOrEmpty( campaignStructure.missionID );
+
 			if ( playMissionButton.interactable )
 				chevronImage.color = new Vector3( 0, 1, 0 ).ToColor();
 			else

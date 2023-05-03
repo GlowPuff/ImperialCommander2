@@ -34,7 +34,7 @@ namespace Saga
 #else
 			baseDocumentFolder = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 			customMissionPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "CustomMissions" );
-			designedCharactersPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "DesignedCharacters" );
+			designedCharactersPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "ImportedCharacters" );
 #endif
 
 
@@ -296,6 +296,9 @@ namespace Saga
 			return projectItem;
 		}
 
+		/// <summary>
+		/// Imports global custom characters
+		/// </summary>
 		public static List<CustomToon> LoadDesignedCharacters()
 		{
 			string json = "";
@@ -312,10 +315,22 @@ namespace Saga
 						json = sr.ReadToEnd();
 					}
 					var toon = JsonConvert.DeserializeObject<CustomToon>( json );
+					toon.deploymentCard.customCharacterGUID = toon.customCharacterGUID;
+					//rename the ID for global imports so they don't conflic with Mission-embedded custom characters using TC# for the ID
+					toon.cardID = toon.customCharacterGUID.ToString();
+					toon.deploymentCard.id = toon.cardID;
 					importedToons.Add( toon );
 				}
 
 				Debug.Log( $"LoadDesignedCharacters()::FOUND {importedToons.Count} CHARACTERS" );
+				if ( importedToons.Count > 0 )
+				{
+					Debug.Log( $"HEROES: {importedToons.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Count()}" );
+					Debug.Log( $"ALLIES: {importedToons.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Count()}" );
+					Debug.Log( $"REBELS: {importedToons.Where( x => x.deploymentCard.characterType == CharacterType.Rebel ).Count()}" );
+					Debug.Log( $"IMPERIALS: {importedToons.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count()}" );
+					Debug.Log( $"VILLAINS: {importedToons.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Count()}" );
+				}
 				return importedToons;
 			}
 			catch ( Exception e )

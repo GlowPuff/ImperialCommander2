@@ -22,7 +22,7 @@ namespace Saga
 		public Transform heroContainer;
 		public Button adaptiveButton, startMissionButton, viewMissionCardButton, campaignTilesButton;
 		public GameObject miniMugPrefab;
-		public Image allyImage, allyBG;
+		public Image allyImage;
 		public MWheelHandler threatValue, addtlThreatValue;
 		public TextMeshProUGUI versionText, additionalInfoText;
 		//UI PANELS
@@ -30,6 +30,7 @@ namespace Saga
 		public SagaModifyGroupsPanel modifyGroupsPanel;
 		public MissionCardZoom missionCardZoom;
 		public ErrorPanel errorPanel;
+		public ImportPanel importPanel;
 		//OTHER
 		public GameObject warpEffect, rightPanel;
 		public Transform thrusterRoot, thrusterLeft, thrusterRight;
@@ -41,6 +42,9 @@ namespace Saga
 		public MissionPicker missionPicker;
 		public TextMeshProUGUI warpTitleText;
 		public bool isDebugMode = false;
+		public List<DeploymentCard> missionCustomAllies = new List<DeploymentCard>();
+		public List<DeploymentCard> missionCustomHeroes = new List<DeploymentCard>();
+		public List<DeploymentCard> missionCustomVillains = new List<DeploymentCard>();
 
 		Sound sound;
 		SagaSetupOptions setupOptions { get; set; }
@@ -207,9 +211,7 @@ namespace Saga
 			//add villains
 			foreach ( var item in campaign.campaignVillains )
 			{
-				var villain = DataStore.GetEnemy( item );
-				if ( villain != null )
-					DataStore.sagaSessionData.EarnedVillains.Add( villain );
+				DataStore.sagaSessionData.EarnedVillains.Add( item );
 			}
 			//clear ignored groups
 			DataStore.sagaSessionData.MissionIgnored.Clear();
@@ -218,7 +220,7 @@ namespace Saga
 			var ignored = new HashSet<DeploymentCard>();
 			DataStore.deploymentCards.Where( x => x.expansion == "Other" ).ToList().ForEach( x => ignored.Add( x ) );
 
-			//add mission specific ignored
+			//add non-custom mission specific ignored groups
 			if ( structure.missionID != "Custom" )
 			{
 				var presets = DataStore.missionPresets[structure.expansionCode.ToLower()];
@@ -287,7 +289,9 @@ namespace Saga
 			{
 				DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename, out DataStore.sagaSessionData.missionStringified );
 				if ( DataStore.mission != null )
+				{
 					Warp();
+				}
 			}
 			else
 			{
@@ -312,6 +316,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// start an official Mission
+		/// </summary>
 		void StartMission( string missionAddressableKey )
 		{
 			FileManager.LoadMissionFromAddressable( missionAddressableKey, ( m, s ) =>
@@ -352,7 +359,6 @@ namespace Saga
 			{
 				DataStore.sagaSessionData.selectedAlly = null;
 				allyImage.gameObject.SetActive( false );
-				allyBG.gameObject.SetActive( false );
 			}
 		}
 
@@ -366,6 +372,11 @@ namespace Saga
 		{
 			sound.PlaySound( FX.Click );
 			modifyGroupsPanel.Show( 1 );
+		}
+
+		public void OnImport()
+		{
+			importPanel.Show();
 		}
 
 		public void RemoveHero( DeploymentCard card )
@@ -383,8 +394,7 @@ namespace Saga
 			foreach ( var item in DataStore.sagaSessionData.MissionHeroes )
 			{
 				var mug = Instantiate( miniMugPrefab, heroContainer );
-				mug.transform.GetChild( 0 ).GetComponent<Image>().sprite = Resources.Load<Sprite>( item.mugShotPath );
-				mug.GetComponent<MiniMug>().card = item;
+				mug.GetComponent<MiniMug>().Init( item );
 			}
 			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0 )
 				heroContainer.parent.GetChild( 0 ).gameObject.SetActive( false );
@@ -392,15 +402,12 @@ namespace Saga
 				heroContainer.parent.GetChild( 0 ).gameObject.SetActive( true );
 
 			//ally
-			allyBG.gameObject.SetActive( false );
 			if ( DataStore.sagaSessionData.selectedAlly == null )
 				allyImage.gameObject.SetActive( false );
 			else
 			{
 				allyImage.gameObject.SetActive( true );
 				allyImage.sprite = Resources.Load<Sprite>( DataStore.sagaSessionData.selectedAlly.mugShotPath );
-				if ( DataStore.sagaSessionData.selectedAlly.isElite )
-					allyBG.gameObject.SetActive( true );
 			}
 		}
 
@@ -409,9 +416,14 @@ namespace Saga
 		/// </summary>
 		public void OnOfficialMissionSelected( ProjectItem pi )
 		{
-			//clear ignored groups and banned allies
+			//clear ignored groups, banned allies, and custom heroes/allies
 			DataStore.sagaSessionData.MissionIgnored.Clear();
 			DataStore.sagaSessionData.BannedAllies.Clear();
+			missionCustomAllies.Clear();
+			missionCustomHeroes.Clear();
+			missionCustomVillains.Clear();
+			//remove any embedded villains from another Mission, otherwise they won't appear
+			DataStore.sagaSessionData.EarnedVillains = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.id.Contains( "TC" ) ).ToList();
 
 			var expansion = pi.missionID.Split( ' ' )[0].ToLower();
 			var id = pi.missionID.Split( ' ' )[1].ToLower();
@@ -437,10 +449,15 @@ namespace Saga
 			//add the uniquely hashed set of ignored to the real list
 			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
 
-			//add banned allies
+			//add banned allies and custom heroes/allies
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
 			if ( m != null )
 			{
+				//add custom allies/heroes/villains embedded in Mission
+				missionCustomAllies = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
+				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
+				missionCustomVillains = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
+
 				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )
 					DataStore.sagaSessionData.BannedAllies.Add( m.missionProperties.bannedAlly );
 				else if ( m.missionProperties.useBannedAlly == YesNoAll.Multi )
@@ -457,9 +474,14 @@ namespace Saga
 		/// </summary>
 		public void OnCustomMissionSelected( ProjectItem pi )
 		{
-			//clear ignored groups and banned allies
+			//clear ignored groups, banned allies, and custom heroes/allies
 			DataStore.sagaSessionData.MissionIgnored.Clear();
 			DataStore.sagaSessionData.BannedAllies.Clear();
+			missionCustomAllies.Clear();
+			missionCustomHeroes.Clear();
+			missionCustomVillains.Clear();
+			//remove any embedded villains from another Mission, otherwise they won't appear
+			DataStore.sagaSessionData.EarnedVillains = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.id.Contains( "TC" ) ).ToList();
 
 			//set default values to UI - they don't exist in a custom mission
 			threatValue.ResetWheeler( 3 );
@@ -468,6 +490,10 @@ namespace Saga
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
 			if ( m != null )
 			{
+				//add custom allies/heroes/villains embedded in Mission
+				missionCustomAllies = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
+				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
+				missionCustomVillains = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
 				//ignore "Other" expansion enemy groups by default
 				var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
 				//get ignored from mission

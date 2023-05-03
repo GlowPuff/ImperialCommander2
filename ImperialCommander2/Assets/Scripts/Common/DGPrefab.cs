@@ -139,7 +139,7 @@ public class DGPrefab : MonoBehaviour
 			 if ( cardDescriptor.id != "DG070" && !DataStore.villainCards.ContainsCard( cardDescriptor ) )
 				 DataStore.deploymentHand.Add( cardDescriptor );
 			 //remove it from deployed list
-			 DataStore.deployedEnemies.Remove( cardDescriptor );
+			 DataStore.deployedEnemies.RemoveCardByID( cardDescriptor );
 			 //if it is an EARNED villain, add it back into manual deploy list
 			 if ( DataStore.sessionData.EarnedVillains.ContainsCard( cardDescriptor ) && !DataStore.manualDeploymentList.ContainsCard( cardDescriptor ) )
 			 {

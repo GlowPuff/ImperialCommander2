@@ -106,10 +106,12 @@ namespace Saga
 			mWheelHandler.ResetWheeler( hero.xpAmount );
 			xpLabelText.text = DataStore.uiLanguage.uiCampaign.xpUC;
 			//skills
+			var skills = SagaCampaign.campaignDataSkills.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).SelectMany( x => x.heroSkills ) );
+
 			foreach ( var skill in campaignHero.campaignSkills )
 			{
 				var go = Instantiate( listItem, contentContainer );
-				string s = SagaCampaign.campaignDataSkills.Where( x => x.id == skill.id ).First().name;
+				string s = skills.Where( x => x.id == skill.id ).First().name;
 				go.GetComponent<CampaignListItemPrefab>().InitSkill( s, ( n ) =>
 				{
 					campaignHero.campaignSkills.Remove( skill );

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Saga
 {
 	public class CustomToon
 	{
 		//these properties don't change, even when copying from another Deployment Group
-		public Guid customCharacterGUID { get; set; }
+		public Guid customCharacterGUID;
 
 		public string cardName;
 		public string cardID;
@@ -25,6 +26,7 @@ namespace Saga
 		public bool canBeDefeated;
 		public bool useThreatMultiplier;
 		public Factions faction;
+		public List<CampaignSkill> heroSkills;
 
 		public CustomToon()
 		{

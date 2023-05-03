@@ -35,6 +35,8 @@ namespace Saga
 		//translatable UI
 		public CampaignLanguageController languageController;
 
+		public bool isDebugMode = false;
+
 		Sound sound;
 		int view = 1;//0=left, 1=right
 
@@ -56,11 +58,14 @@ namespace Saga
 				leftPanel.SetActive( false );
 			}
 
+			if ( isDebugMode )
+				FileManager.SetupDefaultFolders();
+
 			//re-initialize all card data, otherwise deployed cards and other items carry over when coming back from a campaign game
 			DataStore.InitData();
 
 			//BOOTSTRAP CAMPAIGN
-			bootstrapCampaign( true );//true = production build
+			bootstrapCampaign( !isDebugMode );//true = production build
 
 			fader.UnFade( 2 );
 
@@ -83,8 +88,8 @@ namespace Saga
 		void bootstrapCampaign( bool isProduction )
 		{
 			Debug.Log( $"***BOOTSTRAP (Campaign Manager) PRODUCTION={isProduction}***" );
-			if ( !isProduction )
-				DataStore.InitData();
+			//if ( !isProduction )
+			//	DataStore.InitData();
 
 			//campaign is already setup from Title screen
 			if ( RunningCampaign.sagaCampaignGUID != null && RunningCampaign.sagaCampaignGUID != Guid.Empty )
@@ -120,11 +125,11 @@ namespace Saga
 			foreach ( var item in sagaCampaign.campaignItems )
 				AddItemToUI( sagaCampaign.GetItemFromID( item ) );
 			//allies
-			foreach ( var id in sagaCampaign.campaignAllies )
-				AddAllyToUI( DataStore.GetAlly( id ) );
-			foreach ( var id in sagaCampaign.campaignVillains )
-				AddVillainToUI( DataStore.GetEnemy( id ) );
-			//heroes
+			foreach ( var ally in sagaCampaign.campaignAllies )
+				AddAllyToUI( ally );
+			foreach ( var villain in sagaCampaign.campaignVillains )
+				AddVillainToUI( villain );//DataStore.GetEnemy( id ) );
+																	//heroes
 			int c = sagaCampaign.campaignHeroes.Count;
 			for ( int i = 0; i < c; i++ )
 				heroPrefabs[i].AddHeroToUI( sagaCampaign.campaignHeroes[i] );
@@ -157,20 +162,32 @@ namespace Saga
 		#region UI callbacks from "AddCampaignItemPopup" window
 		void AddAllyToUI( DeploymentCard a )
 		{
+			if ( a == null )
+			{
+				Utils.LogError( $"AddAllyToUI()::card is null" );
+				return;
+			}
+
 			var go = Instantiate( listItemPrefab, allyContainer );
 			go.GetComponent<CampaignListItemPrefab>().InitAlly( a.name, ( n ) =>
 			{
-				sagaCampaign.campaignAllies.Remove( a.id );
+				sagaCampaign.campaignAllies.Remove( a );
 				Destroy( go );
 			} );
 		}
 
 		void AddVillainToUI( DeploymentCard v )
 		{
+			if ( v == null )
+			{
+				Utils.LogError( $"AddVillainToUI()::card is null" );
+				return;
+			}
+
 			var go = Instantiate( listItemPrefab, villainContainer );
 			go.GetComponent<CampaignListItemPrefab>().InitVillain( v.name, ( n ) =>
 			{
-				sagaCampaign.campaignVillains.Remove( v.id );
+				sagaCampaign.campaignVillains.Remove( v );
 				Destroy( go );
 			} );
 		}
@@ -221,9 +238,9 @@ namespace Saga
 		{
 			addCampaignItemPopup.AddAlly( ( a ) =>
 			{
-				if ( !sagaCampaign.campaignAllies.Contains( a.id ) )
+				if ( !sagaCampaign.campaignAllies.Contains( a ) )
 				{
-					sagaCampaign.campaignAllies.Add( a.id );
+					sagaCampaign.campaignAllies.Add( a );
 					AddAllyToUI( a );
 				}
 			} );
@@ -233,9 +250,9 @@ namespace Saga
 		{
 			addCampaignItemPopup.AddVillain( ( v ) =>
 			{
-				if ( !sagaCampaign.campaignVillains.Contains( v.id ) )
+				if ( !sagaCampaign.campaignVillains.Contains( v ) )
 				{
-					sagaCampaign.campaignVillains.Add( v.id );
+					sagaCampaign.campaignVillains.Add( v );
 					AddVillainToUI( v );
 				}
 			} );

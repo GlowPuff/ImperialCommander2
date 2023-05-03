@@ -285,6 +285,9 @@ namespace Saga
 		public void OnChangeMode()
 		{
 			folderBreadcrumbs.Clear();
+			//clear any custom mission allies/heroes
+			FindObjectOfType<SagaSetup>().missionCustomHeroes.Clear();
+			FindObjectOfType<SagaSetup>().missionCustomAllies.Clear();
 
 			if ( pickerMode == PickerMode.Custom )
 			{

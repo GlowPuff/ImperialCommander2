@@ -9,7 +9,7 @@ using UnityEngine;
 public static class DataStore
 {
 	public static readonly string appVersion = "v.2.0.29";
-	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No", "Ru" };
+	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No", "Ru", "NL" };
 
 	public static Mission mission;
 	public static GameType gameType;
@@ -47,7 +47,10 @@ public static class DataStore
 	public static List<DeploymentSound> deploymentSounds;
 	public static Dictionary<string, List<MissionPreset>> missionPresets;
 	public static ThumbnailData thumbnailData;
-	public static List<CustomToon> standaloneDesignedCharacters;
+	/// <summary>
+	/// global imported characters picked up at app startup (not the Mission opt-in global imports)
+	/// </summary>
+	public static List<CustomToon> globalImportedCharacters;
 	public static Vector3[] pipColors = new Vector3[7]
 	{
 		(0.3301887f).ToVector3(),
@@ -91,7 +94,7 @@ public static class DataStore
 		villainsToManuallyAdd = new List<DeploymentCard>();
 		deploymentSounds = new List<DeploymentSound>();
 		missionPresets = new Dictionary<string, List<MissionPreset>>();
-		standaloneDesignedCharacters = new List<CustomToon>();
+		globalImportedCharacters = new List<CustomToon>();
 		ownedFigurePacks = new List<DeploymentCard>();
 		mission = null;
 
@@ -103,8 +106,8 @@ public static class DataStore
 		deploymentSounds = LoadDeploymentSounds();
 		//load mission presets
 		LoadMissionPresets();
-		//load standalone designed characters
-		standaloneDesignedCharacters = FileManager.LoadDesignedCharacters();
+		//load global imported characters saved on device
+		globalImportedCharacters = FileManager.LoadDesignedCharacters();
 
 		//setup language
 		//default language playerprefs key should be set by now, but just in case...
@@ -405,7 +408,7 @@ public static class DataStore
 				if ( !toCards[i].isDummy )
 				{
 					var langcard = langCards.Where( x => x.id == toCards[i].id ).FirstOr( null );
-					//sanity check
+					//sanity check, will fail for imported characters
 					if ( langcard != null )
 					{
 						toCards[i].name = langcard.name;
@@ -417,14 +420,15 @@ public static class DataStore
 						toCards[i].abilities = langcard.abilities;
 					}
 					else
-						throw new Exception( "'langcard' is null" );
+					{
+						Utils.LogError( $"SetCardTranslations()::langcard is null::{toCards[i].name}/{toCards[i].id}" );
+					}
 				}
 			}
 		}
 		catch ( Exception e )
 		{
 			Utils.LogError( $"SetCardTranslations()::Error parsing card data\n{e.Message}" );
-			throw new Exception();
 		}
 	}
 
@@ -461,9 +465,9 @@ public static class DataStore
 	}
 
 	/// <summary>
-	/// Adds custom cards and associated data to the DataStore (Imperials, villains, allies, instructions, bonus effects), call AFTER InitData
+	/// When a Mission starts, adds Mission-embedded custom characters and associated data
 	/// </summary>
-	public static void AddCustomCardsToPools()
+	public static void AddEmbeddedImportsToPools()
 	{
 		if ( mission != null )
 		{
@@ -471,13 +475,27 @@ public static class DataStore
 			{
 				//add non-villains
 				if ( item.deploymentCard.characterType == CharacterType.Imperial )
+				{
+					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
 					deploymentCards.Add( item.deploymentCard );
+				}
 				//add villains
 				else if ( item.deploymentCard.characterType == CharacterType.Villain )
+				{
+					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
 					villainCards.Add( item.deploymentCard );
-				//add allies
-				else if ( item.deploymentCard.characterType == CharacterType.Ally )
+				}
+				//add allies and rebels
+				else if ( item.deploymentCard.characterType == CharacterType.Ally || item.deploymentCard.characterType == CharacterType.Rebel )
+				{
+					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
 					allyCards.Add( item.deploymentCard );
+				}
+				else if ( item.deploymentCard.characterType == CharacterType.Hero )
+				{
+					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+					heroCards.Add( item.deploymentCard );
+				}
 
 				//activation instructions
 				activationInstructions.Add( item.cardInstruction );
@@ -487,6 +505,28 @@ public static class DataStore
 		}
 		else
 			Debug.Log( "AddCustomCardsToPools()::Mission is NULL, skipping" );
+	}
+
+	/// <summary>
+	/// When a Mission starts, adds globally imported characters and associated data from current sesssion
+	/// </summary>
+	public static void AddGlobalImportsToPools()
+	{
+		//only need to add Imperials, heroes/allies/villains already added to their own special Lists
+		foreach ( var item in sagaSessionData.globalImportedCharacters )
+		{
+			//add non-villains
+			if ( item.deploymentCard.characterType == CharacterType.Imperial )
+			{
+				item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+				deploymentCards.Add( item.deploymentCard );
+			}
+
+			//activation instructions
+			activationInstructions.Add( item.cardInstruction );
+			//bonus effects
+			bonusEffects.Add( item.bonusEffect );
+		}
 	}
 
 	public static void CreateManualDeployment()
@@ -545,10 +585,11 @@ public static class DataStore
 			.ToList();
 		//Debug.Log( $"OF {deploymentCards.cards.Count} CARDS, USING {available.Count()}" );
 
-		//add earned villains
-		available = available.Concat( EarnedVillains ).ToList();
+		//add earned villains that are NOT reserved
+		available = available.Concat( EarnedVillains.MinusReserved() ).ToList();
 		//Debug.Log( $"ADD VILLAINS FILTERED TO {available.Count()} CARDS" );
 
+		//filter available list by threat level and tier
 		if ( threatLevel <= 3 )
 			available = GetCardsByTier( available.ToList(), 2, 2, 0 );
 		else if ( threatLevel == 4 )
@@ -556,16 +597,16 @@ public static class DataStore
 		else if ( threatLevel >= 5 )
 			available = GetCardsByTier( available.ToList(), 1, 2, 2 );
 
-		//if there are any villains and none were added, "help" add one (50% chance)
-		if ( EarnedVillains.Count > 0
-			&& !available.Any( x => EarnedVillains.ContainsCard( x ) )
+		//if there are any non-reserved earned villains and none were added to Hand above, "help" add one (50% chance)
+		if ( EarnedVillains.MinusReserved().Count > 0
+			&& !available.Any( x => EarnedVillains.MinusReserved().ContainsCard( x ) )
 			&& GlowEngine.RandomBool() )
 		{
 			int[] rv = GlowEngine.GenerateRandomNumbers( EarnedVillains.Count );
 			var v = EarnedVillains[rv[0]];
 			available = available.Concat( new List<DeploymentCard>() { v } ).ToList();
-			//add any remaining earned villains back into manual deploy list
-			foreach ( var cd in EarnedVillains )
+			//add any remaining non-reserved earned villains back into manual deploy list
+			foreach ( var cd in EarnedVillains.MinusReserved() )
 			{
 				if ( !available.ContainsCard( cd ) )
 					villainsToManuallyAdd.Add( cd );
@@ -574,8 +615,8 @@ public static class DataStore
 		}
 		else
 		{
-			//if villain wasn't already added to DH, AND it didn't get helped into hand, add it to manual deployment list
-			foreach ( var cd in EarnedVillains )
+			//if no non-reserved earned villain was added to Hand or by 50% chance above, add it to manual deployment list
+			foreach ( var cd in EarnedVillains.MinusReserved() )
 			{
 				if ( !available.ContainsCard( cd ) )
 				{
@@ -590,6 +631,7 @@ public static class DataStore
 		{
 			Debug.Log( $"DEPLOYMENT HAND::{available.ElementAt( i ).name}" );
 		}
+		//finally, create the Hand from the filtered list
 		deploymentHand = available.ToList();
 	}
 
@@ -689,25 +731,34 @@ public static class DataStore
 		return retval;
 	}
 
+	/// <summary>
+	/// Includes globally imported heroes at app startup
+	/// </summary>
 	public static DeploymentCard GetHero( string id )
 	{
-		return heroCards.First( x => x.id == id );
+		return heroCards.Concat( globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ) ).First( x => x.id == id ) ?? null;
 	}
 
-	public static DeploymentCard GetAlly( string id )
-	{
-		return allyCards.First( x => x.id == id );
-	}
+	/// <summary>
+	/// Includes globally imported heroes (not opt-in)
+	/// </summary>
+	//public static DeploymentCard GetAlly( string id )
+	//{
+	//	return allyCards.Concat( globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ) ).First( x => x.id == id ) ?? null;
+	//}
 
 	/// <summary>
 	/// Get a normal or villain from the id
 	/// </summary>
 	public static DeploymentCard GetEnemy( string id )
 	{
-		if ( villainCards.Any( x => x.id == id ) )
+		//also search hero and villain global imports
+		var imports = globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial || x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard );
+
+		if ( villainCards.Concat( imports ).Any( x => x.id == id ) )
 			return villainCards.Where( x => x.id == id ).First();
-		else if ( deploymentCards.Any( x => x.id == id ) )
-			return deploymentCards.Where( x => x.id == id ).First();
+		else if ( deploymentCards.Concat( imports ).Any( x => x.id == id ) )
+			return deploymentCards.Concat( imports ).Where( x => x.id == id ).First();
 		else
 			return null;
 	}

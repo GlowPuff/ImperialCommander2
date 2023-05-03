@@ -246,7 +246,7 @@ namespace Saga
 		public void MoveTo( Vector3 p, float speed = 1, float offset = 0, bool reset = false, Action callback = null )
 		{
 			acceptNavivation = false;
-			p = new Vector3( p.x, 0, p.z - offset );
+			p = new Vector3( p.x, 0, p.z/* - offset*/ );
 			transform.DOKill( true );
 			transform.DOMove( p, speed ).OnComplete( () =>
 			{
@@ -261,7 +261,7 @@ namespace Saga
 				nv.x = 0;
 				cam.transform.DOLocalMove( nv, speed ).SetEase( Ease.InOutCubic );
 				//DOTween.To( () => cam.fieldOfView, x => cam.fieldOfView = x, maxValue, speed ).SetEase( Ease.InOutCubic );
-				camRotator.DORotateQuaternion( Quaternion.Euler( 0, 0, 0 ), speed ).SetEase( Ease.InOutCubic );
+				//camRotator.DORotateQuaternion( Quaternion.Euler( 0, 0, 0 ), speed ).SetEase( Ease.InOutCubic );
 			}
 		}
 

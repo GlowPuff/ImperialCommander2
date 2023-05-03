@@ -237,6 +237,7 @@ namespace Saga
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
+			DataStore.sagaSessionData.EarnedVillains.Add( DataStore.villainCards.GetDeploymentCard( "DG072" ) );
 			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
 
@@ -282,8 +283,9 @@ namespace Saga
 				if ( DataStore.mission == null )
 					return false;
 
-				//add custom characters and associated data to DataStore
-				DataStore.AddCustomCardsToPools();
+				//add embedded custom characters and associated data used within the mission to DataStore
+				DataStore.AddEmbeddedImportsToPools();
+				DataStore.AddGlobalImportsToPools();
 
 				//add threat if it's a side mission
 				if ( DataStore.mission.missionProperties.missionType == MissionType.Side )
@@ -471,14 +473,15 @@ namespace Saga
 		bool ContinueGame()
 		{
 			StateManager sm = new StateManager();
-			//Restore session, hand, manual deck, deployed enemies, allies/heroes, custom data
+			//Restore session, hand, manual deck, deployed enemies, allies/heroes, custom data, and re-translates the data
 			if ( !DataStore.sagaSessionData.LoadState( sm ) )
 				return false;
 
 			Debug.Log( $"ContinueGame()::{DataStore.mission.fileName}" );
 
-			//add custom characters and associated data to DataStore
-			DataStore.AddCustomCardsToPools();
+			//add custom characters and associated data used within the mission to DataStore
+			DataStore.AddEmbeddedImportsToPools();
+			DataStore.AddGlobalImportsToPools();
 
 			var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
 			if ( card != null )//official mission
@@ -501,6 +504,8 @@ namespace Saga
 			//retore UI elements
 			//round
 			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sagaSessionData.gameVars.round;
+			//medpac count
+			medPacText.text = DataStore.sagaSessionData.gameVars.medPacCount.ToString();
 			//restore deployed enemies and heroes/allies
 			dgManager.RestoreState();
 			//fame button

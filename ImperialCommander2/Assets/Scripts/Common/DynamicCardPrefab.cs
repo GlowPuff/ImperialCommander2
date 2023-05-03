@@ -15,6 +15,8 @@ public class DynamicCardPrefab : MonoBehaviour
 
 	private DeploymentCard card;
 
+	//dynamic card background color = 007CC1
+
 	public void InitCard( DeploymentCard cd, bool hideModifier = false )
 	{
 		card = cd;
@@ -75,7 +77,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			faction.sprite = factionSprites[1];
 		else
 			faction.sprite = factionSprites[2];
-		if ( card.isCustomEnemyDeployment )
+		if ( card.isCustomEnemyDeployment || card.characterType == CharacterType.Hero || card.characterType == CharacterType.Ally )
 			faction.gameObject.SetActive( false );
 
 		//attack type
@@ -115,7 +117,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			//mugshotOutline.color = new Color( 0, 164f / 255f, 1 );
 		}
 		mugshotOutline.color = Utils.String2UnityColor( card.deploymentOutlineColor );
-		expansion.color = Utils.String2UnityColor( card.deploymentOutlineColor );//mugshotOutline.color;
+		//expansion.color = Utils.String2UnityColor( card.deploymentOutlineColor );//mugshotOutline.color;
 
 		///IS COST THE SAME AS THREAT COST FROM OVERRIDE?
 		//numbers
@@ -249,7 +251,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			gon.transform.localPosition = Vector3.zero;
 
 			TextMeshProUGUI nt = gon.AddComponent<TextMeshProUGUI>();
-			nt.color = new Color( 137f / 255f, 164f / 255f, 1 );
+			nt.color = new Color( 0, 1, 0.628047f, 1 );//( 137f / 255f, 164f / 255f, 1 );
 			nt.text = $"<size=25><b>{DataStore.uiLanguage.uiMainApp.noAbilitiesUC}</b></size>";
 		}
 
@@ -268,8 +270,8 @@ public class DynamicCardPrefab : MonoBehaviour
 				ntt.color = new Color( 137f / 255f, 164f / 255f, 1 );
 
 				//replace glyphs
-				string aName = Saga.Utils.ReplaceGlyphs( card.abilities[i].name );
-				string item = Saga.Utils.ReplaceGlyphs( card.abilities[i].text );
+				string aName = Utils.ReplaceGlyphs( card.abilities[i].name );
+				string item = Utils.ReplaceGlyphs( card.abilities[i].text );
 
 				if ( !string.IsNullOrEmpty( aName ) )
 					ntt.text = $"<size=25><b><color=orange>{aName}:</color></b> ";
@@ -288,7 +290,7 @@ public class DynamicCardPrefab : MonoBehaviour
 		g.transform.localPosition = Vector3.zero;
 
 		TextMeshProUGUI tt = g.AddComponent<TextMeshProUGUI>();
-		tt.color = new Color( 137f / 255f, 164f / 255f, 1 );
+		tt.color = new Color( 0, 1, 0.628047f, 1 );//( 137f / 255f, 164f / 255f, 1 );
 		tt.text = $"<size=25><b><color=red>{DataStore.uiLanguage.uiMainApp.ignoredAbilitiesUC}:</color></b><br>";
 
 		//ignored abilities
@@ -298,11 +300,11 @@ public class DynamicCardPrefab : MonoBehaviour
 		go.transform.localScale = Vector3.one;
 		go.transform.localEulerAngles = Vector3.zero;
 		go.transform.localPosition = Vector3.zero;
-		if ( card.ignored.Length == 0 )
+		if ( card.ignored?.Length == 0 )
 		{
 			tt.text += DataStore.uiLanguage.uiMainApp.noneUC;
 		}
-		for ( int i = 0; i < card.ignored.Length; i++ )
+		for ( int i = 0; i < card.ignored?.Length; i++ )
 		{
 			tt.text += card.ignored[i];
 		}

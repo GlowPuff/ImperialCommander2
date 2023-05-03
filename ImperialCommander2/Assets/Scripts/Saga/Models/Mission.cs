@@ -40,7 +40,7 @@ namespace Saga
 		public List<EnemyGroupData> reservedDeploymentGroups;
 		public List<EventGroup> eventGroups;
 		public List<EntityGroup> entityGroups;
-		public List<CustomToon> customCharacters;
+		public List<CustomToon> customCharacters = new List<CustomToon>();//initialize so old missions don't have a null value
 
 		public bool TriggerExists( Trigger t )
 		{

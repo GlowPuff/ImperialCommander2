@@ -454,25 +454,67 @@ namespace Saga
 			Debug.Log( "SagaEventManager()::PROCESSING RemoveGroup" );
 			foreach ( var item in rg.groupsToRemove )
 			{
-				//remove any override
-				DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
-				var card = DataStore.allEnemyDeploymentCards.Where( x => x.id == item.id ).FirstOr( null );
-				if ( card != null )
+				bool returnToHand = true;
+				var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( item.id );
+				//test if it can redeploy
+				if ( ovrd != null && !ovrd.canRedeploy )
 				{
-					//remove it from the hand
-					DataStore.deploymentHand.Add( card );
-					//remove it from the deployment list
-					DataStore.deployedEnemies.Remove( card );
-					//remove icon from the enemy column
-					FindObjectOfType<SagaController>().dgManager.RemoveGroup( card.id );
+					DataStore.sagaSessionData.CannotRedeployList.Add( item.id );
+					//completely reset if it can't redeploy, so it can be manually deployed "clean" later
+					DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
+					returnToHand = false;
 				}
 
+				var card = DataStore.allEnemyDeploymentCards.GetDeploymentCard( item.id );
+				if ( card != null )
+				{
+					//return it to the Hand if it can redeploy
+					if ( card.id != "DG070" && card.characterType != CharacterType.Villain && returnToHand )
+					{
+						DataStore.deploymentHand.Add( card );
+					}
+					//remove it from deployed list
+					DataStore.deployedEnemies.RemoveCardByID( card );
+				}
+				//if it is an EARNED villain, add it back into manual deploy list
+				if ( DataStore.sagaSessionData.EarnedVillains.ContainsCard( card ) && !DataStore.manualDeploymentList.ContainsCard( card ) )
+				{
+					DataStore.manualDeploymentList.Add( card );
+					DataStore.SortManualDeployList();
+				}
+				//finally, reset the group if needed
+				if ( ovrd != null && ovrd.canRedeploy )
+				{
+					if ( ovrd.useResetOnRedeployment )
+						DataStore.sagaSessionData.gameVars.RemoveOverride( ovrd.ID );
+					else if ( !ovrd.useResetOnRedeployment )
+						ovrd.ResetDP();
+				}
+
+				if ( DataStore.deployedEnemies.Count == 0 )
+					FindObjectOfType<SagaController>().eventManager.CheckIfEventsTriggered();
+
+				//remove icon from the enemy column
+				FindObjectOfType<SagaController>().dgManager.RemoveGroup( card.id );
+
+				//remove any override
+				//DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
+				//if ( card != null )
+				//{
+				//	//remove it from the hand
+				//	DataStore.deploymentHand.Add( card );
+				//	//remove it from the deployment list
+				//	DataStore.deployedEnemies.Remove( card );
+				//	//remove icon from the enemy column
+				//	FindObjectOfType<SagaController>().dgManager.RemoveGroup( card.id );
+				//}
 			}
+
 			foreach ( var item in rg.allyGroupsToRemove )
 			{
 				//remove any override
 				DataStore.sagaSessionData.gameVars.RemoveOverride( item.id );
-				var card = DataStore.allyCards.Where( x => x.id == item.id ).FirstOr( null );
+				var card = DataStore.allyCards.GetDeploymentCard( item.id );
 				if ( card != null )
 				{
 					//remove it from the deployed heroes list

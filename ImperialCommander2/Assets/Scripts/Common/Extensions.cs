@@ -5,16 +5,22 @@ using UnityEngine;
 
 public static class Extensions
 {
+	public static void RemoveCardByID( this List<DeploymentCard> thisCD, DeploymentCard card )
+	{
+		DeploymentCard c = thisCD.Where( x => x.id.ToUpper() == card.id.ToUpper() ).FirstOr( null );
+		if ( c != null )
+			thisCD.Remove( thisCD.Where( x => x.id.ToUpper() == card.id.ToUpper() ).First() );
+	}
 	/// <summary>
 	/// Match a card in a list by its ID
 	/// </summary>
 	public static bool ContainsCard( this List<DeploymentCard> thisCD, DeploymentCard comp )
 	{
-		return thisCD.Any( x => x.id == comp.id );
+		return thisCD.Any( x => x.id.ToUpper() == comp.id.ToUpper() );
 	}
 	public static DeploymentCard GetDeploymentCard( this List<DeploymentCard> thisCD, string cardID )
 	{
-		return thisCD.Where( x => x.id == cardID.ToUpper() ).FirstOr( null );
+		return thisCD.Where( x => x.id.ToUpper() == cardID.ToUpper() ).FirstOr( null );
 	}
 	public static List<DeploymentCard> Owned( this List<DeploymentCard> thisCD )
 	{
@@ -100,7 +106,7 @@ public static class Extensions
 
 	public static List<DeploymentCard> GetHeroesAndAllies( this List<DeploymentCard> thisCD )
 	{
-		return thisCD.Where( x => x.id[0] == 'H' || x.id[0] == 'A' ).ToList();
+		return thisCD.Where( x => x.characterType == Saga.CharacterType.Hero || x.characterType == Saga.CharacterType.Ally ).ToList();
 	}
 
 	/// <summary>

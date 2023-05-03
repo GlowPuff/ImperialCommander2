@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Saga
 {
+	/// <summary>
+	/// Mugshot toggle button for allies
+	/// </summary>
 	public class MugshotToggle : MonoBehaviour
 	{
 		bool _isOn;
@@ -12,7 +15,7 @@ namespace Saga
 		[HideInInspector]
 		public int index;
 
-		public Image mugImage, bgImage;
+		public Image mugImage, outlineImage;
 
 		[HideInInspector]
 		public bool isOn
@@ -42,25 +45,25 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			if ( isOn )//button is selected
 			{
-				bgImage.color = Color.green;
+				outlineImage.color = Color.green;
 			}
 			else
 			{
 				isOn = false;
 
 				if ( card.isElite )
-					bgImage.color = Color.red;
+					outlineImage.color = Color.red;
 				else
-					bgImage.color = Color.white;
+					outlineImage.color = Color.white;
 
 				//handle banned allies
 				if ( characterType == CharacterType.Ally )
 				{
-					bgImage.color = Color.white;
+					outlineImage.color = Color.white;
 
 					if ( DataStore.sagaSessionData.BannedAllies.Contains( card.id ) )
 					{
-						bgImage.color = Color.red;
+						outlineImage.color = Color.red;
 					}
 				}
 			}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using Saga;
 
 public class DeploymentCard : IEquatable<DeploymentCard>
@@ -57,6 +58,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	//==other properties
 	public string mugShotPath;
 	public string deploymentOutlineColor;
+	public Guid customCharacterGUID;
 	//==end other properties
 
 	public bool Equals( DeploymentCard obj )
@@ -169,6 +171,15 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	public void ResetWoundTracker()
 	{
 		woundTrackerValue = new int[] { 0, 0, 0 };
+	}
+
+	/// <summary>
+	/// Deep copy of the data without a reference to the original
+	/// </summary>
+	public DeploymentCard GetUniqueCopy()
+	{
+		var copy = JsonConvert.SerializeObject( this );
+		return JsonConvert.DeserializeObject<DeploymentCard>( copy );
 	}
 }
 

@@ -15,6 +15,7 @@ namespace Saga
 		public Toggle[] expansionToggles;
 		public Transform mugContainer;
 		public TextMeshProUGUI nameText;
+		public DynamicCardPrefab cardPrefab;
 
 		Action callback;
 		int dataMode, selectedExpansion, prevExp;
@@ -106,8 +107,17 @@ namespace Saga
 			}
 			else//villains
 			{
+				//add global imported characters
+				cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
 				updating = true;
-				cards = DataStore.villainCards.Where( x => x.expansion == expansion ).ToList();
+
+				//add embedded characters
+				var setup = FindObjectOfType<SagaSetup>();
+				cards = cards.Concat( setup.missionCustomVillains ).ToList();
+
+				//finally, add stock villains
+				cards = cards.Concat( DataStore.villainCards.Where( x => x.expansion == expansion ) ).ToList();
+
 				for ( int i = 0; i < cards.Count; i++ )
 				{
 					var mug = Instantiate( groupMugPrefab, mugContainer );
@@ -120,17 +130,21 @@ namespace Saga
 				}
 				updating = false;
 			}
+
+			if ( cards.Count > 0 )
+				cardPrefab.InitCard( cards[0] );
 		}
 
 		public bool OnToggle( DeploymentCard card )
 		{
-			nameText.text = $"{card.name} [{card.id}]";
+			nameText.text = $"{card.name}";// [{card.id}]";
 
 			if ( dataMode == 0 )
 			{
 				if ( !DataStore.sagaSessionData.MissionIgnored.Contains( card ) )
 				{
 					DataStore.sagaSessionData.MissionIgnored.Add( card );
+					cardPrefab.InitCard( card );
 					return true;
 				}
 			}
@@ -139,6 +153,7 @@ namespace Saga
 				if ( !DataStore.sagaSessionData.EarnedVillains.Contains( card ) )
 				{
 					DataStore.sagaSessionData.EarnedVillains.Add( card );
+					cardPrefab.InitCard( card );
 					return true;
 				}
 			}

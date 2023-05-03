@@ -13,6 +13,8 @@ public class DynamicMissionCardPrefab : MonoBehaviour
 
 	private MissionCard missionCard;
 
+	//dynamic card background color = 007CC1
+
 	public void InitCard( MissionCard card )
 	{
 		missionCard = card;

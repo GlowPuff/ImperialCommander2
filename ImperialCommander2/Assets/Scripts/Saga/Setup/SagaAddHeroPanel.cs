@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +13,8 @@ namespace Saga
 		public PopupBase popupBase;
 		public GameObject heroMugPrefab;
 		public Transform mugContainer;
+		public TextMeshProUGUI nameText;
+		public DynamicCardPrefab cardPrefab;
 
 		Action callback;
 		int prevSelected = -1;
@@ -24,13 +29,24 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			popupBase.Show();
 
+			nameText.text = "";
 			characterType = cType;
 
 			//populate mugshot toggles
 			if ( characterType == CharacterType.Hero )
 			{
 				int i = 0;
-				foreach ( var item in DataStore.heroCards )
+				//add global imported characters
+				List<DeploymentCard> heroCards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
+
+				//add embedded characters
+				var setup = FindObjectOfType<SagaSetup>();
+				heroCards = heroCards.Concat( setup.missionCustomHeroes ).ToList();
+
+				//finally, add stock heroes
+				heroCards = heroCards.Concat( DataStore.heroCards ).ToList();
+
+				foreach ( var item in heroCards )
 				{
 					var mug = Instantiate( heroMugPrefab, mugContainer );
 					mug.GetComponent<MugshotToggle>().Init( item, i++ );
@@ -40,11 +56,24 @@ namespace Saga
 						mug.GetComponent<MugshotToggle>().UpdateToggle();
 					}
 				}
+
+				if ( heroCards.Count > 0 )
+					cardPrefab.InitCard( heroCards[0], true );
 			}
 			else//allies
 			{
+				//add global imported characters
+				List<DeploymentCard> allyCards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
+
+				//add embedded characters
+				var setup = FindObjectOfType<SagaSetup>();
+				allyCards = allyCards.Concat( setup.missionCustomAllies ).ToList();
+
+				//finally, add stock allies
+				allyCards = allyCards.Concat( DataStore.allyCards.MinusElite() ).ToList();
+
 				int i = 0;
-				foreach ( var item in DataStore.allyCards.MinusElite() )
+				foreach ( var item in allyCards )
 				{
 					var mug = Instantiate( heroMugPrefab, mugContainer );
 					mug.GetComponent<MugshotToggle>().Init( item, i++ );
@@ -64,25 +93,33 @@ namespace Saga
 						mug.GetComponent<MugshotToggle>().UpdateToggle();
 					}
 				}
+
+				if ( allyCards.Count > 0 )
+					cardPrefab.InitCard( allyCards[0], true );
 			}
 		}
 
 		public bool OnToggle( DeploymentCard card )
 		{
 			FindObjectOfType<Sound>().PlaySound( FX.Click );
+
+			nameText.text = $"{card.name}";// [{card.id}]";
+
 			if ( characterType == CharacterType.Hero )
 			{
 				if ( DataStore.sagaSessionData.MissionHeroes.Count < 4 && !DataStore.sagaSessionData.MissionHeroes.Contains( card ) )
 				{
 					DataStore.sagaSessionData.MissionHeroes.Add( card );
+					cardPrefab.InitCard( card, true );
 					return true;
 				}
 			}
-			else
+			else//ally
 			{
 				if ( DataStore.sagaSessionData.selectedAlly != card )
 				{
 					DataStore.sagaSessionData.selectedAlly = card;
+					cardPrefab.InitCard( card, true );
 					return true;
 				}
 			}

@@ -4,11 +4,14 @@ using UnityEngine.UI;
 
 namespace Saga
 {
+	/// <summary>
+	/// Mugshot toggle button for earned villains and ignored groups
+	/// </summary>
 	public class GroupMugshotToggle : MonoBehaviour
 	{
 		bool _isOn;
 
-		public Image mugImage, bgImage;
+		public Image mugImage, outlineImage;
 
 		[HideInInspector]
 		public bool isOn
@@ -35,10 +38,10 @@ namespace Saga
 		{
 			EventSystem.current.SetSelectedGameObject( null );
 			if ( isOn )
-				bgImage.color = Color.green;
+				outlineImage.color = Color.green;
 			else
 			{
-				bgImage.color = Color.white;
+				outlineImage.color = Color.white;
 				isOn = false;
 			}
 

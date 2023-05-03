@@ -33,9 +33,9 @@ namespace Saga
 		public Guid GUID;
 		public List<CampaignHero> campaignHeroes = new List<CampaignHero>();
 		public List<CampaignStructure> campaignStructure = new List<CampaignStructure>();
+		public List<DeploymentCard> campaignVillains = new List<DeploymentCard>();
+		public List<DeploymentCard> campaignAllies = new List<DeploymentCard>();
 		//store the ID
-		public List<string> campaignVillains = new List<string>();
-		public List<string> campaignAllies = new List<string>();
 		public List<string> campaignItems = new List<string>();
 		public List<string> campaignRewards = new List<string>();
 		public List<string> campaignIgnored = new List<string>();
@@ -45,10 +45,6 @@ namespace Saga
 		public static List<CampaignItem> campaignDataItems;
 		[JsonIgnore]
 		public static List<CampaignSkill> campaignDataSkills;
-		[JsonIgnore]
-		public static List<DeploymentCard> allyDataCards;
-		[JsonIgnore]
-		public static List<DeploymentCard> villainDataCards;
 		[JsonIgnore]
 		public static List<CampaignStructure> campaignStructures;
 		[JsonIgnore]
@@ -80,10 +76,10 @@ namespace Saga
 		/// </summary>
 		public void FixExpansionCodes()
 		{
-			for ( int i = 0; i < campaignStructures.Count; i++ )
-			{
-				campaignStructure[i].expansionCode = campaignStructures[i].expansionCode;
-			}
+			//for ( int i = 0; i < campaignStructures.Count; i++ )
+			//{
+			//	campaignStructure[i].expansionCode = campaignStructures[i].expansionCode;
+			//}
 		}
 
 		/// <summary>
@@ -98,12 +94,6 @@ namespace Saga
 
 				//skills
 				campaignDataSkills = LoadAsset<List<CampaignSkill>>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/CampaignData/skills" );
-
-				//allies
-				allyDataCards = LoadAsset<List<DeploymentCard>>( "CardData/allies" );
-
-				//villains
-				villainDataCards = LoadAsset<List<DeploymentCard>>( "CardData/villains" );
 
 				//rewards
 				campaignDataRewards = LoadAsset<List<CampaignReward>>( $"Languages/{DataStore.Language}/CampaignData/rewards" );
@@ -136,7 +126,6 @@ namespace Saga
 						}
 					};
 				}
-
 			}
 			catch ( JsonReaderException e )
 			{

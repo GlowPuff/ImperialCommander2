@@ -51,9 +51,13 @@ namespace Saga
 
 			var sc = FindObjectOfType<CampaignManager>().sagaCampaign;
 			var ch = new HashSet<string>( sc.campaignHeroes.Select( x => x.heroID ) );
+			//omit heroes already added to campaign
 			var h = DataStore.heroCards.Where( x => !ch.Contains( x.id ) );
 
-			foreach ( var item in h )//DataStore.heroCards )
+			//add global imports, omitting those already added to compaign
+			h = h.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero && !ch.Contains( x.deploymentCard.id ) ).Select( x => x.deploymentCard ) );
+
+			foreach ( var item in h )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitHero( item );
@@ -68,7 +72,12 @@ namespace Saga
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
 
-			foreach ( var item in DataStore.allyCards )
+			var sc = FindObjectOfType<CampaignManager>().sagaCampaign.campaignAllies;
+
+			//add global imports
+			var allies = DataStore.allyCards.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ) ).Where( x => !sc.Contains( x ) ).ToList();
+
+			foreach ( var item in allies )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitAlly( item );
@@ -85,8 +94,11 @@ namespace Saga
 
 			var sc = FindObjectOfType<CampaignManager>().sagaCampaign.campaignVillains;
 
+			//add global imports, omitting those already added to campaign
+			var villains = DataStore.villainCards.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ) ).Where( x => !sc.Contains( x ) ).ToList();
+
 			//omit villains already added to campaign
-			foreach ( var item in DataStore.villainCards.Where( x => !sc.Contains( x.id ) ) )
+			foreach ( var item in villains )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitVillain( item );
@@ -103,7 +115,9 @@ namespace Saga
 
 			var sagaCampaign = FindObjectOfType<CampaignManager>().sagaCampaign;
 
-			foreach ( var item in SagaCampaign.campaignDataSkills.Where( x => x.owner == heroID ) )
+			var skills = SagaCampaign.campaignDataSkills.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).SelectMany( x => x.heroSkills ) );
+
+			foreach ( var item in skills.Where( x => x.owner == heroID ) )
 			{
 				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
@@ -133,7 +147,7 @@ namespace Saga
 			Show();
 		}
 
-		public void AddMission( string expansionCode, MissionType missionType, Action<MissionCard> callback )
+		public void AddMission( string campaignExpansionCode, MissionType missionType, Action<MissionCard> callback )
 		{
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
@@ -141,9 +155,9 @@ namespace Saga
 			selectedExpansion = "Core";
 			expansionCodes.Clear();
 			//restricted to current expansion missions (story and finale)
-			if ( expansionCode != "Custom"
+			if ( campaignExpansionCode != "Custom"
 				&& (missionType == MissionType.Story || missionType == MissionType.Finale) )
-				selectedExpansion = expansionCode;
+				selectedExpansion = campaignExpansionCode;
 			expansionDropdown.ClearOptions();
 			//add translated expansion name
 			expansionDropdown.AddOptions(
@@ -161,7 +175,7 @@ namespace Saga
 			expansionCodes.Add( "Other" );
 
 			//side missions have access to custom missions, add "Custom" to dropdown
-			if ( expansionCode == "Custom" || missionType == MissionType.Side || missionType == MissionType.Forced )
+			if ( campaignExpansionCode == "Custom" || missionType == MissionType.Side || missionType == MissionType.Forced )
 			{
 				expansionDropdown.AddOptions( (new string[] { DataStore.uiLanguage.uiCampaign.customUC }).ToList() );
 				//add Custom to codes
@@ -177,7 +191,7 @@ namespace Saga
 			addMissionCallback = callback;
 			Show();
 			//make room for the expansion dropdown
-			if ( expansionCode == "Custom" || (missionType != MissionType.Story && missionType != MissionType.Finale) )
+			if ( campaignExpansionCode == "Custom" || (missionType != MissionType.Story && missionType != MissionType.Finale) )
 			{
 				scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -155 );
 				expansionDropdown.gameObject.SetActive( true );

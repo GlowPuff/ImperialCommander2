@@ -8,7 +8,7 @@ namespace Saga
 	{
 		public Toggle woundToggle, activationToggle1, activationToggle2;
 		public Image iconImage;
-		public Outline outline;
+		public Image outline;
 		public Color eliteColor;
 		public GameObject exhaustedOverlay;
 		public DeploymentCard Card { get { return cardDescriptor; } }
@@ -38,7 +38,7 @@ namespace Saga
 				//icon thumbnail
 				iconImage.sprite = Resources.Load<Sprite>( cardDescriptor.mugShotPath );
 				//outline color
-				outline.effectColor = Utils.String2UnityColor( cardDescriptor.deploymentOutlineColor );
+				outline.color = Utils.String2UnityColor( cardDescriptor.deploymentOutlineColor );
 			}
 			else
 			{
