@@ -20,7 +20,7 @@ public class CampaignMessagePopup : MonoBehaviour
 
 		var rt = GetComponent<RectTransform>();
 		Vector2 size = bodyText.GetPreferredValues( message, 733, 0 );
-		var windowH = Mathf.Clamp( size.y + 200, 275, 700 );
+		var windowH = Mathf.Clamp( size.y + 250, 275, 700 );
 		rt.SetSizeWithCurrentAnchors( RectTransform.Axis.Vertical, windowH );
 		//rt.sizeDelta = new Vector2( rt.sizeDelta.x, height );
 	}

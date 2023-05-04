@@ -100,6 +100,9 @@ namespace Saga
 
 			foreach ( Transform child in contentContainer )
 				Destroy( child.gameObject );
+
+			xpAmountText.text = "0";
+
 			//hero
 			campaignHero = hero;
 			mug.sprite = Resources.Load<Sprite>( hero.mugShotPath );

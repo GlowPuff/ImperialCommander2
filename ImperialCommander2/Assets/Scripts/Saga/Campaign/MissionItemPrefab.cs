@@ -31,7 +31,7 @@ namespace Saga
 			bgImage.color = new Vector3( 0f, 0.6440244f, 1f ).ToColor();
 
 			if ( cs.missionType == MissionType.Side )
-				bgImage.color = new Vector3( .5f, 0.8362323f, 1f ).ToColor();
+				bgImage.color = new Vector3( 0.6176143f, 0.5235849f, 1f ).ToColor();
 			if ( cs.missionType == MissionType.Forced )
 			{
 				dummyItemToggle.SetActive( true );
@@ -41,12 +41,13 @@ namespace Saga
 			{
 				itemToggle.gameObject.SetActive( false );
 				dummyItemToggle.SetActive( true );
-				bgImage.color = new Vector3( 1f, 0.7863293f, 0f ).ToColor();
+				bgImage.color = new Vector3( 1f, 0.1568628f, 0f ).ToColor();
 			}
 			if ( cs.missionType == MissionType.Introduction
 				|| cs.missionType == MissionType.Interlude )
 			{
-				bgImage.color = new Vector3( 0f, 0.3215685f, .5f ).ToColor();
+				bgImage.color = new Vector3( 0.5254902f, 1f, 0.5690899f ).ToColor();
+				//bgImage.color = new Vector3( 0.6176143f, 0.5235849f, 1f ).ToColor();
 			}
 
 			if ( !cs.isAgendaMission || cs.missionType == MissionType.Forced )
