@@ -18,7 +18,7 @@ namespace Saga
 		public Camera theCamera;
 		//UI TRINKETS
 		public GameObject descriptionTextBox;
-		public Text difficultyText, initialText, additionalText;
+		public Text difficultyText;
 		public Transform heroContainer;
 		public Button adaptiveButton, startMissionButton, viewMissionCardButton, campaignTilesButton;
 		public GameObject miniMugPrefab;
@@ -115,19 +115,11 @@ namespace Saga
 			DataStore.StartNewSagaSession( setupOptions );
 			//check if we're loading in from  the campaign manager
 			//single shot mission, not from a campaign
-			if ( RunningCampaign.sagaCampaignGUID == Guid.Empty )
-			{
-				threatValue.ResetWheeler( 0 );
-			}
-			else//from campaign manager
-			{
-				//setupOptions is set here
-				SetupCampaignMission();
-			}
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+				SetupCampaignMission();//setupOptions is set here
 
 			ResetSetup( RunningCampaign.sagaCampaignGUID != Guid.Empty );
 			UpdateHeroes();
-			addtlThreatValue.ResetWheeler();
 
 			faderCG.alpha = 0;
 			faderCG.DOFade( 1, .5f );
@@ -158,17 +150,17 @@ namespace Saga
 				}
 			}
 			//threat value
-			initialText.text = setupOptions.threatLevel.ToString();
+			threatValue.ResetWheeler( setupOptions.threatLevel );
 			//additional threat value
-			additionalText.text = setupOptions.addtlThreat.ToString();
+			addtlThreatValue.ResetWheeler( setupOptions.addtlThreat );
 
 			if ( !isCampaign )
 			{
 				//clear ignored groups
 				DataStore.sagaSessionData.MissionIgnored.Clear();
 				//add default ignored
-				//ignore "Other" expansion enemy groups by default
-				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+				//ignore "Other" expansion enemy groups by default, except the owned ones
+				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ).Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 			}
 		}
 
@@ -441,7 +433,6 @@ namespace Saga
 				ign.ToList().ForEach( x => ignored.Add( x ) );
 
 				threatValue.ResetWheeler( mp.defaultThreat );
-				initialText.text = mp.defaultThreat.ToString();
 			}
 			else
 				errorPanel.Show( "OnMissionSelected()", "MissionPreset is null" );
@@ -485,7 +476,6 @@ namespace Saga
 
 			//set default values to UI - they don't exist in a custom mission
 			threatValue.ResetWheeler( 3 );
-			initialText.text = "3";
 
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
 			if ( m != null )

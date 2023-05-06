@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler
+public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IPointerClickHandler
 {
 	public int wheelValue;
 	public int maxValue = 10;
@@ -13,7 +13,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	public int stepValue = 1;
 	public Text numberText;
 	public TextMeshProUGUI numberTextTMP;
-
+	public ValueAdjuster valueAdjuster;
 	public UnityEvent wheelValueChanged;
 
 	//swiping
@@ -26,7 +26,6 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 	private void Start()
 	{
-		string f = name;
 		if ( numberText == null )
 			numberText = GetComponent<Text>();
 		if ( numberTextTMP == null )
@@ -40,22 +39,13 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		{
 			if ( Input.mouseScrollDelta.y == 1 )
 			{
-				wheelValue = Mathf.Min( maxValue, wheelValue + stepValue );
-				wheelValueChanged?.Invoke();
-				sound.PlaySound( FX.Click );
+				OnAdd();
 			}
 			else if ( Input.mouseScrollDelta.y == -1 )
 			{
-				wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
-				wheelValueChanged?.Invoke();
-				sound.PlaySound( FX.Click );
+				OnSubtract();
 			}
 		}
-
-		if ( numberText != null )
-			numberText.text = wheelValue.ToString();
-		if ( numberTextTMP != null )
-			numberTextTMP.text = wheelValue.ToString();
 	}
 
 	public void OnPointerEnter( PointerEventData eventData )
@@ -68,13 +58,32 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		isHovering = false;
 	}
 
+	public void OnPointerClick( PointerEventData eventData )
+	{
+		if ( valueAdjuster != null )
+			valueAdjuster.Show( wheelValue, this );
+	}
+
+	public void OnAdd()
+	{
+		wheelValue = Mathf.Min( maxValue, wheelValue + stepValue );
+		wheelValueChanged?.Invoke();
+		sound.PlaySound( FX.Click );
+		UpdateTargetValue();
+	}
+
+	public void OnSubtract()
+	{
+		wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
+		wheelValueChanged?.Invoke();
+		sound.PlaySound( FX.Click );
+		UpdateTargetValue();
+	}
+
 	public void ResetWheeler( int value = 0 )
 	{
 		wheelValue = value;
-		if ( numberText != null )
-			numberText.text = wheelValue.ToString();
-		if ( numberTextTMP != null )
-			numberTextTMP.text = wheelValue.ToString();
+		UpdateTargetValue();
 		wheelValueChanged?.Invoke();
 	}
 
@@ -92,6 +101,16 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 				wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
 
 			wheelValueChanged?.Invoke();
+			UpdateTargetValue();
 		}
+	}
+
+	void UpdateTargetValue()
+	{
+		valueAdjuster?.SetValue( wheelValue );
+		if ( numberText != null )
+			numberText.text = wheelValue.ToString();
+		if ( numberTextTMP != null )
+			numberTextTMP.text = wheelValue.ToString();
 	}
 }

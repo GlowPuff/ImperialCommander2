@@ -33,6 +33,7 @@ public class HPTracker : MonoBehaviour
 			card.woundTrackerValue[index] = wheelHandler.wheelValue;
 	}
 
+	//right click and double click
 	public void OnDoubleClicked()
 	{
 		wheelHandler.ResetWheeler();

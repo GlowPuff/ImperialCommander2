@@ -191,7 +191,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			go.transform.localPosition = Vector3.zero;
 
 			TextMeshProUGUI nt = go.AddComponent<TextMeshProUGUI>();
-			nt.color = new Color( 1, 201f / 255f, 0 );
+			nt.color = new Color( 1, 0.7863293f, 0 );
 			nt.verticalAlignment = VerticalAlignmentOptions.Middle;
 			nt.enableAutoSizing = true;
 			nt.margin = new Vector4( 0, 2, 0, 2 );
@@ -200,7 +200,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			string item = Saga.Utils.ReplaceGlyphs( card.surges[i] );
 
 			if ( !string.IsNullOrEmpty( item ) )
-				nt.text = $"<color=#00A4FF>{i + 1})</color> {item}";
+				nt.text = $"<color=#7FD3FF>{i + 1})</color> {item}";
 		}
 	}
 
@@ -251,7 +251,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			gon.transform.localPosition = Vector3.zero;
 
 			TextMeshProUGUI nt = gon.AddComponent<TextMeshProUGUI>();
-			nt.color = new Color( 0, 1, 0.628047f, 1 );//( 137f / 255f, 164f / 255f, 1 );
+			nt.color = new Color( 0, 1, 0.628047f, 1 );
 			nt.text = $"<size=25><b>{DataStore.uiLanguage.uiMainApp.noAbilitiesUC}</b></size>";
 		}
 
@@ -267,7 +267,7 @@ public class DynamicCardPrefab : MonoBehaviour
 				goa.transform.localPosition = Vector3.zero;
 
 				TextMeshProUGUI ntt = goa.AddComponent<TextMeshProUGUI>();
-				ntt.color = new Color( 137f / 255f, 164f / 255f, 1 );
+				ntt.color = new Color( 0.4980392f, 0.8266184f, 1 );
 
 				//replace glyphs
 				string aName = Utils.ReplaceGlyphs( card.abilities[i].name );
