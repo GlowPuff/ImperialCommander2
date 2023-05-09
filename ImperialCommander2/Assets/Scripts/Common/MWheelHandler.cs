@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -19,7 +18,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	//swiping
 	public float distancePerTick = 15;//distance (pixels) have to swipe to register 1 tick of increment/decrement
 
-	private float currentDistance = 0;
+	//private float currentDistance = 0;
 
 	bool isHovering = false;
 	Sound sound;
@@ -60,8 +59,11 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 	public void OnPointerClick( PointerEventData eventData )
 	{
-		if ( valueAdjuster != null )
-			valueAdjuster.Show( wheelValue, this );
+		if ( eventData.button == PointerEventData.InputButton.Left )
+		{
+			if ( valueAdjuster != null )
+				valueAdjuster.Show( wheelValue, this );
+		}
 	}
 
 	public void OnAdd()
@@ -89,20 +91,20 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 	public void OnDrag( PointerEventData eventData )
 	{
-		eventData.useDragThreshold = true;
+		//eventData.useDragThreshold = true;
 
-		currentDistance += Math.Max( Math.Abs( eventData.delta.y ), Math.Abs( eventData.delta.x ) );
-		if ( currentDistance >= distancePerTick )
-		{
-			currentDistance = 0;
-			if ( eventData.delta.x > 0 || eventData.delta.y > 0 )
-				wheelValue = Mathf.Min( maxValue, wheelValue + stepValue );
-			else
-				wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
+		//currentDistance += Math.Max( Math.Abs( eventData.delta.y ), Math.Abs( eventData.delta.x ) );
+		//if ( currentDistance >= distancePerTick )
+		//{
+		//	currentDistance = 0;
+		//	if ( eventData.delta.x > 0 || eventData.delta.y > 0 )
+		//		wheelValue = Mathf.Min( maxValue, wheelValue + stepValue );
+		//	else
+		//		wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
 
-			wheelValueChanged?.Invoke();
-			UpdateTargetValue();
-		}
+		//	wheelValueChanged?.Invoke();
+		//	UpdateTargetValue();
+		//}
 	}
 
 	void UpdateTargetValue()

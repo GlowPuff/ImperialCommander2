@@ -379,7 +379,7 @@ namespace Saga
 
 		void UpdateHeroes()
 		{
-			for ( int i = 1; i < heroContainer.childCount; i++ )
+			for ( int i = 0; i < heroContainer.childCount; i++ )
 			{
 				Destroy( heroContainer.GetChild( i ).gameObject );
 			}
@@ -389,9 +389,9 @@ namespace Saga
 				mug.GetComponent<MiniMug>().Init( item );
 			}
 			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0 )
-				heroContainer.parent.GetChild( 0 ).gameObject.SetActive( false );
+				heroContainer.parent.GetChild( 2 ).gameObject.SetActive( false );
 			else
-				heroContainer.parent.GetChild( 0 ).gameObject.SetActive( true );
+				heroContainer.parent.GetChild( 2 ).gameObject.SetActive( true );
 
 			//ally
 			if ( DataStore.sagaSessionData.selectedAlly == null )

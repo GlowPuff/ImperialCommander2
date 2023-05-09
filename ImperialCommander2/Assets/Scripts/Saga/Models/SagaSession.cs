@@ -19,6 +19,8 @@ namespace Saga
 		public List<DeploymentCard> MissionHeroes;
 		public List<string> BannedAllies;
 
+		public MissionLogger missionLogger;
+
 		/// <summary>
 		/// global imported characters for this session
 		/// </summary>
@@ -50,6 +52,7 @@ namespace Saga
 			selectedAlly = null;
 			fixedAlly = null;
 			campaignGUID = Guid.Empty;
+			missionLogger = new MissionLogger();
 
 			gameVars = new SagaGameVars();
 		}

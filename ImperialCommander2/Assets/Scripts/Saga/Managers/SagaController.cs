@@ -34,6 +34,7 @@ namespace Saga
 		public EnemyActivationPopup enemyActivationPopup;
 		public ImperialPopup imperialPopup;
 		public MedpacPopup medpacPopup;
+		public HeroDashboard heroDashboard;
 		//MANAGERS
 		public CameraController cameraController;
 		public DeploymentManager dgManager;
@@ -237,7 +238,7 @@ namespace Saga
 			//hero
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
-			DataStore.sagaSessionData.EarnedVillains.Add( DataStore.villainCards.GetDeploymentCard( "DG072" ) );
+			//DataStore.sagaSessionData.EarnedVillains.Add( DataStore.villainCards.GetDeploymentCard( "DG072" ) );
 			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
 
@@ -750,7 +751,8 @@ namespace Saga
 				DOTween.Kill( infoBtnTX );
 				infoBtnTX.DOScale( 1, .2f );
 
-				FindObjectOfType<SagaEventManager>().ShowTextBox( DataStore.sagaSessionData.gameVars.currentMissionInfo );
+				heroDashboard.Show( DataStore.sagaSessionData.gameVars.currentMissionInfo );
+				//FindObjectOfType<SagaEventManager>().ShowTextBox( DataStore.sagaSessionData.gameVars.currentMissionInfo );
 			}
 		}
 

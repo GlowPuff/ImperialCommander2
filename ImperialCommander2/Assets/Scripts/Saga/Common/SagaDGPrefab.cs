@@ -35,6 +35,8 @@ namespace Saga
 		public void Init( DeploymentCard cd )
 		{
 			Debug.Log( "DEPLOYED: " + cd.name );
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDeployment, cd.name );
+
 			cardDescriptor = cd;
 			for ( int i = 0; i < cd.size; i++ )
 				countToggles[i].gameObject.SetActive( true );
@@ -172,6 +174,8 @@ namespace Saga
 		/// </summary>
 		public void RemoveSelf()
 		{
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupRemoved, $"{cardDescriptor.name}" );
+
 			for ( int i = 0; i < 3; i++ )
 				countToggles[i].gameObject.SetActive( false );
 			selfButton.interactable = false;
@@ -299,6 +303,8 @@ namespace Saga
 		{
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cardDescriptor.id );
 			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
+
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDefeated, cardDescriptor.name );
 
 			//visually remove group from screen
 			if ( ovrd == null || (ovrd != null && ovrd.canBeDefeated) )

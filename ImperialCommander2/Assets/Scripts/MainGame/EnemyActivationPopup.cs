@@ -170,6 +170,7 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	void ShowSaga( DeploymentCard cd, Difficulty difficulty )
 	{
+		DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupActivation, $"{cd.name}" );
 		//handl wound tracker
 		//reset wound tracker
 		if ( hpTrackerContainer != null )

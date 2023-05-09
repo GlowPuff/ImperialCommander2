@@ -29,6 +29,7 @@ namespace Saga
 			var go = Instantiate( textBoxPrefab, transform );
 			var tb = go.transform.Find( "TextBox" ).GetComponent<TextBox>();
 			tb.Show( m, callback );
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.TextBox, m );
 		}
 
 		//GENERAL
@@ -632,6 +633,8 @@ namespace Saga
 			var go = Instantiate( promptBoxPrefab, transform );
 			var tb = go.transform.Find( "TextBox" ).GetComponent<PromptBox>();
 			tb.Show( prompt, callback );
+
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.PromptBox, prompt.theText );
 		}
 	}
 }

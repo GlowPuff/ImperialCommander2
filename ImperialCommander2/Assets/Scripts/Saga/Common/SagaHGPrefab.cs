@@ -223,6 +223,8 @@ namespace Saga
 				return;
 			}
 
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDefeated, cardDescriptor.name );
+
 			cardDescriptor.heroState.isDefeated = true;
 			cardDescriptor.heroState.isWounded = true;
 

@@ -26,6 +26,8 @@ namespace Saga
 				return;
 			}
 
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDeployment, cd.name );
+
 			//a new healthy hero/ally
 			cd.heroState = new HeroState();
 			cd.heroState.Init();// DataStore.sagaSessionData.MissionHeroes.Count );
@@ -81,6 +83,7 @@ namespace Saga
 		/// </summary>
 		public void DeployGroup( DeploymentCard cardDescriptor, bool skipEliteModify = false )
 		{
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDeployment, cardDescriptor.name );
 			DoDeployGroup( cardDescriptor, skipEliteModify );
 		}
 
