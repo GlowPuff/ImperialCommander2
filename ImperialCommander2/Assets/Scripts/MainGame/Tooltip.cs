@@ -43,6 +43,9 @@ public class Tooltip : MonoBehaviour
 			case "MedPac":
 				tt = "MedPac";
 				break;
+			case "Dashboard":
+				tt = DataStore.uiLanguage.uiMainApp.tooltipDashboardUC;
+				break;
 			default:
 				tt = "Unknown string code: " + t;
 				break;

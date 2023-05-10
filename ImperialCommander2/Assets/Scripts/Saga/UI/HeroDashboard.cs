@@ -14,7 +14,7 @@ public class HeroDashboard : MonoBehaviour
 	public ScrollRect logScrollRect, infoScrollRect;
 	public Text fameText, awardText;
 	//logger UI
-	public Text roundValueText;
+	public Text roundValueText, logTitleText;
 	int roundValue;
 	//info text
 	public Text infoTitleText;
@@ -29,6 +29,8 @@ public class HeroDashboard : MonoBehaviour
 		missionInfo = info;
 
 		infoTitleText.text = DataStore.uiLanguage.uiMainApp.tooltipInfoUC.ToUpper();
+		logTitleText.text = DataStore.uiLanguage.sagaMainApp.missionLogTitle;
+
 		misionInfoPanel.SetActive( true );
 		famePanel.SetActive( false );
 		logPanel.SetActive( false );
