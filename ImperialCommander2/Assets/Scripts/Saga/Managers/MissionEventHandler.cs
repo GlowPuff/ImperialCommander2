@@ -528,6 +528,38 @@ namespace Saga
 			NextEventAction();
 		}
 
+		void QueryGroup( QueryGroup group )
+		{
+			Debug.Log( "SagaEventManager()::PROCESSING QueryGroup" );
+			bool found = false;
+			if ( group.groupEnemyToQuery != null )
+			{
+				if ( DataStore.deployedEnemies.Any( x => x.id == group.groupEnemyToQuery.id ) )
+					found = true;
+				if ( DataStore.deploymentHand.Any( x => x.id == group.groupEnemyToQuery.id ) )
+					found = true;
+			}
+			else if ( group.groupRebelToQuery != null )
+			{
+				found = DataStore.deployedHeroes.Any( x => x.id == group.groupRebelToQuery.id );
+			}
+
+			if ( found )
+			{
+				Debug.Log( $"QueryGroup()::FOUND {group.groupEnemyToQuery?.name ?? group.groupRebelToQuery.name}" );
+				if ( group.foundEvent != Guid.Empty )
+				{
+					DoEvent( group.foundEvent );
+				}
+				if ( group.foundTrigger != Guid.Empty )
+				{
+					FindObjectOfType<SagaController>().triggerManager.FireTrigger( group.foundTrigger );
+				}
+			}
+
+			NextEventAction();
+		}
+
 		//MAPS & TOKENS
 		void MapManagement( MapManagement mm )
 		{

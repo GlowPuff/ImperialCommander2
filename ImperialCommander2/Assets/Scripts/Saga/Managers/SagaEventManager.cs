@@ -392,6 +392,9 @@ namespace Saga
 				case EventActionType.GM6:
 					RemoveGroup( eventAction as RemoveGroup );
 					break;
+				case EventActionType.GM7:
+					QueryGroup( eventAction as QueryGroup );
+					break;
 				case EventActionType.D1:
 					EnemyDeployment( eventAction as EnemyDeployment );
 					break;

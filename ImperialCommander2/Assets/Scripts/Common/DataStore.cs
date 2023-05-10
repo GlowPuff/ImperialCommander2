@@ -16,7 +16,7 @@ public static class DataStore
 	public static Dictionary<string, List<MissionCard>> missionCards;
 	public static Dictionary<string, string> translatedExpansionNames;//key = expansion code ie: Core
 	/// <summary>
-	/// all enemies (excluding villains)
+	/// all enemies (INCLUDING imports, EXCLUDING villains)
 	/// </summary>
 	public static List<DeploymentCard> deploymentCards;
 	public static List<DeploymentCard> allyCards;
@@ -107,7 +107,7 @@ public static class DataStore
 		//load mission presets
 		LoadMissionPresets();
 		//load global imported characters saved on device
-		globalImportedCharacters = FileManager.LoadDesignedCharacters();
+		globalImportedCharacters = FileManager.LoadGlobalImportedCharacters();
 
 		//setup language
 		//default language playerprefs key should be set by now, but just in case...

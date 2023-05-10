@@ -299,7 +299,7 @@ namespace Saga
 		/// <summary>
 		/// Imports global custom characters
 		/// </summary>
-		public static List<CustomToon> LoadDesignedCharacters()
+		public static List<CustomToon> LoadGlobalImportedCharacters()
 		{
 			string json = "";
 			List<CustomToon> importedToons = new List<CustomToon>();
@@ -322,7 +322,7 @@ namespace Saga
 					importedToons.Add( toon );
 				}
 
-				Debug.Log( $"LoadDesignedCharacters()::FOUND {importedToons.Count} CHARACTERS" );
+				Debug.Log( $"LoadGlobalImportedCharacters()::FOUND {importedToons.Count} CHARACTERS" );
 				if ( importedToons.Count > 0 )
 				{
 					Debug.Log( $"HEROES: {importedToons.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Count()}" );
@@ -335,7 +335,7 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Utils.LogError( "LoadDesignedCharacters()::Could not load Designed Characters. Exception: " + e.Message );
+				Utils.LogError( "LoadGlobalImportedCharacters()::Could not load Designed Characters. Exception: " + e.Message );
 				return importedToons;
 			}
 		}

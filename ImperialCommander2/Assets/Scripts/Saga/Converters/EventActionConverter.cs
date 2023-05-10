@@ -102,6 +102,9 @@ namespace Saga
 					case 22:
 						eventActionAction = item.ToObject<RemoveGroup>();
 						break;
+					case 23:
+						eventActionAction = item.ToObject<QueryGroup>();
+						break;
 				}
 				eObserver.Add( eventActionAction );
 			}
