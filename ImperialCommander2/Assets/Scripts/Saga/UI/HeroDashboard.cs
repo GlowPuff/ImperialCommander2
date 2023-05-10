@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using Saga;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +13,12 @@ public class HeroDashboard : MonoBehaviour
 	public TextMeshProUGUI missionInfoText, logText;
 	public ScrollRect logScrollRect, infoScrollRect;
 	public Text fameText, awardText;
+	//logger UI
+	public Text roundValueText;
+	int roundValue;
+	//info text
+	public Text infoTitleText;
+
 
 	string missionInfo;
 
@@ -19,12 +28,16 @@ public class HeroDashboard : MonoBehaviour
 
 		missionInfo = info;
 
+		infoTitleText.text = DataStore.uiLanguage.uiMainApp.tooltipInfoUC.ToUpper();
 		misionInfoPanel.SetActive( true );
 		famePanel.SetActive( false );
 		logPanel.SetActive( false );
 
 		missionInfoToggle.isOn = true;
-		missionInfoText.text = missionInfo;
+		missionInfoText.text = Utils.ReplaceGlyphs( missionInfo );
+		infoScrollRect.verticalNormalizedPosition = 1;//scroll to top
+
+		roundValue = 1;
 	}
 
 	public void Close()
@@ -44,7 +57,7 @@ public class HeroDashboard : MonoBehaviour
 			{
 				case "info":
 					misionInfoPanel.SetActive( true );
-					missionInfoText.text = missionInfo;
+					missionInfoText.text = Utils.ReplaceGlyphs( missionInfo );
 					infoScrollRect.verticalNormalizedPosition = 1;//scroll to top
 					break;
 				case "fame":
@@ -53,8 +66,7 @@ public class HeroDashboard : MonoBehaviour
 					break;
 				case "log":
 					logPanel.SetActive( true );
-					logText.text = DataStore.sagaSessionData.missionLogger.missionLogText;
-					logScrollRect.verticalNormalizedPosition = 0;//scroll to bottom
+					UpdateLog();
 					break;
 			}
 		}
@@ -73,5 +85,29 @@ public class HeroDashboard : MonoBehaviour
 		if ( currentRound >= 8 )
 			awards = 0;
 		awardText.text = "<color=#00A4FF>" + DataStore.uiLanguage.uiMainApp.awardsHeading.ToUpper() + "</color> <color=#00FFA0>" + awards.ToString() + "</color>";
+	}
+
+	void UpdateLog()
+	{
+		roundValueText.text = roundValue.ToString();
+		List<string> log = DataStore.sagaSessionData.missionLogger.GetLogFromRound( roundValue );
+		logText.text = Utils.ReplaceGlyphs( log.Aggregate( ( acc, cur ) => acc + cur ) );
+		logScrollRect.verticalNormalizedPosition = 0;//scroll to bottom
+	}
+
+	public void OnIncreaseRound()
+	{
+		int r = roundValue;
+		roundValue = Mathf.Min( roundValue + 1, DataStore.sagaSessionData.gameVars.round );
+		if ( r != roundValue )//only redraw everything if value actually changed
+			UpdateLog();
+	}
+
+	public void OnDecreaseRound()
+	{
+		int r = roundValue;
+		roundValue = Mathf.Max( 1, roundValue - 1 );
+		if ( r != roundValue )//only redraw everything if value actually changed
+			UpdateLog();
 	}
 }

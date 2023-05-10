@@ -76,6 +76,9 @@ namespace Saga
 				return;
 			acceptInput = false;
 
+			if ( acceptInput2 )//cancel was hit
+				DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.PlayerSelection, DataStore.uiLanguage.uiSetup.cancel );
+
 			callback?.Invoke();
 			popupBase.Close( () =>
 			{

@@ -82,7 +82,7 @@ namespace Saga
 
 			//make sure we bootstrap a debug session ONLY within Unity
 			if ( isDebugMode && Application.isEditor )
-				bootstrapDEBUG();
+				bootstrapDEBUG( "CORE1" );
 			//restoreDEBUG();//test restore session, comment this out for production build
 #endif
 

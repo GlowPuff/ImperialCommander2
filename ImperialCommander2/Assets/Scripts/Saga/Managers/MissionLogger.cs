@@ -1,8 +1,18 @@
-﻿namespace Saga
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Saga
 {
+	public class LogItem
+	{
+		public int round;
+		public MissionLogType missionLogType;
+		public string message;
+	}
+
 	public class MissionLogger
 	{
-		public string missionLogText = "";
+		public List<LogItem> logItems = new List<LogItem>();
 
 		public void LogEvent( MissionLogType ltype, string msg )
 		{
@@ -61,7 +71,17 @@
 					break;
 			}
 
-			missionLogText += eventText;
+			logItems.Add( new LogItem()
+			{
+				round = DataStore.sagaSessionData.gameVars.round,
+				message = eventText,
+				missionLogType = ltype
+			} );
+		}
+
+		public List<string> GetLogFromRound( int round )
+		{
+			return logItems.Where( x => x.round == round ).Select( x => x.message ).ToList();
 		}
 	}
 }
