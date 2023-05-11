@@ -24,6 +24,7 @@ namespace Saga
 		public Text roundText, currentThreatText, medPacText;
 		public Button activateImperialButton, endTurnButton, fameButton;
 		public TextMeshProUGUI missionTitleText;
+		public GameObject zoomBar;
 		//POPUPS
 		public SagaEventPopup eventPopup;
 		public SettingsScreen settingsScreen;
@@ -103,6 +104,7 @@ namespace Saga
 			//apply settings
 			if ( volume.TryGet<Vignette>( out var vig ) )
 				vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
+			OnZoomBarToggle( PlayerPrefs.GetInt( "zoombuttons" ) == 1 );
 
 			if ( DataStore.sagaSessionData.setupOptions.isTutorial )
 				StartTutorial();
@@ -787,6 +789,11 @@ namespace Saga
 			{
 				imperialPopup.Show();
 			}
+		}
+
+		public void OnZoomBarToggle( bool isOn )
+		{
+			zoomBar.SetActive( isOn );
 		}
 
 		public void OnChangeObjective( string o, Action callback = null )

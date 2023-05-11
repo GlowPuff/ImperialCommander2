@@ -184,8 +184,6 @@ namespace Saga
 					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
 					nv.x = 0;
 					cam.transform.localPosition = nv;
-					//cam.fieldOfView = wheelValue;
-					//sound.PlaySound( FX.Click );
 				}
 				else if ( Input.mouseScrollDelta.y == -1 )//down/zoom out
 				{
@@ -194,8 +192,6 @@ namespace Saga
 					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
 					nv.x = 0;
 					cam.transform.localPosition = nv;
-					//cam.fieldOfView = wheelValue;
-					//sound.PlaySound( FX.Click );
 				}
 			}
 		}
@@ -307,6 +303,24 @@ namespace Saga
 			}
 			else
 				cb?.Invoke();
+		}
+
+		public void OnZoomInButton()
+		{
+			wheelValue += interval;
+			wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
+			Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+			nv.x = 0;
+			cam.transform.localPosition = nv;
+		}
+
+		public void OnZoomOutButton()
+		{
+			wheelValue -= interval;
+			wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
+			Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+			nv.x = 0;
+			cam.transform.localPosition = nv;
 		}
 	}
 }

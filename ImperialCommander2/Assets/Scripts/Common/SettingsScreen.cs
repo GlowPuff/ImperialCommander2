@@ -10,11 +10,13 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
 	public SettingsLanguageController languageController;
+	public GameObject audioPanel, gfxPanel, uiPanel;
+	public Toggle audioToggle;
 
 	Action<SettingsCommand> quitAction;
 
@@ -37,9 +39,15 @@ public class SettingsScreen : MonoBehaviour
 		vignetteToggle.isOn = PlayerPrefs.GetInt( "vignette" ) == 1;
 		ambientToggle.isOn = PlayerPrefs.GetInt( "ambient" ) == 1;
 		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
+		zoomToggle.isOn = PlayerPrefs.GetInt( "zoombuttons" ) == 1;
 
 		//set the translated UI strings
 		languageController.SetTranslatedUI();
+
+		audioToggle.isOn = true;
+		audioPanel.SetActive( true );
+		gfxPanel.SetActive( false );
+		uiPanel.SetActive( false );
 	}
 
 	public void OnOK()
@@ -52,6 +60,7 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "vignette", vignetteToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "ambient", ambientToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "closeWindowToggle", closeWindowToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "zoombuttons", zoomToggle.isOn ? 1 : 0 );
 
 		PlayerPrefs.Save();
 
@@ -101,6 +110,13 @@ public class SettingsScreen : MonoBehaviour
 		{
 			PlayerPrefs.SetInt( "closeWindowToggle", t.isOn ? 1 : 0 );
 		}
+		else if ( t.name.ToLower() == "zoom toggle" )
+		{
+			PlayerPrefs.SetInt( "zoombuttons", t.isOn ? 1 : 0 );
+			var c = FindObjectOfType<Saga.SagaController>();
+			if ( c != null )
+				c.OnZoomBarToggle( t.isOn );
+		}
 	}
 
 	public void OnQuit()
@@ -121,5 +137,26 @@ public class SettingsScreen : MonoBehaviour
 		} );
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+	}
+
+	public void OnAudioTab()
+	{
+		audioPanel.SetActive( true );
+		gfxPanel.SetActive( false );
+		uiPanel.SetActive( false );
+	}
+
+	public void OnGraphicsTab()
+	{
+		audioPanel.SetActive( false );
+		gfxPanel.SetActive( true );
+		uiPanel.SetActive( false );
+	}
+
+	public void OnUITab()
+	{
+		audioPanel.SetActive( false );
+		gfxPanel.SetActive( false );
+		uiPanel.SetActive( true );
 	}
 }

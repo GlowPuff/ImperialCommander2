@@ -72,6 +72,8 @@ public class TitleController : MonoBehaviour
 			PlayerPrefs.SetInt( "language", 0 );
 		if ( !PlayerPrefs.HasKey( "ambient" ) )
 			PlayerPrefs.SetInt( "ambient", 1 );
+		if ( !PlayerPrefs.HasKey( "zoombuttons" ) )
+			PlayerPrefs.SetInt( "zoombuttons", 0 );
 		if ( !PlayerPrefs.HasKey( "closeWindowToggle" ) )
 		{
 			//default off (0) for Android
