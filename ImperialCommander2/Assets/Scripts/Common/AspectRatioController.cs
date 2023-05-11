@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Runtime.InteropServices;
-using System.Text;
-using UnityEngine;
-using UnityEngine.Events;
+﻿//using System;
+//using System.Collections;
+//using System.Runtime.InteropServices;
+//using System.Text;
+//using UnityEngine;
+//using UnityEngine.Events;
 
 #if UNITY_STANDALONE_WIN
 
@@ -25,7 +25,7 @@ using UnityEngine.Events;
 /// 
 /// NOTE: This uses WinAPI, so it will only work on Windows. Tested on Windows 10, but should work on all recent versions.
 /// </summary>
-public class AspectRatioController : MonoBehaviour
+/*public class AspectRatioController : MonoBehaviour
 {
 	/// <summary>
 	/// This event gets triggered every time the window resolution changes or the user toggles fullscreen.
@@ -456,5 +456,5 @@ public class AspectRatioController : MonoBehaviour
 		Application.Quit();
 	}
 }
-
+*/
 #endif
