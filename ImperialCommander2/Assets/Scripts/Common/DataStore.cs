@@ -23,7 +23,7 @@ public static class DataStore
 	public static List<DeploymentCard> villainCards;
 	public static List<DeploymentCard> heroCards;
 	/// <summary>
-	/// ALL enemies in the game, including villains
+	/// ALL enemies in the game, including imports and villains
 	/// </summary>
 	public static List<DeploymentCard> allEnemyDeploymentCards
 	{
@@ -408,7 +408,7 @@ public static class DataStore
 				if ( !toCards[i].isDummy )
 				{
 					var langcard = langCards.Where( x => x.id == toCards[i].id ).FirstOr( null );
-					//sanity check, will fail for imported characters
+					//sanity check, will fail for imported characters (normal behavior when loading state)
 					if ( langcard != null )
 					{
 						toCards[i].name = langcard.name;
@@ -467,36 +467,41 @@ public static class DataStore
 	/// <summary>
 	/// When a Mission starts, adds Mission-embedded custom characters and associated data
 	/// </summary>
-	public static void AddEmbeddedImportsToPools()
+	public static void AddEmbeddedImportsToPools( bool skipCard = false )
 	{
 		if ( mission != null )
 		{
 			foreach ( var item in mission.customCharacters )
 			{
-				//add non-villains
-				if ( item.deploymentCard.characterType == CharacterType.Imperial )
+				if ( !skipCard )
 				{
-					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
-					deploymentCards.Add( item.deploymentCard );
-				}
-				//add villains
-				else if ( item.deploymentCard.characterType == CharacterType.Villain )
-				{
-					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
-					villainCards.Add( item.deploymentCard );
-				}
-				//add allies and rebels
-				else if ( item.deploymentCard.characterType == CharacterType.Ally || item.deploymentCard.characterType == CharacterType.Rebel )
-				{
-					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
-					allyCards.Add( item.deploymentCard );
-				}
-				else if ( item.deploymentCard.characterType == CharacterType.Hero )
-				{
-					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
-					heroCards.Add( item.deploymentCard );
+					Debug.Log( $"AddEmbeddedImportsToPools()::Adding embedded card: {item.cardName}" );
+					//add non-villains
+					if ( item.deploymentCard.characterType == CharacterType.Imperial )
+					{
+						item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+						deploymentCards.Add( item.deploymentCard );
+					}
+					//add villains
+					else if ( item.deploymentCard.characterType == CharacterType.Villain )
+					{
+						item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+						villainCards.Add( item.deploymentCard );
+					}
+					//add allies and rebels
+					else if ( item.deploymentCard.characterType == CharacterType.Ally || item.deploymentCard.characterType == CharacterType.Rebel )
+					{
+						item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+						allyCards.Add( item.deploymentCard );
+					}
+					else if ( item.deploymentCard.characterType == CharacterType.Hero )
+					{
+						item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+						heroCards.Add( item.deploymentCard );
+					}
 				}
 
+				Debug.Log( $"AddEmbeddedImportsToPools()::Adding instructions/effects for {item.cardName}" );
 				//activation instructions
 				activationInstructions.Add( item.cardInstruction );
 				//bonus effects
@@ -504,24 +509,29 @@ public static class DataStore
 			}
 		}
 		else
-			Debug.Log( "AddCustomCardsToPools()::Mission is NULL, skipping" );
+			Debug.Log( "AddEmbeddedImportsToPools()::Mission is NULL, skipping" );
 	}
 
 	/// <summary>
 	/// When a Mission starts, adds globally imported characters and associated data from current sesssion
 	/// </summary>
-	public static void AddGlobalImportsToPools()
+	public static void AddGlobalImportsToPools( bool skipCard = false )
 	{
 		//only need to add Imperials, heroes/allies/villains already added to their own special Lists
 		foreach ( var item in sagaSessionData.globalImportedCharacters )
 		{
-			//add non-villains
-			if ( item.deploymentCard.characterType == CharacterType.Imperial )
+			if ( !skipCard )
 			{
-				item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
-				deploymentCards.Add( item.deploymentCard );
+				Debug.Log( $"AddGlobalImportsToPools()::Adding embedded card: {item.cardName}" );
+				//add non-villains
+				if ( item.deploymentCard.characterType == CharacterType.Imperial )
+				{
+					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+					deploymentCards.Add( item.deploymentCard );
+				}
 			}
 
+			Debug.Log( $"AddGlobalImportsToPools()::Adding instructions/effects for {item.cardName}" );
 			//activation instructions
 			activationInstructions.Add( item.cardInstruction );
 			//bonus effects
@@ -531,6 +541,7 @@ public static class DataStore
 
 	public static void CreateManualDeployment()
 	{
+		Debug.Log( "CreateManualDeployment()" );
 		//filter owned expansions
 		var available = deploymentCards
 			.OwnedPlusOther()
@@ -553,10 +564,10 @@ public static class DataStore
 
 		available.Sort( ( x, y ) =>
 		 {
-			 if ( int.Parse( x.id.GetDigits() ) == int.Parse( y.id.GetDigits() ) )
+			 if ( double.Parse( x.id.GetDigits() ) == double.Parse( y.id.GetDigits() ) )
 				 return 0;
 			 else
-				 return int.Parse( x.id.GetDigits() ) < int.Parse( y.id.GetDigits() ) ? -1 : 1;
+				 return double.Parse( x.id.GetDigits() ) < double.Parse( y.id.GetDigits() ) ? -1 : 1;
 		 } );
 
 		manualDeploymentList = available.ToList();
@@ -567,10 +578,10 @@ public static class DataStore
 	{
 		manualDeploymentList.Sort( ( x, y ) =>
 		{
-			if ( int.Parse( x.id.GetDigits() ) == int.Parse( y.id.GetDigits() ) )
+			if ( double.Parse( x.id.GetDigits() ) == double.Parse( y.id.GetDigits() ) )
 				return 0;
 			else
-				return int.Parse( x.id.GetDigits() ) < int.Parse( y.id.GetDigits() ) ? -1 : 1;
+				return double.Parse( x.id.GetDigits() ) < double.Parse( y.id.GetDigits() ) ? -1 : 1;
 		} );
 	}
 

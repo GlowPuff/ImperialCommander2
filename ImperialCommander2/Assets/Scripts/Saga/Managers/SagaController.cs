@@ -482,9 +482,10 @@ namespace Saga
 
 			Debug.Log( $"ContinueGame()::{DataStore.mission.fileName}" );
 
-			//add custom characters and associated data used within the mission to DataStore
-			DataStore.AddEmbeddedImportsToPools();
-			DataStore.AddGlobalImportsToPools();
+			//skip the card and only add imported instructions and bonus effects (true)
+			//the actual global/embedded card data is already loaded from the State Manager
+			DataStore.AddEmbeddedImportsToPools( true );
+			DataStore.AddGlobalImportsToPools( true );
 
 			var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
 			if ( card != null )//official mission

@@ -96,6 +96,14 @@ namespace Saga
 					stream.Write( output );
 				}
 
+				//deploymentCards, so it doesn't have to be rebuilt
+				outpath = Path.Combine( basePath, "deploymentcards.json" );
+				output = JsonConvert.SerializeObject( DataStore.deploymentCards, Formatting.Indented );
+				using ( var stream = File.CreateText( outpath ) )
+				{
+					stream.Write( output );
+				}
+
 				//MANAGER STATES
 				//trigger manager
 				outpath = Path.Combine( basePath, "triggermanager.json" );
@@ -188,6 +196,14 @@ namespace Saga
 				}
 				DataStore.deployedHeroes = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
 
+				//deploymentCards
+				path = Path.Combine( basePath, "deploymentcards.json" );
+				using ( StreamReader sr = new StreamReader( path ) )
+				{
+					json = sr.ReadToEnd();
+				}
+				DataStore.deploymentCards = JsonConvert.DeserializeObject<List<DeploymentCard>>( json );
+
 				//manager states
 				managerStates = new ManagerStates();
 				//trigger manager
@@ -219,6 +235,7 @@ namespace Saga
 				DataStore.SetCardTranslations( DataStore.manualDeploymentList );
 				DataStore.SetCardTranslations( DataStore.deployedEnemies );
 				DataStore.SetCardTranslations( DataStore.deployedHeroes );
+				DataStore.SetCardTranslations( DataStore.deploymentCards );
 
 				Debug.Log( $"***SESSION LOADED (Mode = {sessionMode}, {DataStore.mission.missionProperties.missionName})***" );
 				return true;
