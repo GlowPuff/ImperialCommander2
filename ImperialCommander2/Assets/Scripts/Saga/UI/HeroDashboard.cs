@@ -39,7 +39,7 @@ public class HeroDashboard : MonoBehaviour
 		missionInfoText.text = Utils.ReplaceGlyphs( missionInfo );
 		infoScrollRect.verticalNormalizedPosition = 1;//scroll to top
 
-		roundValue = 1;
+		roundValue = DataStore.sagaSessionData.gameVars.round;
 	}
 
 	public void Close()
@@ -93,8 +93,13 @@ public class HeroDashboard : MonoBehaviour
 	{
 		roundValueText.text = roundValue.ToString();
 		List<string> log = DataStore.sagaSessionData.missionLogger.GetLogFromRound( roundValue );
-		logText.text = Utils.ReplaceGlyphs( log.Aggregate( ( acc, cur ) => acc + cur ) );
-		logScrollRect.verticalNormalizedPosition = 0;//scroll to bottom
+		if ( log.Count > 0 )
+		{
+			logText.text = Utils.ReplaceGlyphs( log.Aggregate( ( acc, cur ) => acc + cur ) );
+			logScrollRect.verticalNormalizedPosition = 0;//scroll to bottom
+		}
+		else
+			logText.text = "Nothing happened yet...";
 	}
 
 	public void OnIncreaseRound()

@@ -319,6 +319,9 @@ namespace Saga
 					//rename the ID for global imports so they don't conflic with Mission-embedded custom characters using TC# for the ID
 					toon.cardID = toon.customCharacterGUID.ToString();
 					toon.deploymentCard.id = toon.cardID;
+					//also rename the ID for their instructions and bonus effects
+					toon.bonusEffect.bonusID = toon.cardID;
+					toon.cardInstruction.instID = toon.cardID;
 					importedToons.Add( toon );
 				}
 

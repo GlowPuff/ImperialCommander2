@@ -421,7 +421,8 @@ public static class DataStore
 					}
 					else
 					{
-						Utils.LogError( $"SetCardTranslations()::langcard is null::{toCards[i].name}/{toCards[i].id}" );
+						Debug.Log( $"SetCardTranslations()::langcard is null::{toCards[i].name}/{toCards[i].id}" );
+						//Utils.LogError( $"SetCardTranslations()::langcard is null::{toCards[i].name}/{toCards[i].id}" );
 					}
 				}
 			}
@@ -557,10 +558,10 @@ public static class DataStore
 
 		//add any earned villains that didn't make it into the dep hand
 		available.AddRange( villainsToManuallyAdd );
-		foreach ( var cd in villainsToManuallyAdd )
-		{
-			//Debug.Log( "TO ADD: " + cd.name );
-		}
+		//foreach ( var cd in villainsToManuallyAdd )
+		//{
+		//	Debug.Log( "TO ADD: " + cd.name );
+		//}
 
 		available.Sort( ( x, y ) =>
 		 {

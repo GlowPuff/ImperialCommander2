@@ -197,6 +197,5 @@ public static class Extensions
 		string s1 = new string( s.Where( Char.IsDigit ).ToArray() );
 		//remove leading zeroes
 		return s1.TrimStart( new Char[] { '0' } );
-		//return new String( s.Where( Char.IsDigit ).Where( x => x != '0' ).ToArray() );
 	}
 }

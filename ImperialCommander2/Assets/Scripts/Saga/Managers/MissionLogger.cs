@@ -54,7 +54,7 @@ namespace Saga
 					eventText += $"<color={selectionColor}>{msg.Trim()}</color>\n\n";
 					break;
 				case MissionLogType.GroupActivation:
-					eventText += $"<b><color={removeTitleColor}>Group Activation:</color></b>\n";
+					eventText += $"<b><color={removeTitleColor}>Group Activation:</color></b> ";
 					eventText += $"<color={selectionColor}>{msg.Trim()}</color>\n\n";
 					break;
 				case MissionLogType.GroupDeployment:
