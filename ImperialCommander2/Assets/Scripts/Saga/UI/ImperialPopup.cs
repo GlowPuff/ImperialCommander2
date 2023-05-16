@@ -79,20 +79,12 @@ namespace Saga
 				return;
 
 			Close();
-			Debug.Log( "OptionalDeployment()::PROCESSING OptionalDeployment" );
-			OptionalDeployment od = new Saga.OptionalDeployment()
-			{
-				deploymentPoint = DeploymentSpot.Active,
-				threatCost = 0,
-				useThreat = false,
-				specificDeploymentPoint = System.Guid.Empty,
-				isOnslaught = false
-			};
+			Debug.Log( "ImperialPopup::OptionalDeployment()::PROCESSING OptionalDeployment" );
 			DeploymentGroupOverride ovrd = new DeploymentGroupOverride( "" );
-			ovrd.deploymentPoint = od.deploymentPoint;
-			ovrd.specificDeploymentPoint = od.specificDeploymentPoint;
-			ovrd.useThreat = od.useThreat;
-			ovrd.threatCost = od.threatCost;
+			ovrd.deploymentPoint = DeploymentSpot.Active;
+			ovrd.specificDeploymentPoint = System.Guid.Empty;
+			ovrd.useThreat = true;
+			ovrd.threatCost = 0;
 			FindObjectOfType<SagaController>().deploymentPopup.Show( DeployMode.Landing, true, true, null, ovrd );
 		}
 
