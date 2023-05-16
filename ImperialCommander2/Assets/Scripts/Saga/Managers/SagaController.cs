@@ -110,6 +110,8 @@ namespace Saga
 				StartTutorial();
 			else
 				StartSaga();
+
+			cameraController.CameraViewToggle( PlayerPrefs.GetInt( "viewToggle" ) == 0 ? CameraView.Normal : CameraView.TopDown );
 		}
 
 		void StartTutorial()

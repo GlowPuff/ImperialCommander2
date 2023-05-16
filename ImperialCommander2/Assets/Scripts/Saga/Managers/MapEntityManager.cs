@@ -14,8 +14,8 @@ namespace Saga
 		public bool HandleObjectSelection = true;
 
 		public GameObject deploymentSpotPrefab, terminalPrefab, cratePrefab, doorPrefab, spacePrefab, tokenPrefab;
-		public Camera cam;
 		public SagaEventManager eventManager;
+		public CameraController cameraController;
 
 		private Vector3 dragOrigin, dragDistance;
 		private bool mButtonDown = false;
@@ -317,7 +317,7 @@ namespace Saga
 			{
 				LayerMask mask = LayerMask.GetMask( "MapEntities" );
 				RaycastHit hit;
-				Ray ray = cam.ScreenPointToRay( mousePosition );// Input.mousePosition );
+				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( mousePosition );// Input.mousePosition );
 				if ( Physics.Raycast( ray, out hit, 1000, mask ) )
 				{
 					Transform objectHit = hit.transform;
@@ -382,7 +382,7 @@ namespace Saga
 		{
 			Plane plane = new Plane( Vector3.up, 0 );
 			float distance;
-			Ray ray = cam.ScreenPointToRay( Input.mousePosition );
+			Ray ray = cameraController.ActiveCamera.ScreenPointToRay( Input.mousePosition );
 			if ( plane.Raycast( ray, out distance ) )
 			{
 				return ray.GetPoint( distance );

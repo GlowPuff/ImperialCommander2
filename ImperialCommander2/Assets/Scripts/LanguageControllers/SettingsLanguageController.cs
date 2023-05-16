@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SettingsLanguageController : MonoBehaviour
 {
-	public Text settingsHeading, music, sound, bloom, vignette, ambient, quitBtn, returnBtn, okBtn, quickClose;
+	public Text settingsHeading, music, sound, bloom, vignette, ambient, quitBtn, returnBtn, okBtn, quickClose, zoomButtons, topdownView;
 
 	/// <summary>
 	/// Sets the UI with the current language
@@ -22,5 +22,7 @@ public class SettingsLanguageController : MonoBehaviour
 		okBtn.text = ui.ok;
 		ambient.text = ui.ambient;
 		quickClose.text = ui.quickClose;
+		zoomButtons.text = ui.zoomButtons;
+		topdownView.text = ui.topdownView;
 	}
 }

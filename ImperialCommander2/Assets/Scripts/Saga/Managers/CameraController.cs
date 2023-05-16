@@ -7,8 +7,8 @@ namespace Saga
 {
 	public class CameraController : MonoBehaviour
 	{
-		public Camera cam, cam2D;
-		public Transform camRotator;
+		public Camera cam, cam2D, topDownCamera;
+		public Transform camRotator, camBirdLocalPosition;
 		public float rotationSensitivity = 25f;
 
 		public float resetWheelValue = -1;
@@ -19,7 +19,7 @@ namespace Saga
 
 		//private Sound sound;
 		private bool acceptNavivation = true;
-		private Vector3 dragOrigin, rotOrigin, camLocalOrigin, camNormal, touchStart;
+		private Vector3 dragOrigin, rotOrigin, camLocalOrigin, camNormal, touchStart, topDownCamLocalOrigin;
 		private float rotStart;
 		private bool mButtonDown = false;
 
@@ -29,12 +29,19 @@ namespace Saga
 		float delay = .35f;
 		float prevDistance = 0;
 		float curDistance = 0;
+		CameraView viewMode = CameraView.Normal;
+
+		public Camera ActiveCamera
+		{
+			get { return viewMode == CameraView.Normal ? cam : topDownCamera; }
+		}
 
 		private void Start()
 		{
 			//sound = FindObjectOfType<Sound>();
 			camLocalOrigin = cam.transform.localPosition;
 			camNormal = cam.transform.forward.normalized;
+			topDownCamLocalOrigin = topDownCamera.transform.localPosition;
 		}
 
 		private void Update()
@@ -77,7 +84,8 @@ namespace Saga
 		void HandleTouchRotate()
 		{
 			if ( FindObjectOfType<SagaEventManager>().UIShowing
-				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+				|| EventSystem.current.IsPointerOverGameObject( -1 )
+				|| viewMode == CameraView.TopDown )
 				return;
 
 			if ( Input.GetTouch( 0 ).phase == TouchPhase.Moved )
@@ -108,19 +116,20 @@ namespace Saga
 					//zooming out
 					wheelValue += interval / 3f;
 					wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
-					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
-					nv.x = 0;
-					cam.transform.localPosition = nv;
 				}
 				else if ( curDistance < prevDistance )
 				{
 					//zooming in
 					wheelValue -= interval / 3f;
 					wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
-					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
-					nv.x = 0;
-					cam.transform.localPosition = nv;
 				}
+
+				Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+				nv.x = 0;
+				cam.transform.localPosition = nv;
+				nv = topDownCamLocalOrigin + Vector3.down * wheelValue;
+				nv.x = 0;
+				topDownCamera.transform.localPosition = nv;
 
 				prevDistance = curDistance;
 			}
@@ -149,7 +158,8 @@ namespace Saga
 		void updateRotation()
 		{
 			if ( FindObjectOfType<SagaEventManager>().UIShowing
-				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+				|| EventSystem.current.IsPointerOverGameObject( -1 )
+				|| viewMode == CameraView.TopDown )
 				return;
 
 			if ( Input.GetMouseButtonDown( 1 ) )
@@ -181,18 +191,19 @@ namespace Saga
 				{
 					wheelValue += interval;
 					wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
-					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
-					nv.x = 0;
-					cam.transform.localPosition = nv;
 				}
 				else if ( Input.mouseScrollDelta.y == -1 )//down/zoom out
 				{
 					wheelValue -= interval;
 					wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
-					Vector3 nv = camLocalOrigin + camNormal * wheelValue;
-					nv.x = 0;
-					cam.transform.localPosition = nv;
 				}
+
+				Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+				nv.x = 0;
+				cam.transform.localPosition = nv;
+				nv = topDownCamLocalOrigin + Vector3.down * wheelValue;
+				nv.x = 0;
+				topDownCamera.transform.localPosition = nv;
 			}
 		}
 
@@ -206,6 +217,9 @@ namespace Saga
 				Vector3 nv = camLocalOrigin + camNormal * wheelValue;
 				nv.x = 0;
 				cam.transform.DOLocalMove( nv, 1 ).SetEase( Ease.InOutCubic );
+				nv = topDownCamLocalOrigin + Vector3.down * wheelValue;
+				nv.x = 0;
+				topDownCamera.transform.DOLocalMove( nv, 1 ).SetEase( Ease.InOutCubic );
 				camRotator.DORotateQuaternion( Quaternion.Euler( 0, 0, 0 ), 1 ).SetEase( Ease.InOutCubic );
 			}
 		}
@@ -227,9 +241,18 @@ namespace Saga
 					oneClick = false;//found a double click, now reset
 					Vector3 camP = GetMousePosition();
 					//vector towards where clicked
-					Vector3 dir = Vector3.Normalize( cam.transform.position - camP );
-					Vector3 target = camP + dir * 3f;
-					MoveTo( target, 1, 0, false );
+					if ( viewMode == CameraView.Normal )
+					{
+						Vector3 dir = Vector3.Normalize( cam.transform.position - camP );
+						Vector3 target = camP + dir * 3f;
+						MoveTo( target, 1, 0, false );
+					}
+					else
+					{
+						Vector3 dir = Vector3.Normalize( topDownCamera.transform.position - camP );
+						Vector3 target = camP + dir * 3f;
+						MoveTo( target, 1, 0, false );
+					}
 				}
 			}
 			if ( oneClick )
@@ -239,6 +262,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// offset is no longer used
+		/// </summary>
 		public void MoveTo( Vector3 p, float speed = 1, float offset = 0, bool reset = false, Action callback = null )
 		{
 			acceptNavivation = false;
@@ -256,8 +282,9 @@ namespace Saga
 				Vector3 nv = camLocalOrigin + camNormal * wheelValue;
 				nv.x = 0;
 				cam.transform.DOLocalMove( nv, speed ).SetEase( Ease.InOutCubic );
-				//DOTween.To( () => cam.fieldOfView, x => cam.fieldOfView = x, maxValue, speed ).SetEase( Ease.InOutCubic );
-				//camRotator.DORotateQuaternion( Quaternion.Euler( 0, 0, 0 ), speed ).SetEase( Ease.InOutCubic );
+				nv = topDownCamLocalOrigin + Vector3.down * wheelValue;
+				nv.x = 0;
+				topDownCamera.transform.DOLocalMove( nv, speed ).SetEase( Ease.InOutCubic );
 			}
 		}
 
@@ -268,7 +295,7 @@ namespace Saga
 			{
 				wheelValue = resetWheelValue;
 				cam.transform.localPosition = camLocalOrigin + camNormal * wheelValue;
-				//cam.fieldOfView = wheelValue;
+				topDownCamera.transform.localPosition = topDownCamLocalOrigin + Vector3.down * wheelValue;
 				camRotator.rotation = Quaternion.Euler( 0, 0, 0 );
 			}
 			callback?.Invoke();
@@ -312,6 +339,9 @@ namespace Saga
 			Vector3 nv = camLocalOrigin + camNormal * wheelValue;
 			nv.x = 0;
 			cam.transform.localPosition = nv;
+			nv = topDownCamLocalOrigin + Vector3.down * wheelValue;
+			nv.x = 0;
+			topDownCamera.transform.localPosition = nv;
 		}
 
 		public void OnZoomOutButton()
@@ -321,6 +351,31 @@ namespace Saga
 			Vector3 nv = camLocalOrigin + camNormal * wheelValue;
 			nv.x = 0;
 			cam.transform.localPosition = nv;
+			nv = topDownCamLocalOrigin + Vector3.down * wheelValue;
+			nv.x = 0;
+			topDownCamera.transform.localPosition = nv;
+		}
+
+		public void CameraViewToggle( CameraView mode )
+		{
+			viewMode = mode;
+
+			if ( mode == CameraView.Normal )
+			{
+				cam.gameObject.SetActive( true );
+				topDownCamera.gameObject.SetActive( false );
+				minValue = -25;
+				//reset the zoom if the wheelValue is now out of range for the current mode
+				OnZoomInButton();
+				OnZoomOutButton();
+			}
+			else
+			{
+				cam.gameObject.SetActive( false );
+				topDownCamera.gameObject.SetActive( true );
+				camRotator.rotation = Quaternion.Euler( 0, 0, 0 );
+				minValue = -35;
+			}
 		}
 	}
 }

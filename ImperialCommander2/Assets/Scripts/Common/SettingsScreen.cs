@@ -10,7 +10,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -40,6 +40,7 @@ public class SettingsScreen : MonoBehaviour
 		ambientToggle.isOn = PlayerPrefs.GetInt( "ambient" ) == 1;
 		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
 		zoomToggle.isOn = PlayerPrefs.GetInt( "zoombuttons" ) == 1;
+		viewToggle.isOn = PlayerPrefs.GetInt( "viewToggle" ) == 1;
 
 		//set the translated UI strings
 		languageController.SetTranslatedUI();
@@ -61,6 +62,7 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "ambient", ambientToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "closeWindowToggle", closeWindowToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "zoombuttons", zoomToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "viewToggle", viewToggle.isOn ? 1 : 0 );
 
 		PlayerPrefs.Save();
 
@@ -116,6 +118,15 @@ public class SettingsScreen : MonoBehaviour
 			var c = FindObjectOfType<Saga.SagaController>();
 			if ( c != null )
 				c.OnZoomBarToggle( t.isOn );
+		}
+		else if ( t.name.ToLower() == "view toggle" )
+		{
+			PlayerPrefs.SetInt( "viewToggle", t.isOn ? 1 : 0 );
+			var c = FindObjectOfType<Saga.CameraController>();
+			if ( c != null )
+			{
+				c.CameraViewToggle( t.isOn ? Saga.CameraView.TopDown : Saga.CameraView.Normal );
+			}
 		}
 	}
 
