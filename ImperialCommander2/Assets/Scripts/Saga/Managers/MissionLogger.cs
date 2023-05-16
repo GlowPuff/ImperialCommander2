@@ -16,14 +16,14 @@ namespace Saga
 
 		public void LogEvent( MissionLogType ltype, string msg )
 		{
-			//TextBox, InputBox, PromptBox, PlayerSelection, GroupActivation, GroupDeployment, GroupRemoved, GroupDefeated
+			//TextBox, InputBox, PromptBox, PlayerSelection, GroupActivation, GroupDeployment, GroupRemoved, GroupDefeated, DeploymentEvent
 
 			if ( string.IsNullOrEmpty( msg?.Trim() ) )
 				return;
 
 			string eventText = "";
 
-			string textBoxTitleColor = "orange";
+			string textBoxTitleColor = "#00FFA0";
 			string textColor = "white";
 			string promptBoxTitleColor = "orange";
 			string selectionTitleColor = "#00FFA0";
@@ -68,6 +68,10 @@ namespace Saga
 				case MissionLogType.GroupDefeated:
 					eventText += $"<b><color={defeatedTitleColor}>Group Deployed:</color></b> ";
 					eventText += $"<color={defeatedColor}>{msg.Trim()}</color>\n\n";
+					break;
+				case MissionLogType.DeploymentEvent:
+					eventText += $"<b><color={promptBoxTitleColor}>Deployment Event:</color></b> ";
+					eventText += $"<color={selectionColor}>{msg.Trim()}</color>\n\n";
 					break;
 			}
 

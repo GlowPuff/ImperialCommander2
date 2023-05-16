@@ -12,6 +12,7 @@ namespace Saga
 		public Toggle threatToggle, deployToggle;
 		public Transform container;
 		public PopupBase popupBase;
+		public Button optionalDeploymentButton;
 
 		public void Show()
 		{
@@ -22,6 +23,8 @@ namespace Saga
 			depmodValue.text = DataStore.sagaSessionData.gameVars.deploymentModifier.ToString();
 			closeButtonText.text = DataStore.uiLanguage.uiSetup.continueBtn;
 			threatText.text = DataStore.uiLanguage.uiMainApp.modThreatHeading;
+
+			optionalDeploymentButton.interactable = DataStore.gameType == GameType.Saga;
 
 			//set toggle values
 			handBlocker.SetActive( true );
@@ -68,6 +71,29 @@ namespace Saga
 		public void ToggleHandVisibility()
 		{
 			handBlocker.SetActive( !handBlocker.activeSelf );
+		}
+
+		public void OptionalDeployment()
+		{
+			if ( DataStore.gameType != GameType.Saga )
+				return;
+
+			Close();
+			Debug.Log( "OptionalDeployment()::PROCESSING OptionalDeployment" );
+			OptionalDeployment od = new Saga.OptionalDeployment()
+			{
+				deploymentPoint = DeploymentSpot.Active,
+				threatCost = 0,
+				useThreat = false,
+				specificDeploymentPoint = System.Guid.Empty,
+				isOnslaught = false
+			};
+			DeploymentGroupOverride ovrd = new DeploymentGroupOverride( "" );
+			ovrd.deploymentPoint = od.deploymentPoint;
+			ovrd.specificDeploymentPoint = od.specificDeploymentPoint;
+			ovrd.useThreat = od.useThreat;
+			ovrd.threatCost = od.threatCost;
+			FindObjectOfType<SagaController>().deploymentPopup.Show( DeployMode.Landing, true, true, null, ovrd );
 		}
 
 		private void Update()

@@ -77,7 +77,7 @@ namespace Saga
 	public enum CharacterType { Hero, Ally, Imperial, Villain, Rebel }
 	public enum ThumbType { All, Other, Rebel, Imperial, Mercenary, StockImperial, StockAlly, StockHero, StockVillain }
 	public enum Factions { Imperial, Mercenary }
-	public enum MissionLogType { TextBox, InputBox, PromptBox, PlayerSelection, GroupActivation, GroupDeployment, GroupRemoved, GroupDefeated }
+	public enum MissionLogType { TextBox, InputBox, PromptBox, PlayerSelection, GroupActivation, GroupDeployment, GroupRemoved, GroupDefeated, DeploymentEvent }
 
 	public enum CameraView { Normal, TopDown }
 }
