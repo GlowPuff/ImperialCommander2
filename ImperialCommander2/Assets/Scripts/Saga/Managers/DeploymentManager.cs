@@ -310,8 +310,9 @@ namespace Saga
 						FindObjectOfType<CameraController>().MoveToEntity( adp );
 						//string enemyName = ovrd.useGenericMugshot ? "Rebel" : ovrd.nameOverride;
 						string enemyName = ovrd.nameOverride;
-						FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{cardID}]</color>", () =>
+						FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color>", () =>
 						{
+							// <color=orange>[{cardID}]</color>
 							FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
 							//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 							FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( adp, false );
@@ -330,8 +331,9 @@ namespace Saga
 					FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( true );
 					//string enemyName = ovrd.useGenericMugshot ? "Rebel" : ovrd.nameOverride;
 					string enemyName = ovrd.nameOverride;
-					FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{cardID}]</color>", () =>
+					FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color>", () =>
 					{
+						// <color=orange>[{cardID}]</color>
 						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
 						callback?.Invoke();
 					} );
@@ -353,8 +355,9 @@ namespace Saga
 					FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( adp, true );
 					FindObjectOfType<CameraController>().MoveToEntity( adp );
 					//string enemyName = ovrd.useGenericMugshot ? "Rebel" : enemyToAdd.name;
-					FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyToAdd.name}</color> <color=orange>[{cardID}]</color>", () =>
+					FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyToAdd.name}</color>", () =>
 					{
+						// <color=orange>[{cardID}]</color>
 						FindObjectOfType<SagaEventManager>().toggleVisButton.SetActive( false );
 						//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 						FindObjectOfType<MapEntityManager>().ToggleHighlightDeploymentPoint( adp, false );
@@ -390,8 +393,9 @@ namespace Saga
 
 			//string enemyName = ovrd.useGenericMugshot ? "Rebel" : ovrd.nameOverride;
 			string enemyName = ovrd.nameOverride;
-			FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color> <color=orange>[{cardID}]</color>", () =>
+			FindObjectOfType<SagaEventManager>().ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.deployMessageUC}:\n\n<color=white>{enemyName}</color>", () =>
 			{
+				// <color=orange>[{cardID}]</color>
 				//hide all DPs used
 				foreach ( var dp in ovrd.GetDeploymentPoints() )
 				{

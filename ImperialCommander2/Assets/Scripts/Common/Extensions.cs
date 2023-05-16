@@ -16,6 +16,8 @@ public static class Extensions
 	/// </summary>
 	public static bool ContainsCard( this List<DeploymentCard> thisCD, DeploymentCard comp )
 	{
+		if ( comp.isDummy || string.IsNullOrEmpty( comp.id ) )
+			return false;
 		return thisCD.Any( x => x.id.ToUpper() == comp.id.ToUpper() );
 	}
 	public static DeploymentCard GetDeploymentCard( this List<DeploymentCard> thisCD, string cardID )
