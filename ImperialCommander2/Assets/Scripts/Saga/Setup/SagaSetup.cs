@@ -159,8 +159,8 @@ namespace Saga
 				//clear ignored groups
 				DataStore.sagaSessionData.MissionIgnored.Clear();
 				//add default ignored
-				//ignore "Other" expansion enemy groups by default, except the owned ones
-				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" ).Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
+				//ignore "Other" expansion enemy groups by default, omitting owned packs
+				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 			}
 		}
 
@@ -234,8 +234,9 @@ namespace Saga
 				else
 					errorPanel.Show( "SetupCampaignMission()", $"Could not load mission:\n{structure.projectItem.fullPathWithFilename}" );
 			}
-			//finally, add the uniquely hashed set of ignored cards (no doubles)
-			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+
+			//finally, add the uniquely hashed set of ignored cards, omitting owned packs
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored.Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 
 			setupOptions = new SagaSetupOptions()
 			{
@@ -425,7 +426,6 @@ namespace Saga
 			//ignore "Other" expansion enemy groups by default
 			var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
 
-
 			if ( mp != null )
 			{
 				//get ignored from preset
@@ -437,8 +437,8 @@ namespace Saga
 			else
 				errorPanel.Show( "OnMissionSelected()", "MissionPreset is null" );
 
-			//add the uniquely hashed set of ignored to the real list
-			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+			//add the uniquely hashed set of ignored to the real list, omitting owned packs
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored.Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 
 			//add banned allies and custom heroes/allies
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
@@ -489,8 +489,10 @@ namespace Saga
 				//get ignored from mission
 				var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
 				ign.ToList().ForEach( x => ignored.Add( x ) );
-				//add the uniquely hashed set of ignored to the real list
-				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+
+				//add the uniquely hashed set of ignored to the real list, omitting owned packs
+				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored.Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
+
 				//add banned allies
 				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )
 					DataStore.sagaSessionData.BannedAllies.Add( m.missionProperties.bannedAlly );
