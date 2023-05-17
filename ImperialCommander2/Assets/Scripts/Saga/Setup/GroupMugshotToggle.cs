@@ -64,5 +64,10 @@ namespace Saga
 
 			UpdateToggle();
 		}
+
+		public void DisableMug()
+		{
+			transform.GetChild( 0 ).GetChild( 0 ).GetComponent<Button>().interactable = false;
+		}
 	}
 }

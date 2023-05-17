@@ -49,6 +49,8 @@ namespace Saga
 		Sound sound;
 		SagaSetupOptions setupOptions { get; set; }
 		bool isFromCampaign = false;
+		//these ignored groups are from mission/preset, and player can't toggle them
+		List<DeploymentCard> disabledIgnoredGroups = new List<DeploymentCard>();
 
 		void LogCallback( string condition, string stackTrace, LogType type )
 		{
@@ -159,7 +161,7 @@ namespace Saga
 				//clear ignored groups
 				DataStore.sagaSessionData.MissionIgnored.Clear();
 				//add default ignored
-				//ignore "Other" expansion enemy groups by default, omitting owned packs
+				//ignore "Other" expansion enemy groups by default, except owned packs
 				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 			}
 		}
@@ -208,11 +210,11 @@ namespace Saga
 			//clear ignored groups
 			DataStore.sagaSessionData.MissionIgnored.Clear();
 			//add default ignored
-			//ignore "Other" expansion enemy groups by default
+			//ignore "Other" expansion enemy groups by default, except owned packs
 			var ignored = new HashSet<DeploymentCard>();
-			DataStore.deploymentCards.Where( x => x.expansion == "Other" ).ToList().ForEach( x => ignored.Add( x ) );
+			DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ).ToList().ForEach( x => ignored.Add( x ) );
 
-			//add non-custom mission specific ignored groups
+			//add non-custom mission specific ignored groups, even if they are owned packs
 			if ( structure.missionID != "Custom" )
 			{
 				var presets = DataStore.missionPresets[structure.expansionCode.ToLower()];
@@ -221,6 +223,8 @@ namespace Saga
 				{
 					var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
 					ign.ToList().ForEach( x => ignored.Add( x ) );
+					//add ignored from preset
+					disabledIgnoredGroups.AddRange( ign );
 				}
 			}
 			else
@@ -230,13 +234,15 @@ namespace Saga
 				{
 					var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
 					ign.ToList().ForEach( x => ignored.Add( x ) );
+					//add ignored from mission
+					disabledIgnoredGroups.AddRange( ign );
 				}
 				else
 					errorPanel.Show( "SetupCampaignMission()", $"Could not load mission:\n{structure.projectItem.fullPathWithFilename}" );
 			}
 
-			//finally, add the uniquely hashed set of ignored cards, omitting owned packs
-			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored.Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
+			//finally, add the uniquely hashed set of ignored cards
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
 
 			setupOptions = new SagaSetupOptions()
 			{
@@ -358,7 +364,7 @@ namespace Saga
 		public void OnIgnored()
 		{
 			sound.PlaySound( FX.Click );
-			modifyGroupsPanel.Show( 0 );
+			modifyGroupsPanel.Show( 0, disabledIgnoredGroups );
 		}
 
 		public void OnVillains()
@@ -415,6 +421,7 @@ namespace Saga
 			missionCustomAllies.Clear();
 			missionCustomHeroes.Clear();
 			missionCustomVillains.Clear();
+			disabledIgnoredGroups.Clear();
 			//remove any embedded villains from another Mission, otherwise they won't appear
 			DataStore.sagaSessionData.EarnedVillains = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.id.Contains( "TC" ) ).ToList();
 
@@ -423,22 +430,24 @@ namespace Saga
 			var presets = DataStore.missionPresets[expansion];
 			var mp = presets.Where( x => x.id.ToLower() == $"{expansion}{id}" ).FirstOr( null );
 
-			//ignore "Other" expansion enemy groups by default
-			var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
+			//ignore "Other" expansion enemy groups by default, except owned packs
+			var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 
 			if ( mp != null )
 			{
-				//get ignored from preset
+				//get ignored from preset, even if they are owned packs
 				var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
 				ign.ToList().ForEach( x => ignored.Add( x ) );
+				//add ignored from preset
+				disabledIgnoredGroups.AddRange( ign );
 
 				threatValue.ResetWheeler( mp.defaultThreat );
 			}
 			else
 				errorPanel.Show( "OnMissionSelected()", "MissionPreset is null" );
 
-			//add the uniquely hashed set of ignored to the real list, omitting owned packs
-			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored.Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
+			//add the uniquely hashed set of ignored to the real list
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
 
 			//add banned allies and custom heroes/allies
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
@@ -471,6 +480,7 @@ namespace Saga
 			missionCustomAllies.Clear();
 			missionCustomHeroes.Clear();
 			missionCustomVillains.Clear();
+			disabledIgnoredGroups.Clear();
 			//remove any embedded villains from another Mission, otherwise they won't appear
 			DataStore.sagaSessionData.EarnedVillains = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.id.Contains( "TC" ) ).ToList();
 
@@ -484,14 +494,17 @@ namespace Saga
 				missionCustomAllies = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
 				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
 				missionCustomVillains = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
-				//ignore "Other" expansion enemy groups by default
-				var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" ) );
-				//get ignored from mission
+
+				//ignore "Other" expansion enemy groups by default, except owned packs
+				var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
+				//get ignored from mission, even if they are owned packs
 				var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
 				ign.ToList().ForEach( x => ignored.Add( x ) );
+				//add ignored from mission
+				disabledIgnoredGroups.AddRange( ign );
 
-				//add the uniquely hashed set of ignored to the real list, omitting owned packs
-				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored.Where( x => !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
+				//add the uniquely hashed set of ignored to the real list
+				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
 
 				//add banned allies
 				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )

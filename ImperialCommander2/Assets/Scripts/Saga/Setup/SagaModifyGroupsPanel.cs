@@ -20,12 +20,14 @@ namespace Saga
 		Action callback;
 		int dataMode, selectedExpansion, prevExp;
 		bool updating;
+		List<DeploymentCard> disabledGroups = new List<DeploymentCard>();
 
 		/// <summary>
 		/// mode 0=Ignored, 1=villains
 		/// </summary>
-		public void Show( int mode, Action cb = null )
+		public void Show( int mode, List<DeploymentCard> disabledG = null, Action cb = null )
 		{
+			disabledGroups = disabledG ?? new List<DeploymentCard>();
 			callback = cb;
 			dataMode = mode;
 			EventSystem.current.SetSelectedGameObject( null );
@@ -101,6 +103,9 @@ namespace Saga
 						mug.GetComponent<GroupMugshotToggle>().isOn = true;
 						mug.GetComponent<GroupMugshotToggle>().UpdateToggle();
 					}
+					//disable the toggle if it's on the mission/preset ignore list
+					if ( disabledGroups.ContainsCard( cards[i] ) )
+						mug.GetComponent<GroupMugshotToggle>().DisableMug();
 				}
 				updating = false;
 				UpdateExpansionCounts();
