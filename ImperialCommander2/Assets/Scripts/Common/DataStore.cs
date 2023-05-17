@@ -43,7 +43,9 @@ public static class DataStore
 	public static List<DeploymentCard> ownedFigurePacks;
 	public static List<CardEvent> cardEvents;
 	public static List<CardInstruction> activationInstructions;
+	public static List<CardInstruction> importedActivationInstructions;
 	public static List<BonusEffect> bonusEffects;
+	public static List<BonusEffect> importedBonusEffects;
 	public static List<DeploymentSound> deploymentSounds;
 	public static Dictionary<string, List<MissionPreset>> missionPresets;
 	public static ThumbnailData thumbnailData;
@@ -100,7 +102,9 @@ public static class DataStore
 
 		cardEvents = new List<CardEvent>();
 		activationInstructions = new List<CardInstruction>();
+		importedActivationInstructions = new List<CardInstruction>();
 		bonusEffects = new List<BonusEffect>();
+		importedBonusEffects = new List<BonusEffect>();
 
 		//load deployment sound lookup
 		deploymentSounds = LoadDeploymentSounds();
@@ -502,11 +506,11 @@ public static class DataStore
 					}
 				}
 
-				Debug.Log( $"AddEmbeddedImportsToPools()::Adding instructions/effects for {item.cardName}" );
+				Debug.Log( $"AddEmbeddedImportsToPools()::Adding instructions/effects for {item.cardName}/{item.cardID}" );
 				//activation instructions
-				activationInstructions.Add( item.cardInstruction );
+				importedActivationInstructions.Add( item.cardInstruction );
 				//bonus effects
-				bonusEffects.Add( item.bonusEffect );
+				importedBonusEffects.Add( item.bonusEffect );
 			}
 		}
 		else
@@ -518,7 +522,10 @@ public static class DataStore
 	/// </summary>
 	public static void AddGlobalImportsToPools( bool skipCard = false )
 	{
+		//when restoring the game, skip adding card to pool since pool state is already restored (skipCard)
+		//instructions and bonus effects for global imports are already added to their respective pools when the toons are imported (FileManager)
 		//only need to add Imperials, heroes/allies/villains already added to their own special Lists
+		//rebel types aren't needed because they aren't used as global imports, only embedded
 		foreach ( var item in sagaSessionData.globalImportedCharacters )
 		{
 			if ( !skipCard )
@@ -531,12 +538,6 @@ public static class DataStore
 					deploymentCards.Add( item.deploymentCard );
 				}
 			}
-
-			Debug.Log( $"AddGlobalImportsToPools()::Adding instructions/effects for {item.cardName}" );
-			//activation instructions
-			activationInstructions.Add( item.cardInstruction );
-			//bonus effects
-			bonusEffects.Add( item.bonusEffect );
 		}
 	}
 
@@ -993,5 +994,17 @@ public static class DataStore
 		}
 
 		return null;
+	}
+
+	public static CardInstruction GetActivationInstruction( string id )
+	{
+		var list = activationInstructions.Concat( importedActivationInstructions );
+		return list.Where( x => x.instID.ToLower() == id.ToLower() ).FirstOr( null );
+	}
+
+	public static BonusEffect GetBonusEffect( string id )
+	{
+		var list = bonusEffects.Concat( importedBonusEffects );
+		return list.Where( x => x.bonusID.ToLower() == id.ToLower() ).FirstOr( null );
 	}
 }

@@ -323,6 +323,10 @@ namespace Saga
 					toon.bonusEffect.bonusID = toon.cardID;
 					toon.cardInstruction.instID = toon.cardID;
 					importedToons.Add( toon );
+					//activation instructions
+					DataStore.importedActivationInstructions.Add( toon.cardInstruction );
+					//bonus effects
+					DataStore.importedBonusEffects.Add( toon.bonusEffect );
 				}
 
 				Debug.Log( $"LoadGlobalImportedCharacters()::FOUND {importedToons.Count} CHARACTERS" );

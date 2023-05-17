@@ -79,7 +79,7 @@ namespace Saga
 		/// </summary>
 		public void ModifyThreat( int amount, bool force = false )
 		{
-			Debug.Log( "UpdateThreat()::OLD VALUE = " + gameVars.currentThreat );
+			int old = gameVars.currentThreat;
 			//the only time ModifyThreat has "force=true" is when the user applies a custom amount of threat
 			//or threat is added at (Saga) mission start and the mission type = Side
 			//in that case, do NOT apply the difficulty modifier - apply the direct amount requested
@@ -92,7 +92,6 @@ namespace Saga
 				else if ( setupOptions.difficulty == Difficulty.Hard )
 					amount = (int)Math.Round( amount * 1.3f, 0, MidpointRounding.AwayFromZero );
 			}
-			Debug.Log( "UpdateThreat()::AMOUNT = " + amount );
 
 			//only pause modification of threat when "amount" is POSITIVE
 			//threat COSTS (negative) should ALWAYS modify (subtract) threat
@@ -104,8 +103,7 @@ namespace Saga
 
 			gameVars.currentThreat = Math.Max( 0, gameVars.currentThreat + amount );
 
-			//GlowEngine.FindUnityObject<SagaController>()?.NotifyThreatUpdated();
-			Debug.Log( "UpdateThreat()::NEW VALUE = " + gameVars.currentThreat );
+			Debug.Log( $"UpdateThreat()::CURRENT = {gameVars.currentThreat}, OLD = {old}, MODIFIER = {amount}" );
 		}
 
 		public void UpdateDeploymentModifier( int amount )

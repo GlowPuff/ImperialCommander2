@@ -226,7 +226,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 		else
 		{
-			cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
+			cardInstruction = DataStore.GetActivationInstruction( cd.id );
 			InstructionOption savedInstruction = null;
 			if ( cardInstruction != null )
 			{
@@ -306,7 +306,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	{
 		bonusNameText.text = "";
 		bonusText.text = "";
-		BonusEffect be = DataStore.bonusEffects.Where( x => x.bonusID == id ).FirstOr( null );
+		BonusEffect be = DataStore.GetBonusEffect( id );
 		if ( be == null || be.effects.Count == 0 )
 			return;
 
