@@ -322,6 +322,8 @@ namespace Saga
 					//also rename the ID for their instructions and bonus effects
 					toon.bonusEffect.bonusID = toon.cardID;
 					toon.cardInstruction.instID = toon.cardID;
+					//force expansion to "Other"
+					toon.deploymentCard.expansion = "Other";
 					importedToons.Add( toon );
 					//activation instructions
 					DataStore.importedActivationInstructions.Add( toon.cardInstruction );

@@ -108,12 +108,12 @@ namespace Saga
 			else//villains
 			{
 				//add global imported characters
-				cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
+				cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain && x.deploymentCard.expansion == expansion ).Select( x => x.deploymentCard ).ToList();
 				updating = true;
 
 				//add embedded characters
 				var setup = FindObjectOfType<SagaSetup>();
-				cards = cards.Concat( setup.missionCustomVillains ).ToList();
+				cards = cards.Concat( setup.missionCustomVillains ).Where( x => x.expansion == expansion ).ToList();
 
 				//finally, add stock villains
 				cards = cards.Concat( DataStore.villainCards.Where( x => x.expansion == expansion ) ).ToList();
