@@ -84,8 +84,7 @@ namespace Saga
 		void HandleTouchRotate()
 		{
 			if ( FindObjectOfType<SagaEventManager>().UIShowing
-				|| EventSystem.current.IsPointerOverGameObject( -1 )
-				|| viewMode == CameraView.TopDown )
+				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
 				return;
 
 			if ( Input.GetTouch( 0 ).phase == TouchPhase.Moved )
@@ -158,8 +157,7 @@ namespace Saga
 		void updateRotation()
 		{
 			if ( FindObjectOfType<SagaEventManager>().UIShowing
-				|| EventSystem.current.IsPointerOverGameObject( -1 )
-				|| viewMode == CameraView.TopDown )
+				|| EventSystem.current.IsPointerOverGameObject( -1 ) )
 				return;
 
 			if ( Input.GetMouseButtonDown( 1 ) )
