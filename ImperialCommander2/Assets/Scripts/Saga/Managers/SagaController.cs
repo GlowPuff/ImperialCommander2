@@ -384,7 +384,7 @@ namespace Saga
 			if ( DataStore.sagaSessionData.MissionHeroes.Count == 3 )
 			{
 				Debug.Log( "Creating dummy hero" );
-				dgManager.DeployHeroAlly( new DeploymentCard() { isDummy = true, mugShotPath = "CardThumbnails/bonus" } );
+				dgManager.DeployHeroAlly( new DeploymentCard() { isDummy = true, id = "DUMMY", name = "Dummy Hero", mugShotPath = "CardThumbnails/bonus" } );
 			}
 			//deploy ally
 			if ( DataStore.sagaSessionData.selectedAlly != null )
