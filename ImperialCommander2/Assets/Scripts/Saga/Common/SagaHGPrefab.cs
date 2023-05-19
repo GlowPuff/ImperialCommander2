@@ -141,9 +141,10 @@ namespace Saga
 		//popup card view, excluding Heroes
 		public void OnPointerClick()
 		{
-			//new - don't show popup for ANY hero/ally since ally might be a generic regel
-			//unless it's a custom ally
-			if ( cardDescriptor.isCustomEnemyDeployment )
+			//don't show popup for dummy heroes, generic allies, or stock heroes (no data for them)
+			if ( !cardDescriptor.isDummy
+				&& !cardDescriptor.mugShotPath.Contains( "genericAlly" )
+				&& cardDescriptor.id[0] != 'H' )
 			{
 				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 				cardViewPopup.Show( cardDescriptor );

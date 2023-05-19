@@ -55,7 +55,7 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Utils.LogError( "CreateFolders()::Could not create default folders. Exception: " + e.Message );
+				Utils.LogError( "CreateFolders()::Could not create default folders.\n" + e.Message );
 				return false;
 			}
 		}
@@ -71,8 +71,9 @@ namespace Saga
 					Directory.CreateDirectory( path );
 				return true;
 			}
-			catch
+			catch ( Exception e )
 			{
+				Utils.LogError( $"CreateFolder()::Failed to create path:\n{path}\n{e.Message}" );
 				return false;
 			}
 		}
