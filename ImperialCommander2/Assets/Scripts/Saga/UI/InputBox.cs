@@ -73,7 +73,7 @@ namespace Saga
 				return;
 			acceptInput = false;
 
-			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.InputBox, $"{inputPrompt.theText}\n<color=#00FFA0>Input Value:</color> <color=yellow>{inputValue}</color>" );
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.InputBox, $"{inputPrompt.theText}\n<color=#00FFA0>{DataStore.uiLanguage.uiLogger.inputValueLabel}:</color> <color=yellow>{inputValue}</color>" );
 
 			Debug.Log( "OnSubmitValue()::" + inputValue );
 			foreach ( var item in inputPrompt.inputList )

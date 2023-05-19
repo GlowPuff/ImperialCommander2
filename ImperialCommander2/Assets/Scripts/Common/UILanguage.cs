@@ -12,6 +12,7 @@ public class UILanguage
 	public UIDeploymentGroups uiDeploymentGroups;
 	public List<MissionCard> uiMissionCards;
 	public UICampaign uiCampaign;
+	public UILogger uiLogger;
 }
 
 public class UISettings
@@ -73,4 +74,9 @@ public class UICampaign
 		missionTypeStrings[4] = modeInterludeUC;
 		missionTypeStrings[5] = modeFinaleUC;
 	}
+}
+
+public class UILogger
+{
+	public string textLabel, inputPromptLabel, selectionPromptLabel, selectionLabel, groupActivationLabel, groupDeployedLabel, groupRemovedLabel, groupDefeatedLabel, deploymentEventLabel, inputValueLabel;
 }
