@@ -45,6 +45,16 @@ namespace Saga
 			else
 				basePath = FileManager.campaignSessionPath;
 
+			bool exists = true;
+			if ( !Directory.Exists( basePath ) )
+				exists = FileManager.SetupDefaultFolders();
+
+			if ( !exists || !Directory.Exists( basePath ) )
+			{
+				Utils.LogError( $"SaveState()::FOLDER DOESN'T EXIST AND CAN'T BE CREATED. UNABLE TO SAVE STATE\nPATH: '{basePath}'" );
+				return;
+			}
+
 			try
 			{
 				//save the session data

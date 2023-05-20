@@ -30,13 +30,12 @@ namespace Saga
 #if UNITY_ANDROID
 			baseDocumentFolder = Application.persistentDataPath;
 			customMissionPath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
-			designedCharactersPath = Path.Combine( Application.persistentDataPath, "DesignedCharacters" );
+			designedCharactersPath = Path.Combine( Application.persistentDataPath, "ImportedCharacters" );
 #else
 			baseDocumentFolder = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 			customMissionPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "CustomMissions" );
 			designedCharactersPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "ImportedCharacters" );
 #endif
-
 
 			try
 			{

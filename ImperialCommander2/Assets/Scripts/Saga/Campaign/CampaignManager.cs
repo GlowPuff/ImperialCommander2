@@ -58,8 +58,7 @@ namespace Saga
 				leftPanel.SetActive( false );
 			}
 
-			if ( isDebugMode )
-				FileManager.SetupDefaultFolders();
+			FileManager.SetupDefaultFolders();
 
 			//re-initialize all card data, otherwise deployed cards and other items carry over when coming back from a campaign game
 			DataStore.InitData();

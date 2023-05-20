@@ -160,6 +160,9 @@ namespace Saga
 				StateManager.RemoveState( SessionMode.Saga );
 			else
 				StateManager.RemoveState( SessionMode.Campaign );
+
+			//now recreate the folder we just removed
+			FileManager.SetupDefaultFolders();
 		}
 	}
 }
