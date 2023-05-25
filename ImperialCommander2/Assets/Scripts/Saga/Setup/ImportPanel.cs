@@ -69,6 +69,24 @@ public class ImportPanel : MonoBehaviour
 		cardPrefab.InitCard( card );
 	}
 
+	public void CheckAll()
+	{
+		foreach ( Transform item in container )
+		{
+			var import = item.GetComponent<ImportItem>();
+			import.theToggle.isOn = true;
+		}
+	}
+
+	public void CheckNone()
+	{
+		foreach ( Transform item in container )
+		{
+			var import = item.GetComponent<ImportItem>();
+			import.theToggle.isOn = false;
+		}
+	}
+
 	public void OnClose()
 	{
 		popupBase.Close();
