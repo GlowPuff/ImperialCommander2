@@ -12,7 +12,7 @@ public class HeroDashboard : MonoBehaviour
 	public Toggle missionInfoToggle;
 	public TextMeshProUGUI missionInfoText, logText;
 	public ScrollRect logScrollRect, infoScrollRect;
-	public Text fameText, awardText;
+	public Text fameText, awardText, continueButton, roundText;
 	//logger UI
 	public Text roundValueText, logTitleText;
 	int roundValue;
@@ -28,6 +28,8 @@ public class HeroDashboard : MonoBehaviour
 
 		missionInfo = info;
 
+		roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading;
+		continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 		infoTitleText.text = DataStore.uiLanguage.uiMainApp.tooltipInfoUC.ToUpper();
 		logTitleText.text = DataStore.uiLanguage.sagaMainApp.missionLogTitle;
 
