@@ -99,7 +99,7 @@ public class HeroDashboard : MonoBehaviour
 			logScrollRect.verticalNormalizedPosition = 0;//scroll to bottom
 		}
 		else
-			logText.text = "Nothing happened yet...";
+			logText.text = "...";
 	}
 
 	public void OnIncreaseRound()
