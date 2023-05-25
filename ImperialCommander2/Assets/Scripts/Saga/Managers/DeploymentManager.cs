@@ -168,8 +168,6 @@ namespace Saga
 			//should have already been removed *IF* it's from DeploymentPopup
 			//otherwise it just got (up/down)graded to/from Elite or it's from the event action
 			DataStore.deploymentHand.Remove( cardDescriptor );
-
-			sound.playDeploymentSound( cardDescriptor.id );
 		}
 
 		/// <summary>
@@ -291,6 +289,8 @@ namespace Saga
 		public void HandleMapDeployment( DeploymentCard enemyToAdd, Action callback = null, DeploymentGroupOverride ovrd = null )
 		{
 			string cardID = enemyToAdd.id;
+			sound.playDeploymentSound( cardID );
+
 			//first, see if there is override data for this group
 			//var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( enemyToAdd.id );
 			if ( ovrd != null )
@@ -372,6 +372,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Handle deployments over multiple DPs
+		/// </summary>
 		void DoMultipleDeployment( DeploymentCard enemyToAdd, DeploymentGroupOverride ovrd, Action callback = null )
 		{
 			string cardID = ovrd.ID;
