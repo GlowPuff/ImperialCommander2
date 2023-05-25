@@ -4,7 +4,7 @@ public class HPTrackerContainer : MonoBehaviour
 {
 	public HPTracker[] trackers;
 
-	public void Reset( DeploymentCard card )
+	public void ResetTracker( DeploymentCard card )
 	{
 		//show it
 		gameObject.SetActive( true );

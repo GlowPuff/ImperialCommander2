@@ -53,6 +53,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	public HeroState heroState;
 	public bool isCustomEnemyDeployment = false;
 	public int[] woundTrackerValue = new int[] { 0, 0, 0 };
+	public int[] trackerNumbers = new int[] { 1, 2, 3 };
 	//==end upkeep
 
 	//==other properties
@@ -171,6 +172,7 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	public void ResetWoundTracker()
 	{
 		woundTrackerValue = new int[] { 0, 0, 0 };
+		trackerNumbers = new int[] { 1, 2, 3 };
 	}
 
 	/// <summary>

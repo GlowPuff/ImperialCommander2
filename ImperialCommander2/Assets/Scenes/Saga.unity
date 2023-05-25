@@ -3652,6 +3652,7 @@ GameObject:
   - component: {fileID: 272289379}
   - component: {fileID: 272289381}
   - component: {fileID: 272289380}
+  - component: {fileID: 272289382}
   m_Layer: 5
   m_Name: id Text
   m_TagString: Untagged
@@ -3720,6 +3721,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272289378}
   m_CullTransparentMesh: 1
+--- !u!114 &272289382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272289378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 10
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 272289380}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &281690685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,7 +3755,6 @@ GameObject:
   - component: {fileID: 281690688}
   - component: {fileID: 281690689}
   - component: {fileID: 281690686}
-  - component: {fileID: 281690687}
   - component: {fileID: 281690690}
   m_Layer: 5
   m_Name: tracker (2)
@@ -3755,43 +3778,8 @@ MonoBehaviour:
   groupColorImage: {fileID: 46181229}
   groupID: {fileID: 540705792}
   groupWoundNumber: {fileID: 911677130}
-  wheelHandler: {fileID: 281690687}
-  index: 0
---- !u!114 &281690687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281690685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelValue: 0
-  maxValue: 100
-  minValue: 0
-  stepValue: 1
-  numberText: {fileID: 911677130}
-  numberTextTMP: {fileID: 0}
-  valueAdjuster: {fileID: 0}
-  wheelValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  distancePerTick: 15
+  healthWheelHandler: {fileID: 911677133}
+  indexWheelHandler: {fileID: 540705793}
 --- !u!224 &281690688
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6951,6 +6939,7 @@ GameObject:
   - component: {fileID: 426193303}
   - component: {fileID: 426193305}
   - component: {fileID: 426193304}
+  - component: {fileID: 426193306}
   m_Layer: 5
   m_Name: id Text
   m_TagString: Untagged
@@ -7019,6 +7008,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426193302}
   m_CullTransparentMesh: 1
+--- !u!114 &426193306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426193302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 10
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 426193304}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &438045166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8004,6 +8016,7 @@ GameObject:
   - component: {fileID: 540705790}
   - component: {fileID: 540705791}
   - component: {fileID: 540705792}
+  - component: {fileID: 540705793}
   m_Layer: 5
   m_Name: id Text
   m_TagString: Untagged
@@ -8072,6 +8085,29 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 3
+--- !u!114 &540705793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540705789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 10
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 540705792}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &560466759
 GameObject:
   m_ObjectHideFlags: 0
@@ -9830,6 +9866,7 @@ GameObject:
   - component: {fileID: 716039930}
   - component: {fileID: 716039932}
   - component: {fileID: 716039931}
+  - component: {fileID: 716039933}
   m_Layer: 5
   m_Name: id Text
   m_TagString: Untagged
@@ -9898,6 +9935,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716039929}
   m_CullTransparentMesh: 1
+--- !u!114 &716039933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716039929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 10
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 716039931}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &723223964
 GameObject:
   m_ObjectHideFlags: 0
@@ -11167,7 +11227,6 @@ GameObject:
   - component: {fileID: 785844716}
   - component: {fileID: 785844719}
   - component: {fileID: 785844718}
-  - component: {fileID: 785844717}
   - component: {fileID: 785844720}
   m_Layer: 5
   m_Name: tracker
@@ -11199,41 +11258,6 @@ RectTransform:
   m_AnchoredPosition: {x: 102.5, y: -175}
   m_SizeDelta: {x: 179.765, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &785844717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785844715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelValue: 0
-  maxValue: 100
-  minValue: 0
-  stepValue: 1
-  numberText: {fileID: 812463757}
-  numberTextTMP: {fileID: 0}
-  valueAdjuster: {fileID: 1951830820}
-  wheelValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  distancePerTick: 15
 --- !u!114 &785844718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11249,8 +11273,8 @@ MonoBehaviour:
   groupColorImage: {fileID: 1364564100}
   groupID: {fileID: 1724966987}
   groupWoundNumber: {fileID: 812463757}
-  wheelHandler: {fileID: 785844717}
-  index: 0
+  healthWheelHandler: {fileID: 812463759}
+  indexWheelHandler: {fileID: 1724966989}
 --- !u!222 &785844719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11604,6 +11628,7 @@ GameObject:
   - component: {fileID: 812463756}
   - component: {fileID: 812463758}
   - component: {fileID: 812463757}
+  - component: {fileID: 812463759}
   m_Layer: 5
   m_Name: wound value text
   m_TagString: Untagged
@@ -11672,6 +11697,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812463755}
   m_CullTransparentMesh: 1
+--- !u!114 &812463759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812463755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 100
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 812463757}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &828483083
 GameObject:
   m_ObjectHideFlags: 0
@@ -12823,6 +12871,7 @@ GameObject:
   - component: {fileID: 911677132}
   - component: {fileID: 911677131}
   - component: {fileID: 911677130}
+  - component: {fileID: 911677133}
   m_Layer: 5
   m_Name: wound value text
   m_TagString: Untagged
@@ -12891,6 +12940,41 @@ RectTransform:
   m_AnchoredPosition: {x: 43.643135, y: 0}
   m_SizeDelta: {x: -103.444, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &911677133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911677129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 100
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 911677130}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  distancePerTick: 15
 --- !u!1 &917559581
 GameObject:
   m_ObjectHideFlags: 0
@@ -17031,6 +17115,7 @@ GameObject:
   - component: {fileID: 1152647394}
   - component: {fileID: 1152647396}
   - component: {fileID: 1152647395}
+  - component: {fileID: 1152647397}
   m_Layer: 5
   m_Name: wound value text
   m_TagString: Untagged
@@ -17099,6 +17184,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152647393}
   m_CullTransparentMesh: 1
+--- !u!114 &1152647397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152647393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 100
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 1152647395}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  distancePerTick: 15
 --- !u!1 &1155274988
 GameObject:
   m_ObjectHideFlags: 0
@@ -18354,6 +18474,7 @@ GameObject:
   - component: {fileID: 1250745394}
   - component: {fileID: 1250745396}
   - component: {fileID: 1250745395}
+  - component: {fileID: 1250745397}
   m_Layer: 5
   m_Name: wound value text
   m_TagString: Untagged
@@ -18422,6 +18543,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250745393}
   m_CullTransparentMesh: 1
+--- !u!114 &1250745397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250745393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 100
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 1250745395}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &1256152540
 GameObject:
   m_ObjectHideFlags: 0
@@ -19017,7 +19161,6 @@ GameObject:
   - component: {fileID: 1262687711}
   - component: {fileID: 1262687714}
   - component: {fileID: 1262687713}
-  - component: {fileID: 1262687712}
   - component: {fileID: 1262687715}
   m_Layer: 5
   m_Name: tracker (1)
@@ -19049,41 +19192,6 @@ RectTransform:
   m_AnchoredPosition: {x: 102.5, y: -300}
   m_SizeDelta: {x: 179.765, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1262687712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262687710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelValue: 0
-  maxValue: 100
-  minValue: 0
-  stepValue: 1
-  numberText: {fileID: 1250745395}
-  numberTextTMP: {fileID: 0}
-  valueAdjuster: {fileID: 1951830820}
-  wheelValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  distancePerTick: 15
 --- !u!114 &1262687713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19099,8 +19207,8 @@ MonoBehaviour:
   groupColorImage: {fileID: 664513694}
   groupID: {fileID: 426193304}
   groupWoundNumber: {fileID: 1250745395}
-  wheelHandler: {fileID: 1262687712}
-  index: 0
+  healthWheelHandler: {fileID: 1250745397}
+  indexWheelHandler: {fileID: 426193306}
 --- !u!222 &1262687714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19370,7 +19478,6 @@ GameObject:
   - component: {fileID: 1276887797}
   - component: {fileID: 1276887799}
   - component: {fileID: 1276887800}
-  - component: {fileID: 1276887798}
   - component: {fileID: 1276887801}
   m_Layer: 5
   m_Name: tracker (1)
@@ -19402,41 +19509,6 @@ RectTransform:
   m_AnchoredPosition: {x: 102.5, y: -300}
   m_SizeDelta: {x: 179.765, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1276887798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276887796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelValue: 0
-  maxValue: 100
-  minValue: 0
-  stepValue: 1
-  numberText: {fileID: 1152647395}
-  numberTextTMP: {fileID: 0}
-  valueAdjuster: {fileID: 0}
-  wheelValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  distancePerTick: 15
 --- !u!222 &1276887799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19460,8 +19532,8 @@ MonoBehaviour:
   groupColorImage: {fileID: 1720453654}
   groupID: {fileID: 716039931}
   groupWoundNumber: {fileID: 1152647395}
-  wheelHandler: {fileID: 1276887798}
-  index: 0
+  healthWheelHandler: {fileID: 1152647397}
+  indexWheelHandler: {fileID: 716039933}
 --- !u!114 &1276887801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27869,6 +27941,7 @@ GameObject:
   - component: {fileID: 1724966986}
   - component: {fileID: 1724966988}
   - component: {fileID: 1724966987}
+  - component: {fileID: 1724966989}
   m_Layer: 5
   m_Name: id Text
   m_TagString: Untagged
@@ -27937,6 +28010,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724966985}
   m_CullTransparentMesh: 1
+--- !u!114 &1724966989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724966985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 10
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 1724966987}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &1731568095
 GameObject:
   m_ObjectHideFlags: 0
@@ -30182,7 +30278,6 @@ GameObject:
   - component: {fileID: 1871317124}
   - component: {fileID: 1871317128}
   - component: {fileID: 1871317126}
-  - component: {fileID: 1871317125}
   - component: {fileID: 1871317127}
   m_Layer: 5
   m_Name: tracker
@@ -30214,41 +30309,6 @@ RectTransform:
   m_AnchoredPosition: {x: 102.5, y: -175}
   m_SizeDelta: {x: 179.765, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1871317125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871317123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelValue: 0
-  maxValue: 100
-  minValue: 0
-  stepValue: 1
-  numberText: {fileID: 2016400565}
-  numberTextTMP: {fileID: 0}
-  valueAdjuster: {fileID: 0}
-  wheelValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  distancePerTick: 15
 --- !u!114 &1871317126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30264,8 +30324,8 @@ MonoBehaviour:
   groupColorImage: {fileID: 1163755825}
   groupID: {fileID: 1917039063}
   groupWoundNumber: {fileID: 2016400565}
-  wheelHandler: {fileID: 1871317125}
-  index: 0
+  healthWheelHandler: {fileID: 2016400567}
+  indexWheelHandler: {fileID: 1917039065}
 --- !u!114 &1871317127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30572,7 +30632,6 @@ GameObject:
   - component: {fileID: 1882908166}
   - component: {fileID: 1882908169}
   - component: {fileID: 1882908168}
-  - component: {fileID: 1882908167}
   - component: {fileID: 1882908170}
   m_Layer: 5
   m_Name: tracker (2)
@@ -30604,41 +30663,6 @@ RectTransform:
   m_AnchoredPosition: {x: 102.5, y: -425}
   m_SizeDelta: {x: 179.765, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1882908167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882908165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelValue: 0
-  maxValue: 100
-  minValue: 0
-  stepValue: 1
-  numberText: {fileID: 2016298117}
-  numberTextTMP: {fileID: 0}
-  valueAdjuster: {fileID: 1951830820}
-  wheelValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  distancePerTick: 15
 --- !u!114 &1882908168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30654,8 +30678,8 @@ MonoBehaviour:
   groupColorImage: {fileID: 1477576491}
   groupID: {fileID: 272289380}
   groupWoundNumber: {fileID: 2016298117}
-  wheelHandler: {fileID: 1882908167}
-  index: 0
+  healthWheelHandler: {fileID: 2016298119}
+  indexWheelHandler: {fileID: 272289382}
 --- !u!222 &1882908169
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -31030,6 +31054,7 @@ GameObject:
   - component: {fileID: 1917039062}
   - component: {fileID: 1917039064}
   - component: {fileID: 1917039063}
+  - component: {fileID: 1917039065}
   m_Layer: 5
   m_Name: id Text
   m_TagString: Untagged
@@ -31098,6 +31123,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917039061}
   m_CullTransparentMesh: 1
+--- !u!114 &1917039065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917039061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 10
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 1917039063}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &1927292038
 GameObject:
   m_ObjectHideFlags: 0
@@ -32421,6 +32469,7 @@ GameObject:
   - component: {fileID: 2016298116}
   - component: {fileID: 2016298118}
   - component: {fileID: 2016298117}
+  - component: {fileID: 2016298119}
   m_Layer: 5
   m_Name: wound value text
   m_TagString: Untagged
@@ -32489,6 +32538,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016298115}
   m_CullTransparentMesh: 1
+--- !u!114 &2016298119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016298115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 100
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 2016298117}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  distancePerTick: 15
 --- !u!1 &2016400563
 GameObject:
   m_ObjectHideFlags: 0
@@ -32500,6 +32572,7 @@ GameObject:
   - component: {fileID: 2016400564}
   - component: {fileID: 2016400566}
   - component: {fileID: 2016400565}
+  - component: {fileID: 2016400567}
   m_Layer: 5
   m_Name: wound value text
   m_TagString: Untagged
@@ -32568,6 +32641,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016400563}
   m_CullTransparentMesh: 1
+--- !u!114 &2016400567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016400563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcb8a4dceefc7040b19670d16343391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelValue: 0
+  maxValue: 100
+  minValue: 0
+  stepValue: 1
+  numberText: {fileID: 2016400565}
+  numberTextTMP: {fileID: 0}
+  valueAdjuster: {fileID: 1951830820}
+  wheelValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HPTracker, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  distancePerTick: 15
 --- !u!1 &2020173745
 GameObject:
   m_ObjectHideFlags: 0

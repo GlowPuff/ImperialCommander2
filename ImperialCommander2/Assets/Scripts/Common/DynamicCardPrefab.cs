@@ -46,7 +46,7 @@ public class DynamicCardPrefab : MonoBehaviour
 
 			//reset wound tracker
 			if ( hpTracker != null )
-				hpTracker.Reset( card );
+				hpTracker.ResetTracker( card );
 		}
 		else
 		{

@@ -5,16 +5,18 @@ public class HPTracker : MonoBehaviour
 {
 	public Image groupColorImage;
 	public Text groupID, groupWoundNumber;
-	public MWheelHandler wheelHandler;
+	public MWheelHandler healthWheelHandler, indexWheelHandler;
 
 	DeploymentCard card;
 	//index = which of the 3 trackers this is
+	[System.NonSerialized]
 	public int index;
 
 	public void ResetTracker()
 	{
 		gameObject.SetActive( false );
-		wheelHandler.ResetWheeler();
+		healthWheelHandler.ResetWheeler();
+		indexWheelHandler.ResetWheeler();
 	}
 
 	public void SetValue( DeploymentCard c, int idx, bool setActive )
@@ -23,20 +25,24 @@ public class HPTracker : MonoBehaviour
 		card = c;
 		index = idx;
 		groupColorImage.color = DataStore.pipColors[c.colorIndex].ToColor();
-		wheelHandler.ResetWheeler( card.woundTrackerValue[index] );
+		healthWheelHandler.ResetWheeler( card.woundTrackerValue[index] );
+		indexWheelHandler.ResetWheeler( card.trackerNumbers[index] );
 	}
 
 	public void UpdateWoundValue()
 	{
 		//Debug.Log( wheelHandler.wheelValue );
 		if ( card != null )
-			card.woundTrackerValue[index] = wheelHandler.wheelValue;
+		{
+			card.woundTrackerValue[index] = healthWheelHandler.wheelValue;
+			card.trackerNumbers[index] = indexWheelHandler.wheelValue;
+		}
 	}
 
 	//right click and double click
 	public void OnDoubleClicked()
 	{
-		wheelHandler.ResetWheeler();
+		healthWheelHandler.ResetWheeler();
 		if ( card != null )
 			card.woundTrackerValue[index] = 0;
 	}
