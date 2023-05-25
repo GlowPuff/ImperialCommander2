@@ -1,14 +1,15 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "TWIN5-Fire in the Sky.json",
-  "relativePath": "02 - Twin Shadows\\TWIN5-Fire in the Sky.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896840498058218,
+  "fileName": "PL-TWIN5.json",
+  "fileVersion": "21",
+  "saveDate": "5/25/2023",
+  "timeTicks": 638206088807942883,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Fire in the Sky",
     "campaignName": "Twin Shadows",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A005",
     "bannedAlly": "A001",
     "startingObjective": "Otwórz drzwi.",
@@ -17,7 +18,6 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -56,7 +56,8 @@
       "DG018",
       "DG060",
       "DG061"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
   "mapSections": [
     {
@@ -96,6 +97,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -296,6 +298,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -455,6 +458,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -483,6 +487,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -537,6 +542,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -585,6 +591,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -613,6 +620,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -661,6 +669,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -709,6 +718,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -749,6 +759,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -789,6 +800,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -829,6 +841,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -873,6 +886,24 @@
                 "entityColor": null,
                 "buttonActions": []
               }
+            },
+            {
+              "sourceGUID": "fb96923a-22d2-43d3-b3c1-2632fcaaf6c3",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Green Terminal",
+                "isActive": false,
+                "theText": "Terminal naścienny w rogu steruje blokadą drzwi.\r\n\r\n{-} Bohater może skorzystać z zielonego terminala ({I}), aby spróbować otworzyć drzwi prowadzące wgłąb statku.",
+                "entityColor": "Green",
+                "buttonActions": [
+                  {
+                    "buttonText": "{A} Spróbuj otworzyć",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "a58aaa0b-889c-4f0d-a670-47c07812a51e"
+                  }
+                ]
+              }
             }
           ],
           "GUID": "c33ccbb4-dc8b-4be7-a258-4801f2f0b7a2",
@@ -894,7 +925,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -902,6 +932,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "d99f4dd1-0f1c-4eb5-abdf-2c21a12daea2",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -928,12 +959,15 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "c3553617-4f6d-440b-9c0b-1417e7443469",
           "eventActionType": 6,
           "displayName": "Deploy: DG006/Imperial Officer (Elite)"
@@ -944,7 +978,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -952,6 +985,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "2addc31d-6c65-45f8-9477-6e47bad72807",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -978,34 +1012,37 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "a71c6899-c9c8-4d22-a37e-f9ac3ee173b1",
           "eventActionType": 6,
           "displayName": "Deploy: DG076/Boba Fett"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "a9e32035-c863-47aa-b785-80fc1aca5f8a",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
-          "isOnslaught": true,
           "deploymentPoint": 1,
-          "specificDeploymentPoint": "d99f4dd1-0f1c-4eb5-abdf-2c21a12daea2",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "d99f4dd1-0f1c-4eb5-abdf-2c21a12daea2",
+          "isOnslaught": true,
           "GUID": "2a756d17-c57d-424a-843e-4f73f441332d",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         }
       ]
     },
@@ -1030,6 +1067,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1130,7 +1168,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1138,6 +1175,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "26db3570-c014-40d4-8538-848857bb80cd",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1164,12 +1202,15 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "7ac4e89c-e7b4-460b-88a8-2eb63730537e",
           "eventActionType": 6,
           "displayName": "Deploy: DG075/Kayn Somos"
@@ -1180,7 +1221,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1188,6 +1228,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "26db3570-c014-40d4-8538-848857bb80cd",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1220,12 +1261,15 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "e0860f92-8aac-41c0-99ba-fd8ee91ac32e",
           "eventActionType": 6,
           "displayName": "Deploy: DG001/Stormtrooper"
@@ -1253,6 +1297,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1346,6 +1391,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1393,6 +1439,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1517,7 +1564,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1553,7 +1601,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1589,7 +1638,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1625,7 +1675,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1661,7 +1712,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1697,7 +1749,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1733,7 +1786,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1769,7 +1823,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1857,7 +1912,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1893,7 +1949,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1966,7 +2023,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2038,11 +2096,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "de4afb8a-5de7-479a-8178-03bc8b5932bb",
@@ -2068,11 +2128,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "29a34e81-1951-4310-8558-5840e8ee3c53",
@@ -2098,11 +2160,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2130,11 +2194,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "b86ff1b2-c42e-4f09-b43e-970096beb344",
@@ -2160,11 +2226,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "a9c4e76b-682c-4bc6-9cb0-8d2a8e7d26e5",
@@ -2190,11 +2258,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "790360f5-ee8f-44fe-adb5-dc508b0ec5e9",
@@ -2226,13 +2296,16 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

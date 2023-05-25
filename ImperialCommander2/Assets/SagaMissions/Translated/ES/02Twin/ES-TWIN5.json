@@ -1,24 +1,23 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "ES\\02 - Sombras Gemelas\\TWIN5-Fire in the Sky.json",
-  "fileVersion": "18",
-  "saveDate": "11/2/2022",
-  "timeTicks": 638029940881914176,
+  "fileName": "ES-TWIN5.json",
+  "fileVersion": "21",
+  "saveDate": "5/25/2023",
+  "timeTicks": 638206088343495505,
   "languageID": "Spanish (ES)",
   "missionProperties": {
     "missionName": "Fuego en el cielo",
     "campaignName": "Sombras Gemelas",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A005",
     "bannedAlly": "A001",
     "startingObjective": "Abrir las puertas.",
-    "additionalMissionInfo": null,
     "missionID": "Twin 5",
     "missionInfo": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.\r\n{-} La misión avanza cuando las puertas que llevan al interior de la nave se abren.\r\n{-} Los Rebeldes pierden al final de la ronda 9, o cuando todos los Héroes están heridos.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -57,9 +56,9 @@
       "DG018",
       "DG060",
       "DG061"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "TWIN5-Fire in the Sky.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -98,6 +97,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -298,6 +298,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -457,6 +458,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -485,6 +487,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -539,6 +542,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -587,6 +591,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -615,6 +620,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -663,6 +669,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -711,6 +718,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -751,6 +759,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -791,6 +800,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -831,6 +841,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -874,6 +885,24 @@
                 "theText": "Esta puerta lleva a la parte interior del Destructor Estelar.\r\n\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.",
                 "entityColor": null,
                 "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "fb96923a-22d2-43d3-b3c1-2632fcaaf6c3",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Green Terminal",
+                "isActive": false,
+                "theText": "Un terminal empotrado en la esquina controla el cierre de las puertas.\r\n\r\n{-} Un Héroe puede interactuar con el terminal verde ({I}) para tratar de abrir las puertas que llevan al interior de la nave.",
+                "entityColor": "Green",
+                "buttonActions": [
+                  {
+                    "buttonText": "{A} Piratear",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "a58aaa0b-889c-4f0d-a670-47c07812a51e"
+                  }
+                ]
               }
             }
           ],
@@ -930,6 +959,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -937,6 +967,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "c3553617-4f6d-440b-9c0b-1417e7443469",
           "eventActionType": 6,
           "displayName": "Deploy: DG006/Imperial Officer (Elite)"
@@ -981,6 +1012,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -988,6 +1020,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "a71c6899-c9c8-4d22-a37e-f9ac3ee173b1",
           "eventActionType": 6,
           "displayName": "Deploy: DG076/Boba Fett"
@@ -1034,6 +1067,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1168,6 +1202,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1175,6 +1210,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "7ac4e89c-e7b4-460b-88a8-2eb63730537e",
           "eventActionType": 6,
           "displayName": "Deploy: DG075/Kayn Somos"
@@ -1225,6 +1261,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1232,6 +1269,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "e0860f92-8aac-41c0-99ba-fd8ee91ac32e",
           "eventActionType": 6,
           "displayName": "Deploy: DG001/Stormtrooper"
@@ -1259,6 +1297,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1352,6 +1391,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1399,6 +1439,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1523,7 +1564,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1559,7 +1601,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1595,7 +1638,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1631,7 +1675,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1667,7 +1712,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1703,7 +1749,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1739,7 +1786,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1775,7 +1823,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1863,7 +1912,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1899,7 +1949,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1972,7 +2023,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2044,6 +2096,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2075,6 +2128,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2106,6 +2160,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2139,6 +2194,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2170,6 +2226,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2201,6 +2258,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2238,6 +2296,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2247,5 +2306,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }
