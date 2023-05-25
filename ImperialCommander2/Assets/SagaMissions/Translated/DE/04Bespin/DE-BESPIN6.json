@@ -1,24 +1,23 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "German\\04Bespin\\BESPIN6-Reclassified.json",
-  "fileVersion": "16",
-  "saveDate": "8.16.2022",
-  "timeTicks": 637962049649255733,
+  "fileName": "DE-BESPIN6.json",
+  "fileVersion": "21",
+  "saveDate": "5/25/2023",
+  "timeTicks": 638206095277907719,
   "languageID": "Select Target Language",
   "missionProperties": {
     "missionName": "Neue Erkenntnisse",
     "campaignName": "Riskantes Spiel auf Bespin",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A005",
     "bannedAlly": "A001",
     "startingObjective": "",
-    "additionalMissionInfo": null,
     "missionID": "Bespin 6",
     "missionInfo": "",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -53,9 +52,9 @@
       "DG014",
       "DG046",
       "DG025"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "BESPIN6-Reclassified.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -94,6 +93,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -389,6 +389,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -469,6 +470,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -497,6 +499,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -551,6 +554,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -599,6 +603,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -647,6 +652,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -798,6 +804,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -826,54 +833,6 @@
       ]
     },
     {
-      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "isGlobal": true,
-      "name": "End of Mission - Rebels lose",
-      "eventText": "Sicherheitskräfte und imperiale Truppen schwärmen aus, um die Geheimnisse des Herzogs zu schützen. Ihr seid gezwungen, die Dokumente aufzugeben und könnt nur mit knapper Not entkommen. Im Shuttle ist das Team still. Dieses Versagen hat wahrscheinlich Rebellen das Leben gekostet.\n\n{-} Die Rebellen verlieren den Einsatz.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 6,
-      "useStartOfRound": false,
-      "useEndOfRound": true,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": true,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": false,
-      "additionalTriggers": [],
-      "eventActions": [
-        {
-          "theText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Riskantes Spiel auf Bespin\" gespielt?",
-          "includeCancel": false,
-          "buttonList": [
-            {
-              "buttonText": "Ja",
-              "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2"
-            },
-            {
-              "buttonText": "Nein",
-              "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4"
-            }
-          ],
-          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
-          "eventActionType": 5,
-          "displayName": "Question Prompt"
-        }
-      ]
-    },
-    {
       "GUID": "af917fbd-9915-436a-b294-4372d700417c",
       "isGlobal": true,
       "name": "Campaign Win Yes",
@@ -894,6 +853,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -934,6 +894,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -974,6 +935,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1014,6 +976,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1093,6 +1056,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1172,6 +1136,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1251,6 +1216,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1330,6 +1296,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1409,6 +1376,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1488,6 +1456,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1549,6 +1518,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1616,6 +1586,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1698,6 +1669,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1743,6 +1715,7 @@
             "incSpy": true,
             "incTrooper": true,
             "incWookiee": true,
+            "incVehicle": true,
             "useDefaultPriority": false
           },
           "GUID": "eda13a57-327e-4733-8fc6-cbd540f8554e",
@@ -1772,6 +1745,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1814,6 +1788,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1832,8 +1807,8 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": "+*1* Ges.",
-          "canReinforce": true,
-          "canRedeploy": true,
+          "canReinforce": false,
+          "canRedeploy": false,
           "canBeDefeated": true,
           "useThreat": false,
           "useCustomInstructions": false,
@@ -1866,6 +1841,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1873,6 +1849,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "76bae56a-2029-4862-87f3-36fd218ba73a",
           "eventActionType": 6,
           "displayName": "Deploy: DG006/Imperial Officer (Elite)"
@@ -1952,6 +1929,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -2004,6 +1982,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2011,6 +1990,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "deaf1c76-4cef-42d3-ac49-2f10a76dc83b",
           "eventActionType": 6,
           "displayName": "Deploy: DG035/Wing Guard (Elite)"
@@ -2038,6 +2018,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -2092,6 +2073,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -2319,6 +2301,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -2347,6 +2330,55 @@
             }
           ],
           "GUID": "d44f4638-d34e-4fc4-b405-6caa50dc8a34",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "GUID": "aa369d01-7b12-4e71-9a2e-ebd1b18b9730",
+      "isGlobal": true,
+      "name": "End of Mission - Rebels lose",
+      "eventText": "Sicherheitskräfte und imperiale Truppen schwärmen aus, um die Geheimnisse des Herzogs zu schützen. Ihr seid gezwungen, die Dokumente aufzugeben und könnt nur mit knapper Not entkommen. Im Shuttle ist das Team still. Dieses Versagen hat wahrscheinlich Rebellen das Leben gekostet.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 7,
+      "endOfRound": 6,
+      "useStartOfRound": true,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": true,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": false,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "theText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Riskantes Spiel auf Bespin\" gespielt?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "buttonText": "Ja",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2"
+            },
+            {
+              "buttonText": "Nein",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4"
+            }
+          ],
+          "GUID": "7f3bc5e7-5c7a-4f30-aad4-96a1b1bda061",
           "eventActionType": 5,
           "displayName": "Question Prompt"
         }
@@ -2472,7 +2504,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2508,7 +2541,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2544,7 +2578,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2580,7 +2615,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2616,7 +2652,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2652,7 +2689,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2688,7 +2726,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2944,7 +2983,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2980,7 +3020,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -3028,6 +3069,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3059,6 +3101,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3096,6 +3139,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3129,6 +3173,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3166,6 +3211,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -3175,5 +3221,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

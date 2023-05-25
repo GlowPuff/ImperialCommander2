@@ -1,10 +1,9 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "TWIN5-Fire in the Sky.json",
-  "relativePath": "German\\02Twin\\TWIN5-Fire in the Sky.json",
-  "fileVersion": "18",
-  "saveDate": "8/14/2022",
-  "timeTicks": 637960332509961741,
+  "fileName": "DE-TWIN5.json",
+  "fileVersion": "21",
+  "saveDate": "5/25/2023",
+  "timeTicks": 638206088149133761,
   "languageID": "German (DE)",
   "missionProperties": {
     "missionName": "Brennender Himmel",
@@ -19,7 +18,6 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -58,7 +56,8 @@
       "DG018",
       "DG060",
       "DG061"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
   "mapSections": [
     {
@@ -98,6 +97,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -298,6 +298,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -457,6 +458,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -485,6 +487,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -539,6 +542,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -587,6 +591,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -615,6 +620,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -663,6 +669,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -711,6 +718,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -751,6 +759,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -791,6 +800,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -831,6 +841,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -874,6 +885,24 @@
                 "theText": "Diese Tür führt tiefer in den Sternenzerstörer hinein.\n\n{-} Die Türen sind verriegelt. Ein Held kann mit dem grünen Terminal interagieren ({I}), um die Türen zu öffnen, die in das Schiff führen.",
                 "entityColor": null,
                 "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "fb96923a-22d2-43d3-b3c1-2632fcaaf6c3",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Green Terminal",
+                "isActive": false,
+                "theText": "Ein Wandterminal in der Ecke steuert die Türschlösser.\n\n{-} Ein Held kann mit dem grünen Terminal interagieren ({I}), um zu versuchen, die Türen zu öffnen, die in das Schiff führen.",
+                "entityColor": "Green",
+                "buttonActions": [
+                  {
+                    "buttonText": "{A} Hacken",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "a58aaa0b-889c-4f0d-a670-47c07812a51e"
+                  }
+                ]
               }
             }
           ],
@@ -938,6 +967,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "c3553617-4f6d-440b-9c0b-1417e7443469",
           "eventActionType": 6,
           "displayName": "Deploy: DG006/Imperial Officer (Elite)"
@@ -990,6 +1020,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "a71c6899-c9c8-4d22-a37e-f9ac3ee173b1",
           "eventActionType": 6,
           "displayName": "Deploy: DG076/Boba Fett"
@@ -1036,6 +1067,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1178,6 +1210,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "7ac4e89c-e7b4-460b-88a8-2eb63730537e",
           "eventActionType": 6,
           "displayName": "Deploy: DG075/Kayn Somos"
@@ -1236,6 +1269,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "e0860f92-8aac-41c0-99ba-fd8ee91ac32e",
           "eventActionType": 6,
           "displayName": "Deploy: DG001/Stormtrooper"
@@ -1263,6 +1297,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1356,6 +1391,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1403,6 +1439,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -2269,5 +2306,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

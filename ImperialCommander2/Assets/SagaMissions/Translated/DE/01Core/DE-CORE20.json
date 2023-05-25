@@ -1,10 +1,9 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "CORE20-Loose Cannon.json",
-  "relativePath": "German\\01Core\\CORE20-Loose Cannon.json",
-  "fileVersion": "18",
-  "saveDate": "8/13/2022",
-  "timeTicks": 637960319947207926,
+  "fileName": "DE-CORE20.json",
+  "fileVersion": "21",
+  "saveDate": "5/25/2023",
+  "timeTicks": 638206046392933730,
   "languageID": "German (DE)",
   "missionProperties": {
     "missionName": "Tickende Zeitbombe",
@@ -19,7 +18,6 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": false,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -47,7 +45,8 @@
       "DG066",
       "DG067",
       "DG014"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
   "mapSections": [
     {
@@ -87,6 +86,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -436,6 +436,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -464,6 +465,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -518,6 +520,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -566,6 +569,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -614,6 +618,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -668,6 +673,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -675,7 +681,7 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "theText": "{-} Place the <color=\"red\">AT-ST</color> figure on the red highlighted spaces.\r\n{-} The <color=\"red\">AT-ST</color> is a Rebel figure under Mak's control. When Mak activates, ready and activate the <color=\"red\">AT-ST</color>. Mak's hero figure is not deployed and cannot activate. Apply additional Health equal to the threat level to the <color=\"red\">AT-ST</color>. The <color=\"red\">AT-ST</color> can enter and occupy spaces on the Hangar. When the <color=\"red\">AT-ST</color> is defeated, click the Imperial mission token and select \"AT-ST defeated\".\r\n{-} Any attacks that target Mak while his figure is not deployed instead target the <color=\"red\">AT-ST</color>.\r\n{-} Deploy the heroes to the blue highlighted space.",
+          "theText": "{-} Platziere die <color=\"red\">AT-ST</color>-Figur auf den rot markierten Feldern.\r\n{-} Der <color=\"red\">AT-ST</color> ist eine Rebellenfigur unter Maks Kontrolle. Wenn Mak aktiviert wird, mache den <color=\"red\">AT-ST</color> spielbereit und aktiviere ihn. Maks Heldenfigur wird nicht aufgestellt und kann nicht aktiviert werden. Wende zusätzliche Gesundheit in Höhe des Bedrohungsgrades auf den <color=\"red\">AT-ST</color> an. Der <color=\"red\">AT-ST</color> kann Felder auf dem Hangar betreten und besetzen. Wenn der <color=\"red\">AT-ST</color> besiegt wird, klicke auf den imperialen Einsatzmarker und wähle \"AT-ST besiegt\".\n{-} Alle Angriffe, die auf Mak zielen, während seine Figur nicht aufgestellt ist, zielen stattdessen auf den <color=\"red\">AT-ST</color>.\r\n{-} Stelle die Helden auf dem blau hervorgehobenen Feld auf.",
           "GUID": "3f2dcc6a-d136-4db4-b88b-7bb679435955",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -703,6 +709,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -743,6 +750,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -783,6 +791,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -790,18 +799,23 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "theText": "Hat der <color=\"red\">Hauptmann der Roten Garde</color> 7 oder mehr {H} erlitten?",
+          "theText": "Bitte wähle die richtige Option.\r\n\r\n<b>1:</b> Der <color=\"red\">Hauptmann der Roten Garde</color> ist auf der Karte und hat 7 oder mehr {H} erlitten.\r\n<b>2:</b> Der <color=\"red\">Hauptmann der Roten Garde</color> ist auf der Karte und hat weniger als 7 {H} erlitten.\r\n<b>3:</b> Der <color=\"red\">Hauptmann der Roten Garde</color> ist nicht mehr auf der Karte.",
           "includeCancel": false,
           "buttonList": [
             {
-              "buttonText": "Ja",
+              "buttonText": "1",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "41fb0855-8d76-4813-a5c8-058aab4cf96a"
             },
             {
-              "buttonText": "Nein",
+              "buttonText": "2",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "e5d6762c-aec9-4d1d-95ec-dc70a7b5cbb2"
+            },
+            {
+              "buttonText": "3",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "5da2659a-4365-46ce-94d9-7cae47a56518"
             }
           ],
           "GUID": "b1cc8da4-9a18-443e-82b8-bc863e98f867",
@@ -890,6 +904,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -940,6 +955,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1000,6 +1016,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "6ba3db99-aba1-436a-87f9-63c5fd1975f8",
           "eventActionType": 6,
           "displayName": "Deploy: DG007/E-Web Engineer"
@@ -1027,6 +1044,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1055,6 +1073,36 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": []
+    },
+    {
+      "GUID": "5da2659a-4365-46ce-94d9-7cae47a56518",
+      "isGlobal": true,
+      "name": "Advantage 3",
+      "eventText": "Die beiden imperialen Figuren mit den höchsten Figurenkosten werden FOKUSSIERT.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1758,5 +1806,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }
