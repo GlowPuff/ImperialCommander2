@@ -44,8 +44,6 @@ namespace Saga
 
 		public void Show( DeployMode mode, bool skipThreatIncrease, bool isOptionalDeployment, Action callback = null, DeploymentGroupOverride ovrd = null )
 		{
-			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.DeploymentEvent, mode.ToString() );
-
 			acceptInput = true;
 			gameObject.SetActive( true );
 			fader.color = new Color( 0, 0, 0, 0 );
@@ -112,6 +110,8 @@ namespace Saga
 					HandleOnslaught( skipThreatIncrease );
 					break;
 			}
+
+			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.DeploymentEvent, depTypeText.text );
 		}
 
 		public void OnClose()
