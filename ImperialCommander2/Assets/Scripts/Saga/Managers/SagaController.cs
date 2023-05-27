@@ -66,6 +66,8 @@ namespace Saga
 		// Start is called before the first frame update
 		void Start()
 		{
+			Debug.Log( "ENTERING SAGA GAME" );
+
 			//Exception handling for any Unity thrown exception, such as from asset management
 			Application.logMessageReceived += LogCallback;
 

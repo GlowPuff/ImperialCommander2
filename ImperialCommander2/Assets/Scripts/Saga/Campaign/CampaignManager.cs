@@ -32,6 +32,7 @@ namespace Saga
 		public MWheelHandler xpWheel, creditsWheel, fameWheel, awardsWheel;
 		public Text campaignExpansion;
 		public CanvasGroup topButtonsGroup, rightPanelGroup;
+		public ValueAdjuster valueAdjuster;
 		//translatable UI
 		public CampaignLanguageController languageController;
 
@@ -42,6 +43,8 @@ namespace Saga
 
 		void Start()
 		{
+			Debug.Log( "ENTERING CAMPAIGN MANAGER" );
+
 			System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 			System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 			System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
@@ -104,7 +107,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// fill in name and item/villain/ally lists from campaign data
+		/// fill in name and hero/item/villain/ally lists from campaign data
 		/// </summary>
 		private void InitUI()
 		{
@@ -131,7 +134,10 @@ namespace Saga
 																	//heroes
 			int c = sagaCampaign.campaignHeroes.Count;
 			for ( int i = 0; i < c; i++ )
+			{
 				heroPrefabs[i].AddHeroToUI( sagaCampaign.campaignHeroes[i] );
+				heroPrefabs[i].SetValueAdjuster( valueAdjuster );
+			}
 			//rewards
 			foreach ( var item in sagaCampaign.campaignRewards )
 				AddRewardToUI( sagaCampaign.GetRewardFromID( item ) );

@@ -94,7 +94,8 @@ namespace Saga
 
 			if ( cs.itemTier != null && cs.itemTier.Length > 0 )
 			{
-				itemText.text = $"{DataStore.uiLanguage.uiCampaign.tierUC} " + cs.itemTier.Aggregate( ( acc, cur ) => acc + ", " + cur );
+				var s = cs.itemTier.Select( x => $"{DataStore.uiLanguage.uiCampaign.tierUC} " + x );
+				itemText.text = s.Aggregate( ( acc, cur ) => acc + ", " + cur );
 			}
 			else
 				itemText.transform.parent.gameObject.SetActive( false );
@@ -154,7 +155,7 @@ namespace Saga
 			campaignStructure.itemTier = modifier.itemTierArray;
 
 			agendaButton.SetActive( campaignStructure.isAgendaMission );
-			dummyAgenda.SetActive( !campaignStructure.isAgendaMission );
+			dummyAgenda.SetActive( !campaignStructure.isAgendaMission );//spacer
 
 			agendaButton.SetActive( modifier.agendaToggle );
 			threatLevelText.text = modifier.threatValue.ToString();
@@ -237,7 +238,7 @@ namespace Saga
 
 		public void ToggleModifyMode( bool enable )
 		{
-			if ( campaignStructure.missionType != MissionType.Introduction )
+			if ( campaignStructure.isCustom || campaignStructure.missionType != MissionType.Introduction )
 				modifyMissionPanel.SetActive( enable );
 			else
 				buttonGroup.interactable = !enable;

@@ -86,7 +86,7 @@ namespace Saga
 			try
 			{
 				var m = JsonConvert.DeserializeObject<Mission>( json );
-				Debug.Log( "LoadMissionFromString: " + m.missionProperties.missionID );
+				//Debug.Log( "LoadMissionFromString: " + m.missionProperties.missionID );
 				return m;
 			}
 			catch ( Exception e )

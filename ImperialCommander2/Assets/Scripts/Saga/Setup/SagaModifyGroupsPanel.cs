@@ -170,7 +170,7 @@ namespace Saga
 		{
 			for ( int i = 0; i < expansionToggles.Length; i++ )
 			{
-				if ( dataMode == 0 && !updating )
+				if ( dataMode == 0 && !updating )//ignored mode
 				{
 					int count = DataStore.sagaSessionData.MissionIgnored.Where( x => x.expansion == ((Expansion)i).ToString() ).Count();
 
@@ -180,7 +180,7 @@ namespace Saga
 
 					expansionToggles[i].transform.GetChild( 2 ).GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = count.ToString();
 				}
-				else
+				else//villain mode
 				{
 					var list = DataStore.sagaSessionData.EarnedVillains.Where( x => x.expansion == ((Expansion)i).ToString() ).ToList();
 					expansionToggles[i].transform.GetChild( 2 ).GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = list.Count.ToString();

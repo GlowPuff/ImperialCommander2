@@ -66,6 +66,7 @@ namespace Saga
 
 		void Awake()
 		{
+			Debug.Log( "ENTERING SAGA SETUP" );
 			//Exception handling for any Unity thrown exception, such as from asset management
 			Application.logMessageReceived += LogCallback;
 
