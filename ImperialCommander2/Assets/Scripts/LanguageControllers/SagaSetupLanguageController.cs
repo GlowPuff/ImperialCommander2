@@ -35,5 +35,11 @@ public class SagaSetupLanguageController : MonoBehaviour
 		groupCloseBtn.text = uiMain.close;
 		tilesCloseBtn.text = uiMain.close;
 	}
+
+	public void UpdateIgnoredCount( int c )
+	{
+		UISetup setup = DataStore.uiLanguage.uiSetup;
+		ignoredBtn.text = $"{setup.ignoredHeading} <color=red>{c}</color>";
+	}
 }
 

@@ -164,6 +164,7 @@ namespace Saga
 				//add default ignored
 				//ignore "Other" expansion enemy groups by default, except owned packs
 				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
+				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
 			}
 		}
 
@@ -244,6 +245,7 @@ namespace Saga
 
 			//finally, add the uniquely hashed set of ignored cards
 			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
 
 			setupOptions = new SagaSetupOptions()
 			{
@@ -365,7 +367,10 @@ namespace Saga
 		public void OnIgnored()
 		{
 			sound.PlaySound( FX.Click );
-			modifyGroupsPanel.Show( 0, disabledIgnoredGroups );
+			modifyGroupsPanel.Show( 0, disabledIgnoredGroups, () =>
+			{
+				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
+			} );
 		}
 
 		public void OnVillains()
@@ -449,6 +454,7 @@ namespace Saga
 
 			//add the uniquely hashed set of ignored to the real list
 			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
 
 			//add banned allies and custom heroes/allies
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
@@ -506,6 +512,7 @@ namespace Saga
 
 				//add the uniquely hashed set of ignored to the real list
 				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
 
 				//add banned allies
 				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )
