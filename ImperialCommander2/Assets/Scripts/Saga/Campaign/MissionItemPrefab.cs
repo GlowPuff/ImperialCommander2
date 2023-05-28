@@ -18,13 +18,20 @@ namespace Saga
 		public Image bgImage, nameButtonImage, chevronImage;
 		public CanvasGroup buttonGroup;
 		public Button playMissionButton;
+		public MWheelHandler wheelHandler;
 
-		public void Init( CampaignStructure cs )
+		public void Init( CampaignStructure cs, ValueAdjuster va )
 		{
 			campaignStructure = cs;
 
 			modifyText.text = DataStore.uiLanguage.uiCampaign.modifyUC;
 			removeText.text = DataStore.uiLanguage.uiCampaign.removeUC;
+
+			//if ( !cs.isCustom )
+			//threatLevelText.GetComponent<MWheelHandler>().enabled = false;
+			wheelHandler.valueAdjuster = va;
+			wheelHandler.ResetWheeler( cs.threatLevel );
+			wheelHandler.wheelValueChanged.AddListener( () => campaignStructure.threatLevel = wheelHandler.wheelValue );
 
 			///set colors
 			//story
@@ -153,6 +160,8 @@ namespace Saga
 			campaignStructure.isAgendaMission = modifier.agendaToggle;
 			campaignStructure.threatLevel = modifier.threatValue;
 			campaignStructure.itemTier = modifier.itemTierArray;
+
+			wheelHandler.ResetWheeler( campaignStructure.threatLevel );
 
 			agendaButton.SetActive( campaignStructure.isAgendaMission );
 			dummyAgenda.SetActive( !campaignStructure.isAgendaMission );//spacer

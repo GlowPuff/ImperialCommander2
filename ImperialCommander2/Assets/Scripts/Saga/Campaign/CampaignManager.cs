@@ -90,8 +90,6 @@ namespace Saga
 		void bootstrapCampaign( bool isProduction )
 		{
 			Debug.Log( $"***BOOTSTRAP (Campaign Manager) PRODUCTION={isProduction}***" );
-			//if ( !isProduction )
-			//	DataStore.InitData();
 
 			//campaign is already setup from Title screen
 			if ( RunningCampaign.sagaCampaignGUID != null && RunningCampaign.sagaCampaignGUID != Guid.Empty )
@@ -136,7 +134,7 @@ namespace Saga
 			for ( int i = 0; i < c; i++ )
 			{
 				heroPrefabs[i].AddHeroToUI( sagaCampaign.campaignHeroes[i] );
-				heroPrefabs[i].SetValueAdjuster( valueAdjuster );
+				heroPrefabs[i].mWheelHandler.valueAdjuster = valueAdjuster;
 			}
 			//rewards
 			foreach ( var item in sagaCampaign.campaignRewards )
@@ -153,7 +151,7 @@ namespace Saga
 			foreach ( var item in sagaCampaign.campaignStructure )
 			{
 				var go = Instantiate( missionItemPrefab, structureContainer );
-				go.GetComponent<MissionItemPrefab>().Init( item );
+				go.GetComponent<MissionItemPrefab>().Init( item, valueAdjuster );
 			}
 			//add forced mission bar
 			if ( sagaCampaign.campaignExpansionCode != "Custom" )
@@ -354,7 +352,7 @@ namespace Saga
 			};
 			//add the newly added mission
 			var go = Instantiate( missionItemPrefab, structureContainer );
-			go.GetComponent<MissionItemPrefab>().Init( cs );
+			go.GetComponent<MissionItemPrefab>().Init( cs, valueAdjuster );
 		}
 
 		void AddForcedMission( MissionCard card )
@@ -383,7 +381,7 @@ namespace Saga
 			}
 			//add the newly added mission
 			var go = Instantiate( missionItemPrefab, structureContainer );
-			go.GetComponent<MissionItemPrefab>().Init( cs );
+			go.GetComponent<MissionItemPrefab>().Init( cs, valueAdjuster );
 			//add the "forced mission" prefab back to bottom of list
 			var fgo = Instantiate( forceMissionItemPrefab, structureContainer );
 			fgo.GetComponent<ForceMissionItemPrefab>().Init( OnAddForcedMissionClick );

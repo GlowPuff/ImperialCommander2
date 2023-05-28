@@ -42,14 +42,11 @@ namespace Saga
 			GlowEngine.FindUnityObject<AddCampaignItemPopup>().AddItem( OnItemAdded, true );
 		}
 
-		public void SetValueAdjuster( ValueAdjuster v )
-		{
-			mWheelHandler.valueAdjuster = v;
-		}
-
 		void OnHeroAdded( DeploymentCard card )
 		{
 			sagaCampaign = FindObjectOfType<CampaignManager>().sagaCampaign;
+
+			mWheelHandler.valueAdjuster = FindObjectOfType<CampaignManager>().valueAdjuster;
 
 			addPanel.SetActive( false );
 			heroPanel.SetActive( true );

@@ -41,7 +41,7 @@ namespace Saga
 				outlineImage.color = Color.green;
 			else
 			{
-				outlineImage.color = Color.white;
+				outlineImage.color = new Color( 0, 0.6431373f, 1 );
 				isOn = false;
 			}
 

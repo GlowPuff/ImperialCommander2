@@ -76,6 +76,9 @@ namespace Saga
 		/// </summary>
 		public void FixExpansionCodes()
 		{
+			//Doesn't seem to be necessary anymore?
+			//Official campaigns containing "Other" missions retain their "Other" expansionCode just fine
+
 			//for ( int i = 0; i < campaignStructures.Count; i++ )
 			//{
 			//	campaignStructure[i].expansionCode = campaignStructures[i].expansionCode;
