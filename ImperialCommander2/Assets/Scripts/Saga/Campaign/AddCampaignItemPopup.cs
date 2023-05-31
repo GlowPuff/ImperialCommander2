@@ -147,18 +147,21 @@ namespace Saga
 			Show();
 		}
 
-		public void AddMission( string campaignExpansionCode, MissionType missionType, Action<MissionCard> callback )
+		public void AddMission( CampaignType ctype, string campaignExpansionCode, MissionType missionType, Action<MissionCard> callback )
 		{
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
 
 			selectedExpansion = "Core";
 			expansionCodes.Clear();
-			//restricted to current expansion missions (story and finale)
-			if ( campaignExpansionCode != "Custom"
+			//for Official campaigns, missions are restricted to the expansion's missions (story and finale)
+			if ( ctype == CampaignType.Official
+				//(campaignExpansionCode != "Custom" && campaignExpansionCode != "Imported")
 				&& (missionType == MissionType.Story || missionType == MissionType.Finale) )
 				selectedExpansion = campaignExpansionCode;
+
 			expansionDropdown.ClearOptions();
+
 			//add translated expansion name
 			expansionDropdown.AddOptions(
 				DataStore.translatedExpansionNames
@@ -175,11 +178,19 @@ namespace Saga
 			expansionCodes.Add( "Other" );
 
 			//side missions have access to custom missions, add "Custom" to dropdown
-			if ( campaignExpansionCode == "Custom" || missionType == MissionType.Side || missionType == MissionType.Forced )
+			if ( ctype == CampaignType.Custom /*campaignExpansionCode == "Custom"*/ || missionType == MissionType.Side || missionType == MissionType.Forced )
 			{
 				expansionDropdown.AddOptions( (new string[] { DataStore.uiLanguage.uiCampaign.customUC }).ToList() );
 				//add Custom to codes
 				expansionCodes.Add( "Custom" );
+			}
+
+			if ( ctype == CampaignType.Imported )
+			{
+				string cname = FindObjectOfType<CampaignManager>().sagaCampaign.campaignName;
+				expansionDropdown.AddOptions( (new string[] { cname }).ToList() );
+				//add Custom to codes
+				expansionCodes.Add( "Embedded" );
 			}
 
 			foreach ( var item in DataStore.missionCards[selectedExpansion] )
@@ -191,7 +202,7 @@ namespace Saga
 			addMissionCallback = callback;
 			Show();
 			//make room for the expansion dropdown
-			if ( campaignExpansionCode == "Custom" || (missionType != MissionType.Story && missionType != MissionType.Finale) )
+			if ( ctype == CampaignType.Custom/* campaignExpansionCode == "Custom"*/ || (missionType != MissionType.Story && missionType != MissionType.Finale) )
 			{
 				scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -155 );
 				expansionDropdown.gameObject.SetActive( true );
@@ -274,7 +285,8 @@ namespace Saga
 			foreach ( Transform item in itemContainer )
 				Destroy( item.gameObject );
 
-			if ( selectedExpansion != "Custom" )
+			//official missions
+			if ( selectedExpansion != "Custom" && selectedExpansion != "Embedded" )
 			{
 				foreach ( var card in DataStore.missionCards[selectedExpansion] )
 				{
@@ -282,7 +294,28 @@ namespace Saga
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( card );
 				}
 			}
-			else
+			else if ( selectedExpansion == "Embedded" )//embedded missions
+			{
+				var campaign = FindObjectOfType<CampaignManager>().sagaCampaign;
+				var package = campaign.campaignPackage;
+				foreach ( var item in package.campaignMissionItems )
+				{
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					//store mission GUID into 'hero'
+					//store imported campaign name into 'bonusText'
+					//store package GUID into 'expansionText'
+					var card = new MissionCard()
+					{
+						name = item.missionName,
+						id = "Embedded",
+						hero = item.missionGUID.ToString(),
+						bonusText = campaign.campaignImportedName,
+						expansionText = package.GUID.ToString()
+					};
+					go.GetComponent<ItemSkillSelectorPrefab>().InitEmbeddedMission( card );
+				}
+			}
+			else//custom missions
 			{
 				var missions = FileManager.GetCustomMissions().Where( x => x.missionGUID != null );
 				//sort alphabetically

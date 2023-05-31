@@ -27,7 +27,9 @@ namespace Saga
 	public class SagaCampaign
 	{
 		//campaign state
-		public string campaignName, campaignExpansionCode;//campaignExpansionCode is the CODE, ie: Core
+		public int formatVersion;
+		//campaignExpansionCode is the CODE, ie: Core
+		public string campaignName, campaignExpansionCode, campaignImportedName;
 		public string campaignJournal = "";
 		public int XP, credits, fame, awards;
 		public Guid GUID;
@@ -39,6 +41,9 @@ namespace Saga
 		public List<string> campaignItems = new List<string>();
 		public List<string> campaignRewards = new List<string>();
 		public List<string> campaignIgnored = new List<string>();
+		//public bool isImported, isCustom;
+		public CampaignType campaignType;
+		public CampaignPackage campaignPackage;
 
 		//data sets
 		[JsonIgnore]
@@ -46,7 +51,7 @@ namespace Saga
 		[JsonIgnore]
 		public static List<CampaignSkill> campaignDataSkills;
 		[JsonIgnore]
-		public static List<CampaignStructure> campaignStructures;
+		public static List<CampaignStructure> campaignDataStructures;
 		[JsonIgnore]
 		public static List<CampaignReward> campaignDataRewards;
 
@@ -60,14 +65,32 @@ namespace Saga
 		public static SagaCampaign CreateNewCampaign( string cname, string expansionCode )
 		{
 			SagaCampaign c = new SagaCampaign();
+			c.formatVersion = 2;
 			c.GUID = Guid.NewGuid();
 			c.campaignName = cname;
 			c.campaignExpansionCode = expansionCode;
+			c.campaignType = expansionCode == "Custom" ? CampaignType.Custom : CampaignType.Official;
 
 			c.LoadCampaignData();
 			//now campaign structures are set for this campaign's expansion
-			c.campaignStructure = campaignStructures;
+			c.campaignStructure = campaignDataStructures;
 
+			return c;
+		}
+
+		public static SagaCampaign CreateNewImportedCampaign( string cname, CampaignPackage package )
+		{
+			SagaCampaign c = new SagaCampaign();
+			c.formatVersion = 2;
+			c.GUID = Guid.NewGuid();
+			c.campaignName = cname;
+			c.campaignExpansionCode = "Imported";
+			c.campaignType = CampaignType.Imported;
+			c.campaignPackage = package;
+			c.campaignImportedName = package.campaignName;
+			c.campaignStructure = package.campaignStructure;
+
+			c.LoadCampaignData();
 			return c;
 		}
 
@@ -86,9 +109,11 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// just the card data for lists
+		/// set the translated card data for lists
+		/// onlyOfficial = true when loading state to translate text
+		/// custom and imported mission data don't get translated, so skip them on loading state
 		/// </summary>
-		public void LoadCampaignData()
+		public void LoadCampaignData( bool onlyOfficial = false )
 		{
 			try
 			{
@@ -102,20 +127,24 @@ namespace Saga
 				campaignDataRewards = LoadAsset<List<CampaignReward>>( $"Languages/{DataStore.Language}/CampaignData/rewards" );
 
 				//mission structure
-				if ( campaignExpansionCode != "Custom" )
+				if ( campaignType == CampaignType.Official )//official campaign
 				{
-					campaignStructures = LoadAsset<List<CampaignStructure>>( $"CampaignData/{campaignExpansionCode}" );
+					campaignDataStructures = LoadAsset<List<CampaignStructure>>( $"CampaignData/{campaignExpansionCode}" );
 					//if the mission ID is already set, make it NOT selectable in the future
-					campaignStructures = campaignStructures.Select( x =>
+					campaignDataStructures = campaignDataStructures.Select( x =>
 					{
+						x.missionSource = MissionSource.None;
 						if ( !string.IsNullOrEmpty( x.missionID ) )
+						{
+							x.missionSource = MissionSource.Official;
 							x.canModify = false;
+						}
 						return x;
 					} ).ToList();
 				}
-				else
+				else if ( !onlyOfficial && campaignType == CampaignType.Custom )
 				{
-					campaignStructures = new List<CampaignStructure>
+					campaignDataStructures = new List<CampaignStructure>
 					{
 						new CampaignStructure()
 						{
@@ -124,10 +153,21 @@ namespace Saga
 							threatLevel = 1,
 							expansionCode = "",
 							isAgendaMission = false,
-							isCustom = true,
+							missionSource= MissionSource.None,
 							itemTier = new string[] { "1" }
 						}
 					};
+				}
+				else if ( !onlyOfficial && campaignType == CampaignType.Imported )
+				{
+					campaignDataStructures = campaignStructure;//.Select( x => x.UniqueCopy() ).ToList();
+					campaignDataStructures = campaignDataStructures.Select( x =>
+					{
+						Guid guid = Guid.Parse( x.missionID );
+						x.canModify = guid == Guid.Empty;
+						x.packageGUID = campaignPackage.GUID;
+						return x;
+					} ).ToList();
 				}
 			}
 			catch ( JsonReaderException e )
@@ -158,7 +198,8 @@ namespace Saga
 					json = sr.ReadToEnd();
 				}
 				var state = JsonConvert.DeserializeObject<SagaCampaign>( json );
-				state.LoadCampaignData();
+				//skip loading custom/import structure template, only translate official Mission data
+				state.LoadCampaignData( true );
 
 				Debug.Log( "***CAMPAIGN LOADED***" );
 				return state;
@@ -215,8 +256,15 @@ namespace Saga
 
 		public string GetCampaignInfo()
 		{
-			TextAsset text = Resources.Load<TextAsset>( $"Languages/{DataStore.Language}/CampaignData/CampaignInfo/{campaignExpansionCode}Info" );
-			return text?.text;
+			if ( campaignType == CampaignType.Imported )
+			{
+				return campaignPackage.campaignInstructions;
+			}
+			else
+			{
+				TextAsset text = Resources.Load<TextAsset>( $"Languages/{DataStore.Language}/CampaignData/CampaignInfo/{campaignExpansionCode}Info" );
+				return text?.text;
+			}
 		}
 	}
 }

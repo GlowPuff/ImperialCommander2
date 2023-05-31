@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace Saga
 		public Button playMissionButton;
 		public MWheelHandler wheelHandler;
 
-		public void Init( CampaignStructure cs, ValueAdjuster va )
+		public void Init( CampaignStructure cs, ValueAdjuster va, SagaCampaign campaign )
 		{
 			campaignStructure = cs;
 
@@ -54,7 +55,6 @@ namespace Saga
 				|| cs.missionType == MissionType.Interlude )
 			{
 				bgImage.color = new Vector3( 0.5254902f, 1f, 0.5690899f ).ToColor();
-				//bgImage.color = new Vector3( 0.6176143f, 0.5235849f, 1f ).ToColor();
 			}
 
 			if ( !cs.isAgendaMission || cs.missionType == MissionType.Forced )
@@ -77,8 +77,12 @@ namespace Saga
 				}
 			}
 
-			//set translated expansion name IF it's not a custom mission
-			if ( !string.IsNullOrEmpty( cs.missionID ) && cs.missionID != "Custom" )
+			//set translated expansion name based on mission source (official, custom, embedded)
+			//if ( !cs.isCustomMission
+			//	&& !cs.isEmbeddedMission
+			if ( cs.missionSource == MissionSource.Official
+				&& !string.IsNullOrEmpty( cs.missionID )
+				/*&& cs.missionID != "Custom"*/ )
 			{
 				var mcard = DataStore.GetMissionCard( cs.missionID );
 				string mn = mcard?.name;
@@ -87,11 +91,22 @@ namespace Saga
 				else
 					missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
 			}
-			else if ( !string.IsNullOrEmpty( cs.missionID ) && cs.missionID == "Custom" )
+			//else if ( campaign.campaignType != CampaignType.Imported
+			//	&& !string.IsNullOrEmpty( cs.missionID )
+			//	&& cs.missionID == "Custom" )
+			//set translated expansion name IF it's a custom mission
+			else if ( cs.missionSource == MissionSource.Custom//cs.isCustomMission
+				&& !string.IsNullOrEmpty( cs.missionID ) )
 			{
 				missionName.text = cs.projectItem.Title + $"\n<color=orange>{DataStore.uiLanguage.uiCampaign.customUC}: " + DataStore.translatedExpansionNames[cs.expansionCode] + "</color>";
 			}
-			else
+			//set translated expansion name IF it's an embedded mission
+			else if ( cs.missionSource == MissionSource.Embedded
+				&& Guid.Parse( cs.missionID ) != Guid.Empty )
+			{
+				missionName.text = cs.projectItem.Title + "\n<color=orange>" + campaign.campaignImportedName + "</color>";
+			}
+			else//empty slot, player selection
 				missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
 
 			missionType.text = DataStore.uiLanguage.uiCampaign.missionTypeStrings[(int)cs.missionType];
@@ -120,10 +135,9 @@ namespace Saga
 				removeForcedButton.SetActive( true );
 			}
 
-			//if it's not a custom campaign, fill in the project item properties
-			if ( !cs.isCustom
+			if ( cs.missionSource == MissionSource.Official //!cs.isCustomMission
 				&& !string.IsNullOrEmpty( cs.missionID )
-				&& cs.missionID != "Custom" )
+				/*&& cs.missionID != "Custom" */)
 			{
 				var card = DataStore.GetMissionCard( cs.missionID );
 				if ( card != null )
@@ -146,7 +160,7 @@ namespace Saga
 		public void RemoveMission()
 		{
 			FindObjectOfType<Sound>().PlaySound( FX.Click );
-			FindObjectOfType<CampaignManager>().RemoveMission( campaignStructure.GUID );
+			FindObjectOfType<CampaignManager>().RemoveMission( campaignStructure.structureGUID );
 		}
 
 		public void ModifyMission()
@@ -213,28 +227,48 @@ namespace Saga
 				campaignStructure.missionID = card.id;
 				campaignStructure.expansionCode = card.expansion.ToString();
 
-				if ( card.id != "Custom" )
+				if ( card.id != "Custom" && card.id != "Embedded" )//official mission
 				{
 					missionName.text = DataStore.missionCards[campaignStructure.expansionCode].Where( x => x.id == campaignStructure.missionID ).FirstOr( new MissionCard() { name = card.name } )?.name + "\n<color=orange>" + DataStore.translatedExpansionNames[campaignStructure.expansionCode] + "</color>";
 
+					campaignStructure.missionSource = MissionSource.Official;
 					campaignStructure.projectItem.missionID = card.id;
 					campaignStructure.projectItem.Description = card.descriptionText;
 					campaignStructure.projectItem.AdditionalInfo = card.bonusText;
 					campaignStructure.projectItem.fullPathWithFilename = $"{card.id.ToUpper()}";
 					campaignStructure.projectItem.Title = DataStore.missionCards[campaignStructure.expansionCode].Where( x => x.id == campaignStructure.missionID ).FirstOr( new MissionCard() { name = card.name } )?.name;
 				}
-				else
+				else if ( card.id == "Custom" )//custom mission
 				{
 					missionName.text = card.name + $"\n<color=orange>{DataStore.uiLanguage.uiCampaign.customUC}: " + DataStore.translatedExpansionNames[campaignStructure.expansionCode] + "</color>";
 
 					//full path to custom mission is stored in 'hero' only for the purpose of getting it into the campaign structure
 					//additional info is stored in 'bonusText'
+					campaignStructure.missionSource = MissionSource.Custom;
 					campaignStructure.projectItem.fullPathWithFilename = card.hero;
 					campaignStructure.projectItem.missionID = card.id;
 					campaignStructure.projectItem.Description = card.descriptionText;
 					campaignStructure.projectItem.AdditionalInfo = card.bonusText;
 					campaignStructure.projectItem.Title = card.name;
 				}
+				else if ( card.id == "Embedded" )//embedded mission
+				{
+					missionName.text = card.name + $"\n<color=orange>{card.bonusText}";
+					//embedded mission GUID is stored into 'hero'
+					//imported campaign name is stored into 'bonusText'
+					//package GUID is stored into 'expansionText'
+
+					campaignStructure.missionID = card.hero;
+					campaignStructure.missionSource = MissionSource.Embedded;
+					campaignStructure.expansionCode = "Imported";
+					campaignStructure.structureGUID = Guid.Parse( card.expansionText );
+					//campaignStructure.projectItem.missionID = card.hero;
+					campaignStructure.projectItem.missionGUID = card.hero;
+					campaignStructure.projectItem.Description = "";
+					campaignStructure.projectItem.AdditionalInfo = "";
+					campaignStructure.projectItem.Title = card.name;
+				}
+
 				modMissionNameText.text = missionName.text.Replace( "orange", "black" );
 			} );
 		}
@@ -247,7 +281,8 @@ namespace Saga
 
 		public void ToggleModifyMode( bool enable )
 		{
-			if ( campaignStructure.isCustom || campaignStructure.missionType != MissionType.Introduction )
+			if ( campaignStructure.missionSource == MissionSource.Custom
+				|| campaignStructure.missionType != MissionType.Introduction )
 				modifyMissionPanel.SetActive( enable );
 			else
 				buttonGroup.interactable = !enable;

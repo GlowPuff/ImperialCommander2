@@ -12,15 +12,17 @@ namespace Saga
 		public PopupBase popupBase;
 		public TMP_Dropdown campaignExpansionDropdown;
 		public TMP_InputField campaignNameInputField;
-		public TextMeshProUGUI placeholderText;
-		public Text startText, cancelText;
+		public TextMeshProUGUI placeholderText, importedCampaignNameText;
+		public Text startText, cancelText, importCampaignBtn;
 		public Button startButton;
 		public Toggle customToggle;
+		public ImportCampaignPanel campaignPanel;
 
 		Action callback;
 		string selectedExpansion;
 		List<string> selectedExpansionList, expansionCode;
-		bool nameGood;
+		bool nameGood, importFuncDoRemove;
+		CampaignPackage selectedCampaignPackage;
 
 		public void Show( Action onClose )
 		{
@@ -28,6 +30,10 @@ namespace Saga
 			startText.text = DataStore.uiLanguage.sagaUISetup.setupStartBtn;
 			cancelText.text = DataStore.uiLanguage.uiSetup.cancel;
 			placeholderText.text = DataStore.uiLanguage.uiCampaign.campaignNameUC;
+			importCampaignBtn.text = DataStore.uiLanguage.sagaUISetup.importBtn;
+
+			selectedCampaignPackage = null;
+			importFuncDoRemove = false;
 			callback = onClose;
 			nameGood = false;
 			selectedExpansion = "Core";
@@ -68,10 +74,51 @@ namespace Saga
 		{
 			//create and save the new campaign
 			Close( false );
-			var c = SagaCampaign.CreateNewCampaign( campaignNameInputField.text,
-				!customToggle.isOn ? selectedExpansion : "Custom" );
-			FindObjectOfType<TitleController>().NavToCampaignScreen( c );
-			c.SaveCampaignState();
+			if ( selectedCampaignPackage != null )
+			{
+				var c = SagaCampaign.CreateNewImportedCampaign( campaignNameInputField.text, selectedCampaignPackage );
+				c.SaveCampaignState();
+				FindObjectOfType<TitleController>().NavToCampaignScreen( c );
+			}
+			else
+			{
+				var c = SagaCampaign.CreateNewCampaign( campaignNameInputField.text,
+					!customToggle.isOn ? selectedExpansion : "Custom" );
+				c.SaveCampaignState();
+				FindObjectOfType<TitleController>().NavToCampaignScreen( c );
+			}
+		}
+
+		public void OnImportCampaign()
+		{
+			if ( importFuncDoRemove )
+				OnRemoveImportedCampaign();
+			else
+			{
+				campaignPanel.Show( () =>
+				{
+					if ( campaignPanel.selectedPackage != null )
+					{
+						selectedCampaignPackage = campaignPanel.selectedPackage;
+						importedCampaignNameText.text = selectedCampaignPackage.campaignName;
+						campaignExpansionDropdown.interactable = false;
+						customToggle.interactable = false;
+						importCampaignBtn.text = DataStore.uiLanguage.uiCampaign.removeUC.ToUpper();
+						importFuncDoRemove = true;
+					}
+					else
+						selectedCampaignPackage = null;
+				} );
+			}
+		}
+
+		public void OnRemoveImportedCampaign()
+		{
+			importedCampaignNameText.text = "...";
+			campaignExpansionDropdown.interactable = true;
+			customToggle.interactable = true;
+			importCampaignBtn.text = DataStore.uiLanguage.sagaUISetup.importBtn;
+			importFuncDoRemove = false;
 		}
 
 		public void Close( bool doCallback = true )

@@ -31,8 +31,11 @@ namespace Saga
 			var toggleGroup = toggleContainer.GetComponent<ToggleGroup>();
 			foreach ( var item in clist )
 			{
-				var go = Instantiate( campaignTogglePrefab, toggleContainer.transform );
-				go.GetComponent<CampaignTogglePrefab>().Init( item, toggleGroup, OnToggleCallback );
+				if ( item.formatVersion == Utils.expectedCampaignFormatVersion )
+				{
+					var go = Instantiate( campaignTogglePrefab, toggleContainer.transform );
+					go.GetComponent<CampaignTogglePrefab>().Init( item, toggleGroup, OnToggleCallback );
+				}
 			}
 
 			startButton.interactable = false;
@@ -46,8 +49,13 @@ namespace Saga
 			if ( selectedCampaign != Guid.Empty )
 			{
 				var c = SagaCampaign.LoadCampaignState( selectedCampaign );
-				c.FixExpansionCodes();
-				FindObjectOfType<TitleController>().NavToCampaignScreen( c );
+				if ( c != null )
+				{
+					c.FixExpansionCodes();
+					FindObjectOfType<TitleController>().NavToCampaignScreen( c );
+				}
+				else
+					Utils.LogError( "StartCampaign()::Campaign state is null" );
 			}
 		}
 

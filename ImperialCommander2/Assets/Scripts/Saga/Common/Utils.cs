@@ -9,6 +9,7 @@ namespace Saga
 	public static class Utils
 	{
 		public const string formatVersion = "21";//the EXPECTED mission format
+		public const int expectedCampaignFormatVersion = 2;
 
 		/// <summary>
 		/// Logs error to console and to log file

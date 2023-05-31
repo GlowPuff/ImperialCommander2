@@ -35,12 +35,26 @@ namespace Saga
 
 		public void Init( MissionCard card, string filename = "" )
 		{
+			//store path into 'hero'
+			//store additional info into 'bonusText'
 			itemType = 2;
 			missionCard = card;
 			nameText.text = missionCard.name;
 			typeText.text = "U";
 			typeText.color = new Vector3( 1f, 0.1568628f, 0f ).ToColor();
 			costText.text = filename;
+		}
+
+		public void InitEmbeddedMission( MissionCard card )
+		{
+			//store mission GUID into 'hero'
+			//store imported campaign name into 'bonusText'
+			itemType = 2;
+			missionCard = card;
+			nameText.text = missionCard.name;
+			typeText.text = "U";
+			typeText.color = new Vector3( 1f, 0.1568628f, 0f ).ToColor();
+			costText.text = $"{DataStore.uiLanguage.uiCampaign.campaignUC}: {card.bonusText}";
 		}
 
 		public void Init( CampaignReward item )

@@ -215,9 +215,27 @@ namespace Saga
 			//ignore "Other" expansion enemy groups by default, except owned packs
 			var ignored = new HashSet<DeploymentCard>();
 			DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ).ToList().ForEach( x => ignored.Add( x ) );
+			if ( structure.missionSource == MissionSource.Embedded )
+			{
+				//get ignored groups from the embedded mission
 
+				//embedded mission GUID is stored into 'hero'
+				//imported campaign name is stored into 'bonusText'
+				//package GUID is stored into 'expansionText'
+				Mission m = FileManager.LoadEmbeddedMission( structure.packageGUID.ToString(), structure.projectItem.missionGUID, out DataStore.sagaSessionData.missionStringified );
+				DataStore.mission = m;
+				if ( m != null )
+				{
+					var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
+					ign.ToList().ForEach( x => ignored.Add( x ) );
+					//add ignored from mission
+					disabledIgnoredGroups.AddRange( ign );
+				}
+				else
+					errorPanel.Show( "SetupCampaignMission()", $"Could not load embedded mission:\n{structure.projectItem.Title}::{structure.projectItem.missionGUID}" );
+			}
 			//add non-custom mission specific ignored groups, even if they are owned packs
-			if ( structure.missionID != "Custom" )
+			else if ( structure.missionSource == MissionSource.Official )
 			{
 				var presets = DataStore.missionPresets[structure.expansionCode.ToLower()];
 				var mp = presets.Where( x => x.id.ToLower() == structure.missionID.ToLower() ).FirstOr( null );
@@ -229,7 +247,7 @@ namespace Saga
 					disabledIgnoredGroups.AddRange( ign );
 				}
 			}
-			else
+			else if ( structure.missionSource == MissionSource.Custom )
 			{
 				Mission m = FileManager.LoadMission( structure.projectItem.fullPathWithFilename );
 				if ( m != null )
@@ -240,7 +258,7 @@ namespace Saga
 					disabledIgnoredGroups.AddRange( ign );
 				}
 				else
-					errorPanel.Show( "SetupCampaignMission()", $"Could not load mission:\n{structure.projectItem.fullPathWithFilename}" );
+					errorPanel.Show( "SetupCampaignMission()", $"Could not load custom mission:\n{structure.projectItem.fullPathWithFilename}" );
 			}
 
 			//finally, add the uniquely hashed set of ignored cards
@@ -263,17 +281,23 @@ namespace Saga
 			//set threat
 			threatValue.ResetWheeler( structure.threatLevel );
 			//set text based on custom or built-in mission
-			if ( structure.missionID == "Custom" )
+			if ( structure.missionSource == MissionSource.Custom )
 			{
 				missionPicker.pickerMode = PickerMode.Custom;
 				descriptionTextBox.gameObject.SetActive( true );
 				viewMissionCardButton.gameObject.SetActive( false );
 			}
-			else
+			else if ( structure.missionSource == MissionSource.Official )
 			{
 				missionPicker.pickerMode = PickerMode.BuiltIn;
 				descriptionTextBox.gameObject.SetActive( false );
 				viewMissionCardButton.gameObject.SetActive( true );
+			}
+			else if ( structure.missionSource == MissionSource.Embedded )
+			{
+				missionPicker.pickerMode = PickerMode.Embedded;
+				descriptionTextBox.gameObject.SetActive( false );
+				viewMissionCardButton.gameObject.SetActive( false );
 			}
 		}
 
@@ -295,7 +319,15 @@ namespace Saga
 					Warp();
 				}
 			}
-			else
+			else if ( missionPicker.pickerMode == PickerMode.Embedded )
+			{
+				//mission is already loaded into DataStore.mission and stringified
+				if ( DataStore.mission != null )
+				{
+					Warp();
+				}
+			}
+			else if ( missionPicker.pickerMode == PickerMode.BuiltIn )
 			{
 				//if not English, try finding the translation
 				if ( DataStore.languageCode == 0 )//En

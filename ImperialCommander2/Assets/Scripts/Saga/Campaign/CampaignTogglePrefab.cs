@@ -16,10 +16,12 @@ namespace Saga
 		public void Init( SagaCampaign c, ToggleGroup tg, Action<CampaignTogglePrefab> cb )
 		{
 			nameText.text = c.campaignName;
-			if ( c.campaignExpansionCode != "Custom" )
+			if ( c.campaignType == CampaignType.Official )
 				expansionText.text = DataStore.translatedExpansionNames[c.campaignExpansionCode];
-			else
-				expansionText.text = "Custom";
+			else if ( c.campaignType == CampaignType.Custom )
+				expansionText.text = DataStore.uiLanguage.uiCampaign.customUC;
+			else if ( c.campaignType == CampaignType.Imported )
+				expansionText.text = c.campaignName;
 			campaignGUID = c.GUID;
 			callback = cb;
 			GetComponent<Toggle>().group = tg;

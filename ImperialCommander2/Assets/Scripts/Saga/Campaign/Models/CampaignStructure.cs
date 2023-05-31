@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace Saga
 {
@@ -11,19 +12,26 @@ namespace Saga
 		public string expansionCode;
 		public bool isAgendaMission;
 
-		//set in campaign UI - not loaded from campaign structure JSONs
+		//below properties are set in campaign UI - not loaded from campaign structure JSONs
 		public bool isItemChecked = false;
 		public bool isForced = false;
 		public AgendaType agendaType = AgendaType.NotSet;
-		public bool isCustom = false;//is part of a custom campaign
+		public MissionSource missionSource;
 		public ProjectItem projectItem;
-		public Guid GUID;
+		public Guid structureGUID;
+		public Guid packageGUID;
 		public bool canModify = true;
 
 		public CampaignStructure()
 		{
-			GUID = Guid.NewGuid();
+			structureGUID = Guid.NewGuid();
 			projectItem = new ProjectItem();
+		}
+
+		public CampaignStructure UniqueCopy()
+		{
+			string json = JsonConvert.SerializeObject( this );
+			return JsonConvert.DeserializeObject<CampaignStructure>( json );
 		}
 	}
 }

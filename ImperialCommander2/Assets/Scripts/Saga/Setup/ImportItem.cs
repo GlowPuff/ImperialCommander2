@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class ImportItem : MonoBehaviour
 {
 	ImportPanel importPanel;
+	ImportCampaignPanel importCampaignPanel;
 
 	[HideInInspector]
 	public CustomToon customToon;
+	[HideInInspector]
+	public CampaignPackage customPackage;
 
 	public TextMeshProUGUI nameText, subnameText;
 	public Toggle theToggle;
@@ -23,8 +26,22 @@ public class ImportItem : MonoBehaviour
 		theToggle.group = importPanel.toggleGroup;
 	}
 
+	public void Init( CampaignPackage package, ImportCampaignPanel parentPanel )
+	{
+		customPackage = package;
+		importCampaignPanel = parentPanel;
+
+		nameText.text = customPackage.campaignName;
+		subnameText.text = $"<color=green>{DataStore.uiLanguage.uiCampaign.itemsUC}</color>: <color=yellow>{customPackage.campaignMissionItems.Count}</color>";
+		theToggle.group = importCampaignPanel.toggleGroup;
+	}
+
 	public void OnToggle()
 	{
-		importPanel.UpdateCard( customToon.deploymentCard );
+		importPanel?.UpdateCard( customToon.deploymentCard );
+		if ( theToggle.isOn )
+			importCampaignPanel?.ToggleSelected( customPackage );
+		else
+			importCampaignPanel?.ToggleSelected( null );
 	}
 }

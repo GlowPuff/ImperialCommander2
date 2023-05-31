@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Saga
 {
 	public class FileManager
 	{
-		public static string baseDocumentFolder, campaignPath, customMissionPath, designedCharactersPath, classicSessionPath, sagaSessionPath, campaignSessionPath, classicDefaultsPath;
+		public static string baseDocumentFolder, campaignPath, customMissionPath, importedCharactersPath, classicSessionPath, sagaSessionPath, campaignSessionPath, classicDefaultsPath, customCampaignPath;
 
 		/// <summary>
 		/// Creates default folders and sets up folder path properties
@@ -24,17 +25,19 @@ namespace Saga
 			classicSessionPath = Path.Combine( Application.persistentDataPath, "Session" );
 			sagaSessionPath = Path.Combine( Application.persistentDataPath, "SagaSession" );
 			campaignSessionPath = Path.Combine( Application.persistentDataPath, "CampaignSession" );
-			classicDefaultsPath = Path.Combine( Application.persistentDataPath, "Defaults", "" );
+			classicDefaultsPath = Path.Combine( Application.persistentDataPath, "Defaults" );
 
-			//OS-specific paths
+			//OS-specific paths that are NOT 'persistentDataPath', except on Android
 #if UNITY_ANDROID
 			baseDocumentFolder = Application.persistentDataPath;
 			customMissionPath = Path.Combine( Application.persistentDataPath, "CustomMissions" );
-			designedCharactersPath = Path.Combine( Application.persistentDataPath, "ImportedCharacters" );
+			importedCharactersPath = Path.Combine( Application.persistentDataPath, "ImportedCharacters" );
+			customCampaignPath = Path.Combine( Application.persistentDataPath, "CustomCampaigns" );
 #else
 			baseDocumentFolder = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander" );
 			customMissionPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "CustomMissions" );
-			designedCharactersPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "ImportedCharacters" );
+			importedCharactersPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "ImportedCharacters" );
+			customCampaignPath = Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments ), "ImperialCommander", "CustomCampaigns" );
 #endif
 
 			try
@@ -48,7 +51,8 @@ namespace Saga
 				CreateFolder( campaignSessionPath );
 				CreateFolder( classicDefaultsPath );
 				CreateFolder( customMissionPath );
-				CreateFolder( designedCharactersPath );
+				CreateFolder( importedCharactersPath );
+				CreateFolder( customCampaignPath );
 
 				return true;
 			}
@@ -306,10 +310,9 @@ namespace Saga
 
 			try
 			{
-				var filenames = Directory.GetFiles( designedCharactersPath );
+				var filenames = Directory.GetFiles( importedCharactersPath );
 				foreach ( string filename in filenames )
 				{
-
 					using ( StreamReader sr = new StreamReader( filename ) )
 					{
 						json = sr.ReadToEnd();
@@ -344,9 +347,108 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Utils.LogError( "LoadGlobalImportedCharacters()::Could not load Designed Characters. Exception: " + e.Message );
+				Utils.LogError( "LoadGlobalImportedCharacters()::Could not load Imported Characters. Exception: " + e.Message );
 				return importedToons;
 			}
+		}
+
+		/// <param name="skipMissions">Skip loading Missions</param>
+		/// <returns></returns>
+		public static CampaignPackage LoadCampaignPackage( string fullFilename, bool skipMissions = false )
+		{
+			CampaignPackage package = null;
+
+			try
+			{
+				List<Mission> missionList = new List<Mission>();
+				//create the zip file
+				using ( FileStream zipPath = new FileStream( fullFilename, FileMode.Open ) )
+				{
+					//open the archive
+					using ( ZipArchive archive = new ZipArchive( zipPath, ZipArchiveMode.Read ) )
+					{
+						foreach ( var entry in archive.Entries )
+						{
+							//deserialize the CampaignPackage
+							if ( entry.Name == "campaign_package.json" )
+							{
+								//open the package meta file
+								using ( TextReader tr = new StreamReader( entry.Open() ) )
+								{
+									package = JsonConvert.DeserializeObject<CampaignPackage>( tr.ReadToEnd() );
+								}
+							}
+							else if ( !skipMissions )//deserialize the individual missions
+							{
+								using ( TextReader tr = new StreamReader( entry.Open() ) )
+								{
+									missionList.Add( JsonConvert.DeserializeObject<Mission>( tr.ReadToEnd() ) );
+								}
+							}
+						}
+
+						//now add all the missions to the CampaignPackage
+						if ( !skipMissions )
+						{
+							foreach ( var item in package.campaignMissionItems )
+							{
+								var m = missionList.Where( x => x.missionGUID == item.missionGUID ).FirstOr( null );
+								if ( m != null )
+									item.mission = m;
+								else
+									throw new Exception( $"Missing Mission in the zip archive:\n{item.missionName}\n{item.missionGUID}" );
+							}
+						}
+					}
+				}
+
+				return package;
+			}
+			catch ( Exception ee )
+			{
+				Utils.LogError( $"LoadCampaignPackage()::Error loading the Campaign Package.\n{ee.Message}" );
+				return null;
+			}
+		}
+
+		public static List<CampaignPackage> GetCampaignPackageList( bool skipMissions )
+		{
+			List<CampaignPackage> importedCampaigns = new List<CampaignPackage>();
+
+			try
+			{
+				var filenames = Directory.GetFiles( customCampaignPath );
+				foreach ( string filename in filenames )
+				{
+					var cc = LoadCampaignPackage( filename, skipMissions );
+					importedCampaigns.Add( cc );
+				}
+				Debug.Log( $"GetCampaignPackageList()::FOUND {importedCampaigns.Count} CUSTOM CAMPAIGNS" );
+				return importedCampaigns;
+			}
+			catch ( Exception e )
+			{
+				Utils.LogError( "GetCampaignPackageList()::Could not create Custom Campaign List. Exception: " + e.Message );
+				return importedCampaigns;
+			}
+		}
+
+		public static Mission LoadEmbeddedMission( string campaignGUID, string missionGUID, out string missionStringified )
+		{
+			missionStringified = null;
+
+			if ( string.IsNullOrEmpty( campaignGUID ) || string.IsNullOrEmpty( missionGUID ) )
+				return null;
+			//do a full load of the package, including the missions
+			var packages = GetCampaignPackageList( false );
+			var p = packages.Where( x => x.GUID.ToString() == campaignGUID ).FirstOr( null );
+			if ( p != null )
+			{
+				missionStringified = JsonConvert.SerializeObject( p );
+				return p.campaignMissionItems.Where( x => x.mission.missionGUID.ToString() == missionGUID ).FirstOr( null )?.mission;
+			}
+
+			return null;
 		}
 	}
 }
