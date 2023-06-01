@@ -360,19 +360,30 @@ namespace Saga
 
 		void AddForcedMission( MissionCard card )
 		{
+			//custom missions:
+			//full path to custom mission is stored in 'hero'
+			//additional info is stored in 'bonusText'
+
+			string path = "";
+			if ( card.id == "Custom" )
+				path = card.hero;
+			else
+				path = $"{card.id.ToUpper()}-{card.name}";
+
 			var cs = new CampaignStructure()
 			{
 				missionType = MissionType.Forced,
 				missionID = card.id,
-				threatLevel = SagaCampaign.GetMissionPreset( card.expansion, card.id ).defaultThreat,
+				threatLevel = SagaCampaign.GetMissionPreset( card.expansion, card.id )?.defaultThreat ?? 3,
 				isForced = true,
 				expansionCode = card.expansion.ToString(),
+				missionSource = card.id == "Custom" ? MissionSource.Custom : MissionSource.Official,
 				projectItem = new ProjectItem()
 				{
 					missionID = card.id,
 					Description = card.descriptionText,
 					AdditionalInfo = card.bonusText,
-					fullPathWithFilename = $"{card.id.ToUpper()}-{card.name}",
+					fullPathWithFilename = path,
 					Title = DataStore.missionCards[card.expansion.ToString()].Where( x => x.id == card.id ).FirstOr( new MissionCard() { name = card.name } )?.name
 				}
 			};
@@ -398,7 +409,7 @@ namespace Saga
 				if ( pf != null )
 				{
 					if ( pf.campaignStructure.missionSource == MissionSource.Custom )
-						FindObjectOfType<CustomAddMissionBarPrefab>().DeactivateModifyMode();
+						FindObjectOfType<CustomAddMissionBarPrefab>()?.DeactivateModifyMode();
 					if ( pf.campaignStructure.structureGUID == GUID )
 						Destroy( item.gameObject );
 				}

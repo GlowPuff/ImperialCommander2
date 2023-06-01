@@ -254,15 +254,14 @@ namespace Saga
 				else if ( card.id == "Embedded" )//embedded mission
 				{
 					missionName.text = card.name + $"\n<color=orange>{card.bonusText}";
+
 					//embedded mission GUID is stored into 'hero'
 					//imported campaign name is stored into 'bonusText'
 					//package GUID is stored into 'expansionText'
-
 					campaignStructure.missionID = card.hero;
 					campaignStructure.missionSource = MissionSource.Embedded;
 					campaignStructure.expansionCode = "Imported";
 					campaignStructure.structureGUID = Guid.Parse( card.expansionText );
-					//campaignStructure.projectItem.missionID = card.hero;
 					campaignStructure.projectItem.missionGUID = card.hero;
 					campaignStructure.projectItem.Description = "";
 					campaignStructure.projectItem.AdditionalInfo = "";

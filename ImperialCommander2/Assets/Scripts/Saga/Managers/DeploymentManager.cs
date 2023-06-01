@@ -153,7 +153,7 @@ namespace Saga
 
 			if ( DataStore.deployedEnemies.ContainsCard( cardDescriptor ) )
 			{
-				Debug.Log( cardDescriptor.name + " already deployed" );
+				Debug.Log( $"{cardDescriptor.name}::{cardDescriptor.id} already deployed" );
 				GlowEngine.FindUnityObject<QuickMessage>().Show( $"Tried to Deploy {cardDescriptor.name} [{cardDescriptor.id}], but it's already deployed." );
 				return;
 			}

@@ -156,7 +156,6 @@ namespace Saga
 			expansionCodes.Clear();
 			//for Official campaigns, missions are restricted to the expansion's missions (story and finale)
 			if ( ctype == CampaignType.Official
-				//(campaignExpansionCode != "Custom" && campaignExpansionCode != "Imported")
 				&& (missionType == MissionType.Story || missionType == MissionType.Finale) )
 				selectedExpansion = campaignExpansionCode;
 
@@ -178,13 +177,14 @@ namespace Saga
 			expansionCodes.Add( "Other" );
 
 			//side missions have access to custom missions, add "Custom" to dropdown
-			if ( ctype == CampaignType.Custom /*campaignExpansionCode == "Custom"*/ || missionType == MissionType.Side || missionType == MissionType.Forced )
+			if ( ctype == CampaignType.Custom || missionType == MissionType.Side || missionType == MissionType.Forced )
 			{
 				expansionDropdown.AddOptions( (new string[] { DataStore.uiLanguage.uiCampaign.customUC }).ToList() );
 				//add Custom to codes
 				expansionCodes.Add( "Custom" );
 			}
 
+			//for custom campaigns, add embedded Mission option
 			if ( ctype == CampaignType.Imported )
 			{
 				string cname = FindObjectOfType<CampaignManager>().sagaCampaign.campaignName;
@@ -202,7 +202,7 @@ namespace Saga
 			addMissionCallback = callback;
 			Show();
 			//make room for the expansion dropdown
-			if ( ctype == CampaignType.Custom/* campaignExpansionCode == "Custom"*/ || (missionType != MissionType.Story && missionType != MissionType.Finale) )
+			if ( ctype == CampaignType.Custom || (missionType != MissionType.Story && missionType != MissionType.Finale) )
 			{
 				scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -155 );
 				expansionDropdown.gameObject.SetActive( true );

@@ -21,7 +21,7 @@ namespace Saga
 			else if ( c.campaignType == CampaignType.Custom )
 				expansionText.text = DataStore.uiLanguage.uiCampaign.customUC;
 			else if ( c.campaignType == CampaignType.Imported )
-				expansionText.text = c.campaignName;
+				expansionText.text = c.campaignImportedName;
 			campaignGUID = c.GUID;
 			callback = cb;
 			GetComponent<Toggle>().group = tg;

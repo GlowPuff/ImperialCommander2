@@ -157,6 +157,9 @@ namespace Saga
 			};
 		}
 
+		/// <summary>
+		/// Only collect campaigns with formatVersion == Utils.expectedCampaignFormatVersion
+		/// </summary>
 		public static List<SagaCampaign> GetCampaigns()
 		{
 			List<SagaCampaign> clist = new List<SagaCampaign>();
@@ -178,7 +181,8 @@ namespace Saga
 						json = sr.ReadToEnd();
 					}
 					var campaign = JsonConvert.DeserializeObject<SagaCampaign>( json );
-					clist.Add( campaign );
+					if ( campaign.formatVersion == Utils.expectedCampaignFormatVersion )
+						clist.Add( campaign );
 				}
 
 				return clist;
@@ -318,6 +322,8 @@ namespace Saga
 						json = sr.ReadToEnd();
 					}
 					var toon = JsonConvert.DeserializeObject<CustomToon>( json );
+					//recreate the GUID in case multiple physical file copies of this toon are added
+					toon.customCharacterGUID = Guid.NewGuid();
 					toon.deploymentCard.customCharacterGUID = toon.customCharacterGUID;
 					//rename the ID for global imports so they don't conflic with Mission-embedded custom characters using TC# for the ID
 					toon.cardID = toon.customCharacterGUID.ToString();

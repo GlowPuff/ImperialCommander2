@@ -160,7 +160,7 @@ namespace Saga
 				}
 				else if ( !onlyOfficial && campaignType == CampaignType.Imported )
 				{
-					campaignDataStructures = campaignStructure;//.Select( x => x.UniqueCopy() ).ToList();
+					campaignDataStructures = campaignStructure;
 					campaignDataStructures = campaignDataStructures.Select( x =>
 					{
 						Guid guid = Guid.Parse( x.missionID );

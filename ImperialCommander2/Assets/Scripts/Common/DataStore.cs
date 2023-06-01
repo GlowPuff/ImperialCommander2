@@ -480,7 +480,7 @@ public static class DataStore
 			{
 				if ( !skipCard )
 				{
-					Debug.Log( $"AddEmbeddedImportsToPools()::Adding embedded card: {item.cardName}" );
+					Debug.Log( $"AddEmbeddedImportsToPools()::Adding embedded card: {item.cardName}::{item.cardID}" );
 					//add non-villains
 					if ( item.deploymentCard.characterType == CharacterType.Imperial )
 					{
@@ -518,20 +518,19 @@ public static class DataStore
 	}
 
 	/// <summary>
-	/// When a Mission starts, adds globally imported characters and associated data from current sesssion
+	/// When a Mission starts, adds globally imported characters and associated data from current sesssion, skipCard upon restoring state
 	/// </summary>
 	public static void AddGlobalImportsToPools( bool skipCard = false )
 	{
 		//when restoring the game, skip adding card to pool since pool state is already restored (skipCard)
 		//instructions and bonus effects for global imports are already added to their respective pools when the toons are imported (FileManager)
-		//only need to add Imperials, heroes/allies/villains already added to their own special Lists
-		//rebel types aren't needed because they aren't used as global imports, only embedded
 		foreach ( var item in sagaSessionData.globalImportedCharacters )
 		{
 			if ( !skipCard )
 			{
-				Debug.Log( $"AddGlobalImportsToPools()::Adding embedded card: {item.cardName}" );
-				//add non-villains
+				Debug.Log( $"AddGlobalImportsToPools()::Adding embedded card: {item.cardName}::{item.cardID}" );
+				//only need to add Imperials because heroes/allies/villains are already added to their own special Lists
+				//rebel types aren't needed because they aren't used as GLOBAL imports, only EMBEDDED inside Missions
 				if ( item.deploymentCard.characterType == CharacterType.Imperial )
 				{
 					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
@@ -642,7 +641,7 @@ public static class DataStore
 		Debug.Log( $"DEPLOYMENT HAND SIZE: {available.Count()} CARDS" );
 		for ( int i = 0; i < available.Count(); i++ )
 		{
-			Debug.Log( $"DEPLOYMENT HAND::{available.ElementAt( i ).name}" );
+			Debug.Log( $"DEPLOYMENT HAND::{available.ElementAt( i ).name}::{available.ElementAt( i ).id}" );
 		}
 		//finally, create the Hand from the filtered list
 		deploymentHand = available.ToList();
