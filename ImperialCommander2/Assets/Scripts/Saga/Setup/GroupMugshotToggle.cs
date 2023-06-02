@@ -54,10 +54,22 @@ namespace Saga
 			isOn = !isOn;
 			if ( isOn && !FindObjectOfType<SagaModifyGroupsPanel>().OnToggle( card ) )
 				isOn = false;
+
 			if ( !isOn )
 			{
-				if ( dataMode == 0 )
-					DataStore.sagaSessionData.MissionIgnored.Remove( card );
+				if ( dataMode == 0 )//ignored mode
+				{
+					var cardlist = card.IsImported ? DataStore.sagaSessionData.globalImportedCharacters : DataStore.sagaSessionData.MissionIgnored;
+
+					//globalImportedCharacters is an INCLUSIVE list, so ADD it when toggled OFF
+					if ( card.IsImported )
+					{
+						Debug.Log( $"{card.name} ADDED TO SESSION IMPORTS" );
+						cardlist.Add( card );
+					}
+					else
+						cardlist.Remove( card );
+				}
 				else
 					DataStore.sagaSessionData.EarnedVillains.Remove( card );
 			}

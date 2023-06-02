@@ -24,7 +24,7 @@ namespace Saga
 		/// <summary>
 		/// global imported characters for this session
 		/// </summary>
-		public List<CustomToon> globalImportedCharacters;
+		public List<DeploymentCard> globalImportedCharacters;
 
 		public HashSet<string> CannotRedeployList;
 		//list of heroes that finish taking part in an Event with "any hero wounded" and "any hero withdraws"
@@ -45,7 +45,7 @@ namespace Saga
 			MissionIgnored = new List<DeploymentCard>();
 			MissionHeroes = new List<DeploymentCard>();
 			BannedAllies = new List<string>();
-			globalImportedCharacters = new List<CustomToon>();
+			globalImportedCharacters = new List<DeploymentCard>();
 			CannotRedeployList = new HashSet<string>();
 			AnyHeroWoundedEventDone = new HashSet<string>();
 			AnyHeroWithdrawnEventDone = new HashSet<string>();

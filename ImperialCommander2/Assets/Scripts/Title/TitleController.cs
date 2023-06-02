@@ -36,6 +36,7 @@ public class TitleController : MonoBehaviour
 	public ContinueCampaignPanel continueCampaignPanel;
 	public CanvasGroup buttonContainer;
 	public FigurePackPopup FigurePackPopup;
+	public ImportPanel importPanel;
 
 	//UI objects using language translations
 	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText, campaignNamePlaceholderText;
@@ -87,6 +88,8 @@ public class TitleController : MonoBehaviour
 			PlayerPrefs.SetInt( "closeWindowToggle", 1 );
 #endif
 		}
+		if ( !PlayerPrefs.HasKey( "excludedImports" ) )
+			PlayerPrefs.SetString( "excludedImports", "" );
 
 		//save defaults
 		PlayerPrefs.Save();
@@ -354,6 +357,11 @@ public class TitleController : MonoBehaviour
 	public void OnFigurePackClick()
 	{
 		FigurePackPopup.Show();
+	}
+
+	public void OnImportClick()
+	{
+		importPanel.Show();
 	}
 
 	public void FadeOut( float time )

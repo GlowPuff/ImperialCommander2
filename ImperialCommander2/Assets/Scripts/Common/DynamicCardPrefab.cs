@@ -25,7 +25,7 @@ public class DynamicCardPrefab : MonoBehaviour
 		if ( DataStore.gameType == GameType.Saga )
 		{
 			//check for override
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			var ovrd = DataStore.sagaSessionData?.gameVars.GetDeploymentOverride( cd.id );
 			if ( ovrd != null && ovrd.isCustomDeployment )
 				card = ovrd.customCard;
 
@@ -128,7 +128,7 @@ public class DynamicCardPrefab : MonoBehaviour
 
 		if ( DataStore.gameType == GameType.Saga )
 		{
-			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
+			var ovrd = DataStore.sagaSessionData?.gameVars.GetDeploymentOverride( cd.id );
 			//handle override of NON-custom groups (applies to enemies only)
 			if ( ovrd != null && ovrd.useGenericMugshot && !ovrd.isCustomDeployment )
 			{

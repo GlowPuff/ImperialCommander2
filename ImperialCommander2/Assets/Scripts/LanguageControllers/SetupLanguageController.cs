@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SetupLanguageController : MonoBehaviour
 {
-	public Text settingsHeader, chooseMissionBtn, viewCardBtn, missionInfoBtn, threatLevel, addtlThreat, deploymentHeader, opdepBtn, difficultyBtn, imperialsHeader, mercenariesHeader, adaptiveHeader, groupsHeading, initialBtn, reservedBtn, villainsBtn, ignoredBtn, initialHeading, reservedHeading, villainsHeading, ignoredHeading, addHeroBtn, addAllyBtn, threatCostHeading, threatCostBtn, cancelBtn, continueBtn, prefsStatus, enemyChooserHeading, missionChooserHeading, enemyBackBtn, missionBackBtn, heroAllyBackBtn, zoomBackBtn, enemyZoomBtn, chooseHeroesHeading, heroBackBtn, coreHeading, twinHeading, hothHeading, bespinHeading, jabbaHeading, empireHeading, lothalHeading, otherHeading, figurePacksHeading;
+	public Text settingsHeader, chooseMissionBtn, viewCardBtn, missionInfoBtn, threatLevel, addtlThreat, deploymentHeader, opdepBtn, difficultyBtn, imperialsHeader, mercenariesHeader, adaptiveHeader, groupsHeading, initialBtn, reservedBtn, villainsBtn, ignoredBtn, initialHeading, reservedHeading, villainsHeading, ignoredHeading, addHeroBtn, addAllyBtn, threatCostHeading, threatCostBtn, cancelBtn, continueBtn, prefsStatus, enemyChooserHeading, missionChooserHeading, enemyBackBtn, missionBackBtn, heroAllyBackBtn, zoomBackBtn, enemyZoomBtn, chooseHeroesHeading, heroBackBtn, coreHeading, twinHeading, hothHeading, bespinHeading, jabbaHeading, empireHeading, lothalHeading, otherHeading, figurePacksHeading, importedHeading;
 
 	public TextMeshProUGUI adaptiveInfo;
 
@@ -53,6 +53,7 @@ public class SetupLanguageController : MonoBehaviour
 		chooseHeroesHeading.text = ui.chooseHeroesHeading;
 		heroBackBtn.text = ui.back;
 
+		SagaUISetup uis = DataStore.uiLanguage.sagaUISetup;
 		UIExpansions uie = DataStore.uiLanguage.uiExpansions;
 		coreHeading.text = uie.core;
 		twinHeading.text = uie.twin;
@@ -63,5 +64,6 @@ public class SetupLanguageController : MonoBehaviour
 		lothalHeading.text = uie.lothal;
 		otherHeading.text = uie.other;
 		figurePacksHeading.text = uie.figurepacks;
+		importedHeading.text = uis.importBtn;
 	}
 }

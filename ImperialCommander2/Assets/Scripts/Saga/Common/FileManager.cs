@@ -305,7 +305,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Imports global custom characters
+		/// Import global custom characters found in importedCharactersPath, skipping ones with duplicate customCharacterGUID
 		/// </summary>
 		public static List<CustomToon> LoadGlobalImportedCharacters()
 		{
@@ -322,8 +322,6 @@ namespace Saga
 						json = sr.ReadToEnd();
 					}
 					var toon = JsonConvert.DeserializeObject<CustomToon>( json );
-					//recreate the GUID in case multiple physical file copies of this toon are added
-					toon.customCharacterGUID = Guid.NewGuid();
 					toon.deploymentCard.customCharacterGUID = toon.customCharacterGUID;
 					//rename the ID for global imports so they don't conflic with Mission-embedded custom characters using TC# for the ID
 					toon.cardID = toon.customCharacterGUID.ToString();
@@ -333,14 +331,20 @@ namespace Saga
 					toon.cardInstruction.instID = toon.cardID;
 					//force expansion to "Other"
 					toon.deploymentCard.expansion = "Other";
-					importedToons.Add( toon );
-					//activation instructions
-					DataStore.importedActivationInstructions.Add( toon.cardInstruction );
-					//bonus effects
-					DataStore.importedBonusEffects.Add( toon.bonusEffect );
+					//only import the characater if no others with its GUID have already been imported
+					if ( !importedToons.Any( x => x.customCharacterGUID == toon.customCharacterGUID ) )
+					{
+						importedToons.Add( toon );
+						//activation instructions
+						DataStore.importedActivationInstructions.Add( toon.cardInstruction );
+						//bonus effects
+						DataStore.importedBonusEffects.Add( toon.bonusEffect );
+					}
+					else
+						Debug.Log( $"LoadGlobalImportedCharacters()::DUPLICATE GUID: {toon.cardID}\n{toon.cardName}\n{filename}" );
 				}
 
-				Debug.Log( $"LoadGlobalImportedCharacters()::FOUND {importedToons.Count} CHARACTERS" );
+				Debug.Log( $"LoadGlobalImportedCharacters()::FOUND {importedToons.Count} IMPORTED CHARACTERS" );
 				if ( importedToons.Count > 0 )
 				{
 					Debug.Log( $"HEROES: {importedToons.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Count()}" );

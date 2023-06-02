@@ -54,11 +54,13 @@ namespace Saga
 				expansionToggles[(int)DataStore.ownedExpansions[i]].interactable = true;
 				expansionToggles[(int)DataStore.ownedExpansions[i]].transform.GetChild( 1 ).GetComponent<Image>().color = Color.white;
 			}
-			//core/other always true
+			//core/other/imports always true
 			expansionToggles[0].interactable = true;
 			expansionToggles[0].isOn = true;
 			expansionToggles[7].interactable = true;
 			expansionToggles[7].transform.GetChild( 1 ).GetComponent<Image>().color = Color.white;
+			expansionToggles[8].interactable = true;
+			expansionToggles[8].transform.GetChild( 1 ).GetComponent<Image>().color = Color.white;
 			updating = false;
 
 			UpdateExpansionCounts();
@@ -68,7 +70,6 @@ namespace Saga
 		public void OnChangeExpansion( int idx )
 		{
 			EventSystem.current.SetSelectedGameObject( null );
-			//FindObjectOfType<Sound>().PlaySound( FX.Click );
 
 			if ( prevExp == idx || updating )
 				return;
@@ -77,80 +78,162 @@ namespace Saga
 			selectedExpansion = idx;
 			nameText.text = "";
 
-			string expansion = ((Expansion)idx).ToString();
 			foreach ( Transform item in mugContainer )
 			{
 				Destroy( item.gameObject );
 			}
 
-			List<DeploymentCard> cards = new List<DeploymentCard>();
-			//get the cards in selected expansion
 			if ( dataMode == 0 )//ignored
 			{
-				updating = true;//avoid tripping toggle callback
-				cards = DataStore.deploymentCards.Where( x => x.expansion == expansion ).ToList();
-
-				//if showing OTHER, show only owned Figure Packs
-				if ( expansion == "Other" )
-					cards = cards.Where( x => DataStore.ownedFigurePacks.ContainsCard( x ) ).ToList();
-
-				for ( int i = 0; i < cards.Count; i++ )
-				{
-					var mug = Instantiate( groupMugPrefab, mugContainer );
-					mug.GetComponent<GroupMugshotToggle>().Init( cards[i], dataMode );
-					if ( DataStore.sagaSessionData.MissionIgnored.Contains( cards[i] ) )
-					{
-						mug.GetComponent<GroupMugshotToggle>().isOn = true;
-						mug.GetComponent<GroupMugshotToggle>().UpdateToggle();
-					}
-					//disable the toggle if it's on the mission/preset ignore list
-					if ( disabledGroups.ContainsCard( cards[i] ) )
-						mug.GetComponent<GroupMugshotToggle>().DisableMug();
-				}
-				updating = false;
-				UpdateExpansionCounts();
+				if ( idx == 8 )//imports tab
+					UpdateIgnoredImported();
+				else//everything else
+					UpdateIgnored( idx );
 			}
 			else//villains
 			{
-				//add global imported characters
-				cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain && x.deploymentCard.expansion == expansion ).Select( x => x.deploymentCard ).ToList();
-				updating = true;
+				UpdateVillains( idx );
+			}
+		}
 
-				//add embedded characters
-				var setup = FindObjectOfType<SagaSetup>();
-				cards = cards.Concat( setup.missionCustomVillains ).Where( x => x.expansion == expansion ).ToList();
+		void UpdateIgnored( int idx )
+		{
+			updating = true;//avoid tripping toggle callback
 
-				//finally, add stock villains
-				cards = cards.Concat( DataStore.villainCards.Where( x => x.expansion == expansion ) ).ToList();
+			string expansion = ((Expansion)idx).ToString();
+			List<DeploymentCard> cards = DataStore.deploymentCards.Where( x => x.expansion == expansion ).ToList();
 
-				for ( int i = 0; i < cards.Count; i++ )
+			//if showing the OTHER tab, show only owned Figure Packs
+			if ( expansion == "Other" )
+				cards = cards.Where( x => DataStore.ownedFigurePacks.ContainsCard( x ) ).ToList();
+
+			for ( int i = 0; i < cards.Count; i++ )
+			{
+				var mug = Instantiate( groupMugPrefab, mugContainer );
+				mug.GetComponent<GroupMugshotToggle>().Init( cards[i], dataMode );
+
+				//if the card is in the mission ignored list toggle it ON (ignored)
+				if ( DataStore.sagaSessionData.MissionIgnored.Contains( cards[i] ) )
 				{
-					var mug = Instantiate( groupMugPrefab, mugContainer );
-					mug.GetComponent<GroupMugshotToggle>().Init( cards[i], dataMode );
-					if ( DataStore.sagaSessionData.EarnedVillains.Contains( cards[i] ) )
-					{
-						mug.GetComponent<GroupMugshotToggle>().isOn = true;
-						mug.GetComponent<GroupMugshotToggle>().UpdateToggle();
-					}
+					mug.GetComponent<GroupMugshotToggle>().isOn = true;
+					mug.GetComponent<GroupMugshotToggle>().UpdateToggle();
 				}
-				updating = false;
+				//disable the toggle if it's on the mission/preset ignore list
+				if ( disabledGroups.ContainsCard( cards[i] ) )
+					mug.GetComponent<GroupMugshotToggle>().DisableMug();
 			}
 
+			updating = false;
+			UpdateExpansionCounts();
 			if ( cards.Count > 0 )
 				cardPrefab.InitCard( cards[0] );
 		}
 
+		void UpdateIgnoredImported()
+		{
+			updating = true;//avoid tripping toggle callback
+
+			//add imported Imperial cards
+			List<DeploymentCard> cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Select( x => x.deploymentCard ).ToList();
+
+			for ( int i = 0; i < cards.Count; i++ )
+			{
+				var mug = Instantiate( groupMugPrefab, mugContainer );
+				mug.GetComponent<GroupMugshotToggle>().Init( cards[i], dataMode );
+
+				//set the ignore toggle (ON) based on priority (low first)
+				bool ignore = false;
+				//if it's excluded from Expansions, DO ignore it
+				ignore = DataStore.IgnoredPrefsImports.Contains( cards[i].customCharacterGUID.ToString() );
+				//if it's excluded from Expansions but INCLUDED in the session imports, do NOT ignore it
+				if ( ignore && DataStore.sagaSessionData.globalImportedCharacters.ContainsCard( cards[i] ) )
+					ignore = false;
+				//if it's NOT excluded from Expansions but INCLUDED in the session imports, do NOT ignore
+				else if ( !ignore && DataStore.sagaSessionData.globalImportedCharacters.ContainsCard( cards[i] ) )
+					ignore = false;
+				//if it's excluded from Expansions AND NOT in the session imports, DO ignore it
+				else if ( ignore && !DataStore.sagaSessionData.globalImportedCharacters.ContainsCard( cards[i] ) )
+					ignore = true;
+				//if it's NOT excluded from Expansions AND NOT in the session imports, DO ignore it
+				else if ( !ignore && !DataStore.sagaSessionData.globalImportedCharacters.ContainsCard( cards[i] ) )
+					ignore = true;
+
+				if ( ignore )
+				{
+					mug.GetComponent<GroupMugshotToggle>().isOn = true;
+					mug.GetComponent<GroupMugshotToggle>().UpdateToggle();
+				}
+				//disable the toggle if it's on the mission/preset ignore list
+				if ( disabledGroups.ContainsCard( cards[i] ) )
+					mug.GetComponent<GroupMugshotToggle>().DisableMug();
+			}
+
+			updating = false;
+			UpdateExpansionCounts();
+			if ( cards.Count > 0 )
+				cardPrefab.InitCard( cards[0] );
+		}
+
+		void UpdateVillains( int idx )
+		{
+			updating = true;//avoid tripping toggle callback
+
+			string expansion = ((Expansion)idx).ToString();//tab 8 (imported) will == "8"
+			List<DeploymentCard> cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain && x.deploymentCard.expansion == expansion ).Select( x => x.deploymentCard ).ToList();
+
+			//add embedded characters
+			var setup = FindObjectOfType<SagaSetup>();
+			cards = cards.Concat( setup.missionCustomVillains ).Where( x => x.expansion == expansion ).ToList();
+
+			//finally, add stock villains
+			cards = cards.Concat( DataStore.villainCards.Where( x => x.expansion == expansion ) ).ToList();
+
+			for ( int i = 0; i < cards.Count; i++ )
+			{
+				var mug = Instantiate( groupMugPrefab, mugContainer );
+				mug.GetComponent<GroupMugshotToggle>().Init( cards[i], dataMode );
+				if ( DataStore.sagaSessionData.EarnedVillains.Contains( cards[i] ) )
+				{
+					mug.GetComponent<GroupMugshotToggle>().isOn = true;
+					mug.GetComponent<GroupMugshotToggle>().UpdateToggle();
+				}
+			}
+
+			updating = false;
+			if ( cards.Count > 0 )
+				cardPrefab.InitCard( cards[0] );
+		}
+
+		/// <summary>
+		/// Fires when the toggle is ON
+		/// </summary>
 		public bool OnToggle( DeploymentCard card )
 		{
 			nameText.text = $"{card.name}";// [{card.id}]";
 
 			if ( dataMode == 0 )
 			{
-				if ( !DataStore.sagaSessionData.MissionIgnored.Contains( card ) )
+				var cardlist = card.IsImported ? DataStore.sagaSessionData.globalImportedCharacters : DataStore.sagaSessionData.MissionIgnored;
+
+				cardPrefab.InitCard( card );
+
+				if ( card.IsImported )
 				{
-					DataStore.sagaSessionData.MissionIgnored.Add( card );
-					cardPrefab.InitCard( card );
-					return true;
+					if ( cardlist.Contains( card ) )
+					{
+						//globalImportedCharacters is an INCLUSIVE list, so REMOVE it when toggled ON
+						Debug.Log( $"{card.name} REMOVED FROM SESSION IMPORTS" );
+						cardlist.Remove( card );
+						return true;
+					}
+				}
+				else
+				{
+					if ( !cardlist.Contains( card ) )
+					{
+						cardlist.Add( card );
+						return true;
+					}
 				}
 			}
 			else
@@ -161,6 +244,8 @@ namespace Saga
 					cardPrefab.InitCard( card );
 					return true;
 				}
+				else
+					return false;
 			}
 
 			return false;
@@ -172,11 +257,18 @@ namespace Saga
 			{
 				if ( dataMode == 0 && !updating )//ignored mode
 				{
-					int count = DataStore.sagaSessionData.MissionIgnored.Where( x => x.expansion == ((Expansion)i).ToString() ).Count();
+					int count = 0;
 
 					//even though all 8 Other groups are ignored by default, only show a number up to the number owned to avoid confusion (ie: owning none of them would still show 8 ignored)
 					if ( i == 7 )//Other
+					{
+						count = DataStore.sagaSessionData.MissionIgnored.Where( x => x.expansion == ((Expansion)i).ToString() ).Count();
 						count = Math.Min( count, DataStore.ownedFigurePacks.Count - (8 - count) );
+					}
+					else if ( i == 8 )//imported
+						count = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
+					else//everything else
+						count = DataStore.sagaSessionData.MissionIgnored.Where( x => x.expansion == ((Expansion)i).ToString() ).Count();
 
 					expansionToggles[i].transform.GetChild( 2 ).GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = count.ToString();
 				}

@@ -49,10 +49,20 @@ public static class DataStore
 	public static List<DeploymentSound> deploymentSounds;
 	public static Dictionary<string, List<MissionPreset>> missionPresets;
 	public static ThumbnailData thumbnailData;
+
 	/// <summary>
-	/// global imported characters picked up at app startup (not the Mission opt-in global imports)
+	/// all global imported characters picked up at app startup (not the Mission opt-in global imports)
 	/// </summary>
 	public static List<CustomToon> globalImportedCharacters;
+	public static List<string> IgnoredPrefsImports
+	{
+		get => PlayerPrefs.GetString( "excludedImports" ).Split( '|' ).Where( x => !string.IsNullOrEmpty( x ) ).ToList();
+		set
+		{
+			PlayerPrefs.SetString( "excludedImports", string.Join( "|", value ) );
+		}
+	}
+
 	public static Vector3[] pipColors = new Vector3[7]
 	{
 		(0.3301887f).ToVector3(),
@@ -112,6 +122,11 @@ public static class DataStore
 		LoadMissionPresets();
 		//load global imported characters saved on device
 		globalImportedCharacters = FileManager.LoadGlobalImportedCharacters();
+		//validate IgnoredPrefsImports, filter out groups that no longer exist on the device
+		Debug.Log( $"FOUND {IgnoredPrefsImports.Count} EXCLUDED PlayerPrefs IMPORTS" );
+		var valid = globalImportedCharacters.Where( x => IgnoredPrefsImports.Contains( x.deploymentCard.customCharacterGUID.ToString() ) ).Select( x => x.deploymentCard.customCharacterGUID.ToString() );
+		Debug.Log( $"{valid.Count()} IMPORTED IMPERIAL GROUPS ARE VALID OUT OF {globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count()}" );
+		IgnoredPrefsImports = valid.ToList();
 
 		//setup language
 		//default language playerprefs key should be set by now, but just in case...
@@ -528,13 +543,13 @@ public static class DataStore
 		{
 			if ( !skipCard )
 			{
-				Debug.Log( $"AddGlobalImportsToPools()::Adding embedded card: {item.cardName}::{item.cardID}" );
 				//only need to add Imperials because heroes/allies/villains are already added to their own special Lists
 				//rebel types aren't needed because they aren't used as GLOBAL imports, only EMBEDDED inside Missions
-				if ( item.deploymentCard.characterType == CharacterType.Imperial )
+				if ( item.characterType == CharacterType.Imperial )
 				{
-					item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
-					deploymentCards.Add( item.deploymentCard );
+					Debug.Log( $"AddGlobalImportsToPools()::Adding embedded card: {item.name}::{item.customCharacterGUID}" );
+					//item.deploymentCard.customCharacterGUID = item.customCharacterGUID;
+					deploymentCards.Add( item );
 				}
 			}
 		}

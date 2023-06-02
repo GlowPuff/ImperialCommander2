@@ -136,7 +136,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// set default mission options, add default ignored groups
+		/// set default mission options, add default ignored groups, add included global imports
 		/// </summary>
 		public void ResetSetup( bool isCampaign )
 		{
@@ -157,6 +157,13 @@ namespace Saga
 			//additional threat value
 			addtlThreatValue.ResetWheeler( setupOptions.addtlThreat );
 
+			//global imports not excluded from Expansions menu
+			var included = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial && !DataStore.IgnoredPrefsImports.Contains( x.customCharacterGUID.ToString() ) );
+			DataStore.sagaSessionData.globalImportedCharacters = included.Select( x => x.deploymentCard ).ToList();
+			Debug.Log( $"{DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count()} GLOBALLY IMPORTED IMPERIALS" );
+			Debug.Log( $"{DataStore.IgnoredPrefsImports.Count} EXCLUDED IMPORTS (Expansion menu)" );
+			Debug.Log( $"{DataStore.sagaSessionData.globalImportedCharacters.Count} ADDED TO SESSION IMPORTS" );
+
 			if ( !isCampaign )
 			{
 				//clear ignored groups
@@ -164,7 +171,8 @@ namespace Saga
 				//add default ignored
 				//ignore "Other" expansion enemy groups by default, except owned packs
 				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
-				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
+				int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
+				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
 			}
 		}
 
@@ -263,7 +271,8 @@ namespace Saga
 
 			//finally, add the uniquely hashed set of ignored cards
 			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
-			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
+			int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
+			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
 
 			setupOptions = new SagaSetupOptions()
 			{
@@ -401,7 +410,8 @@ namespace Saga
 			sound.PlaySound( FX.Click );
 			modifyGroupsPanel.Show( 0, disabledIgnoredGroups, () =>
 			{
-				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
+				int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
+				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
 			} );
 		}
 
@@ -413,7 +423,7 @@ namespace Saga
 
 		public void OnImport()
 		{
-			importPanel.Show();
+			//importPanel.Show();
 		}
 
 		public void RemoveHero( DeploymentCard card )
@@ -486,7 +496,8 @@ namespace Saga
 
 			//add the uniquely hashed set of ignored to the real list
 			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
-			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
+			int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
+			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
 
 			//add banned allies and custom heroes/allies
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
@@ -544,7 +555,8 @@ namespace Saga
 
 				//add the uniquely hashed set of ignored to the real list
 				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
-				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count );
+				int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
+				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
 
 				//add banned allies
 				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )

@@ -183,6 +183,15 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 		var copy = JsonConvert.SerializeObject( this );
 		return JsonConvert.DeserializeObject<DeploymentCard>( copy );
 	}
+
+	public bool IsImported
+	{
+		get
+		{
+			//if customCharacterGUID is not 0-0-0-0-0, it's imported
+			return customCharacterGUID != Guid.Empty;
+		}
+	}
 }
 
 public class GroupAbility

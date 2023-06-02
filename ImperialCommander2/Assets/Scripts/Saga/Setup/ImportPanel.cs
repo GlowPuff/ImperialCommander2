@@ -50,12 +50,13 @@ public class ImportPanel : MonoBehaviour
 
 		List<CustomToon> imports = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == characterType ).ToList();
 
+		Debug.Log( $"FOUND {DataStore.IgnoredPrefsImports.Count} IMPORTS TO EXCLUDE" );
+
 		foreach ( var item in imports )
 		{
 			var import = Instantiate( importItemPrefab, container );
 			import.Init( item, this );
-			if ( DataStore.sagaSessionData.globalImportedCharacters.Any( x => x.customCharacterGUID == item.customCharacterGUID ) )
-				import.theToggle.isOn = true;
+			import.theToggle.isOn = !DataStore.IgnoredPrefsImports.Contains( import.customToon.customCharacterGUID.ToString() );
 		}
 
 		if ( imports.Count > 0 )
@@ -89,14 +90,18 @@ public class ImportPanel : MonoBehaviour
 
 	public void OnClose()
 	{
-		popupBase.Close();
-
-		DataStore.sagaSessionData.globalImportedCharacters.Clear();
+		List<string> excluded = new List<string>();
+		//add excluded imports
 		foreach ( Transform item in container )
 		{
 			var import = item.GetComponent<ImportItem>();
-			if ( import.theToggle.isOn )
-				DataStore.sagaSessionData.globalImportedCharacters.Add( import.customToon );
+			if ( !import.theToggle.isOn )
+				excluded.Add( import.customToon.customCharacterGUID.ToString() );
 		}
+
+		DataStore.IgnoredPrefsImports = excluded;
+		Debug.Log( $"ADDED {excluded.Count} TO EXCLUSION LIST" );
+
+		popupBase.Close();
 	}
 }
