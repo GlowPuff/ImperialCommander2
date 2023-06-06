@@ -81,4 +81,6 @@ namespace Saga
 	public enum CameraView { Normal, TopDown }
 	public enum CampaignType { Official, Custom, Imported }
 	public enum MissionSource { None, Official, Custom, Embedded }
+	public enum GroupSelectionMode { Ignored, Villains }
+
 }

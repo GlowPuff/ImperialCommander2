@@ -25,9 +25,6 @@ namespace Saga
 		}
 		DeploymentCard card;
 
-		/// <summary>
-		/// 0=hero, 1=ally
-		/// </summary>
 		public void Init( DeploymentCard cd, int idx )
 		{
 			index = idx;

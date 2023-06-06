@@ -188,8 +188,9 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	{
 		get
 		{
-			//if customCharacterGUID is not 0-0-0-0-0, it's imported
-			return customCharacterGUID != Guid.Empty;
+			//for global imports, if customCharacterGUID is not 0-0-0-0-0, it's imported
+			//for mission embedded imports, the id will be TC{digit}
+			return customCharacterGUID != Guid.Empty || id.StartsWith( "TC" );
 		}
 	}
 }

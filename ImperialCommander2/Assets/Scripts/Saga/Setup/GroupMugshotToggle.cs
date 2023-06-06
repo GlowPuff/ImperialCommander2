@@ -20,10 +20,10 @@ namespace Saga
 			set { _isOn = value; }
 		}
 		DeploymentCard card;
-		int dataMode;
+		GroupSelectionMode dataMode;
 
 		//mode 0=enemies, 1=villains
-		public void Init( DeploymentCard cd, int mode )
+		public void Init( DeploymentCard cd, GroupSelectionMode mode )
 		{
 			dataMode = mode;
 			card = cd;
@@ -57,7 +57,7 @@ namespace Saga
 
 			if ( !isOn )
 			{
-				if ( dataMode == 0 )//ignored mode
+				if ( dataMode == GroupSelectionMode.Ignored )//ignored mode
 				{
 					var cardlist = card.IsImported ? DataStore.sagaSessionData.globalImportedCharacters : DataStore.sagaSessionData.MissionIgnored;
 

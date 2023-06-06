@@ -18,14 +18,12 @@ namespace Saga
 		public DynamicCardPrefab cardPrefab;
 
 		Action callback;
-		int dataMode, selectedExpansion, prevExp;
+		int prevExp;
 		bool updating;
 		List<DeploymentCard> disabledGroups = new List<DeploymentCard>();
+		GroupSelectionMode dataMode;
 
-		/// <summary>
-		/// mode 0=Ignored, 1=villains
-		/// </summary>
-		public void Show( int mode, List<DeploymentCard> disabledG = null, Action cb = null )
+		public void Show( GroupSelectionMode mode, List<DeploymentCard> disabledG = null, Action cb = null )
 		{
 			disabledGroups = disabledG ?? new List<DeploymentCard>();
 			callback = cb;
@@ -75,7 +73,6 @@ namespace Saga
 				return;
 
 			prevExp = idx;
-			selectedExpansion = idx;
 			nameText.text = "";
 
 			foreach ( Transform item in mugContainer )
@@ -83,7 +80,7 @@ namespace Saga
 				Destroy( item.gameObject );
 			}
 
-			if ( dataMode == 0 )//ignored
+			if ( dataMode == GroupSelectionMode.Ignored )//ignored
 			{
 				if ( idx == 8 )//imports tab
 					UpdateIgnoredImported();
@@ -179,14 +176,21 @@ namespace Saga
 			updating = true;//avoid tripping toggle callback
 
 			string expansion = ((Expansion)idx).ToString();//tab 8 (imported) will == "8"
-			List<DeploymentCard> cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain && x.deploymentCard.expansion == expansion ).Select( x => x.deploymentCard ).ToList();
+			List<DeploymentCard> cards = new List<DeploymentCard>();
 
-			//add embedded characters
-			var setup = FindObjectOfType<SagaSetup>();
-			cards = cards.Concat( setup.missionCustomVillains ).Where( x => x.expansion == expansion ).ToList();
+			//show custom villains
+			if ( expansion == "8" )
+			{
+				cards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
+
+				//add embedded characters
+				var setup = FindObjectOfType<SagaSetup>();
+				cards = cards.Concat( setup.missionCustomVillains ).ToList();
+			}
 
 			//finally, add stock villains
-			cards = cards.Concat( DataStore.villainCards.Where( x => x.expansion == expansion ) ).ToList();
+			else
+				cards = cards.Concat( DataStore.villainCards.Where( x => x.expansion == expansion ) ).ToList();
 
 			for ( int i = 0; i < cards.Count; i++ )
 			{
@@ -211,7 +215,7 @@ namespace Saga
 		{
 			nameText.text = $"{card.name}";// [{card.id}]";
 
-			if ( dataMode == 0 )
+			if ( dataMode == GroupSelectionMode.Ignored )
 			{
 				var cardlist = card.IsImported ? DataStore.sagaSessionData.globalImportedCharacters : DataStore.sagaSessionData.MissionIgnored;
 
@@ -255,7 +259,7 @@ namespace Saga
 		{
 			for ( int i = 0; i < expansionToggles.Length; i++ )
 			{
-				if ( dataMode == 0 && !updating )//ignored mode
+				if ( dataMode == GroupSelectionMode.Ignored && !updating )//ignored mode
 				{
 					int count = 0;
 
@@ -274,8 +278,16 @@ namespace Saga
 				}
 				else//villain mode
 				{
-					var list = DataStore.sagaSessionData.EarnedVillains.Where( x => x.expansion == ((Expansion)i).ToString() ).ToList();
-					expansionToggles[i].transform.GetChild( 2 ).GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = list.Count.ToString();
+					int count = 0;
+					if ( i == 8 )//custom villains
+					{
+						count = DataStore.sagaSessionData.EarnedVillains.Where( x => x.IsImported ).Count();
+					}
+					else
+					{
+						count = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.IsImported && x.expansion == ((Expansion)i).ToString() ).Count();
+					}
+					expansionToggles[i].transform.GetChild( 2 ).GetChild( 0 ).GetComponent<TextMeshProUGUI>().text = count.ToString();
 				}
 			}
 		}

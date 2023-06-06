@@ -30,7 +30,6 @@ namespace Saga
 		public SagaModifyGroupsPanel modifyGroupsPanel;
 		public MissionCardZoom missionCardZoom;
 		public ErrorPanel errorPanel;
-		public ImportPanel importPanel;
 		//OTHER
 		public GameObject warpEffect, rightPanel;
 		public Transform thrusterRoot, thrusterLeft, thrusterRight;
@@ -163,6 +162,8 @@ namespace Saga
 			Debug.Log( $"{DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count()} GLOBALLY IMPORTED IMPERIALS" );
 			Debug.Log( $"{DataStore.IgnoredPrefsImports.Count} EXCLUDED IMPORTS (Expansion menu)" );
 			Debug.Log( $"{DataStore.sagaSessionData.globalImportedCharacters.Count} ADDED TO SESSION IMPORTS" );
+
+			languageController.UpdateVillainCount( DataStore.sagaSessionData.EarnedVillains.Count );
 
 			if ( !isCampaign )
 			{
@@ -408,7 +409,7 @@ namespace Saga
 		public void OnIgnored()
 		{
 			sound.PlaySound( FX.Click );
-			modifyGroupsPanel.Show( 0, disabledIgnoredGroups, () =>
+			modifyGroupsPanel.Show( GroupSelectionMode.Ignored, disabledIgnoredGroups, () =>
 			{
 				int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
 				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
@@ -418,12 +419,10 @@ namespace Saga
 		public void OnVillains()
 		{
 			sound.PlaySound( FX.Click );
-			modifyGroupsPanel.Show( 1 );
-		}
-
-		public void OnImport()
-		{
-			//importPanel.Show();
+			modifyGroupsPanel.Show( GroupSelectionMode.Villains, null, () =>
+			{
+				languageController.UpdateVillainCount( DataStore.sagaSessionData.EarnedVillains.Count );
+			} );
 		}
 
 		public void RemoveHero( DeploymentCard card )

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SagaSetupLanguageController : MonoBehaviour
 {
-	public Text difficultyBtn, adaptiveBtn, initialThreatText, addtlThreatText, groupsText, ignoredBtn, villainsBtn, addAllyText, heroesText, tilesBtn, heroCloseBtn, groupCloseBtn, tilesCloseBtn, setupCancelBtn, setupStartBtn, officialCustomBtn, missionCardBtn, campaignTilesButton, importBtn;
+	public Text difficultyBtn, adaptiveBtn, initialThreatText, addtlThreatText, groupsText, ignoredBtn, villainsBtn, addAllyText, heroesText, tilesBtn, heroCloseBtn, groupCloseBtn, tilesCloseBtn, setupCancelBtn, setupStartBtn, officialCustomBtn, missionCardBtn, campaignTilesButton, importBtn, importLabel;
 
 	public TextMeshProUGUI missionTitle;
 
@@ -19,6 +19,7 @@ public class SagaSetupLanguageController : MonoBehaviour
 		officialCustomBtn.text = ui.officialBtn;
 		missionCardBtn.text = ui.missionCardBtn;
 		importBtn.text = ui.importBtn;
+		importLabel.text = ui.importBtn;
 
 		UISetup setup = DataStore.uiLanguage.uiSetup;
 		difficultyBtn.text = setup.difficulty;
@@ -40,6 +41,12 @@ public class SagaSetupLanguageController : MonoBehaviour
 	{
 		UISetup setup = DataStore.uiLanguage.uiSetup;
 		ignoredBtn.text = $"{setup.ignoredHeading} <color=red>{c}</color>";
+	}
+
+	public void UpdateVillainCount( int c )
+	{
+		SagaUISetup ui = DataStore.uiLanguage.sagaUISetup;
+		villainsBtn.text = $"{ui.villainsBtn} <color=red>{c}</color>";
 	}
 }
 

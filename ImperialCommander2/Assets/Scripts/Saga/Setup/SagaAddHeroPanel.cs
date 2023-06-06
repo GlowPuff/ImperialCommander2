@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Saga
 {
@@ -15,10 +16,12 @@ namespace Saga
 		public Transform mugContainer;
 		public TextMeshProUGUI nameText;
 		public DynamicCardPrefab cardPrefab;
+		public Toggle customToggle;
 
 		Action callback;
 		int prevSelected = -1;
 		CharacterType characterType;
+		bool ignoreToggle;
 
 		/// <summary>
 		/// mode 0=heroes, 1=allies
@@ -32,19 +35,32 @@ namespace Saga
 			nameText.text = "";
 			characterType = cType;
 
+			ignoreToggle = true;
+			customToggle.isOn = false;
+			ignoreToggle = false;
+			ShowContent( false );
+		}
+
+		private void ShowContent( bool showCustom )
+		{
 			//populate mugshot toggles
 			if ( characterType == CharacterType.Hero )
 			{
 				int i = 0;
-				//add global imported characters
-				List<DeploymentCard> heroCards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
+				List<DeploymentCard> heroCards = new List<DeploymentCard>();
+				if ( showCustom )
+				{
+					//add global imported characters
+					heroCards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
 
-				//add embedded characters
-				var setup = FindObjectOfType<SagaSetup>();
-				heroCards = heroCards.Concat( setup.missionCustomHeroes ).ToList();
+					//add embedded characters
+					var setup = FindObjectOfType<SagaSetup>();
+					heroCards = heroCards.Concat( setup.missionCustomHeroes ).ToList();
+				}
 
 				//finally, add stock heroes
-				heroCards = heroCards.Concat( DataStore.heroCards ).ToList();
+				if ( !showCustom )
+					heroCards = heroCards.Concat( DataStore.heroCards ).ToList();
 
 				foreach ( var item in heroCards )
 				{
@@ -62,15 +78,20 @@ namespace Saga
 			}
 			else//allies
 			{
-				//add global imported characters
-				List<DeploymentCard> allyCards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
+				List<DeploymentCard> allyCards = new List<DeploymentCard>();
+				if ( showCustom )
+				{
+					//add global imported characters
+					allyCards = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
 
-				//add embedded characters
-				var setup = FindObjectOfType<SagaSetup>();
-				allyCards = allyCards.Concat( setup.missionCustomAllies ).ToList();
+					//add embedded characters
+					var setup = FindObjectOfType<SagaSetup>();
+					allyCards = allyCards.Concat( setup.missionCustomAllies ).ToList();
+				}
 
 				//finally, add stock allies
-				allyCards = allyCards.Concat( DataStore.allyCards.MinusElite() ).ToList();
+				if ( !showCustom )
+					allyCards = allyCards.Concat( DataStore.allyCards.MinusElite() ).ToList();
 
 				int i = 0;
 				foreach ( var item in allyCards )
@@ -83,14 +104,18 @@ namespace Saga
 						mug.GetComponent<MugshotToggle>().UpdateToggle();
 					}
 				}
-				foreach ( var item in DataStore.allyCards.OnlyElite() )
+				//show elite version of allies
+				if ( !showCustom )
 				{
-					var mug = Instantiate( heroMugPrefab, mugContainer );
-					mug.GetComponent<MugshotToggle>().Init( item, i++ );
-					if ( DataStore.sagaSessionData.selectedAlly == item )
+					foreach ( var item in DataStore.allyCards.OnlyElite() )
 					{
-						mug.GetComponent<MugshotToggle>().isOn = true;
-						mug.GetComponent<MugshotToggle>().UpdateToggle();
+						var mug = Instantiate( heroMugPrefab, mugContainer );
+						mug.GetComponent<MugshotToggle>().Init( item, i++ );
+						if ( DataStore.sagaSessionData.selectedAlly == item )
+						{
+							mug.GetComponent<MugshotToggle>().isOn = true;
+							mug.GetComponent<MugshotToggle>().UpdateToggle();
+						}
 					}
 				}
 
@@ -136,6 +161,19 @@ namespace Saga
 			}
 
 			prevSelected = idx;
+		}
+
+		public void OnCustomToggle( Toggle toggle )
+		{
+			if ( ignoreToggle )
+				return;
+
+			foreach ( Transform item in mugContainer )
+			{
+				Destroy( item.gameObject );
+			}
+			prevSelected = -1;
+			ShowContent( toggle.isOn );
 		}
 
 		public void OnClose()
