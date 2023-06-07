@@ -38,7 +38,6 @@ namespace Saga
 
 		List<DeploymentCard> groupsToDeploy;
 		Action postAction;
-		bool pauseKeyInput;
 		DeploymentGroupOverride deploymentOverride;
 		bool acceptInput = true;
 
@@ -125,6 +124,7 @@ namespace Saga
 			transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 			fader.DOFade( 0, .5f ).OnComplete( () =>
 			{
+				//destroy onslaught group icons
 				foreach ( Transform tf in depGrid.transform )
 					Destroy( tf.gameObject );
 				gameObject.SetActive( false );
@@ -326,6 +326,7 @@ namespace Saga
 					bottomOnslaught.SetActive( true );
 					var go = Instantiate( depPrefab, depGrid.transform );
 					go.GetComponent<ReinforcePrefab>().Init( dep );
+					go.transform.localScale = new Vector3( .8f, .8f, .8f );
 					groupsToDeploy.Add( dep );
 					//remove it from dep hand
 					DataStore.deploymentHand.Remove( dep );

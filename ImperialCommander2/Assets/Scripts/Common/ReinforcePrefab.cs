@@ -7,9 +7,8 @@ using UnityEngine.UI;
 /// </summary>
 public class ReinforcePrefab : MonoBehaviour
 {
-	public Image thumbnail, colorPip;
+	public Image thumbnail, colorPip, outlineImage;
 	public Image[] reinforceCounts;
-	public Outline outline;
 	public TextMeshProUGUI nameText;
 
 	public void Init( DeploymentCard cd, int add = 0 )
@@ -32,6 +31,7 @@ public class ReinforcePrefab : MonoBehaviour
 		string groupName = cd.name;
 		if ( DataStore.gameType == GameType.Saga )
 		{
+			outlineImage.color = Saga.Utils.String2UnityColor( cd.deploymentOutlineColor );
 			//get overridden name
 			var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( cd.id );
 			if ( ovrd != null && ovrd.isCustomDeployment )
@@ -46,7 +46,7 @@ public class ReinforcePrefab : MonoBehaviour
 
 		thumbnail.sprite = Resources.Load<Sprite>( cd.mugShotPath );
 		if ( cd.isElite )
-			outline.effectColor = Color.red;
+			outlineImage.color = Color.red;
 		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
 	}
 }
