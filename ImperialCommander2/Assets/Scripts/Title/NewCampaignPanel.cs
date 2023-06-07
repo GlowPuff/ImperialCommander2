@@ -17,6 +17,7 @@ namespace Saga
 		public Button startButton;
 		public Toggle customToggle;
 		public ImportCampaignPanel campaignPanel;
+		public Image packageSprite;
 
 		Action callback;
 		string selectedExpansion;
@@ -38,6 +39,8 @@ namespace Saga
 			nameGood = false;
 			selectedExpansion = "Core";
 			campaignExpansionDropdown.value = 0;
+
+			packageSprite.gameObject.SetActive( false );
 
 			//populate expansion dropdown
 			campaignExpansionDropdown.ClearOptions();
@@ -105,6 +108,14 @@ namespace Saga
 						customToggle.interactable = false;
 						importCampaignBtn.text = DataStore.uiLanguage.uiCampaign.removeUC.ToUpper();
 						importFuncDoRemove = true;
+						//generate icon sprite from loaded bytes
+						Texture2D tex = new Texture2D( 2, 2 );
+						if ( tex.LoadImage( selectedCampaignPackage.iconBytesBuffer ) )
+						{
+							packageSprite.gameObject.SetActive( true );
+							Sprite iconSprite = Sprite.Create( tex, new Rect( 0, 0, tex.width, tex.height ), new Vector2( 0, 0 ), 100f );
+							packageSprite.sprite = iconSprite;
+						}
 					}
 					else
 						selectedCampaignPackage = null;
@@ -114,6 +125,7 @@ namespace Saga
 
 		public void OnRemoveImportedCampaign()
 		{
+			packageSprite.gameObject.SetActive( false );
 			importedCampaignNameText.text = "...";
 			campaignExpansionDropdown.interactable = true;
 			customToggle.interactable = true;

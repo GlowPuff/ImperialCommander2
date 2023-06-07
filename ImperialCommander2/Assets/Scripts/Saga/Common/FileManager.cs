@@ -367,6 +367,7 @@ namespace Saga
 		public static CampaignPackage LoadCampaignPackage( string fullFilename, bool skipMissions = false )
 		{
 			CampaignPackage package = null;
+			byte[] iconBytesBuffer = new byte[0];
 
 			try
 			{
@@ -395,7 +396,23 @@ namespace Saga
 									missionList.Add( JsonConvert.DeserializeObject<Mission>( tr.ReadToEnd() ) );
 								}
 							}
+							else if ( (entry.Name.EndsWith( ".png" )) )//icon image
+							{
+								using ( var stream = new MemoryStream() )
+								{
+									using ( var s = entry.Open() )
+									{
+										s.CopyTo( stream );
+										//get bytes
+										stream.Position = 0;
+										iconBytesBuffer = new byte[stream.Length];
+										stream.Read( iconBytesBuffer, 0, iconBytesBuffer.Length );
+									}
+								}
+							}
 						}
+
+						package.iconBytesBuffer = iconBytesBuffer;
 
 						//now add all the missions to the CampaignPackage
 						if ( !skipMissions )
@@ -441,6 +458,12 @@ namespace Saga
 				Utils.LogError( "GetCampaignPackageList()::Could not create Custom Campaign List. Exception: " + e.Message );
 				return importedCampaigns;
 			}
+		}
+
+		public static CampaignPackage GetPackageByGUID( Guid guid )
+		{
+			var p = GetCampaignPackageList( true ).Where( x => x.GUID == guid ).FirstOr( null );
+			return p;
 		}
 
 		public static Mission LoadEmbeddedMission( string campaignGUID, string missionGUID, out string missionStringified )

@@ -31,7 +31,7 @@ public class ImportItem : MonoBehaviour
 		customPackage = package;
 		importCampaignPanel = parentPanel;
 
-		nameText.text = customPackage.campaignName;
+		nameText.text = !string.IsNullOrEmpty( customPackage.campaignName?.Trim() ) ? customPackage.campaignName.Trim() : DataStore.uiLanguage.uiMainApp.noneUC;
 		subnameText.text = $"<color=green>{DataStore.uiLanguage.uiCampaign.itemsUC}</color>: <color=yellow>{customPackage.campaignMissionItems.Count}</color>";
 		theToggle.group = importCampaignPanel.toggleGroup;
 	}

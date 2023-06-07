@@ -12,6 +12,9 @@ namespace Saga
 		public List<CampaignMissionItem> campaignMissionItems { get; set; } = new List<CampaignMissionItem>();
 		public List<CampaignStructure> campaignStructure { get; set; } = new List<CampaignStructure>();
 
+		[JsonIgnore]
+		public byte[] iconBytesBuffer = new byte[0];
+
 		public CampaignPackage() { }
 	}
 

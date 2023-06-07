@@ -33,6 +33,8 @@ namespace Saga
 		public Text campaignExpansion;
 		public CanvasGroup topButtonsGroup, rightPanelGroup;
 		public ValueAdjuster valueAdjuster;
+		public Image expansionLogo;
+		public Sprite[] expansionSprites;
 		//translatable UI
 		public CampaignLanguageController languageController;
 
@@ -112,11 +114,37 @@ namespace Saga
 			campaignNameInputField.text = sagaCampaign.campaignName;
 			//use translated expansion name
 			if ( sagaCampaign.campaignType == CampaignType.Official )
+			{
 				campaignExpansion.text = DataStore.translatedExpansionNames[sagaCampaign.campaignExpansionCode];
+				//expansion icon
+				expansionLogo.gameObject.SetActive( true );
+				expansionLogo.sprite = expansionSprites[(int)Enum.Parse( typeof( Expansion ), sagaCampaign.campaignExpansionCode )];
+			}
 			else if ( sagaCampaign.campaignType == CampaignType.Custom )
+			{
 				campaignExpansion.text = DataStore.uiLanguage.uiCampaign.customCampaign;
+				//expansion icon
+				expansionLogo.gameObject.SetActive( true );
+				expansionLogo.sprite = expansionSprites[8];//rebel icon
+			}
 			else if ( sagaCampaign.campaignType == CampaignType.Imported )
+			{
 				campaignExpansion.text = sagaCampaign.campaignImportedName;
+				//expansion icon
+				var p = FileManager.GetPackageByGUID( sagaCampaign.campaignPackage.GUID );
+				if ( p != null )
+				{
+					Texture2D tex = new Texture2D( 2, 2 );
+					if ( tex.LoadImage( p.iconBytesBuffer ) )
+					{
+						expansionLogo.gameObject.SetActive( true );
+						Sprite iconSprite = Sprite.Create( tex, new Rect( 0, 0, tex.width, tex.height ), new Vector2( 0, 0 ), 100f );
+						expansionLogo.sprite = iconSprite;
+					}
+				}
+				else
+					Utils.LogError( $"CampaignManager::InitUI()::Campaign package is null, couldn't load its icon:\n{sagaCampaign.campaignImportedName}, {sagaCampaign.campaignPackage.GUID}" );
+			}
 
 			creditsWheel.ResetWheeler( sagaCampaign.credits );
 			xpWheel.ResetWheeler( sagaCampaign.XP );

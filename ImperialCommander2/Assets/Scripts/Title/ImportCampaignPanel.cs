@@ -53,8 +53,9 @@ namespace Saga
 					import.Init( item, this );
 				}
 			}
-			catch
+			catch ( Exception e )
 			{
+				Utils.LogError( $"PopulateList()::Error populating campaign imports list\n{e.Message}" );
 				foreach ( Transform item in container )
 				{
 					Destroy( item.gameObject );
