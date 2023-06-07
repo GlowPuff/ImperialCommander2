@@ -64,7 +64,7 @@ public class DynamicCardPrefab : MonoBehaviour
 		//expansion
 		int exp = (int)Enum.Parse( typeof( Expansion ), card.expansion, true );
 		expansion.sprite = expansionSprites[exp];
-		if ( card.characterType == CharacterType.Hero || card.characterType == CharacterType.Ally )
+		if ( card.IsImported && (card.characterType == CharacterType.Hero || card.characterType == CharacterType.Ally) )
 			expansion.sprite = expansionSprites[8];
 
 		//dice
