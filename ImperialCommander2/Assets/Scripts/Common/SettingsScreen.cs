@@ -35,7 +35,7 @@ public class SettingsScreen : MonoBehaviour
 
 		musicToggle.isOn = PlayerPrefs.GetInt( "music" ) == 1;
 		soundToggle.isOn = PlayerPrefs.GetInt( "sound" ) == 1;
-		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom" ) == 1;
+		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom2" ) == 1;
 		vignetteToggle.isOn = PlayerPrefs.GetInt( "vignette" ) == 1;
 		ambientToggle.isOn = PlayerPrefs.GetInt( "ambient" ) == 1;
 		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
@@ -57,7 +57,7 @@ public class SettingsScreen : MonoBehaviour
 		sound.PlaySound( FX.Click );
 		PlayerPrefs.SetInt( "music", musicToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
-		PlayerPrefs.SetInt( "bloom", bloomToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "bloom2", bloomToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "vignette", vignetteToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "ambient", ambientToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "closeWindowToggle", closeWindowToggle.isOn ? 1 : 0 );
