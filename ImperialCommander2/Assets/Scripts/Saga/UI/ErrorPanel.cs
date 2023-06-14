@@ -9,13 +9,16 @@ namespace Saga
 	{
 		public TextMeshProUGUI message;
 		public PopupBase popupBase;
-		public Text exitText;
+		public Text exitText, continueText;
 
 		/// <summary>
 		/// centered message
 		/// </summary>
 		public void Show( string m )
 		{
+			exitText.text = DataStore.uiLanguage.uiSettings.quit;
+			continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+
 			message.text = m;
 
 			popupBase.Show();
@@ -26,6 +29,9 @@ namespace Saga
 		/// </summary>
 		public void Show( string header, string m )
 		{
+			exitText.text = DataStore.uiLanguage.uiSettings.quit;
+			continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+
 			message.text = $"<color=yellow>{header}</color>\n\n<align=left>{m}</align>";
 
 			popupBase.Show();
@@ -36,9 +42,17 @@ namespace Saga
 		/// </summary>
 		public void Show( string header, Exception e )
 		{
+			exitText.text = DataStore.uiLanguage.uiSettings.quit;
+			continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+
 			message.text = $"<color=yellow>{header}</color>\n\n<align=left><color=orange>{e.Message}</color>\n{e.StackTrace.Replace( " at ", "\nat " )}</align>";
 
 			popupBase.Show();
+		}
+
+		public void ContinueApp()
+		{
+			Hide();
 		}
 
 		public void Hide()

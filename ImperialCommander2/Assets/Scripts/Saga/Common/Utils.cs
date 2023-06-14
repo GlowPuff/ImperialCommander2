@@ -12,10 +12,11 @@ namespace Saga
 		public const int expectedCampaignFormatVersion = 2;
 
 		/// <summary>
-		/// Logs error to console and to log file
+		/// Logs error to console and to log file, optionally showing the Error Panel
 		/// </summary>
 		public static void LogError( string message )
 		{
+			//the error panel is only shown for Scenes with a handler attached to Application.logMessageReceived (triggers error panel, if one exists)
 			Debug.LogError( "***ERROR***:\n" + message );
 
 			try
@@ -24,7 +25,24 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Debug.LogError( "LogError::" + e.Message );
+				Debug.Log( "LogError::" + e.Message );
+			}
+		}
+
+		/// <summary>
+		/// Same as LogError, but doesn't trigger the Error panel to show
+		/// </summary>
+		public static void LogWarning( string message )
+		{
+			Debug.Log( "***ERROR***:\n" + message );
+
+			try
+			{
+				File.AppendAllText( Path.Combine( FileManager.baseDocumentFolder, "IC2_error_log.txt" ), $"{DateTime.Now} :: ERROR TRACE:\n" + message + "\n\n" );
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( "LogWarning::" + e.Message );
 			}
 		}
 

@@ -283,19 +283,28 @@ public class EnemyActivationPopup : MonoBehaviour
 			string e = ovrd.customBonuses[GlowEngine.GenerateRandomNumbers( ovrd.customBonuses.Length )[0]];
 			if ( !string.IsNullOrEmpty( e ) )
 			{
-				//get the bonus name
-				string[] b = e.Split( ':' );
-				if ( b.Length == 2 )
+				try
 				{
-					bonusNameText.text = b[0];//e.Substring( 0, idx );
-					bonusText.text = ReplaceGlyphs( b[1] ).Trim();//e.Substring( idx + 1 ) ).Trim();
+					//get the bonus name
+					string[] b = e.Split( ':' );
+					if ( b.Length == 2 )
+					{
+						bonusNameText.text = b[0];//e.Substring( 0, idx );
+						bonusText.text = ReplaceGlyphs( b[1] ).Trim();//e.Substring( idx + 1 ) ).Trim();
+					}
+					else if ( b.Length == 1 )
+					{
+						bonusNameText.text = "";
+						bonusText.text = ReplaceGlyphs( b[0] ).Trim();
+					}
+					//int idx = e.IndexOf( ':' );
 				}
-				else if ( b.Length == 1 )
+				catch ( Exception ex )
 				{
-					bonusNameText.text = "";
-					bonusText.text = ReplaceGlyphs( b[0] ).Trim();
+					bonusNameText.text = "Error";
+					bonusText.text = "Error - see log";
+					Utils.LogWarning( $"ParseBonusSaga()::Error parsing ID={id}\n{ex.Message}" );
 				}
-				//int idx = e.IndexOf( ':' );
 			}
 		}
 		else
@@ -310,13 +319,22 @@ public class EnemyActivationPopup : MonoBehaviour
 		if ( be == null || be.effects.Count == 0 )
 			return;
 
-		//first choose a random bonus
-		int[] rnd = GlowEngine.GenerateRandomNumbers( be.effects.Count );
-		string e = be.effects[rnd[0]];
-		//get the bonus name
-		int idx = e.IndexOf( ':' );
-		bonusNameText.text = e.Substring( 0, idx );
-		bonusText.text = ReplaceGlyphs( e.Substring( idx + 1 ) ).Trim();
+		try
+		{
+			//first choose a random bonus
+			int[] rnd = GlowEngine.GenerateRandomNumbers( be.effects.Count );
+			string e = be.effects[rnd[0]];
+			//get the bonus name
+			int idx = e.IndexOf( ':' );
+			bonusNameText.text = e.Substring( 0, idx );
+			bonusText.text = ReplaceGlyphs( e.Substring( idx + 1 ) ).Trim();
+		}
+		catch ( Exception ex )
+		{
+			bonusNameText.text = "Error";
+			bonusText.text = "Error - see log";
+			Utils.LogWarning( $"ParseBonus()::Error parsing ID={id}\n{ex.Message}" );
+		}
 
 		//At each activation, there’s a 25% chance that no bonus effect will be applied
 		if ( difficulty == Difficulty.Easy )
