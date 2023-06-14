@@ -176,14 +176,21 @@ namespace Saga
 
 				foreach ( var item in filenames )
 				{
-					string path = Path.Combine( campaignPath, item );
-					using ( StreamReader sr = new StreamReader( path ) )
+					try
 					{
-						json = sr.ReadToEnd();
+						string path = Path.Combine( campaignPath, item );
+						using ( StreamReader sr = new StreamReader( path ) )
+						{
+							json = sr.ReadToEnd();
+						}
+						var campaign = JsonConvert.DeserializeObject<SagaCampaign>( json );
+						if ( campaign.formatVersion == Utils.expectedCampaignFormatVersion )
+							clist.Add( campaign );
 					}
-					var campaign = JsonConvert.DeserializeObject<SagaCampaign>( json );
-					if ( campaign.formatVersion == Utils.expectedCampaignFormatVersion )
-						clist.Add( campaign );
+					catch ( Exception ex )
+					{
+						Utils.LogError( $"GetCampaigns()::Error deserializing campaign file: {item}\n{ex.Message}" );
+					}
 				}
 
 				return clist;
