@@ -20,6 +20,7 @@ namespace Saga
 		public static bool SetupDefaultFolders()
 		{
 			Debug.Log( "SETTING UP DEFAULT FOLDERS" );
+			//Android: storage/emulated/<userid>/Android/data/com.GlowPuff.ImperialCommander2/files
 
 			campaignPath = Path.Combine( Application.persistentDataPath, "SagaCampaigns" );
 			classicSessionPath = Path.Combine( Application.persistentDataPath, "Session" );

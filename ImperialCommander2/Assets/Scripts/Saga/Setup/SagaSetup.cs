@@ -106,7 +106,7 @@ namespace Saga
 
 			//apply settings
 			if ( volume.TryGet<Bloom>( out var bloom ) )
-				bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
+				bloom.active = PlayerPrefs.GetInt( "bloom2" ) == 1;
 			if ( volume.TryGet<Vignette>( out var vig ) )
 				vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
