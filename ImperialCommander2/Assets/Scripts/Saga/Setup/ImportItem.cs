@@ -38,7 +38,7 @@ public class ImportItem : MonoBehaviour
 
 	public void OnToggle()
 	{
-		importPanel?.UpdateCard( customToon.deploymentCard );
+		importPanel?.UpdateCard( customToon.deploymentCard, this );
 		if ( theToggle.isOn )
 			importCampaignPanel?.ToggleSelected( customPackage );
 		else
