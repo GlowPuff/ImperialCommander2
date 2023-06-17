@@ -224,6 +224,9 @@ namespace Saga
 				return;
 			}
 
+			//play defeated sound
+			FindObjectOfType<Sound>().PlayDefeatedSound();
+
 			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDefeated, cardDescriptor.name );
 
 			cardDescriptor.heroState.isDefeated = true;
@@ -253,6 +256,9 @@ namespace Saga
 
 		public void OnWound()
 		{
+			//play defeated sound
+			FindObjectOfType<Sound>().PlayDefeatedSound();
+
 			FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( true );
 
 			cardDescriptor.heroState.isWounded = true;

@@ -325,7 +325,11 @@ namespace Saga
 			}
 
 			if ( ovrd == null || (ovrd != null && ovrd.canBeDefeated) )
+			{
+				//play defeated sound
+				FindObjectOfType<Sound>().PlayDefeatedSound();
 				ProcessCardDefeated();
+			}
 		}
 
 		public void OnExhaust()

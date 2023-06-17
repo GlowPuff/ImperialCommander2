@@ -8,6 +8,7 @@ public class Sound : MonoBehaviour
 	public AudioSource musicSource;
 	public AudioSource ambientSource;
 	public AudioClip[] clips;
+	public AudioClip[] defeatedClips;
 	public float maxMusicVolume = .5f;
 
 	public bool soundEnabled { get { return PlayerPrefs.GetInt( "sound" ) == 1; } }
@@ -24,6 +25,12 @@ public class Sound : MonoBehaviour
 		//if ( PlayerPrefs.GetInt( "sound" ) == 1 )
 		if ( clipIndex <= clips.Length - 1 )
 			source.PlayOneShot( clips[clipIndex] );
+	}
+
+	public void PlayDefeatedSound()
+	{
+		if ( PlayerPrefs.GetInt( "sound" ) == 1 && defeatedClips.Length > 0 )
+			source.PlayOneShot( defeatedClips[Random.Range( 0, defeatedClips.Length )] );
 	}
 
 	public void playDeploymentSound( string id )
