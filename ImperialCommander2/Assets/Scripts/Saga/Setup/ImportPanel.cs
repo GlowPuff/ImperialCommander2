@@ -14,7 +14,7 @@ public class ImportPanel : MonoBehaviour
 	public Text continueText;
 	public DynamicCardPrefab cardPrefab;
 	public Transform container;
-	public ImportItem importItemPrefab;
+	public ImportItem importItemPrefab, importItemButtonPrefab;
 	public ToggleGroup toggleGroup;
 	//UI
 	public Text villainText, heroText, allyText, imperialText;
@@ -54,10 +54,6 @@ public class ImportPanel : MonoBehaviour
 
 		if ( item.name == "imperials" )
 			displayCharacterMode = CharacterType.Imperial;
-		else if ( item.name == "allies" )
-			displayCharacterMode = CharacterType.Ally;
-		else if ( item.name == "villains" )
-			displayCharacterMode = CharacterType.Villain;
 		else if ( item.name == "heroes" )
 			displayCharacterMode = CharacterType.Hero;
 
@@ -72,28 +68,40 @@ public class ImportPanel : MonoBehaviour
 			Destroy( item.gameObject );
 		}
 
-		List<CustomToon> imports = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == characterType ).ToList();
-
-		if ( characterType == CharacterType.Ally )//also show rebels
+		List<CustomToon> imports = new List<CustomToon>();
+		//for Imperials, gather Imperials AND villains
+		if ( characterType == CharacterType.Imperial )
 		{
-			imports = imports.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Rebel ) ).ToList();
+			imports = DataStore.globalImportedCharacters
+				.Where( x => x.deploymentCard.characterType == CharacterType.Imperial )
+				.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ) )
+				.ToList();
+			Debug.Log( $"FOUND {DataStore.IgnoredPrefsImports.Count} IMPORTS TO EXCLUDE" );
 		}
-
-		Debug.Log( $"FOUND {DataStore.IgnoredPrefsImports.Count} IMPORTS TO EXCLUDE" );
+		//for Heroes, gather Heroes AND Allies AND Rebels
+		else if ( characterType == CharacterType.Hero )
+		{
+			imports = DataStore.globalImportedCharacters
+				.Where( x => x.deploymentCard.characterType == CharacterType.Hero )
+				.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ) )
+				.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Rebel ) )
+				.ToList();
+		}
 
 		foreach ( var item in imports )
 		{
-			var import = Instantiate( importItemPrefab, container );
+			ImportItem import = null;
+			//only Imperials use the checkbox prefab
+			if ( item.deploymentCard.characterType == CharacterType.Imperial )
+				import = Instantiate( importItemPrefab, container );
+			else//everything else uses the button prefab
+				import = Instantiate( importItemButtonPrefab, container );
+
 			import.Init( item, this );
 			//only check toggle if it's imperial
-			if ( characterType == CharacterType.Imperial )
+			if ( item.deploymentCard.characterType == CharacterType.Imperial )
 			{
 				import.theToggle.SetIsOnWithoutNotify( !excludedImperialsGUIDs.Contains( import.customToon.customCharacterGUID.ToString() ) );
-			}
-			else
-			{
-				//everything else is always on
-				import.theToggle.SetIsOnWithoutNotify( true );
 			}
 		}
 
@@ -108,16 +116,13 @@ public class ImportPanel : MonoBehaviour
 	/// </summary>
 	public void UpdateCard( DeploymentCard card, ImportItem item )
 	{
-		Debug.Log( "toggling" );
+		//all card types can show their card
 		cardPrefab.InitCard( card );
-		//if we're NOT showing Imperials, always toggle back ON
-		if ( displayCharacterMode != CharacterType.Imperial )
+
+		//but only Imperials have a toggle
+		if ( card.characterType == CharacterType.Imperial )
 		{
-			item.theToggle.SetIsOnWithoutNotify( true );
-		}
-		else
-		{
-			//add/remove from  unique HashSet exclusion list
+			//add/remove from unique HashSet exclusion list
 			if ( !item.theToggle.isOn )
 			{
 				excludedImperialsGUIDs.Add( item.customToon.customCharacterGUID.ToString() );
@@ -134,7 +139,7 @@ public class ImportPanel : MonoBehaviour
 		foreach ( Transform item in container )
 		{
 			var import = item.GetComponent<ImportItem>();
-			import.theToggle.isOn = true;
+			import.ToggleIsOn( true );
 		}
 	}
 
@@ -143,7 +148,7 @@ public class ImportPanel : MonoBehaviour
 		foreach ( Transform item in container )
 		{
 			var import = item.GetComponent<ImportItem>();
-			import.theToggle.isOn = false;
+			import.ToggleIsOn( false );
 		}
 	}
 
