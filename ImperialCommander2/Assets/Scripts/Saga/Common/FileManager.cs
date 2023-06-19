@@ -401,13 +401,6 @@ namespace Saga
 									package = JsonConvert.DeserializeObject<CampaignPackage>( tr.ReadToEnd() );
 								}
 							}
-							else if ( !skipMissions )//deserialize the individual missions
-							{
-								using ( TextReader tr = new StreamReader( entry.Open() ) )
-								{
-									missionList.Add( JsonConvert.DeserializeObject<Mission>( tr.ReadToEnd() ) );
-								}
-							}
 							else if ( (entry.Name.EndsWith( ".png" )) )//icon image
 							{
 								using ( var stream = new MemoryStream() )
@@ -420,6 +413,16 @@ namespace Saga
 										iconBytesBuffer = new byte[stream.Length];
 										stream.Read( iconBytesBuffer, 0, iconBytesBuffer.Length );
 									}
+								}
+							}
+							else if ( !skipMissions && entry.Name.EndsWith( ".json" ) )//deserialize the individual missions
+							{
+								using ( TextReader tr = new StreamReader( entry.Open() ) )
+								{
+									//sanity check, make sure it's a mission
+									string m = tr.ReadToEnd();
+									if ( m.Contains( "missionGUID" ) )
+										missionList.Add( JsonConvert.DeserializeObject<Mission>( m ) );
 								}
 							}
 						}
@@ -460,7 +463,8 @@ namespace Saga
 				foreach ( string filename in filenames )
 				{
 					var cc = LoadCampaignPackage( filename, skipMissions );
-					importedCampaigns.Add( cc );
+					if ( cc != null )
+						importedCampaigns.Add( cc );
 				}
 				Debug.Log( $"GetCampaignPackageList()::FOUND {importedCampaigns.Count} CUSTOM CAMPAIGNS" );
 				return importedCampaigns;

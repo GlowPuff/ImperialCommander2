@@ -154,14 +154,15 @@ namespace Saga
 
 			selectedExpansion = "Core";
 			expansionCodes.Clear();
-			//for Official campaigns, missions are restricted to the expansion's missions (story and finale)
+			//for Official campaigns (Story and Finale slots only), missions are restricted to those in the campaign's expansion
 			if ( ctype == CampaignType.Official
 				&& (missionType == MissionType.Story || missionType == MissionType.Finale) )
 				selectedExpansion = campaignExpansionCode;
 
 			expansionDropdown.ClearOptions();
 
-			//add translated expansion name
+			//the expansions dropdown menu is only visible for Custom campaigns, and Official campaigns where the type is NOT Side and NOT Finale
+			//add translated expansion names for all owned expansions
 			expansionDropdown.AddOptions(
 				DataStore.translatedExpansionNames
 				.Where( x => DataStore.ownedExpansions.Contains( x.Key.ToEnum( Expansion.Core ) ) )
@@ -184,7 +185,7 @@ namespace Saga
 				expansionCodes.Add( "Custom" );
 			}
 
-			//for custom campaigns, add embedded Mission option
+			//for imported campaigns, add embedded Mission option
 			if ( ctype == CampaignType.Imported )
 			{
 				string cname = FindObjectOfType<CampaignManager>().sagaCampaign.campaignName;
@@ -193,15 +194,42 @@ namespace Saga
 				expansionCodes.Add( "Embedded" );
 			}
 
-			foreach ( var item in DataStore.missionCards[selectedExpansion] )
+			//add missions for the default selected expansion on initial display of the panel
+			//for imported campaigns, restrict Story/Finale missions to the imported missions
+			if ( ctype == CampaignType.Imported && (missionType == MissionType.Story || missionType == MissionType.Finale) )
 			{
-				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+				var campaign = FindObjectOfType<CampaignManager>().sagaCampaign;
+				var package = campaign.campaignPackage;
+				foreach ( var item in package.campaignMissionItems )
+				{
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					//store mission GUID into 'hero'
+					//store imported campaign name into 'bonusText'
+					//store package GUID into 'expansionText'
+					var card = new MissionCard()
+					{
+						name = item.missionName,
+						id = "Embedded",
+						hero = item.missionGUID.ToString(),
+						bonusText = campaign.campaignImportedName,
+						expansionText = package.GUID.ToString()
+					};
+					go.GetComponent<ItemSkillSelectorPrefab>().InitEmbeddedMission( card );
+				}
+			}
+			else
+			{
+				//default behavior in every other case, show missions from initially selected expansion in the dropdown (selectedExpansion)
+				foreach ( var item in DataStore.missionCards[selectedExpansion] )
+				{
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+				}
 			}
 
 			addMissionCallback = callback;
 			Show();
-			//make room for the expansion dropdown
+			//make room for the expansion dropdown, which is only visible for Custom campaigns and official/imported campaigns where the slot type is NOT story and NOT finale
 			if ( ctype == CampaignType.Custom || (missionType != MissionType.Story && missionType != MissionType.Finale) )
 			{
 				scrollRectTransform.offsetMax = new Vector2( scrollRectTransform.offsetMax.x, -155 );
