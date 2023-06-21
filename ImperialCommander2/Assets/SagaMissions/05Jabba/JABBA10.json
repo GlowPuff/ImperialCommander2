@@ -1,14 +1,15 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "JABBA10-Trespass.json",
-  "relativePath": "JABBA10-Trespass.json",
-  "fileVersion": "15",
-  "saveDate": "6/20/2022",
-  "timeTicks": 637913538351981886,
+  "fileName": "JABBA10.json",
+  "fileVersion": "21",
+  "saveDate": "6/21/2023",
+  "timeTicks": 638229834892354675,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Trespass",
     "campaignName": "Jabba's Realm",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "",
@@ -17,7 +18,6 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -44,7 +44,8 @@
       "DG034",
       "DG033",
       "DG035"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
   "mapSections": [
     {
@@ -84,6 +85,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -322,6 +324,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -427,6 +430,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -548,6 +552,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -576,6 +581,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -630,6 +636,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -678,6 +685,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -726,6 +734,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -734,15 +743,15 @@
       "eventActions": [
         {
           "theText": "As you approach the base, keeping a wide berth from the stormtrooper patrol, your walk picks up to a jog. Nearing the outer perimeter, you hear the sounds of battle erupt from behind you as the base's garrison emerges to meet you, blasters raised.\r\n",
-          "displayName": "Text Box",
           "GUID": "04edf1f8-f626-4b0f-a25f-7cd1b89f1770",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "The perimeter of the base consists of what was once a sturdy metal fence. Years in the desert climate have worn it down.",
-          "displayName": "Text Box",
           "GUID": "ea51f14d-dea2-40cc-be4d-c555dbb527fc",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -807,23 +816,32 @@
         },
         {
           "theText": "{-} The neutral mission tokens represent a barricade, A Rebel figure can attack the barricade (Health: 4, Defense: 1 {G}). The barricade blocks movement, line of sight, adjacency, and counting spaces.\r\n{-} The mission will progress when the barricade is destroyed.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Text Box",
           "GUID": "5499258a-b968-4d1f-9e31-a7e5f77b23eb",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "The base is guarded by Imperial forces.",
-          "displayName": "Text Box",
           "GUID": "fa538c15-16f0-4a5f-b7c7-0bd09f470dbf",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG001",
           "enemyName": null,
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG001",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": false,
+          "canRedeploy": false,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "f779c7d4-6e4c-402f-a8e1-0590d272b627",
             "cardName": "Stormtrooper",
@@ -854,32 +872,35 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG001/Stormtrooper",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "ea5b7b01-deda-4514-a1bd-638a9458823c",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG001/Stormtrooper"
         },
         {
-          "deploymentGroup": "DG004",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG004",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "3d4280dd-48fa-4415-82ac-4a6b3e0cdaf4",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "90cf17b5-d1c0-4826-a1a7-72704d9aa1a7",
             "cardName": "Imperial Officer",
@@ -904,32 +925,35 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "3d4280dd-48fa-4415-82ac-4a6b3e0cdaf4",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG004/Imperial Officer",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "757e04e4-7ae7-4262-87cb-34aaa3f60aff",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG004/Imperial Officer"
         },
         {
-          "deploymentGroup": "DG036",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG036",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "2e2348c0-4b0c-43c9-80c4-14178ca928a6",
             "cardName": "Jet Trooper",
@@ -957,37 +981,31 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG036/Jet Trooper",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "4ab2f4cf-5c20-40b2-8667-95cea541c58f",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG036/Jet Trooper"
         },
         {
           "theText": "Destroy the barricade.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "298be73b-cea0-492a-be33-95dc8eb4f4e8",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} The neutral mission tokens represent a barricade, A Rebel figure can attack the barricade (Health: 4, Defense: 1 {G}). The barricade blocks movement, line of sight, adjacency, and counting spaces.\r\n{-} The mission will progress when the barricade is destroyed.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "7010bdad-ab41-46cf-ab81-2a3c187118b7",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1012,6 +1030,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1020,9 +1039,9 @@
       "eventActions": [
         {
           "theText": "You are taken through the gate of a massive palace where you are met by Bib Fortuna, Jabba's Twi'lek majordomo. \"Chowbasa Ootmian,\" he says in his raspy voice, before slipping into Basic with a heavy dialect. “Jabba the Hutt has a deal to present for you. He has provided safe harbor for your family and friends, In return, you will lend your unique abilities to aid in various jobs as he requires. If this arrangement works out to everyone’s pleasing, Jabba promises his protection to you and your companions while you remain on Tatooine.” He then signals to the Weequay, who escort you to your new barracks for some rest.\r\n\r\n{-} Place Story Mission cards \"Overcharged\" and \"Hostile Negotiations\" into play.",
-          "displayName": "Text Box",
           "GUID": "b900e96a-c5dc-46fd-a417-ef9af200c220",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "incRoundCounter": false,
@@ -1058,6 +1077,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1066,9 +1086,9 @@
       "eventActions": [
         {
           "theText": "You are taken through the gate of a massive palace where you are met by Bib Fortuna, Jabba's Twi'lek majordomo. \"Chowbasa Ootmian,\" he says in his raspy voice, before slipping into Basic with a heavy dialect. “Jabba the Hutt has a deal to present for you. He has provided safe harbor for your family and friends, In return, you will lend your unique abilities to aid in various jobs as he requires. If this arrangement works out to everyone’s pleasing, Jabba promises his protection to you and your companions while you remain on Tatooine.” He then signals to the Weequay, who escort you to your new barracks for some rest.\r\n\r\n{-} Place Story Mission cards \"Overcharged\" and \"Hostile Negotiations\" into play.",
-          "displayName": "Text Box",
           "GUID": "b75477b8-fbfd-4c22-8346-120fb2ddc174",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "incRoundCounter": false,
@@ -1104,6 +1124,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1195,6 +1216,18 @@
                   }
                 ]
               }
+            },
+            {
+              "sourceGUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Green 1",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Green",
+                "buttonActions": []
+              }
             }
           ],
           "GUID": "4ea5b4d6-1540-4b4d-af34-1190fc61f815",
@@ -1202,12 +1235,21 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "deploymentGroup": "DG011",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG011",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "e1658822-16ab-4443-bc9b-01b0bb3f2929",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "7ba99b4e-6a87-4b1c-8f0c-d6f19e504167",
             "cardName": "Probe Droid",
@@ -1232,32 +1274,35 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "e1658822-16ab-4443-bc9b-01b0bb3f2929",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG011/Probe Droid",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "36f7ad16-d14d-43ed-addd-5c97ac8b372d",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG011/Probe Droid"
         },
         {
-          "deploymentGroup": "DG005",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG005",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "e1658822-16ab-4443-bc9b-01b0bb3f2929",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "b0957f2b-55ad-4625-af65-35856d5bead1",
             "cardName": "Imperial Officer",
@@ -1282,56 +1327,78 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "e1658822-16ab-4443-bc9b-01b0bb3f2929",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG005/Imperial Officer",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "85def665-3289-4518-971c-824f3f146fcb",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG005/Imperial Officer"
         },
         {
           "theText": "You're overwhelmed by a rush of sound as a sand skiff piloted by Weequay mercenaries lands to flank you.",
-          "displayName": "Text Box",
           "GUID": "541bce54-d518-40af-bd02-99bafb0aa1f7",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "mapSection": "00000000-0000-0000-0000-000000000000",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "7b58ba1b-3519-4244-8acd-5f6b41cbdde1",
-          "displayName": "Map Management",
+          "mapSection": "00000000-0000-0000-0000-000000000000",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "cfe61d5b-508e-47c8-8177-c51c3d3489af",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
-          "mapSection": "19e31741-810d-4260-98ea-c45326105967",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "19e31741-810d-4260-98ea-c45326105967",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "e88c565b-867f-478c-b126-02ea4ed854c7",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "The Weequay raise their blasters in their leathery hands. “You're trespassing on Jabba’s sand. You're not welcome.\" They snarl as they aim their rifles at the stormtroopers.",
-          "displayName": "Text Box",
           "GUID": "7115573c-a2af-439d-9a83-37536074b5ae",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
+          "customType": 1,
+          "iconType": 0,
+          "attackType": 0,
+          "deploymentOutlineColor": null,
+          "thumbnailGroupImperial": "DG001",
+          "thumbnailGroupRebel": "A001",
+          "repositionInstructions": "",
+          "groupAttack": "2Green",
+          "groupDefense": "1Black",
+          "surges": "{B}: +1 {H}\n{B}: +1 Accuracy",
+          "bonuses": "",
+          "keywords": "+1 Accuracy",
+          "abilities": "Raider: While attacking, you may choose 1 die. The player that rolled that die must reroll that die.",
+          "groupCost": 0,
+          "groupRedeployCost": 0,
+          "groupSize": 2,
+          "groupHealth": 4,
+          "groupSpeed": 4,
+          "modification": null,
+          "canReinforce": false,
+          "canRedeploy": false,
+          "canBeDefeated": true,
+          "useDeductCost": false,
+          "useCustomInstructions": false,
+          "useThreatMultiplier": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "b2811d4c-2e13-4748-9973-7919e8c41bd9",
             "cardName": "Jabba's Weequay Mercenaries",
@@ -1359,40 +1426,17 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": true
+            "useGenericMugshot": true,
+            "useInitialGroupCustomName": false
           },
-          "customType": 1,
-          "thumbnailGroupRebel": "A001",
-          "thumbnailGroupImperial": "DG001",
-          "useDeductCost": false,
-          "groupCost": 0,
-          "groupRedeployCost": 0,
-          "groupSize": 2,
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
-          "canReinforce": false,
-          "canBeDefeated": true,
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "groupHealth": 4,
-          "useThreatMultiplier": false,
-          "groupSpeed": 4,
-          "groupAttack": "2Green",
-          "groupDefense": "1Black",
-          "displayName": "Custom Deployment: Jabba's Weequay Mercenaries",
-          "repositionInstructions": "",
-          "surges": "{B}: +1 {H}\n{B}: +1 Accuracy",
-          "bonuses": "",
-          "keywords": "+1 Accuracy",
-          "abilities": "Raider: While attacking, you may choose 1 die. The player that rolled that die must reroll that die.",
-          "modification": null,
-          "useCustomInstructions": false,
           "GUID": "170ad533-9213-4ee5-974f-0570812afacb",
-          "eventActionType": 21
+          "eventActionType": 21,
+          "displayName": "Custom Deployment: Jabba's Weequay Mercenaries"
         },
         {
           "theText": "Block access to the door.",
@@ -1405,15 +1449,15 @@
         {
           "theText": "Enter the Command Post.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "79d8616d-9d99-4c92-93dd-000a64a2ed9d",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "b8f360e9-d308-4c87-b52c-1cbfd4097d3c",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1438,6 +1482,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1459,11 +1504,11 @@
               }
             },
             {
-              "sourceGUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+              "sourceGUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
               "hasColor": true,
               "hasProperties": false,
               "entityProperties": {
-                "name": "DP Green 1",
+                "name": "DP Green 2",
                 "isActive": false,
                 "theText": null,
                 "entityColor": "Green",
@@ -1484,21 +1529,30 @@
           "displayName": "Change Reposition Instructions"
         },
         {
-          "mapSection": "2790e15e-fd16-49cc-b3e4-661899c99099",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "2790e15e-fd16-49cc-b3e4-661899c99099",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "0763d16e-8e90-49c1-8aac-32fb51af862a",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
-          "deploymentGroup": "DG002",
           "enemyName": null,
-          "canRedeploy": false,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG002",
+          "repositionInstructions": "Be adjacent to the terminal.",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": false,
+          "canRedeploy": false,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "e9d1f3e1-34de-4388-ac54-b14de2dcdafb",
             "cardName": "Stormtrooper",
@@ -1529,38 +1583,41 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG002/Stormtrooper",
-          "repositionInstructions": "Be adjacent to the terminal.",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "e219d22d-df7c-4c8f-ad7a-40b9bec9f719",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG002/Stormtrooper"
         },
         {
           "theText": "The stormtrooper commander turns to face you on his dewback mount, fire spurting from his flamethrower. \"Defensive formation, men! Shoot them down!\"\r\n\r\nThey respond, “Yes, sir, Captain Terro, sir\", taking aim.",
-          "displayName": "Text Box",
           "GUID": "97e15158-f7fe-43a2-879a-1be25d3be9ed",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "deploymentGroup": "DG082",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG082",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "f4d06af7-99b0-41c5-b536-781d45338749",
+          "deploymentPoint": 1,
           "enemyGroupData": {
             "GUID": "2f8b9e47-2062-4d75-8161-5bffb4d88e54",
             "cardName": "Captain Terro",
@@ -1585,30 +1642,24 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "f4d06af7-99b0-41c5-b536-781d45338749",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG082/Captain Terro",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "3e4558b8-fea5-4857-bc1f-afd18b5a40a4",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG082/Captain Terro"
         },
         {
           "theText": "The command post's security console is installed in a corner nearby. If you sabotage the base, you might be able to get all the stranded people to safety.",
-          "displayName": "Text Box",
           "GUID": "cfb3e395-2ad5-40e3-8ac7-beddb9079891",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1637,22 +1688,22 @@
         },
         {
           "theText": "{-} A hero can interact with the terminal to sabotage the base.\r\n{-} Heroes cannot interact with the terminal while there is at least 1 Stormtrooper adjacent to it.\r\n{-} The Rebels win when the base is sabotaged.\r\n",
-          "displayName": "Text Box",
           "GUID": "43c09f94-0398-4f84-92bc-5b9e2b39f6dd",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Sabotage the base.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "e0f28fee-71de-48f7-be64-2a91569f621c",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} A hero can interact with the terminal to sabotage the base.\r\n{-} Heroes cannot interact with the terminal while there is at least 1 Stormtrooper adjacent to it.\r\n{-} The Rebels win when the base is sabotaged.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.\r\n",
-          "displayName": "Change Mission Info",
           "GUID": "08a1a458-0d90-49d4-8ab4-caad65086039",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     }
@@ -1776,7 +1827,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1812,7 +1864,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1848,7 +1901,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1884,7 +1938,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1920,7 +1975,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1956,7 +2012,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -1992,7 +2049,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2028,7 +2086,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2064,7 +2123,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2100,7 +2160,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2136,7 +2197,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2172,11 +2234,16 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
+      "GUID": "e3672ce3-9662-4166-8f53-5e24ccca8d5c",
       "name": "Door",
+      "entityType": 6,
+      "entityPosition": "960,1050",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Door",
         "isActive": false,
@@ -2184,14 +2251,14 @@
         "entityColor": null,
         "buttonActions": []
       },
-      "GUID": "e3672ce3-9662-4166-8f53-5e24ccca8d5c",
-      "entityType": 6,
-      "entityPosition": "960,1050",
-      "entityRotation": 0.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "63717e9f-76d5-4c33-a535-e0c6cfefa006",
       "name": "Barricade 1",
+      "entityType": 4,
+      "entityPosition": "1000,1010",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Barricade 1",
         "isActive": false,
@@ -2205,16 +2272,16 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "63717e9f-76d5-4c33-a535-e0c6cfefa006",
-      "entityType": 4,
-      "entityPosition": "1000,1010",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
+      "GUID": "1e149c77-4092-427e-8caf-1a9325f9b539",
       "name": "Barricade 2",
+      "entityType": 4,
+      "entityPosition": "1010,1010",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Barricade 2",
         "isActive": false,
@@ -2228,16 +2295,16 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "1e149c77-4092-427e-8caf-1a9325f9b539",
-      "entityType": 4,
-      "entityPosition": "1010,1010",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
+      "GUID": "a0f25169-8798-4bb4-9fda-5c8b1f750123",
       "name": "Barricade 3",
+      "entityType": 4,
+      "entityPosition": "1020,1010",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Barricade 3",
         "isActive": false,
@@ -2251,16 +2318,16 @@
           }
         ]
       },
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
       "tokenColor": "Gray",
-      "markerType": 0,
-      "GUID": "a0f25169-8798-4bb4-9fda-5c8b1f750123",
-      "entityType": 4,
-      "entityPosition": "1020,1010",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "markerType": 0
     },
     {
+      "GUID": "46a18e09-04d0-449e-9cea-93de0b11c490",
       "name": "Terminal",
+      "entityType": 1,
+      "entityPosition": "930,1090",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal",
         "isActive": false,
@@ -2274,12 +2341,8 @@
           }
         ]
       },
-      "deploymentColor": "Gray",
-      "GUID": "46a18e09-04d0-449e-9cea-93de0b11c490",
-      "entityType": 1,
-      "entityPosition": "930,1090",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "2790e15e-fd16-49cc-b3e4-661899c99099"
+      "mapSectionOwner": "2790e15e-fd16-49cc-b3e4-661899c99099",
+      "deploymentColor": "Gray"
     },
     {
       "GUID": "f4d06af7-99b0-41c5-b536-781d45338749",
@@ -2314,7 +2377,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2350,7 +2414,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2386,7 +2451,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -2416,11 +2482,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "51e19049-50a8-4b9b-a3f7-26988e08e181",
@@ -2452,11 +2520,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "a1b3d777-dcfe-4d35-b542-e19d101019d8",
@@ -2485,11 +2555,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "7be4d55f-fe10-4ad5-a1bd-f5fdd5ccef1b",
@@ -2515,11 +2587,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "6523a016-1e08-4bf4-9ef7-f1df0c3384b1",
@@ -2545,11 +2619,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "e3b92165-a10a-46ed-a131-6c4256a9d73a",
@@ -2581,11 +2657,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "03a42ebb-0eb5-46f0-b5f8-ad80472e0cd5",
@@ -2611,13 +2689,16 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }
