@@ -1,23 +1,23 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "fileName": "ES-HOTH16.json",
   "fileVersion": "21",
-  "saveDate": "5/22/2023",
-  "timeTicks": 638203552195543436,
+  "saveDate": "6/21/2023",
+  "timeTicks": 638229640179414517,
   "languageID": "Spanish (ES)",
   "missionProperties": {
     "missionName": "Por las malas",
     "campaignName": "Regreso a Hoth",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A004",
     "bannedAlly": "A004",
     "startingObjective": "",
-    "additionalMissionInfo": null,
     "missionID": "Hoth 16",
     "missionInfo": "",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 0,
     "customInstructionType": 2,
@@ -55,7 +55,6 @@
     ],
     "multipleBannedAllies": []
   },
-  "fileName": "ES-HOTH16.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -94,10 +93,10 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
-          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -257,10 +256,10 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
-          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -363,10 +362,10 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
-          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -431,10 +430,10 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
-          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -534,10 +533,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -563,10 +562,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -618,10 +617,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -667,10 +666,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -716,10 +715,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -739,6 +738,7 @@
           "allyName": null,
           "allyID": "A004",
           "setTrigger": "00000000-0000-0000-0000-000000000000",
+          "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "1f75c42d-7c19-4ebd-9d89-ab5217a63f43",
           "threatCost": 0,
@@ -751,7 +751,18 @@
         {
           "groupsToAdd": [
             {
-              "characterType": 0,
+              "expansion": "Hoth",
+              "ignored": "Punishment",
+              "subname": "RUTHLESS KILLER",
+              "defense": [
+                1
+              ],
+              "attacks": [
+                4,
+                2
+              ],
+              "name": "Dengar",
+              "id": "DG077",
               "tier": 2,
               "faction": "Mercenary",
               "priority": 1,
@@ -760,10 +771,7 @@
               "size": 1,
               "fame": 7,
               "reimb": 3,
-              "expansion": "Hoth",
-              "ignored": "Punishment",
               "isElite": true,
-              "subname": "RUTHLESS KILLER",
               "health": 8,
               "speed": 4,
               "traits": [
@@ -781,22 +789,15 @@
                   "text": "While attacking, if the target does not have a HARMFUL condition, Dengar applies +1 {B} to the attack results."
                 }
               ],
-              "defense": [
-                1
-              ],
-              "attacks": [
-                4,
-                2
-              ],
               "attackType": 0,
               "miniSize": 0,
               "groupTraits": [
                 7
               ],
-              "mugShotPath": null,
+              "preferredTargets": null,
               "deploymentOutlineColor": "Blue",
-              "name": "Dengar",
-              "id": "DG077"
+              "mugShotPath": null,
+              "characterType": 0
             }
           ],
           "GUID": "17570409-578c-4a59-8bcc-cebc5e76e6c1",
@@ -839,10 +840,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -880,10 +881,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
@@ -921,10 +922,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -946,6 +947,18 @@
                     "eventGUID": "c3ec24d3-0f4b-4da4-866c-0d5c5183d7c4"
                   }
                 ]
+              }
+            },
+            {
+              "sourceGUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Green 2",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Green",
+                "buttonActions": []
               }
             }
           ],
@@ -1019,6 +1032,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "7c9d2ec3-2833-4d3d-8000-edc0c666476f",
           "eventActionType": 6,
           "displayName": "Deploy: DG005/Imperial Officer"
@@ -1056,10 +1070,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1157,10 +1171,10 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1276,6 +1290,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "3098df87-4a78-46e2-954e-2bff9e0b5564",
           "eventActionType": 6,
           "displayName": "Deploy: DG016/Trandoshan Hunter (Elite)"
@@ -1356,6 +1371,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "047b03e5-8afe-48e9-a0ce-497b137d3888",
           "eventActionType": 6,
           "displayName": "Deploy: DG006/Imperial Officer (Elite)"
@@ -2237,5 +2253,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

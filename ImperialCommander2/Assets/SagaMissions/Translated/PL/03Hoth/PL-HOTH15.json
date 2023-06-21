@@ -1,14 +1,15 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "HOTH15 - Survival of the Fittest.json",
-  "relativePath": "HOTH15 - Survival of the Fittest.json",
-  "fileVersion": "15",
-  "saveDate": "6/14/2022",
-  "timeTicks": 637908164286431323,
+  "fileName": "PL-HOTH15.json",
+  "fileVersion": "21",
+  "saveDate": "6/21/2023",
+  "timeTicks": 638229636930590505,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Survival of the Fittest",
     "campaignName": "Return to Hoth",
     "missionDescription": "",
+    "additionalMissionInfo": "",
     "fixedAlly": "A009",
     "bannedAlly": "A009",
     "startingObjective": "",
@@ -17,7 +18,6 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 0,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -43,7 +43,8 @@
       "DG045",
       "DG014",
       "DG046"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
   "mapSections": [
     {
@@ -83,6 +84,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -245,6 +247,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -350,6 +353,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -417,6 +421,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -484,6 +489,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -551,6 +557,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -618,6 +625,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -719,6 +727,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -747,6 +756,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -801,6 +811,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -849,6 +860,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -897,6 +909,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -951,6 +964,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -960,6 +974,18 @@
         {
           "groupsToAdd": [
             {
+              "expansion": "Hoth",
+              "ignored": "Punishment",
+              "subname": "RUTHLESS KILLER",
+              "defense": [
+                1
+              ],
+              "attacks": [
+                4,
+                2
+              ],
+              "name": "Dengar",
+              "id": "DG077",
               "tier": 2,
               "faction": "Mercenary",
               "priority": 1,
@@ -968,10 +994,7 @@
               "size": 1,
               "fame": 7,
               "reimb": 3,
-              "expansion": "Hoth",
-              "ignored": "Punishment",
               "isElite": true,
-              "subname": "RUTHLESS KILLER",
               "health": 8,
               "speed": 4,
               "traits": [
@@ -989,25 +1012,20 @@
                   "text": "Jeśli podczas wykonywania ataku cel tego ataku nie ma SZKODLIWEGO stanu, dodaje 1 {B} do swoich wyników ataku."
                 }
               ],
-              "defense": [
-                1
-              ],
-              "attacks": [
-                4,
-                2
-              ],
               "attackType": 0,
               "miniSize": 0,
               "groupTraits": [
                 7
               ],
-              "name": "Dengar",
-              "id": "DG077"
+              "preferredTargets": null,
+              "deploymentOutlineColor": null,
+              "mugShotPath": null,
+              "characterType": 0
             }
           ],
-          "displayName": "Add Group(s) to Deployment Hand",
           "GUID": "fea43799-a7c6-4474-92e1-086a602455d3",
-          "eventActionType": 10
+          "eventActionType": 10,
+          "displayName": "Add Group(s) to Deployment Hand"
         },
         {
           "theText": "“- O ewakuację będziemy się martwić później” - informują was. “- Kierujcie się sygnałem wzywania pomocy - spotkamy się na miejscu.”\r\n\r\nTo jednak łatwiej powiedzieć niż zrobić. Śnieg pada obficie, przez co prawie nie widać, co jest tuż za rogiem.\r\n\r\n{-} Kiedy figurka Rebelii wchodzi na pole sąsiadujące z polem zaznaczonym na zielono, kliknij na to pole i wybierz \"Ujawnij\".\r\n{-} Misja pójdzie naprzód kiedy zostanie znaleziony rozbitek.\r\n{-} Bohaterowie przegrają na końcu rundy 4 lub kiedy wszyscy bohaterowie będą ranni i Żołnierze z Bazy Echo zostaną pokonani.",
@@ -1051,6 +1069,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1091,6 +1110,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1137,6 +1157,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1218,6 +1239,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1260,6 +1282,18 @@
                     "eventGUID": "a2d99e1d-879e-4780-bd2d-76e5dcf09380"
                   }
                 ]
+              }
+            },
+            {
+              "sourceGUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Green Vis 1",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Green",
+                "buttonActions": []
               }
             }
           ],
@@ -1328,12 +1362,15 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "36d2589a-077c-43dc-9c2d-613ac0dc7b11",
           "eventActionType": 6,
           "displayName": "Deploy: DG023/Snowtrooper"
@@ -1361,6 +1398,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1442,6 +1480,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1523,6 +1562,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1695,12 +1735,15 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "adb93980-0996-4586-ab7c-148c2044f844",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "6c308b4f-ad5d-45b6-93a7-925657717040",
           "eventActionType": 6,
           "displayName": "Deploy: DG029/Wampa (Elite)"
@@ -1770,12 +1813,15 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "24d4b1bf-9781-45bb-921e-73d4aeb21659",
           "eventActionType": 6,
           "displayName": "Deploy: DG012/Probe Droid"
@@ -1809,6 +1855,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1851,6 +1898,18 @@
                     "eventGUID": "24b2497d-5838-4d82-9a9c-7ddce33e59a6"
                   }
                 ]
+              }
+            },
+            {
+              "sourceGUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Green Vis 2",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Green",
+                "buttonActions": []
               }
             }
           ],
@@ -1919,12 +1978,15 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "09f96e92-c978-44ed-a3df-9b06945ca7cd",
           "eventActionType": 6,
           "displayName": "Deploy: DG013/Probe Droid (Elite)"
@@ -1958,6 +2020,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1996,6 +2059,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -2034,6 +2098,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -2082,6 +2147,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -2124,6 +2190,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -2191,6 +2258,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -2337,7 +2405,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2373,7 +2442,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2409,7 +2479,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2445,7 +2516,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2481,7 +2553,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2536,7 +2609,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2589,7 +2663,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2625,7 +2700,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2954,11 +3030,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "e2931384-7e15-4338-b1fc-da556bcfcd05",
@@ -2984,11 +3062,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -3016,11 +3096,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "e96a10be-74dd-461a-8943-df19d717cd20",
@@ -3046,11 +3128,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "2309011d-c9b1-41e6-a42a-b44617bfa1b1",
@@ -3082,11 +3166,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "8f05e32e-868a-44aa-9891-d947d6036e84",
@@ -3112,13 +3198,16 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }
