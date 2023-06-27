@@ -75,7 +75,7 @@ namespace Saga
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
-			sound.CheckAudio();
+			sound.PlayMusicAndMenuAmbient();
 
 			//set translated UI
 			languageController.SetTranslatedUI();

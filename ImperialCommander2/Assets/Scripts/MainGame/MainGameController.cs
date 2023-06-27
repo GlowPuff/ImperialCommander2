@@ -42,7 +42,8 @@ public class MainGameController : MonoBehaviour
 
 		//apply settings
 		sound = FindObjectOfType<Sound>();
-		sound.CheckAudio();
+		sound.PlayMusicAndMenuAmbient();
+
 		if ( volume.TryGet<Bloom>( out var bloom ) )
 			bloom.active = PlayerPrefs.GetInt( "bloom2" ) == 1;
 		if ( volume.TryGet<Vignette>( out var vig ) )

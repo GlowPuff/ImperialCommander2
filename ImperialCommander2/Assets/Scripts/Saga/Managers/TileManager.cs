@@ -9,6 +9,8 @@ namespace Saga
 	public class TileManager : MonoBehaviour
 	{
 		public GameObject tilePrefab;
+		public BiomeType currentBiometype;
+
 		List<MapSection> mapSections;
 		List<TileDescriptor> tileDescriptors;
 
@@ -44,6 +46,11 @@ namespace Saga
 		{
 			mapSections = sections;
 			tileDescriptors = TileDescriptor.LoadData();
+			if ( tileDescriptors == null )
+			{
+				Utils.LogWarning( "InstantiateTiles()::tileDescriptors is null" );
+				return;
+			}
 
 			foreach ( var s in mapSections )
 			{
@@ -114,6 +121,11 @@ namespace Saga
 				if ( tr.mapTile.mapSectionOwner == mapSections[index].GUID && tr.mapTile.entityProperties.isActive )
 					tr.ShowTile();
 			}
+
+			//determine which ambient sound to play
+			currentBiometype = mapSections[index].biomeType;
+			Debug.Log( $"ActivateMapSection()::index = {index}, Biome = {currentBiometype}" );
+			FindObjectOfType<Sound>().ChangeAmbient( currentBiometype );
 
 			//show ACTIVE entities in this section
 			GlowTimer.SetTimer( 1f, () => FindObjectOfType<MapEntityManager>().ToggleSectionEntitiesVisibility( mapSections[index].GUID, true ) );

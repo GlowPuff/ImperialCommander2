@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Saga;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
@@ -17,12 +18,15 @@ public class SettingsScreen : MonoBehaviour
 	public SettingsLanguageController languageController;
 	public GameObject audioPanel, gfxPanel, uiPanel;
 	public Toggle audioToggle;
+	public MWheelHandler musicWheelHandler, ambientWheelHandler, soundWheelHandler;
+	public BiomeType biomeType;
 
 	Action<SettingsCommand> quitAction;
 
-	public void Show( Action<SettingsCommand> onQuit )
+	public void Show( Action<SettingsCommand> onQuit, BiomeType btype = BiomeType.Menu )
 	{
 		quitAction = onQuit;
+		biomeType = btype;
 		//remove return to title button only if we're already on the title screen
 		returnButton.SetActive( FindObjectOfType<TitleController>() == null );
 
@@ -32,6 +36,23 @@ public class SettingsScreen : MonoBehaviour
 		cg.DOFade( 1, .5f );
 		transform.GetChild( 0 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 0 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
+
+		musicWheelHandler.ResetWheeler( PlayerPrefs.GetInt( "musicVolume" ) );
+		ambientWheelHandler.ResetWheeler( PlayerPrefs.GetInt( "ambientVolume" ) );
+		soundWheelHandler.ResetWheeler( PlayerPrefs.GetInt( "soundVolume" ) );
+
+		musicWheelHandler.wheelValueChangedCallback = () =>
+		{
+			sound.SetMusicVolume( musicWheelHandler.wheelValue );
+		};
+		ambientWheelHandler.wheelValueChangedCallback = () =>
+		{
+			sound.SetAmbientVolume( ambientWheelHandler.wheelValue );
+		};
+		soundWheelHandler.wheelValueChangedCallback = () =>
+		{
+			sound.SetSoundVolume( soundWheelHandler.wheelValue );
+		};
 
 		musicToggle.isOn = PlayerPrefs.GetInt( "music" ) == 1;
 		soundToggle.isOn = PlayerPrefs.GetInt( "sound" ) == 1;
@@ -62,7 +83,9 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "ambient", ambientToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "closeWindowToggle", closeWindowToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "zoombuttons", zoomToggle.isOn ? 1 : 0 );
-		PlayerPrefs.SetInt( "viewToggle", viewToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "musicVolume", musicWheelHandler.wheelValue );
+		PlayerPrefs.SetInt( "ambientVolume", ambientWheelHandler.wheelValue );
+		PlayerPrefs.SetInt( "soundVolume", soundWheelHandler.wheelValue );
 
 		PlayerPrefs.Save();
 
@@ -83,7 +106,7 @@ public class SettingsScreen : MonoBehaviour
 		if ( t.name.ToLower() == "music toggle" )
 		{
 			if ( t.isOn )
-				sound.PlayMusic();
+				sound.PlayMusic( musicWheelHandler.wheelValue );
 			else
 				sound.FadeOutMusic();
 		}
@@ -103,8 +126,9 @@ public class SettingsScreen : MonoBehaviour
 		}
 		else if ( t.name.ToLower() == "ambient toggle" )
 		{
+			PlayerPrefs.SetInt( "ambient", t.isOn ? 1 : 0 );
 			if ( t.isOn )
-				sound.StartAmbientSound();
+				sound.StartAmbientSound( biomeType );
 			else
 				sound.StopAmbientSound();
 		}
@@ -115,17 +139,17 @@ public class SettingsScreen : MonoBehaviour
 		else if ( t.name.ToLower() == "zoom toggle" )
 		{
 			PlayerPrefs.SetInt( "zoombuttons", t.isOn ? 1 : 0 );
-			var c = FindObjectOfType<Saga.SagaController>();
+			var c = FindObjectOfType<SagaController>();
 			if ( c != null )
 				c.OnZoomBarToggle( t.isOn );
 		}
 		else if ( t.name.ToLower() == "view toggle" )
 		{
 			PlayerPrefs.SetInt( "viewToggle", t.isOn ? 1 : 0 );
-			var c = FindObjectOfType<Saga.CameraController>();
+			var c = FindObjectOfType<CameraController>();
 			if ( c != null )
 			{
-				c.CameraViewToggle( t.isOn ? Saga.CameraView.TopDown : Saga.CameraView.Normal );
+				c.CameraViewToggle( t.isOn ? CameraView.TopDown : CameraView.Normal );
 			}
 		}
 	}

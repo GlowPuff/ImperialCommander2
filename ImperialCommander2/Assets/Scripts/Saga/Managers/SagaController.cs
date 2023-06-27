@@ -91,7 +91,8 @@ namespace Saga
 
 			//apply settings
 			sound = FindObjectOfType<Sound>();
-			sound.CheckAudio();
+			//play menu ambient and music
+			sound.PlayMusicAndMenuAmbient();
 
 			//set translated UI
 			try
@@ -769,7 +770,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			if ( !eventManager.IsUIHidden )
 			{
-				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnQuitSaga );
+				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnQuitSaga, tileManager.currentBiometype );
 			}
 		}
 

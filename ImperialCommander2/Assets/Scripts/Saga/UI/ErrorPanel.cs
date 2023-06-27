@@ -29,8 +29,16 @@ namespace Saga
 		/// </summary>
 		public void Show( string header, string m )
 		{
-			exitText.text = DataStore.uiLanguage.uiSettings.quit;
-			continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+			try
+			{
+				exitText.text = DataStore.uiLanguage.uiSettings.quit;
+				continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+			}
+			catch ( Exception )
+			{
+				exitText.text = "EXIT APP";
+				continueText.text = "CONTINUE";
+			}
 
 			message.text = $"<color=yellow>{header}</color>\n\n<align=left>{m}</align>";
 
@@ -42,8 +50,16 @@ namespace Saga
 		/// </summary>
 		public void Show( string header, Exception e )
 		{
-			exitText.text = DataStore.uiLanguage.uiSettings.quit;
-			continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+			try
+			{
+				exitText.text = DataStore.uiLanguage.uiSettings.quit;
+				continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
+			}
+			catch ( Exception )
+			{
+				exitText.text = "EXIT APP";
+				continueText.text = "CONTINUE";
+			}
 
 			message.text = $"<color=yellow>{header}</color>\n\n<align=left><color=orange>{e.Message}</color>\n{e.StackTrace.Replace( " at ", "\nat " )}</align>";
 

@@ -12,7 +12,8 @@ namespace Saga
 
 		[HideInInspector]
 		public MapTile mapTile;
-		TileDescriptor tileDescriptor;
+		[HideInInspector]
+		public TileDescriptor tileDescriptor;
 		//handle used to load and release tile asset
 		AsyncOperationHandle<Sprite> loadHandle;
 

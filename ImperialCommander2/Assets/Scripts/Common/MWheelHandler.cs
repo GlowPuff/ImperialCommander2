@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -14,6 +15,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	public TextMeshProUGUI numberTextTMP;
 	public ValueAdjuster valueAdjuster;
 	public UnityEvent wheelValueChanged;
+	public Action wheelValueChangedCallback;
 
 	//swiping
 	public float distancePerTick = 15;//distance (pixels) have to swipe to register 1 tick of increment/decrement
@@ -70,7 +72,8 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	{
 		wheelValue = Mathf.Min( maxValue, wheelValue + stepValue );
 		wheelValueChanged?.Invoke();
-		sound.PlaySound( FX.Click );
+		wheelValueChangedCallback?.Invoke();
+		sound?.PlaySound( FX.Click );
 		UpdateTargetValue();
 	}
 
@@ -78,7 +81,8 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	{
 		wheelValue = Mathf.Max( minValue, wheelValue - stepValue );
 		wheelValueChanged?.Invoke();
-		sound.PlaySound( FX.Click );
+		wheelValueChangedCallback?.Invoke();
+		sound?.PlaySound( FX.Click );
 		UpdateTargetValue();
 	}
 
@@ -89,6 +93,9 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		wheelValueChanged?.Invoke();
 	}
 
+	/// <summary>
+	/// deprecated
+	/// </summary>
 	public void OnDrag( PointerEventData eventData )
 	{
 		//eventData.useDragThreshold = true;

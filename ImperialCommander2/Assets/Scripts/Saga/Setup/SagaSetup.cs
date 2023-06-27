@@ -111,7 +111,8 @@ namespace Saga
 				vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 			sound = FindObjectOfType<Sound>();
-			sound.CheckAudio();
+			//play menu ambient and music
+			sound.PlayMusicAndMenuAmbient();
 
 			setupOptions = new SagaSetupOptions();
 			DataStore.StartNewSagaSession( setupOptions );

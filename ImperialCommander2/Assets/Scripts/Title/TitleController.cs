@@ -63,33 +63,12 @@ public class TitleController : MonoBehaviour
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 		fader.UnFade( 2 );
-		if ( !PlayerPrefs.HasKey( "music" ) )
-			PlayerPrefs.SetInt( "music", 1 );
-		if ( !PlayerPrefs.HasKey( "sound" ) )
-			PlayerPrefs.SetInt( "sound", 1 );
-		if ( !PlayerPrefs.HasKey( "bloom2" ) )
-			PlayerPrefs.SetInt( "bloom2", 0 );
-		if ( !PlayerPrefs.HasKey( "vignette" ) )
-			PlayerPrefs.SetInt( "vignette", 1 );
-		if ( !PlayerPrefs.HasKey( "language" ) )
-			PlayerPrefs.SetInt( "language", 0 );
-		if ( !PlayerPrefs.HasKey( "ambient" ) )
-			PlayerPrefs.SetInt( "ambient", 1 );
-		if ( !PlayerPrefs.HasKey( "zoombuttons" ) )
-			PlayerPrefs.SetInt( "zoombuttons", 0 );
-		if ( !PlayerPrefs.HasKey( "viewToggle" ) )
-			PlayerPrefs.SetInt( "viewToggle", 0 );
-		if ( !PlayerPrefs.HasKey( "closeWindowToggle" ) )
-		{
-			//default off (0) for Android
-#if UNITY_ANDROID
-			PlayerPrefs.SetInt( "closeWindowToggle", 0 );
-#else
-			PlayerPrefs.SetInt( "closeWindowToggle", 1 );
-#endif
-		}
-		if ( !PlayerPrefs.HasKey( "excludedImports" ) )
-			PlayerPrefs.SetString( "excludedImports", "" );
+
+		//set default PlayerPrefs
+		DataStore.SetDefaultPlayerPrefs();
+
+		//play menu ambient and music
+		soundController.PlayMusicAndMenuAmbient();
 
 		//save defaults
 		PlayerPrefs.Save();
@@ -117,7 +96,7 @@ public class TitleController : MonoBehaviour
 		campaignContinueButton.interactable = IsSagaSessionValid( SessionMode.Campaign );
 		campaignLoadButton.interactable = FileManager.GetCampaigns().Count > 0;
 
-		FindObjectOfType<Sound>().CheckAudio();
+		//FindObjectOfType<Sound>().CheckAudio();
 
 		networkStatus = NetworkStatus.Busy;
 		versionText.text = DataStore.appVersion;

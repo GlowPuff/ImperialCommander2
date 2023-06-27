@@ -59,7 +59,9 @@ public static class DataStore
 		get => PlayerPrefs.GetString( "excludedImports" ).Split( '|' ).Where( x => !string.IsNullOrEmpty( x ) ).ToList();
 		set
 		{
+			Debug.Log( $"IgnoredPrefsImports::OLD COUNT = {IgnoredPrefsImports.Count}" );
 			PlayerPrefs.SetString( "excludedImports", string.Join( "|", value ) );
+			Debug.Log( $"IgnoredPrefsImports::NEW COUNT = {IgnoredPrefsImports.Count}" );
 		}
 	}
 
@@ -123,9 +125,14 @@ public static class DataStore
 		//load global imported characters saved on device
 		globalImportedCharacters = FileManager.LoadGlobalImportedCharacters();
 		//validate IgnoredPrefsImports, filter out groups that no longer exist on the device
-		Debug.Log( $"FOUND {IgnoredPrefsImports.Count} EXCLUDED PlayerPrefs IMPORTS" );
-		var valid = globalImportedCharacters.Where( x => IgnoredPrefsImports.Contains( x.deploymentCard.customCharacterGUID.ToString() ) ).Select( x => x.deploymentCard.customCharacterGUID.ToString() );
-		Debug.Log( $"{valid.Count()} IMPORTED IMPERIAL GROUPS ARE VALID OUT OF {globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count()}" );
+		Debug.Log( $"FOUND {IgnoredPrefsImports.Count} EXCLUDED IMPORTS STORED IN PlayerPrefs" );
+		var valid = globalImportedCharacters.Where( x => IgnoredPrefsImports.Contains( x.deploymentCard.customCharacterGUID.ToString() ) ).Select( x => x.deploymentCard.customCharacterGUID.ToString() ).ToList();
+		if ( IgnoredPrefsImports.Count() > 0 )
+			Debug.Log( $"{valid.Count()} / {IgnoredPrefsImports.Count} OF THESE EXIST ON THIS DEVICE" );
+		if ( valid.Count() != IgnoredPrefsImports.Count() )
+		{
+			Debug.Log( $"REMOVED {IgnoredPrefsImports.Count() - valid.Count()} INVALID IMPERIALS FROM PlayerPrefs" );
+		}
 		IgnoredPrefsImports = valid.ToList();
 
 		//setup language
@@ -1020,5 +1027,42 @@ public static class DataStore
 	{
 		var list = bonusEffects.Concat( importedBonusEffects );
 		return list.Where( x => x.bonusID.ToLower() == id.ToLower() ).FirstOr( null );
+	}
+
+	public static void SetDefaultPlayerPrefs()
+	{
+		if ( !PlayerPrefs.HasKey( "music" ) )
+			PlayerPrefs.SetInt( "music", 1 );
+		if ( !PlayerPrefs.HasKey( "sound" ) )
+			PlayerPrefs.SetInt( "sound", 1 );
+		if ( !PlayerPrefs.HasKey( "bloom2" ) )
+			PlayerPrefs.SetInt( "bloom2", 0 );
+		if ( !PlayerPrefs.HasKey( "vignette" ) )
+			PlayerPrefs.SetInt( "vignette", 1 );
+		if ( !PlayerPrefs.HasKey( "language" ) )
+			PlayerPrefs.SetInt( "language", 0 );
+		if ( !PlayerPrefs.HasKey( "ambient" ) )
+			PlayerPrefs.SetInt( "ambient", 1 );
+		if ( !PlayerPrefs.HasKey( "zoombuttons" ) )
+			PlayerPrefs.SetInt( "zoombuttons", 0 );
+		if ( !PlayerPrefs.HasKey( "viewToggle" ) )
+			PlayerPrefs.SetInt( "viewToggle", 0 );
+		if ( !PlayerPrefs.HasKey( "closeWindowToggle" ) )
+		{
+			//default off (0) for Android
+#if UNITY_ANDROID
+			PlayerPrefs.SetInt( "closeWindowToggle", 0 );
+#else
+			PlayerPrefs.SetInt( "closeWindowToggle", 1 );
+#endif
+		}
+		if ( !PlayerPrefs.HasKey( "excludedImports" ) )
+			PlayerPrefs.SetString( "excludedImports", "" );
+		if ( !PlayerPrefs.HasKey( "musicVolume" ) )//1-10
+			PlayerPrefs.SetInt( "musicVolume", 5 );
+		if ( !PlayerPrefs.HasKey( "ambientVolume" ) )//1-10
+			PlayerPrefs.SetInt( "ambientVolume", 5 );
+		if ( !PlayerPrefs.HasKey( "soundVolume" ) )//1-10
+			PlayerPrefs.SetInt( "soundVolume", 7 );
 	}
 }

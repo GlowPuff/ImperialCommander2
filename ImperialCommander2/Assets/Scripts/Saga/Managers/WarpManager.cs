@@ -14,7 +14,7 @@ public class WarpManager : MonoBehaviour
 	void Awake()
 	{
 		sound = FindObjectOfType<Sound>();
-		sound.CheckAudio();
+		sound.PlayMusicAndMenuAmbient();
 
 		float pixelHeightOfCurrentScreen = Screen.height;//.currentResolution.height;
 		float pixelWidthOfCurrentScreen = Screen.width;//.currentResolution.width;

@@ -23,12 +23,12 @@ public class ValueAdjuster : MonoBehaviour
 
 	public void OnAdd()
 	{
-		valueAdjusterTarget.OnAdd();
+		valueAdjusterTarget?.OnAdd();
 	}
 
 	public void OnSubtract()
 	{
-		valueAdjusterTarget.OnSubtract();
+		valueAdjusterTarget?.OnSubtract();
 	}
 
 	public void SetValue( int value )
