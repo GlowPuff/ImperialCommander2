@@ -508,6 +508,15 @@ namespace Saga
 				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
 				missionCustomVillains = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
 
+				//set additional info
+				//sanity check that the index is within range of the loaded mission card data
+				int idx = Mathf.Clamp( int.Parse( id ) - 1, 0, DataStore.missionCards[m.missionProperties.missionID.Split( ' ' )[0]].Count );
+				var mcard = DataStore.missionCards[m.missionProperties.missionID.Split( ' ' )[0]][idx] ?? null;
+				if ( !string.IsNullOrEmpty( m.missionProperties.additionalMissionInfo ) )
+					additionalInfoText.text = m.missionProperties.additionalMissionInfo;
+				else
+					additionalInfoText.text = mcard?.bonusText ?? "";
+
 				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )
 					DataStore.sagaSessionData.BannedAllies.Add( m.missionProperties.bannedAlly );
 				else if ( m.missionProperties.useBannedAlly == YesNoAll.Multi )
@@ -544,6 +553,9 @@ namespace Saga
 				missionCustomAllies = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
 				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
 				missionCustomVillains = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
+
+				//set additional info
+				additionalInfoText.text = m.missionProperties.additionalMissionInfo ?? "";
 
 				//ignore "Other" expansion enemy groups by default, except owned packs
 				var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
