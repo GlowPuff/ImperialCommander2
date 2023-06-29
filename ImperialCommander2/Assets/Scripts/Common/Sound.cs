@@ -110,9 +110,12 @@ public class Sound : MonoBehaviour
 		{
 			Debug.Log( $"StartAmbientSound()::playing [{bt}]" );
 			ambientSource.clip = Resources.Load<AudioClip>( $"Sounds/ambient/{bt}" );
-			ambientSource.clip.name = bt.ToString();
-			ambientSource.volume = PlayerPrefs.GetInt( "ambientVolume" ) / 10f;
-			ambientSource.Play();
+			if ( ambientSource.clip != null )
+			{
+				ambientSource.clip.name = bt.ToString();
+				ambientSource.volume = PlayerPrefs.GetInt( "ambientVolume" ) / 10f;
+				ambientSource.Play();
+			}
 		}
 	}
 
@@ -136,9 +139,12 @@ public class Sound : MonoBehaviour
 			{
 				ambientSource.Stop();
 				ambientSource.clip = Resources.Load<AudioClip>( $"Sounds/ambient/{biomeType}" );
-				ambientSource.clip.name = biomeType.ToString();
-				ambientSource.DOFade( PlayerPrefs.GetInt( "ambientVolume" ) / 10f, 1 );
-				ambientSource.Play();
+				if ( ambientSource.clip != null )
+				{
+					ambientSource.clip.name = biomeType.ToString();
+					ambientSource.DOFade( PlayerPrefs.GetInt( "ambientVolume" ) / 10f, 1 );
+					ambientSource.Play();
+				}
 			} );
 		}
 		else if ( biomeType == BiomeType.None )

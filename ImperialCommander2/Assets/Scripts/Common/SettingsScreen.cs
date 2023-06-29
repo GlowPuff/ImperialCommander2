@@ -22,6 +22,7 @@ public class SettingsScreen : MonoBehaviour
 	public BiomeType biomeType;
 
 	Action<SettingsCommand> quitAction;
+	bool toggleBusy;
 
 	public void Show( Action<SettingsCommand> onQuit, BiomeType btype = BiomeType.Menu )
 	{
@@ -54,6 +55,7 @@ public class SettingsScreen : MonoBehaviour
 			sound.SetSoundVolume( soundWheelHandler.wheelValue );
 		};
 
+		toggleBusy = true;//to avoid OnToggle()
 		musicToggle.isOn = PlayerPrefs.GetInt( "music" ) == 1;
 		soundToggle.isOn = PlayerPrefs.GetInt( "sound" ) == 1;
 		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom2" ) == 1;
@@ -62,6 +64,7 @@ public class SettingsScreen : MonoBehaviour
 		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
 		zoomToggle.isOn = PlayerPrefs.GetInt( "zoombuttons" ) == 1;
 		viewToggle.isOn = PlayerPrefs.GetInt( "viewToggle" ) == 1;
+		toggleBusy = false;
 
 		//set the translated UI strings
 		languageController.SetTranslatedUI();
@@ -101,6 +104,10 @@ public class SettingsScreen : MonoBehaviour
 
 	public void OnToggle( Toggle t )
 	{
+		//don't process toggle just because we manually set it on/off in Show()
+		if ( toggleBusy )
+			return;
+
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		if ( t.name.ToLower() == "music toggle" )
