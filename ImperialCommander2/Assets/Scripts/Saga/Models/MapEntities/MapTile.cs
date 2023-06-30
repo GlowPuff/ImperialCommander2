@@ -25,21 +25,21 @@ namespace Saga
 		public string tileID;
 		public string tileSide;
 		public Expansion expansion;
-		[JsonIgnore]
-		public int biomeWeight
+		public int GetBiomeWeight()
 		{
-			get => tileRenderer.tileDescriptor.biomeWeight;
+			if ( tileRenderer != null )
+				return tileRenderer.tileDescriptor.biomeWeight;
+			return 0;
 		}
-		[JsonIgnore]
-		public BiomeType biomeType
+		public BiomeType GetBiomeType()
 		{
-			get
-			{
-				if ( tileSide == "A" )
-					return tileRenderer.tileDescriptor.biomeTypeA;
-				else
-					return tileRenderer.tileDescriptor.biomeTypeB;
-			}
+			if ( tileRenderer == null )
+				return BiomeType.None;
+
+			if ( tileSide == "A" )
+				return tileRenderer.tileDescriptor.biomeTypeA;
+			else
+				return tileRenderer.tileDescriptor.biomeTypeB;
 		}
 	}
 }

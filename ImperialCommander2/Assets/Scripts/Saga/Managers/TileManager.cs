@@ -9,6 +9,7 @@ namespace Saga
 	public class TileManager : MonoBehaviour
 	{
 		public GameObject tilePrefab;
+		[HideInInspector]
 		public BiomeType currentBiometype;
 
 		List<MapSection> mapSections;
@@ -123,7 +124,7 @@ namespace Saga
 			}
 
 			//determine which ambient sound to play
-			currentBiometype = mapSections[index].biomeType;
+			currentBiometype = mapSections[index].GetBiomeType();
 			Debug.Log( $"ActivateMapSection()::index = {index}, Biome = {currentBiometype}" );
 			FindObjectOfType<Sound>().ChangeAmbient( currentBiometype );
 
@@ -203,8 +204,18 @@ namespace Saga
 
 		public void RestoreTiles()
 		{
+			//assign a tileRenderer back to all the tiles since it gets blown away from state restoration ( even though it's assigned during InstantiateTiles() )
 			for ( int i = 0; i < mapSections.Count; i++ )
 			{
+				foreach ( var tr in tileRenderers.Where( x => x.mapTile.mapSectionOwner == mapSections[i].GUID ).ToList() )
+				{
+					foreach ( var tile in mapSections[i].mapTiles )
+					{
+						if ( tr.mapTile.GUID == tile.GUID )
+							tile.tileRenderer = tr;
+					}
+				}
+
 				if ( mapSections[i].isActive )
 					ActivateMapSection( i );
 			}

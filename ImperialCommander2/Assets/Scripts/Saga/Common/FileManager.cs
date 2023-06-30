@@ -493,8 +493,12 @@ namespace Saga
 			var p = packages.Where( x => x.GUID.ToString() == campaignGUID ).FirstOr( null );
 			if ( p != null )
 			{
-				missionStringified = JsonConvert.SerializeObject( p );
-				return p.campaignMissionItems.Where( x => x.mission.missionGUID.ToString() == missionGUID ).FirstOr( null )?.mission;
+				var mission = p.campaignMissionItems.Where( x => x.mission.missionGUID.ToString() == missionGUID ).FirstOr( null )?.mission;
+				if ( mission != null )
+				{
+					missionStringified = JsonConvert.SerializeObject( mission );
+				}
+				return mission;
 			}
 
 			return null;
