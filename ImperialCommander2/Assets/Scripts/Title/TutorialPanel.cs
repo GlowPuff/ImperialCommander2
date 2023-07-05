@@ -62,6 +62,13 @@ public class TutorialPanel : MonoBehaviour
 		DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[2] );
 		DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[4] );
 
+		//ignore figure packs for Tutorial
+		for ( int i = 62; i <= 69; i++ )
+		{
+			var c = DataStore.allEnemyDeploymentCards.GetDeploymentCard( $"DG0{i}" );
+			DataStore.sagaSessionData.MissionIgnored.Add( c );
+		}
+
 		FindObjectOfType<TitleController>().StartTutorial();
 	}
 }
