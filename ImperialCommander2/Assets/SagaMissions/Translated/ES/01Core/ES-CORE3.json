@@ -1,24 +1,23 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "ES\\01 - Core Game\\CORE3-Chain of Command.json",
-  "fileVersion": "18",
-  "saveDate": "11/3/2022",
-  "timeTicks": 638030800045004176,
+  "fileName": "ES-CORE3.json",
+  "fileVersion": "21",
+  "saveDate": "7/17/2023",
+  "timeTicks": 638252151575708817,
   "languageID": "Spanish (ES)",
   "missionProperties": {
     "missionName": "Cadena de Mando",
     "campaignName": "Juego Base",
     "missionDescription": "",
+    "additionalMissionInfo": null,
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "Derrotar a Weiss.",
-    "additionalMissionInfo": null,
     "missionID": "Core 3",
     "missionInfo": "{-} El <color=\"red\">Oficial imperial</color> es Weiss. Weiss recibe +6 Vida. Aplica +1 {G} a cada uno de sus resultados de defensa.\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 2 (sólo una vez por ronda por terminal).\r\n{-} La puerta está sellada para las figuras del bando Rebelde. Una figura del bando Rebelde puede interactuar con la puerta ({K} or {I}) para abrirla.\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: 8, Defensa: 1 {G}).\r\n{-} Los Rebeldes ganan cuando Weiss es derrotado.\r\n{-} The Rebeldes pierden cuando todos los Héroes estén heridos.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": false,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -50,9 +49,9 @@
       "DG065",
       "DG066",
       "DG067"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "CORE3-Chain of Command.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -91,6 +90,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -380,6 +380,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -408,6 +409,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -462,6 +464,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -510,6 +513,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -558,6 +562,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -612,6 +617,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -722,6 +728,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -729,6 +736,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "f9fe20c5-414b-465e-a0b7-a7b76499e6d8",
           "eventActionType": 6,
           "displayName": "Deploy: DG006/Imperial Officer (Elite)"
@@ -745,7 +753,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "No hay ningún arma. Nunca la hubo.\r\n\r\nTras sellar la zona, intentáis recuperar los esquemas definitivos de la computadora de Weiss. En su lugar, encontráis una serie de planes de combate, contingencias y posiciones de una enorme flota imperial, que está aguardando el ataque rebelde contra el lugar donde supuestamente se está desarrollando el arma. Es una emboscada.\r\n\r\n-Ha sido casi demasiado fácil engañaros -dice Weiss tranquilamente mientras lo lleváis hacia vuestro túnel de escape-. Siempre estáis ansiosos por una batalla final. Es muy fácil provocaros.\r\n\r\nJusto cuando Weiss termina de hablar, una explosion revienta las puertas selladas. Aprovechando la distracción, Weiss se libera de vuestra presa y se tira al suelo mientras una lluvia de disparos brota de la abertura.\r\n\r\n-¡Estoy bien! -grita mientras aparta a los soldados imperiales que tratan de ayudarle, para a continuación señalaros con el dedo -. ¡Id tras ellos!\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Puesto que Weiss fue derrotado antes de entrar en el AT-ST inactivo, los Héroes reciben 100 créditos adicionales por Héroe.",
+      "eventText": "No hay ningún arma. Nunca la hubo.\r\n\r\nTras sellar la zona, intentáis recuperar los esquemas definitivos de la computadora de Weiss. En su lugar, encontráis una serie de planes de combate, contingencias y posiciones de una enorme flota imperial, que está aguardando el ataque rebelde contra el lugar donde supuestamente se está desarrollando el arma. Es una emboscada.\r\n\r\n-Ha sido casi demasiado fácil engañaros -dice Weiss tranquilamente mientras lo lleváis hacia vuestro túnel de escape-. Siempre estáis ansiosos por una batalla final. Es muy fácil provocaros.\r\n\r\nJusto cuando Weiss termina de hablar, una explosion revienta las puertas selladas. Aprovechando la distracción, Weiss se libera de vuestra presa y se tira al suelo mientras una lluvia de disparos brota de la abertura.\r\n\r\n-¡Estoy bien! -grita mientras aparta a los soldados imperiales que tratan de ayudarle, para a continuación señalaros con el dedo -. ¡Id tras ellos!\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Puesto que Weiss fue derrotado antes de entrar en el AT-ST inactivo, los Héroes reciben 100 créditos adicionales por Héroe.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -762,6 +770,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -802,6 +811,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -825,7 +835,7 @@
       "GUID": "6f73e957-9eaf-4c36-b0bc-255b16b722e3",
       "isGlobal": true,
       "name": "End of Mission - Rebels win late",
-      "eventText": "No hay ningún arma. Nunca la hubo.\r\n\r\nTras sellar la zona, intentáis recuperar los esquemas definitivos de la computadora de Weiss. En su lugar, encontráis una serie de planes de combate, contingencias y posiciones de una enorme flota imperial, que está aguardando el ataque rebelde contra el lugar donde supuestamente se está desarrollando el arma. Es una emboscada.\r\n\r\n-Ha sido casi demasiado fácil engañaros -dice Weiss tranquilamente mientras lo lleváis hacia vuestro túnel de escape-. Siempre estáis ansiosos por una batalla final. Es muy fácil provocaros.\r\n\r\nJusto cuando Weiss termina de hablar, una explosion revienta las puertas selladas. Aprovechando la distracción, Weiss se libera de vuestra presa y se tira al suelo mientras una lluvia de disparos brota de la abertura.\r\n\r\n-¡Estoy bien! -grita mientras aparta a los soldados imperiales que tratan de ayudarle, para a continuación señalaros con el dedo -. ¡Id tras ellos!\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Puesto que Weiss fue derrotado después de entrar en el AT-ST inactivo, incrementa el nivel de amenaza de la siguiente misión  (y sólo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
+      "eventText": "No hay ningún arma. Nunca la hubo.\r\n\r\nTras sellar la zona, intentáis recuperar los esquemas definitivos de la computadora de Weiss. En su lugar, encontráis una serie de planes de combate, contingencias y posiciones de una enorme flota imperial, que está aguardando el ataque rebelde contra el lugar donde supuestamente se está desarrollando el arma. Es una emboscada.\r\n\r\n-Ha sido casi demasiado fácil engañaros -dice Weiss tranquilamente mientras lo lleváis hacia vuestro túnel de escape-. Siempre estáis ansiosos por una batalla final. Es muy fácil provocaros.\r\n\r\nJusto cuando Weiss termina de hablar, una explosion revienta las puertas selladas. Aprovechando la distracción, Weiss se libera de vuestra presa y se tira al suelo mientras una lluvia de disparos brota de la abertura.\r\n\r\n-¡Estoy bien! -grita mientras aparta a los soldados imperiales que tratan de ayudarle, para a continuación señalaros con el dedo -. ¡Id tras ellos!\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Puesto que Weiss fue derrotado después de entrar en el AT-ST inactivo, incrementa el nivel de amenaza de la siguiente misión  (y sólo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -842,6 +852,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -893,6 +904,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -946,6 +958,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -999,6 +1012,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1045,6 +1059,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "cad8b3a6-7edb-4dbb-8661-1a594c7a99ea",
@@ -1052,6 +1067,7 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
+          "thumbnail": null,
           "GUID": "092cc3fa-ef93-4e6b-b477-3f6337c7232c",
           "eventActionType": 6,
           "displayName": "Deploy: DG073/General Weiss"
@@ -1123,6 +1139,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1187,6 +1204,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1215,6 +1233,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1243,6 +1262,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1327,6 +1347,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1444,6 +1465,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1496,6 +1518,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1563,6 +1586,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1610,6 +1634,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1648,6 +1673,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1720,6 +1746,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1792,6 +1819,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1864,6 +1892,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -2048,7 +2077,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2084,7 +2114,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2120,7 +2151,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2156,7 +2188,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2192,7 +2225,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2228,7 +2262,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2264,7 +2299,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2300,7 +2336,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2336,7 +2373,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2372,7 +2410,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2408,7 +2447,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2444,7 +2484,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2480,7 +2521,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2643,7 +2685,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -2672,6 +2715,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2706,6 +2750,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2743,6 +2788,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2780,6 +2826,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2811,6 +2858,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2844,6 +2892,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2875,6 +2924,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2884,5 +2934,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }
