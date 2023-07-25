@@ -28,8 +28,6 @@ namespace Saga
 			modifyText.text = DataStore.uiLanguage.uiCampaign.modifyUC;
 			removeText.text = DataStore.uiLanguage.uiCampaign.removeUC;
 
-			//if ( !cs.isCustom )
-			//threatLevelText.GetComponent<MWheelHandler>().enabled = false;
 			wheelHandler.valueAdjuster = va;
 			wheelHandler.ResetWheeler( cs.threatLevel );
 			wheelHandler.wheelValueChanged.AddListener( () => campaignStructure.threatLevel = wheelHandler.wheelValue );
@@ -78,11 +76,7 @@ namespace Saga
 			}
 
 			//set translated expansion name based on mission source (official, custom, embedded)
-			//if ( !cs.isCustomMission
-			//	&& !cs.isEmbeddedMission
-			if ( cs.missionSource == MissionSource.Official
-				&& !string.IsNullOrEmpty( cs.missionID )
-				/*&& cs.missionID != "Custom"*/ )
+			if ( cs.missionSource == MissionSource.Official && !string.IsNullOrEmpty( cs.missionID ) )
 			{
 				var mcard = DataStore.GetMissionCard( cs.missionID );
 				string mn = mcard?.name;
@@ -91,12 +85,8 @@ namespace Saga
 				else
 					missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
 			}
-			//else if ( campaign.campaignType != CampaignType.Imported
-			//	&& !string.IsNullOrEmpty( cs.missionID )
-			//	&& cs.missionID == "Custom" )
 			//set translated expansion name IF it's a custom mission
-			else if ( cs.missionSource == MissionSource.Custom//cs.isCustomMission
-				&& !string.IsNullOrEmpty( cs.missionID ) )
+			else if ( cs.missionSource == MissionSource.Custom && !string.IsNullOrEmpty( cs.missionID ) )
 			{
 				missionName.text = cs.projectItem.Title + $"\n<color=orange>{DataStore.uiLanguage.uiCampaign.customUC}: " + DataStore.translatedExpansionNames[cs.expansionCode] + "</color>";
 			}

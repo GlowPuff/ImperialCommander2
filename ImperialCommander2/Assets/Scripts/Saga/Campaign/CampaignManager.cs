@@ -402,7 +402,7 @@ namespace Saga
 			{
 				missionType = MissionType.Forced,
 				missionID = card.id,
-				threatLevel = SagaCampaign.GetMissionPreset( card.expansion, card.id )?.defaultThreat ?? 3,
+				threatLevel = 2,//default because of removal of preset dependence
 				isForced = true,
 				expansionCode = card.expansion.ToString(),
 				missionSource = card.id == "Custom" ? MissionSource.Custom : MissionSource.Official,

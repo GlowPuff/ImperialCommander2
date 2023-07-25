@@ -178,11 +178,11 @@ namespace Saga
 			}
 		}
 
-		public static MissionPreset GetMissionPreset( Expansion expansion, string expCode )
-		{
-			var presets = LoadAsset<List<MissionPreset>>( $"MissionPresets/{expansion}" );
-			return presets.Where( x => x.id == expCode.ToLower() ).FirstOr( null );
-		}
+		//public static MissionPreset GetMissionPreset( Expansion expansion, string expCode )
+		//{
+		//	var presets = LoadAsset<List<MissionPreset>>( $"MissionPresets/{expansion}" );
+		//	return presets.Where( x => x.id == expCode.ToLower() ).FirstOr( null );
+		//}
 
 		/// <summary>
 		/// load the actual Campaign state

@@ -172,9 +172,7 @@ namespace Saga
 				DataStore.sagaSessionData.MissionIgnored.Clear();
 				//add default ignored
 				//ignore "Other" expansion enemy groups by default, except owned packs
-				DataStore.sagaSessionData.MissionIgnored.AddRange( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
-				int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
-				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
+				SetMissionIgnored( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 			}
 		}
 
@@ -186,6 +184,17 @@ namespace Saga
 				faderCG.DOFade( 0, .5f ).OnComplete( () => SceneManager.LoadScene( "Title" ) );
 			else
 				faderCG.DOFade( 0, .5f ).OnComplete( () => SceneManager.LoadScene( "Campaign" ) );
+		}
+
+		/// <summary>
+		/// Sets DataStore.sagaSessionData.MissionIgnored and updates UI text
+		/// </summary>
+		void SetMissionIgnored( IEnumerable<DeploymentCard> ignored )
+		{
+			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
+			int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
+			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
+			Debug.Log( $"FOUND {DataStore.sagaSessionData.MissionIgnored.Count} IGNORED GROUPS IN MISSION" );
 		}
 
 		/// <summary>
@@ -205,6 +214,12 @@ namespace Saga
 			campaignTilesButton.gameObject.SetActive( true );
 
 			var structure = RunningCampaign.campaignStructure;
+			setupOptions = new SagaSetupOptions()
+			{
+				threatLevel = structure.threatLevel,
+				projectItem = structure.projectItem,
+			};
+
 			//deactivate mission picker
 			rightPanel.SetActive( false );
 			//add heroes
@@ -236,10 +251,11 @@ namespace Saga
 				DataStore.mission = m;
 				if ( m != null )
 				{
-					var ign = from c in DataStore.deploymentCards join i in m.missionProperties.bannedGroups on c.id equals i select c;
+					var ign = m.missionProperties.bannedGroups.Select( x => { return DataStore.deploymentCards.GetDeploymentCard( x ); } );
 					ign.ToList().ForEach( x => ignored.Add( x ) );
 					//add ignored from mission
 					disabledIgnoredGroups.AddRange( ign );
+					SetMissionIgnored( ignored );
 				}
 				else
 					errorPanel.Show( "SetupCampaignMission()", $"Could not load embedded mission:\n{structure.projectItem.Title}::{structure.projectItem.missionGUID}" );
@@ -247,18 +263,23 @@ namespace Saga
 			//add non-custom mission specific ignored groups, even if they are owned packs
 			else if ( structure.missionSource == MissionSource.Official )
 			{
-				var presets = DataStore.missionPresets[structure.expansionCode.ToLower()];
-				var mp = presets.Where( x => x.id.ToLower() == structure.missionID.ToLower() ).FirstOr( null );
-				if ( mp != null )
+				//get ignored groups from the mission itself
+				FileManager.LoadMissionFromAddressable( setupOptions.projectItem.fullPathWithFilename, ( m, s ) =>
 				{
-					var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
-					ign.ToList().ForEach( x => ignored.Add( x ) );
-					//add ignored from preset
-					disabledIgnoredGroups.AddRange( ign );
-				}
+					if ( m != null )
+					{
+						var ign = m.missionProperties.bannedGroups.Select( x => { return DataStore.deploymentCards.GetDeploymentCard( x ); } );
+
+						ign.ToList().ForEach( x => ignored.Add( x ) );
+						//add ignored from preset
+						disabledIgnoredGroups.AddRange( ign );
+						SetMissionIgnored( ignored );
+					}
+				} );
 			}
 			else if ( structure.missionSource == MissionSource.Custom )
 			{
+				//get ignored groups from the mission itself
 				Mission m = FileManager.LoadMission( structure.projectItem.fullPathWithFilename );
 				if ( m != null )
 				{
@@ -266,21 +287,12 @@ namespace Saga
 					ign.ToList().ForEach( x => ignored.Add( x ) );
 					//add ignored from mission
 					disabledIgnoredGroups.AddRange( ign );
+					SetMissionIgnored( ignored );
 				}
 				else
 					errorPanel.Show( "SetupCampaignMission()", $"Could not load custom mission:\n{structure.projectItem.fullPathWithFilename}" );
 			}
 
-			//finally, add the uniquely hashed set of ignored cards
-			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
-			int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
-			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
-
-			setupOptions = new SagaSetupOptions()
-			{
-				threatLevel = structure.threatLevel,
-				projectItem = structure.projectItem,
-			};
 			//set the mission
 			missionPicker.selectedMission = setupOptions.projectItem;
 			//set mission name
@@ -475,34 +487,26 @@ namespace Saga
 
 			var expansion = pi.missionID.Split( ' ' )[0].ToLower();
 			var id = pi.missionID.Split( ' ' )[1].ToLower();
-			var presets = DataStore.missionPresets[expansion];
-			var mp = presets.Where( x => x.id.ToLower() == $"{expansion}{id}" ).FirstOr( null );
+			//var presets = DataStore.missionPresets[expansion];
+			//var mp = presets.Where( x => x.id.ToLower() == $"{expansion}{id}" ).FirstOr( null );
 
 			//ignore "Other" expansion enemy groups by default, except owned packs
 			var ignored = new HashSet<DeploymentCard>( DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ) );
 
-			if ( mp != null )
-			{
-				//get ignored from preset, even if they are owned packs
-				var ign = from c in DataStore.deploymentCards join i in mp.ignoredGroups on c.id equals i select c;
-				ign.ToList().ForEach( x => ignored.Add( x ) );
-				//add ignored from preset
-				disabledIgnoredGroups.AddRange( ign );
-
-				threatValue.ResetWheeler( mp.defaultThreat );
-			}
-			else
-				errorPanel.Show( "OnMissionSelected()", "MissionPreset is null" );
-
-			//add the uniquely hashed set of ignored to the real list
-			DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
-			int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
-			languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
-
-			//add banned allies and custom heroes/allies
+			//add ignored enemies, banned allies and custom heroes/allies
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
 			if ( m != null )
 			{
+				//add ignored enemies
+				var ign = m.missionProperties.bannedGroups.Select( x => { return DataStore.deploymentCards.GetDeploymentCard( x ); } );
+				ign.ToList().ForEach( x => ignored.Add( x ) );
+				//add ignored from mission
+				disabledIgnoredGroups.AddRange( ign );
+				SetMissionIgnored( ignored );
+
+				//set default threat
+				threatValue.ResetWheeler( 2 );
+
 				//add custom allies/heroes/villains embedded in Mission
 				missionCustomAllies = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
 				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
@@ -544,7 +548,7 @@ namespace Saga
 			DataStore.sagaSessionData.EarnedVillains = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.id.Contains( "TC" ) ).ToList();
 
 			//set default values to UI - they don't exist in a custom mission
-			threatValue.ResetWheeler( 3 );
+			threatValue.ResetWheeler( 2 );
 
 			Mission m = FileManager.LoadMissionFromString( pi.stringifiedMission );
 			if ( m != null )
@@ -564,11 +568,7 @@ namespace Saga
 				ign.ToList().ForEach( x => ignored.Add( x ) );
 				//add ignored from mission
 				disabledIgnoredGroups.AddRange( ign );
-
-				//add the uniquely hashed set of ignored to the real list
-				DataStore.sagaSessionData.MissionIgnored.AddRange( ignored );
-				int impCount = DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial ).Count() - DataStore.sagaSessionData.globalImportedCharacters.Count;
-				languageController.UpdateIgnoredCount( DataStore.sagaSessionData.MissionIgnored.Count + impCount );
+				SetMissionIgnored( ignored );
 
 				//add banned allies
 				if ( m.missionProperties.useBannedAlly == YesNoAll.Yes )
