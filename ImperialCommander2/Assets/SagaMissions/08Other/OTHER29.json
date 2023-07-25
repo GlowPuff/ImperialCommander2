@@ -1,10 +1,10 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "OTHER29-Phantom Extraction.json",
-  "relativePath": "OTHER29-Phantom Extraction.json",
-  "fileVersion": "17",
-  "saveDate": "7/16/2022",
-  "timeTicks": 637935938778875875,
+  "fileName": "OTHER29.json",
+  "fileVersion": "21",
+  "saveDate": "7/11/2023",
+  "timeTicks": 638247076395133855,
+  "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Phantom Extraction",
     "campaignName": "Hera Syndulla and C1-10P Ally Pack",
@@ -18,7 +18,6 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "banAllAllies": 1,
     "useFixedAlly": 1,
     "useBannedAlly": 0,
     "customInstructionType": 2,
@@ -48,7 +47,8 @@
       "DG028",
       "DG029",
       "DG025"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
   "mapSections": [
     {
@@ -88,6 +88,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -288,6 +289,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -393,6 +395,7 @@
           "useHeroWounded": false,
           "useHeroWithdraws": false,
           "useAnyHeroWounded": false,
+          "useAnyHeroDefeated": false,
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
@@ -484,6 +487,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -512,6 +516,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -566,6 +571,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -614,6 +620,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -662,6 +669,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -669,24 +677,24 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "allyID": "A019",
           "allyName": null,
-          "useGenericMugshot": false,
+          "allyID": "A019",
           "setTrigger": "2eac3b19-eacb-4daf-96bc-4b03c02665a8",
           "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "11111111-1111-1111-1111-111111111111",
-          "useThreat": false,
           "threatCost": 0,
-          "displayName": "Ally Deployment",
+          "useThreat": false,
+          "useGenericMugshot": false,
           "GUID": "9053ed3f-5745-43ff-bd7a-afbf2cd8ed7d",
-          "eventActionType": 7
+          "eventActionType": 7,
+          "displayName": "Ally Deployment"
         },
         {
           "theText": "The door to the makeshift prison is controlled by various terminals.",
-          "displayName": "Text Box",
           "GUID": "cb6218c4-c40b-4bfe-a5e0-8ac432ac292f",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -768,23 +776,23 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} A hero can spend 2 movement points to interact with a colored terminal without using an action (Red: {K}; Green: {I}) and try to deactivate it. During that test, that figure may suffer 1 {C} to reroll up to 2 dice.\r\n{-} When all colored terminals have been deactivated, the door unlocks to Rebel figures.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Text Box",
+          "theText": "{-} A hero can spend 2 movement points to interact with a colored terminal without using an action (Red: {K}; Green: {J}) and try to deactivate it. During that test, that figure may suffer 1 {C} to reroll up to 2 dice.\r\n{-} When all colored terminals have been deactivated, the door unlocks to Rebel figures.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
           "GUID": "a9ab6b2b-3061-4f9a-9700-bdab9679b11c",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Deactivate the colored terminals (&Terminals Sliced&/4).",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "061216ec-89d1-4822-b1db-fd3943e912ef",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
-          "theText": "{-} The door is locked.\r\n{-} A hero can spend 2 movement points to interact with a colored terminal without using an action (Red: {K}; Green: {I}) and try to deactivate it. During that test, that figure may suffer 1 {C} to reroll up to 2 dice.\r\n{-} When all colored terminals have been deactivated, the door unlocks to Rebel figures.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
+          "theText": "{-} The door is locked.\r\n{-} A hero can spend 2 movement points to interact with a colored terminal without using an action (Red: {K}; Green: {J}) and try to deactivate it. During that test, that figure may suffer 1 {C} to reroll up to 2 dice.\r\n{-} When all colored terminals have been deactivated, the door unlocks to Rebel figures.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
           "GUID": "f4967768-a96a-4735-8012-770ec3a98514",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -809,6 +817,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -855,6 +864,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -895,6 +905,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -902,29 +913,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You start to slice into the terminal.\r\n\r\n{-} Test {K}. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. During the test, you may suffer 1 {C} to reroll up to 2 dice. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "bf29283f-7ca7-47f1-806a-acd5dc7e3daa"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "37cf463c-36b3-434d-a76d-bc8784cc2e77",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -949,6 +960,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -959,14 +971,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals Sliced",
+              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "76d1655f-f8d3-4baa-b3b2-28c0e9b75cf5",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "entitiesToModify": [
@@ -1010,6 +1022,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1017,29 +1030,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You start to slice into the terminal.\r\n\r\n{-} Test {K}. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. During the test, you may suffer 1 {C} to reroll up to 2 dice. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "3bdfee09-f3aa-4396-b9fa-ee72e5d13b22"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "1bc0d1ee-7d01-4ea3-8326-74add507c2ee",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1064,6 +1077,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1074,14 +1088,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals Sliced",
+              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "1b6353c1-4822-48e5-904b-b94e86b703f4",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "entitiesToModify": [
@@ -1125,6 +1139,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1132,29 +1147,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You start to slice into the terminal.\r\n\r\n{-} Test {J}. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. During the test, you may suffer 1 {C} to reroll up to 2 dice. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "0f706a9a-32f2-41d7-b405-44545fa595b9"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "2b0eac59-12f5-4a7c-8873-406d48370f77",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1179,6 +1194,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1189,14 +1205,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals Sliced",
+              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "7bcf1c55-6cf6-4dff-a66e-ec444d9c5e2e",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "entitiesToModify": [
@@ -1240,6 +1256,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1247,29 +1264,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You start to slice into the terminal.\r\n\r\n{-} Test {J}. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal. During the test, you may suffer 1 {C} to reroll up to 2 dice. Enter the number of successes below.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "30b34060-dad6-40f8-9117-0fdf8fb23d8e"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "f38d6d99-5739-47df-b94c-4b24fde87749",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1294,6 +1311,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1304,14 +1322,14 @@
           "triggerList": [
             {
               "triggerName": "Terminals Sliced",
+              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0",
               "setValue": -1,
-              "modifyValue": 1,
-              "triggerGUID": "f2b24467-38f2-4ce9-bd1f-179b745d4dc0"
+              "modifyValue": 1
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "9c467fdf-cf30-4205-af8b-d196697a82d1",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "entitiesToModify": [
@@ -1355,6 +1373,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1403,15 +1422,15 @@
         {
           "theText": "Enter the prison.",
           "longText": "",
-          "displayName": "Change Objective",
           "GUID": "7e29ff35-43db-4207-bcdc-a382dfa06453",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} The door is locked to Imperial figures.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "675f6d7a-7702-4f48-8aa5-9f3fa93668eb",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1436,6 +1455,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1462,13 +1482,13 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "mapSection": "be32ee37-76a8-4ffe-b452-3abd8883e7fe",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "be32ee37-76a8-4ffe-b452-3abd8883e7fe",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "7bace8c2-16fb-4d6a-9387-0326da96f4ea",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": "Block access to the terminal.",
@@ -1480,9 +1500,9 @@
         },
         {
           "theText": "A door, controlled by a nearby terminal, appears to lead into a small holding cell. Something is constantly bumping against it from the inside.",
-          "displayName": "Text Box",
           "GUID": "4f85d280-e688-48fc-b957-21d4cff29389",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "entitiesToModify": [
@@ -1511,47 +1531,47 @@
         },
         {
           "theText": "{-} A hero can interact with the terminal ({I}) to try and open the door to the cell.\r\n{-} The mission will progress when the cell door opens.",
-          "displayName": "Text Box",
           "GUID": "648cb1d5-a4da-4d0e-bc0a-c31d006834ce",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "Prison guards jump up from their seats and reach for their weapons.",
-          "displayName": "Text Box",
           "GUID": "fe593f49-5a80-4a6c-a991-dd7392b5ed95",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 1,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "5c8187b5-5a12-41ff-8670-87a13af03a0c",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
-          "isOnslaught": false,
           "deploymentPoint": 1,
-          "specificDeploymentPoint": "63923376-f691-466d-af92-e30b36bea0df",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "63923376-f691-466d-af92-e30b36bea0df",
+          "isOnslaught": false,
           "GUID": "b5b97938-6040-4ee0-9cf1-f10d1b991bd8",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "theText": "Open the cell door.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "61d95b8d-00e4-4840-ba25-0984389daaa7",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} The door is locked.\r\n{-} A hero can interact with the terminal ({I}) to try and open the door to the cell.\r\n{-} The mission will progress when the cell door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "fc8c156f-90b5-4688-a616-fb54dd971630",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1576,6 +1596,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
@@ -1583,29 +1604,29 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "failText": "",
           "theText": "You start to slice into the terminal.\r\n\r\n{-} Test {I}. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal.",
+          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
+          "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
+              "theText": "You don't make any progress. You need to keep trying.",
               "fromValue": 0,
               "toValue": 0,
-              "theText": "You don't make any progress. You need to keep trying.",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "00000000-0000-0000-0000-000000000000"
             },
             {
+              "theText": null,
               "fromValue": 1,
               "toValue": -1,
-              "theText": null,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "257ceafe-6bf9-4f8d-b8bb-77681bfe41f9"
             }
           ],
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Input Prompt",
-          "failText": "",
           "GUID": "10bae439-07ae-46fd-b864-cde2bfa58f30",
-          "eventActionType": 20
+          "eventActionType": 20,
+          "displayName": "Input Prompt"
         }
       ]
     },
@@ -1630,6 +1651,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1668,13 +1690,13 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "mapSection": "7d4c55a4-f48e-4716-befa-1e9f231fe3fe",
           "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "displayName": "Map Management",
+          "mapSection": "7d4c55a4-f48e-4716-befa-1e9f231fe3fe",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
           "GUID": "31378ec7-d342-4c5e-abfe-27f350e98762",
-          "eventActionType": 14
+          "eventActionType": 14,
+          "displayName": "Map Management"
         },
         {
           "theText": null,
@@ -1686,52 +1708,61 @@
         },
         {
           "theText": "An agitated, orange astromech bursts out of the makeshift prison cell buzzing and whirring, eager to punish his captors.",
-          "displayName": "Text Box",
           "GUID": "4dcb39e0-ffc2-4dd1-8d94-4acf001c40b4",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "allyID": "A020",
           "allyName": null,
-          "useGenericMugshot": false,
+          "allyID": "A020",
           "setTrigger": "00000000-0000-0000-0000-000000000000",
           "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "5a9de6aa-4bb5-411e-a303-7583bf9a0d57",
-          "useThreat": false,
           "threatCost": 0,
-          "displayName": "Ally Deployment",
+          "useThreat": false,
+          "useGenericMugshot": false,
           "GUID": "f352527f-20e6-434a-b558-efc083b3ac16",
-          "eventActionType": 7
+          "eventActionType": 7,
+          "displayName": "Ally Deployment"
         },
         {
           "theText": "{-} When <color=\"red\">C1-10P</color> uses \"System Shock\", he may target a figure within 2 spaces of any terminal.",
-          "displayName": "Text Box",
           "GUID": "2ebea265-c47d-464f-9c18-4829ce8e799d",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "theText": "More and more enemies rush in, but the onslaught slowly seems to trickle down.",
-          "displayName": "Text Box",
           "GUID": "bb7349a4-aba5-436d-82a6-76edc614999d",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 2,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "74bfa6b5-bc4c-4ca8-9641-75dbb34e6026",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
-          "deploymentGroup": "DG001",
           "enemyName": null,
-          "canRedeploy": true,
-          "useResetOnRedeployment": false,
+          "deploymentGroup": "DG001",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
           "canReinforce": true,
+          "canRedeploy": true,
           "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
             "GUID": "c9fb8260-a66c-4944-8ffc-a88c55c803ea",
             "cardName": "Stormtrooper",
@@ -1770,47 +1801,39 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": false,
-          "threatCost": 0,
-          "showMod": false,
-          "modification": null,
-          "useCustomInstructions": false,
-          "displayName": "Deploy: DG001/Stormtrooper",
-          "repositionInstructions": "",
-          "useGenericMugshot": false,
+          "thumbnail": null,
           "GUID": "e05c9dff-0d84-4285-9c5b-ab7ac79f5013",
-          "eventActionType": 6
+          "eventActionType": 6,
+          "displayName": "Deploy: DG001/Stormtrooper"
         },
         {
-          "isOnslaught": false,
           "deploymentPoint": 1,
-          "specificDeploymentPoint": "e2bc0730-51db-432d-8e3a-21a51114dfb9",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "e2bc0730-51db-432d-8e3a-21a51114dfb9",
+          "isOnslaught": false,
           "GUID": "69137970-0790-406a-aa3c-ddae1dc185e5",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "theText": "{-} For the rest of the mission, {D} does not increase during the Status Phase.\r\n{-} The Rebels win when all Imperial figures are defeated.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Text Box",
           "GUID": "c00b860e-4842-4fdb-a8e0-017a283c59e2",
-          "eventActionType": 16
+          "eventActionType": 16,
+          "displayName": "Text Box"
         },
         {
           "triggerList": [
             {
               "triggerName": "Chopper",
+              "triggerGUID": "7c502cf2-47ec-4111-a7ad-6dcdc8b976e5",
               "setValue": 1,
-              "modifyValue": 0,
-              "triggerGUID": "7c502cf2-47ec-4111-a7ad-6dcdc8b976e5"
+              "modifyValue": 0
             }
           ],
-          "displayName": "Modify Variable(s)",
           "GUID": "5b2972ab-5c73-4027-9a40-2c9649df22c3",
-          "eventActionType": 3
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         },
         {
           "incRoundCounter": false,
@@ -1826,15 +1849,15 @@
         {
           "theText": "Defeat all Imperial figures.",
           "longText": null,
-          "displayName": "Change Objective",
           "GUID": "ae6b2eae-31a4-46a5-83da-255be1682195",
-          "eventActionType": 2
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         },
         {
           "theText": "{-} When <color=\"red\">C1-10P</color> uses \"System Shock\", he may target a figure within 2 spaces of any terminal.\r\n{-} For the rest of the mission, {D} does not increase during the Status Phase.\r\n{-} The Rebels win when all Imperial figures are defeated.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
-          "displayName": "Change Mission Info",
           "GUID": "704a821f-9276-4f0e-97cb-13261423fdb5",
-          "eventActionType": 1
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         }
       ]
     },
@@ -1859,6 +1882,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1893,6 +1917,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
@@ -1918,9 +1943,9 @@
               "id": "A019"
             }
           ],
-          "displayName": "Remove Group",
           "GUID": "9f9d8d81-71f5-4085-8914-4ba954a3ea24",
-          "eventActionType": 22
+          "eventActionType": 22,
+          "displayName": "Remove Group"
         }
       ]
     },
@@ -1945,6 +1970,7 @@
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": true,
@@ -1969,23 +1995,23 @@
           "displayName": "Mission Management"
         },
         {
-          "threatModifierType": 2,
+          "threatAction": 0,
           "fixedValue": 0,
           "threatValue": 2,
-          "displayName": "Modify Threat",
-          "threatAction": 0,
+          "threatModifierType": 2,
           "GUID": "70431f44-18cd-47e4-b1c6-ab08a86b15c8",
-          "eventActionType": 4
+          "eventActionType": 4,
+          "displayName": "Modify Threat"
         },
         {
-          "isOnslaught": true,
           "deploymentPoint": 0,
-          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
-          "useThreat": true,
           "threatCost": 0,
-          "displayName": "Optional Deployment",
+          "useThreat": true,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "isOnslaught": true,
           "GUID": "4ec5fcf6-913b-4a19-846d-38cbc7514cc4",
-          "eventActionType": 8
+          "eventActionType": 8,
+          "displayName": "Optional Deployment"
         },
         {
           "incRoundCounter": false,
@@ -2384,7 +2410,11 @@
       }
     },
     {
+      "GUID": "d3b4e84e-d76d-42d9-b3a1-bbc4576177b4",
       "name": "Terminal Red 1",
+      "entityType": 1,
+      "entityPosition": "1010,960",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Red 1",
         "isActive": false,
@@ -2398,15 +2428,15 @@
           }
         ]
       },
-      "deploymentColor": "Red",
-      "GUID": "d3b4e84e-d76d-42d9-b3a1-bbc4576177b4",
-      "entityType": 1,
-      "entityPosition": "1010,960",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Red"
     },
     {
+      "GUID": "fb8da90c-0ed4-4477-9fdb-47f0924ec832",
       "name": "Terminal Red 2",
+      "entityType": 1,
+      "entityPosition": "1070,1000",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Red 2",
         "isActive": false,
@@ -2420,15 +2450,15 @@
           }
         ]
       },
-      "deploymentColor": "Red",
-      "GUID": "fb8da90c-0ed4-4477-9fdb-47f0924ec832",
-      "entityType": 1,
-      "entityPosition": "1070,1000",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Red"
     },
     {
+      "GUID": "3ffadc24-c4be-4448-98c9-09c45be89340",
       "name": "Terminal Green 1",
+      "entityType": 1,
+      "entityPosition": "1010,1000",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Green 1",
         "isActive": false,
@@ -2442,15 +2472,15 @@
           }
         ]
       },
-      "deploymentColor": "Green",
-      "GUID": "3ffadc24-c4be-4448-98c9-09c45be89340",
-      "entityType": 1,
-      "entityPosition": "1010,1000",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Green"
     },
     {
+      "GUID": "e60085d2-a7f0-4472-804d-57d56095a0c4",
       "name": "Terminal Green 2",
+      "entityType": 1,
+      "entityPosition": "1050,960",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Terminal Green 2",
         "isActive": false,
@@ -2464,15 +2494,15 @@
           }
         ]
       },
-      "deploymentColor": "Green",
-      "GUID": "e60085d2-a7f0-4472-804d-57d56095a0c4",
-      "entityType": 1,
-      "entityPosition": "1050,960",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Green"
     },
     {
+      "GUID": "d7a9e4aa-bfbf-409c-a8d8-1f8f717cbf72",
       "name": "Atrium Terminal",
+      "entityType": 1,
+      "entityPosition": "960,1030",
+      "entityRotation": 0.0,
       "entityProperties": {
         "name": "Atrium Terminal",
         "isActive": false,
@@ -2486,12 +2516,8 @@
           }
         ]
       },
-      "deploymentColor": "Gray",
-      "GUID": "d7a9e4aa-bfbf-409c-a8d8-1f8f717cbf72",
-      "entityType": 1,
-      "entityPosition": "960,1030",
-      "entityRotation": 0.0,
-      "mapSectionOwner": "be32ee37-76a8-4ffe-b452-3abd8883e7fe"
+      "mapSectionOwner": "be32ee37-76a8-4ffe-b452-3abd8883e7fe",
+      "deploymentColor": "Gray"
     },
     {
       "GUID": "116b82d2-32f2-4ea1-bc98-81356fff8e86",
@@ -2568,7 +2594,11 @@
       }
     },
     {
+      "GUID": "41d3b513-e1f3-4ac7-bc2c-e13233eebd61",
       "name": "Atrium Door",
+      "entityType": 6,
+      "entityPosition": "990,1010",
+      "entityRotation": 90.0,
       "entityProperties": {
         "name": "Atrium Door",
         "isActive": false,
@@ -2576,14 +2606,14 @@
         "entityColor": null,
         "buttonActions": []
       },
-      "GUID": "41d3b513-e1f3-4ac7-bc2c-e13233eebd61",
-      "entityType": 6,
-      "entityPosition": "990,1010",
-      "entityRotation": 90.0,
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
+      "GUID": "40f87389-a242-4875-9e55-c532b3e84e49",
       "name": "Cell Door",
+      "entityType": 6,
+      "entityPosition": "950,1010",
+      "entityRotation": 90.0,
       "entityProperties": {
         "name": "Cell Door",
         "isActive": false,
@@ -2591,10 +2621,6 @@
         "entityColor": null,
         "buttonActions": []
       },
-      "GUID": "40f87389-a242-4875-9e55-c532b3e84e49",
-      "entityType": 6,
-      "entityPosition": "950,1010",
-      "entityRotation": 90.0,
       "mapSectionOwner": "be32ee37-76a8-4ffe-b452-3abd8883e7fe"
     },
     {
@@ -2841,5 +2867,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

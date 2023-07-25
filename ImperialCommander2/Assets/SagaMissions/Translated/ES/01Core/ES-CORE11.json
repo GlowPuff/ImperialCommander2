@@ -1,21 +1,20 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "CORE11-Under Siege.json",
-  "relativePath": "Update\\Assets\\SagaMissions\\01Core\\CORE11-Under Siege.json",
-  "fileVersion": "18",
-  "saveDate": "9/16/2022",
-  "timeTicks": 637988864075652340,
-  "languageID": "English (EN)",
+  "relativePath": "Imperial Commander Missions\\Traducidas\\CORE11-Under Siege.json",
+  "fileVersion": "19",
+  "saveDate": "12/31/2022",
+  "timeTicks": 638080749050510404,
+  "languageID": "Spanish (ES)",
   "missionProperties": {
-    "missionName": "Under Siege",
-    "campaignName": "Core Game",
+    "missionName": "Bajo Asedio",
+    "campaignName": "Juego Base",
     "missionDescription": "",
-    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
-    "startingObjective": "Protect the capture sites. (Capture sites taken by the Empire: &Sites taken&/4)",
+    "startingObjective": "Proteger los puntos de captura. (Puntos de captura tomados por el Imperio: &Sites taken&/4)",
+    "additionalMissionInfo": null,
     "missionID": "Core 11",
-    "missionInfo": "{-} Mission tokens represent capture sites. At he end of each round, if an Imperial figure occupies a tile with a capture site and there are no healthy Rebel figures on that tile, that site is secured by the Empire and that token is claimed.\r\n{-} Doors are locked. An Imperial figure can attack a door (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.\r\n{-} The Rebels win at the End of Round 8.\r\n{-} The Rebels lose when the Empire secures 4 capture sites or when all heroes withdraw. When all heroes withdraw, click the green highlighted space and select \"Heroes withdrawn\".",
+    "missionInfo": "{-} Las fichas de Misión representan puntos de captura. Al final de cada ronda, si una figura del bando Imperial ocupa una pieza de tablero con un punto de captura y no hay ninguna figura del bando Rebelde sana en esa pieza del tablero, el jugador Imperial asegura ese punto de captura y reclama su ficha.\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.\r\n{-} Los Rebeldes ganan al final de la Ronda 8.\r\n{-} Los Rebeldes pierden cuando el Imperio haya asegurado 4  puntos de captura, o cuando todos los Héroes hayan sido obligados a retirarse. Cuando todos los Héroes se hayan retirado, pulsa sobre la casilla resaltada en verde y selecciona \"Los Héroes se retiran\".",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
@@ -30,7 +29,7 @@
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
     "missionType": 0,
     "changeRepositionOverride": {
-      "theText": "Closest capture site not occupied by at least two Imperial figures.",
+      "theText": "Pieza del tablero con el punto de captura más próximo no ocupada por al menos 2 figuras Imperiales.",
       "useSpecific": false,
       "repoGroups": [],
       "GUID": "caaa03c3-14f6-44d9-b1c2-c5bb5f06a6c3",
@@ -53,6 +52,7 @@
       "DG067"
     ]
   },
+  "fileName": "CORE11-Under Siege.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -94,6 +94,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -471,6 +472,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -479,7 +481,7 @@
       "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
       "isGlobal": true,
       "name": "Open Crate 1",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -499,6 +501,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -511,11 +514,11 @@
               "entityProperties": {
                 "name": "Crate1",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Un viejo contenedor de suministros.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "{A} Abrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609"
                   }
@@ -533,7 +536,7 @@
       "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
       "isGlobal": true,
       "name": "Open Crate 2",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -553,6 +556,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -565,7 +569,7 @@
               "entityProperties": {
                 "name": "Crate2",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Un viejo contenedor de suministros.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -581,7 +585,7 @@
       "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
       "isGlobal": true,
       "name": "Open Crate 3",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -601,6 +605,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -613,7 +618,7 @@
               "entityProperties": {
                 "name": "Crate3",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Un viejo contenedor de suministros.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -629,7 +634,7 @@
       "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
       "isGlobal": true,
       "name": "Open Crate 4",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -649,6 +654,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -661,11 +667,11 @@
               "entityProperties": {
                 "name": "Crate4",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Un viejo contenedor de suministros.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "{A} Abrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577"
                   }
@@ -683,7 +689,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "Command has assigned you a brutally simple task: you're to cause a diversion, allowing another team to investigate a facility under Weiss's control.\r\n\r\nThe instructions from your commander were clear. \"Don't jam or cut off any signals,'' she told you. \"If they send any calIs for help, good. If they don't, then you didn't make enough noise.\"\r\n\r\nConsidering the sheer amount of Imperial weight now bearing down on the compound, you certainly succeeded in \"making enough noise.\"\r\n\r\nAfter removing the Imperial presence from the facility, you made preparations to defend it. Many of the doors are sealed off, barricaded against the possibility of troops coming in through another entrance. You're expecting they'll try, but hopefully your hasty fortifications will hold long enough to keep their numbers manageable.\r\n\r\n{-} Place 1 Rebel mission token on each tile with a red highlight.\r\n{-} Mission tokens represent capture sites. At he end of each round, if an Imperial figure occupies a tile with a capture site and there are no healthy Rebel figures on that tile, that site is secured by the Empire and that token is claimed.\r\n{-} Doors are locked. An Imperial figure can attack a door (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.\r\n{-} The Rebels win at the End of Round 8.\r\n{-} The Rebels lose when the Empire secures 4 capture sites or when all heroes withdraw. When all heroes withdraw, click the green highlighted space and select \"Heroes withdrawn\".\r\n{-}  Rebel players deploy their figures to any interior space.",
+      "eventText": "El Alto Mando os ha asignado una tarea brutalmente sencilla: debéis causar una distracción que permita a otro equipo investigar unas instalaciones supervisadas por Weiss.\r\n\r\nLas instrucciones de vuestro comandante fueron claras:\r\n\r\n-No interfiráis ni cortéis ninguna señal -os dijo-. Si mandan alguna señal de auxilio, estupendo. Si no lo hacen, entonces es que no habéis hecho suficiente ruido. \r\n\r\nTeniendo en cuenta la cantidad de fuerzas Imperiales que se están dirigiendo ahora mismo hacia el complejo, está claro que habéis hecho \"suficiente ruido\".\r\n\r\nTras haber eliminado toda presencia Imperial en la instalación, os habéis preparado para defenderla. Muchas de las puertas han sido atrancadas y convertidas en barricadas ante la posibilidad de que las tropas enemigas entren por alguna otra vía. Estáis seguros de que lo intentarán, pero confiáis en que vuestras improvisadas fortificaciones basten para impedir que os abrumen con su superioridad numérica.\r\n\r\n{-} Coloca 1 ficha de misión Rebelde en cada pieza del tablero con una casilla resaltada en rojo.\r\n{-} Las fichas de Misión representan puntos de captura. Al final de cada ronda, si una figura del bando Imperial ocupa una pieza de tablero con un punto de captura y no hay ninguna figura del bando Rebelde sana en esa pieza del tablero, el jugador Imperial asegura ese punto de captura y reclama su ficha.\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.\r\n{-} Los Rebeldes ganan al final de la Ronda 8.\r\n{-} Los Rebeldes pierden cuando el Imperio haya asegurado 4 puntos de captura, o cuando todos los Héroes hayan sido obligados a retirarse. Cuando todos los Héroes se hayan retirado, pulsa sobre la casilla resaltada en verde y selecciona \"Los Héroes se retiran\".\r\n{-}  Los jugadores Rebelden pueden desplegar sus figuras en cualquier casilla interior.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -703,6 +709,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -795,7 +802,7 @@
           "displayName": "Add Group(s) to Deployment Hand"
         },
         {
-          "theText": "All Imperial figures will attack doors instead of Rebels if it is the quickest way to get to a capture site.",
+          "theText": "Todas las figuras Imperiales ataracarán las puertas en lugar de a los Rebeldes si es la manera más rápida de llegar a un punto de captura.",
           "instructionType": 0,
           "groupsToAdd": [],
           "GUID": "c38f00ef-c5f7-4130-be5d-0d4267f5bc8a",
@@ -803,7 +810,7 @@
           "displayName": "Change Group Instructions"
         },
         {
-          "theText": "{-} When this group resolves an ORDER, after the ordered attack, the ordered group moves 2 towards the closest capture site on a tile not occupied by at least 2 Imperial figures.",
+          "theText": "{-} Cuando este grupo resuelve una ORDEN, después del ataque ordenado, el grupo se mueve 2 hacia el punto de captura más próximo en una pieza del tablero no ocupada por al menos 2 figuras Imperiales.",
           "instructionType": 0,
           "groupsToAdd": [
             {
@@ -829,7 +836,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Even though the call came for you to pull back several minutes ago, you still held in spite of the overwhelming odds.\r\n\r\nYou're told later that the few extra minutes meant clear skies for the other team's escape. Your pilot wasn't thrilled about the enemy fighters that came to deal with you, but it still worked out.\r\n\r\nThe recon team's success has revealed a new weapon project under Weiss's development, and their findings suggest that this should be of great concern to the Rebellion.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Place Story Mission card \"Imperial Hospitality\" into play.\r\n{-} Each hero receives 2 XP. Heroes receive 200 credits per hero.",
+      "eventText": "A pesar de lo desesperado de la situación y de que la orden de retiraros os llegó hace varios minutos, seguís aguantando.\r\n\r\nMás tarde os informan de que esos minutos adicionales significaron que el otro equipo tuvo los cielos despejados mientras escapaban. Vuestro piloto no estaba muy contento con los cazas enemigos que salieron a vuestro encuentro, pero aún así os las apañásteis.\r\n\r\nEl éxito del equipo de reconocimiento ha desvelado un nuevo proyecto armamentéstico supervisado por Weiss, y sus hallazgos sugieren que la Rebelión deberia sentirse muy preocupada al respecto.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Pon en juego la carta de Misión de Historia \"Hospitalidad Imperial\".\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 200 créditos por Héroe.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -849,6 +856,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -869,7 +877,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Imperial forces charge into the compound, and you're unable to hold them back any longer. Hoping the time you bought the other strike team will be enough, you quickly disengage.\r\n\r\nLuck is on your side; after you're extracted, a transmission arrives from your commander. She makes no mention of your efforts and instead focuses entirely on the findings of the other team. \"Weiss is developing a weapon,\" she tells you, ''and High Command is very nervous about it. They're already clamoring for more information, so don't be surprised if\r\nyou're called on soon.\" \r\n\r\n{-} The Rebels lose the mission.\r\n{-} If 4 capture points were secured before the end of Round 6, Place Story Mission card \"Fly Solo\" into play.\r\n{-} Otherwise, place Story Mission card \"Imperial Hospitality\" into play and each hero receives 1 XP.\r\n{-} Each hero receives 1 XP in addition to any that he has already received. Heroes receive 100 credits per hero.",
+      "eventText": "Las fuerzas imperiales asaltan el complejo y sois incapaces de frenarlas por más tiempo. Con la esperanza de haber concedido tiempo suficiente al otro equipo, os retiráis rápidamente.\r\n\r\nLa suerte está de vuestro lado; cuando ya os han extraído de la zona, recibís una transmision de vuestro comandante. No hace mención alguna a vuestro esfuerzo y se centra únicamente en los hallazgos del otro equipo:\r\n\r\n-Weiss está desarrollando un arma -os explica-, y eso ha puesto muy nervioso al Alto Mando. Están solicitando más información, así que no os sorprendáis si os volvemos a movilizar dentro de poco.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Si se aseguraron 4 puntos de captura antes del final de la Ronda 6, pon en juego la carta de Misión de Historia \"Volando Solo\".\r\n{-} En caso contrario, pon en juego la carta Misión de Historia \"Hospitalidad Imperial\" y cada Héroe recibe 1 PE.\r\n{-} Cada Héroe recibe 1 PE adicional a los que ya haya obtenido. Los Héroes reciben 100 créditos por Héroe.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -889,6 +897,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": false,
       "additionalTriggers": [
         {
@@ -935,7 +944,7 @@
       "GUID": "90d1b4d1-be9e-46b0-a3c2-296dd70b2b8f",
       "isGlobal": true,
       "name": "Door North Destroyed",
-      "eventText": "The door collapses under the Imperial onslaught.",
+      "eventText": "La puerta cede ante los embates del Imperio.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -955,6 +964,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -967,11 +977,11 @@
               "entityProperties": {
                 "name": "Door North",
                 "isActive": true,
-                "theText": "A sturdy door leads out of the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+                "theText": "Una robusta puerta da acceso al exterior del complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "Destroy",
+                    "buttonText": "Destruir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -989,7 +999,7 @@
       "GUID": "6d27aa05-8749-42a7-b5f9-c87c1d25a0f8",
       "isGlobal": true,
       "name": "Door West Destroyed",
-      "eventText": "The door collapses under the Imperial onslaught.",
+      "eventText": "La puerta cede ante los embates del Imperio.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1009,6 +1019,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1021,11 +1032,11 @@
               "entityProperties": {
                 "name": "Door West",
                 "isActive": true,
-                "theText": "A sturdy door leads deeper into the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+                "theText": "Una robusta puerta permite adentrarse más en el complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "Destroy",
+                    "buttonText": "Destruir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -1043,7 +1054,7 @@
       "GUID": "72ef0c64-a827-4197-bcfc-d9e4c75daf42",
       "isGlobal": true,
       "name": "Door East Destroyed",
-      "eventText": "The door collapses under the Imperial onslaught.",
+      "eventText": "La puerta cede ante los embates del Imperio.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1063,6 +1074,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1075,11 +1087,11 @@
               "entityProperties": {
                 "name": "Door East",
                 "isActive": true,
-                "theText": "A sturdy door leads out of the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+                "theText": "Una robusta puerta da acceso al exterior del complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "Destroy",
+                    "buttonText": "Destruir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -1097,7 +1109,7 @@
       "GUID": "4bb0438e-fab6-4344-9cb9-52fc282af205",
       "isGlobal": true,
       "name": "Door South Destroyed",
-      "eventText": "The door collapses under the Imperial onslaught.",
+      "eventText": "La puerta cede ante los embates del Imperio.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1117,6 +1129,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1129,11 +1142,11 @@
               "entityProperties": {
                 "name": "Door South",
                 "isActive": true,
-                "theText": "A sturdy door leads deeper into the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+                "theText": "Una robusta puerta permite adentrarse más en el complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "Destroy",
+                    "buttonText": "Destruir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -1171,12 +1184,13 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "failText": "",
-          "theText": "How many tiles are there with a capture site, no healthy figure on the tile, and at least 1 Imperial figure on the tile?",
+          "theText": "¿Cuántas piezas del tablero hay con un punto de captura, ninguna figura Rebelde sana, y al menos 1 figura Imperial?",
           "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
           "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
@@ -1226,7 +1240,7 @@
       "GUID": "537a8e7f-221e-4f25-a26e-f558dd57b1aa",
       "isGlobal": true,
       "name": "Imperial Capture 1",
-      "eventText": "The Empire fortifies the captured positions.\r\n\r\n{-} The Empire claims all secured capture sites. Discard their tokens.",
+      "eventText": "El Imperio refuerza las posiciones capturadas.\r\n\r\n{-} El Imperio reclama todos los puntos de captura asegurados. Descarta sus fichas.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1246,6 +1260,7 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1268,7 +1283,7 @@
       "GUID": "d6113ed7-0f2d-4199-b875-005d39042e14",
       "isGlobal": true,
       "name": "Imperial Capture 2",
-      "eventText": "The Empire fortifies the captured positions.\r\n\r\n{-} The Empire claims all secured capture sites. Discard their tokens.",
+      "eventText": "El Imperio refuerza las posiciones capturadas.\r\n\r\n{-} El Imperio reclama todos los puntos de captura asegurados. Descarta sus fichas.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1288,6 +1303,7 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1310,7 +1326,7 @@
       "GUID": "62676cdb-452c-4c37-8602-5afa9972d5eb",
       "isGlobal": true,
       "name": "Imperial Capture 3",
-      "eventText": "The Empire fortifies the captured positions.\r\n\r\n{-} The Empire claims all secured capture sites. Discard their tokens.",
+      "eventText": "El Imperio refuerza las posiciones capturadas.\r\n\r\n{-} El Imperio reclama todos los puntos de captura asegurados. Descarta sus fichas.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1330,6 +1346,7 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1352,7 +1369,7 @@
       "GUID": "1cc27b31-bcdc-47a7-a1b8-cc1638ffbfee",
       "isGlobal": true,
       "name": "Imperial Capture 4",
-      "eventText": "The Empire fortifies the captured positions.\r\n\r\n{-} The Empire claims all secured capture sites. Discard their tokens.",
+      "eventText": "El Imperio refuerza las posiciones capturadas.\r\n\r\n{-} El Imperio reclama todos los puntos de captura asegurados. Descarta sus fichas.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1372,6 +1389,7 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1394,7 +1412,7 @@
       "GUID": "fc33f044-a723-4ce7-90a7-2f806c55c4f3",
       "isGlobal": true,
       "name": "Imperial Capture 0",
-      "eventText": "To their leaders' horror and fury, the Empire has made little progress.",
+      "eventText": "Para horror y cabreo de sus líderes, el Imperio ha hecho muy pocos avances.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1414,6 +1432,7 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1422,7 +1441,7 @@
       "GUID": "85b75175-11ae-41a3-b6e2-05951e077bf6",
       "isGlobal": true,
       "name": "Wave 1",
-      "eventText": "For every troop you cut down, it seems as though three more take its place. Though the pressure continues to mount, the base is still under your control for the time being.",
+      "eventText": "Parece que por cada soldado que abatís, tres más ocupan su lugar. Aunque la presión sigue aumentando, la base continúa bajo vuestro control. Por ahora.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1442,6 +1461,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1529,6 +1549,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1544,7 +1565,7 @@
       "GUID": "d5587515-8c6f-4636-a830-a8abd6579f32",
       "isGlobal": true,
       "name": "Assault-1",
-      "eventText": "Artillery fire rains down on the compound. Suddenly, one of the protected doors is blasted open, smoldering splinters flying everywhere.\r\n\r\n{-} Remove the door with the most Rebel figures within 3 spaces of it.\r\n{-} Roll 1 red die. Each Rebel figure within 3 spaces of the removed door suffers {H} equal to the {H} results.",
+      "eventText": "El fuego de artillería llueve sobre el complejo. De repente, una de las puertas reforzadas se abre con una explosión, con astillas incandescentes volando por todas partes.\r\n\r\n{-} Elimina la puerta con mayor número de figuras Rebeldes a 3 o menos casillas de distancia.\r\n{-} Tira 1 dado rojo. Cada figura del bando Rebelde a 3 o menos casillas de esa puerta sufre tanto {H} como resultados {H} obtenidos.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1564,6 +1585,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1572,7 +1594,7 @@
       "GUID": "a8b9a758-67f4-4d67-a284-2144d859f522",
       "isGlobal": true,
       "name": "Assault-2",
-      "eventText": "Scrambled Imperial radio transmissions are heard in the distance, signaling the looming arrival of more reinforcements.",
+      "eventText": "En la distancia se escuchan transmisiones de radio Imperiales entrecortadas, que indican la llegada inminente de más refuerzos.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1592,6 +1614,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1610,7 +1633,7 @@
       "GUID": "b920817b-0fcf-4dc7-8dc8-5a28b28a1a83",
       "isGlobal": true,
       "name": "Wave 2",
-      "eventText": "The pressure rises with each passing moment, but you're informed through your comlink that the other strike team is nearly finished.\r\n\r\nA detonation resounds through the corridors, originating from somewhere within the compound. It was only a matter of time before they tried to get in another way, but you curse your luck all the same. You just hope the explosion doesn't mean they already breached the compound and are flooding inside.",
+      "eventText": "La presión sigue aumentando a cada instante, pero a través de vuestro comunicador os informan de que el otro equipo de asalto casi ha terminado.\r\n\r\nUna explosión resuena a través de los pasillos, sin duda originada en el interior del complejo. Solo era cuestión de tiempo que intentaran entrar de otra forma, pero maldecís vuestra suerte igualmente. Solo podéis aferraros a la esperanza de que esa explosión no signifique que ya han abierto una brecha en el complejo y están entrando en masa.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1630,6 +1653,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1726,6 +1750,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1741,7 +1766,7 @@
       "GUID": "e05da1bd-81c4-45fa-9ba2-09e7942a1795",
       "isGlobal": true,
       "name": "Specialists-1",
-      "eventText": "Mechanical clanking and whirring is heard. A huge combat walker comes stomping out of the woods, guns blazing.",
+      "eventText": "Se oyen chasquidos y zumbidos mecánicos. Un enorme caminante de combate sale del bosque, con sus armas humeantes.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1761,6 +1786,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1828,7 +1854,7 @@
       "GUID": "7d96e633-09e6-4e52-b783-2c49f29424e3",
       "isGlobal": true,
       "name": "Specialists-2",
-      "eventText": "You hear the hissing sound of a cutting torch, then a short, but violent explosion as an air vent flies open. Enemies flood in, right into the heart of the compound. Their sudden arrival takes you completely by surprise.\r\n\r\n{-} In this round, the Empire gets the first two activations. Click the \"Next activation\" icon to activate the first two groups without performing Rebel activations.",
+      "eventText": "Oís el sonido sibilante de un soplete cortante, y luego una breve pero violenta explosión al abrirse un conducto de ventilación. Los enemigos entran a raudales en el corazón del complejo. Su repentina llegada os coge completamente por sorpresa.\r\n\r\n{-} Durante esta ronda, el Imperio realiza las dos primeras activaciones. Pulsa sobre Siguiente Activación para activar los dos primeros grupos sin resolver ninguna activación Rebelde.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1848,6 +1874,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1867,7 +1894,7 @@
       "GUID": "b1377a3f-3a85-4fda-8857-64b23737a51a",
       "isGlobal": true,
       "name": "Wave 3",
-      "eventText": "You can hardly believe it, but striding through the field off fallen troops is the imposing, terrifying figure of Darth Vader himself, followed by a flood of troops.\r\n\r\nA comlink message tells you that the other team is on its way out. Even though your Job is done, you know a few more minutes of diversion could make a world of difference to your comrades.",
+      "eventText": "Apenas podéis creerlo, pero sobre la masa de soldados abatidos camina con paso firme la terrorífica e imponente figura del mismísimo Darth Vader.\r\n\r\nUn mensaje a través de vuestros comunicadores os avisa de que el otro equipo se está retirando. Aunque ya habéis cumplido vuestra misión, sabéis que unos pocos minutos más de distracción podrían suponer una gran diferencia para vuestros camaradas.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1887,6 +1914,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1980,11 +2008,11 @@
       "entityProperties": {
         "name": "Crate1",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Un viejo contenedor de suministros.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} Abrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609"
           }
@@ -2002,11 +2030,11 @@
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Un viejo contenedor de suministros.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} Abrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab"
           }
@@ -2024,11 +2052,11 @@
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Un viejo contenedor de suministros.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} Abrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079"
           }
@@ -2046,11 +2074,11 @@
       "entityProperties": {
         "name": "Crate4",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Un viejo contenedor de suministros.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} Abrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577"
           }
@@ -2142,11 +2170,11 @@
       "entityProperties": {
         "name": "Heroes withdrawn",
         "isActive": true,
-        "theText": "When all heroes are withdrawn, click \"Heroes withdrawn\".",
+        "theText": "Cuando todos los Héroes se hayan retidado, pulsa sobre \"Los Héroes se retiran\".",
         "entityColor": "Green",
         "buttonActions": [
           {
-            "buttonText": "Heroes withdrawn (End Mission)",
+            "buttonText": "Los Héroes se retiran (Fin de la Misión)",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "9e960fce-d271-468c-8d6c-233bc752aa52"
           }
@@ -2484,11 +2512,11 @@
       "entityProperties": {
         "name": "Door North",
         "isActive": false,
-        "theText": "A sturdy door leads out of the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+        "theText": "Una robusta puerta da acceso al exterior del complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Destroy",
+            "buttonText": "Destruir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "90d1b4d1-be9e-46b0-a3c2-296dd70b2b8f"
           }
@@ -2505,11 +2533,11 @@
       "entityProperties": {
         "name": "Door East",
         "isActive": false,
-        "theText": "A sturdy door leads out of the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+        "theText": "Una robusta puerta da acceso al exterior del complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Destroy",
+            "buttonText": "Destruir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "72ef0c64-a827-4197-bcfc-d9e4c75daf42"
           }
@@ -2526,11 +2554,11 @@
       "entityProperties": {
         "name": "Door West",
         "isActive": false,
-        "theText": "A sturdy door leads deeper into the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+        "theText": "Una robusta puerta permite adentrarse más en el complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Destroy",
+            "buttonText": "Destruir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "6d27aa05-8749-42a7-b5f9-c87c1d25a0f8"
           }
@@ -2547,11 +2575,11 @@
       "entityProperties": {
         "name": "Door South",
         "isActive": false,
-        "theText": "A sturdy door leads deeper into the compound, but it won't keep the Imperials out forever.\r\n\r\n{-} The door is locked. An Imperial figure can attack it (Health: 6, Defense: 1 black die).\r\n{-} A door adjacent to a Rebel figure does not block his movement or line of sight.",
+        "theText": "Una robusta puerta permite adentrarse más en el complejo, pero no mantendrá fuera a los Imperiales para siempre.\r\n\r\n{-} Las puertas están selladas. Una figura del bando Imperial puede atacar una puerta (Vida: 6, Defensa: 1 dado negro).\r\n{-} Una puerta adyacente a una figura del bando Rebelde no bloquea su movimiento ni su línea de visión.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Destroy",
+            "buttonText": "Destruir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "4bb0438e-fab6-4344-9cb9-52fc282af205"
           }
