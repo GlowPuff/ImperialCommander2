@@ -229,7 +229,7 @@ namespace Saga
 			projectItem = null;
 			difficulty = Difficulty.Medium;
 			useAdaptiveDifficulty = false;
-			threatLevel = 3;
+			threatLevel = 2;
 			addtlThreat = 0;
 			isTutorial = false;
 			isDebugging = false;
