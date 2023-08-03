@@ -432,7 +432,6 @@ public class EnemyActivationPopup : MonoBehaviour
 
 		if ( item.Contains( "{R1}" ) )
 		{
-			//item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1 + "</color>" );
 			//lighter blue color
 			item = item.Replace( "{R1}", "<color=#7FD3FF>" + rebel1 + "</color>" );
 		}
@@ -465,7 +464,6 @@ public class EnemyActivationPopup : MonoBehaviour
 		Regex rebelregex = new Regex( @"\{rebel\}", RegexOptions.IgnoreCase );
 		foreach ( var match in rebelregex.Matches( item ) )
 		{
-			//item = item.Replace( match.ToString(), "<color=#00A4FF>" + rebel1 + "</color>" );
 			//lighter blue color
 			item = item.Replace( match.ToString(), "<color=#7FD3FF>" + rebel1 + "</color>" );
 		}

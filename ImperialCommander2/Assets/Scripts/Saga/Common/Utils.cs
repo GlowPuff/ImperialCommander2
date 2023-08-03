@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -149,7 +150,9 @@ namespace Saga
 				string rebelName = "";
 				foreach ( var match in regex.Matches( item ) )
 				{
-					var rebel = DataStore.deployedHeroes[GlowEngine.GenerateRandomNumbers( DataStore.deployedHeroes.Count )[0]];
+					//exclude the dummy "hero"
+					var realHeroes = DataStore.deployedHeroes.Where( x => !x.isDummy ).ToArray();
+					var rebel = realHeroes[GlowEngine.GenerateRandomNumbers( realHeroes.Length )[0]];
 					//look for ally override with a custom name
 					var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( rebel.id );
 					if ( ovrd != null )
