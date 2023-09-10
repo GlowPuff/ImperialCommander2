@@ -22,7 +22,6 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	//[JsonIgnore]
 	public string ignored;
 	public bool isElite;
-	public bool isHero { get; set; }
 	//[JsonIgnore]
 	public string subname;
 	public int health;
@@ -95,7 +94,6 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 			ignored = "",
 			isElite = false,
 			characterType = ced.iconType == MarkerType.Rebel ? CharacterType.Rebel : CharacterType.Imperial,
-			isHero = false,
 			subname = "",
 			health = ced.groupHealth,
 			speed = ced.groupSpeed,

@@ -14,10 +14,9 @@ namespace Saga
 		public DeploymentCard Card { get { return cardDescriptor; } }
 
 		DeploymentCard cardDescriptor;
-		//bool isAlly = false;
-		//bool isHero = false;
+
 		[HideInInspector]
-		public bool isConfirming = false;
+		public bool isConfirming = false;//set by ConfirmPopup to block further input while visible
 
 		private void Awake()
 		{
@@ -27,7 +26,7 @@ namespace Saga
 
 		public void Init( DeploymentCard cd )
 		{
-			Debug.Log( "DEPLOYED: " + cd.name );
+			Debug.Log( $"DEPLOYED: {cd.name}, {cd.characterType}" );
 			cardDescriptor = cd;
 
 			if ( !cd.isDummy )//if NOT the "bonus" token for 3 player games
@@ -111,6 +110,7 @@ namespace Saga
 			cardDescriptor.heroState.hasActivated[1] = activationToggle2.isOn;
 		}
 
+		//popup menu for wound/defeat
 		public void OnClickSelf()
 		{
 			if ( cardDescriptor.isDummy
@@ -126,7 +126,7 @@ namespace Saga
 					transform,
 					this,
 					cardDescriptor.name,
-					cardDescriptor.isHero,
+					cardDescriptor.characterType == CharacterType.Hero,
 					cardDescriptor.heroState.isWounded,
 					OnDefeat,
 					OnWound );
@@ -138,7 +138,7 @@ namespace Saga
 			}
 		}
 
-		//popup card view, excluding Heroes
+		//right click popup card view, excluding Heroes
 		public void OnPointerClick()
 		{
 			//don't show popup for dummy heroes, generic allies, or stock heroes (no data for them)
@@ -149,11 +149,6 @@ namespace Saga
 				CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
 				cardViewPopup.Show( cardDescriptor );
 			}
-
-			//if ( cardDescriptor.isDummy || cardDescriptor.isHero )
-			//	return;
-			//CardViewPopup cardViewPopup = GlowEngine.FindUnityObject<CardViewPopup>();
-			//cardViewPopup.Show( cardDescriptor );
 		}
 
 		public void SetHealth( HeroState heroState )
@@ -173,13 +168,16 @@ namespace Saga
 			woundToggle.gameObject.SetActive( true );
 		}
 
+		/// <summary>
+		/// Display 1 or 2 activation buttons, depending on # of players and character type
+		/// </summary>
 		private void SetActivation()
 		{
 			//skip callbacks
 			activationToggle1.gameObject.SetActive( false );
 			activationToggle2.gameObject.SetActive( false );
 
-			if ( DataStore.sagaSessionData.MissionHeroes.Count <= 2 && cardDescriptor.isHero )
+			if ( DataStore.sagaSessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType == CharacterType.Hero )
 			{
 				activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
 				activationToggle2.isOn = cardDescriptor.heroState.hasActivated[1];
@@ -203,7 +201,7 @@ namespace Saga
 			cardDescriptor.heroState.hasActivated[0] = false;
 			activationToggle1.gameObject.SetActive( true );
 
-			if ( DataStore.sagaSessionData.MissionHeroes.Count <= 2 && cardDescriptor.isHero )
+			if ( DataStore.sagaSessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType == CharacterType.Hero )
 			{
 				activationToggle2.isOn = false;
 				cardDescriptor.heroState.hasActivated[1] = false;
@@ -245,7 +243,6 @@ namespace Saga
 			//trigger on defeated Event/Trigger, if it exists
 			//not really necessary to check isAlly - heroes do not have an override
 			if ( ovrd != null && cardDescriptor.characterType != CharacterType.Hero )
-			//!cardDescriptor.isHero )
 			{
 				FindObjectOfType<SagaController>().triggerManager.FireTrigger( ovrd.setTrigger );
 				FindObjectOfType<SagaController>().eventManager.DoEvent( ovrd.setEvent );

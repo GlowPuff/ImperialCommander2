@@ -127,13 +127,13 @@ namespace Saga
 					{
 						if ( ev.useAnyHeroWounded )
 						{
-							var h = DataStore.deployedHeroes.Where( x => x.isHero && x.heroState.isWounded );
+							var h = DataStore.deployedHeroes.Where( x => x.characterType == CharacterType.Hero && x.heroState.isWounded );
 							foreach ( var item in h )
 								DataStore.sagaSessionData.AnyHeroWoundedEventDone.Add( item.id );
 						}
 						if ( ev.useAnyHeroDefeated )
 						{
-							var h = DataStore.deployedHeroes.Where( x => x.isHero && x.heroState.isDefeated );
+							var h = DataStore.deployedHeroes.Where( x => x.characterType == CharacterType.Hero && x.heroState.isDefeated );
 							foreach ( var item in h )
 								DataStore.sagaSessionData.AnyHeroWithdrawnEventDone.Add( item.id );
 						}

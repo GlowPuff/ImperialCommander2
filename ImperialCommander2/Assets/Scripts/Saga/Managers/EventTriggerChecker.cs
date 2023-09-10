@@ -114,7 +114,7 @@ namespace Saga
 							where !DataStore.sagaSessionData.AnyHeroWoundedEventDone.Contains( dh.id )
 							select dh;
 
-			return h.Any( x => x.isHero && x.heroState.isWounded );
+			return h.Any( x => x.characterType == CharacterType.Hero && x.heroState.isWounded );
 		}
 
 		public bool CheckAllGroupsDefeated()
@@ -134,7 +134,7 @@ namespace Saga
 							where !DataStore.sagaSessionData.AnyHeroWithdrawnEventDone.Contains( dh.id )
 							select dh;
 
-			return h.Any( x => x.isHero && x.heroState.isDefeated );
+			return h.Any( x => x.characterType == CharacterType.Hero && x.heroState.isDefeated );
 		}
 	}
 }
