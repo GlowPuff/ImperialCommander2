@@ -43,6 +43,7 @@ namespace Saga
 			{
 				iconImage.sprite = Resources.Load<Sprite>( "CardThumbnails/bonus" );
 				woundToggle.gameObject.SetActive( false );
+				outline.color = Utils.String2UnityColor( "Black" );
 			}
 
 			if ( cd.heroState == null )
