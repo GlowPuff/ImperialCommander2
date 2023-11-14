@@ -22,13 +22,13 @@ namespace Saga
 
 			//sort tiles by number
 			tiles = tiles.OrderBy( x => int.Parse( x.Split( ' ' )[1] ) ).ToArray();
-			var groupedTiles = tiles.GroupBy(x => x);
+			var groupedTiles = tiles.GroupBy( x => x );
 
-			foreach (var item in groupedTiles)
+			foreach ( var item in groupedTiles )
 			{
-				GameObject go = new GameObject("content item");
+				GameObject go = new GameObject( "content item" );
 				go.layer = 5;
-				go.transform.SetParent(container);
+				go.transform.SetParent( container );
 				go.transform.localPosition = Vector2.zero;
 				go.transform.localScale = Vector3.one;
 				go.transform.localEulerAngles = Vector3.zero;
@@ -40,7 +40,7 @@ namespace Saga
 				nt.horizontalAlignment = HorizontalAlignmentOptions.Left;
 
 				// Display a count when more than one tile is needed
-				if (item.Count() > 1)
+				if ( item.Count() > 1 )
 				{
 					nt.text = $"{item.Key} x {item.Count()}";
 				}
