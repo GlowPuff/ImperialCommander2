@@ -569,7 +569,24 @@ namespace Saga
 			{
 				var tiles = FindObjectOfType<SagaController>().tileManager.ActivateMapSection( mm.mapSection );
 				FindObjectOfType<TileManager>().CamToSection( mm.mapSection );
-				var tmsg = string.Join( ", ", tiles.Item1 );
+
+				// Create a string list of tiles, Core 7A, Core 10A, Core 10A, Core 10A
+				// Instead group them also here and then join
+				var groupedTiles = tiles.Item1.GroupBy(x => x);
+				var tilesWithCount = new List<string>();
+				foreach (var item in groupedTiles)
+				{
+					if (item.Count() > 1)
+					{
+						tilesWithCount.Add($"{item.Key} x {item.Count()}");
+					}
+					else
+					{
+						tilesWithCount.Add(item.Key);
+					}
+				}
+
+				var tmsg = string.Join(", ", tilesWithCount);
 				var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
 				var emsg2 = string.Join( "\n", tiles.Item2 );
 				emsg = string.IsNullOrEmpty( emsg2.Trim() ) ? "" : emsg + emsg2;
