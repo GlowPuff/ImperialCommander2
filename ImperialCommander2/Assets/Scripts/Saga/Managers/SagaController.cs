@@ -49,7 +49,8 @@ namespace Saga
 		public bool isDebugMode = false;//can be toggled within Unity
 
 		Sound sound;
-		bool isError = false;
+		//isError is set locally when there is an exception so the app doesn't try to save a potentially broken state
+		bool isError = false;//checked by OnQuitSaga() before trying to save state when quitting
 
 		void LogCallback( string condition, string stackTrace, LogType type )
 		{
