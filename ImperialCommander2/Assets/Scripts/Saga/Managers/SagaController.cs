@@ -426,19 +426,27 @@ namespace Saga
 			//if no tiles are initially shown, skip the placement window
 			if ( tiles.Item1.Count > 0 )
 			{
-				// Create a string list of tiles, Core 7A, Core 10A, Core 10A, Core 10A
-				// Instead group them also here and then join
-				var groupedTiles = tiles.Item1.GroupBy( x => x );
-				var tilesWithCount = new List<string>();
-				foreach ( var item in groupedTiles )
-				{
-					if ( item.Count() > 1 )
+				//sort and group tiles by number, i.e. "Core 2A", "Core 11A", "Empire 2B"
+				var orderedAndGrouped = tiles.Item1
+					.OrderBy(str => str.Split(' ')[0])  // Order alphabetically
+					.ThenBy(str => int.Parse(str.Split(' ')[1].TrimEnd('A', 'B'))) // Then order by entire numerical values
+					.GroupBy(str => str) // Group the strings
+					.Select(group => new
 					{
-						tilesWithCount.Add( $"{item.Key} x {item.Count()}" );
+						Tile = group.Key,
+						Count = group.Count()
+					});
+				var tilesWithCount = new List<string>();
+
+				foreach ( var item in orderedAndGrouped)
+				{
+					if (item.Count > 1 )
+					{
+						tilesWithCount.Add( $"{item.Tile} x {item.Count}" );
 					}
 					else
 					{
-						tilesWithCount.Add( item.Key );
+						tilesWithCount.Add( item.Tile );
 					}
 				}
 
