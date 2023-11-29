@@ -430,6 +430,7 @@ namespace Saga
 				var orderedAndGrouped = tiles.Item1
 					.OrderBy(str => str.Split(' ')[0])  // Order alphabetically
 					.ThenBy(str => int.Parse(str.Split(' ')[1].TrimEnd('A', 'B'))) // Then order by entire numerical values
+					.ThenBy(str => str.EndsWith("A") ? 0 : 1) // Finally, order by A/B values
 					.GroupBy(str => str) // Group the strings
 					.Select(group => new
 					{
