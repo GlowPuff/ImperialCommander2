@@ -13,6 +13,7 @@ public class UILanguage
 	public List<MissionCard> uiMissionCards;
 	public UICampaign uiCampaign;
 	public UILogger uiLogger;
+	public UIHelpOverlay uiHelpOverlay;
 }
 
 public class UISettings
@@ -79,4 +80,21 @@ public class UICampaign
 public class UILogger
 {
 	public string textLabel, inputPromptLabel, selectionPromptLabel, selectionLabel, groupActivationLabel, groupDeployedLabel, groupRemovedLabel, groupDefeatedLabel, deploymentEventLabel, inputValueLabel;
+}
+
+public class UIHelpOverlay
+{
+	public HelpOverlayPanel[] helpOverlayPanels;
+}
+
+public class HelpOverlayPanel
+{
+	public string panelHelpID;
+	public HelpOverlayItem[] helpItems;
+}
+
+public class HelpOverlayItem
+{
+	public string id;
+	public string helpText;
 }

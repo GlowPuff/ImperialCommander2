@@ -30,6 +30,7 @@ namespace Saga
 		public SagaModifyGroupsPanel modifyGroupsPanel;
 		public MissionCardZoom missionCardZoom;
 		public ErrorPanel errorPanel;
+		public HelpPanel helpPanel;
 		//OTHER
 		public GameObject warpEffect, rightPanel;
 		public Transform thrusterRoot, thrusterLeft, thrusterRight;
@@ -659,6 +660,11 @@ namespace Saga
 					} );
 				} );
 			} );
+		}
+
+		public void OnHelpClick()
+		{
+			helpPanel.Show();
 		}
 
 		private void Update()

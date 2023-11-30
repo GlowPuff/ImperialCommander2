@@ -36,6 +36,7 @@ namespace Saga
 		public ImperialPopup imperialPopup;
 		public MedpacPopup medpacPopup;
 		public HeroDashboard heroDashboard;
+		public HelpPanel helpPanel;
 		//MANAGERS
 		public CameraController cameraController;
 		public DeploymentManager dgManager;
@@ -244,8 +245,8 @@ namespace Saga
 			//DataStore.sagaSessionData.gameVars.pauseDeployment = true;
 			//DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
 			//hero
-			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
-			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
+			//DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
+			//DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 			//DataStore.sagaSessionData.EarnedVillains.Add( DataStore.villainCards.GetDeploymentCard( "DG072" ) );
 			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
@@ -902,6 +903,11 @@ namespace Saga
 		{
 			//to avoid calling ToString() every single frame (lots of garbage), only notify when it changes
 			currentThreatText.text = DataStore.sagaSessionData.gameVars.currentThreat.ToString();
+		}
+
+		public void OnHelpClick()
+		{
+			helpPanel.Show();
 		}
 
 		private void Update()

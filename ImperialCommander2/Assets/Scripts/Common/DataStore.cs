@@ -8,7 +8,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.1.4";
+	public static readonly string appVersion = "v.2.1.5";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No", "Ru" };
 
 	public static Mission mission;
@@ -211,6 +211,8 @@ public static class DataStore
 			uiLanguage = LoadUILanguage();
 			uiLanguage.uiDeploymentGroups = LoadDeploymentCardTranslations();
 			LoadMissionCardTranslations();
+			//help overlays
+			uiLanguage.uiHelpOverlay = LoadHelpOverlays();
 
 			//assign translations to card data
 			SetCardTranslations( deploymentCards );
@@ -456,6 +458,22 @@ public static class DataStore
 		catch ( Exception e )
 		{
 			Utils.LogError( $"SetCardTranslations()::Error parsing card data\n{e.Message}" );
+		}
+	}
+
+	static UIHelpOverlay LoadHelpOverlays()
+	{
+		try
+		{
+			TextAsset helpOverlay = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/help" );
+			List<HelpOverlayPanel> list = JsonConvert.DeserializeObject<List<HelpOverlayPanel>>( helpOverlay.text );
+			Debug.Log( $"Found Help Overlays for {list.Count} Panels" );
+			return new UIHelpOverlay() { helpOverlayPanels = list.ToArray() };
+		}
+		catch ( JsonException e )
+		{
+			Utils.LogError( $"LoadHelpOverlays()::Error parsing help.json\n{e.Message}" );
+			throw e;
 		}
 	}
 

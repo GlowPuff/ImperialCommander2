@@ -13,14 +13,16 @@ public class DiceRoller : MonoBehaviour
 	public GameObject addAttackContainer, addDefenseContainer;
 	public DynamicCardPrefab dynamicCard;
 	public TextMeshProUGUI modText;
+	public HelpPanel helpPanel;
 
 	DeploymentCard card;
 	Action<bool> callback;
 	GridLayoutGroup gridLayout;
-	bool visible;
+	bool visible, spaceListen;
 
 	public void Show( DeploymentCard cd, bool isAttack, Action<bool> ac = null )
 	{
+		spaceListen = true;
 		visible = true;
 		callback = ac;
 		okBtn.text = DataStore.uiLanguage.uiSettings.ok.ToUpper();
@@ -122,7 +124,7 @@ public class DiceRoller : MonoBehaviour
 
 	private void Update()
 	{
-		if ( Input.GetKeyDown( KeyCode.Space ) )
+		if ( spaceListen && Input.GetKeyDown( KeyCode.Space ) )
 			OnOK();
 
 		if ( container.transform.childCount > 4 )
@@ -163,5 +165,11 @@ public class DiceRoller : MonoBehaviour
 			mainContainerCG.DOFade( 1, .5f );
 			fader.DOFade( .95f, .5f );
 		}
+	}
+
+	public void OnHelpClick()
+	{
+		spaceListen = false;
+		helpPanel.Show( () => spaceListen = true );
 	}
 }

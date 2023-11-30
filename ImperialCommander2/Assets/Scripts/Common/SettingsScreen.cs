@@ -20,6 +20,9 @@ public class SettingsScreen : MonoBehaviour
 	public Toggle audioToggle;
 	public MWheelHandler musicWheelHandler, ambientWheelHandler, soundWheelHandler;
 	public BiomeType biomeType;
+	public HelpPanel audioHelpPanel;
+	public HelpPanel uiHelpPanel;
+	public HelpPanel graphicsHelpPanel;
 
 	Action<SettingsCommand> quitAction;
 	bool toggleBusy;
@@ -200,5 +203,15 @@ public class SettingsScreen : MonoBehaviour
 		audioPanel.SetActive( false );
 		gfxPanel.SetActive( false );
 		uiPanel.SetActive( true );
+	}
+
+	public void OnHelpClick()
+	{
+		if ( audioPanel.activeInHierarchy )
+			audioHelpPanel.Show();
+		else if ( gfxPanel.activeInHierarchy )
+			graphicsHelpPanel.Show();
+		else if ( uiPanel.activeInHierarchy )
+			uiHelpPanel.Show();
 	}
 }

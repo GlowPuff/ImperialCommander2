@@ -27,6 +27,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	[HideInInspector]
 	public bool isActive = false;
 	public Image outlineColor;
+	public HelpPanel helpPanel;
 
 	CardInstruction cardInstruction;
 	DeploymentCard cardDescriptor;
@@ -704,5 +705,11 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 
 		return linesOut;
+	}
+
+	public void OnHelpClick()
+	{
+		spaceListen = false;
+		helpPanel.Show( () => spaceListen = true );
 	}
 }

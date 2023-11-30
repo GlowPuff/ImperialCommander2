@@ -35,6 +35,8 @@ namespace Saga
 		public ValueAdjuster valueAdjuster;
 		public Image expansionLogo;
 		public Sprite[] expansionSprites;
+		public HelpPanel helpPanel;
+		public GameObject campaignHelpMockup;
 		//translatable UI
 		public CampaignLanguageController languageController;
 
@@ -42,6 +44,7 @@ namespace Saga
 
 		Sound sound;
 		int view = 1;//0=left, 1=right
+		float aspect;
 
 		void Start()
 		{
@@ -55,13 +58,15 @@ namespace Saga
 
 			float pixelHeightOfCurrentScreen = Screen.height;//.currentResolution.height;
 			float pixelWidthOfCurrentScreen = Screen.width;//.currentResolution.width;
-			float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
+			aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
 			if ( aspect < 1.7f )//less than 16:9, such as 16:10 and 4:3
 			{
 				//switch to single view
 				switchButton.SetActive( true );
 				leftPanel.SetActive( false );
 			}
+			else
+				campaignHelpMockup.SetActive( true );
 
 			FileManager.SetupDefaultFolders();
 
@@ -485,6 +490,7 @@ namespace Saga
 			view = view == 0 ? 1 : 0;
 			leftPanel.SetActive( view == 0 );
 			rightPanel.SetActive( view == 1 );
+			campaignHelpMockup.SetActive( view == 0 );
 		}
 
 		public void OnExitCampaignScreen()
@@ -517,6 +523,11 @@ namespace Saga
 			float foo = 1;
 			DOTween.To( () => foo, x => foo = x, 0, .5f ).OnComplete( () =>
 			 SceneManager.LoadScene( "SagaSetup" ) );
+		}
+
+		public void OnHelpClick()
+		{
+			helpPanel.Show();
 		}
 	}
 }

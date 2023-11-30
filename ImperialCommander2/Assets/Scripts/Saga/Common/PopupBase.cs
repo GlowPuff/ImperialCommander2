@@ -20,17 +20,43 @@ public class PopupBase : MonoBehaviour
 
 	public void Show( Action callback = null )
 	{
+		ShowPopup( callback, true );
+	}
+
+	public void ShowNoZoom( Action callback = null )
+	{
+		ShowPopup( callback, false );
+	}
+
+	public void Close( Action callback = null )
+	{
+		ClosePopup( callback, true );
+	}
+
+	public void CloseNoZoom( Action callback = null )
+	{
+		ClosePopup( callback, false );
+	}
+
+	void ShowPopup( Action callback, bool doZoom )
+	{
 		isActive = true;
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
 		float opacity = popupOpacity == PopupOpacity.Light ? .75f : .95f;
 		fader.DOFade( opacity, 1 );//.95
 		cg.DOFade( 1, .5f );
-		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
-		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo ).OnComplete( () => callback?.Invoke() );
+
+		if ( doZoom )
+		{
+			transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
+			transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo ).OnComplete( () => callback?.Invoke() );
+		}
+		else
+			callback?.Invoke();
 	}
 
-	public void Close( Action callback = null )
+	void ClosePopup( Action callback, bool doZoom )
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		isActive = false;
@@ -41,6 +67,8 @@ public class PopupBase : MonoBehaviour
 			callback?.Invoke();
 		} );
 		cg.DOFade( 0, .2f );
-		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+
+		if ( doZoom )
+			transform.GetChild( 1 )?.DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}
 }

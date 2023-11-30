@@ -37,6 +37,7 @@ public class TitleController : MonoBehaviour
 	public CanvasGroup buttonContainer;
 	public FigurePackPopup FigurePackPopup;
 	public ImportPanel importPanel;
+	public HelpPanel helpPanel;
 
 	//UI objects using language translations
 	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText, campaignNamePlaceholderText;
@@ -747,5 +748,10 @@ public class TitleController : MonoBehaviour
 			campaignContinueButton.interactable = IsSagaSessionValid( SessionMode.Campaign );
 			campaignPanelDescriptionText.text = DataStore.uiLanguage.uiCampaign.campaignDescriptionUC;
 		}
+	}
+
+	public void OnHelpClick()
+	{
+		helpPanel.Show();
 	}
 }
