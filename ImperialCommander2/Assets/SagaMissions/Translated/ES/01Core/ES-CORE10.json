@@ -1,9 +1,8 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "ES\\01 - Core Game\\CORE10-The Source.json",
-  "fileVersion": "18",
-  "saveDate": "10/11/2022",
-  "timeTicks": 638010856424440182,
+  "fileVersion": "21",
+  "saveDate": "12/12/2023",
+  "timeTicks": 638379940816035553,
   "languageID": "Spanish (ES)",
   "missionProperties": {
     "missionName": "La fuente",
@@ -12,9 +11,9 @@
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "Encontrar el terminal",
-    "additionalMissionInfo": null,
+    "additionalMissionInfo": "",
     "missionID": "Core 10",
-    "missionInfo": "{-} El <color=\"red\">Oficial imperial</color> ha sido capturado y es una figura neutral.\r\n{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con el oficial capturado para realizar lo siguiente:\r\n    · El Héroe y el oficial capturado se mueven hasta 2 casillas cada uno.\r\n    · Abre una puerta adyacente al oficial.\r\n{-} Si no hay figuras del bando Rebelde sanas a 3 o menos casillas del oficial capturado, una figura del bando Imperial puede interactuar con el oficial para liberarlo. Cuando esto suceda, pulsa sobre la casilla resaltada y selecciona \"Oficial liberado\".\r\n{-} La misión avanza cuando se encuentra el terminal.\r\n{-} Los Rebeldes pierden cuando el oficial capturado es liberado, o al final de la ronda 8, o cuando todos los Héroes están heridos.",
+    "missionInfo": "{-} El <color=\"red\">Oficial imperial</color> ha sido capturado y es una figura neutral.\r\n{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con el oficial capturado para realizar lo siguiente:\r\n⯈ El Héroe y el oficial capturado se mueven hasta 2 casillas cada uno.\r\n⯈ Abre una puerta adyacente al oficial.\r\n⯈ Asegura un terminal adyacente al oficial.\r\n{-} i no hay figuras del bando Rebelde sanas a 3 o menos casillas del oficial capturado, una figura del bando Imperial puede interactuar con el oficial para liberarlo. Cuando esto suceda, pulsa sobre la casilla resaltada y selecciona \"Oficial liberado\".\r\n{-} La misión avanza cuando se encuentra el terminal.\r\n{-} Los Rebeldes pierden cuando el oficial capturado es liberado, o al final de la ronda 8, o cuando todos los Héroes están heridos.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
@@ -54,9 +53,10 @@
       "DG045",
       "DG014",
       "DG046"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "CORE10-The Source.json",
+  "fileName": "ES-CORE10.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -98,6 +98,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -184,6 +185,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -270,6 +272,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -394,6 +397,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -646,6 +650,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -674,6 +679,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -728,6 +734,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -776,6 +783,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -824,6 +832,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -858,7 +867,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "—Nuestros espías han localizado la fábrica principal de la cadena de suministros de Weiss —os informa vuestra comandante—. No es mucho, pero sus registros podrían mostrar patrones de envío, tal vez incluso indicar la ubicación del prototipo del arma —la comandante parece desesperada y emocionada al mismo tiempo—. Esta operación podría resultar crucial. Haced que nos sintamos orgullosos.\r\n\r\nLa seguridad de la fábrica es sorprendentemente eficiente, y abrir o derribar cada puerta os lleva un tiempo considerable. Con cada segundo que pasa os arriesgáis a ser descubiertos, y estáis a punto de daros por vencidos cuando surge una oportunidad.\r\n\r\n—No quiero oír excusas. Matad a esas malditas criaturas si no podéis contenerlas —dice un ceñudo oficial a través de un comunicador mientras se acerca por el pasillo-. Volved a arrastrarme a este agujero putrefacto y seréis su próxima comida.\r\n\r\nEl oficial baja el comunicador justo cuando salis de vuestros escondites, hundís un bláster en sus costillas y le sugerís que sea buen chico y siga vuestras órdenes.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Coloca una figura de <color=\"red\">Oficial Imperial</color> (élite) en la casilla resaltada en rojo.\r\n{-} El Oficial imperial ha sido capturado y es una figura neutral.\r\n{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con el oficial capturado para realizar lo siguiente:\r\n    · El Héroe y el oficial capturado se mueven hasta 2 casillas cada uno.\r\n    · Abre una puerta adyacente al oficial.\r\n{-} Si no hay figuras del bando Rebelde sanas a 3 o menos casillas del oficial capturado, una figura del bando Imperial puede interactuar con el oficial para liberarlo. Cuando esto suceda, pulsa sobre la casilla resaltada y selecciona \"Oficial liberado\".\r\n{-} La misión avanza cuando se encuentra el terminal.\r\n{-} Los Rebeldes pierden cuando el oficial capturado es liberado, o al final de la ronda 8, o cuando todos los Héroes están heridos.",
+      "eventText": "\"Nuestros espías han localizado la fábrica principal de la cadena de suministros de Weiss\" os informa vuestra comandante. \"No es mucho, pero sus registros podrían mostrar patrones de envío, tal vez incluso indicar la ubicación del prototipo del arma\". La comandante parece desesperada y emocionada al mismo tiempo. \"Esta operación podría resultar crucial. Haced que nos sintamos orgullosos.\"\r\n\r\nLa seguridad de la fábrica es sorprendentemente eficiente, y abrir o derribar cada puerta os lleva un tiempo considerable. Con cada segundo que pasa os arriesgáis a ser descubiertos, y estáis a punto de daros por vencidos cuando surge una oportunidad.\r\n\r\n\"No quiero oír excusas. Matad a esas malditas criaturas si no podéis contenerlas \" dice un ceñudo oficial a través de un comunicador mientras se acerca por el pasillo. \"Volved a arrastrarme a este agujero putrefacto y seréis su próxima comida.\"\r\n\r\nEl oficial baja el comunicador justo cuando salis de vuestros escondites, hundís un bláster en sus costillas y le sugerís que sea buen chico y siga vuestras órdenes.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Coloca una figura de <color=\"red\">Oficial Imperial</color> (élite) en la casilla resaltada en rojo.\r\n{-} El Oficial imperial ha sido capturado y es una figura neutral.\r\n{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con el oficial capturado para realizar lo siguiente:\r\n⯈ El Héroe y el oficial capturado se mueven hasta 2 casillas cada uno.\r\n⯈ Abre una puerta adyacente al oficial.\r\n⯈ Asegura un terminal adyacente al oficial.\r\n{-} Si no hay figuras del bando Rebelde sanas a 3 o menos casillas del oficial capturado, una figura del bando Imperial puede interactuar con el oficial para liberarlo. Cuando esto suceda, pulsa sobre la casilla resaltada y selecciona \"Oficial liberado\".\r\n{-} La misión avanza cuando se encuentra el terminal.\r\n{-} Los Rebeldes pierden cuando el oficial capturado es liberado, o al final de la ronda 8, o cuando todos los Héroes están heridos.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -878,6 +887,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -912,7 +922,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win early",
-      "eventText": "El oficial traga saliva y se aleja del terminal.\r\n\r\n—Ahí está. Como podéis ver, habéis perdido el tiempo.\r\n\r\nA primera vista, parece verdad. A pesar de que muestra numerosos envíos a un mismo destino, ninguno de los materiales parece estar relacionado con armamento. El oficial se viene abajo tras sólo unas pocas preguntas:\r\n\r\n—¡No hay ningún arma! —grita—. Es todo un truco para atraer a la flota rebelde. Le dije que el plan de Strang era mucho mejor...\r\n\r\nLe interrumpís y examináis de nuevo el terminal con esto en mente. Efectivamente, ahora podéis ver el engaño. Con esta información y un nuevo prisionero, tal vez toda esta situación pueda ser aprovechada a favor de la Rebelión.\r\n\r\n{-} ¡Los Héroes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Como los Héroes han asegurado pronto el terminal, los Héroes reciben 100 créditos adicionales por Héroe.",
+      "eventText": "El oficial traga saliva y se aleja del terminal.\r\n\r\n\"Ahí está. Como podéis ver, habéis perdido el tiempo.\"\r\n\r\nA primera vista, parece verdad. A pesar de que muestra numerosos envíos a un mismo destino, ninguno de los materiales parece estar relacionado con armamento. \r\n\r\nEl oficial se viene abajo tras sólo unas pocas preguntas. \"¡No hay ningún arma!\" grita. \"Es todo un truco para atraer a la flota rebelde. Le dije que el plan de Strang era mucho mejor...\"\r\n\r\nLe interrumpís y examináis de nuevo el terminal con esto en mente. Efectivamente, ahora podéis ver el engaño. Con esta información y un nuevo prisionero, tal vez toda esta situación pueda ser aprovechada a favor de la Rebelión.\r\n\r\n{-} ¡Los Héroes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Como los Héroes han asegurado pronto el terminal, los Héroes reciben 100 créditos adicionales por Héroe.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -932,6 +942,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -963,7 +974,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "—¡Disparadles, inútiles! ¡No dejéis que escapen! —grita el oficial mientras se aleja de vosotros.\r\n\r\nLas alarmas resuenan a lo lejos y os abrís paso entre las tropas imperiales para tratar de atrapar a vuestro prisionero.\r\n\r\nPor desgracia, ya es demasiado tarde. El oficial desaparece por una puerta que se cierra tras su paso y queda sellada. Para cuando consigáis atravesar esta puerta, él ya estará bien lejos.\r\n\r\n{-} Los Héroes pierden la misión.\r\n{-} Pon en juego la carta de Misión de historia \"Momentos desesperados”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventText": "\"¡Disparadles, inútiles! ¡No dejéis que escapen!\" grita el oficial mientras se aleja de vosotros.\r\n\r\nLas alarmas resuenan a lo lejos y os abrís paso entre las tropas imperiales para tratar de atrapar a vuestro prisionero.\r\n\r\nPor desgracia, ya es demasiado tarde. El oficial desaparece por una puerta que se cierra tras su paso y queda sellada. Para cuando consigáis atravesar esta puerta, él ya estará bien lejos.\r\n\r\n{-} Los Héroes pierden la misión.\r\n{-} Pon en juego la carta de Misión de historia \"Momentos desesperados”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -983,6 +994,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1014,7 +1026,7 @@
       "GUID": "af2f2988-bb57-4fff-83a5-b964da245b9e",
       "isGlobal": true,
       "name": "End of Mission - Rebels win late",
-      "eventText": "El oficial traga saliva y se aleja del terminal.\r\n\r\n—Ahí está. Como podéis ver, habéis perdido el tiempo.\r\n\r\nA primera vista, parece verdad. A pesar de que muestra numerosos envíos a un mismo destino, ninguno de los materiales parece estar relacionado con armamento. El oficial se viene abajo tras sólo unas pocas preguntas:\r\n\r\n—¡No hay ningún arma! —grita—. Es todo un truco para atraer a la flota rebelde. Le dije que el plan de Strang era mucho mejor...\r\n\r\nLe interrumpís y examináis de nuevo el terminal con esto en mente. Efectivamente, ahora podéis ver el engaño. Con esta información y un nuevo prisionero, tal vez toda esta situación pueda ser aprovechada a favor de la Rebelión.\r\n\r\n{-} ¡Los Héroes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventText": "El oficial traga saliva y se aleja del terminal.\r\n\r\n\"Ahí está. Como podéis ver, habéis perdido el tiempo.\"\r\n\r\nA primera vista, parece verdad. A pesar de que muestra numerosos envíos a un mismo destino, ninguno de los materiales parece estar relacionado con armamento. \r\n\r\nEl oficial se viene abajo tras sólo unas pocas preguntas. \"¡No hay ningún arma!\" grita. \"Es todo un truco para atraer a la flota rebelde. Le dije que el plan de Strang era mucho mejor...\"\r\n\r\nLe interrumpís y examináis de nuevo el terminal con esto en mente. Efectivamente, ahora podéis ver el engaño. Con esta información y un nuevo prisionero, tal vez toda esta situación pueda ser aprovechada a favor de la Rebelión.\r\n\r\n{-} ¡Los Héroes ganan la misión!\r\n{-} Pon en juego la carta de Misión de historia \"La batalla final”.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1034,6 +1046,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1085,6 +1098,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1107,7 +1121,7 @@
       "GUID": "1b61136b-334a-4295-9cd5-46d0692a4189",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose 2",
-      "eventText": "—¡Disparadles, inútiles! ¡No dejéis que escapen! —grita el oficial mientras se aleja de vosotros.\r\n\r\nLas alarmas resuenan a lo lejos y os abrís paso entre las tropas imperiales para tratar de atrapar a vuestro prisionero.\r\n\r\nPor desgracia, ya es demasiado tarde. El oficial desaparece por una puerta que se cierra tras su paso y queda sellada. Para cuando consigáis atravesar esta puerta, él ya estará bien lejos.\r\n\r\n{-} Los Héroes pierden la misión.\r\n{-} Pon en juego la carta de Misión de historia \"Momentos desesperados”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Debido a que el oficial capturado se escapó demasiado pronto, aumenta el nivel de amenaza para la próxima misión (y sólo para la próxima misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
+      "eventText": "\"¡Disparadles, inútiles! ¡No dejéis que escapen!\" grita el oficial mientras se aleja de vosotros.\r\n\r\nLas alarmas resuenan a lo lejos y os abrís paso entre las tropas imperiales para tratar de atrapar a vuestro prisionero.\r\n\r\nPor desgracia, ya es demasiado tarde. El oficial desaparece por una puerta que se cierra tras su paso y queda sellada. Para cuando consigáis atravesar esta puerta, él ya estará bien lejos.\r\n\r\n{-} Los Héroes pierden la misión.\r\n{-} Pon en juego la carta de Misión de historia \"Momentos desesperados”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Debido a que el oficial capturado se escapó demasiado pronto, aumenta el nivel de amenaza para la próxima misión (y sólo para la próxima misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1127,6 +1141,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1158,7 +1173,7 @@
       "GUID": "e56775c8-5f71-47fa-a52c-452e18724a04",
       "isGlobal": true,
       "name": "Opportune Moment Trigger",
-      "eventText": "Tu prisionero trata de zafarse mientras grita pidiendo ayuda.",
+      "eventText": "Vuestro prisionero trata de zafarse mientras grita pidiendo ayuda.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1178,6 +1193,7 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1193,7 +1209,7 @@
       "GUID": "dafd801b-26dd-475d-83e5-d4b3ace7e470",
       "isGlobal": true,
       "name": "Opportune Moment 1",
-      "eventText": "{-} Vuestro prisionero consigue escapar momentáneamente y se aleja a trompicones\r\n\r\n{-} El oficial capturado se mueve 1 casilla alejándose del terminal.",
+      "eventText": "Vuestro prisionero consigue escapar momentáneamente y se aleja a trompicones\r\n\r\n{-} El oficial capturado se mueve 1 casilla alejándose del terminal.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1213,6 +1229,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1241,6 +1258,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1269,6 +1287,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1297,6 +1316,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1315,7 +1335,7 @@
       "GUID": "4db252f2-291d-482c-8bec-3b14141abf05",
       "isGlobal": true,
       "name": "Awaiting Departure",
-      "eventText": "—No funcionará, ya lo sabéis —dice el oficial mientras introduce otro código—. Mis hombres lucharán para protegerme. La puerta se abre y varios disparos de bláster cruzan el aire, casi rozando al oficial.\r\n\r\n-¡Tened cuidado, inútiles! -grita.",
+      "eventText": "\"No funcionará, ya lo sabéis\" dice el oficial mientras introduce otro código. \"Mis hombres lucharán para protegerme.\" \r\n\r\nLa puerta se abre y varios disparos de bláster cruzan el aire, casi rozando al oficial. \"¡Tened cuidado, inútiles!\" grita.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1335,6 +1355,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1424,6 +1445,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1481,6 +1503,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1498,7 +1521,7 @@
       "GUID": "3912e9dc-40d0-49a8-b9b2-69a70ed2e210",
       "isGlobal": true,
       "name": "On Board",
-      "eventText": "—Escuchad, estoy seguro de que podemos llegar a un acuerdo —el oficial parece cada vez más nervioso a medida que os vais acercando a vuestro objetivo—. ¡Por favor! ¡No lo entendéis!\r\n\r\nHace falta un poco más de persuasión para conseguir que os abra la puerta, pero finalmente obedece. Su cara está empapada en sudor.",
+      "eventText": "\"Escuchad, estoy seguro de que podemos llegar a un acuerdo\". El oficial parece cada vez más nervioso a medida que os vais acercando a vuestro objetivo. \"¡Por favor! ¡No lo entendéis!\"\r\n\r\nHace falta un poco más de persuasión para conseguir que os abra la puerta, pero finalmente obedece. Su cara está empapada en sudor.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1518,6 +1541,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1620,6 +1644,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1677,6 +1702,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1687,6 +1713,13 @@
           "GUID": "8a868e5f-e12b-4102-849b-3fc9f032bcb1",
           "eventActionType": 6,
           "displayName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "theText": "Asegurar el terminal.",
+          "longText": null,
+          "GUID": "dc1ceafc-63af-4f0e-b5cd-6a5f78b0fde8",
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         }
       ]
     },
@@ -1714,6 +1747,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1736,7 +1770,7 @@
       "GUID": "31d4ea33-e4cb-4642-bbb8-2543112b867a",
       "isGlobal": true,
       "name": "Into the Den",
-      "eventText": "—¡No! ¡Ahí no! Ahí dentro sólo hay unas repulsivas bestias.\r\n\r\nTu cautivo lucha, pero finalmente cede y abre la puerta. Casi desearías que no lo hubiera hecho. Rodeadas de basura y escombros, las bestias gruñendo se vuelven hacia vosotros. Los soldados que trataban de contenerlas también dirigen su atención hacia vosotros.",
+      "eventText": "\"¡No! ¡Ahí no! Ahí dentro sólo hay unas repulsivas bestias.\"\r\n\r\nVuestro cautivo lucha, pero finalmente cede y abre la puerta. Casi desearías que no lo hubiera hecho. Rodeadas de basura y escombros, las bestias gruñendo se vuelven hacia vosotros. Los soldados que trataban de contenerlas también dirigen su atención hacia vosotros.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1756,6 +1790,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1833,6 +1868,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1884,6 +1920,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1938,6 +1975,7 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -1955,7 +1993,7 @@
       "GUID": "8e4f5c9d-2353-4baa-abfc-27ebbe87129a",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose Round limit",
-      "eventText": "—¡Disparadles, inútiles! ¡No dejéis que escapen! —grita el oficial mientras se aleja de vosotros.\r\n\r\nLas alarmas resuenan a lo lejos y os abrís paso entre las tropas imperiales para tratar de atrapar a vuestro prisionero.\r\n\r\nPor desgracia, ya es demasiado tarde. El oficial desaparece por una puerta que se cierra tras su paso y queda sellada. Para cuando consigáis atravesar esta puerta, él ya estará bien lejos.\r\n\r\n{-} Los Héroes pierden la misión.\r\n{-} Pon en juego la carta de Misión de historia \"Momentos desesperados”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventText": "\"¡Disparadles, inútiles! ¡No dejéis que escapen!\" grita el oficial mientras se aleja de vosotros.\r\n\r\nLas alarmas resuenan a lo lejos y os abrís paso entre las tropas imperiales para tratar de atrapar a vuestro prisionero.\r\n\r\nPor desgracia, ya es demasiado tarde. El oficial desaparece por una puerta que se cierra tras su paso y queda sellada. Para cuando consigáis atravesar esta puerta, él ya estará bien lejos.\r\n\r\n{-} Los Héroes pierden la misión.\r\n{-} Pon en juego la carta de Misión de historia \"Momentos desesperados”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1975,6 +2013,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -2133,7 +2172,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2169,7 +2209,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2185,7 +2226,7 @@
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Abrir",
+            "buttonText": "Open",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "31d4ea33-e4cb-4642-bbb8-2543112b867a"
           }
@@ -2206,7 +2247,7 @@
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Abrir",
+            "buttonText": "Open",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "4db252f2-291d-482c-8bec-3b14141abf05"
           }
@@ -2227,7 +2268,7 @@
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Abrir",
+            "buttonText": "Open",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "3912e9dc-40d0-49a8-b9b2-69a70ed2e210"
           }
@@ -2268,7 +2309,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2304,7 +2346,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2320,7 +2363,7 @@
         "entityColor": "Red",
         "buttonActions": [
           {
-            "buttonText": "Oficial liberado",
+            "buttonText": "Officer freed",
             "triggerGUID": "f0a75a90-b70a-4a7e-a16f-f44de7b11406",
             "eventGUID": "00000000-0000-0000-0000-000000000000"
           }
@@ -2365,7 +2408,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2401,7 +2445,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2437,7 +2482,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2473,7 +2519,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2509,7 +2556,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2545,7 +2593,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2581,7 +2630,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2633,6 +2683,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2664,6 +2715,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2695,6 +2747,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2729,6 +2782,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2766,6 +2820,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2803,6 +2858,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2834,6 +2890,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2865,6 +2922,7 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
@@ -2888,5 +2946,6 @@
       ]
     }
   ],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }
