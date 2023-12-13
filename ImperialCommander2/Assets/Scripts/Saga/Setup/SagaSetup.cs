@@ -41,10 +41,14 @@ namespace Saga
 		public VolumeProfile volume;
 		public MissionPicker missionPicker;
 		public TextMeshProUGUI warpTitleText;
-		public bool isDebugMode = false;
 		public List<DeploymentCard> missionCustomAllies = new List<DeploymentCard>();
 		public List<DeploymentCard> missionCustomHeroes = new List<DeploymentCard>();
 		public List<DeploymentCard> missionCustomVillains = new List<DeploymentCard>();
+		//PLANET (warp effect)
+		public Transform planet;
+		public SpriteRenderer planetSprite;
+		public Sprite[] planetSpritePool;
+		public bool isDebugMode = false;
 
 		Sound sound;
 		SagaSetupOptions setupOptions { get; set; }
@@ -641,11 +645,10 @@ namespace Saga
 			faderCG.interactable = false;
 			faderCG.DOFade( 0, .5f ).OnComplete( () =>
 			{
-				warpTitleText.transform.DOMove( warpTitleText.transform.position + warpTitleText.transform.up * 100f, 5 );
-				warpTitleText.DOFade( 1, 2 );
-
 				sound.PlaySound( 1 );
 				sound.PlaySound( 2 );
+
+				planetSprite.sprite = planetSpritePool[UnityEngine.Random.Range( 0, planetSpritePool.Length )];
 
 				GlowTimer.SetTimer( 1.5f, () => warpEffect.SetActive( true ) );
 				GlowTimer.SetTimer( 5, () =>
@@ -653,9 +656,29 @@ namespace Saga
 					DOTween.To( () => theCamera.fieldOfView, x => theCamera.fieldOfView = x, 0, .25f )
 					.OnComplete( () =>
 					{
-						//all effects/music finish, load the mission
-						GlowTimer.SetTimer( 3, () =>
+						planet.gameObject.SetActive( true );
+						warpEffect.SetActive( false );
+						theCamera.fieldOfView = 60;
+
+						Sequence sequence = DOTween.Sequence();
+						Tween t1 = warpTitleText.DOFade( 1, 2 );
+						Tween t2 = warpTitleText.transform.DOMove( warpTitleText.transform.position + warpTitleText.transform.up * 100f, 5 );
+						Tween t3 = warpTitleText.DOFade( 0, 2 );
+						Tween t4 = planetSprite.DOFade( 0, 2f );
+						Tween p = planet.DOMoveZ( 0, .1f ).OnComplete( () =>
 						{
+							planet.DOMoveZ( -5, 10 ).SetEase( Ease.OutCubic );
+						} );
+						//play the animation sequence
+						sequence
+						.Join( t1 )
+						.Join( t2 )
+						.Join( p )
+						.Append( t3 )
+						.Join( t4 )
+						.OnComplete( () =>
+						{
+							//load the main game after it finishes
 							SceneManager.LoadScene( "Saga" );
 						} );
 					} );

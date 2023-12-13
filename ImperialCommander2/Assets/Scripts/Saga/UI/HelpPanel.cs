@@ -103,7 +103,8 @@ public class HelpPanel : MonoBehaviour
 
 		EventSystem.current.SetSelectedGameObject( null );
 
-		var panelHelp = DataStore.uiLanguage.uiHelpOverlay.helpOverlayPanels.Where( x => x.panelHelpID == helpOverlayID ).FirstOr( null );
+		//uiHelpOverlay will be null if the help.json for the chosen language doesn't exist
+		var panelHelp = DataStore.uiLanguage.uiHelpOverlay?.helpOverlayPanels.Where( x => x.panelHelpID == helpOverlayID ).FirstOr( null );
 
 		if ( panelHelp != null )
 		{

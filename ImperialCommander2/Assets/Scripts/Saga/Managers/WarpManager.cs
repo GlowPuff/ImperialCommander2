@@ -7,7 +7,11 @@ public class WarpManager : MonoBehaviour
 {
 	public Camera theCamera;
 	public GameObject warpEffect;
-	public TextMeshProUGUI titleText;
+	public TextMeshProUGUI warpTitleText;
+	public Transform planet;
+	public SpriteRenderer planetSprite;
+	public Sprite[] planetSpritePool;
+	public bool isDebug = false;
 
 	Sound sound;
 
@@ -21,7 +25,7 @@ public class WarpManager : MonoBehaviour
 		float aspect = pixelWidthOfCurrentScreen / pixelHeightOfCurrentScreen;
 		if ( aspect < 1.7f )//less than 16:9, such as 16:10 and 4:3
 		{
-			titleText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 175 );
+			warpTitleText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors( RectTransform.Axis.Horizontal, 175 );
 		}
 
 		Warp();
@@ -29,28 +33,28 @@ public class WarpManager : MonoBehaviour
 
 	public void Warp()
 	{
-		float timer = 3;
-
 		if ( DataStore.sagaSessionData != null
 			&& DataStore.sagaSessionData.setupOptions.isTutorial )
-			titleText.text = DataStore.mission.missionProperties.missionName;
+			warpTitleText.text = DataStore.mission.missionProperties.missionName;
 		else if ( DataStore.sagaSessionData != null )
 		{
 			//get translated mission name
 			var card = DataStore.GetMissionCard( DataStore.sagaSessionData.setupOptions.projectItem.missionID );
 			if ( card != null )//official mission
-				titleText.text = card.name;
+				warpTitleText.text = card.name;
 			else//custom mission
-				titleText.text = DataStore.sagaSessionData.setupOptions.projectItem.Title;
+				warpTitleText.text = DataStore.sagaSessionData.setupOptions.projectItem.Title;
 		}
 		else
-			titleText.text = "";
+			warpTitleText.text = "";
 
-		titleText.transform.DOMove( titleText.transform.position + titleText.transform.up * 100f, 5 );
-		titleText.DOFade( 1, 2 );
+		if ( isDebug )
+			warpTitleText.text = "Debug";
 
 		sound.PlaySound( 1 );
 		sound.PlaySound( 2 );
+
+		planetSprite.sprite = planetSpritePool[Random.Range( 0, planetSpritePool.Length )];
 
 		GlowTimer.SetTimer( 1.5f, () => warpEffect.SetActive( true ) );
 		GlowTimer.SetTimer( 5, () =>
@@ -58,10 +62,31 @@ public class WarpManager : MonoBehaviour
 			DOTween.To( () => theCamera.fieldOfView, x => theCamera.fieldOfView = x, 0, .25f )
 			.OnComplete( () =>
 			{
-				//all effects/music finish, load the mission
-				GlowTimer.SetTimer( timer, () =>
+				planet.gameObject.SetActive( true );
+				warpEffect.SetActive( false );
+				theCamera.fieldOfView = 60;
+
+				Sequence sequence = DOTween.Sequence();
+				Tween t1 = warpTitleText.DOFade( 1, 2 );
+				Tween t2 = warpTitleText.transform.DOMove( warpTitleText.transform.position + warpTitleText.transform.up * 100f, 5 );
+				Tween t3 = warpTitleText.DOFade( 0, 2 );
+				Tween t4 = planetSprite.DOFade( 0, 2f );
+				Tween p = planet.DOMoveZ( 0, .1f ).OnComplete( () =>
 				{
-					SceneManager.LoadScene( "Saga" );
+					planet.DOMoveZ( -5, 10 ).SetEase( Ease.OutCubic );
+				} );
+				//play the animation sequence
+				sequence
+				.Join( t1 )
+				.Join( t2 )
+				.Join( p )
+				.Append( t3 )
+				.Join( t4 )
+				.OnComplete( () =>
+				{
+					//load the main game after it finishes
+					if ( !isDebug )
+						SceneManager.LoadScene( "Saga" );
 				} );
 			} );
 		} );
