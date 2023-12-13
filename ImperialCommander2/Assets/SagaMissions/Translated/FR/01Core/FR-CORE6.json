@@ -1,21 +1,19 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "CORE6-Fly Solo.json",
-  "relativePath": "Update\\Assets\\SagaMissions\\01Core\\CORE6-Fly Solo.json",
-  "fileVersion": "18",
-  "saveDate": "9/16/2022",
-  "timeTicks": 637988865458689320,
-  "languageID": "English (EN)",
+  "fileVersion": "21",
+  "saveDate": "11/29/2023",
+  "timeTicks": 638368913255409943,
+  "languageID": "French (FR)",
   "missionProperties": {
-    "missionName": "Fly Solo",
-    "campaignName": "Core Game",
+    "missionName": "Vol en Solo",
+    "campaignName": "Jeu de base",
     "missionDescription": "",
-    "additionalMissionInfo": "",
     "fixedAlly": "A001",
     "bannedAlly": "A005",
-    "startingObjective": "Open the door to the Back Room.",
+    "startingObjective": "Ouvrir la porte du Débarras.",
+    "additionalMissionInfo": "",
     "missionID": "Core 6",
-    "missionInfo": "{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.\r\n{-} The mission will progress when the door to the Back Room opens ({V}) or at the end of Round 3.",
+    "missionInfo": "{-} La porte vers le Débarras est verrouillée. Un Héro peut interagir avec elle pour l'ouvrir d'un bon coup de pied.\r\n{-} La mission avancera lorsque la porte vers le Débarras sera ouvert ({V}) ou à la fin du Round 3.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
@@ -30,7 +28,7 @@
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
     "missionType": 0,
     "changeRepositionOverride": {
-      "theText": "Block access to the Back Room.",
+      "theText": "Bloquer l'accès vers le Débarras.",
       "useSpecific": false,
       "repoGroups": [],
       "GUID": "2feea976-bc0a-443f-acf5-3c9d1f3aa760",
@@ -51,8 +49,10 @@
       "DG045",
       "DG014",
       "DG046"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
+  "fileName": "FR-CORE6.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -94,6 +94,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -446,6 +447,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -547,6 +549,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -555,7 +558,7 @@
       "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
       "isGlobal": true,
       "name": "Open Crate 1",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -575,6 +578,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -587,7 +591,7 @@
               "entityProperties": {
                 "name": "Crate1",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale toute rouillée.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
@@ -609,7 +613,7 @@
       "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
       "isGlobal": true,
       "name": "Open Crate 2",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -629,6 +633,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -641,7 +646,7 @@
               "entityProperties": {
                 "name": "Crate2",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une caisse impériale moins vieille que d'habitude.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -657,7 +662,7 @@
       "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
       "isGlobal": true,
       "name": "Open Crate 3",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -677,6 +682,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -689,7 +695,7 @@
               "entityProperties": {
                 "name": "Crate3",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une caisse impériale. Toute simple.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -705,7 +711,7 @@
       "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
       "isGlobal": true,
       "name": "Open Crate 4",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -725,6 +731,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -737,7 +744,7 @@
               "entityProperties": {
                 "name": "Crate4",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
@@ -759,7 +766,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "While Rebel forces scour the galaxy in search of information on Weiss's weapon project, Captain Solo hasn't checked in for a few days.\r\n\r\nYou're quick to remind your commander that this hasn't been unusual behavior for the smuggler, but she shrugs and replies, \"Captain Solo said something about a promising lead in his last check-in. We just want to find him and follow up.\"\r\n\r\nThus, you now find yourselves retracing his previous steps. After going through several locations and contacts, this latest one shows promise. Not only does it represent Solo's last known location, but there are also a fair number of Imperial troops patrolling the nearby vicinity.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.\r\n{-} The mission will progress when the door to the Back Room opens ({V}) or at the end of Round 3.",
+      "eventText": "Pendant que les forces Rebelles quadrillent la galaxie à la recherche d'informations sur le projet d'armement de Weiss, le Capitaine Solo n'a pas donné signe de vie depuis quelques jours.\r\n\r\nVous êtes prompt à rappeler à votre commandante que le contrebandier est coutumier de ce fait, mais elle hausse les épaules et répond \"Le Capitaine Solo a parlé d'une piste prometteuse durant son dernier rapport. Nous voulons juste le retrouver et voir de quoi il retourne.\"\r\n\r\nVous vous retrouvez donc en train de retracer ses derniers pas. Après être allé en vain dans plusieurs endroits pour croiser les informateurs de Solo, la prochaine piste semble prometteuse. Au delà d'être la dernière position connue de Solo, c'est aussi un lieu autour duquel de nombreuses troupes impériales patrouillent.\r\n\r\n{-} Déployez les héros depuis la zone bleue.\r\n{-} La porte vers le Débarras est verrouillée. Un Héro peut interagir avec elle pour l'ouvrir d'un bon coup de pied.\r\n{-} La mission avancera lorsque la porte vers le Débarras sera ouvert ({V}) ou à la fin du Round 3.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -779,11 +786,12 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
-          "theText": "All Imperial figures will spend an action to open a door if it is the quickest way to their target.",
+          "theText": "Les figurines impériales dépenseront une action pour ouvrir une porte si elle est sur le chemin le plus court vers leur cible.",
           "instructionType": 0,
           "groupsToAdd": [],
           "GUID": "45628223-bfc3-42b7-aeca-7ea08b49dd62",
@@ -796,7 +804,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Slipping through alleys and dodging past Imperial troops, you make your way to Han's ship. Chewbacca stands waiting at the hatch, releasing a guttural roar at the sight of Han. \"Yeah, yeah, I know!\" Han says, waving him off.\r\n\r\n\"Look, we're getting outta here, but this is everything I could find on the weapon.\" He hands you a small data cube before scrambling up the ramp into the Falcon.\r\n\r\nThe information obtained from the data cube reveals the weapon General Weiss is developing for capital ships. It's advanced and quite sophisticated, with destructive capabilities outclassing anything the Rebellion has at its disposal.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Place Story Mission card \"Incoming\" into play.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
+      "eventText": "Vous glissant discrètement dans les allées et évitant les troupes impériales, vous arrivez jusqu'au vaisseau de Han Solo. Chewbacca y attend près de l'écoutille, et lance un rugissement guttural à la vue de Han. \"Ouais, ouais, je l'sais !\" dit Han, lui faisant signe d'y aller.\r\n\r\n\"Ecoutez, on file d'ici vite fait, mais voici tout ce que j'ai pu trouver sur l'arme.\" Il vous passe un cube de données avant de courrir en remontant la rampe du Faucon.\r\n\r\nLes informations contenues sur le cube de données révèlent que l'arme que le Général Weiss développe est pour les grands vaisseaux. Elle est avancée et complexe, avec des capacités destructives qui rendent tout ce dont la Rébellion dispose obsolète.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Mettez en jeu la mission d'histoire \"En approche\".\r\n{-} Chaque Héros reçoit 2 XP. Les Héros reçoivent 100 crédits par héros.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -816,6 +824,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -836,7 +845,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "A blaster bolt clips Han's shoulder. With a shout of pain, he scrambles around a corner. Imperials move to block your path to him. Before ducking out of sight, he throws something toward you.\r\n\r\nAmid a hail of blaster fire, you snatch up the object, a small data cube, and make your escape in the other direction.\r\n\r\nThe information obtained from the data cube reveals the weapon General Weiss is developing for capital ships. It's advanced and quite sophisticated, with destructive capabilities outclassing anything the Rebellion has at its disposal.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Place Story Mission card \"Drawn In\" into play.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
+      "eventText": "Un tir de blaster touche Han à l'épaule. Avec un cri de douleur, il disparait derrière un coin de bâtiment. Les Impériaux bloquent votre chemin vers lui. Juste avant de disparaître, il lance un objet dans votre direction.\r\n\r\nAu péril de votre vie, au milieu des tirs de blasters, vous vous saisissez de l'objet, un petit cube de données, et vous enfuyez dans la direction opposée.\r\n\r\nLes informations contenues sur le cube de données révèlent que l'arme que le Général Weiss développe est pour les grands vaisseaux. Elle est avancée et complexe, avec des capacités destructives qui rendent tout ce dont la Rébellion dispose obsolète.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Mettez en jeu la mission d'histoire \"Compromis\".\r\n{-} Chaque Héros reçoit 1 XP. Les Héros reçoivent 100 crédits par héros.",
       "allyDefeated": "A005",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -856,6 +865,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
@@ -896,6 +906,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -908,11 +919,11 @@
               "entityProperties": {
                 "name": "Kitchen Door",
                 "isActive": true,
-                "theText": "The door separates the kitchen from the cantina.",
+                "theText": "Cette porte sépare la cantina de la cuisine.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "{A} L'ouvrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -930,7 +941,7 @@
       "GUID": "7b364285-bb66-480d-a4b5-6a5dc97d8040",
       "isGlobal": true,
       "name": "Daring Escape",
-      "eventText": "A door at the back of the bar bursts open, and a battered Han Solo stumbles through the opening. His wrists are still bound, but in his hands he holds a blaster, firing back into the room he just departed.",
+      "eventText": "Une porte au fond explose en s'ouvrant, alors qu'un Han Solo à la mine battue en sort. Ses poignets sont encore attachés mais dans une main il tient un blaster et tire dans la salle dont il vient de sortir.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -950,6 +961,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -977,11 +989,11 @@
               "entityProperties": {
                 "name": "Back Room Door",
                 "isActive": true,
-                "theText": "The door to the Back Room is locked tight. Muffled voiced can be heard from within.\r\n\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.",
+                "theText": "La porte du Débarras estr verrouillée. Des voix étouffées en parviennent.\r\n\r\n{-} La porte vers le Débarras est verrouillée. Un Héro peut interagir avec elle pour l'ouvrir d'un bon coup de pied.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Kick in",
+                    "buttonText": "{A} Enfoncer la porte",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -997,7 +1009,6 @@
           "allyName": null,
           "allyID": "A005",
           "setTrigger": "00000000-0000-0000-0000-000000000000",
-          "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "3cd4a0fe-9168-4c7e-b359-2025af5a187d",
           "threatCost": 0,
@@ -1008,7 +1019,7 @@
           "displayName": "Ally Deployment"
         },
         {
-          "theText": "Han is bleeding from a couple of superficial wounds.\r\n\r\n{-} <color=\"red\">Han Solo</color> suffers 4 {H}.",
+          "theText": "Han saigne de quelques blessures superficielles.\r\n\r\n{-} <color=\"red\">Han Solo</color> subit 4 {H}.",
           "GUID": "13d150f1-b496-4157-8b0f-092ad0ee5126",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -1072,7 +1083,7 @@
           "displayName": "Deploy: DG003/Stormtrooper (Elite)"
         },
         {
-          "theText": "Han Solo seemed to have had a disagreement with the soldiers guarding him.\r\n\r\n{-} Each figure in the <color=\"red\">Stormtrooper</color> group suffers 2 {H}.",
+          "theText": "Han Solo semble avoir eu maille à partir avec les soldats chargés de le garder.\r\n\r\n{-} Chaque figurine du groupe de <color=\"red\">Stormtrooper</color> subit 2 {H}.",
           "GUID": "407066f6-cd48-4259-bace-80928293534e",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -1116,17 +1127,18 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "failText": "",
-          "theText": "You kick the door with all your power.\r\n\r\n{-} Test {K}. Apply +1 {B} for each strain token on the door, then discard all strain tokens from the door. Enter the number of successes below.",
+          "theText": "Vous frappez la porte de toutes vos forces.\r\n\r\n{-} Testez {K}. Ajoutez +1 {B} pour chaque pion de stress déjà présent sur la porte. Entrez le nombre de succès ci-dessous.",
           "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
           "failEventGUID": "0e0b5be9-1a00-4e14-896b-783deb1a988c",
           "inputList": [
             {
-              "theText": "You kick as hard as you can, but the door does not buckle. You need to keep trying.\r\n\r\nFor each {B} rolled, place 1 strain token on the door.",
+              "theText": "Vous avez beau y avoir mis tout ce que vous avez, la porte ne cède pas. Il vous faut continuer à essayer.\r\n\r\nPlacez sur la porte 1 pion de stress pour chaque {B} obtenu.",
               "fromValue": 0,
               "toValue": 0,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
@@ -1143,7 +1155,7 @@
       "GUID": "0e0b5be9-1a00-4e14-896b-783deb1a988c",
       "isGlobal": true,
       "name": "Strange Patrons",
-      "eventText": "When you kicked in the door, you had expected to find a back room filled with Sabacc tables, not a fully functioning Imperial observation post. \r\n\r\nScreens cover the walls and voices crackle from multiple speakers. Computers and monitoring equipment are scattered everywhere. At the back of the room, in a small holding cell barred by a force field, sits Han Solo.\r\n\r\n\"Watch it!\" he shouts, motioning to the troops in the room, who scramble for their weapons.\r\n\r\nThere's a small rumbling beneath your feet. The lights in the room flicker, and the force field dies. \"Nice timing, Chewie,\" Han grins to himself as he dives for the nearest blaster.\r\n\r\n{-} Heroes receive 100 credits per hero.",
+      "eventText": "Quand vous avez décidé d'enfoncer la porte, vous vous attendiez à trouver derrière une salle emplie de tables de Sabbacc, pas un post de garde impérial tout équipé. \r\n\r\nDes écrans tapissent les murs. Des voix crépitent de multiples haut-parleurs. Des ordinateurs et des équipements de surveillance se partagent la salle. Tout au fond, dans une petite cellule de détention scellée par un écran de force, se tient Han Solo, assis.\r\n\r\n\"Attention !\" crit-il en pointant du doigt les troupes présentes dans la salle, qui se jettent sur leurs armes.\r\n\r\nUn léger tremblement se fait sentir sous vos pieds. Les lumières dans la salle vacillent et le champ de force disparait. \"Pile au bon moment, Chewie,\" sourit Han en plongeant pour se saisir du blaster le plus proche.\r\n\r\n{-} Les Héroes reçoivent 100 crédits par Héros.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1163,6 +1175,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1175,11 +1188,11 @@
               "entityProperties": {
                 "name": "Back Room Door",
                 "isActive": true,
-                "theText": "The door to the Back Room is locked tight. Muffled voiced can be heard from within.\r\n\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.",
+                "theText": "La porte du Débarras estr verrouillée. Des voix étouffées en parviennent.\r\n\r\n{-} La porte vers le Débarras est verrouillée. Un Héro peut interagir avec elle pour l'ouvrir d'un bon coup de pied.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Kick in",
+                    "buttonText": "{A} La défoncer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "956ca1de-85c1-46d8-a99f-97af556485c8"
                   }
@@ -1204,7 +1217,6 @@
           "allyName": null,
           "allyID": "A005",
           "setTrigger": "00000000-0000-0000-0000-000000000000",
-          "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "931a1ab2-8a92-470b-af84-38a36800f91f",
           "threatCost": 0,
@@ -1347,7 +1359,7 @@
           "displayName": "Ready / Exhaust a Group"
         },
         {
-          "theText": "Han Solo is alive, but battered and exhausted.\r\n\r\n{-} Exhaust <color=\"red\">Han Solo</color>'s Deployment card.",
+          "theText": "Han Solo est vivant, épuisé et a été de toute évidence tabassé.\r\n\r\n{-} Epuisez la carte de déploiement de <color=\"red\">Han Solo</color>.",
           "GUID": "8976440b-1320-440f-8613-ef0c0166f86f",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -1377,7 +1389,7 @@
       "GUID": "68121706-35f7-4134-9940-b4ecfdaecf4c",
       "isGlobal": true,
       "name": "Time to Run",
-      "eventText": "\"You guys look familiar!\" Han shouts, sending blaster fire toward his former captors. He opens his mouth to speak again but stops short, diving to the ground as the Imperials return fire.\r\n\r\n\"Talk later!\" he calls out as he scrambles toward cover.\r\n\r\n{-} Heroes control <color=\"red\">Han Solo</color> as an ally.\r\n{-} The Rebel mission token represents the exit.\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit.\r\n{-} The Rebels win when <color=\"red\">Han Solo</color> escapes.\r\n{-} The Rebels lose when <color=\"red\">Han Solo</color> is defeated.",
+      "eventText": "\"Votre tête me dit quelque chose !\" crie Han, donnant du blaster en direction de ses anciens ravisseurs. Il ouvre la bouche pour ajouter quelque chose mais s'interrompt pour plonger au sol alors que les Impériaux répliquent.\r\n\r\n\"On cause plus tard !\" crit-il en courant se mettre à couvert.\r\n\r\n{-} Les Héros contrôlent <color=\"red\">Han Solo</color> en tant qu'Allié.\r\n{-} Le pion de mission rebelle représent la sortie.\r\n{-} <color=\"red\">Han Solo</color> peut s'échapper par la sortie.\r\n{-} Les Rebelles gagnent quand <color=\"red\">Han Solo</color> s'échappe.\r\n{-} Les Rebelles perdent quand <color=\"red\">Han Solo</color> est vaincu.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1397,6 +1409,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1415,11 +1428,11 @@
               "entityProperties": {
                 "name": "Exit",
                 "isActive": true,
-                "theText": "Narrow pathways lead away from the cantina, making it easy to shake off pursuers.\r\n\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit, ending the mission.",
+                "theText": "Des chemins étroits mènent au loin de la cantina, rendant simple de se débarrasser de ses poursuivants.\r\n\r\n{-} <color=\"red\">Han Solo</color> peut s'échapper par la sortie, mettant fin à la mission.",
                 "entityColor": "Green",
                 "buttonActions": [
                   {
-                    "buttonText": "Han Solo Escapes",
+                    "buttonText": "Han Solo s'échappe",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6"
                   }
@@ -1432,7 +1445,7 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "As you scramble towards the exit, mechanical whirring announces the arrival of a relentless hunter, looking for Solo.",
+          "theText": "Alors que vous courrez vers la sortie, un bourdonnement mécanique mêlé de sifflements annonce l'arrivée d'un chasseur infatigable, traquant de Solo.",
           "GUID": "944cb357-3155-4710-b934-cae519446252",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -1496,13 +1509,13 @@
           "displayName": "Deploy: DG071/IG-88"
         },
         {
-          "theText": "{-} Heroes control <color=\"red\">Han Solo</color> as an ally.\r\n{-} The Rebel mission token represents the exit.\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit.\r\n{-} The Rebels win when <color=\"red\">Han Solo</color> escapes.\r\n{-} The Rebels lose when <color=\"red\">Han Solo</color> is defeated.",
+          "theText": "{-} Les Héros contrôlent <color=\"red\">Han Solo</color> en tant qu'Allié.\r\n{-} Le pion de mission rebelle représent la sortie.\r\n{-} <color=\"red\">Han Solo</color> peut s'échapper par la sortie.\r\n{-} Les Rebelles gagnent quand <color=\"red\">Han Solo</color> s'échappe.\r\n{-} Les Rebelles perdent quand <color=\"red\">Han Solo</color> est vaincu.",
           "GUID": "d624631a-54c4-4982-a157-e503b5212d9d",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
         },
         {
-          "theText": "Help <color=\"red\">Han Solo</color> escape.",
+          "theText": "Aidez <color=\"red\">Han Solo</color> à s'enfuir.",
           "longText": null,
           "GUID": "770b09f1-977c-44ff-a7c8-4d928e2c0915",
           "eventActionType": 2,
@@ -1537,7 +1550,7 @@
           "displayName": "Change Priority Target"
         },
         {
-          "theText": "Block access to the Exit.",
+          "theText": "Bloquer l'accès à la sortie.",
           "useSpecific": false,
           "repoGroups": [],
           "GUID": "2c901212-a768-41fb-b146-ff128d088447",
@@ -1556,7 +1569,7 @@
       "GUID": "9838f8ca-8f28-4186-b39a-236b4f4d1cc8",
       "isGlobal": true,
       "name": "Time to Run-1",
-      "eventText": "IG-88 swivels his optical sensors towards the cantina, then starts to move towards it.\r\n\r\n{-} <color=\"red\">IG-88</color> moves 5 towards <color=\"red\">Han Solo</color>.",
+      "eventText": "IG-88 fait pivoter ses capteurs optiques jusqu'à s'arrêter sur la cantina, et commence à s'en approcher.\r\n\r\n{-} <color=\"red\">IG-88</color> se déplace de 5 vers <color=\"red\">Han Solo</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1576,6 +1589,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1584,7 +1598,7 @@
       "GUID": "d2c05fce-f5d1-48f4-ac13-d24767157b4a",
       "isGlobal": true,
       "name": "Time to Run-2",
-      "eventText": "One of the Imperials manages to get off a call for reinforcements.",
+      "eventText": "L'un des Impériaux parvient à appeler des renforts.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1604,6 +1618,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1629,11 +1644,11 @@
       "entityProperties": {
         "name": "Crate1",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "%Une caisse impériale anodine.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609"
           }
@@ -1651,11 +1666,11 @@
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une caisse impériale quelconque.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab"
           }
@@ -1673,11 +1688,11 @@
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Encore une autre vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079"
           }
@@ -1695,7 +1710,7 @@
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,
-        "theText": "Deploy the heroes here.",
+        "theText": "Déployez les héros ici.",
         "entityColor": "Blue",
         "buttonActions": []
       },
@@ -1714,11 +1729,11 @@
       "entityProperties": {
         "name": "Crate4",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577"
           }
@@ -1847,11 +1862,11 @@
       "entityProperties": {
         "name": "Kitchen Door",
         "isActive": false,
-        "theText": "The door separates the kitchen from the cantina.",
+        "theText": "Cette porte sépare la cantina de la cuisine.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "bf44f221-4be1-4118-a18b-0ac7dacf867a"
           }
@@ -1868,11 +1883,11 @@
       "entityProperties": {
         "name": "Back Room Door",
         "isActive": false,
-        "theText": "The door to the Back Room is locked tight. Muffled voiced can be heard from within.\r\n\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.",
+        "theText": "La porte du Débarras estr verrouillée. Des voix étouffées en parviennent.\r\n\r\n{-} La porte vers le Débarras est verrouillée. Un Héro peut interagir avec elle pour l'ouvrir d'un bon coup de pied.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "{A} Kick in",
+            "buttonText": "{A} Enfoncer la porte",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "956ca1de-85c1-46d8-a99f-97af556485c8"
           }
@@ -2111,11 +2126,11 @@
       "entityProperties": {
         "name": "Exit",
         "isActive": false,
-        "theText": "Narrow pathways lead away from the cantina, making it easy to shake off pursuers.\r\n\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit, ending the mission.",
+        "theText": "Des chemins étroits mènent au loin de la cantina, rendant simple de se débarrasser de ses poursuivants.\r\n\r\n{-} <color=\"red\">Han Solo</color> peut s'échapper par la sortie, mettant fin à la mission.",
         "entityColor": "Green",
         "buttonActions": [
           {
-            "buttonText": "Han Solo escapes",
+            "buttonText": "Han Solo s'échappe",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6"
           }
@@ -2647,5 +2662,6 @@
       ]
     }
   ],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

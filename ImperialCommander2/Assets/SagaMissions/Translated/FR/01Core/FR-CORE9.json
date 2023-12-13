@@ -1,27 +1,25 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "CORE6-Fly Solo.json",
-  "relativePath": "Update\\Assets\\SagaMissions\\01Core\\CORE6-Fly Solo.json",
-  "fileVersion": "18",
-  "saveDate": "9/16/2022",
-  "timeTicks": 637988865458689320,
-  "languageID": "English (EN)",
+  "fileVersion": "21",
+  "saveDate": "12/6/2023",
+  "timeTicks": 638374848669535365,
+  "languageID": "French (FR)",
   "missionProperties": {
-    "missionName": "Fly Solo",
-    "campaignName": "Core Game",
+    "missionName": "Barroud d'Honneur",
+    "campaignName": "Jeu de base",
     "missionDescription": "",
-    "additionalMissionInfo": "",
     "fixedAlly": "A001",
-    "bannedAlly": "A005",
-    "startingObjective": "Open the door to the Back Room.",
-    "missionID": "Core 6",
-    "missionInfo": "{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.\r\n{-} The mission will progress when the door to the Back Room opens ({V}) or at the end of Round 3.",
+    "bannedAlly": "A001",
+    "startingObjective": "Infiltrez-vous dans l'installation et trouvez le Général Weiss.",
+    "additionalMissionInfo": null,
+    "missionID": "Core 9",
+    "missionInfo": "{-} Les portes sont verrouillées. Une figurine Rebelle peut attaquer une porte (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec pour l'ouvrir.\r\n{-} La mission avance lorsque la première porte s'ouvre.\r\n{-} Les Rebelles perdent à la fin du Round 12 ou quand tous les Héros sont blessés.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
     "banAllAllies": 1,
     "useFixedAlly": 1,
-    "useBannedAlly": 0,
+    "useBannedAlly": 1,
     "customInstructionType": 2,
     "priorityTargetType": 0,
     "specificAlly": "A001",
@@ -30,29 +28,31 @@
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
     "missionType": 0,
     "changeRepositionOverride": {
-      "theText": "Block access to the Back Room.",
+      "theText": "Bloquer l'accès aux portes.",
       "useSpecific": false,
       "repoGroups": [],
-      "GUID": "2feea976-bc0a-443f-acf5-3c9d1f3aa760",
+      "GUID": "fcf4c8ca-64e2-49c7-9575-fc422b08615f",
       "eventActionType": 17,
       "displayName": ""
     },
     "missionSubType": [],
     "bannedGroups": [
+      "DG021",
+      "DG022",
       "DG023",
       "DG024",
-      "DG025",
       "DG028",
       "DG029",
       "DG034",
       "DG033",
       "DG035",
       "DG065",
-      "DG045",
-      "DG014",
-      "DG046"
-    ]
+      "DG066",
+      "DG067"
+    ],
+    "multipleBannedAllies": []
   },
+  "fileName": "FR-CORE9.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -94,6 +94,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -101,17 +102,17 @@
       ],
       "mapTiles": [
         {
-          "GUID": "913add37-846d-4399-a0c9-bcfeeb759ee8",
-          "name": "Core4B",
+          "GUID": "768e1d8d-5c11-4f49-8524-dc742e1b1854",
+          "name": "Core2B",
           "entityType": 0,
-          "entityPosition": "970,950",
-          "entityRotation": 90.0,
-          "textureName": "Core_4B",
-          "tileID": "4",
+          "entityPosition": "870,950",
+          "entityRotation": 0.0,
+          "textureName": "Core_2B",
+          "tileID": "2",
           "tileSide": "B",
           "expansion": 0,
           "entityProperties": {
-            "name": "Core4B",
+            "name": "Core2B",
             "isActive": true,
             "theText": null,
             "entityColor": null,
@@ -120,11 +121,30 @@
           "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
         },
         {
-          "GUID": "be355ab9-afcb-4598-8bb2-66fda948a57e",
+          "GUID": "e26993f2-143b-4712-a3fb-fab3bf7858fc",
+          "name": "Core5B",
+          "entityType": 0,
+          "entityPosition": "920,910",
+          "entityRotation": 90.0,
+          "textureName": "Core_5B",
+          "tileID": "5",
+          "tileSide": "B",
+          "expansion": 0,
+          "entityProperties": {
+            "name": "Core5B",
+            "isActive": true,
+            "theText": null,
+            "entityColor": null,
+            "buttonActions": []
+          },
+          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+        },
+        {
+          "GUID": "73c09c19-db15-4b85-bfd1-e9f46f3bbf0c",
           "name": "Core6B",
           "entityType": 0,
-          "entityPosition": "1030,950",
-          "entityRotation": 90.0,
+          "entityPosition": "910,990",
+          "entityRotation": 270.0,
           "textureName": "Core_6B",
           "tileID": "6",
           "tileSide": "B",
@@ -139,36 +159,17 @@
           "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
         },
         {
-          "GUID": "f00e7c40-b420-46d7-9d92-c895e65ad71f",
-          "name": "Core11B",
+          "GUID": "2c533671-d159-4243-9642-a8e3fb716945",
+          "name": "Core10B",
           "entityType": 0,
-          "entityPosition": "1000,950",
-          "entityRotation": 180.0,
-          "textureName": "Core_11B",
-          "tileID": "11",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core11B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "1057f102-aa25-4b16-a765-e1a90dad2fe7",
-          "name": "Core12B",
-          "entityType": 0,
-          "entityPosition": "990,950",
+          "entityPosition": "950,990",
           "entityRotation": 90.0,
-          "textureName": "Core_12B",
-          "tileID": "12",
+          "textureName": "Core_10B",
+          "tileID": "10",
           "tileSide": "B",
           "expansion": 0,
           "entityProperties": {
-            "name": "Core12B",
+            "name": "Core10B",
             "isActive": true,
             "theText": null,
             "entityColor": null,
@@ -177,10 +178,10 @@
           "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
         },
         {
-          "GUID": "d6fe7a17-5968-4a03-a9d8-493e818af0f5",
+          "GUID": "81862c17-259d-46f7-9a09-539731e6967d",
           "name": "Core13B",
           "entityType": 0,
-          "entityPosition": "1020,950",
+          "entityPosition": "940,940",
           "entityRotation": 180.0,
           "textureName": "Core_13B",
           "tileID": "13",
@@ -196,11 +197,11 @@
           "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
         },
         {
-          "GUID": "16b42418-04a6-40da-9f0f-16e7076b652e",
+          "GUID": "8c1dd9bb-17a9-47e8-8ec4-c121dc6c53b0",
           "name": "Core14B",
           "entityType": 0,
-          "entityPosition": "960,950",
-          "entityRotation": 180.0,
+          "entityPosition": "940,940",
+          "entityRotation": 270.0,
           "textureName": "Core_14B",
           "tileID": "14",
           "tileSide": "B",
@@ -215,29 +216,10 @@
           "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
         },
         {
-          "GUID": "61cd5a1b-ee46-4710-b483-b384a05955fe",
-          "name": "Core16B",
-          "entityType": 0,
-          "entityPosition": "1020,950",
-          "entityRotation": 270.0,
-          "textureName": "Core_16B",
-          "tileID": "16",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core16B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "d2b6b79f-4421-4db9-91a8-a06c2dc9ae58",
+          "GUID": "d321f7d8-b862-4c18-9993-2a2483266138",
           "name": "Core17B",
           "entityType": 0,
-          "entityPosition": "960,990",
+          "entityPosition": "940,940",
           "entityRotation": 90.0,
           "textureName": "Core_17B",
           "tileID": "17",
@@ -253,10 +235,10 @@
           "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
         },
         {
-          "GUID": "977aebd1-40da-4e48-88e9-cd5bac6a31f2",
+          "GUID": "24b86549-33d1-4341-acf5-f5754b267490",
           "name": "Core18B",
           "entityType": 0,
-          "entityPosition": "970,990",
+          "entityPosition": "940,940",
           "entityRotation": 0.0,
           "textureName": "Core_18B",
           "tileID": "18",
@@ -272,131 +254,17 @@
           "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
         },
         {
-          "GUID": "756febaa-bf03-4ac0-8bad-c2fa8807770b",
-          "name": "Core21B",
-          "entityType": 0,
-          "entityPosition": "970,1010",
-          "entityRotation": 90.0,
-          "textureName": "Core_21B",
-          "tileID": "21",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core21B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "45e6cb96-043a-46d3-8fb7-e1bc9cac0d85",
-          "name": "Core24B",
-          "entityType": 0,
-          "entityPosition": "980,1040",
-          "entityRotation": 270.0,
-          "textureName": "Core_24B",
-          "tileID": "24",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core24B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "5b5fdae4-c80c-49e8-863b-5811644398ab",
-          "name": "Core32B",
-          "entityType": 0,
-          "entityPosition": "950,1060",
-          "entityRotation": 90.0,
-          "textureName": "Core_32B",
-          "tileID": "32",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core32B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "a9e22030-9022-4156-a0af-27824a9697a6",
-          "name": "Core34B",
-          "entityType": 0,
-          "entityPosition": "950,1060",
-          "entityRotation": 0.0,
-          "textureName": "Core_34B",
-          "tileID": "34",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core34B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "b4020dbb-1f97-4523-9466-04d79865cf45",
+          "GUID": "cb77c4d6-9549-47de-96b5-da75227e4346",
           "name": "Core39B",
           "entityType": 0,
-          "entityPosition": "960,1000",
-          "entityRotation": 90.0,
+          "entityPosition": "950,1000",
+          "entityRotation": 0.0,
           "textureName": "Core_39B",
           "tileID": "39",
           "tileSide": "B",
           "expansion": 0,
           "entityProperties": {
             "name": "Core39B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "55a669c2-da3b-472e-9727-ed30c708e42b",
-          "name": "Core39B",
-          "entityType": 0,
-          "entityPosition": "1020,990",
-          "entityRotation": 90.0,
-          "textureName": "Core_39B",
-          "tileID": "39",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core39B",
-            "isActive": true,
-            "theText": null,
-            "entityColor": null,
-            "buttonActions": []
-          },
-          "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
-        },
-        {
-          "GUID": "45a6bbd8-7682-47fa-99f3-a71ba37c66f8",
-          "name": "Core35B",
-          "entityType": 0,
-          "entityPosition": "970,1020",
-          "entityRotation": 0.0,
-          "textureName": "Core_35B",
-          "tileID": "35",
-          "tileSide": "B",
-          "expansion": 0,
-          "entityProperties": {
-            "name": "Core35B",
             "isActive": true,
             "theText": null,
             "entityColor": null,
@@ -407,8 +275,8 @@
       ]
     },
     {
-      "name": "Section 2 - Back Room",
-      "GUID": "f15242c6-7977-4e72-b494-5916a98112cf",
+      "name": "Section 2 - Warehouse",
+      "GUID": "60da9b45-f367-45b3-8048-c8905bcfa85e",
       "invisibleUntilActivated": true,
       "triggers": [
         {
@@ -446,6 +314,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -453,42 +322,254 @@
       ],
       "mapTiles": [
         {
-          "GUID": "8b3bfb49-e3b5-414f-bca1-b19cc76048c1",
-          "name": "Core22B",
+          "GUID": "482576ee-9667-44d3-b765-138d4bd95289",
+          "name": "Core32A",
           "entityType": 0,
-          "entityPosition": "970,1050",
+          "entityPosition": "960,1000",
           "entityRotation": 0.0,
-          "textureName": "Core_22B",
-          "tileID": "22",
+          "textureName": "Core_32A",
+          "tileID": "32",
           "tileSide": "B",
           "expansion": 0,
           "entityProperties": {
-            "name": "Core22B",
+            "name": "Core32A",
             "isActive": true,
             "theText": null,
             "entityColor": null,
             "buttonActions": []
           },
-          "mapSectionOwner": "f15242c6-7977-4e72-b494-5916a98112cf"
+          "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e"
         },
         {
-          "GUID": "a1a3ce75-ab61-4e43-b5ba-ea6449e51643",
-          "name": "Core36B",
+          "GUID": "e42430a6-f561-4214-981a-a81191e0c77a",
+          "name": "Core37B",
           "entityType": 0,
-          "entityPosition": "1010,1080",
-          "entityRotation": 270.0,
-          "textureName": "Core_36B",
-          "tileID": "36",
+          "entityPosition": "1020,980",
+          "entityRotation": 90.0,
+          "textureName": "Core_37B",
+          "tileID": "37",
           "tileSide": "B",
           "expansion": 0,
           "entityProperties": {
-            "name": "Core36B",
+            "name": "Core37B",
             "isActive": true,
             "theText": null,
             "entityColor": null,
             "buttonActions": []
           },
-          "mapSectionOwner": "f15242c6-7977-4e72-b494-5916a98112cf"
+          "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e"
+        },
+        {
+          "GUID": "8b7e65cd-24b3-443f-a262-8944c102aa8c",
+          "name": "Core32A",
+          "entityType": 0,
+          "entityPosition": "1000,980",
+          "entityRotation": 270.0,
+          "textureName": "Core_32A",
+          "tileID": "32",
+          "tileSide": "B",
+          "expansion": 0,
+          "entityProperties": {
+            "name": "Core32A",
+            "isActive": true,
+            "theText": null,
+            "entityColor": null,
+            "buttonActions": []
+          },
+          "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e"
+        },
+        {
+          "GUID": "cc91372b-e529-41b7-87fe-ec11ca4ca3cd",
+          "name": "Core24A",
+          "entityType": 0,
+          "entityPosition": "1000,960",
+          "entityRotation": 90.0,
+          "textureName": "Core_24A",
+          "tileID": "24",
+          "tileSide": "B",
+          "expansion": 0,
+          "entityProperties": {
+            "name": "Core24A",
+            "isActive": true,
+            "theText": null,
+            "entityColor": null,
+            "buttonActions": []
+          },
+          "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e"
+        }
+      ]
+    },
+    {
+      "name": "Section 3 - Hangar",
+      "GUID": "c049c11a-b878-4ce1-846e-b2df91ab740f",
+      "invisibleUntilActivated": true,
+      "triggers": [
+        {
+          "name": "None (Section)",
+          "GUID": "00000000-0000-0000-0000-000000000000",
+          "isGlobal": false,
+          "useReset": false,
+          "maxValue": -1,
+          "initialValue": 0,
+          "eventGUID": "00000000-0000-0000-0000-000000000000"
+        }
+      ],
+      "missionEvents": [
+        {
+          "GUID": "00000000-0000-0000-0000-000000000000",
+          "isGlobal": false,
+          "name": "None (Section)",
+          "eventText": "",
+          "allyDefeated": "A001",
+          "heroWounded": "H1",
+          "heroWithdraws": "H1",
+          "activationOf": "DG001",
+          "startOfRound": 1,
+          "endOfRound": 1,
+          "useStartOfRound": false,
+          "useEndOfRound": false,
+          "useStartOfEachRound": false,
+          "useEndOfEachRound": false,
+          "useAllGroupsDefeated": false,
+          "useAllHeroesWounded": false,
+          "useAllyDefeated": false,
+          "useHeroWounded": false,
+          "useHeroWithdraws": false,
+          "useAnyHeroWounded": false,
+          "useActivation": false,
+          "isRepeatable": false,
+          "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
+          "behaviorAll": true,
+          "additionalTriggers": [],
+          "eventActions": []
+        }
+      ],
+      "mapTiles": [
+        {
+          "GUID": "9cebf20d-95f0-4283-b0b4-e32849175585",
+          "name": "Core19A",
+          "entityType": 0,
+          "entityPosition": "1040,1000",
+          "entityRotation": 90.0,
+          "textureName": "Core_19A",
+          "tileID": "19",
+          "tileSide": "A",
+          "expansion": 0,
+          "entityProperties": {
+            "name": "Core19A",
+            "isActive": true,
+            "theText": null,
+            "entityColor": null,
+            "buttonActions": []
+          },
+          "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f"
+        },
+        {
+          "GUID": "613220af-157f-4f9a-80d9-f4bc716b98b5",
+          "name": "Core28A",
+          "entityType": 0,
+          "entityPosition": "980,1020",
+          "entityRotation": 90.0,
+          "textureName": "Core_28A",
+          "tileID": "28",
+          "tileSide": "A",
+          "expansion": 0,
+          "entityProperties": {
+            "name": "Core28A",
+            "isActive": true,
+            "theText": null,
+            "entityColor": null,
+            "buttonActions": []
+          },
+          "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f"
+        },
+        {
+          "GUID": "27ed40e1-4d0f-49da-89eb-16330050e982",
+          "name": "Core20A",
+          "entityType": 0,
+          "entityPosition": "980,1100",
+          "entityRotation": 270.0,
+          "textureName": "Core_20A",
+          "tileID": "20",
+          "tileSide": "A",
+          "expansion": 0,
+          "entityProperties": {
+            "name": "Core20A",
+            "isActive": true,
+            "theText": null,
+            "entityColor": null,
+            "buttonActions": []
+          },
+          "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f"
+        }
+      ]
+    },
+    {
+      "name": "Section 4 - Command Center",
+      "GUID": "d5666e94-131e-45c5-aa1e-cc905e133d77",
+      "invisibleUntilActivated": true,
+      "triggers": [
+        {
+          "name": "None (Section)",
+          "GUID": "00000000-0000-0000-0000-000000000000",
+          "isGlobal": false,
+          "useReset": false,
+          "maxValue": -1,
+          "initialValue": 0,
+          "eventGUID": "00000000-0000-0000-0000-000000000000"
+        }
+      ],
+      "missionEvents": [
+        {
+          "GUID": "00000000-0000-0000-0000-000000000000",
+          "isGlobal": false,
+          "name": "None (Section)",
+          "eventText": "",
+          "allyDefeated": "A001",
+          "heroWounded": "H1",
+          "heroWithdraws": "H1",
+          "activationOf": "DG001",
+          "startOfRound": 1,
+          "endOfRound": 1,
+          "useStartOfRound": false,
+          "useEndOfRound": false,
+          "useStartOfEachRound": false,
+          "useEndOfEachRound": false,
+          "useAllGroupsDefeated": false,
+          "useAllHeroesWounded": false,
+          "useAllyDefeated": false,
+          "useHeroWounded": false,
+          "useHeroWithdraws": false,
+          "useAnyHeroWounded": false,
+          "useActivation": false,
+          "isRepeatable": false,
+          "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
+          "behaviorAll": true,
+          "additionalTriggers": [],
+          "eventActions": []
+        }
+      ],
+      "mapTiles": [
+        {
+          "GUID": "ba7f7f1b-a69c-48b0-bbec-9357578118cb",
+          "name": "Core23A",
+          "entityType": 0,
+          "entityPosition": "980,1050",
+          "entityRotation": 90.0,
+          "textureName": "Core_23A",
+          "tileID": "23",
+          "tileSide": "A",
+          "expansion": 0,
+          "entityProperties": {
+            "name": "Core23A",
+            "isActive": true,
+            "theText": null,
+            "entityColor": null,
+            "buttonActions": []
+          },
+          "mapSectionOwner": "d5666e94-131e-45c5-aa1e-cc905e133d77"
         }
       ]
     }
@@ -504,17 +585,8 @@
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "name": "Back Room Door Open",
-      "GUID": "14699284-8d2b-458e-8c50-a85b9679c026",
-      "isGlobal": true,
-      "useReset": false,
-      "maxValue": 1,
-      "initialValue": 0,
-      "eventGUID": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "name": "Time to Run",
-      "GUID": "b32d7b70-0047-486d-87bc-033fff524514",
+      "name": "End of the Line",
+      "GUID": "e397d833-3889-468e-8014-72111704e555",
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
@@ -547,6 +619,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -555,7 +628,7 @@
       "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
       "isGlobal": true,
       "name": "Open Crate 1",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -575,6 +648,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -587,11 +661,11 @@
               "entityProperties": {
                 "name": "Crate1",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "{A} L'ouvrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609"
                   }
@@ -609,7 +683,7 @@
       "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
       "isGlobal": true,
       "name": "Open Crate 2",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -629,6 +703,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -641,7 +716,7 @@
               "entityProperties": {
                 "name": "Crate2",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -657,7 +732,7 @@
       "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
       "isGlobal": true,
       "name": "Open Crate 3",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -677,6 +752,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -689,7 +765,7 @@
               "entityProperties": {
                 "name": "Crate3",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -705,7 +781,7 @@
       "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
       "isGlobal": true,
       "name": "Open Crate 4",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -725,6 +801,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -737,11 +814,11 @@
               "entityProperties": {
                 "name": "Crate4",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "{A} L'ouvrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577"
                   }
@@ -759,7 +836,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "While Rebel forces scour the galaxy in search of information on Weiss's weapon project, Captain Solo hasn't checked in for a few days.\r\n\r\nYou're quick to remind your commander that this hasn't been unusual behavior for the smuggler, but she shrugs and replies, \"Captain Solo said something about a promising lead in his last check-in. We just want to find him and follow up.\"\r\n\r\nThus, you now find yourselves retracing his previous steps. After going through several locations and contacts, this latest one shows promise. Not only does it represent Solo's last known location, but there are also a fair number of Imperial troops patrolling the nearby vicinity.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.\r\n{-} The mission will progress when the door to the Back Room opens ({V}) or at the end of Round 3.",
+      "eventText": "Votre transport se fraie un chemin au travers de l'intense champ de bataille, esquivant les chasseurs TIE et les tirs de tourelles turbo-laser. La Flotte Rebelle a ouvert cette bataille avec une feinte, pour désarmer l'ambuscade de Weiss et lancer un piège à son tour.\r\n\r\nAlors que vous entammez votre descente dans l'atmosphère de la planète, la bataille devient un flou d'éclairs vifs au-dessus des nuages. De ce que vous avez vu avant de descendre, il vous semble que la Rébellion avait le dessus.\r\n\r\nVous avez localisé la navette impériale personnelle de Weiss dans une base impériale à la surface de la planète. Le capturer pourrait accélérer la victoire de la Rébellion et la fin de la bataille, aussi vos ordres sont-ils de le ramener vivant - si vous le pouvez.\r\n\r\n{-} Déployez les héros depuis la zone bleue.\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut attaquer une porte (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec pour l'ouvrir.\r\n{-} La mission avance lorsque la première porte s'ouvre.\r\n{-} Les Rebelles perdent à la fin du Round 12 ou quand tous les Héros sont blessés.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -779,24 +856,16 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
-      "eventActions": [
-        {
-          "theText": "All Imperial figures will spend an action to open a door if it is the quickest way to their target.",
-          "instructionType": 0,
-          "groupsToAdd": [],
-          "GUID": "45628223-bfc3-42b7-aeca-7ea08b49dd62",
-          "eventActionType": 11,
-          "displayName": "Change Group Instructions"
-        }
-      ]
+      "eventActions": []
     },
     {
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Slipping through alleys and dodging past Imperial troops, you make your way to Han's ship. Chewbacca stands waiting at the hatch, releasing a guttural roar at the sight of Han. \"Yeah, yeah, I know!\" Han says, waving him off.\r\n\r\n\"Look, we're getting outta here, but this is everything I could find on the weapon.\" He hands you a small data cube before scrambling up the ramp into the Falcon.\r\n\r\nThe information obtained from the data cube reveals the weapon General Weiss is developing for capital ships. It's advanced and quite sophisticated, with destructive capabilities outclassing anything the Rebellion has at its disposal.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Place Story Mission card \"Incoming\" into play.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
+      "eventText": "Vous maintenez Vador sur la défensive, gardant vos distances entre vous sans pour autant lui permettre d'isoler l'un d'entre vous. Bientôt vous commencez à le repousser, la coordination de vos attaques atteignant une précision absolue.\r\n\r\nVador titube sous vos assauts et vous vous dites que vous pourriez peut-être même le vaincre. Il cesse soudain de se battre et lève les bras, ignorant totalement vos tirs. La salle entière se met à trembler et les murs s'effondre vers l'intérieur dans un grincement métallique assourdissant. Vous êtes projetés au sol tandis que la structure du bâtiment est déchiquetée sous la formidable force déployée par Vador.\r\n\r\nLorsque vous parvenez à vous extraire des décombres en rampant, il n'y a plus trace de Vador. Vous embarquez dans votre transport et décollez, observant par le hublot les épaves de vaisseaux impériaux flottant dans l'espace. Vous savez que la guerre n'est pas finie, mais vous souriez à l'idée que vos efforts on contribué à une sérieuse victoire pour l'Alliance.\r\n\r\n{-} Les Rebelles gagnent la campagne !",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -816,6 +885,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -836,26 +906,27 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "A blaster bolt clips Han's shoulder. With a shout of pain, he scrambles around a corner. Imperials move to block your path to him. Before ducking out of sight, he throws something toward you.\r\n\r\nAmid a hail of blaster fire, you snatch up the object, a small data cube, and make your escape in the other direction.\r\n\r\nThe information obtained from the data cube reveals the weapon General Weiss is developing for capital ships. It's advanced and quite sophisticated, with destructive capabilities outclassing anything the Rebellion has at its disposal.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Place Story Mission card \"Drawn In\" into play.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
-      "allyDefeated": "A005",
+      "eventText": "Vador est trop puissant et, l'un après l'autre, vous tombez sous ses coups formidables.\r\n\r\nCeux qui survivent sont faits prisonniers. D'après les rumeurs que vous entendez, les forces rebelles ont été vaincues dans les cieux au-dessous de vous, pendant votre combat avec le Seigneur Sith. Vous vous dites que ce n'est que propagande, mais il est difficile d'en être sûr.\r\n\r\nSur Coruscent, on fait de votre procès un grand spectacle médiatisé. Chacune de vos actions des mois passés est exposée et analysée. C'est presque un honneur de revivre vos exploits en public. A la fin, cependant, vous êtes jugés coupables de haute trahison, ce qui veut dire que la mort vous attend.\r\n\r\nAlors que vos derniers jours s'écoulent inexorablement, vous réalisez que vous ne saurez jamais ce que votre contribution a réellement apporté à la Rébellion. Malgré la propagande impériale, vous vous dites que la Rébellion a remporté une victoire significative, que votre contribution a compté et que, par-dessus tout, oin se souviendra de votre sacrifice.\r\n\r\n{-} Les Rebelles perdent la campagne.",
+      "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
       "activationOf": "DG001",
       "startOfRound": 1,
-      "endOfRound": 1,
+      "endOfRound": 12,
       "useStartOfRound": false,
-      "useEndOfRound": false,
+      "useEndOfRound": true,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": true,
+      "useAllHeroesWounded": true,
+      "useAllyDefeated": false,
       "useHeroWounded": false,
       "useHeroWithdraws": false,
       "useAnyHeroWounded": false,
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
@@ -873,10 +944,10 @@
       ]
     },
     {
-      "GUID": "bf44f221-4be1-4118-a18b-0ac7dacf867a",
+      "GUID": "2fefe49d-1b95-4315-b1ea-badc1234adba",
       "isGlobal": true,
-      "name": "Open Kitchen Door",
-      "eventText": "",
+      "name": "Welcoming Party",
+      "eventText": "Les portes s'ouvrent dans un glissement sur un entrepôt mal éclairé, muni d'un couloir qui semble mener plus profond dans le bâtiment. Les deux silhouettes en robe rouge écarlate, flanquées d'un droïde sonde, qui gardent le couloir se tournent immédiatement vers vous.\r\n\r\n{-} La mission avance quand la deuxième porte est ouverte.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -896,327 +967,106 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "entitiesToModify": [
             {
-              "sourceGUID": "006cbdac-0f3d-487f-903e-98cbd17e134b",
+              "sourceGUID": "006dc8a0-fd5e-4b51-a563-bd64fdbce956",
               "hasColor": false,
               "hasProperties": true,
               "entityProperties": {
-                "name": "Kitchen Door",
+                "name": "Warehouse Door",
                 "isActive": true,
-                "theText": "The door separates the kitchen from the cantina.",
+                "theText": "Cette porte semble mener à un entrepôt.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
                 "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "Porte détruite",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  },
+                  {
+                    "buttonText": "{A} L'ouvrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
                 ]
               }
-            }
-          ],
-          "GUID": "21c76dd3-7afc-472e-9880-38a877534aaa",
-          "eventActionType": 15,
-          "displayName": "Modify Map Entity"
-        }
-      ]
-    },
-    {
-      "GUID": "7b364285-bb66-480d-a4b5-6a5dc97d8040",
-      "isGlobal": true,
-      "name": "Daring Escape",
-      "eventText": "A door at the back of the bar bursts open, and a battered Han Solo stumbles through the opening. His wrists are still bound, but in his hands he holds a blaster, firing back into the room he just departed.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 3,
-      "useStartOfRound": false,
-      "useEndOfRound": true,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Back Room Door Open",
-          "triggerGUID": "14699284-8d2b-458e-8c50-a85b9679c026",
-          "triggerValue": 0
-        }
-      ],
-      "eventActions": [
-        {
-          "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "mapSection": "f15242c6-7977-4e72-b494-5916a98112cf",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
-          "GUID": "04856e46-3938-4d71-b01a-3d22a7abcfdb",
-          "eventActionType": 14,
-          "displayName": "Map Management"
-        },
-        {
-          "entitiesToModify": [
-            {
-              "sourceGUID": "3ea3c392-0fa8-463e-9390-a6a631f9a28c",
-              "hasColor": false,
-              "hasProperties": true,
-              "entityProperties": {
-                "name": "Back Room Door",
-                "isActive": true,
-                "theText": "The door to the Back Room is locked tight. Muffled voiced can be heard from within.\r\n\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.",
-                "entityColor": null,
-                "buttonActions": [
-                  {
-                    "buttonText": "{A} Kick in",
-                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
-                    "eventGUID": "00000000-0000-0000-0000-000000000000"
-                  }
-                ]
-              }
-            }
-          ],
-          "GUID": "9ed03c53-73e4-4b28-9942-fa6edcaa6e36",
-          "eventActionType": 15,
-          "displayName": "Modify Map Entity"
-        },
-        {
-          "allyName": null,
-          "allyID": "A005",
-          "setTrigger": "00000000-0000-0000-0000-000000000000",
-          "setEvent": "00000000-0000-0000-0000-000000000000",
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "3cd4a0fe-9168-4c7e-b359-2025af5a187d",
-          "threatCost": 0,
-          "useThreat": false,
-          "useGenericMugshot": false,
-          "GUID": "cfc0e279-cba2-4f93-a963-b23022b3c581",
-          "eventActionType": 7,
-          "displayName": "Ally Deployment"
-        },
-        {
-          "theText": "Han is bleeding from a couple of superficial wounds.\r\n\r\n{-} <color=\"red\">Han Solo</color> suffers 4 {H}.",
-          "GUID": "13d150f1-b496-4157-8b0f-092ad0ee5126",
-          "eventActionType": 16,
-          "displayName": "Text Box"
-        },
-        {
-          "enemyName": null,
-          "deploymentGroup": "DG003",
-          "repositionInstructions": "",
-          "threatCost": 0,
-          "modification": null,
-          "canReinforce": true,
-          "canRedeploy": true,
-          "canBeDefeated": true,
-          "useThreat": false,
-          "useCustomInstructions": false,
-          "useGenericMugshot": false,
-          "showMod": false,
-          "useResetOnRedeployment": false,
-          "specificDeploymentPoint": "9bc0953e-c065-4840-807f-d2c6e04711eb",
-          "deploymentPoint": 1,
-          "enemyGroupData": {
-            "GUID": "2351c8ca-0976-4526-abf8-76c0d2254228",
-            "cardName": "Stormtrooper (Elite)",
-            "cardID": "DG003",
-            "customInstructionType": 2,
-            "customText": "",
-            "pointList": [
-              {
-                "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb"
-              },
-              {
-                "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb"
-              },
-              {
-                "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb"
-              }
-            ],
-            "groupPriorityTraits": {
-              "incBrawler": true,
-              "incCreature": true,
-              "incDroid": true,
-              "incForceUser": true,
-              "incGuardian": true,
-              "incHeavyWeapon": true,
-              "incHunter": true,
-              "incLeader": true,
-              "incSmuggler": true,
-              "incSpy": true,
-              "incTrooper": true,
-              "incWookiee": true,
-              "incVehicle": true,
-              "useDefaultPriority": true
             },
-            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
-            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false,
-            "useInitialGroupCustomName": false
-          },
-          "GUID": "66b7b7dc-ddeb-4f68-8f67-fd5c4d96c4e8",
-          "eventActionType": 6,
-          "displayName": "Deploy: DG003/Stormtrooper (Elite)"
-        },
-        {
-          "theText": "Han Solo seemed to have had a disagreement with the soldiers guarding him.\r\n\r\n{-} Each figure in the <color=\"red\">Stormtrooper</color> group suffers 2 {H}.",
-          "GUID": "407066f6-cd48-4259-bace-80928293534e",
-          "eventActionType": 16,
-          "displayName": "Text Box"
-        },
-        {
-          "triggerList": [
             {
-              "triggerName": "Time to Run",
-              "triggerGUID": "b32d7b70-0047-486d-87bc-033fff524514",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "4e579129-4636-427f-8ca6-63642be09b3c",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "956ca1de-85c1-46d8-a99f-97af556485c8",
-      "isGlobal": true,
-      "name": "Kick in attempt",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useActivation": false,
-      "isRepeatable": true,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [],
-      "eventActions": [
-        {
-          "failText": "",
-          "theText": "You kick the door with all your power.\r\n\r\n{-} Test {K}. Apply +1 {B} for each strain token on the door, then discard all strain tokens from the door. Enter the number of successes below.",
-          "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
-          "failEventGUID": "0e0b5be9-1a00-4e14-896b-783deb1a988c",
-          "inputList": [
-            {
-              "theText": "You kick as hard as you can, but the door does not buckle. You need to keep trying.\r\n\r\nFor each {B} rolled, place 1 strain token on the door.",
-              "fromValue": 0,
-              "toValue": 0,
-              "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "00000000-0000-0000-0000-000000000000"
-            }
-          ],
-          "GUID": "c64844df-6fb1-498d-b8ae-b6c9a421d6e5",
-          "eventActionType": 20,
-          "displayName": "Input Prompt"
-        }
-      ]
-    },
-    {
-      "GUID": "0e0b5be9-1a00-4e14-896b-783deb1a988c",
-      "isGlobal": true,
-      "name": "Strange Patrons",
-      "eventText": "When you kicked in the door, you had expected to find a back room filled with Sabacc tables, not a fully functioning Imperial observation post. \r\n\r\nScreens cover the walls and voices crackle from multiple speakers. Computers and monitoring equipment are scattered everywhere. At the back of the room, in a small holding cell barred by a force field, sits Han Solo.\r\n\r\n\"Watch it!\" he shouts, motioning to the troops in the room, who scramble for their weapons.\r\n\r\nThere's a small rumbling beneath your feet. The lights in the room flicker, and the force field dies. \"Nice timing, Chewie,\" Han grins to himself as he dives for the nearest blaster.\r\n\r\n{-} Heroes receive 100 credits per hero.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [],
-      "eventActions": [
-        {
-          "entitiesToModify": [
-            {
-              "sourceGUID": "3ea3c392-0fa8-463e-9390-a6a631f9a28c",
-              "hasColor": false,
-              "hasProperties": true,
+              "sourceGUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+              "hasColor": true,
+              "hasProperties": false,
               "entityProperties": {
-                "name": "Back Room Door",
+                "name": "DP Green 1",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Green",
+                "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Green 2",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Green",
+                "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "1446ce51-f99d-48b3-b56a-288bf2b0f469",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Blue 1",
                 "isActive": true,
-                "theText": "The door to the Back Room is locked tight. Muffled voiced can be heard from within.\r\n\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.",
-                "entityColor": null,
-                "buttonActions": [
-                  {
-                    "buttonText": "{A} Kick in",
-                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
-                    "eventGUID": "956ca1de-85c1-46d8-a99f-97af556485c8"
-                  }
-                ]
+                "theText": null,
+                "entityColor": "Blue",
+                "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "1613e679-7426-4029-956c-ad8567faeaa1",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Blue 2",
+                "isActive": true,
+                "theText": null,
+                "entityColor": "Blue",
+                "buttonActions": []
               }
             }
           ],
-          "GUID": "0d27dbca-935b-43fc-87ad-39ffb0a7f27a",
+          "GUID": "ba4c18e7-cd39-41c7-82c9-34385aeae12e",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
         },
         {
           "mapTile": "00000000-0000-0000-0000-000000000000",
           "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "mapSection": "f15242c6-7977-4e72-b494-5916a98112cf",
+          "mapSection": "60da9b45-f367-45b3-8048-c8905bcfa85e",
           "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
-          "GUID": "00c9d74a-9712-441c-a233-dcfe717c0a43",
+          "GUID": "5e1f111a-077b-4745-b978-bddfbc9a65d1",
           "eventActionType": 14,
           "displayName": "Map Management"
         },
         {
-          "allyName": null,
-          "allyID": "A005",
-          "setTrigger": "00000000-0000-0000-0000-000000000000",
-          "setEvent": "00000000-0000-0000-0000-000000000000",
-          "deploymentPoint": 1,
-          "specificDeploymentPoint": "931a1ab2-8a92-470b-af84-38a36800f91f",
-          "threatCost": 0,
-          "useThreat": false,
-          "useGenericMugshot": false,
-          "GUID": "079031a4-5cbf-4a1c-be03-e31f765118e7",
-          "eventActionType": 7,
-          "displayName": "Ally Deployment"
+          "theText": "{-} Les portes sont verrouillées. Une figurine Rebelle peut attaquer une porte (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec pour l'ouvrir.\r\n{-} La mission avance quand la deuxième porte est ouverte.\r\n{-} Les Rebelles perdent à la fin du Round 12 ou quand tous les Héros sont blessés.",
+          "GUID": "215b7754-47ea-4239-99ba-13b553097873",
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
         },
         {
           "enemyName": null,
-          "deploymentGroup": "DG003",
+          "deploymentGroup": "DG010",
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
@@ -1228,23 +1078,20 @@
           "useGenericMugshot": false,
           "showMod": false,
           "useResetOnRedeployment": false,
-          "specificDeploymentPoint": "9bc0953e-c065-4840-807f-d2c6e04711eb",
-          "deploymentPoint": 1,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
-            "GUID": "f560a3f8-177e-4a0a-9025-858e21e98aad",
-            "cardName": "Stormtrooper (Elite)",
-            "cardID": "DG003",
+            "GUID": "7eef7600-852d-4374-b190-57f6a320543c",
+            "cardName": "Royal Guard (Elite)",
+            "cardID": "DG010",
             "customInstructionType": 2,
             "customText": "",
             "pointList": [
               {
-                "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb"
+                "GUID": "00000000-0000-0000-0000-000000000000"
               },
               {
-                "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb"
-              },
-              {
-                "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb"
+                "GUID": "00000000-0000-0000-0000-000000000000"
               }
             ],
             "groupPriorityTraits": {
@@ -1268,13 +1115,13 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "GUID": "96a27445-2090-477d-bd82-1d1f2330c6ef",
+          "GUID": "7f1f4ab4-92e4-4b9f-85b7-43e414c39b92",
           "eventActionType": 6,
-          "displayName": "Deploy: DG003/Stormtrooper (Elite)"
+          "displayName": "Deploy: DG010/Royal Guard (Elite)"
         },
         {
           "enemyName": null,
-          "deploymentGroup": "DG006",
+          "deploymentGroup": "DG011",
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
@@ -1286,23 +1133,17 @@
           "useGenericMugshot": false,
           "showMod": false,
           "useResetOnRedeployment": false,
-          "specificDeploymentPoint": "e025d0a8-0fcb-417f-9430-44fe74aeb281",
-          "deploymentPoint": 1,
+          "specificDeploymentPoint": "00000000-0000-0000-0000-000000000000",
+          "deploymentPoint": 0,
           "enemyGroupData": {
-            "GUID": "1a563316-7dc7-4025-9115-dfc498a41c29",
-            "cardName": "Imperial Officer (Elite)",
-            "cardID": "DG006",
+            "GUID": "9c285ec1-580c-4429-9607-353ca8f36afa",
+            "cardName": "Probe Droid",
+            "cardID": "DG011",
             "customInstructionType": 2,
             "customText": "",
             "pointList": [
               {
-                "GUID": "e025d0a8-0fcb-417f-9430-44fe74aeb281"
-              },
-              {
-                "GUID": "e025d0a8-0fcb-417f-9430-44fe74aeb281"
-              },
-              {
-                "GUID": "e025d0a8-0fcb-417f-9430-44fe74aeb281"
+                "GUID": "00000000-0000-0000-0000-000000000000"
               }
             ],
             "groupPriorityTraits": {
@@ -1326,58 +1167,17 @@
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "GUID": "ec5d2349-e70b-43be-b583-b4e520ea1906",
+          "GUID": "0173b2ef-c765-4eb9-b515-a10b504133fe",
           "eventActionType": 6,
-          "displayName": "Deploy: DG006/Imperial Officer (Elite)"
-        },
-        {
-          "readyGroups": [],
-          "exhaustGroups": [
-            {
-              "name": "Stormtrooper (Elite)",
-              "id": "DG003"
-            },
-            {
-              "name": "Imperial Officer (Elite)",
-              "id": "DG006"
-            }
-          ],
-          "GUID": "024845e1-75b5-4132-81a1-a8c9456b5906",
-          "eventActionType": 13,
-          "displayName": "Ready / Exhaust a Group"
-        },
-        {
-          "theText": "Han Solo is alive, but battered and exhausted.\r\n\r\n{-} Exhaust <color=\"red\">Han Solo</color>'s Deployment card.",
-          "GUID": "8976440b-1320-440f-8613-ef0c0166f86f",
-          "eventActionType": 16,
-          "displayName": "Text Box"
-        },
-        {
-          "triggerList": [
-            {
-              "triggerName": "Back Room Door Open",
-              "triggerGUID": "14699284-8d2b-458e-8c50-a85b9679c026",
-              "setValue": 1,
-              "modifyValue": 0
-            },
-            {
-              "triggerName": "Time to Run",
-              "triggerGUID": "b32d7b70-0047-486d-87bc-033fff524514",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "8dbec447-98e8-4209-9b95-4e76862c52c6",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
+          "displayName": "Deploy: DG011/Probe Droid"
         }
       ]
     },
     {
-      "GUID": "68121706-35f7-4134-9940-b4ecfdaecf4c",
+      "GUID": "4454f84a-cd41-41e3-8e18-4b07926096d9",
       "isGlobal": true,
-      "name": "Time to Run",
-      "eventText": "\"You guys look familiar!\" Han shouts, sending blaster fire toward his former captors. He opens his mouth to speak again but stops short, diving to the ground as the Imperials return fire.\r\n\r\n\"Talk later!\" he calls out as he scrambles toward cover.\r\n\r\n{-} Heroes control <color=\"red\">Han Solo</color> as an ally.\r\n{-} The Rebel mission token represents the exit.\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit.\r\n{-} The Rebels win when <color=\"red\">Han Solo</color> escapes.\r\n{-} The Rebels lose when <color=\"red\">Han Solo</color> is defeated.",
+      "name": "Defenses Breached",
+      "eventText": "La porte s'ouvre sur un vaste hangar. Soldats et officiers se précipitent vers vous.\r\n\r\n\"Défendez le centre de commandement !\", crie un officier qui vient d'abandonner la révision de ce qui ressemble à un droïde impérial de torture.\r\n\r\n{-} La mission avance lorsqu'une des portes du Centre de Commandement est ouverte.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1397,77 +1197,370 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "entitiesToModify": [
+            {
+              "sourceGUID": "0e4d16aa-d7a6-44b6-b46c-535e244c0c19",
+              "hasColor": false,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Hangar Door",
+                "isActive": true,
+                "theText": "Les bruits de ronronnement de machines et les échos suggèrent que cette porte donne sur un hangar de taille significative.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
+                "entityColor": null,
+                "buttonActions": [
+                  {
+                    "buttonText": "Porte détruite",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  },
+                  {
+                    "buttonText": "{A} L'ouvrir",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  }
+                ]
+              }
+            },
+            {
+              "sourceGUID": "1446ce51-f99d-48b3-b56a-288bf2b0f469",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Blue 1",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Blue",
+                "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "1613e679-7426-4029-956c-ad8567faeaa1",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Blue 2",
+                "isActive": false,
+                "theText": null,
+                "entityColor": "Blue",
+                "buttonActions": []
+              }
+            }
+          ],
+          "GUID": "282e5160-c6fc-4b0f-a4d8-339283c83d42",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
+        },
+        {
+          "mapTile": "00000000-0000-0000-0000-000000000000",
+          "mapTileRemove": "00000000-0000-0000-0000-000000000000",
+          "mapSection": "c049c11a-b878-4ce1-846e-b2df91ab740f",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
+          "GUID": "b9b531b6-c4ef-4910-a85c-86ee081188ba",
+          "eventActionType": 14,
+          "displayName": "Map Management"
+        },
+        {
+          "theText": "{-} Les portes sont verrouillées. Une figurine Rebelle peut attaquer une porte (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec pour l'ouvrir.\r\n{-} La mission avance lorsqu'une des portes du Centre de Commandement est ouverte.\r\n{-} Les Rebelles perdent à la fin du Round 12 ou quand tous les Héros sont blessés.",
+          "GUID": "a63523ce-f934-49dd-b800-c3b1d8a9e0c7",
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
+        },
+        {
+          "enemyName": null,
+          "deploymentGroup": "DG004",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
+          "canReinforce": true,
+          "canRedeploy": true,
+          "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "748927fe-d4fd-468c-8ab1-5a82bb954ca9",
+          "deploymentPoint": 1,
+          "enemyGroupData": {
+            "GUID": "249d1d19-4fc8-442c-abfc-cc2b179e92e4",
+            "cardName": "Imperial Officer",
+            "cardID": "DG004",
+            "customInstructionType": 2,
+            "customText": "",
+            "pointList": [
+              {
+                "GUID": "748927fe-d4fd-468c-8ab1-5a82bb954ca9"
+              }
+            ],
+            "groupPriorityTraits": {
+              "incBrawler": true,
+              "incCreature": true,
+              "incDroid": true,
+              "incForceUser": true,
+              "incGuardian": true,
+              "incHeavyWeapon": true,
+              "incHunter": true,
+              "incLeader": true,
+              "incSmuggler": true,
+              "incSpy": true,
+              "incTrooper": true,
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
+            },
+            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
+          },
+          "GUID": "9f611d60-ecc5-4797-8a50-f4c2b628d85e",
+          "eventActionType": 6,
+          "displayName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "deploymentGroup": "DG012",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
+          "canReinforce": true,
+          "canRedeploy": true,
+          "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "748927fe-d4fd-468c-8ab1-5a82bb954ca9",
+          "deploymentPoint": 1,
+          "enemyGroupData": {
+            "GUID": "4c6fb5da-eae4-4adb-8f75-bea4b8982eaf",
+            "cardName": "Probe Droid",
+            "cardID": "DG012",
+            "customInstructionType": 2,
+            "customText": "",
+            "pointList": [
+              {
+                "GUID": "748927fe-d4fd-468c-8ab1-5a82bb954ca9"
+              }
+            ],
+            "groupPriorityTraits": {
+              "incBrawler": true,
+              "incCreature": true,
+              "incDroid": true,
+              "incForceUser": true,
+              "incGuardian": true,
+              "incHeavyWeapon": true,
+              "incHunter": true,
+              "incLeader": true,
+              "incSmuggler": true,
+              "incSpy": true,
+              "incTrooper": true,
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
+            },
+            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
+          },
+          "GUID": "7c8678c3-3d28-4be6-9a40-58a2231fd096",
+          "eventActionType": 6,
+          "displayName": "Deploy: DG012/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "deploymentGroup": "DG002",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
+          "canReinforce": true,
+          "canRedeploy": true,
+          "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "fc38f054-cfa7-43ce-afff-788398eb1e5b",
+          "deploymentPoint": 1,
+          "enemyGroupData": {
+            "GUID": "078a3559-ffa0-46ef-a6e0-290051307cb9",
+            "cardName": "Stormtrooper",
+            "cardID": "DG002",
+            "customInstructionType": 2,
+            "customText": "",
+            "pointList": [
+              {
+                "GUID": "fc38f054-cfa7-43ce-afff-788398eb1e5b"
+              },
+              {
+                "GUID": "fc38f054-cfa7-43ce-afff-788398eb1e5b"
+              },
+              {
+                "GUID": "fc38f054-cfa7-43ce-afff-788398eb1e5b"
+              }
+            ],
+            "groupPriorityTraits": {
+              "incBrawler": true,
+              "incCreature": true,
+              "incDroid": true,
+              "incForceUser": true,
+              "incGuardian": true,
+              "incHeavyWeapon": true,
+              "incHunter": true,
+              "incLeader": true,
+              "incSmuggler": true,
+              "incSpy": true,
+              "incTrooper": true,
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
+            },
+            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
+          },
+          "GUID": "f1c60ddb-3640-4d76-8fb6-a37c07203b10",
+          "eventActionType": 6,
+          "displayName": "Deploy: DG002/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "GUID": "597cbb3b-dc60-4e19-847b-123788d46644",
+      "isGlobal": true,
+      "name": "End of the Line",
+      "eventText": "La porte s'ouvre, révéllant le général Weiss agenouillé devant Dark Vador, qui surplombe le général, une main dressée comme pour saisir l'air devant lui.\r\n\r\n\"Seigneur Vador, je vous en supplie !\" Le Général Weiss tente d'écarter son col de son cou, les mots s'étouffant dans sa gorge pour sortir. \"Pas un échec... juste... un... contre... temps...\"\r\n\r\nAvant que vous ayez le temps de décider si Weiss mérite d'être sauvé, il s'effondre sur le sol comme une poupée de chiffon.\r\n\r\nVador se tourne lentement vers vous, le bruit de sa respiration artificielle brisant seule le silence de mort dans la pièce. Il jauge chacun d'entre vous tour à tour, puis la lumière rouge de son sabre laser jaillit.\r\n\r\n{-} Donnez +8 de Santé à <color=\"red\">Dark Vador</color>. Appliquez +1 {G} à chacun de ses jets de défense.\r\n{-} <color=\"red\">Dark Vador</color> effectue deux activations successives à chaque round, directement l'une après l'autre. (Pour la deuxième, parcourez à nouveau la liste d'instructions depuis le début.)\r\n{-} Si <color=\"red\">Dark Vador</color> est vaincu, il ne l'est pas avant la fin de sa seconde activation.\r\n{-} Les Rebelles gagnent lorsque <color=\"red\">Dark Vador</color> est vaincu.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
-          "triggerName": "Time to Run",
-          "triggerGUID": "b32d7b70-0047-486d-87bc-033fff524514",
+          "triggerName": "End of the Line",
+          "triggerGUID": "e397d833-3889-468e-8014-72111704e555",
           "triggerValue": 1
         }
       ],
       "eventActions": [
         {
+          "theText": "{-} Donnez +8 de Santé à <color=\"red\">Dark Vador</color>. Appliquez +1 {G} à chacun de ses jets de défense.\r\n{-} <color=\"red\">Dark Vador</color> effectue deux activations successives à chaque round, directement l'une après l'autre. (Pour la deuxième, parcourez à nouveau la liste d'instructions depuis le début.)\r\n{-} Si <color=\"red\">Dark Vador</color> est vaincu, il ne l'est pas avant la fin de sa seconde activation.\r\n{-} Les Rebelles gagnent lorsque <color=\"red\">Dark Vador</color> est vaincu.\r\n{-} Les Rebelles perdent à la fin du Round 12 ou quand tous les Héros sont blessés.",
+          "GUID": "244db42c-391c-481e-9ac4-4cac7e51b953",
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
+        },
+        {
+          "mapTile": "00000000-0000-0000-0000-000000000000",
+          "mapTileRemove": "00000000-0000-0000-0000-000000000000",
+          "mapSection": "d5666e94-131e-45c5-aa1e-cc905e133d77",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
+          "GUID": "02dd6fe5-b01e-43a5-b628-e0aff716d39c",
+          "eventActionType": 14,
+          "displayName": "Map Management"
+        },
+        {
           "entitiesToModify": [
             {
-              "sourceGUID": "ecd56f9e-ff6b-4ac7-aa8a-d854b97be1ae",
-              "hasColor": true,
+              "sourceGUID": "006dc8a0-fd5e-4b51-a563-bd64fdbce956",
+              "hasColor": false,
               "hasProperties": true,
               "entityProperties": {
-                "name": "Exit",
-                "isActive": true,
-                "theText": "Narrow pathways lead away from the cantina, making it easy to shake off pursuers.\r\n\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit, ending the mission.",
-                "entityColor": "Green",
+                "name": "Warehouse Door",
+                "isActive": false,
+                "theText": "La porte semble mener à un entrepôt.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
+                "entityColor": null,
                 "buttonActions": [
                   {
-                    "buttonText": "Han Solo Escapes",
+                    "buttonText": "Porte détruite",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
-                    "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6"
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  },
+                  {
+                    "buttonText": "{A} L'ouvrir",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  }
+                ]
+              }
+            },
+            {
+              "sourceGUID": "0e4d16aa-d7a6-44b6-b46c-535e244c0c19",
+              "hasColor": false,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Hangar Door",
+                "isActive": false,
+                "theText": "Les bruits de ronronnement de machines et les échos suggèrent que cette porte donne sur un hangar de taille significative.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
+                "entityColor": null,
+                "buttonActions": [
+                  {
+                    "buttonText": "Porte détruite",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  },
+                  {
+                    "buttonText": "{A} L'ouvrir",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
                 ]
               }
             }
           ],
-          "GUID": "34e1a323-66cd-413b-89a6-6c6eb843bffc",
+          "GUID": "fd56cfab-eda5-4c60-8fb5-64fb01ece26f",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "As you scramble towards the exit, mechanical whirring announces the arrival of a relentless hunter, looking for Solo.",
-          "GUID": "944cb357-3155-4710-b934-cae519446252",
-          "eventActionType": 16,
-          "displayName": "Text Box"
-        },
-        {
           "enemyName": null,
-          "deploymentGroup": "DG071",
+          "deploymentGroup": "DG072",
           "repositionInstructions": "",
           "threatCost": 0,
-          "modification": null,
+          "modification": "+8 H, +1 {G}",
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
           "useThreat": false,
-          "useCustomInstructions": false,
+          "useCustomInstructions": true,
           "useGenericMugshot": false,
-          "showMod": false,
+          "showMod": true,
           "useResetOnRedeployment": false,
-          "specificDeploymentPoint": "2f8afa39-92be-40bc-8f87-9c870a66fe31",
+          "specificDeploymentPoint": "a91f5b8d-d4d0-4cc1-a018-db2b62b95637",
           "deploymentPoint": 1,
           "enemyGroupData": {
-            "GUID": "069d89da-cb4d-4b61-b61e-ca6b4913eef1",
-            "cardName": "IG-88",
-            "cardID": "DG071",
-            "customInstructionType": 2,
-            "customText": "",
+            "GUID": "864255df-461b-4171-af94-46c72c87886c",
+            "cardName": "Darth Vader",
+            "cardID": "DG072",
+            "customInstructionType": 0,
+            "customText": "{-} <color=\"red\">Darth Vader</color> performs two activations each round, one after the other. (Follow the instruction list again from the top.)",
             "pointList": [
               {
-                "GUID": "2f8afa39-92be-40bc-8f87-9c870a66fe31"
-              },
-              {
-                "GUID": "2f8afa39-92be-40bc-8f87-9c870a66fe31"
-              },
-              {
-                "GUID": "2f8afa39-92be-40bc-8f87-9c870a66fe31"
+                "GUID": "a91f5b8d-d4d0-4cc1-a018-db2b62b95637"
               }
             ],
             "groupPriorityTraits": {
@@ -1487,76 +1580,28 @@
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
-            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+            "defeatedEvent": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
           },
-          "GUID": "856aba9e-7a79-4659-a153-752603cad90d",
+          "GUID": "4a0d0c58-ed30-4210-8e78-4a198d1636e0",
           "eventActionType": 6,
-          "displayName": "Deploy: DG071/IG-88"
+          "displayName": "Deploy: DG072/Darth Vader"
         },
         {
-          "theText": "{-} Heroes control <color=\"red\">Han Solo</color> as an ally.\r\n{-} The Rebel mission token represents the exit.\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit.\r\n{-} The Rebels win when <color=\"red\">Han Solo</color> escapes.\r\n{-} The Rebels lose when <color=\"red\">Han Solo</color> is defeated.",
-          "GUID": "d624631a-54c4-4982-a157-e503b5212d9d",
-          "eventActionType": 1,
-          "displayName": "Change Mission Info"
-        },
-        {
-          "theText": "Help <color=\"red\">Han Solo</color> escape.",
+          "theText": "Vaincre <color=\"red\">Dark Vador</color>.",
           "longText": null,
-          "GUID": "770b09f1-977c-44ff-a7c8-4d928e2c0915",
+          "GUID": "a42fcb19-a7b0-4568-b515-4a580168240b",
           "eventActionType": 2,
           "displayName": "Change Objective"
-        },
-        {
-          "targetType": 2,
-          "groupType": 0,
-          "otherTarget": null,
-          "specificAlly": "A005",
-          "specificHero": "H1",
-          "percentChance": 80,
-          "groupsToAdd": [],
-          "groupPriorityTraits": {
-            "incBrawler": true,
-            "incCreature": true,
-            "incDroid": true,
-            "incForceUser": true,
-            "incGuardian": true,
-            "incHeavyWeapon": true,
-            "incHunter": true,
-            "incLeader": true,
-            "incSmuggler": true,
-            "incSpy": true,
-            "incTrooper": true,
-            "incWookiee": true,
-            "incVehicle": true,
-            "useDefaultPriority": false
-          },
-          "GUID": "f64233e3-a718-4f90-905d-3bf5c6836072",
-          "eventActionType": 12,
-          "displayName": "Change Priority Target"
-        },
-        {
-          "theText": "Block access to the Exit.",
-          "useSpecific": false,
-          "repoGroups": [],
-          "GUID": "2c901212-a768-41fb-b146-ff128d088447",
-          "eventActionType": 17,
-          "displayName": "Change Reposition Instructions"
-        },
-        {
-          "eventGroupGUID": "933d84e2-7840-4721-94f7-4c127d52e56e",
-          "GUID": "b4d85d95-8398-44f5-ac14-43bf128671f1",
-          "eventActionType": 19,
-          "displayName": "Activate Event Group"
         }
       ]
     },
     {
-      "GUID": "9838f8ca-8f28-4186-b39a-236b4f4d1cc8",
+      "GUID": "9edef338-5b13-432f-8e88-9ba007ce04e7",
       "isGlobal": true,
-      "name": "Time to Run-1",
-      "eventText": "IG-88 swivels his optical sensors towards the cantina, then starts to move towards it.\r\n\r\n{-} <color=\"red\">IG-88</color> moves 5 towards <color=\"red\">Han Solo</color>.",
+      "name": "CC Door 1 Open",
+      "eventText": "",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1576,45 +1621,125 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [],
-      "eventActions": []
-    },
-    {
-      "GUID": "d2c05fce-f5d1-48f4-ac13-d24767157b4a",
-      "isGlobal": true,
-      "name": "Time to Run-2",
-      "eventText": "One of the Imperials manages to get off a call for reinforcements.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
-          "threatAction": 0,
-          "fixedValue": 4,
-          "threatValue": 0,
-          "threatModifierType": 1,
-          "GUID": "1108cb35-5bd3-4eb2-aa85-e411e4eb27d1",
-          "eventActionType": 4,
-          "displayName": "Modify Threat"
+          "entitiesToModify": [
+            {
+              "sourceGUID": "b37f53ed-319b-4565-b581-e25af0ac8d71",
+              "hasColor": false,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "CC Door 1",
+                "isActive": true,
+                "theText": "Cette porte mène au Centre de Commandement.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
+                "entityColor": null,
+                "buttonActions": [
+                  {
+                    "buttonText": "Porte détruite",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  },
+                  {
+                    "buttonText": "{A} L'ouvrir",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  }
+                ]
+              }
+            }
+          ],
+          "GUID": "aa111b5e-b806-44f1-bb7f-3f2c7d914247",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "End of the Line",
+              "triggerGUID": "e397d833-3889-468e-8014-72111704e555",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "d60afdf9-c137-4fa5-9607-504b250befd5",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "41a1fbaf-b55b-4a89-b618-b215c5bed3be",
+      "isGlobal": true,
+      "name": "CC Door 2 Open",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "entitiesToModify": [
+            {
+              "sourceGUID": "6d427efc-3e26-4172-8d1b-4e39c3aeb9ae",
+              "hasColor": false,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "CC Door 2",
+                "isActive": true,
+                "theText": "Cette porte mène au Centre de Commandement.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
+                "entityColor": null,
+                "buttonActions": [
+                  {
+                    "buttonText": "Porte détruite",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  },
+                  {
+                    "buttonText": "{A} L'ouvrir",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "00000000-0000-0000-0000-000000000000"
+                  }
+                ]
+              }
+            }
+          ],
+          "GUID": "1c489d61-7e5b-433d-b5c9-26800c557564",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "End of the Line",
+              "triggerGUID": "e397d833-3889-468e-8014-72111704e555",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "09c4a472-77fa-46c7-859b-5f4d9e81b774",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     }
@@ -1624,16 +1749,16 @@
       "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
       "name": "Crate1",
       "entityType": 2,
-      "entityPosition": "980,960",
+      "entityPosition": "880,990",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "Crate1",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609"
           }
@@ -1646,56 +1771,56 @@
       "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
       "name": "Crate2",
       "entityType": 2,
-      "entityPosition": "960,1010",
+      "entityPosition": "980,990",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab"
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e",
       "deploymentColor": "Gray"
     },
     {
       "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
       "name": "Crate3",
       "entityType": 2,
-      "entityPosition": "1000,1030",
+      "entityPosition": "950,1080",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079"
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "mapSectionOwner": "d5666e94-131e-45c5-aa1e-cc905e133d77",
       "deploymentColor": "Gray"
     },
     {
       "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
       "name": "Entrance",
       "entityType": 5,
-      "entityPosition": "970,990",
+      "entityPosition": "940,940",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,
-        "theText": "Deploy the heroes here.",
+        "theText": "Déployez les héros ici.",
         "entityColor": "Blue",
         "buttonActions": []
       },
@@ -1709,29 +1834,29 @@
       "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
       "name": "Crate4",
       "entityType": 2,
-      "entityPosition": "1010,1070",
+      "entityPosition": "1000,1090",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "Crate4",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577"
           }
         ]
       },
-      "mapSectionOwner": "f15242c6-7977-4e72-b494-5916a98112cf",
+      "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f",
       "deploymentColor": "Gray"
     },
     {
       "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
       "name": "DP Green 1",
       "entityType": 3,
-      "entityPosition": "940,930",
+      "entityPosition": "870,970",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "DP Green 1",
@@ -1768,7 +1893,7 @@
       "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
       "name": "DP Green 2",
       "entityType": 3,
-      "entityPosition": "1030,930",
+      "entityPosition": "970,1000",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "DP Green 2",
@@ -1778,7 +1903,7 @@
         "buttonActions": []
       },
       "deploymentColor": "Green",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e",
       "deploymentPointProps": {
         "incImperial": true,
         "incMercenary": true,
@@ -1803,12 +1928,12 @@
     },
     {
       "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
-      "name": "DP Probe Droid",
+      "name": "DP Trooper 1",
       "entityType": 3,
-      "entityPosition": "1010,960",
+      "entityPosition": "880,930",
       "entityRotation": 0.0,
       "entityProperties": {
-        "name": "DP Probe Droid",
+        "name": "DP Trooper 1",
         "isActive": false,
         "theText": null,
         "entityColor": "Black",
@@ -1839,307 +1964,346 @@
       }
     },
     {
-      "GUID": "006cbdac-0f3d-487f-903e-98cbd17e134b",
-      "name": "Kitchen Door",
+      "GUID": "006dc8a0-fd5e-4b51-a563-bd64fdbce956",
+      "name": "Warehouse Door",
       "entityType": 6,
-      "entityPosition": "990,1020",
+      "entityPosition": "970,1000",
       "entityRotation": 90.0,
       "entityProperties": {
-        "name": "Kitchen Door",
+        "name": "Warehouse Door",
         "isActive": false,
-        "theText": "The door separates the kitchen from the cantina.",
+        "theText": "Cette porte semble mener à un entrepôt.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "Porte détruite",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
-            "eventGUID": "bf44f221-4be1-4118-a18b-0ac7dacf867a"
+            "eventGUID": "2fefe49d-1b95-4315-b1ea-badc1234adba"
+          },
+          {
+            "buttonText": "{A} L'ouvrir",
+            "triggerGUID": "00000000-0000-0000-0000-000000000000",
+            "eventGUID": "2fefe49d-1b95-4315-b1ea-badc1234adba"
           }
         ]
       },
       "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
     },
     {
-      "GUID": "3ea3c392-0fa8-463e-9390-a6a631f9a28c",
-      "name": "Back Room Door",
+      "GUID": "0e4d16aa-d7a6-44b6-b46c-535e244c0c19",
+      "name": "Hangar Door",
       "entityType": 6,
-      "entityPosition": "980,1060",
-      "entityRotation": 90.0,
+      "entityPosition": "1020,1010",
+      "entityRotation": 180.0,
       "entityProperties": {
-        "name": "Back Room Door",
+        "name": "Hangar Door",
         "isActive": false,
-        "theText": "The door to the Back Room is locked tight. Muffled voiced can be heard from within.\r\n\r\n{-} The door to the Back Room is locked. A hero can interact with the door to kick it in.",
+        "theText": "Les bruits de ronronnement de machines et les échos suggèrent que cette porte donne sur un hangar de taille significative.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
         "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "{A} Kick in",
+            "buttonText": "Porte détruite",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
-            "eventGUID": "956ca1de-85c1-46d8-a99f-97af556485c8"
+            "eventGUID": "4454f84a-cd41-41e3-8e18-4b07926096d9"
+          },
+          {
+            "buttonText": "{A} L'ouvrir",
+            "triggerGUID": "00000000-0000-0000-0000-000000000000",
+            "eventGUID": "4454f84a-cd41-41e3-8e18-4b07926096d9"
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111"
+      "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e"
     },
     {
-      "GUID": "8003d418-14a1-4e50-bf2b-33030f8a39ac",
-      "name": "DP Trooper 1-1",
-      "entityType": 3,
-      "entityPosition": "950,940",
-      "entityRotation": 0.0,
+      "GUID": "b37f53ed-319b-4565-b581-e25af0ac8d71",
+      "name": "CC Door 1",
+      "entityType": 6,
+      "entityPosition": "970,1060",
+      "entityRotation": 180.0,
       "entityProperties": {
-        "name": "DP Trooper 1-1",
+        "name": "CC Door 1",
         "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "14216442-71d3-49cf-bb4b-db8a5fdfbe7c",
-      "name": "DP Trooper 1-2",
-      "entityType": 3,
-      "entityPosition": "930,950",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "DP Trooper 1-2",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "b9670acd-b75d-4a88-b0f2-153e64c5a8de",
-      "name": "DP Trooper 1-3",
-      "entityType": 3,
-      "entityPosition": "950,970",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "DP Trooper 1-3",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "c50044ec-8cc6-490d-8ac3-ee69cdfbed62",
-      "name": "DP Trando 1",
-      "entityType": 3,
-      "entityPosition": "960,1030",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "DP Trando 1",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "920b5943-f77e-4bfd-a4d4-f18397a89ae3",
-      "name": "DP Trando 2",
-      "entityType": 3,
-      "entityPosition": "940,1020",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "DP Trando 2",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "2f8afa39-92be-40bc-8f87-9c870a66fe31",
-      "name": "DP IG-88",
-      "entityType": 3,
-      "entityPosition": "980,990",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "DP IG-88",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "ecd56f9e-ff6b-4ac7-aa8a-d854b97be1ae",
-      "name": "Exit",
-      "entityType": 4,
-      "entityPosition": "970,990",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "Exit",
-        "isActive": false,
-        "theText": "Narrow pathways lead away from the cantina, making it easy to shake off pursuers.\r\n\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit, ending the mission.",
-        "entityColor": "Green",
+        "theText": "Cette porte mène au Centre de Commandement.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
+        "entityColor": null,
         "buttonActions": [
           {
-            "buttonText": "Han Solo escapes",
+            "buttonText": "Porte détruite",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
-            "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6"
+            "eventGUID": "9edef338-5b13-432f-8e88-9ba007ce04e7"
+          },
+          {
+            "buttonText": "{A} L'ouvrir",
+            "triggerGUID": "00000000-0000-0000-0000-000000000000",
+            "eventGUID": "9edef338-5b13-432f-8e88-9ba007ce04e7"
           }
         ]
       },
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
-      "tokenColor": "Green",
-      "markerType": 1
+      "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f"
     },
     {
-      "GUID": "01054b24-47b5-4060-9374-9f0209179fcf",
-      "name": "DP Trooper 2-1",
+      "GUID": "6d427efc-3e26-4172-8d1b-4e39c3aeb9ae",
+      "name": "CC Door 2",
+      "entityType": 6,
+      "entityPosition": "970,1080",
+      "entityRotation": 270.0,
+      "entityProperties": {
+        "name": "CC Door 2",
+        "isActive": false,
+        "theText": "Cette porte mène au Centre de Commandement.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : 5, Défense: 1 dé noir) ou un Héros peut interagir ({I}) avec elle pour l'ouvrir.",
+        "entityColor": null,
+        "buttonActions": [
+          {
+            "buttonText": "Porte détruite",
+            "triggerGUID": "00000000-0000-0000-0000-000000000000",
+            "eventGUID": "41a1fbaf-b55b-4a89-b618-b215c5bed3be"
+          },
+          {
+            "buttonText": "{A} L'ouvrir",
+            "triggerGUID": "00000000-0000-0000-0000-000000000000",
+            "eventGUID": "41a1fbaf-b55b-4a89-b618-b215c5bed3be"
+          }
+        ]
+      },
+      "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f"
+    },
+    {
+      "GUID": "8e3750cf-4030-4843-8607-e82acb418193",
+      "name": "DP Trooper 2",
+      "entityType": 3,
+      "entityPosition": "890,940",
+      "entityRotation": 0.0,
+      "entityProperties": {
+        "name": "DP Trooper 2",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Black",
+        "buttonActions": []
+      },
+      "deploymentColor": "Black",
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentPointProps": {
+        "incImperial": true,
+        "incMercenary": true,
+        "incSmall": true,
+        "incMedium": true,
+        "incLarge": true,
+        "incHuge": true,
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true
+      }
+    },
+    {
+      "GUID": "9fc3b8bc-68f4-4a9a-9e05-4770cda152c8",
+      "name": "DP Trooper 3",
+      "entityType": 3,
+      "entityPosition": "900,940",
+      "entityRotation": 0.0,
+      "entityProperties": {
+        "name": "DP Trooper 3",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Black",
+        "buttonActions": []
+      },
+      "deploymentColor": "Black",
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentPointProps": {
+        "incImperial": true,
+        "incMercenary": true,
+        "incSmall": true,
+        "incMedium": true,
+        "incLarge": true,
+        "incHuge": true,
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true
+      }
+    },
+    {
+      "GUID": "c3a02b9d-4e3c-4579-a695-7e2f428c3213",
+      "name": "DP EE-Web",
+      "entityType": 3,
+      "entityPosition": "880,980",
+      "entityRotation": 0.0,
+      "entityProperties": {
+        "name": "DP  EE-Web",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Black",
+        "buttonActions": []
+      },
+      "deploymentColor": "Black",
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentPointProps": {
+        "incImperial": true,
+        "incMercenary": true,
+        "incSmall": true,
+        "incMedium": true,
+        "incLarge": true,
+        "incHuge": true,
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true
+      }
+    },
+    {
+      "GUID": "c4977125-9c07-4c70-9ba2-f7a4ffeed415",
+      "name": "DP Royal 1",
+      "entityType": 3,
+      "entityPosition": "930,990",
+      "entityRotation": 0.0,
+      "entityProperties": {
+        "name": "DP Royal 1",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Black",
+        "buttonActions": []
+      },
+      "deploymentColor": "Black",
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentPointProps": {
+        "incImperial": true,
+        "incMercenary": true,
+        "incSmall": true,
+        "incMedium": true,
+        "incLarge": true,
+        "incHuge": true,
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true
+      }
+    },
+    {
+      "GUID": "bdc2e808-d31b-4646-ac5c-dd6a7899ee09",
+      "name": "DP Royal 2",
+      "entityType": 3,
+      "entityPosition": "920,1000",
+      "entityRotation": 0.0,
+      "entityProperties": {
+        "name": "DP Royal 2",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Black",
+        "buttonActions": []
+      },
+      "deploymentColor": "Black",
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentPointProps": {
+        "incImperial": true,
+        "incMercenary": true,
+        "incSmall": true,
+        "incMedium": true,
+        "incLarge": true,
+        "incHuge": true,
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true
+      }
+    },
+    {
+      "GUID": "1446ce51-f99d-48b3-b56a-288bf2b0f469",
+      "name": "DP Blue 1",
+      "entityType": 3,
+      "entityPosition": "940,970",
+      "entityRotation": 0.0,
+      "entityProperties": {
+        "name": "DP Blue 1",
+        "isActive": false,
+        "theText": null,
+        "entityColor": "Blue",
+        "buttonActions": []
+      },
+      "deploymentColor": "Blue",
+      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentPointProps": {
+        "incImperial": true,
+        "incMercenary": true,
+        "incSmall": true,
+        "incMedium": true,
+        "incLarge": true,
+        "incHuge": true,
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true
+      }
+    },
+    {
+      "GUID": "1613e679-7426-4029-956c-ad8567faeaa1",
+      "name": "DP Blue 2",
       "entityType": 3,
       "entityPosition": "1010,990",
       "entityRotation": 0.0,
       "entityProperties": {
-        "name": "DP Trooper 2-1",
+        "name": "DP Blue 2",
         "isActive": false,
         "theText": null,
-        "entityColor": "Black",
+        "entityColor": "Blue",
         "buttonActions": []
       },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Blue",
+      "mapSectionOwner": "60da9b45-f367-45b3-8048-c8905bcfa85e",
       "deploymentPointProps": {
         "incImperial": true,
         "incMercenary": true,
@@ -2163,20 +2327,20 @@
       }
     },
     {
-      "GUID": "f5f27ebc-bd8b-4c9d-bf55-368a1b702411",
-      "name": "DP Trooper 2-2",
+      "GUID": "533e29c6-441e-4bbf-bf0f-81cc06fb4b2a",
+      "name": "DP Yellow 1",
       "entityType": 3,
-      "entityPosition": "990,1010",
+      "entityPosition": "1030,1050",
       "entityRotation": 0.0,
       "entityProperties": {
-        "name": "DP Trooper 2-2",
-        "isActive": false,
+        "name": "DP Yellow 1",
+        "isActive": true,
         "theText": null,
-        "entityColor": "Black",
+        "entityColor": "Yellow",
         "buttonActions": []
       },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Yellow",
+      "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f",
       "deploymentPointProps": {
         "incImperial": true,
         "incMercenary": true,
@@ -2200,20 +2364,20 @@
       }
     },
     {
-      "GUID": "777b833b-9e23-4cc3-82b1-4989a5e9b226",
-      "name": "DP Trooper 2-3",
+      "GUID": "748927fe-d4fd-468c-8ab1-5a82bb954ca9",
+      "name": "DP Yellow 2",
       "entityType": 3,
-      "entityPosition": "1000,1010",
+      "entityPosition": "1030,1090",
       "entityRotation": 0.0,
       "entityProperties": {
-        "name": "DP Trooper 2-3",
-        "isActive": false,
+        "name": "DP Yellow 2",
+        "isActive": true,
         "theText": null,
-        "entityColor": "Black",
+        "entityColor": "Yellow",
         "buttonActions": []
       },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Yellow",
+      "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f",
       "deploymentPointProps": {
         "incImperial": true,
         "incMercenary": true,
@@ -2237,94 +2401,20 @@
       }
     },
     {
-      "GUID": "e025d0a8-0fcb-417f-9430-44fe74aeb281",
-      "name": "DP EOfficer",
+      "GUID": "a91f5b8d-d4d0-4cc1-a018-db2b62b95637",
+      "name": "DP Vader",
       "entityType": 3,
-      "entityPosition": "1000,1060",
+      "entityPosition": "960,1060",
       "entityRotation": 0.0,
       "entityProperties": {
-        "name": "DP EOfficer",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "f15242c6-7977-4e72-b494-5916a98112cf",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb",
-      "name": "DP ETrooper",
-      "entityType": 3,
-      "entityPosition": "990,1060",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "DP ETrooper",
-        "isActive": false,
-        "theText": null,
-        "entityColor": "Black",
-        "buttonActions": []
-      },
-      "deploymentColor": "Black",
-      "mapSectionOwner": "f15242c6-7977-4e72-b494-5916a98112cf",
-      "deploymentPointProps": {
-        "incImperial": true,
-        "incMercenary": true,
-        "incSmall": true,
-        "incMedium": true,
-        "incLarge": true,
-        "incHuge": true,
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true
-      }
-    },
-    {
-      "GUID": "931a1ab2-8a92-470b-af84-38a36800f91f",
-      "name": "DP Han Back Room",
-      "entityType": 3,
-      "entityPosition": "1010,1060",
-      "entityRotation": 0.0,
-      "entityProperties": {
-        "name": "DP Han Back Room",
+        "name": "DP Yellow 2 (Duplicate)",
         "isActive": false,
         "theText": null,
         "entityColor": "Red",
         "buttonActions": []
       },
       "deploymentColor": "Red",
-      "mapSectionOwner": "f15242c6-7977-4e72-b494-5916a98112cf",
+      "mapSectionOwner": "d5666e94-131e-45c5-aa1e-cc905e133d77",
       "deploymentPointProps": {
         "incImperial": true,
         "incMercenary": true,
@@ -2348,20 +2438,20 @@
       }
     },
     {
-      "GUID": "3cd4a0fe-9168-4c7e-b359-2025af5a187d",
-      "name": "DP Han Cantina",
+      "GUID": "fc38f054-cfa7-43ce-afff-788398eb1e5b",
+      "name": "DP Reception",
       "entityType": 3,
-      "entityPosition": "940,1060",
+      "entityPosition": "950,1030",
       "entityRotation": 0.0,
       "entityProperties": {
-        "name": "DP Han Cantina",
+        "name": "DP Yellow 1 (Duplicate)",
         "isActive": false,
         "theText": null,
-        "entityColor": "Red",
+        "entityColor": "Yellow",
         "buttonActions": []
       },
-      "deploymentColor": "Red",
-      "mapSectionOwner": "11111111-1111-1111-1111-111111111111",
+      "deploymentColor": "Yellow",
+      "mapSectionOwner": "c049c11a-b878-4ce1-846e-b2df91ab740f",
       "deploymentPointProps": {
         "incImperial": true,
         "incMercenary": true,
@@ -2387,90 +2477,55 @@
   ],
   "initialDeploymentGroups": [
     {
-      "GUID": "57992a61-e4f5-44f1-8d8e-c638de79d88a",
+      "GUID": "9a1284ee-d0a6-4654-b614-ea22d1108032",
+      "cardName": "Royal Guard",
+      "cardID": "DG009",
+      "customInstructionType": 2,
+      "customText": "",
+      "pointList": [
+        {
+          "GUID": "c4977125-9c07-4c70-9ba2-f7a4ffeed415"
+        },
+        {
+          "GUID": "bdc2e808-d31b-4646-ac5c-dd6a7899ee09"
+        }
+      ],
+      "groupPriorityTraits": {
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
+      },
+      "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+      "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
+    },
+    {
+      "GUID": "a915c4b4-e6d9-4c03-99db-7f7cd35263f1",
       "cardName": "Stormtrooper",
       "cardID": "DG001",
       "customInstructionType": 2,
       "customText": "",
       "pointList": [
         {
-          "GUID": "8003d418-14a1-4e50-bf2b-33030f8a39ac"
-        },
-        {
-          "GUID": "14216442-71d3-49cf-bb4b-db8a5fdfbe7c"
-        },
-        {
-          "GUID": "b9670acd-b75d-4a88-b0f2-153e64c5a8de"
-        }
-      ],
-      "groupPriorityTraits": {
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true,
-        "useDefaultPriority": true
-      },
-      "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
-      "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false,
-      "useInitialGroupCustomName": false
-    },
-    {
-      "GUID": "cf7fe9fa-f075-488d-84c1-eb4e4935eb1b",
-      "cardName": "Stormtrooper",
-      "cardID": "DG002",
-      "customInstructionType": 2,
-      "customText": "",
-      "pointList": [
-        {
-          "GUID": "01054b24-47b5-4060-9374-9f0209179fcf"
-        },
-        {
-          "GUID": "f5f27ebc-bd8b-4c9d-bf55-368a1b702411"
-        },
-        {
-          "GUID": "777b833b-9e23-4cc3-82b1-4989a5e9b226"
-        }
-      ],
-      "groupPriorityTraits": {
-        "incBrawler": true,
-        "incCreature": true,
-        "incDroid": true,
-        "incForceUser": true,
-        "incGuardian": true,
-        "incHeavyWeapon": true,
-        "incHunter": true,
-        "incLeader": true,
-        "incSmuggler": true,
-        "incSpy": true,
-        "incTrooper": true,
-        "incWookiee": true,
-        "incVehicle": true,
-        "useDefaultPriority": true
-      },
-      "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
-      "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false,
-      "useInitialGroupCustomName": false
-    },
-    {
-      "GUID": "cc9bcd0a-57ac-4e7a-8bb6-ecdb92528b41",
-      "cardName": "Probe Droid",
-      "cardID": "DG011",
-      "customInstructionType": 2,
-      "customText": "",
-      "pointList": [
-        {
           "GUID": "81ead058-7663-414c-aed5-13a096cc71f9"
+        },
+        {
+          "GUID": "8e3750cf-4030-4843-8607-e82acb418193"
+        },
+        {
+          "GUID": "9fc3b8bc-68f4-4a9a-9e05-4770cda152c8"
         }
       ],
       "groupPriorityTraits": {
@@ -2495,17 +2550,14 @@
       "useInitialGroupCustomName": false
     },
     {
-      "GUID": "8acf64e4-c4f3-4efd-ab1b-d01a80af6a91",
-      "cardName": "Trandoshan Hunter",
-      "cardID": "DG015",
+      "GUID": "69e666fe-5cda-48f0-83e7-4d841316b34e",
+      "cardName": "E-Web Engineer (Elite)",
+      "cardID": "DG008",
       "customInstructionType": 2,
       "customText": "",
       "pointList": [
         {
-          "GUID": "c50044ec-8cc6-490d-8ac3-ee69cdfbed62"
-        },
-        {
-          "GUID": "920b5943-f77e-4bfd-a4d4-f18397a89ae3"
+          "GUID": "c3a02b9d-4e3c-4579-a695-7e2f428c3213"
         }
       ],
       "groupPriorityTraits": {
@@ -2532,9 +2584,9 @@
   ],
   "reservedDeploymentGroups": [
     {
-      "GUID": "eb9b63f2-4eaa-435d-84b4-632271771383",
-      "cardName": "IG-88",
-      "cardID": "DG071",
+      "GUID": "fc561b17-fcf6-4e7f-807e-3e517e6d7e6e",
+      "cardName": "Darth Vader",
+      "cardID": "DG072",
       "customInstructionType": 2,
       "customText": "",
       "pointList": [
@@ -2564,9 +2616,9 @@
       "useInitialGroupCustomName": false
     },
     {
-      "GUID": "5f7e6b47-581f-4a17-ae6f-3c5ba754f04f",
-      "cardName": "Imperial Officer (Elite)",
-      "cardID": "DG006",
+      "GUID": "51d4701b-4e60-4a6e-9f06-00db132dbd7c",
+      "cardName": "Imperial Officer",
+      "cardID": "DG004",
       "customInstructionType": 2,
       "customText": "",
       "pointList": [
@@ -2596,9 +2648,108 @@
       "useInitialGroupCustomName": false
     },
     {
-      "GUID": "189da832-6cd6-461b-8cfb-9589e51bde19",
-      "cardName": "Stormtrooper (Elite)",
-      "cardID": "DG003",
+      "GUID": "a05b844b-2d2e-4b01-987c-b56ad3712d0d",
+      "cardName": "Probe Droid",
+      "cardID": "DG011",
+      "customInstructionType": 2,
+      "customText": "",
+      "pointList": [
+        {
+          "GUID": "00000000-0000-0000-0000-000000000000"
+        }
+      ],
+      "groupPriorityTraits": {
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
+      },
+      "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+      "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
+    },
+    {
+      "GUID": "13442c32-dd16-497d-8cae-42616094248e",
+      "cardName": "Probe Droid",
+      "cardID": "DG012",
+      "customInstructionType": 2,
+      "customText": "",
+      "pointList": [
+        {
+          "GUID": "00000000-0000-0000-0000-000000000000"
+        }
+      ],
+      "groupPriorityTraits": {
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
+      },
+      "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+      "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
+    },
+    {
+      "GUID": "f534713a-6f51-4cb2-b032-a57581f037f7",
+      "cardName": "Royal Guard (Elite)",
+      "cardID": "DG010",
+      "customInstructionType": 2,
+      "customText": "",
+      "pointList": [
+        {
+          "GUID": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+          "GUID": "00000000-0000-0000-0000-000000000000"
+        }
+      ],
+      "groupPriorityTraits": {
+        "incBrawler": true,
+        "incCreature": true,
+        "incDroid": true,
+        "incForceUser": true,
+        "incGuardian": true,
+        "incHeavyWeapon": true,
+        "incHunter": true,
+        "incLeader": true,
+        "incSmuggler": true,
+        "incSpy": true,
+        "incTrooper": true,
+        "incWookiee": true,
+        "incVehicle": true,
+        "useDefaultPriority": true
+      },
+      "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+      "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
+    },
+    {
+      "GUID": "b6746386-e04e-49d8-b634-380514357f3e",
+      "cardName": "Stormtrooper",
+      "cardID": "DG002",
       "customInstructionType": 2,
       "customText": "",
       "pointList": [
@@ -2634,18 +2785,7 @@
       "useInitialGroupCustomName": false
     }
   ],
-  "eventGroups": [
-    {
-      "name": "Time to Run",
-      "GUID": "933d84e2-7840-4721-94f7-4c127d52e56e",
-      "repeateable": false,
-      "isUnique": true,
-      "triggerGUID": "00000000-0000-0000-0000-000000000000",
-      "missionEvents": [
-        "9838f8ca-8f28-4186-b39a-236b4f4d1cc8",
-        "d2c05fce-f5d1-48f4-ac13-d24767157b4a"
-      ]
-    }
-  ],
-  "entityGroups": []
+  "eventGroups": [],
+  "entityGroups": [],
+  "customCharacters": []
 }

@@ -1,19 +1,19 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "fileName": "CORE8-Incoming.json",
-  "relativePath": "01 - Core Game\\Story Missions\\CORE8-Incoming.json",
-  "fileVersion": "13",
-  "saveDate": "6/1/2022",
-  "timeTicks": 637896846289121656,
+  "fileVersion": "21",
+  "saveDate": "12/6/2023",
+  "timeTicks": 638374810926423722,
+  "languageID": "French (FR)",
   "missionProperties": {
-    "missionName": "Incoming",
-    "campaignName": "Core Game",
+    "missionName": "En approche",
+    "campaignName": "Jeu de base",
     "missionDescription": "",
     "fixedAlly": "A001",
     "bannedAlly": "A001",
-    "startingObjective": "Enter the facility.",
+    "startingObjective": "Pénétrez dans l'installation",
+    "additionalMissionInfo": null,
     "missionID": "Core 8",
-    "missionInfo": "{-} The mission will progress when a Rebel figure enters the Corridor (click on the green highlight and select \"Enter Corridor\").\r\n{-} The Rebels lose when all heroes are wounded or at the end of Round 7.",
+    "missionInfo": "{-} La mission avancera quand une figurine Rebelle entrera dans le Couloir (cliquez sur la zone verte et choisissez \"Entrer dans le Couloir\").\r\n{-} Les Rebelles perdent à la fin du Round 7 ou quand tous les Héros sont blessés.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
@@ -28,7 +28,7 @@
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
     "missionType": 0,
     "changeRepositionOverride": {
-      "theText": "Stay within 2 spaces of a hero adjacent to a terminal.",
+      "theText": "Rester à 2 cases ou moins d'un Héros adjacent à un terminal.",
       "useSpecific": false,
       "repoGroups": [],
       "GUID": "e72f322e-c6d6-41db-ba8d-da44cc3c9722",
@@ -50,8 +50,10 @@
       "DG066",
       "DG067",
       "DG045"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
+  "fileName": "FR-CORE8.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -93,6 +95,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -274,6 +277,7 @@
           "useActivation": false,
           "isRepeatable": false,
           "isEndOfCurrentRound": false,
+          "useAnyHeroDefeated": false,
           "behaviorAll": true,
           "additionalTriggers": [],
           "eventActions": []
@@ -583,6 +587,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -591,7 +596,7 @@
       "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
       "isGlobal": true,
       "name": "Open Crate 1",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -611,6 +616,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -623,11 +629,11 @@
               "entityProperties": {
                 "name": "Crate1",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "{A} L'ouvrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609"
                   }
@@ -645,7 +651,7 @@
       "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
       "isGlobal": true,
       "name": "Open Crate 2",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -665,6 +671,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -677,7 +684,7 @@
               "entityProperties": {
                 "name": "Crate2",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -693,7 +700,7 @@
       "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
       "isGlobal": true,
       "name": "Open Crate 3",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -713,6 +720,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -725,7 +733,7 @@
               "entityProperties": {
                 "name": "Crate3",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": []
               }
@@ -741,7 +749,7 @@
       "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
       "isGlobal": true,
       "name": "Open Crate 4",
-      "eventText": "You rummage through the supplies and take whatever seems useful.\r\n\r\nDraw a supply card. You gain 1 medpac. Claim this token.",
+      "eventText": "Vous fouillez la caisse, cherchant quelque chose d'utile parmi les nombreux objets dedans.\r\n\r\nTirez une carte de ravitaillement. Gagnez 1 medpac. Prenez ce pion caisse.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -761,6 +769,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -773,11 +782,11 @@
               "entityProperties": {
                 "name": "Crate4",
                 "isActive": false,
-                "theText": "An old supply crate.",
+                "theText": "Une vieille caisse impériale.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Open",
+                    "buttonText": "{A} L'ouvrir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577"
                   }
@@ -795,7 +804,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "Rebel engineers are concluding their analysis of the schematics. Hoping to keep their discoveries secret, Command has sent you to keep an eye on their progress and hand-deliver their results.\r\n\r\nMuch to your surprise, you arrive to a facility in shambles and overrun by Imperial forces. Worse, your approaching transport is fired upon and brought into a rough landing.\r\n\r\nFleeing through the forest with a battalion pursuing close behind, you come across a listening post for the facility. You recall that this area has a network of tunnels connecting the facility with emergency escape routes.\r\n\r\nYou should be able to access the escape tunnels through the listening post if you can manage to find their entrance before the Imperial forces catch up.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} The mission will progress when a Rebel figure enters the Corridor (click on the green highlight and select \"Enter Corridor\").\r\n{-} The Rebels lose when all heroes are wounded or at the end of Round 7.",
+      "eventText": "Les ingénieurs rebelles arrivent au bout de leur analyse des plans. Soucieux de garder leurs découvertes secrètes, le Haut Commandement vous a envoyé surveiller leurs avancées et récupérer en main propre les résultats.\r\n\r\nA votre grande surprise, à votre arrivée, les lieux sont en ruines et envahis de forces impériales. Pire, votre transport est pris pour cible dès son approche et forcé à atterir avec fracas.\r\n\r\nVous fuyez au travers de la forêt, un bataillon sur vos talons, et vous tombez sur un poste d'observation. Vous vous souvenez que cette installation dispose d'un réseau souterrain de tunnels, reliés à des chemins de repli.\r\n\r\nVous devriez pouvoir accéder à ces chemins via le poste d'observation - si toutefois vous en trouvez l'entrée avant que les impériaux ne vous rattrapent.\r\n\r\n{-} Déployez les héros depuis la zone bleue.\r\n{-} La mission avancera quand une figurine Rebelle entrera dans le Couloir (cliquez sur la zone verte et choisissez \"Entrer dans le Couloir\").\r\n{-} Les Rebelles perdent à la fin du Round 7 ou quand tous les Héros sont blessés.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -815,6 +824,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -823,7 +833,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win early",
-      "eventText": "You manage to pry the blast doors open just enough for everyone to squeeze through, right before one final explosion sends heavy stones thundering down. Dust and fragments of rock flood into the tunnel, but you're already on the move.\r\n\r\nIt might still take some careful maneuvering to duck the Imperials when you return to the surface, but far now, you're home free.\r\n\r\nIt's a bitter victory with the loss of the outpost. The schematics are gone, along with whatever detailed analysis the Rebel engineers could have provided. At least you made it out early.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Place Story Mission card \"Chain of Command\" into play.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Because the blast door was opened before the end of Round 5, heroes receive an additional 100 credits per hero.",
+      "eventText": "Vous parvenez à forcer les portes coupe-feu juste assez pour que tout le monde se faufile dans les tunnels, juste au moment où une dernière explosion retentissante ne fasse pleuvoir des rochers. De la poussière et des fragments de roche s'infiltrent dans le tunnel mais vous êtes déjà en train d'avancer.\r\n\r\nCela prendra du temps et de l'attention d'esquiver les Impériaux quand vous parviendrez à la surface mais, jusqu'ici, vous êtes libres.\r\n\r\nC'est une victoire au goût amer, vue la perte de l'avant-poste. Les plans ont disparu, avec l'analyse éventuelle que les ingénieurs rebels en avaient fait. Mais au moins, vous vous en êtes sortis rapidement.\r\n\r\n{-} Les Rebelles gagnent la mission !\r\n{-} Placez en jeu la mission d'histoire \"La hiérarchie\".\r\n{-} Chaque Héros reçoit 2 XP. Les Héros reçoivent 100 crédits par héros.\r\n{-} Comme la porte coupe-feu a été ouverte avant la fin du Round 5, les Héros reçoivent 100 crédits de plus par héros.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -843,6 +853,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -874,7 +885,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "With one final blast, the building rumbles around you, heavy stone fragments raining down from above. Your only choices become staying inside as the structure collapses around you, fighting your way out, or surrendering.\r\n\r\nCharging outside, you're ready to put up the fight of your lives until you see just how many Imperial troops stand waiting outside. Several dozen blasters are pointed in your direction, and surrender becomes your only option.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Place Story Mission card \"The Source\" into play. Play \"Captured\" as a forced mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
+      "eventText": "Dans une dernière déflagration, le bâtiment s'effondre sur vous dans une pluie de rochers. Vos options se réduisent à sortir vous battre, ou vous rendre.\r\n\r\nChargeant en sortant du bâtiment, vous êtes prêts à défendre vos vies chèrement lorsque vous faites le compte des troupes impériales qui vous attendent calmement à l'extérieur. Plusieurs dizaines de blasters sont braqués sur vous. La capitulation est votre seule option.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Placez en jeu la mission d'histoire \"La Source\" into play. Jouez \"Capturés\" en tant que mission forcée.\r\n{-} Chaque Héros reçoit 1 XP. Les Héros reçoivent 100 crédits par héros.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -894,6 +905,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
@@ -914,7 +926,7 @@
       "GUID": "3d097218-f1f2-4ea2-93ff-486f4af19583",
       "isGlobal": true,
       "name": "End of Mission - Rebels win late",
-      "eventText": "You manage to pry the blast doors open just enough for everyone to squeeze through, right before one final explosion sends heavy stones thundering down. Dust and fragments of rock flood into the tunnel, but you're already on the move.\r\n\r\nIt might still take some careful maneuvering to duck the Imperials when you return to the surface, but far now, you're home free.\r\n\r\nIt's a bitter victory with the loss of the outpost. The schematics are gone, along with whatever detailed analysis the Rebel engineers could have provided.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Place Story Mission card \"Chain of Command\" into play.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Because the blast door was opened after the end of Round 5, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "Vous parvenez à forcer les portes coupe-feu juste assez pour que tout le monde se faufile dans les tunnels, juste au moment où une dernière explosion retentissante ne fasse pleuvoir des rochers. De la poussière et des fragments de roche s'infiltrent dans le tunnel mais vous êtes déjà en train d'avancer.\r\n\r\nCela prendra du temps et de l'attention d'esquiver les Impériaux quand vous parviendrez à la surface mais, jusqu'ici, vous êtes libres.\r\n\r\nC'est une victoire au goût amer, vue la perte de l'avant-poste. Les plans ont disparu, avec l'analyse éventuelle que les ingénieurs rebels en avaient fait.\r\n\r\n{-} Les Rebelles gagnent la mission !\r\n{-} Placez en jeu la mission d'histoire \"La hiérarchie\".\r\n{-} Chaque Héros reçoit 2 XP. Les Héros reçoivent 100 crédits par héros.\r\n{-} Comme la porte coupe-feu a été ouverte après la fin du Round 5, augmentez le niveau de menace de la prochaine mission (et uniquement celle-là) de 1. Durant la phase d'amélioration rebelle, les joueurs rebelles peuvent décider de payer 50 crédits par héros pour annuler cet effet.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -934,6 +946,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -965,7 +978,7 @@
       "GUID": "5be1410e-fba3-40c4-a9c6-46ef14268bfa",
       "isGlobal": true,
       "name": "Too Late Trigger",
-      "eventText": "Explosions keep rocking the building, and you hear more and more Imperial troops converging on the listening post. \r\n\r\nYou have missed the chance to get out early, but you can still escape.",
+      "eventText": "Des explosions continuent à secouer le bâtiment. Vous entendez de plus en plus de troupes impériales converger sur le poste d'observation. \r\n\r\nVous avez loupé votre chance de partir tôt, mais vous pouvez encore vous échapper.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -985,6 +998,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1007,7 +1021,7 @@
       "GUID": "4c91a4a2-054a-49ff-81f7-1aa63cbba032",
       "isGlobal": true,
       "name": "Wrong Terminal 1",
-      "eventText": "After searching for what feels like ages, you have to admit to yourself that you won't find anything here.",
+      "eventText": "Après avoir passé ce qui vous semble être des heures de recherche, vous devez vous résoudre au fait que vous ne trouverez rien d'intéressant ici.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1027,6 +1041,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1039,11 +1054,11 @@
               "entityProperties": {
                 "name": "Wrong Terminal 1",
                 "isActive": false,
-                "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+                "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Investigate",
+                    "buttonText": "{A} Investiguer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -1061,7 +1076,7 @@
       "GUID": "4fb8bc26-d97f-4192-8dd8-8af049e30e96",
       "isGlobal": true,
       "name": "Wrong Terminal 2",
-      "eventText": "After searching for what feels like ages, you have to admit to yourself that you won't find anything here.",
+      "eventText": "Après avoir passé ce qui vous semble être des heures de recherche, vous devez vous résoudre au fait que vous ne trouverez rien d'intéressant ici.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1081,6 +1096,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1093,11 +1109,11 @@
               "entityProperties": {
                 "name": "Wrong Terminal 2",
                 "isActive": false,
-                "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+                "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Investigate",
+                    "buttonText": "{A} Investiguer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -1115,7 +1131,7 @@
       "GUID": "7ed7f9ec-f77a-4525-8982-dcec91004376",
       "isGlobal": true,
       "name": "Schematics",
-      "eventText": "Shoving aside rubble, you finally locate a terminal with information you can use. The building shudders against another heavy impact as you frantically scour the files for any details on the underground tunnels.\r\n\r\nYou find schematics for the tunnels themselves and map out a quick route, but some of the schematics have been damaged. The portion that could show you how to get in to the tunnels from this listening post is a mess of garbled lines and text. You'll have to find another copy of the schematics.",
+      "eventText": "Ecartant les décombres, vous parvenez enfin à trouver un terminal qui contienne des informations utiles. Le bâtiment entier subit une nouvelle secousse alors que vous parcourrez frénétiquement les fichiers à la recherche de détails sur les tunnels.\r\n\r\nVous trouvez les plans des tunnels et commencez à planifier une route de sortie, mais certains plans ont été endommagés. La partie qui vous permettrait de savoir comment rejoindre les tunnels depuis le poste d'observation n'est qu'un amas de lignes et de lettres sans aucun sens. Il vous faut un autre exemplaire des plans.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1135,6 +1151,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1156,7 +1173,7 @@
       "GUID": "008a2a49-8e24-4e57-bd51-1a933a202d59",
       "isGlobal": true,
       "name": "<color=\"red\">Hidden</color> Passage",
-      "eventText": "Dust and stone fragments shower from the ceiling; the structure is now under constant attack.\r\n\r\nYou consider trying your luck against the mass of Imperial forces outside just as you find the controls to open the underground tunnels.\r\n\r\nPressing a series of commands, you expect the hidden blast door to grind open. Instead, you hear the loud whine of metal under strain followed by a highpitched screech. Red warnings display across the terminal screen.\r\n\r\nJammed. Of course.\r\n\r\n{-} The neutral mission token represents the blast door. A hero can interact with the blast door ({K}) to try and pry it open.\r\n{-} The Rebels win when they open the blast door.",
+      "eventText": "Vous prenez une douche de poussière et de cailloux ; le bâtiment est maintenant sous bombardement soutenu.\r\n\r\nVous en êtes à calculer vos chances de vous en sortir en allant vous mesurer aux nombreuses forces impériales dehors lorsque vous trouvez enfin la commande d'ouverture de l'entrée des tunnels.\r\n\r\nEntrant une série d'ordres, vous vous attendez à ce que la porte coupe-feu s'ouvre, peut-être en grinçant. Au lieu de cela, vous entendez le grincement du métal tentant de se déformer sous une force importante, suivi d'un crissement strident. Puis plus rien. Des voyants rouges s'allument partout sur l'écran.\r\n\r\nCoincée. Evidemment.\r\n\r\n{-} Le pion de mission neutre représente la porte coupe-feu. Un Héros peut interagir avec elle ({K}) pour essayer de la forcer.\r\n{-} Les Rebelles gagnent s'ils ouvrent la porte coupe-feu.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1176,6 +1193,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1194,11 +1212,11 @@
               "entityProperties": {
                 "name": "Blast Door",
                 "isActive": true,
-                "theText": "The Blast Door is jammed tight. It will take some force to open it enough for you to slip through.\r\n\r\n{-} A hero can interact with the blast door ({K}) to try and pry it open.",
+                "theText": "La porte coupe-feu est bien coincée. Il va falloir y mettre du muscle pour l'ouvrir suffisamment pour passer.\r\n\r\n{-} Un Héros peut interagir avec la porte coupe-feu ({K}) pour essayer de la forcer.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Pry open",
+                    "buttonText": "{A} Forcer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "4d938873-7dc6-460d-aff0-baa3b4b7e614"
                   }
@@ -1212,11 +1230,11 @@
               "entityProperties": {
                 "name": "Wrong Terminal 1",
                 "isActive": false,
-                "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+                "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Investigate",
+                    "buttonText": "{A} Investiguer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "53185f07-a3c2-4334-9724-5f9412db5be6"
                   }
@@ -1230,11 +1248,11 @@
               "entityProperties": {
                 "name": "Wrong Terminal 2",
                 "isActive": false,
-                "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+                "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Investigate",
+                    "buttonText": "{A} Investiguer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "96804d50-8a8d-4bd3-a52c-4c6223597b42"
                   }
@@ -1247,13 +1265,13 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} Imperial mission tokens represent rubble. Rubble is difficult terrain.\r\n{-} At the end of each round, and during certain events, the Empire will fire artillery shots at the structure.\r\n{-} The neutral mission token represents the blast door. A hero can interact with the blast door ({K}) to try and pry it open.\r\n{-} The Rebels win when they open the blast door.\r\n{-} The Rebels lose when all heroes are wounded or at the end of Round 7.",
+          "theText": "{-} Les pions de mission impériaux représentent des décombres. Les décombres sont un terrain difficile.\r\n{-} A la fin de chaque round, et durant certains événements, les Impériaux effectueront des tirs d'artillerie sur le bâtiment.\r\n{-} Le pion de mission neutre représente la porte coupe-feu. Un Héros peut interagir avec la porte coupe-feu ({K}) pour essayer de la forcer.\r\n{-} Les Rebelles gagnent s'ils ouvrent la porte coupe-feu.\r\n{-} Les Rebelles perdent à la fin du Round 7 ou quand tous les Héros sont blessés.",
           "GUID": "10b2e5d0-e0fe-49df-b10c-d278b0d2e9b7",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
         },
         {
-          "theText": "Escape through the Blast Door.",
+          "theText": "Echappez-vous via la porte coupe-feu.",
           "longText": null,
           "GUID": "91ba07cc-b211-4253-aa29-c93facff6d55",
           "eventActionType": 2,
@@ -1291,17 +1309,18 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "failText": "",
-          "theText": "You start cleaning the rubble and pushing buttons to try and find data about the tunnels.\r\n\r\n{-} Test {I} or {J}. If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results. Apply +1 {B} to the results for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "theText": "Vous commencez à creuser dans les décombres puis appuyer sur des boutons de la console pour chercher des infos sur les tunnels.\r\n\r\n{-} Testez {I} ou {J}. Si une figurine impériale se trouve à portée 2 de vous, appliquez -1 {B} au résultat. Appliquez +1 {B} au résultat pour chaque pion de stress sur le terminal, puis défaussez tous les pions de stress du terminal. Tapez le nombre de succès ci-dessous.",
           "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
           "failEventGUID": "4c91a4a2-054a-49ff-81f7-1aa63cbba032",
           "inputList": [
             {
-              "theText": "You make some progress, but you still haven't found anything of interest.\r\n\r\n{-} Place 1 strain token on the terminal for each {B} gained.",
+              "theText": "Vous avez progressé, mais vous n'avez pas encore d'info intéressante.\r\n\r\n{-} Mettrez un pion de stress sur le terminal pour chaque résultat {B}.",
               "fromValue": 0,
               "toValue": 2,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
@@ -1338,17 +1357,18 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "failText": "",
-          "theText": "You start cleaning the rubble and pushing buttons to try and find data about the tunnels.\r\n\r\n{-} Test {I} or {J}. If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results. Apply +1 {B} to the results for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "theText": "Vous commencez à creuser dans les décombres puis appuyer sur des boutons de la console pour chercher des infos sur les tunnels.\r\n\r\n{-} Testez {I} ou {J}. Si une figurine impériale se trouve à portée 2 de vous, appliquez -1 {B} au résultat. Appliquez +1 {B} au résultat pour chaque pion de stress sur le terminal, puis défaussez tous les pions de stress du terminal. Tapez le nombre de succès ci-dessous.",
           "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
           "failEventGUID": "4fb8bc26-d97f-4192-8dd8-8af049e30e96",
           "inputList": [
             {
-              "theText": "You make some progress, but you still haven't found anything of interest.\r\n\r\n{-} Place 1 strain token on the terminal for each {B} gained.",
+              "theText": "Vous avez progressé, mais vous n'avez pas encore d'info intéressante.\r\n\r\n{-} Mettrez un pion de stress sur le terminal pour chaque résultat {B}.",
               "fromValue": 0,
               "toValue": 2,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
@@ -1385,17 +1405,18 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "failText": "",
-          "theText": "You start cleaning the rubble and pushing buttons to try and find data about the tunnels.\r\n\r\n{-} Test {I} or {J}. If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results. Apply +1 {B} to the results for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "theText": "Vous commencez à creuser dans les décombres puis appuyer sur des boutons de la console pour chercher des infos sur les tunnels.\r\n\r\n{-} Testez {I} ou {J}. Si une figurine impériale se trouve à portée 2 de vous, appliquez -1 {B} au résultat. Appliquez +1 {B} au résultat pour chaque pion de stress sur le terminal, puis défaussez tous les pions de stress du terminal. Tapez le nombre de succès ci-dessous.",
           "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
           "failEventGUID": "3052e57d-c8c9-4054-b28e-da02b2b6d18b",
           "inputList": [
             {
-              "theText": "You make some progress, but you still haven't found anything of interest.\r\n\r\n{-} Place 1 strain token on the terminal for each {B} gained.",
+              "theText": "Vous avez progressé, mais vous n'avez pas encore d'info intéressante.\r\n\r\n{-} Mettrez un pion de stress sur le terminal pour chaque résultat {B}.",
               "fromValue": 0,
               "toValue": 2,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
@@ -1432,17 +1453,18 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "failText": "",
-          "theText": "You start cleaning the rubble and pushing buttons to try and find data about the tunnels.\r\n\r\n{-} Test {I} or {J}. If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results. Apply +1 {B} to the results for each strain token on the terminal, then discard all strain tokens on the terminal. Enter the number of successes below.",
+          "theText": "Vous commencez à creuser dans les décombres puis appuyer sur des boutons de la console pour chercher des infos sur les tunnels.\r\n\r\n{-} Testez {I} ou {J}. Si une figurine impériale se trouve à portée 2 de vous, appliquez -1 {B} au résultat. Appliquez +1 {B} au résultat pour chaque pion de stress sur le terminal, puis défaussez tous les pions de stress du terminal. Tapez le nombre de succès ci-dessous.",
           "failTriggerGUID": "00000000-0000-0000-0000-000000000000",
           "failEventGUID": "47928fee-cfd6-4e3e-bcd3-67d8c1dda9de",
           "inputList": [
             {
-              "theText": "You make some progress, but you still haven't found anything of interest.\r\n\r\n{-} Place 1 strain token on the terminal for each {B} gained.",
+              "theText": "Vous avez progressé, mais vous n'avez pas encore d'info intéressante.\r\n\r\n{-} Mettrez un pion de stress sur le terminal pour chaque résultat {B}.",
               "fromValue": 0,
               "toValue": 2,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
@@ -1479,6 +1501,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1491,11 +1514,11 @@
               "entityProperties": {
                 "name": "Correct Terminal 1",
                 "isActive": false,
-                "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+                "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Investigate",
+                    "buttonText": "{A} Investiguer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -1546,6 +1569,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1558,11 +1582,11 @@
               "entityProperties": {
                 "name": "Correct Terminal 2",
                 "isActive": false,
-                "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+                "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
                 "entityColor": "Gray",
                 "buttonActions": [
                   {
-                    "buttonText": "{A} Investigate",
+                    "buttonText": "{A} Investiguer",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "00000000-0000-0000-0000-000000000000"
                   }
@@ -1593,7 +1617,7 @@
       "GUID": "7e77f45c-17c2-48d5-87d3-9f28dd237042",
       "isGlobal": true,
       "name": "Enter Corridor",
-      "eventText": "Feeble lights flicker on as you enter the corridor. At the same time, explosions rock the building. In the back of the facility, you see a gap in the wall, blasted by Imperial soldiers to gain entry.\r\n\r\nSomewhere in here must be information about the tunnels.\r\n\r\n{-} Imperial mission tokens represent rubble. Rubble is difficult terrain.\r\n{-} At the end of each round, and during certain events, the Empire will fire artillery shots at the structure.\r\n{-} A hero can interact with a terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.\r\n{-} The mission will progress when data about the escape route has been found.\r\n{-} The Rebels lose when all heroes are wounded or at the end of Round 7.",
+      "eventText": "Les faibles lumières vacillent alors que vous pénétrez dans le couloir. Au même moment, des explosions retentissent et secouent le bâtiment. Au fond de la pièce, vous apercevez une fissure, creusée par les soldats impériaux en train d'essayer de pénétrer dans le bâtiment.\r\n\r\nQuelque part ici doivent se trouver des informations sur les tunnels.\r\n\r\n{-} Les pions de mission impériaux représentent des décombres. Les décombres sont un terrain difficile.\r\n{-} A la fin de chaque round, et durant certains événements, les Impériaux effectueront des tirs d'artillerie sur le bâtiment.\r\n{-} Un Héros peut interagir avec un terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.\r\n{-} La mission avancera lorsque des données sur un chemin de repli auront été trouvées.\r\n{-} Les Rebelles perdent à la fin du Round 7 ou quand tous les Héros sont blessés.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1613,6 +1637,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
@@ -1634,11 +1659,11 @@
               "entityProperties": {
                 "name": "Corridor Entrance",
                 "isActive": false,
-                "theText": "The listening post lies in ominous silence, only sparely illuminated by emergency lights.\r\n\r\n{-} The first time a Rebel figure moves beyond this space, click \"Enter Corridor\".",
+                "theText": "Un grand silence oppressant nimbe le poste d'observation, éclairé sporadiquement par des signes lumineux d'urgence.\r\n\r\n{-} La première fois qu'une figurine rebelle franchit cette zone, cliquez sur \"Entrer dans le couloir\".",
                 "entityColor": "Green",
                 "buttonActions": [
                   {
-                    "buttonText": "Enter Corridor",
+                    "buttonText": "Entrer dans le couloir",
                     "triggerGUID": "00000000-0000-0000-0000-000000000000",
                     "eventGUID": "7e77f45c-17c2-48d5-87d3-9f28dd237042"
                   }
@@ -1651,13 +1676,13 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} Imperial mission tokens represent rubble. Rubble is difficult terrain.\r\n{-} At the end of each round, and during certain events, the Empire will fire artillery shots at the structure.\r\n{-} A hero can interact with a terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.\r\n{-} The mission will progress when data about the escape route has been found.\r\n{-} The Rebels lose when all heroes are wounded or at the end of Round 7.",
+          "theText": "{-} Les pions de mission impériaux représentent des décombres. Les décombres sont un terrain difficile.\r\n{-} A la fin de chaque round, et durant certains événements, les Impériaux effectueront des tirs d'artillerie sur le bâtiment.\r\n{-} Un Héros peut interagir avec un terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.\r\n{-} La mission avancera lorsque des données sur un chemin de repli auront été trouvées.\r\n{-} Les Rebelles perdent à la fin du Round 7 ou quand tous les Héros sont blessés.",
           "GUID": "d5ac7361-8b42-4e50-89cf-4c3a43881080",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
         },
         {
-          "theText": "Find data on the tunnels (&Terminals&/2).",
+          "theText": "Trouver des infos sur les tunnels (&Terminals&/2).",
           "longText": null,
           "GUID": "7ac8b75d-84ed-4b91-b56e-792c958745e2",
           "eventActionType": 2,
@@ -1688,7 +1713,7 @@
       "GUID": "fd390f74-1c47-4c9f-b3b8-b6e36557369e",
       "isGlobal": true,
       "name": "Pursuit",
-      "eventText": "The gap in the wall on the far side of the facility is finally big enough to let enemies through. Immediately, soldiers pour in. \"Weiss wants that scum alive!\", an officer shouts, pointing at you.",
+      "eventText": "La fissure dans le mur du fond finit par s'agrandir suffisamment pour laisser passer l'ennemi. Des soldats en affluent immédiatement. \"Weiss veut ces ordures vivantes !\", crit un officier en vous montrant du doigt.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1708,6 +1733,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": true,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1723,7 +1749,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1731,6 +1756,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "dfe8bc3a-fc2e-43b2-a275-c18e302d8c7b",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1763,11 +1789,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "6c79e583-0f3c-4dce-ad42-774dc564e1a4",
           "eventActionType": 6,
@@ -1779,7 +1807,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1787,6 +1814,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "dfe8bc3a-fc2e-43b2-a275-c18e302d8c7b",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1813,11 +1841,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "54b753e8-9c08-4b0c-8d85-051594d269a9",
           "eventActionType": 6,
@@ -1829,7 +1859,6 @@
           "repositionInstructions": "",
           "threatCost": 0,
           "modification": null,
-          "sourceType": 1,
           "canReinforce": true,
           "canRedeploy": true,
           "canBeDefeated": true,
@@ -1837,6 +1866,7 @@
           "useCustomInstructions": false,
           "useGenericMugshot": false,
           "showMod": false,
+          "useResetOnRedeployment": false,
           "specificDeploymentPoint": "dfe8bc3a-fc2e-43b2-a275-c18e302d8c7b",
           "deploymentPoint": 1,
           "enemyGroupData": {
@@ -1863,11 +1893,13 @@
               "incSpy": true,
               "incTrooper": true,
               "incWookiee": true,
+              "incVehicle": true,
               "useDefaultPriority": true
             },
             "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
           },
           "GUID": "168220a1-843d-421e-9fa7-a30eb827026b",
           "eventActionType": 6,
@@ -1899,6 +1931,7 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [
         {
@@ -1920,7 +1953,7 @@
       "GUID": "cdf9dcfb-c669-4e53-b7b5-b43638ac3ba1",
       "isGlobal": true,
       "name": "Bombardment-1",
-      "eventText": "Artillery fire rains down on the facility. Explosions ring out, turning stone into rubble. The ceiling collapses on {rebel} and everything in the vicinity.\r\n\r\n{-} Place an Imperial mission token on the space of {rebel}.\r\n{-} {rebel} and all Rebel figures within 3 spaces of {rebel} suffer 2 {H}.",
+      "eventText": "Un tir d'artillerie atteint le bâtiment. Des explosions résonnent à vos oreilles, faisant s'ébouler une partie du plafond sur {rebel} et ses alentours.\r\n\r\n{-} Placez un pion de mission impérial sous {rebel}.\r\n{-} {rebel} et toutes les figurines rebelles à 3 ou moins d'écart de {rebel} subissent 2 {H}.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1940,6 +1973,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1948,7 +1982,7 @@
       "GUID": "2f6082aa-fb07-47bf-aceb-a2b4a1e601f8",
       "isGlobal": true,
       "name": "Bombardment-2",
-      "eventText": "Artillery fire rains down on the facility. Suddenly, a huge blast echoes through the building. {rebel} is caught in the shockwave and sent sprawling.\r\n\r\n{-} Place an Imperial mission token on the space of {rebel}.\r\n{-} {rebel} and all Rebel figures within 3 spaces become <color=\"red\">Stunned</color>.",
+      "eventText": "Un tir d'artillerie atteint le bâtiment. Un étourdissant souffle retentit dans tout le bâtiment. {rebel} est pris dans l'onde et tombe à terre.\r\n\r\n{-} Placez un pion de mission impérial sous {rebel}.\r\n{-} {rebel} et toutes les figurines rebelles à 3 ou moins d'écart gagnent l'état <color=\"red\">Sonné</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1968,6 +2002,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -1976,7 +2011,7 @@
       "GUID": "e3e8e936-f214-4d92-a96d-8a11319dc57a",
       "isGlobal": true,
       "name": "Bombardment 3",
-      "eventText": "Artillery fire rains down on the facility. An explosion right next to {rebel} tears open the wall, sending showers of razor-sharp stone shards flying.\r\n\r\n{-} Place an Imperial mission token on the space of {rebel}.\r\n{-} {rebel} and all Rebel figures within 3 spaces suffer 1 {H} and become <color=\"red\">Bleeding</color>.",
+      "eventText": "Un tir d'artillerie atteint le bâtiment. Une explosion juste à côté de {rebel} détruit le mur, envoyant voler des éclats tranchants dans sa direction.\r\n\r\n{-} Placez un pion de mission impérial sous {rebel}.\r\n{-} {rebel} et toutes les figurines rebelles à 3 ou moins d'écart subissent 1 {H} et gagnent l'état <color=\"red\">Hémorragie</color>.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1996,6 +2031,7 @@
       "useActivation": false,
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
@@ -2024,17 +2060,18 @@
       "useActivation": false,
       "isRepeatable": true,
       "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
         {
           "failText": "",
-          "theText": "You force your fingers in the gap and pull with all your might.\r\n\r\n{-} Test {K}. Apply +1 {B} to the results for each strain token on the Blast Door, then discard all strain tokens on the Blast Door. Enter the number of successes below.",
+          "theText": "Vous placez vos mains dans la fente entre les panneaux de la porte et tirez de toutes vos forces.\r\n\r\n{-} Testez {K}. Appliquez +1 {B} au résultat pour chaque pion de stress sur la porte coupe-feu, puis défaussez tous les pions de stress de la porte coupe-feu. Tapez le nombre de succès ci-dessous.",
           "failTriggerGUID": "21e0c80f-8e5e-4fe8-8f83-abf741945196",
           "failEventGUID": "00000000-0000-0000-0000-000000000000",
           "inputList": [
             {
-              "theText": "You pull as hard as you can, inching the door open little by little. It is still not wide enough to slip through, however. You need to keep trying.\r\n\r\n{-} Place 1 strain token on the Blast Door for each {B} gained.",
+              "theText": "Vous tirez aussi fort que vous le pouvez, forçant les panneaux à s'écarter, centimètre par centimètre. La fente ne permet pas encore de se faufiler au travers, cependant. Vous devez persévérer.\r\n\r\n{-} Mettrez un pion de stress sur la porte coupe-feu pour chaque résultat {B}.",
               "fromValue": 0,
               "toValue": 2,
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
@@ -2058,11 +2095,11 @@
       "entityProperties": {
         "name": "Crate1",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609"
           }
@@ -2080,11 +2117,11 @@
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab"
           }
@@ -2102,11 +2139,11 @@
       "entityProperties": {
         "name": "Crate1 (Duplicate)",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079"
           }
@@ -2124,7 +2161,7 @@
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,
-        "theText": "Deploy the heroes here.",
+        "theText": "Déployez les héros ici.",
         "entityColor": "Blue",
         "buttonActions": []
       },
@@ -2143,11 +2180,11 @@
       "entityProperties": {
         "name": "Crate4",
         "isActive": true,
-        "theText": "An old supply crate.",
+        "theText": "Une vieille caisse impériale.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Open",
+            "buttonText": "{A} L'ouvrir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577"
           }
@@ -2189,7 +2226,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2225,7 +2263,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2261,7 +2300,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2297,7 +2337,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2333,7 +2374,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2369,7 +2411,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2405,7 +2448,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     },
     {
@@ -2417,11 +2461,11 @@
       "entityProperties": {
         "name": "Corridor Entrance",
         "isActive": true,
-        "theText": "The listening post lies in ominous silence, only sparely illuminated by emergency lights.\r\n\r\n{-} The first time a Rebel figure moves beyond this space, click \"Enter Corridor\".",
+        "theText": "Un grand silence oppressant nimbe le poste d'observation, éclairé sporadiquement par des signes lumineux d'urgence.\r\n\r\n{-} La première fois qu'une figurine rebelle franchit cette zone, cliquez sur \"Entrer dans le couloir\".",
         "entityColor": "Green",
         "buttonActions": [
           {
-            "buttonText": "Enter Corridor",
+            "buttonText": "Entrer dans le Couloir",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "7e77f45c-17c2-48d5-87d3-9f28dd237042"
           }
@@ -2442,11 +2486,11 @@
       "entityProperties": {
         "name": "Blast Door",
         "isActive": false,
-        "theText": "The Blast Door is jammed tight. It will take some force to open it enough for you to slip through.\r\n\r\n{-} A hero can interact with the blast door ({K}) to try and pry it open.",
+        "theText": "La porte coupe-feu est bien coincée. Il va falloir y mettre du muscle pour l'ouvrir suffisamment pour passer.\r\n\r\n{-} Un Héros peut interagir avec la porte coupe-feu ({K}) pour essayer de la forcer.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Pry open",
+            "buttonText": "{A} La forcer",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "4d938873-7dc6-460d-aff0-baa3b4b7e614"
           }
@@ -2465,11 +2509,11 @@
       "entityProperties": {
         "name": "Wrong Terminal 1",
         "isActive": true,
-        "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+        "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Investigate",
+            "buttonText": "{A} Investiguer",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "53185f07-a3c2-4334-9724-5f9412db5be6"
           }
@@ -2487,11 +2531,11 @@
       "entityProperties": {
         "name": "Wrong Terminal 2",
         "isActive": true,
-        "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+        "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Investigate",
+            "buttonText": "{A} Investiguer",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "96804d50-8a8d-4bd3-a52c-4c6223597b42"
           }
@@ -2509,11 +2553,11 @@
       "entityProperties": {
         "name": "Correct Terminal 1",
         "isActive": true,
-        "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+        "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Investigate",
+            "buttonText": "{A} Investiguer",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "c6704276-624a-4ec7-9b55-cca18d25f892"
           }
@@ -2531,11 +2575,11 @@
       "entityProperties": {
         "name": "Correct Terminal 2",
         "isActive": true,
-        "theText": "The ceiling has collapsed here, burying a computer console under rubble.\r\n\r\n{-} A hero can interact with the terminal to test ({I} or {J}). If an Imperial figure is within 2 spaces of that hero, apply -1 {B} to the results.\r\n{-} If the hero passes, he finds out if the terminal contains useful data.",
+        "theText": "Le plafond s'est effondré, enterrant une console d'ordinateur sous les décombres.\r\n\r\n{-} Un Héros peut interagir avec le terminal pour tester ({I} ou {J}). Si une figurine impériale se trouve à portée 2 de ce Héros, appliquez -1 {B} au résultat.\r\n{-} Si le Héros réussit son test, il saura si le terminal contient des données utiles.",
         "entityColor": "Gray",
         "buttonActions": [
           {
-            "buttonText": "{A} Investigate",
+            "buttonText": "{A} Investiguer",
             "triggerGUID": "00000000-0000-0000-0000-000000000000",
             "eventGUID": "153a1c43-e52c-419f-94cb-33bff9d88387"
           }
@@ -2577,7 +2621,8 @@
         "incSmuggler": true,
         "incSpy": true,
         "incTrooper": true,
-        "incWookiee": true
+        "incWookiee": true,
+        "incVehicle": true
       }
     }
   ],
@@ -2612,11 +2657,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "50a62121-136f-4699-ad79-c9717c2125aa",
@@ -2645,11 +2692,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "reservedDeploymentGroups": [
@@ -2677,11 +2726,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "e9a1a98e-36bd-4380-9ddc-324815fd6100",
@@ -2707,11 +2758,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     },
     {
       "GUID": "cb2ae774-cd20-408b-9d8b-ac96588806b9",
@@ -2743,11 +2796,13 @@
         "incSpy": true,
         "incTrooper": true,
         "incWookiee": true,
+        "incVehicle": true,
         "useDefaultPriority": true
       },
       "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
       "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-      "useGenericMugshot": false
+      "useGenericMugshot": false,
+      "useInitialGroupCustomName": false
     }
   ],
   "eventGroups": [
@@ -2777,5 +2832,6 @@
         "0000b824-92d7-453f-b57a-ac1b6ca2247b"
       ]
     }
-  ]
+  ],
+  "customCharacters": []
 }
