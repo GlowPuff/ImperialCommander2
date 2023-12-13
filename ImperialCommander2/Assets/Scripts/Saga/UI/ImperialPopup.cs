@@ -13,6 +13,7 @@ namespace Saga
 		public Transform container;
 		public PopupBase popupBase;
 		public Button optionalDeploymentButton;
+		public HelpPanel helpPanel;
 
 		public void Show()
 		{
@@ -86,6 +87,11 @@ namespace Saga
 			ovrd.useThreat = true;
 			ovrd.threatCost = 0;
 			FindObjectOfType<SagaController>().deploymentPopup.Show( DeployMode.Landing, true, true, null, ovrd );
+		}
+
+		public void OnHelpClick()
+		{
+			helpPanel.Show();
 		}
 
 		private void Update()

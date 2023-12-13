@@ -12,6 +12,7 @@ public class CardViewPopup : MonoBehaviour
 	public HPTrackerContainer trackerContainer;
 	[HideInInspector]
 	public bool isActive = false;
+	public HelpPanel helpPanel;
 
 	Action<bool> callback;
 	DeploymentCard card;
@@ -79,6 +80,11 @@ public class CardViewPopup : MonoBehaviour
 		OnOK();
 		DiceRoller diceRoller = GlowEngine.FindUnityObject<DiceRoller>();
 		diceRoller.Show( card, false );
+	}
+
+	public void OnHelpClick()
+	{
+		helpPanel.Show();
 	}
 
 	private void Update()

@@ -194,6 +194,9 @@ namespace Saga
 
 		void bootstrapDEBUG( string missionCode = "" )
 		{
+			//DEBUG MODE REQUIRES A DUMMY "test.json" MISSION TO ALREADY BE IN THE "Documents/ImperialCommander" FOLDER
+			//This dummy Mission is loaded to assist with trying out new features
+
 			//in a non-debug game, the following is already set at the Saga setup screen
 			Debug.Log( "***BOOTSTRAP DEBUG***" );
 			FileManager.SetupDefaultFolders();
@@ -205,7 +208,7 @@ namespace Saga
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
-					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( FileManager.baseDocumentFolder, "atest.json" ) },
+					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( FileManager.baseDocumentFolder, "test.json" ) },
 					difficulty = Difficulty.Medium,
 					threatLevel = 3,
 					useAdaptiveDifficulty = false,
@@ -245,8 +248,8 @@ namespace Saga
 			//DataStore.sagaSessionData.gameVars.pauseDeployment = true;
 			//DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
 			//hero
-			//DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
-			//DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
+			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
+			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 			//DataStore.sagaSessionData.EarnedVillains.Add( DataStore.villainCards.GetDeploymentCard( "DG072" ) );
 			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
@@ -429,20 +432,20 @@ namespace Saga
 			{
 				//sort and group tiles by number, i.e. "Core 2A", "Core 11A", "Empire 2B"
 				var orderedAndGrouped = tiles.Item1
-					.OrderBy(str => str.Split(' ')[0])  // Order alphabetically
-					.ThenBy(str => int.Parse(str.Split(' ')[1].TrimEnd('A', 'B'))) // Then order by entire numerical values
-					.ThenBy(str => str.EndsWith("A") ? 0 : 1) // Finally, order by A/B values
-					.GroupBy(str => str) // Group the strings
-					.Select(group => new
+					.OrderBy( str => str.Split( ' ' )[0] )  // Order alphabetically
+					.ThenBy( str => int.Parse( str.Split( ' ' )[1].TrimEnd( 'A', 'B' ) ) ) // Then order by entire numerical values
+					.ThenBy( str => str.EndsWith( "A" ) ? 0 : 1 ) // Finally, order by A/B values
+					.GroupBy( str => str ) // Group the strings
+					.Select( group => new
 					{
 						Tile = group.Key,
 						Count = group.Count()
-					});
+					} );
 				var tilesWithCount = new List<string>();
 
-				foreach ( var item in orderedAndGrouped)
+				foreach ( var item in orderedAndGrouped )
 				{
-					if (item.Count > 1 )
+					if ( item.Count > 1 )
 					{
 						tilesWithCount.Add( $"{item.Tile} x {item.Count}" );
 					}

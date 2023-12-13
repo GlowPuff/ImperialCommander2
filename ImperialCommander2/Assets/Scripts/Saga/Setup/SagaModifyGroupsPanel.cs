@@ -16,6 +16,7 @@ namespace Saga
 		public Transform mugContainer;
 		public TextMeshProUGUI nameText;
 		public DynamicCardPrefab cardPrefab;
+		public HelpPanel helpPanel;
 
 		Action callback;
 		int prevExp;
@@ -303,6 +304,11 @@ namespace Saga
 					Destroy( item.gameObject );
 				}
 			} );
+		}
+
+		public void OnHelpClick()
+		{
+			helpPanel.Show();
 		}
 
 		private void Update()

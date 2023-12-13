@@ -78,6 +78,7 @@ public class HelpPanel : MonoBehaviour
 			meta.elementID = control.GetComponent<HelpMeta>().elementID;
 			meta.helpPanel = this;
 			meta.isHidden = control.GetComponent<HelpMeta>().isHidden;
+			meta.showIcon = control.GetComponent<HelpMeta>().showIcon;
 
 			if ( !meta.isHidden )
 			{
@@ -85,6 +86,11 @@ public class HelpPanel : MonoBehaviour
 				var relBounds = RectTransformUtility.CalculateRelativeRectTransformBounds( theCanvas.transform, bounds.transform );
 				goRect.anchoredPosition = relBounds.center;
 				goRect.sizeDelta = relBounds.size;
+
+				if ( !meta.showIcon )
+				{
+					helpButton.transform.Find( "icon" ).gameObject.SetActive( false );
+				}
 			}
 			else
 				Destroy( helpButton );
@@ -103,15 +109,15 @@ public class HelpPanel : MonoBehaviour
 		{
 			string helpText = panelHelp.helpItems.Where( x => x.id == elementID ).FirstOr( null )?.helpText;
 			//format the text
-			if ( !string.IsNullOrEmpty( helpText ) )
-			{
-				string[] t = helpText.Split( ':' );
-				if ( t.Length == 2 )
-				{
-					t[0] = $"<b><color=yellow>{t[0]}</color></b>:";
-					helpText = t[0] + t[1];
-				}
-			}
+			//if ( !string.IsNullOrEmpty( helpText ) )
+			//{
+			//	string[] t = helpText.Split( ':' );
+			//	if ( t.Length == 2 )
+			//	{
+			//		t[0] = $"<b><color=yellow>{t[0]}</color></b>:";
+			//		helpText = t[0] + t[1];
+			//	}
+			//}
 
 			if ( helpText != null )
 			{

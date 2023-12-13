@@ -638,6 +638,7 @@ namespace Saga
 			thrusterRoot.DOMoveZ( -30, 2 );
 			warpTitleText.text = setupOptions.projectItem.Title;
 
+			faderCG.interactable = false;
 			faderCG.DOFade( 0, .5f ).OnComplete( () =>
 			{
 				warpTitleText.transform.DOMove( warpTitleText.transform.position + warpTitleText.transform.up * 100f, 5 );

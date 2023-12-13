@@ -21,6 +21,7 @@ public class ImportPanel : MonoBehaviour
 	public GameObject buttonContainer;
 	public CanvasGroup buttonGroup;
 	public Toggle firstToggle;
+	public HelpPanel helpPanel;
 
 	HashSet<string> excludedImperialsGUIDs;
 	CharacterType displayCharacterMode;
@@ -158,5 +159,10 @@ public class ImportPanel : MonoBehaviour
 		Debug.Log( $"ADDED {excludedImperialsGUIDs.Count} TO EXCLUSION LIST" );
 
 		popupBase.Close();
+	}
+
+	public void OnHelpClick()
+	{
+		helpPanel.Show();
 	}
 }

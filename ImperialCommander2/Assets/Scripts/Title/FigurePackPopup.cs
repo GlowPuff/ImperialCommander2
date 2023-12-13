@@ -6,6 +6,7 @@ public class FigurePackPopup : MonoBehaviour
 	public PopupBase popupBase;
 	public Text continueText;
 	public Transform layoutContainer;
+	public HelpPanel helpPanel;
 
 	public void Show()
 	{
@@ -31,5 +32,10 @@ public class FigurePackPopup : MonoBehaviour
 		}
 
 		popupBase.Close();
+	}
+
+	public void OnHelpClick()
+	{
+		helpPanel.Show();
 	}
 }
