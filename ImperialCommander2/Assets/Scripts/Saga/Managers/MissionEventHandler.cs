@@ -572,20 +572,20 @@ namespace Saga
 
 				//sort and group tiles by number, i.e. "Core 2A", "Core 11A", "Empire 2B"
 				var orderedAndGrouped = tiles.Item1
-					.OrderBy(str => str.Split(' ')[0])  // Order alphabetically
-					.ThenBy(str => int.Parse(str.Split(' ')[1].TrimEnd('A', 'B'))) // Then order by entire numerical values
-					.ThenBy(str => str.EndsWith("A") ? 0 : 1) // Finally, order by A/B values
-					.GroupBy(str => str) // Group the strings
-					.Select(group => new
+					.OrderBy( str => str.Split( ' ' )[0] )  // Order alphabetically
+					.ThenBy( str => int.Parse( str.Split( ' ' )[1].TrimEnd( 'A', 'B' ) ) ) // Then order by entire numerical values
+					.ThenBy( str => str.EndsWith( "A" ) ? 0 : 1 ) // Finally, order by A/B values
+					.GroupBy( str => str ) // Group the strings
+					.Select( group => new
 					{
 						Tile = group.Key,
 						Count = group.Count()
-					});
+					} );
 				var tilesWithCount = new List<string>();
-				
-				foreach ( var item in orderedAndGrouped)
+
+				foreach ( var item in orderedAndGrouped )
 				{
-					if (item.Count > 1 )
+					if ( item.Count > 1 )
 					{
 						tilesWithCount.Add( $"{item.Tile} x {item.Count}" );
 					}
@@ -693,6 +693,62 @@ namespace Saga
 			tb.Show( prompt, callback );
 
 			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.PromptBox, prompt.theText );
+		}
+
+		//CAMPAIGN MANAGEMENT
+		public void ModifyXP( CampaignModifyXP mxp )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING ModifyXP: {mxp.xpToAdd}" );
+				RunningCampaign.campaignModifiers.modifyXP += mxp.xpToAdd;
+				Debug.Log( $"ModifyXP()::New XP: {RunningCampaign.campaignModifiers.modifyXP}" );
+			}
+			else
+				Debug.Log( "SagaEventManager()::ModifyXP()::Campaign isn't active" );
+			NextEventAction();
+		}
+
+		public void ModifyCredits( CampaignModifyCredits mcredits )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING ModifyCredits: {mcredits.creditsToModify}" );
+				RunningCampaign.campaignModifiers.modifyCredits += mcredits.creditsToModify;
+				Debug.Log( $"ModifyCredits()::New Credits: {RunningCampaign.campaignModifiers.modifyCredits}" );
+			}
+			else
+				Debug.Log( "SagaEventManager()::ModifyCredits()::Campaign isn't active" );
+			NextEventAction();
+		}
+
+		public void ModifyFameAwards( CampaignModifyFameAwards mfa )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING ModifyFameAwards: Fame: {mfa.fameToAdd}, Awards: {mfa.awardsToAdd}" );
+				RunningCampaign.campaignModifiers.modifyFame += mfa.fameToAdd;
+				RunningCampaign.campaignModifiers.modifyAwards += mfa.awardsToAdd;
+				Debug.Log( $"ModifyFameAwards()::New Fame: {RunningCampaign.campaignModifiers.modifyFame}" );
+				Debug.Log( $"ModifyFameAwards()::New Awards: {RunningCampaign.campaignModifiers.modifyAwards}" );
+			}
+			else
+				Debug.Log( "SagaEventManager()::ModifyFameAwards()::Campaign isn't active" );
+			NextEventAction();
+		}
+
+		public void SetNextMission( CampaignSetNextMission snm )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING SetNextMission: Mission ID: {snm.missionID}, Custom Mission ID: {snm.customMissionID}" );
+				RunningCampaign.campaignModifiers.customMissionID = snm.customMissionID;
+				RunningCampaign.campaignModifiers.missionID = snm.missionID;
+
+			}
+			else
+				Debug.Log( "SagaEventManager()::SetNextMission()::Campaign isn't active" );
+			NextEventAction();
 		}
 	}
 }

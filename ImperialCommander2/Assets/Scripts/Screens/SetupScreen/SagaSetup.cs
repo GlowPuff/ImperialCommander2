@@ -386,9 +386,6 @@ namespace Saga
 			{
 				DataStore.sagaSessionData.missionStringified = stringified;
 
-				//set the backup translation built from this Mission (English)
-				//TranslationController.Instance.SetBackupSource( DataStore.mission );
-
 				//load the translation for this Mission
 				if ( options.projectItem.hasTranslation )
 				{
@@ -410,6 +407,7 @@ namespace Saga
 
 						if ( mText is null || translation is null )
 						{
+							//just log the warning, no need to throw an error and halt Mission start
 							Utils.LogWarning( $"StartMission()::Couldn't load translation\n{DataStore.Language}/Missions/{options.projectItem.expansion}/{options.projectItem.fileName}_{DataStore.Language}" );
 						}
 					}

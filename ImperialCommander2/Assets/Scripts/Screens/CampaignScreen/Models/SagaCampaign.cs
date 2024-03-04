@@ -7,22 +7,8 @@ using UnityEngine;
 
 namespace Saga
 {
-	public static class RunningCampaign
-	{
-		public static Guid sagaCampaignGUID = Guid.Empty;
-		public static string expansionCode;
-		public static CampaignStructure campaignStructure;
-
-		public static void Reset()
-		{
-			sagaCampaignGUID = Guid.Empty;
-			expansionCode = "";
-			campaignStructure = null;
-		}
-	}
-
 	//story missions are restricted to the selected expansion
-	//side missions are free
+	//side missions can be freely selected
 
 	public class SagaCampaign
 	{

@@ -419,6 +419,18 @@ namespace Saga
 				case EventActionType.M2:
 					ModifyMapEntity( eventAction as ModifyMapEntity );
 					break;
+				case EventActionType.CM1:
+					ModifyXP( eventAction as CampaignModifyXP );
+					break;
+				case EventActionType.CM2:
+					ModifyCredits( eventAction as CampaignModifyCredits );
+					break;
+				case EventActionType.CM3:
+					ModifyFameAwards( eventAction as CampaignModifyFameAwards );
+					break;
+				case EventActionType.CM4:
+					SetNextMission( eventAction as CampaignSetNextMission );
+					break;
 				default:
 					Debug.Log( "ProcessEventAction()::EVENT TYPE NOT SUPPORTED: " + eventAction.eventActionType.ToString() + " = " + (int)eventAction.eventActionType );
 					NextEventAction();

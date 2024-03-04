@@ -205,6 +205,8 @@ namespace Saga
 			RunningCampaign.Reset();
 			DataStore.InitData();
 
+			RunningCampaign.sagaCampaignGUID = Guid.NewGuid();
+
 			if ( string.IsNullOrEmpty( missionCode ) )
 			{
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
