@@ -1,0 +1,457 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Beschlagnahmt",
+    "missionDescription": "",
+    "missionInfo": "{-} Der Einsatz schreitet voran, wenn die Steuerung der Andockklammer deaktiviert und der Pilot aufgehoben wurde.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+    "campaignName": "Grundspiel",
+    "startingObjective": "Findet die Steuerung der Andockklammer und löst sie. Findet und rettet den Piloten.",
+    "repositionOverride": "Versperre den Zugang zur Steuerung der Andockklammern und zum Piloten.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7071c358-7747-4273-b3d1-e2a090f26eb1",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "eb9019cb-6c50-41df-9c7b-7f439d931ba2",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "e49c98f4-bc69-4d85-83f2-b286161c2dfc",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Beim Betanken eures Schiffes wurdet ihr wegen des Verdachts auf kriminelle Handlungen in Gewahrsam genommen. Alle eure Papiere waren auf dem neuesten Stand. Obwohl ihr überlegt habt, ob ihr einfach alles in Sichtweite in die Luft jagen sollt, hat euch euer Pilot versichert, dass er sich aus der Sache herausreden kann.\n\nDas war vor drei Stunden, also beschließt ihr, euch aus dem Warteraum zu schleichen. Nachdem ihr euch ein paar Minuten umgesehen habt, kommt ihr gerade rechtzeitig in einem Beobachtungsraum an, um zu sehen, wie euer Pilot in ein Tiergehege geworfen wird. Furchterregende Bestien streifen umher und fletschen rasiermesserscharfe Zähne vor seiner bewusstlosen Gestalt.\n\nUnd zu allem Übel wird euer Schiff auch noch von den Andockklammern festgehalten.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Der Einsatz schreitet voran, wenn die Andockklammern deaktiviert und der Pilot aufgehoben wurde.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Der Pilot ist etwas übereifrig, als er die Gegend mit Blasterkanonen unter Beschuss nimmt, bevor er das Schiff zum Stehen bringt. Sein Gesicht ist grimmig und er sagt nur ein knappes \"Danke\", während alle in den Transporter steigen.\n\n{-} Die Rebellen gewinnen den Einsatz!",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Ihr macht euch auf den Weg in die Wüste, wohl wissend, dass die Imperialen gerade dabei sind, euer Schiff Stück für Stück auseinanderzunehmen. Alles, was sich auf eurem Schiff befand - Flugdaten, Nachrichten, die Positionen der wichtigsten Agenten - wird bald in ihren Händen sein.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 2. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Control Room",
+      "GUID": "22e9e3eb-dd27-46c4-b535-98890e846a0d",
+      "eventText": "Ihr öffnet die Tür zum Kontrollraum und steht direkt vor den Wachen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control Room Door",
+              "GUID": "4bbdbdf9-7248-4c4a-bc28-8aa9fa1af907",
+              "theText": "Die Tür ist mit \"Kontrollraum\" beschriftet.",
+              "buttonList": [
+                {
+                  "GUID": "1726a371-2b8e-4c46-b8cc-79c005a114a1",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "0b9c0802-fdff-4849-8f90-da6ceb66ffde",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "66c692b6-09c5-452e-9bd4-59435a93317e",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "84bb86d0-1749-4419-89c3-fff27ee5244e",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Exit Door",
+      "GUID": "037f196d-d213-407f-b390-d83870a18407",
+      "eventText": "Die heiße Wüstenluft macht euch das Atmen schwer, als ihr die Tür öffnet. In der Nähe knurren wilde Bestien.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "042d8ced-1bf1-42bc-bb29-c24991ba5683",
+              "theText": "Die Tür ist mit \"Ausgang\" beschriftet.",
+              "buttonList": [
+                {
+                  "GUID": "128a3b2b-9954-4b5b-ad30-df12abdd8e86",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "da411f41-ee08-4882-9c68-95ac37bbed82",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "Platziere dich auf dem Piloten.",
+          "GUID": "fbd3c520-368d-44b3-866e-14edbabc4c69",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG017/Nexu"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "Platziere dich auf dem Piloten.",
+          "GUID": "e8ff8c50-17ef-4224-9e44-542f0a34ed33",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG018/Nexu (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "2033679c-f843-45c7-89e7-935e0cba16c7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du fängst an, dich in das Terminal zu hacken.\n\nLege eine Probe auf {I} oder {J} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Terminal an und lege dann alle Erschöpfungsmarker vom Terminal ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d2dc3d94-2290-4fa9-881e-c0c0c98c196a",
+              "theText": "Du schaffst es nicht, die Sicherheitsprotokolle zu überwinden. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf dem Terminal."
+            }
+          ],
+          "GUID": "284d9db2-0bf0-4d9d-a9ae-dbb758435eab",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Success",
+      "GUID": "bf1788a0-135b-4b5b-a29f-f520da3cb082",
+      "eventText": "Es gelingt dir, die Andockklammern zu lösen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Clamp Controls",
+              "GUID": "4f88026d-1d33-4eea-a302-fe4a8e3e4a00",
+              "theText": "Das Terminal steuert die Andockklammern.\n\nEin Held kann mit der Steuerung der Andockklammern interagieren und versuchen, sie zu deaktivieren.",
+              "buttonList": [
+                {
+                  "GUID": "1e278bfb-c7b3-403f-b765-86adac829e43",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            }
+          ],
+          "GUID": "ffba9045-e3dd-43ac-86a4-45f85870ec29",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Pilot retrieved",
+      "GUID": "889f8d37-4098-4a7d-bccf-75abc2bffa16",
+      "eventText": "Euer Pilot hat offensichtlich eine Menge durchgemacht, aber er scheint nicht ernsthaft verletzt zu sein.\n\n{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf die Verteidigungsergebnisse eines Helden an, der den Piloten trägt.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Pilot",
+              "GUID": "1ec93a65-9e69-4ce5-8040-ab60bdec0d2b",
+              "theText": "Euer Pilot liegt bewusstlos und regungslos auf dem Boden.\n\nEin Held kann den Piloten aufheben. Wende -1 auf die Geschwindigkeit und -1 {G} auf die Verteidigungsergebnisse eines Helden an, der den Piloten trägt.",
+              "buttonList": [
+                {
+                  "GUID": "080c7f07-2b90-45e9-ae7f-a87abb7d87f9",
+                  "theText": "{A} Retten"
+                }
+              ]
+            }
+          ],
+          "GUID": "b1b39c91-505c-4f8e-ae7b-99ff8d92a222",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Der Einsatz schreitet voran, wenn die Steuerung der Andockklammer deaktiviert und der Pilot aufgehoben wurde.\n{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf das Verteidigungsergebnis eines Helden an, der den Piloten trägt.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+          "GUID": "73d53de0-dd21-411e-8a7d-6bbf05758523",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Prep for Takeoff",
+      "GUID": "e30f6aa1-d319-428d-a3e7-529984a07504",
+      "eventText": "In ziemlich schlechter Verfassung wacht euer Pilot langsam auf. Ihr klärt ihn über die Situation auf.\n\n\"Okay, wenn die Andockklammern gelöst sind, müssen wir nur noch zum Schiff kommen.\" Er zuckt zusammen und hält sich seine verwundete Seite. \"Oh, das werden sie mir büßen ...\", sagt er mit zusammengebissenen Zähnen.\n\n{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf die Verteidigungsergebnisse eines Helden an, der den Piloten trägt.\n{-} Ein Held, der den Piloten trägt, kann mit der Luke interagieren, um den Piloten aufbrechen zu lassen.\n{-} Die Rebellen gewinnen, wenn der Pilot aufbricht.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hatch",
+              "GUID": "63cd4730-818e-453e-8494-253d92d7f95c",
+              "theText": "Die Luke führt zu der Landebucht, in der euer Schiff festgehalten wird.\n\nEin Held, der den Piloten trägt, kann mit der Luke interagieren, damit der Pilot aufbricht und der Einsatz beendet wird.",
+              "buttonList": [
+                {
+                  "GUID": "8ff61de3-f36f-4d28-a190-9f588a19353a",
+                  "theText": "{A} Aufbrechen"
+                }
+              ]
+            }
+          ],
+          "GUID": "d3f935b3-fc3e-4d2b-93c3-c327429c12f3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blockiere den Zugang zur Luke.",
+          "GUID": "bc733562-ce49-43b6-9816-462c4a4b24a4",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf das Verteidigungsergebnis eines Helden an, der den Piloten trägt.\n{-} Ein Held, der den Piloten trägt, kann mit der Luke interagieren, um den Piloten aufbrechen zu lassen.\n{-} Die Rebellen gewinnen, wenn der Pilot aufbricht.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+          "GUID": "eff57a45-1095-4862-b6e8-d3e3ddf20f37",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Helft dem Piloten zu entkommen.",
+          "longText": null,
+          "GUID": "23154839-3bc7-44ed-9313-5717c759198f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Pen Door opens",
+      "GUID": "86d95cf3-f896-4f86-ba04-4ffe94f4ca84",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Pen Door",
+              "GUID": "e717e5e3-a709-43f4-abd4-65575f8ff610",
+              "theText": "Diese Tür führt aus dem Tiergehege heraus.",
+              "buttonList": [
+                {
+                  "GUID": "2d5c3341-dc8a-4d33-b75f-87598464c0ab",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "6ad67ba6-0fdb-4cc4-a142-256caabe86eb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "16e34fea-d15d-4848-8e34-103fe597b068",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "a3e5f757-641c-4889-afb2-713e7be2613d",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Control Room Door",
+      "GUID": "21076d95-5a09-474a-aec2-9be53ff22711",
+      "mainText": "Die Tür ist mit \"Kontrollraum\" beschriftet.",
+      "buttonList": [
+        {
+          "GUID": "b11a378e-5b62-4920-9f4e-df6c723bc45b",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit Door",
+      "GUID": "9925d6ca-a2d3-4297-b725-decf24a09fae",
+      "mainText": "Die Tür ist mit \"Ausgang\" beschriftet.",
+      "buttonList": [
+        {
+          "GUID": "72663c18-a2ae-4269-91c6-4901705fef74",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Pen Door",
+      "GUID": "097f6279-b760-40bd-89c4-97e2abe63f3a",
+      "mainText": "Diese Tür führt aus dem Tiergehege heraus.",
+      "buttonList": [
+        {
+          "GUID": "6bb1331a-7cef-4577-99be-ac6bf424f384",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Pilot",
+      "GUID": "e73e2181-e662-4c71-9197-e26d2c5b8fe9",
+      "mainText": "Euer Pilot liegt bewusstlos und regungslos auf dem Boden.\n\nEin Held kann den Piloten aufheben. Wende -1 auf die Geschwindigkeit und -1 {G} auf die Verteidigungsergebnisse eines Helden an, der den Piloten trägt.",
+      "buttonList": [
+        {
+          "GUID": "5a51dbaf-b9f3-4caf-b15d-38e9ca672447",
+          "theText": "{A} Retten"
+        }
+      ]
+    },
+    {
+      "entityName": "Hatch",
+      "GUID": "a97e9959-a6b7-4895-8ca7-d28b96d60dc2",
+      "mainText": "Die Luke führt zu der Landebucht, in der euer Schiff festgehalten wird.\n\nEin Held, der den Piloten trägt, kann mit der Luke interagieren, damit der Pilot aufbricht und der Einsatz beendet wird.",
+      "buttonList": [
+        {
+          "GUID": "6c7b8fbf-76cd-4371-97a0-fb0c22d5a91a",
+          "theText": "{A} Aufbrechen"
+        }
+      ]
+    },
+    {
+      "entityName": "Clamp Controls",
+      "GUID": "dd7cb996-baec-4a8f-8a44-6d2e1401dfd5",
+      "mainText": "Das Terminal steuert die Andockklammern.\n\nEin Held kann mit der Steuerung der Andockklammern interagieren und versuchen, sie zu deaktivieren.",
+      "buttonList": [
+        {
+          "GUID": "fd337f56-7dda-4933-9d70-f3b249178dd3",
+          "theText": "{A} Hacken"
+        }
+      ]
+    },
+    {
+      "entityName": "DP ENexu",
+      "GUID": "9546a288-2af6-49d6-bbcf-abb4ffd4e2d5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "46a15125-1031-40f8-924c-d7881dfc0d7b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "c5dafeb2-7a1b-4dce-b84b-903b7cd9acb5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 1",
+      "GUID": "1acbd03c-0633-4809-b7ba-23836d0f5edb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 2",
+      "GUID": "d625d3f7-e3e2-4cc7-b5c6-0512e9731db3",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": []
+}

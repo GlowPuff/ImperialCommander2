@@ -1,0 +1,533 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Die Quelle",
+    "missionDescription": "",
+    "missionInfo": "{-} Der <color=\"red\">Imperiale Offizier</color>wurde gefangen genommen und ist eine neutrale Figur.\n{-} Die Türen sind verriegelt.\n{-} Eine Rebellenfigur kann mit dem gefangenen Offizier interagieren, um Folgendes durchzuführen:\n⯈ Der Held und der gefangene Offizier bewegen sich jeweils um 2 Felder.\n⯈ Öffne eine Tür, die benachbart zu dem Offizier ist.\r\n⯈ Sichere ein Terminal, das benachbart zu dem Offizier ist.\n{-} Wenn sich im Umkreis von 3 Feldern um den gefangenen Offizier keine unversehrten Rebellenfiguren befinden, kann eine imperiale Figur ihn nach entsprechender Anweisung befreien. Wenn dies geschieht, klicke auf das hervorgehobene Feld und wähle \"Offizier befreit\".\n{-} Der Einsatz schreitet voran, wenn das Terminal gefunden wird.\n{-} Die Rebellen verlieren, wenn der gefangene Offizier befreit wird, am Ende von Runde 8, oder wenn alle Helden verwundet sind.",
+    "campaignName": "Grundspiel",
+    "startingObjective": "Findet das Terminal.",
+    "repositionOverride": "Sei benachbart zu dem gefangenen Offizier.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "66b04a4f-ef1a-4b77-97e4-c4c7f8c3b4d4",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "265fc15a-44cc-49fb-b3cb-a040741f6dd8",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "8551d2a6-239b-45f4-99a3-8e3c34cf725a",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "b6ebca86-5099-4e94-8570-c17fd5476c5d",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "1628a543-e830-4eb3-b2af-d13d061850b4",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "2d46a243-a0f8-49a9-821c-0920282637e3",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "\"Spione haben die wichtigste Produktionsstätte in der Lieferkette von Weiss ausfindig gemacht\", teilt euch eure Kommandantin mit. \"Es ist nicht viel, aber die Aufzeichnungen könnten Aufschluss über die Versandmuster geben und vielleicht sogar den Standort des Waffenprototyps enthalten.\" Sie klingt verzweifelt und aufgeregt zugleich. \"Das könnte wirklich ernst sein. Macht uns alle stolz.\"\n\nDie Sicherheitsvorkehrungen in der Fabrik sind erstaunlich streng und es dauert lange, jede Tür zu hacken oder zu durchbrechen. Jeden Moment droht eure Entdeckung, und ihr wollt schon aufgeben, als sich eine Gelegenheit auftut.\n\n\"Eure Ausreden sind mir egal. Tötet die verfluchten Kreaturen, wenn ihr sie nicht in Schach halten könnt.\" Ein finster dreinblickender Offizier kommt den Flur entlang. Er spricht in ein Comlink. \"Wenn ihr mich noch einmal in dieses stinkende Loch schleppt, werde ich dafür sorgen, dass ihr ihre nächste Mahlzeit werdet.\"\n\nEr lässt den Comlink gerade sinken, als ihr aus der Deckung springt, ihm einen Blaster in die Rippen rammt und ihm nahelegt, sich zu benehmen und zu tun, was ihr verlangt.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Platziere einen <color=\"red\">Imperialen Offizier</color> auf dem rot hervorgehobenen Feld.\n{-} Der imperiale Offizier wurde gefangen genommen und ist eine neutrale Figur.\n{-} Die Türen sind verriegelt.\n{-} Eine Rebellenfigur kann mit dem gefangenen Offizier interagieren, um Folgendes durchzuführen:\n⯈ Der Held und der gefangene Offizier bewegen sich jeweils um 2 Felder.\n⯈ Öffne eine Tür, die benachbart zu dem Offizier ist.\r\n⯈ Sichere ein Terminal, das benachbart zu dem Offizier ist.\n{-} Wenn sich im Umkreis von 3 Feldern um den gefangenen Offizier keine unversehrten Rebellenfiguren befinden, kann eine imperiale Figur ihn nach Anweisung befreien. Wenn dies geschieht, klicke auf das hervorgehobene Feld und wähle \"Offizier befreit\".\n{-} Der Einsatz schreitet voran, wenn das Terminal gefunden wird.\n{-} Die Rebellen verlieren, wenn der gefangene Offizier befreit wird, am Ende von Runde 8 oder wenn alle Helden verwundet sind.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Wenn sich diese Figur benachbart zu dem gefangenen Offizier befindet und sich keine unversehrten Rebellen innerhalb von 3 Feldern zu dem gefangenen Offizier befinden: Befreie den gefangenen Offizier. (Nur Figuren ohne \"Instinktgesteuert\".)",
+          "GUID": "6ae6ca28-965b-4416-9f67-3dc7dafdc667",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "repositionText": "Versperre den Zugang zum Terminal.",
+          "GUID": "b4d3ac9b-396a-46da-954f-97c1a0594580",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win early",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Der Offizier schluckt schwer und tritt vom Kommandoterminal zurück. \"Wie Sie sehen können, ist das reine Zeitverschwendung.\" \n\nAuf den ersten Blick scheint das zu stimmen. Trotz zahlreicher Lieferungen an einen Hauptstandort hat keines der Materialien etwas mit Waffen zu tun.\n\nSchon nach wenigen Fragen knickt der Offizier ein. \"Es gibt keine Waffe!\", schreit er. \"Das ist alles ein Trick, um die Rebellenflotte herauszulocken. Ich habe ihm gesagt, dass Strangs Plan viel besser geeignet ist...\"\n\nIhr schneidet ihm das Wort ab und untersucht das Terminal mit dieser neuen Information vor Augen. In der Tat erkennt ihr jetzt den Ansatz für die Täuschung. Mit diesen Informationen und einem neuen Gefangenen kann das vielleicht zum Vorteil der Rebellen genutzt werden.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Bring die Haupteinsatzkarte \"Letztes Gefecht\" ins Spiel.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Da die Rebellen das Terminal frühzeitig gesichert haben, erhalten sie zusätzlich 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Der Offizier hastet von euch weg und brüllt: \"Erschießt sie, ihr Narren! Lasst sie nicht entkommen!\" Im Hintergrund ertönen Alarmsignale und ihr bahnt euch einen Weg durch die imperialen Truppen, um euren ehemaligen Gefangenen einzuholen.\n\nDoch es ist zu spät. Er verschwindet durch eine Öffnung, und die Tür gleitet zu und wird verriegelt. Als ihr die Tür durchbrecht, ist er schon längst fort.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Bring die Haupteinsatzkarte \"Unsere verzweifeltste Stunde\" ins Spiel.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win late",
+      "GUID": "af2f2988-bb57-4fff-83a5-b964da245b9e",
+      "eventText": "Der Offizier schluckt schwer und tritt vom Kommandoterminal zurück. \"Wie Sie sehen können, ist das reine Zeitverschwendung.\" \n\nAuf den ersten Blick scheint das zu stimmen. Trotz zahlreicher Lieferungen an einen Hauptstandort hat keines der Materialien etwas mit Waffen zu tun.\n\nSchon nach wenigen Fragen knickt der Offizier ein. \"Es gibt keine Waffe!\", schreit er. \"Das ist alles ein Trick, um die Rebellenflotte herauszulocken. Ich habe ihm gesagt, dass Strangs Plan viel besser geeignet ist...\"\n\nIhr schneidet ihm das Wort ab und untersucht das Terminal mit dieser neuen Information vor Augen. In der Tat erkennt ihr jetzt den Ansatz für die Täuschung. Mit diesen Informationen und einem neuen Gefangenen kann das vielleicht zum Vorteil der Rebellen genutzt werden.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Bring die Haupteinsatzkarte \"Letztes Gefecht\" ins Spiel.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Too late",
+      "GUID": "ecf1de70-136a-4490-be18-1688b3901d00",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose 2",
+      "GUID": "1b61136b-334a-4295-9cd5-46d0692a4189",
+      "eventText": "Der Offizier hastet von euch weg und brüllt: \"Erschießt sie, ihr Narren! Lasst sie nicht entkommen!\" Im Hintergrund ertönen Alarmsignale und ihr bahnt euch einen Weg durch die imperialen Truppen, um euren ehemaligen Gefangenen einzuholen.\n\nDoch es ist zu spät. Er verschwindet durch eine Öffnung, und die Tür gleitet zu und wird verriegelt. Als ihr die Tür durchbrecht, ist er schon längst fort.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Bring die Haupteinsatzkarte \"Unsere verzweifeltste Stunde\" ins Spiel.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\r\n{-} Weil der gefangene Offizier vorzeitig entkommen ist, erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment Trigger",
+      "GUID": "e56775c8-5f71-47fa-a52c-452e18724a04",
+      "eventText": "Euer Gefangener wehrt sich gegen euren Griff und schreit um Hilfe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment 1",
+      "GUID": "dafd801b-26dd-475d-83e5-d4b3ace7e470",
+      "eventText": "Es gelingt eurem Gefangenen, sich für einen Moment zu befreien, und er stolpert davon.\n\n{-} Der gefangene Offizier bewegt sich 1 Feld vom Terminal weg.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment 2",
+      "GUID": "8a16864b-8890-490e-95e7-988aff129bc4",
+      "eventText": "Euer Gefangener schreit Befehle, und ein Soldat hebt seine Waffe.\n\n{-} Eine andere imperiale Figur mit Figurenkosten von 3 oder weniger, die einen Angriff durchführen kann, greift {rebel} an.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment 3",
+      "GUID": "e6f35b66-ec50-4ebd-bb1d-5033b97c4035",
+      "eventText": "Euer Gefangener schreit um Hilfe, und eure Feinde rücken vor.\n\n{-} Alle imperialen Figuren in Sichtlinie zu dem gefangenen Offizier bewegen sich 2 in Richtung des gefangenen Offiziers.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment 4",
+      "GUID": "be4c6d97-7cbd-4075-be3d-fd6cdfa2890e",
+      "eventText": "Einer der imperialen Soldaten, der stärker aussieht als die anderen, rückt vor und greift an.\n\n{-} Die andere imperiale Figur mit den höchsten Figurenkosten, die angreifen kann, bewegt sich 4, um {rebel} anzugreifen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Awaiting Departure",
+      "GUID": "4db252f2-291d-482c-8bec-3b14141abf05",
+      "eventText": "\"Das wird nicht funktionieren\", sagt der Offizier, während er einen weiteren eindeutigen Code eingibt. \"Meine Leute werden kämpfen, um mich zu beschützen.\"\n\nDie Tür öffnet sich, und mehrere Blasterbolzen zischen vorbei, die den Offizier nur knapp verfehlen. \"Passt auf, wo ihr hinzielt, ihr Idioten!\", schreit er.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Inspection Station Door",
+              "GUID": "52ff4c9c-55b3-4de3-9c13-08a5560653ad",
+              "theText": "Hinter dieser Tür sind leise Stimmen und das Surren von Maschinen zu hören.\n\n{-} Die Tür ist verriegelt.\n{-} Wenn der gefangene Offizier benachbart zur Tür ist, kann eine Rebellenfigur mit ihm interagieren, um die Tür zu öffnen.",
+              "buttonList": [
+                {
+                  "GUID": "aee57271-e00b-4182-aa35-31fc7d1ee722",
+                  "theText": "Öffnen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "8105369d-26cb-466d-b4fc-1da3cd3b07b9",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "fa5fe700-cc3b-4324-b449-57a536c93ec9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "97bdada8-aa39-405d-b5b0-452e30712702",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7f7985bf-2672-4f65-bf6c-d4e214ffd3e5",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "On Board",
+      "GUID": "3912e9dc-40d0-49a8-b9b2-69a70ed2e210",
+      "eventText": "\"Hören Sie, ich bin mir sicher, dass wir eine Vereinbarung treffen können.\" Der Offizier wird immer nervöser, je mehr ihr euch eurem Ziel nähert. \"Bitte, Sie verstehen das nicht!\"\n\nEs braucht etwas mehr Überredungskunst, um ihn dazu zu bringen, die Tür zu öffnen, aber schließlich willigt er ein, während ihm der Schweiß über das Gesicht rinnt.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Security Station Door",
+              "GUID": "22f46587-af0b-44fd-9202-c3a3f23c6c21",
+              "theText": "Hinter dieser Tür sind Computersignale zu hören. Ihr scheint eurem Ziel nahe zu sein.\n\n{-} Die Tür ist verriegelt.\n{-} Wenn der gefangene Offizier benachbart zur Tür ist, kann eine Rebellenfigur mit ihm interagieren, um die Tür zu öffnen.",
+              "buttonList": [
+                {
+                  "GUID": "35f6aacf-0165-466c-960d-f8cb2206b678",
+                  "theText": "Öffnen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "c1105bfa-488f-4b65-bfcc-7a628abdbb18",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "9e8c1fa7-a4e5-4662-8733-5f05936421dc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "04a35bbf-4279-4d80-8854-188bd2dcbfd0",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "8a868e5f-e12b-4102-849b-3fc9f032bcb1",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "shortText": "Sichert das Terminal.",
+          "longText": null,
+          "GUID": "dc1ceafc-63af-4f0e-b5cd-6a5f78b0fde8",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "All heroes wounded",
+      "GUID": "fe4d2a95-25d7-4215-a5e4-3ec11626b8ac",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Into the Den",
+      "GUID": "31d4ea33-e4cb-4642-bbb8-2543112b867a",
+      "eventText": "\"Nein! Nicht da rein! Da sind widerliche Biester drin!\"\n\nEuer Gefangener wehrt sich, gibt aber schließlich nach und öffnet die Tür. Beinahe wünscht ihr euch, er hätte es nicht getan. Umgeben von Müll und Unrat kommen knurrende Bestien auf euch zu. Die Soldaten, die versucht haben, sie in Schach zu halten, richten ihre Aufmerksamkeit ebenfalls auf euch.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Junk Shop Door",
+              "GUID": "e1b97580-a968-42c1-b54f-1e9af9faf33c",
+              "theText": "Hinter dieser Tür ist das Knurren von Bestien zu hören.\n\n{-} Die Tür ist verriegelt.\n{-} Wenn der gefangene Offizier benachbart zur Tür ist, kann eine Rebellenfigur mit ihm interagieren, um die Tür zu öffnen.",
+              "buttonList": [
+                {
+                  "GUID": "c08365ae-af6b-4d43-bbda-26494115dd06",
+                  "theText": "Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "194d19fd-74ec-4195-96d0-ea833ff7fc06",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0c4add2d-b7a2-4a4a-aca1-d34d7f103251",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG017/Nexu"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a9cb2912-0aee-4350-bab2-ce7cac7c59fb",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG018/Nexu (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "6385df9f-91d5-4479-a902-5802595d8999",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round limit",
+      "GUID": "8e4f5c9d-2353-4baa-abfc-27ebbe87129a",
+      "eventText": "Der Offizier hastet von euch weg und brüllt: \"Erschießt sie, ihr Narren! Lasst sie nicht entkommen!\" Im Hintergrund ertönen Alarmsignale und ihr bahnt euch einen Weg durch die imperialen Truppen, um euren ehemaligen Gefangenen einzuholen.\n\nDoch es ist zu spät. Er verschwindet durch eine Öffnung, und die Tür gleitet zu und wird verriegelt. Als ihr die Tür durchbrecht, ist er schon längst fort.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Bring die Haupteinsatzkarte \"Unsere verzweifeltste Stunde\" ins Spiel.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "6ffce822-f715-4257-ba2d-a4d939812be8",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "a92b13bb-9068-43ba-bcf4-b1bd022db2ad",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "b91d3fdc-0f2c-490b-ae93-6a75cbb06421",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "17d1442f-da95-40aa-a314-612c8f43b458",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Junk Shop Door",
+      "GUID": "fcc78fba-1d53-45b2-a1b2-062a8e48f5da",
+      "mainText": "Hinter dieser Tür ist das Knurren von Bestien zu hören.\n\n{-} Die Tür ist verriegelt.\n{-} Wenn der gefangene Offizier benachbart zur Tür ist, kann eine Rebellenfigur mit ihm interagieren, um die Tür zu öffnen.",
+      "buttonList": [
+        {
+          "GUID": "31cf3005-e357-4e40-aa67-bcbe15d7faff",
+          "theText": "Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Inspection Station Door",
+      "GUID": "cee84082-4441-4b2a-9ee1-f52f0dddbeec",
+      "mainText": "Hinter dieser Tür sind leise Stimmen und das Surren von Maschinen zu hören.\n\n{-} Die Tür ist verriegelt.\n{-} Wenn der gefangene Offizier benachbart zur Tür ist, kann eine Rebellenfigur mit ihm interagieren, um die Tür zu öffnen.",
+      "buttonList": [
+        {
+          "GUID": "ee9707b2-ebf3-4b72-b2ba-ecbb46d1134e",
+          "theText": "Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Security Station Door",
+      "GUID": "8172f8c7-3189-4d5a-bc43-efe49038402e",
+      "mainText": "Hinter dieser Tür sind Computersignale zu hören. Ihr scheint eurem Ziel nahe zu sein.\n\n{-} Die Tür ist verriegelt.\n{-} Wenn der gefangene Offizier benachbart zur Tür ist, kann eine Rebellenfigur mit ihm interagieren, um die Tür zu öffnen.",
+      "buttonList": [
+        {
+          "GUID": "c72afc4b-faba-42f7-bb1d-b236403f254b",
+          "theText": "Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "9e551b22-5830-4da5-a5e1-5e8cc5c040ea",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "1c35bb0a-2f6f-478d-a31f-f042f7f2092a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Deploy Officer",
+      "GUID": "dd433b7b-167e-40d5-85c4-e54f52f47ef8",
+      "mainText": "Stelle den gefangenen Offizier hier auf.\n\nWenn der gefangene Offizier befreit ist, klicke auf \"Offizier befreit\".",
+      "buttonList": [
+        {
+          "GUID": "db928c7b-7bfd-4304-b4b2-f6ebdbd72512",
+          "theText": "Offizier befreit"
+        }
+      ]
+    },
+    {
+      "entityName": "DP ENexu",
+      "GUID": "91ed31ff-6209-4bd4-948c-ed766ded5a26",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 1",
+      "GUID": "b68db7a8-1d65-4b5b-9672-2d9880982165",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 2",
+      "GUID": "ff239397-1a02-40f1-b670-ccea8bcd0d29",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "bdbbce0e-9c64-4769-9cb4-3af34ea45d35",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "998d5522-ab7a-4744-be0c-25f448ac0ffb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "a3b24115-837e-4396-87a2-f8048499df5b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "e8ecb747-0503-49b9-80eb-6ff8825eda24",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "d3578f6b-73c0-42d7-9406-94e299654358",
+      "mainText": "Das Terminal summt leise.\n\n{-} Wenn der gefangene Offizier benachbart zu dem Terminal ist, kann eine Rebellenfigur mit ihm interagieren und das Terminal sichern.",
+      "buttonList": [
+        {
+          "GUID": "d3acdf5e-bdf2-4365-b75f-ffaa23b40ada",
+          "theText": "Terminal sichern"
+        }
+      ]
+    }
+  ],
+  "initialGroups": []
+}

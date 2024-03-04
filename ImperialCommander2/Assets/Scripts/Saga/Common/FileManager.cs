@@ -5,8 +5,6 @@ using System.IO.Compression;
 using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Saga
 {
@@ -143,23 +141,29 @@ namespace Saga
 			return LoadMission( filename, out string foo );
 		}
 
-		public static void LoadMissionFromAddressable( string missionAddressableKey, Action<Mission, string> callback )
+		/// <summary>
+		/// Load a Mission from Unity Resources, also return stringified version
+		/// </summary>
+		public static Mission LoadMissionFromResource( string missionID, out string stringified )
 		{
-			Mission mission = null;
-			string s = "";
+			stringified = "";
 
-			AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionAddressableKey );
-			loadHandle.Completed += ( x ) =>
+			try
 			{
-				if ( x.Status == AsyncOperationStatus.Succeeded )
-				{
-					s = x.Result.text;
-					mission = FileManager.LoadMissionFromString( x.Result.text );
-				}
-				Addressables.Release( loadHandle );
+				string[] resName = missionID.Split( ' ' );
+				string mText = Resources.Load<TextAsset>( $"SagaMissions/{resName[0]}/{resName[0]}{resName[1]}" ).text;
 
-				callback( mission, s );
-			};
+				var m = JsonConvert.DeserializeObject<Mission>( mText );
+				stringified = mText;
+
+				Debug.Log( "Loaded Mission: " + m.fileName );
+				return m;
+			}
+			catch ( Exception e )
+			{
+				Utils.LogError( "LoadMissionFromResource()::Could not load the Mission. Exception: " + e.Message );
+				return null;
+			}
 		}
 
 		/// <summary>
@@ -310,8 +314,6 @@ namespace Saga
 			}
 			else
 				return null;
-			//else
-			//	UnityEngine.Object.FindObjectOfType<SagaSetup>()?.errorPanel?.Show( "FileManager::CreateProjectItem()", "Mission is null" );
 
 			return projectItem;
 		}

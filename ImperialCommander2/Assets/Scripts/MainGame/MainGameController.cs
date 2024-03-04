@@ -219,12 +219,12 @@ public class MainGameController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}rules" );
+		string txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}rules" ).text;
 		if ( txt != null )
 		{
 			if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
 				GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
-			missionTextBox.Show( txt.text, OnReturn );
+			missionTextBox.Show( txt, OnReturn );
 		}
 		else
 			GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
@@ -234,12 +234,12 @@ public class MainGameController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" );
+		string txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" ).text;
 		if ( txt != null )
 		{
 			if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
 				GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
-			missionTextBox.Show( txt.text, OnReturn );
+			missionTextBox.Show( txt, OnReturn );
 		}
 		else
 			GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Info: " + DataStore.sessionData.selectedMissionID );

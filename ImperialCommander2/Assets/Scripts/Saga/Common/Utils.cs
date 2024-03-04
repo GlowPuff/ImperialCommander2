@@ -9,11 +9,11 @@ namespace Saga
 {
 	public static class Utils
 	{
-		public const string formatVersion = "21";//the EXPECTED mission format
+		public const string formatVersion = "22";//the EXPECTED mission format
 		public const int expectedCampaignFormatVersion = 2;
 
 		/// <summary>
-		/// Logs error to console and to log file, optionally showing the Error Panel
+		/// Logs error to console and to log file, optionally showing the Error Panel (if one exists in the Scene)
 		/// </summary>
 		public static void LogError( string message )
 		{

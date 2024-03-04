@@ -1,0 +1,468 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Produktionsmittel",
+    "missionDescription": "",
+    "missionInfo": "{-} Türen sind verriegelt. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).\n{-} Der Einsatz schreitet voran, wenn die Rebellen in die Einrichtung eindringen.\n{-} Die Helden verlieren am Ende von Runde 5, oder wenn alle Helden verwundet sind.",
+    "campaignName": "Grundspiel",
+    "startingObjective": "Dringt in die Einrichtung ein, um den Datenkern zu finden.",
+    "repositionOverride": "Versperre den Zugang zum Datenkern.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "83aba702-5662-403c-b849-d4d6467726cf",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "eff38c9d-cb91-4204-8979-0bf4b0c0bbca",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "bb3fd9b1-ab77-472a-8131-6343755dce18",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr kommt in einer kleinen, ruhigen Versuchsfabrik an. Man hat euch gesagt, dass sie die Effizienz der imperialen Bemühungen erheblich steigern wird, wenn ihr Bau abgeschlossen ist.\n\nDrei andere Teams haben offenbar erfolglos versucht, die Fabrik zu sabotieren. Ihre Berichte deuten auf eine Art von reaktiven Verteidigungsprotokollen hin.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind verriegelt. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).\n{-} Der Einsatz schreitet voran, wenn die Rebellen in die Einrichtung eindringen.\n{-} Die Helden verlieren am Ende von Runde 5, oder wenn alle Helden verwundet sind.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Nachdem der Kern zerstört wurde, schalten sich die Verteidigungsprotokolle ab. Die Alarme verstummen und die Lichter werden schwarz.\n\nWenn das Imperium diese Anlage für irgendetwas nutzen will, wird es eine ganze Weile dauern, bis sie sie wieder in Betrieb nehmen können.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Die Verteidigungsanlagen der Anlage sind zu stark, um sie zu überwinden. Als du endlich die Tür zum Datenkern durchbrichst, seht ihr, wie sie in den Boden zu einem anderen Teil der Anlage gleitet, den ihr nicht erreichen könnt.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Guarded",
+      "GUID": "083a7730-cf91-48fa-8da2-9eb073783dc6",
+      "eventText": "Als ihr die erste Tür durchbrecht, werdet ihr von einem ohrenbetäubenden mechanischen Knirschen überrascht. Vor euch seht ihr, wie sich eine schwere Abschirmung über die nächste Tür schiebt.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Facility Entrance",
+              "GUID": "bd17cfa8-4317-4bf3-9474-b4cce6a006d7",
+              "theText": "Diese Tür ist mit \"Eingang\" beschriftet.\n\nDie Tür ist verriegelt. Eine Rebellenfigur kann sie angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "34193acb-3156-4562-8d67-f0b48406522f",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "89d2e7e4-8ca0-4d85-80cb-449e5e4ea950",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "697ed242-b03b-4b83-a223-8d333c41a2fb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "5318fbd2-9dbd-4d10-9179-632ba3285bd9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "face85e4-58a4-4f79-bf36-ee64ff866c0e",
+          "eventActionType": 6,
+          "evName": null,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "theText": "{-} Türen sind verriegelt. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).\n{-} Der Einsatz schreitet voran, wenn die Helden den Datenkern finden.\n{-} Die Helden verlieren am Ende von Runde 5, oder wenn alle Helden verwundet sind.",
+          "GUID": "fc6cdf7c-481e-44ae-ad5d-c402473bfa72",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Findet den Datenkern.",
+          "longText": null,
+          "GUID": "d7697245-90d6-468a-bb74-e6370d7e120d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Side Door",
+      "GUID": "83050119-9254-485c-8652-3b183ef90d40",
+      "eventText": "Die Seitentür bricht unter euren Angriffen zusammen.\n\nWenn sich neben der Tür, die du gerade geöffnet hast, ein neutraler Einsatzmarker befand, klicke auf den Marker im Kontrollbereich, der den Farben der Marker entspricht, und klicke auf \"Aktivieren\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Side Door",
+              "GUID": "5da78a7e-ea32-4dc7-a18f-4d2fbb4d255d",
+              "theText": "Diese Tür ist mit \"Seitentür\" beschriftet.\n\nDie Tür ist verriegelt. Eine Rebellenfigur kann sie angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "9514ea48-00eb-4211-9339-4121edb9679c",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "d0cff48f-e915-4efa-a576-5eca03364b51",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Core Room",
+      "GUID": "b2f9a62d-c723-4dd4-a050-12097bb27d2b",
+      "eventText": "Ihr entdeckt einen kleinen Raum mit einem summenden Datenkern, der von rotem Licht umgeben ist. Die Zerstörung des Datenkerns würde die Pläne des Imperiums stark zurückwerfen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Core Room Door",
+              "GUID": "caaf0ec0-5aee-43e1-b95e-b9c3d8dcdf45",
+              "theText": "Diese Tür ist mit \"Kernraum\" beschriftet.\n\nDie Tür ist verriegelt. Eine Rebellenfigur kann sie angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "4e800c00-db98-48ba-ae3c-a96c9e2d9473",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "37a6bf2f-6e75-4f23-a6c0-6e0a0dd5a6a0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Eine Rebellenfigur kann mit dem Datenkern interagieren, um ihn zu zerstören und den Einsatz zu beenden.",
+          "GUID": "50902ae7-2827-4777-a4d0-5a136fb09b1e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Türen sind verriegelt. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).\n{-} Die Rebellen gewinnen, wenn der Datenkern zerstört wird.\n{-} Die Helden verlieren am Ende von Runde 5, oder wenn alle Helden verwundet sind.",
+          "GUID": "d4629309-20e0-4670-95a8-4a35c72b1d4e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Zerstört den Datenkern.",
+          "longText": null,
+          "GUID": "e4b9966a-4d24-4608-9b05-3c1fdc83feb6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "Wenn sich neben der Tür, die du gerade geöffnet hast, ein neutraler Einsatzmarker befand, klicke auf den Marker im Kontrollbereich, der den Farben der Marker entspricht, und klicke auf \"Aktivieren\".",
+          "GUID": "98e07dc0-2a1b-4506-98d7-09560b669502",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal CA",
+      "GUID": "784267a1-85cb-4e00-8cfd-0f139c46b8c5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "Die von der Karte getrennten Felder sind der Kontrollraum. Jedes Mal, wenn ihr eine Tür öffnet, neben der ein blauer, roter oder gelber neutraler Einsatzmarker liegt, klickt ihr auf den Marker, der der Farbe des Markers entspricht, und dann auf \"Aktivieren\".\n\nJedes Mal, wenn ihr eine Tür angreift, neben der ein grüner neutraler Einsatzmarker liegt, erleidet der Angreifer 2 {H} für jeden grünen neutralen Einsatzmarker neben der Tür.",
+          "GUID": "756d77fb-154b-4b65-8d16-adab0a3abc28",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Defenses Blue 1",
+      "GUID": "6293949e-90bb-451c-8a5c-a8a58dcf1772",
+      "eventText": "Platziere einen BLAUEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere ihn neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Blue 2",
+      "GUID": "639fb135-eb67-49da-8644-1273aee2030e",
+      "eventText": "Platziere einen BLAUEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere ihn neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 1",
+      "GUID": "5755bcd0-c5cd-4f38-8f56-2b0b7de00b91",
+      "eventText": "Platziere einen ROTEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere es neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 2",
+      "GUID": "faed7616-833b-48d3-b0eb-8fbcf2ecddff",
+      "eventText": "Platziere einen ROTEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere es neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 1",
+      "GUID": "8b4d07e6-e180-4909-82b3-ef99abf77fad",
+      "eventText": "Platziere einen GRÜNEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere es neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 2",
+      "GUID": "f742d3bc-7b8c-4fd3-8b8b-47310817c113",
+      "eventText": "Platziere einen GRÜNEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere es neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 1",
+      "GUID": "3cbd986b-6fc0-43fc-8b70-eac5bfea0caf",
+      "eventText": "Platziere einen GELBEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere es neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 2",
+      "GUID": "cfc116c5-66bd-4642-b1a6-89595bd4eb94",
+      "eventText": "Platziere einen GELBEN neutralen Einsatzmarker neben einer geschlossenen Tür in der folgenden Reihenfolge. Ihr könnt auf die Tür klicken, um ihre Beschriftung zu lesen.\n\n1. Wenn der Eingang der Einrichtung geschlossen ist, platziere ihn daneben.\n2. Wenn der Eingang der Einrichtung offen ist, aber noch keine Helden das Spielplanteil 28A betreten haben, platziere es neben der Seitentür.\n3. Wenn die Helden das Spielplanteil 28A bereits betreten haben, platziere es neben der Tür zum Kernraum.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses End of Round",
+      "GUID": "43574d4c-926f-46dd-b9bb-014f026a4fd2",
+      "eventText": "Die imperialen Sicherheitsprotokolle verriegeln die Anlage immer weiter.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Red",
+      "GUID": "c4f3fd42-dba3-4dc7-bca2-c3e64c727246",
+      "eventText": "Alarm ertönt in der Einrichtung.\n\nWenn sich zwei rote Marker neben der Tür befinden, klicke erneut auf \"Rot aktivieren\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Yellow",
+      "GUID": "7562643c-39d9-4b7b-aec9-37ab559b6b0a",
+      "eventText": "Ein gleißender Blitz geht von der Tür aus, als sie zusammenbricht.\n\nJeder Held innerhalb von 5 Feldern um die Tür legt eine Probe auf {K} ab. Jeder Held, der nicht besteht, wird <color=\"red\">Betäubt</color>.\n\nWenn zwei gelbe Einsatzmarker neben der Tür liegen, würfle zweimal und wähle das schlechtere Ergebnis.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal CA Event",
+      "GUID": "d560a1a1-1894-4ab4-94c3-116c2e2669e0",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "77ad1dc6-c81c-4471-8159-48b28f85a518",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "e641bf49-a61b-4f08-91eb-4bdd670fca5a",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "23e2172c-3435-49c4-8a8e-96718f9286fe",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "df14b7ba-feb7-4d24-bb3b-6d086610804c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "1320db38-7dd3-4bd1-913f-fd1fd58e7416",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Facility Entrance",
+      "GUID": "5af07f73-e1fe-4be2-ab15-0a1a6defa440",
+      "mainText": "Diese Tür ist mit \"Eingang\" beschriftet.\n\nDie Tür ist verriegelt. Eine Rebellenfigur kann sie angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "7a4fec7a-8f33-4178-a08d-581a54f8dea8",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Side Door",
+      "GUID": "7ff79fd5-4054-4181-a72e-b6303d94d6e5",
+      "mainText": "Diese Tür ist mit \"Seitentür\" beschriftet.\n\nDie Tür ist verriegelt. Eine Rebellenfigur kann sie angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "9c73df61-4d01-4f57-8078-5e6438af73ce",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Core Room Door",
+      "GUID": "d89ff5b0-bb55-43a2-9cc8-6c7fc5ee71f5",
+      "mainText": "Diese Tür ist mit \"Kernraum\" beschriftet.\n\nDie Tür ist verriegelt. Eine Rebellenfigur kann sie angreifen (Gesundheit: *2*, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "e7a58490-da37-4250-9913-cc3a6a3e8384",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "99a88f52-7505-41db-9244-37962f9132f8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "95a8dd62-0360-40cb-8815-d305b2120585",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "ff0e06f2-f4ef-41dc-bd5e-f2f30f816371",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Blue Token",
+      "GUID": "a3dbc1b4-2eaf-45b1-a4d7-e6e116abe04e",
+      "mainText": "Wende *2* zusätzliche Gesundheit auf die Tür an, neben der sich ein blauer Marker befindet. Wenn sich zwei blaue Marker daneben befinden, wende stattdessen *4* zusätzliche Gesundheit an.",
+      "buttonList": [
+        {
+          "GUID": "c0641759-c7c0-41c1-a849-5740efaf5c6e",
+          "theText": "Blau aktivieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Token",
+      "GUID": "bed6feb3-bba2-4b88-8e48-9357d99b7265",
+      "mainText": "Jedes Mal, wenn ihr eine Tür öffnet, neben der ein roter neutraler Einsatzmarker steht, klickt ihr für jeden roten Marker neben der Tür einmal auf \"Rot aktivieren\".",
+      "buttonList": [
+        {
+          "GUID": "20e7822f-67f8-4bee-a352-7d04e645a508",
+          "theText": "Rot aktivieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Green Token",
+      "GUID": "66d11f99-f4c4-4505-a373-7b02e037f156",
+      "mainText": "Jedes Mal, wenn ihr eine Tür angreift, neben der ein grüner neutraler Einsatzmarker liegt, erleidet der Angreifer 2 {H} für jeden grünen neutralen Einsatzmarker neben der Tür.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Token",
+      "GUID": "2b36c803-c5bf-4fb8-9cca-b5ad0263e43d",
+      "mainText": "Jedes Mal, wenn ihr eine Tür öffnet, neben der ein gelber neutraler Einsatzmarker steht, klickt ihr für jeden gelben Marker neben der Tür einmal auf \"Gelb aktivieren\".",
+      "buttonList": [
+        {
+          "GUID": "3e05515a-2aff-4c95-b968-6a77f1964ffb",
+          "theText": "Gelb aktivieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Core",
+      "GUID": "8b48b9c7-d86d-4d8c-a637-c3eb3c120e3e",
+      "mainText": "Der Datenkern der Einrichtung wird von einem sanften roten Licht beleuchtet.\n\nEine Rebellenfigur kann mit dem Datenkern interagieren, um ihn zu zerstören und den Einsatz zu beenden.",
+      "buttonList": [
+        {
+          "GUID": "c19885d8-2295-4b4a-bd7e-dec1f7af0c1b",
+          "theText": "{A} Destroy"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

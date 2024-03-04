@@ -58,7 +58,7 @@ namespace Saga
 	public enum PriorityTargetType { Rebel, Hero, Ally, Other, Trait }
 	public enum EntityType { Tile, Terminal, Crate, DeploymentPoint, Token, Highlight, Door }
 	public enum TokenShape { Circle, Square, Rectangle }
-	public enum EventActionType { G1, G2, G3, G4, G5, G6, D1, D2, D3, D4, D5, GM1, GM2, GM3, M1, M2, G7, GM4, GM5, G8, G9, D6, GM6, GM7 }
+	public enum EventActionType { G1, G2, G3, G4, G5, G6, D1, D2, D3, D4, D5, GM1, GM2, GM3, M1, M2, G7, GM4, GM5, G8, G9, D6, GM6, GM7, CM1, CM2, CM3, CM4, G10, G11 }
 	public enum ThreatAction { Add, Remove }
 	public enum SourceType { InitialReserved, Manual, Hand }
 	public enum DeploymentSpot { Active, Specific, None }
@@ -80,7 +80,7 @@ namespace Saga
 	public enum MissionLogType { TextBox, InputBox, PromptBox, PlayerSelection, GroupActivation, GroupDeployment, GroupRemoved, GroupDefeated, DeploymentEvent }
 	public enum CameraView { Normal, TopDown }
 	public enum CampaignType { Official, Custom, Imported }
-	public enum MissionSource { None, Official, Custom, Embedded }
+	public enum MissionSource { None, Official, Custom, Embedded }//embedded=custom campaign
 	public enum GroupSelectionMode { Ignored, Villains }
 	public enum BiomeType { Desert, Forest, Halls, Ice, Imperial, Interior, Jabba, Plains, Snow, Streets, None, Menu }
 }
