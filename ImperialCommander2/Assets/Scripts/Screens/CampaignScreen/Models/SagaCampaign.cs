@@ -17,8 +17,9 @@ namespace Saga
 		//campaignExpansionCode is the CODE, ie: Core
 		public string campaignName, campaignExpansionCode, campaignImportedName;
 		public string campaignJournal = "";
+		//XP is no longer used, XP is stored per Hero in CampaignHero
 		public int XP, credits, fame, awards;
-		public Guid GUID;
+		public Guid GUID = Guid.Empty;
 		public List<CampaignHero> campaignHeroes = new List<CampaignHero>();
 		public List<CampaignStructure> campaignStructure = new List<CampaignStructure>();
 		public List<DeploymentCard> campaignVillains = new List<DeploymentCard>();
@@ -144,7 +145,7 @@ namespace Saga
 						}
 					};
 				}
-				else if ( !onlyOfficial && campaignType == CampaignType.Imported )
+				else if ( !onlyOfficial && campaignType == CampaignType.Imported )//custom campaign package
 				{
 					campaignDataStructures = campaignStructure;
 					campaignDataStructures = campaignDataStructures.Select( x =>
@@ -206,6 +207,9 @@ namespace Saga
 
 			try
 			{
+				if ( GUID == Guid.Empty )
+					throw new Exception( "Campaign GUID is Empty" );
+
 				string output = JsonConvert.SerializeObject( this, Formatting.Indented );
 				string outpath = Path.Combine( FileManager.campaignPath, $"{GUID}.json" );
 				using ( var stream = File.CreateText( outpath ) )
@@ -250,6 +254,50 @@ namespace Saga
 			{
 				string text = Resources.Load<TextAsset>( $"Languages/{DataStore.Language}/CampaignData/CampaignInfo/{campaignExpansionCode}Info" ).text;
 				return text != null ? text : string.Empty;
+			}
+		}
+
+		public void SetNextStoryMission( string customMissionID )
+		{
+			Debug.Log( $"SetNextStoryMission()::{customMissionID}" );
+			try
+			{
+				if ( GUID == Guid.Empty )
+					throw new Exception( "Campaign GUID is Empty" );
+				if ( string.IsNullOrEmpty( customMissionID ) )
+					throw new Exception( "Custom Mission ID is Empty" );
+
+				//get the index of the current mission in the structure list
+				int idx = campaignStructure.FindIndex( x => x.missionID == DataStore.mission.missionGUID.ToString() );
+				if ( idx != -1 )
+				{
+					//find the next Story mission AFTER the current Mission in the structure list
+					for ( int index = idx + 1; index < campaignStructure.Count; index++ )
+					{
+						if ( campaignStructure[index].missionType == MissionType.Story )
+						{
+							var m = campaignPackage.campaignMissionItems.Where( x => x.customMissionIdentifier == customMissionID ).FirstOr( null );
+							if ( m != null )
+							{
+								Debug.Log( $"campaignStructure with Index={index} changed" );
+								campaignStructure[index].missionSource = MissionSource.Embedded;
+								campaignStructure[index].missionID = m.missionGUID.ToString();
+								campaignStructure[index].projectItem.Title = m.missionName;
+								campaignStructure[index].projectItem.missionGUID = m.missionGUID.ToString();
+							}
+							else
+								Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find Mission with customMissionIdentifier={customMissionID}" );
+						}
+					}
+				}
+				else
+				{
+					Debug.Log( "WARNING::SetNextStoryMission()::Couldn't find a STORY Mission" );
+				}
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( $"SetNextStoryMission()::{e.Message}" );
 			}
 		}
 	}

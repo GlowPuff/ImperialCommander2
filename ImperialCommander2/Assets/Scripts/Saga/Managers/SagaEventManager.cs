@@ -431,6 +431,12 @@ namespace Saga
 				case EventActionType.CM4:
 					SetNextMission( eventAction as CampaignSetNextMission );
 					break;
+				case EventActionType.G10:
+					ModifyRndLimit( eventAction as ModifyRoundLimit );
+					break;
+				case EventActionType.G11:
+					SetCountdown( eventAction as SetCountdown );
+					break;
 				default:
 					Debug.Log( "ProcessEventAction()::EVENT TYPE NOT SUPPORTED: " + eventAction.eventActionType.ToString() + " = " + (int)eventAction.eventActionType );
 					NextEventAction();
@@ -498,16 +504,6 @@ namespace Saga
 			}
 
 			toggleVisButton.SetActive( vis );
-		}
-
-		public void SaveState()
-		{
-
-		}
-
-		public void LoadState()
-		{
-
 		}
 	}
 }

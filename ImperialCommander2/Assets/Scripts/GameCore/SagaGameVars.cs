@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Saga
 {
@@ -22,14 +23,19 @@ namespace Saga
 		public string currentObjective;
 		public bool delayOptionalDeployment = false;
 		public DeploymentCard activatedGroup = null;
+		public Guid roundLimitEvent = Guid.Empty;
+		public int roundLimit = -1;//-1 disables the round limit
+
 		//keep track of the end of current round events
 		//keep track of events that have already fired (for use with certain TriggeredBy)
 		//keep track of any enemy group data overrides (instructions, custom enemy deployment event action, etc)
+		//keep track of all round countdown timers
 		public Dictionary<Guid, int> endCurrentRoundEvents { get; } = new Dictionary<Guid, int>();
 		public List<Guid> firedEvents { get; } = new List<Guid>();
 		public List<DeploymentGroupOverride> dgOverrides = new List<DeploymentGroupOverride>();
 		public DeploymentGroupOverride dgOverridesAll = null;
 		public Dictionary<Guid, int> highlightLifeTimes = new Dictionary<Guid, int>();
+		public Dictionary<string, SetCountdown> countdownTimers = new Dictionary<string, SetCountdown>();
 
 		public SagaGameVars()
 		{
@@ -165,6 +171,63 @@ namespace Saga
 			//only keep overrides that are created from custom deployments
 			dgOverrides = dgOverrides.Where( x => x.isCustomDeployment ).ToList();
 			Debug.Log( $"RemoveAllOverrides()::{dgOverrides.Count} overrides left over" );
+		}
+
+		public List<SetCountdown> GetExpiredCountdowns()
+		{
+			List<SetCountdown> expired = new List<SetCountdown>();
+			foreach ( var cd in countdownTimers )
+			{
+				if ( DataStore.sagaSessionData.gameVars.round >= cd.Value.endRound )
+				{
+					expired.Add( cd.Value );
+				}
+			}
+			//remove expired timers from the list
+			foreach ( var timer in expired )
+			{
+				countdownTimers.Remove( timer.countdownTimerName.ToLower() );
+			}
+			return expired;
+		}
+
+		public void SetCurrentCountdownUI( GameObject container, Text text )
+		{
+			Debug.Log( $"SetCurrentCountdown()::Found {countdownTimers.Count} Timers" );
+
+			if ( countdownTimers.Count > 0 )
+			{
+				int minEndRound = int.MaxValue;
+
+				//find the timer that will expire soonest
+				foreach ( var cd in countdownTimers )
+				{
+					if ( cd.Value.showPlayerCountdown )
+					{
+						minEndRound = Math.Min( minEndRound, cd.Value.endRound );
+					}
+				}
+
+				if ( minEndRound != int.MaxValue )
+				{
+					minEndRound -= round;
+
+					if ( minEndRound >= 0 )
+					{
+						container.SetActive( true );
+						if ( minEndRound == 0 )
+							text.text = $"<color=#ff2800>{minEndRound}</color>";
+						else
+							text.text = $"<color=white>{minEndRound}</color>";
+						Debug.Log( "SetCurrentCountdown()::UI ENABLED" );
+
+						return;
+					}
+				}
+			}
+
+			container.SetActive( false );
+			Debug.Log( "SetCurrentCountdown()::Timer UI DISABLED" );
 		}
 	}
 }

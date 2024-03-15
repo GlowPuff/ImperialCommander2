@@ -76,6 +76,8 @@ namespace Saga
 			//BOOTSTRAP CAMPAIGN
 			bootstrapCampaign( !isDebugMode );//true = production build
 
+			//sagaCampaign is set at this point
+
 			fader.UnFade( 2 );
 
 			//apply settings
@@ -89,6 +91,16 @@ namespace Saga
 				bloom.active = PlayerPrefs.GetInt( "bloom2" ) == 1;
 			if ( volume.TryGet<Vignette>( out var vig ) )
 				vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
+
+			//set any modified Campaign data if returning from a Mission
+			//sagaCampaign.XP += RunningCampaign.campaignModifiers.modifyXP;
+			//sagaCampaign.credits += RunningCampaign.campaignModifiers.modifyCredits;
+			//sagaCampaign.awards += RunningCampaign.campaignModifiers.modifyAwards;
+			//sagaCampaign.fame += RunningCampaign.campaignModifiers.modifyFame;
+			//set next mission
+
+			//then reset the modifier object
+			//RunningCampaign.ResetCampaignModifiers();
 
 			//popuplate UI with loaded campaign data
 			InitUI();
@@ -109,6 +121,9 @@ namespace Saga
 				RunningCampaign.expansionCode = "Core";
 				sagaCampaign = SagaCampaign.CreateNewCampaign( "Error/Debug - Not Found", RunningCampaign.expansionCode );
 			}
+
+			//set the campaign into the persistent RunningCampaign structure
+			RunningCampaign.sagaCampaign = sagaCampaign;
 		}
 
 		/// <summary>

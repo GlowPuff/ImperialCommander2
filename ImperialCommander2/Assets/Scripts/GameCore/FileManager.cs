@@ -382,10 +382,14 @@ namespace Saga
 		{
 			CampaignPackage package = null;
 			byte[] iconBytesBuffer = new byte[0];
+			string expectedVersion = @"""packageVersion"": ""2""";
 
 			try
 			{
 				List<Mission> missionList = new List<Mission>();
+				Dictionary<string, TranslatedMission> missionTranslationList = new Dictionary<string, TranslatedMission>();
+				Dictionary<string, string> campaignInstList = new Dictionary<string, string>();
+
 				//create the zip file
 				using ( FileStream zipPath = new FileStream( fullFilename, FileMode.Open ) )
 				{
@@ -400,7 +404,10 @@ namespace Saga
 								//open the package meta file
 								using ( TextReader tr = new StreamReader( entry.Open() ) )
 								{
-									package = JsonConvert.DeserializeObject<CampaignPackage>( tr.ReadToEnd() );
+									string s = tr.ReadToEnd();
+									package = JsonConvert.DeserializeObject<CampaignPackage>( s );
+									if ( !s.Contains( expectedVersion ) )
+										throw new Exception( $"This Package isn't in the Version [2] format." );
 								}
 							}
 							else if ( (entry.Name.EndsWith( ".png" )) )//icon image
@@ -417,7 +424,24 @@ namespace Saga
 									}
 								}
 							}
-							else if ( !skipMissions && entry.Name.EndsWith( ".json" ) )//deserialize the individual missions
+							//translated campaign instructions
+							else if ( entry.FullName.EndsWith( ".txt" ) && entry.FullName.Contains( "Translations/" ) )
+							{
+								using ( TextReader tr = new StreamReader( entry.Open() ) )
+								{
+									campaignInstList.Add( entry.Name, tr.ReadToEnd() );
+								}
+							}
+							//translated missions
+							else if ( !skipMissions && entry.Name.EndsWith( ".json" ) && entry.FullName.Contains( "Translations/" ) )
+							{
+								using ( TextReader tr = new StreamReader( entry.Open() ) )
+								{
+									missionTranslationList.Add( entry.Name, JsonConvert.DeserializeObject<TranslatedMission>( tr.ReadToEnd() ) );
+								}
+							}
+							//deserialize the individual missions
+							else if ( !skipMissions && entry.Name.EndsWith( ".json" ) && entry.FullName.Contains( "Missions/" ) )
 							{
 								using ( TextReader tr = new StreamReader( entry.Open() ) )
 								{
@@ -431,9 +455,17 @@ namespace Saga
 
 						package.iconBytesBuffer = iconBytesBuffer;
 
-						//now add all the missions to the CampaignPackage
+						//add all the translated instructions
+						foreach ( var item in package.campaignTranslationItems )
+						{
+							if ( item.isInstruction )
+								item.campaignInstructionTranslation = campaignInstList[item.fileName];
+						}
+
+						//add all the missions to the CampaignPackage
 						if ( !skipMissions )
 						{
+							//main control Missions
 							foreach ( var item in package.campaignMissionItems )
 							{
 								var m = missionList.Where( x => x.missionGUID == item.missionGUID ).FirstOr( null );
@@ -441,6 +473,12 @@ namespace Saga
 									item.mission = m;
 								else
 									throw new Exception( $"Missing Mission in the zip archive:\n{item.missionName}\n{item.missionGUID}" );
+							}
+							//add the translations
+							foreach ( var item in package.campaignTranslationItems )
+							{
+								if ( !item.isInstruction )
+									item.translatedMission = missionTranslationList[item.fileName];
 							}
 						}
 					}
@@ -450,7 +488,7 @@ namespace Saga
 			}
 			catch ( Exception ee )
 			{
-				Utils.LogError( $"LoadCampaignPackage()::Error loading the Campaign Package.\n{ee.Message}" );
+				Utils.LogWarning( $"LoadCampaignPackage()::Error loading the Campaign Package [{fullFilename}].\n{ee.Message}" );
 				return null;
 			}
 		}

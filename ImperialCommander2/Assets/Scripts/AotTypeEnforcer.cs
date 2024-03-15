@@ -46,6 +46,7 @@ public class AotTypeEnforcer : MonoBehaviour
 
 		//SagaGameVars
 		AotHelper.EnsureList<DeploymentGroupOverride>();
+		AotHelper.EnsureDictionary<string, SetCountdown>();
 
 		//Dictionaries
 		AotHelper.EnsureDictionary<Guid, int>();

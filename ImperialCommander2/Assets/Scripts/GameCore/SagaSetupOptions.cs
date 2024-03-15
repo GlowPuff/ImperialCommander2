@@ -19,6 +19,7 @@
 		public bool isTutorial;
 		public bool isDebugging;//testing a mission from the command line should not save state
 		public int tutorialIndex;
+		public bool isRoundLimitDisabled;
 
 		public SagaSetupOptions()
 		{
@@ -35,6 +36,7 @@
 			isTutorial = false;
 			isDebugging = false;
 			tutorialIndex = 0;
+			isRoundLimitDisabled = false;
 		}
 
 		public string ToggleDifficulty()

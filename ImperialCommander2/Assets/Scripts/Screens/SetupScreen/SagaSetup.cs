@@ -340,6 +340,9 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Fired from the button
+		/// </summary>
 		public void OnStartMission()
 		{
 			setupOptions.threatLevel = threatValue.wheelValue;

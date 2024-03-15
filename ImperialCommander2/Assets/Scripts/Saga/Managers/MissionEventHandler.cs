@@ -167,6 +167,77 @@ namespace Saga
 			tb.Show( ip, NextEventAction );
 		}
 
+		void ModifyRndLimit( ModifyRoundLimit mrl )
+		{
+			Debug.Log( "SagaEventManager()::PROCESSING ModifyRndLimit" );
+			int old = DataStore.sagaSessionData.gameVars.roundLimit;
+
+			if ( mrl.disableRoundLimit )
+			{
+				Debug.Log( $"Round Limit [{DataStore.sagaSessionData.gameVars.roundLimit}] was DISABLED" );
+				DataStore.sagaSessionData.gameVars.roundLimit = -1;
+				DataStore.sagaSessionData.gameVars.roundLimitEvent = Guid.Empty;
+			}
+			else if ( !mrl.setRoundLimit )
+			{
+				//modify the limit
+				DataStore.sagaSessionData.gameVars.roundLimit += mrl.roundLimitModifier;
+				//set the new event, if any
+				if ( mrl.eventGUID != Guid.Empty )
+					DataStore.sagaSessionData.gameVars.roundLimitEvent = mrl.eventGUID;
+
+				Debug.Log( $"Round limit [{old}] MODIFIED by [{mrl.roundLimitModifier}] to [{DataStore.sagaSessionData.gameVars.roundLimit}]" );
+			}
+			else if ( mrl.setRoundLimit )
+			{
+				//set the limit
+				DataStore.sagaSessionData.gameVars.roundLimit = mrl.setLimitTo;
+				//set the new event, if any
+				if ( mrl.eventGUID != Guid.Empty )
+					DataStore.sagaSessionData.gameVars.roundLimitEvent = mrl.eventGUID;
+
+				Debug.Log( $"Round limit [{old}] SET to [{DataStore.sagaSessionData.gameVars.roundLimit}]" );
+			}
+
+			var sc = FindObjectOfType<SagaController>();
+			sc.UpdateRoundNumberUI();
+
+			NextEventAction();
+		}
+
+		void SetCountdown( SetCountdown scd )
+		{
+			Debug.Log( "SagaEventManager()::PROCESSING SetCountdown" );
+			//check if this is a disable command
+			if ( scd.countdownTimer == -1 )
+			{
+				Debug.Log( $"Countdown Timer with name {scd.countdownTimerName} is now DISABLED" );
+				DataStore.sagaSessionData.gameVars.countdownTimers.Remove( scd.countdownTimerName );
+				//remove it from the UI
+				var sc = FindObjectOfType<SagaController>();
+				sc.OnSetCountdownTimer();
+			}
+			else
+			{
+				Debug.Log( $"Created Countdown Timer [{scd.countdownTimerName}] with value of [{scd.countdownTimer}] rounds" );
+				//set the ending round based on the timer value and the current round
+				int ending = DataStore.sagaSessionData.gameVars.round + scd.countdownTimer;
+				scd.endRound = ending;
+				//add the timer with the name trimmed and lowercase
+				DataStore.sagaSessionData.gameVars.countdownTimers.Add( scd.countdownTimerName.Trim().ToLower(), scd );
+				//if it's visible, notify to show it
+				if ( scd.showPlayerCountdown )
+				{
+					var sc = FindObjectOfType<SagaController>();
+					sc.OnSetCountdownTimer();
+				}
+
+				Debug.Log( $"Countdown [{scd.countdownTimerName}] will expire at the end of round [{ending}]" );
+			}
+
+			NextEventAction();
+		}
+
 		//DEPLOYMENTS
 		void EnemyDeployment( EnemyDeployment ed )
 		{
@@ -675,8 +746,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// this is a special case because it can be called directly WITHOUT an event to fire it
-		/// does NOT call NextEventAction(), parses text for glyphs
+		/// MUST BE PUBLIC, this is a special case because it can be called directly WITHOUT an event to fire it, it does NOT call NextEventAction(), does parse text for glyphs
 		/// </summary>
 		public void ShowPromptBox( QuestionPrompt prompt, Action callback = null )
 		{
@@ -696,55 +766,60 @@ namespace Saga
 		}
 
 		//CAMPAIGN MANAGEMENT
-		public void ModifyXP( CampaignModifyXP mxp )
+		void ModifyXP( CampaignModifyXP mxp )
 		{
 			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				Debug.Log( $"SagaEventManager()::PROCESSING ModifyXP: {mxp.xpToAdd}" );
-				RunningCampaign.campaignModifiers.modifyXP += mxp.xpToAdd;
-				Debug.Log( $"ModifyXP()::New XP: {RunningCampaign.campaignModifiers.modifyXP}" );
+				RunningCampaign.sagaCampaign.campaignHeroes.ForEach( x => x.xpAmount += mxp.xpToAdd );
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+				Debug.Log( $"ModifyXP()::New XP: {RunningCampaign.sagaCampaign.XP}" );
 			}
 			else
 				Debug.Log( "SagaEventManager()::ModifyXP()::Campaign isn't active" );
 			NextEventAction();
 		}
 
-		public void ModifyCredits( CampaignModifyCredits mcredits )
+		void ModifyCredits( CampaignModifyCredits mcredits )
 		{
 			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				Debug.Log( $"SagaEventManager()::PROCESSING ModifyCredits: {mcredits.creditsToModify}" );
-				RunningCampaign.campaignModifiers.modifyCredits += mcredits.creditsToModify;
-				Debug.Log( $"ModifyCredits()::New Credits: {RunningCampaign.campaignModifiers.modifyCredits}" );
+				RunningCampaign.sagaCampaign.credits += mcredits.creditsToModify;
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+				Debug.Log( $"ModifyCredits()::New Credits: {RunningCampaign.sagaCampaign.credits}" );
 			}
 			else
 				Debug.Log( "SagaEventManager()::ModifyCredits()::Campaign isn't active" );
 			NextEventAction();
 		}
 
-		public void ModifyFameAwards( CampaignModifyFameAwards mfa )
+		void ModifyFameAwards( CampaignModifyFameAwards mfa )
 		{
 			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				Debug.Log( $"SagaEventManager()::PROCESSING ModifyFameAwards: Fame: {mfa.fameToAdd}, Awards: {mfa.awardsToAdd}" );
-				RunningCampaign.campaignModifiers.modifyFame += mfa.fameToAdd;
-				RunningCampaign.campaignModifiers.modifyAwards += mfa.awardsToAdd;
-				Debug.Log( $"ModifyFameAwards()::New Fame: {RunningCampaign.campaignModifiers.modifyFame}" );
-				Debug.Log( $"ModifyFameAwards()::New Awards: {RunningCampaign.campaignModifiers.modifyAwards}" );
+				RunningCampaign.sagaCampaign.fame += mfa.fameToAdd;
+				RunningCampaign.sagaCampaign.awards += mfa.awardsToAdd;
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+				Debug.Log( $"ModifyFameAwards()::New Fame: {RunningCampaign.sagaCampaign.fame}" );
+				Debug.Log( $"ModifyFameAwards()::New Awards: {RunningCampaign.sagaCampaign.awards}" );
 			}
 			else
 				Debug.Log( "SagaEventManager()::ModifyFameAwards()::Campaign isn't active" );
 			NextEventAction();
 		}
 
-		public void SetNextMission( CampaignSetNextMission snm )
+		void SetNextMission( CampaignSetNextMission snm )
 		{
 			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
-				Debug.Log( $"SagaEventManager()::PROCESSING SetNextMission: Mission ID: {snm.missionID}, Custom Mission ID: {snm.customMissionID}" );
-				RunningCampaign.campaignModifiers.customMissionID = snm.customMissionID;
-				RunningCampaign.campaignModifiers.missionID = snm.missionID;
-
+				Debug.Log( $"SagaEventManager()::PROCESSING SetNextMission: Mission ID: [{snm.missionID}], Custom Mission ID: [{snm.customMissionID}]" );
+				if ( snm.missionID == "Custom" )
+					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.customMissionID );
+				else
+					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.missionID );
+				RunningCampaign.sagaCampaign.SaveCampaignState();
 			}
 			else
 				Debug.Log( "SagaEventManager()::SetNextMission()::Campaign isn't active" );

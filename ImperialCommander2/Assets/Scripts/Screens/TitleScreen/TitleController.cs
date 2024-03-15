@@ -77,7 +77,9 @@ public class TitleController : MonoBehaviour
 		//create default folders
 		FileManager.SetupDefaultFolders();
 
+		//reset any running campaign if returning to this screen
 		RunningCampaign.Reset();
+
 		//create all card lists, load app settings, mission presets and translations
 		DataStore.InitData();
 
@@ -96,8 +98,6 @@ public class TitleController : MonoBehaviour
 		continueButton.interactable = IsSagaSessionValid( SessionMode.Saga );
 		campaignContinueButton.interactable = IsSagaSessionValid( SessionMode.Campaign );
 		campaignLoadButton.interactable = FileManager.GetCampaigns().Count > 0;
-
-		//FindObjectOfType<Sound>().CheckAudio();
 
 		networkStatus = NetworkStatus.Busy;
 		versionText.text = DataStore.appVersion;

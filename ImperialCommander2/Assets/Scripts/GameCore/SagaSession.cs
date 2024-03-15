@@ -72,6 +72,12 @@ namespace Saga
 
 			gameVars.pauseDeployment = false;
 			gameVars.pauseThreatIncrease = false;
+
+			gameVars.roundLimitEvent = DataStore.mission.missionProperties.roundLimitEvent;
+			gameVars.roundLimit = DataStore.mission.missionProperties.roundLimit;
+
+			Debug.Log( $"InitGameVars()::Round Limit set to [{gameVars.roundLimit}]" );
+			Debug.Log( $"InitGameVars()::Round Limit Event set to [{gameVars.roundLimitEvent}]" );
 		}
 
 		/// <summary>
@@ -163,6 +169,20 @@ namespace Saga
 
 			//now recreate the folder we just removed
 			FileManager.SetupDefaultFolders();
+		}
+
+		/// <summary>
+		/// Called after a "modify xp/credits/reward/fame/next mission" event action
+		/// </summary>
+		public void SaveCampaignState()
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( "SaveCampaignState()::Campaign state SAVED" );
+				StateManager.SaveState( SessionMode.Campaign );
+			}
+			else
+				Debug.Log( "SaveCampaignState()::NOT in a Campaign, skipped" );
 		}
 	}
 }

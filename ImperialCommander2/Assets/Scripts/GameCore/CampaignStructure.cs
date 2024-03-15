@@ -12,6 +12,11 @@ namespace Saga
 		public string expansionCode;
 		public bool isAgendaMission;
 
+		//if this isn't empty, it's used instead of the missionID
+		//ONLY used with custom missions inside a custom campaign
+		//assigned by the 'set next mission' event action and SagaCampaign.SetNextStoryMission()
+		public string customMissionID;
+
 		//below properties are set in campaign UI - not loaded from campaign structure JSONs
 		public bool isItemChecked = false;
 		public bool isForced = false;
@@ -25,6 +30,7 @@ namespace Saga
 		public CampaignStructure()
 		{
 			structureGUID = Guid.NewGuid();
+			customMissionID = "";
 			projectItem = new ProjectItem();
 		}
 

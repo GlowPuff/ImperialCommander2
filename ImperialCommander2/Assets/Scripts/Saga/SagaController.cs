@@ -21,10 +21,10 @@ namespace Saga
 		//UI OBJECTS
 		public Image faderOverlay;
 		public Transform infoBtnTX;
-		public Text roundText, currentThreatText, medPacText;
+		public Text roundText, currentThreatText, medPacText, timerText;
 		public Button activateImperialButton, endTurnButton, fameButton;
 		public TextMeshProUGUI missionTitleText;
-		public GameObject zoomBar;
+		public GameObject zoomBar, timerContainer;
 		//POPUPS
 		public SagaEventPopup eventPopup;
 		public SettingsScreen settingsScreen;
@@ -205,8 +205,6 @@ namespace Saga
 			RunningCampaign.Reset();
 			DataStore.InitData();
 
-			RunningCampaign.sagaCampaignGUID = Guid.NewGuid();
-
 			if ( string.IsNullOrEmpty( missionCode ) )
 			{
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
@@ -221,8 +219,6 @@ namespace Saga
 				//try to load the mission
 				DataStore.mission = FileManager.LoadMission( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename, out string missionStringified );
 				DataStore.sagaSessionData.missionStringified = missionStringified;
-				//set the translation
-				//TranslationController.Instance.SetBackupSource( DataStore.mission );
 			}
 			else
 			{
@@ -388,7 +384,11 @@ namespace Saga
 		/// </summary>
 		void StartNewGame()
 		{
+			//set round number
 			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading.ToUpper() + "\r\n1";
+			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1 )
+				roundText.text += $" [<color=red>{DataStore.sagaSessionData.gameVars.roundLimit}</color>]";
+
 			//create deployment hand and manual deploy list
 			DataStore.CreateDeploymentHand( DataStore.sagaSessionData.EarnedVillains, DataStore.sagaSessionData.setupOptions.threatLevel );
 			DataStore.CreateManualDeployment();
@@ -549,6 +549,9 @@ namespace Saga
 			//retore UI elements
 			//round
 			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sagaSessionData.gameVars.round;
+			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1 )
+				roundText.text += $" [<color=red>{DataStore.sagaSessionData.gameVars.roundLimit}</color>]";
+
 			//medpac count
 			medPacText.text = DataStore.sagaSessionData.gameVars.medPacCount.ToString();
 			//restore deployed enemies and heroes/allies
@@ -763,11 +766,40 @@ namespace Saga
 		void OnStartTurn()
 		{
 			Debug.Log( "OnStartTurn()::STARTING NEW TURN============================" );
+
 			//at this point, the previous round is COMPLETELY finished
 			if ( !isError )
 				DataStore.sagaSessionData.SaveState();
 
+			//check if the round limit has been reached
+			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1 )//not disabled
+			{
+				Debug.Log( $"OnStartTurn()::Round Limit: {DataStore.sagaSessionData.gameVars.roundLimit}" );
+				if ( DataStore.sagaSessionData.gameVars.round >= DataStore.sagaSessionData.gameVars.roundLimit )
+				{
+					//round limit has been reached
+					if ( DataStore.sagaSessionData.gameVars.roundLimitEvent != Guid.Empty )
+					{
+						eventManager.DoEvent( DataStore.sagaSessionData.gameVars.roundLimitEvent );
+					}
+				}
+			}
+			else
+				Debug.Log( "OnStartTurn()::Round Limit: DISABLED" );
+
+			//now check for countdown timer events/triggers
+			var expired = DataStore.sagaSessionData.gameVars.GetExpiredCountdowns();
+			foreach ( var ex in expired )
+			{
+				eventManager.DoEvent( ex.eventGUID );
+				triggerManager.FireTrigger( ex.triggerGUID );
+			}
+
+			//increase the round and update the UI
 			IncreaseRound();
+
+			//set current countdown timer, if there is one
+			DataStore.sagaSessionData.gameVars.SetCurrentCountdownUI( timerContainer, timerText );
 
 			DataStore.sagaSessionData.gameVars.isStartTurn = true;
 			eventManager.CheckIfEventsTriggered( () =>
@@ -882,12 +914,14 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Does NOT make events check for being triggered
+		/// Does NOT make events check for being triggered, updates the round and countdown UI
 		/// </summary>
 		public void IncreaseRound()
 		{
 			DataStore.sagaSessionData.gameVars.round++;
-			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sagaSessionData.gameVars.round.ToString();
+			UpdateRoundNumberUI();
+
+			Debug.Log( $"IncreaseRound()::Current round: {DataStore.sagaSessionData.gameVars.round}" );
 		}
 
 		public void OnPauseThreat( Toggle t )
@@ -926,6 +960,20 @@ namespace Saga
 		public void OnHelpClick()
 		{
 			helpPanel.Show();
+		}
+
+		public void OnSetCountdownTimer()
+		{
+			DataStore.sagaSessionData.gameVars.SetCurrentCountdownUI( timerContainer, timerText );
+		}
+
+		public void UpdateRoundNumberUI()
+		{
+			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1
+				&& DataStore.sagaSessionData.gameVars.round <= DataStore.sagaSessionData.gameVars.roundLimit )
+				roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\r\n{DataStore.sagaSessionData.gameVars.round} [<color=red>{DataStore.sagaSessionData.gameVars.roundLimit}</color>]";
+			else
+				roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\r\n{DataStore.sagaSessionData.gameVars.round}";
 		}
 
 		private void Update()

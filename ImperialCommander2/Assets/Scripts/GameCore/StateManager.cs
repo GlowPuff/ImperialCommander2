@@ -35,6 +35,10 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Saves the GAME state, NOT the campaign state
+		/// </summary>
+		/// <param name="sessionMode">Determines the FOLDER that's used to save to</param>
 		public static void SaveState( SessionMode sessionMode )
 		{
 			Debug.Log( $"SaveSession()::SAVING SESSION (Mode = {sessionMode})" );
@@ -147,6 +151,10 @@ namespace Saga
 			}
 		}
 
+		/// <summary>
+		/// Loads the GAME state, NOT the campaign state
+		/// </summary>
+		/// <param name="sessionMode">Determines the FOLDER that's used to load from</param>
 		public bool LoadState( SessionMode sessionMode )
 		{
 			string basePath;

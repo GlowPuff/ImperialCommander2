@@ -31,9 +31,9 @@ public class Sound : MonoBehaviour
 
 	public void PlaySound( int clipIndex )
 	{
-		//if ( PlayerPrefs.GetInt( "sound" ) == 1 )
-		if ( clipIndex <= clips.Length - 1 )
-			source.PlayOneShot( clips[clipIndex] );
+		if ( PlayerPrefs.GetInt( "sound" ) == 1 )
+			if ( clipIndex <= clips.Length - 1 )
+				source.PlayOneShot( clips[clipIndex] );
 	}
 
 	public void PlayDefeatedSound()
