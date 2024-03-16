@@ -53,5 +53,11 @@ public class AotTypeEnforcer : MonoBehaviour
 		AotHelper.EnsureDictionary<string, List<MissionCard>>();
 		AotHelper.EnsureDictionary<string, string>();
 		AotHelper.EnsureDictionary<string, List<MissionPreset>>();
+
+		//Campaign Package
+		AotHelper.EnsureList<CampaignMissionItem>();
+		AotHelper.EnsureList<CampaignStructure>();
+		AotHelper.EnsureList<CampaignTranslationItem>();
+
 	}
 }
