@@ -257,7 +257,7 @@ namespace Saga
 			}
 		}
 
-		public void SetNextStoryMission( string customMissionID )
+		public void SetNextStoryMission( string customMissionID, MissionSource source )
 		{
 			Debug.Log( $"SetNextStoryMission()::{customMissionID}" );
 			try
@@ -276,17 +276,31 @@ namespace Saga
 					{
 						if ( campaignStructure[index].missionType == MissionType.Story )
 						{
-							var m = campaignPackage.campaignMissionItems.Where( x => x.customMissionIdentifier == customMissionID ).FirstOr( null );
-							if ( m != null )
+							if ( source == MissionSource.Embedded )
 							{
-								Debug.Log( $"campaignStructure with Index={index} changed" );
-								campaignStructure[index].missionSource = MissionSource.Embedded;
-								campaignStructure[index].missionID = m.missionGUID.ToString();
-								campaignStructure[index].projectItem.Title = m.missionName;
-								campaignStructure[index].projectItem.missionGUID = m.missionGUID.ToString();
+								var m = campaignPackage.campaignMissionItems.Where( x => x.customMissionIdentifier == customMissionID ).FirstOr( null );
+								if ( m != null )
+								{
+									Debug.Log( $"campaignStructure with Index={index} changed" );
+									campaignStructure[index].missionSource = MissionSource.Embedded;
+									campaignStructure[index].missionID = m.missionGUID.ToString();
+									campaignStructure[index].projectItem.Title = m.missionName;
+									campaignStructure[index].projectItem.missionGUID = m.missionGUID.ToString();
+								}
+								else
+									Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find Mission with customMissionIdentifier={customMissionID}" );
 							}
-							else
-								Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find Mission with customMissionIdentifier={customMissionID}" );
+							else//official Mission
+							{
+								var m = DataStore.GetMissionCard( customMissionID );
+								if ( m != null )
+								{
+									Debug.Log( $"campaignStructure with Index={index} changed" );
+									campaignStructure[index].missionSource = MissionSource.Official;
+									campaignStructure[index].expansionCode = Utils.ParseExpansionName( customMissionID );
+									campaignStructure[index].missionID = customMissionID;
+								}
+							}
 						}
 					}
 				}

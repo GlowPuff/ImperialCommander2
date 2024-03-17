@@ -150,8 +150,13 @@ namespace Saga
 
 			try
 			{
+				if ( !missionID.Contains( ' ' ) )
+					missionID = Utils.AddSpaceToMissionID( missionID );
+
 				string[] resName = missionID.Split( ' ' );
-				string mText = Resources.Load<TextAsset>( $"SagaMissions/{resName[0]}/{resName[0]}{resName[1]}" ).text;
+				string mText = "";
+
+				mText = Resources.Load<TextAsset>( $"SagaMissions/{resName[0]}/{resName[0]}{resName[1]}" ).text;
 
 				var m = JsonConvert.DeserializeObject<Mission>( mText );
 				stringified = mText;

@@ -188,6 +188,34 @@ namespace Saga
 		}
 
 		/// <summary>
+		/// Parse the expansion out of a Mission ID, ie: Core6 would return Core
+		/// </summary>
+		public static string ParseExpansionName( string missionID )
+		{
+			string exp = "";
+			foreach ( char c in missionID )
+			{
+				if ( !int.TryParse( c.ToString(), out int n ) )
+					exp += c;
+			}
+			return exp[0].ToString().ToUpper() + exp.Substring( 1 );
+		}
+
+		public static string AddSpaceToMissionID( string missionID )
+		{
+			string exp = "";
+			string num = "";
+			foreach ( char c in missionID )
+			{
+				if ( !int.TryParse( c.ToString(), out int n ) )
+					exp += c;
+				else
+					num += c;
+			}
+			return exp[0].ToString().ToUpper() + exp.Substring( 1 ) + " " + num;
+		}
+
+		/// <summary>
 		/// Always returns <see langword="true"/>
 		/// </summary>
 		//public static bool AssetExists( object key )

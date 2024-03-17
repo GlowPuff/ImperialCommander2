@@ -816,9 +816,9 @@ namespace Saga
 			{
 				Debug.Log( $"SagaEventManager()::PROCESSING SetNextMission: Mission ID: [{snm.missionID}], Custom Mission ID: [{snm.customMissionID}]" );
 				if ( snm.missionID == "Custom" )
-					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.customMissionID );
+					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.customMissionID, MissionSource.Embedded );
 				else
-					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.missionID );
+					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.missionID, MissionSource.Official );
 				RunningCampaign.sagaCampaign.SaveCampaignState();
 			}
 			else

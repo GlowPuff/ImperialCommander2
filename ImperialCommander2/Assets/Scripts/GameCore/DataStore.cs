@@ -1019,6 +1019,9 @@ public static class DataStore
 		return validEnemy;
 	}
 
+	/// <summary>
+	/// 'id' is case insensitive
+	/// </summary>
 	public static MissionCard GetMissionCard( string id )
 	{
 		if ( id != null && id != "Custom" )
