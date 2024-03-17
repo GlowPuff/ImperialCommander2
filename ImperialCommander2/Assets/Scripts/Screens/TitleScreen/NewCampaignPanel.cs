@@ -131,6 +131,7 @@ namespace Saga
 			customToggle.interactable = true;
 			importCampaignBtn.text = DataStore.uiLanguage.sagaUISetup.importBtn;
 			importFuncDoRemove = false;
+			selectedCampaignPackage = null;
 		}
 
 		public void Close( bool doCallback = true )
