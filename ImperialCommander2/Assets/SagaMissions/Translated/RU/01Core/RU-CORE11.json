@@ -1,9 +1,8 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "00 - Official Missions\\Translated\\Ru\\01Core\\CORE11-Under Siege.json",
-  "fileVersion": "19",
-  "saveDate": "1.1.2023",
-  "timeTicks": 638081972115133536,
+  "fileVersion": "21",
+  "saveDate": "3.10.2024",
+  "timeTicks": 638456961055959514,
   "languageID": "Russian (RU)",
   "missionProperties": {
     "missionName": "В осаде",
@@ -50,9 +49,10 @@
       "DG065",
       "DG066",
       "DG067"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "CORE11-Under Siege.json",
+  "fileName": "RU-CORE11.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -60,7 +60,7 @@
       "invisibleUntilActivated": false,
       "triggers": [
         {
-          "name": "none (Section)",
+          "name": "None (Section)",
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
           "useReset": false,
@@ -73,7 +73,7 @@
         {
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
-          "name": "none (Section)",
+          "name": "None (Section)",
           "eventText": "",
           "allyDefeated": "A001",
           "heroWounded": "H1",
@@ -429,7 +429,7 @@
   ],
   "globalTriggers": [
     {
-      "name": "none (Global)",
+      "name": "None (Global)",
       "GUID": "00000000-0000-0000-0000-000000000000",
       "isGlobal": true,
       "useReset": false,
@@ -451,7 +451,7 @@
     {
       "GUID": "00000000-0000-0000-0000-000000000000",
       "isGlobal": true,
-      "name": "none (Global)",
+      "name": "None (Global)",
       "eventText": "",
       "allyDefeated": "A001",
       "heroWounded": "H1",
@@ -716,6 +716,7 @@
         {
           "groupsToAdd": [
             {
+              "characterType": 0,
               "tier": 1,
               "faction": "Imperial",
               "priority": 1,
@@ -729,14 +730,14 @@
               "isElite": false,
               "subname": "",
               "health": 3,
-              "speed": 0,
+              "speed": 4,
               "traits": [
                 "Leader"
               ],
               "surges": [
-                "{B}: +2 к точности",
-                "{B}: +1{H}",
-                "{B}: Концентрация"
+                "{B}: +2 Accuracy",
+                "{B}: +1 {H}",
+                "{B}: Focus"
               ],
               "keywords": [],
               "abilities": [],
@@ -752,10 +753,13 @@
               "groupTraits": [
                 1
               ],
+              "mugShotPath": null,
+              "deploymentOutlineColor": "Blue",
               "name": "Imperial Officer",
               "id": "DG005"
             },
             {
+              "characterType": 0,
               "tier": 1,
               "faction": "Imperial",
               "priority": 1,
@@ -765,19 +769,19 @@
               "fame": 5,
               "reimb": 3,
               "expansion": "Core",
-              "ignored": "Приказ на уничтожение, Ложись",
+              "ignored": "Executive Order, Cower",
               "isElite": true,
               "subname": "",
               "health": 5,
-              "speed": 0,
+              "speed": 4,
               "traits": [
-                "Командир"
+                "Leader"
               ],
               "surges": [
-                "{B}: +3 к точности",
-                "{B}: Оглушение",
-                "{B}: Концентрация",
-                "{B}: +1{H}"
+                "{B}: +3 Accuracy",
+                "{B}: Stun",
+                "{B}: Focus ",
+                "{B}: +1 {H}"
               ],
               "keywords": [],
               "abilities": [],
@@ -793,6 +797,8 @@
               "groupTraits": [
                 1
               ],
+              "mugShotPath": null,
+              "deploymentOutlineColor": "Blue",
               "name": "Imperial Officer (Elite)",
               "id": "DG006"
             }
@@ -2554,7 +2560,7 @@
       "entityProperties": {
         "name": "Door West",
         "isActive": false,
-        "theText": "Прочная дверь ведет вглубь комплекса, но она не сможет вечно удерживать имперцев снаружи.\r\n\r\n{-} Дверь заперта. Имперская фигурка может атаковать её (здоровье: 6, защита: 1 чёрный кубик).\r\n{-} Дверь рядом с повстанческой фигуркой не мешает её движению и не перекрывает поле зрения.",
+        "theText": "Прочная дверь ведёт вглубь комплекса, но она не сможет вечно удерживать имперцев снаружи.\r\n\r\n{-} Дверь заперта. Имперская фигурка может атаковать её (здоровье: 6, защита: 1 чёрный кубик).\r\n{-} Дверь рядом с повстанческой фигуркой не мешает её движению и не перекрывает поле зрения.",
         "entityColor": null,
         "buttonActions": [
           {
@@ -2575,7 +2581,7 @@
       "entityProperties": {
         "name": "Door South",
         "isActive": false,
-        "theText": "Прочная дверь ведет вглубь комплекса, но она не сможет вечно удерживать имперцев снаружи.\r\n\r\n{-} Дверь заперта. Имперская фигурка может атаковать её (здоровье: 6, защита: 1 чёрный кубик).\r\n{-} Дверь рядом с повстанческой фигуркой не мешает её движению и не перекрывает поле зрения.",
+        "theText": "Прочная дверь ведёт вглубь комплекса, но она не сможет вечно удерживать имперцев снаружи.\r\n\r\n{-} Дверь заперта. Имперская фигурка может атаковать её (здоровье: 6, защита: 1 чёрный кубик).\r\n{-} Дверь рядом с повстанческой фигуркой не мешает её движению и не перекрывает поле зрения.",
         "entityColor": null,
         "buttonActions": [
           {
@@ -2855,5 +2861,6 @@
       ]
     }
   ],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

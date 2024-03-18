@@ -1,9 +1,8 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "00 - Official Missions\\Translated\\Ru\\01Core\\CORE10-The Source.json",
-  "fileVersion": "19",
-  "saveDate": "12.31.2022",
-  "timeTicks": 638080499088151066,
+  "fileVersion": "21",
+  "saveDate": "3.10.2024",
+  "timeTicks": 638456956974034711,
   "languageID": "Russian (RU)",
   "missionProperties": {
     "missionName": "Источник",
@@ -12,7 +11,7 @@
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "Найдите терминал.",
-    "additionalMissionInfo": null,
+    "additionalMissionInfo": "",
     "missionID": "Core 10",
     "missionInfo": "{-} <color=\"red\">Имперский офицер</color> пленён и считается нейтральной фигуркой.\r\n{-} Двери заперты.\r\n{-} Повстанческая фигурка может взаимодействовать с пленным офицером, чтобы:\r\n⯈ Герой и пленный офицер передвинулись на 2 клетки.\r\n⯈ Открыть дверь на клетке рядом с офицером.\r\n{-} Если в пределах 3 клеток от пленного офицера нет здоровых фигурок повстанцев, имперская фигурка может освободить его при соответствующей инструкции. Если это случится, нажмите на выделенную клетку и выберите \"Офицер освобожден\".\r\n{-} Задание продолжится, когда терминал будет обнаружен.\r\n{-} Повстанцы проиграют, если пленный офицер будет освобождён, в конце раунда 8 или когда все герои ранены.",
     "optionalDeployment": false,
@@ -54,9 +53,10 @@
       "DG045",
       "DG014",
       "DG046"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "CORE10-The Source.json",
+  "fileName": "RU-CORE10.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -64,7 +64,7 @@
       "invisibleUntilActivated": false,
       "triggers": [
         {
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
           "useReset": false,
@@ -77,7 +77,7 @@
         {
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "eventText": "",
           "allyDefeated": "A001",
           "heroWounded": "H1",
@@ -151,7 +151,7 @@
       "invisibleUntilActivated": true,
       "triggers": [
         {
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
           "useReset": false,
@@ -164,7 +164,7 @@
         {
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "eventText": "",
           "allyDefeated": "A001",
           "heroWounded": "H1",
@@ -238,7 +238,7 @@
       "invisibleUntilActivated": true,
       "triggers": [
         {
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
           "useReset": false,
@@ -251,7 +251,7 @@
         {
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "eventText": "",
           "allyDefeated": "A001",
           "heroWounded": "H1",
@@ -363,7 +363,7 @@
       "invisibleUntilActivated": true,
       "triggers": [
         {
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
           "useReset": false,
@@ -376,7 +376,7 @@
         {
           "GUID": "00000000-0000-0000-0000-000000000000",
           "isGlobal": false,
-          "name": "нет (Section)",
+          "name": "None (Section)",
           "eventText": "",
           "allyDefeated": "A001",
           "heroWounded": "H1",
@@ -580,7 +580,7 @@
   ],
   "globalTriggers": [
     {
-      "name": "нет (Global)",
+      "name": "None (Global)",
       "GUID": "00000000-0000-0000-0000-000000000000",
       "isGlobal": true,
       "useReset": false,
@@ -629,7 +629,7 @@
     {
       "GUID": "00000000-0000-0000-0000-000000000000",
       "isGlobal": true,
-      "name": "нет (Global)",
+      "name": "None (Global)",
       "eventText": "",
       "allyDefeated": "A001",
       "heroWounded": "H1",
@@ -1713,6 +1713,13 @@
           "GUID": "8a868e5f-e12b-4102-849b-3fc9f032bcb1",
           "eventActionType": 6,
           "displayName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "theText": "Защитите терминал.",
+          "longText": null,
+          "GUID": "dc1ceafc-63af-4f0e-b5cd-6a5f78b0fde8",
+          "eventActionType": 2,
+          "displayName": "Change Objective"
         }
       ]
     },
@@ -2939,5 +2946,6 @@
       ]
     }
   ],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

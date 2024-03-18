@@ -1,9 +1,8 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "00 - Official Missions\\Translated\\Ru\\02Twin\\TWIN5-Fire in the Sky.json",
-  "fileVersion": "19",
-  "saveDate": "1.8.2023",
-  "timeTicks": 638087884490495173,
+  "fileVersion": "21",
+  "saveDate": "3.6.2024",
+  "timeTicks": 638453570516868082,
   "languageID": "Russian (RU)",
   "missionProperties": {
     "missionName": "Огонь в небе",
@@ -12,7 +11,7 @@
     "fixedAlly": "A005",
     "bannedAlly": "A001",
     "startingObjective": "Откройте двери.",
-    "additionalMissionInfo": null,
+    "additionalMissionInfo": "",
     "missionID": "Twin 5",
     "missionInfo": "{-} Когда герой должен отступить, вместо этого он становится недееспособным. Когда такой герой активируется, он получает только 1 действие и может потратить его только на движение.\r\n{-} Двери заперты. Герой может взаимодействовать с зелёным терминалом ({I}), чтобы открыть двери, ведущие на корабль.\r\n{-} Задание продолжится, когда двери ведущие на корабль будут открыты.\r\n{-} Повстанцы проиграют в конце раунда 9 или когда все герои будут ранены.",
     "optionalDeployment": false,
@@ -57,9 +56,10 @@
       "DG018",
       "DG060",
       "DG061"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "TWIN5-Fire in the Sky.json",
+  "fileName": "RU-TWIN5.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -886,6 +886,24 @@
                 "theText": "Эта дверь ведёт вглубь звёздного разрушителя.\r\n\r\n{-} Двери заперты. Герой может взаимодействовать с зелёным терминалом ({I}), чтобы открыть двери, ведущие на корабль.\r\n",
                 "entityColor": null,
                 "buttonActions": []
+              }
+            },
+            {
+              "sourceGUID": "fb96923a-22d2-43d3-b3c1-2632fcaaf6c3",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Green Terminal",
+                "isActive": false,
+                "theText": "Настенный терминал в углу управляет дверными замками.\r\n\r\n{-} Герой может взаимодействовать с зелёным терминалом ({I}), чтобы попытаться открыть двери, ведущие вглубь корабля.",
+                "entityColor": "Green",
+                "buttonActions": [
+                  {
+                    "buttonText": "{A} Взломать",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "a58aaa0b-889c-4f0d-a670-47c07812a51e"
+                  }
+                ]
               }
             }
           ],
@@ -2285,5 +2303,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }

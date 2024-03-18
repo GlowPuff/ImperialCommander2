@@ -1,9 +1,8 @@
 {
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
-  "relativePath": "00 - Official Missions\\Translated\\Ru\\01Core\\CORE20-Loose Cannon.json",
-  "fileVersion": "19",
-  "saveDate": "1.4.2023",
-  "timeTicks": 638083966823946973,
+  "fileVersion": "21",
+  "saveDate": "3.10.2024",
+  "timeTicks": 638457036863341295,
   "languageID": "Russian (RU)",
   "missionProperties": {
     "missionName": "Сорванная башня",
@@ -12,7 +11,7 @@
     "fixedAlly": "A001",
     "bannedAlly": "A001",
     "startingObjective": "Победите всех имперцев.",
-    "additionalMissionInfo": null,
+    "additionalMissionInfo": "",
     "missionID": "Core 20",
     "missionInfo": "{-} <color=\"red\">AT-ST</color> — повстанческая фигурка под контролем Мака. Когда Мак активируется, подготовьте и активируйте <color=\"red\">AT-ST</color>. Фигурка  Мака не дислоцируется и не может быть активирована. <color=\"red\">AT-ST</color> получает дополнительное здоровье, равное значению уровня угрозы. <color=\"red\">AT-ST</color> может ступать на клетки ангара и занимать их. Когда <color=\"red\">AT-ST</color> побеждён, нажмите на жетон имперского задания и выберите \"AT-ST уничтожен\".\r\n{-} Любые атаки нацеленные на Мака, пока его фигурки нет на поле, нацелены на <color=\"red\">AT-ST</color>.\r\n{-} Стена между ангаром (тайл 19A) и испытательным полигоном (тайл 2B) не мешает движению и не перекрывает поле зрения.\r\n{-} Повстанцы победят, когда все имперские фигурки будут побеждены.\r\n{-} Повстанцы проигрывают в конце раунда 7 или когда все герои ранены.",
     "optionalDeployment": false,
@@ -25,7 +24,7 @@
     "priorityTargetType": 3,
     "specificAlly": "A001",
     "specificHero": "H1",
-    "priorityOther": "AT-ST",
+    "priorityOther": "the AT-ST",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
     "missionType": 1,
     "changeRepositionOverride": null,
@@ -46,9 +45,10 @@
       "DG066",
       "DG067",
       "DG014"
-    ]
+    ],
+    "multipleBannedAllies": []
   },
-  "fileName": "CORE20-Loose Cannon.json",
+  "fileName": "RU-CORE20.json",
   "mapSections": [
     {
       "name": "Start Section",
@@ -800,18 +800,23 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "theText": "<color=\"red\">Элитный гвардеец</color> имеет 7 или более {H}?",
+          "theText": "Выберите подходящий вариант.\r\n\r\n<b>1:</b> <color=\"red\">Элитный гвардеец</color> на поле и имеет 7 или более {H}.\r\n<b>2:</b> <color=\"red\">Элитный гвардеец</color> на поле и имеет менее 7{H}.\r\n<b>3:</b> <color=\"red\">Элитный гвардеец</color> не находится на поле.",
           "includeCancel": false,
           "buttonList": [
             {
-              "buttonText": "Да",
+              "buttonText": "1",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "41fb0855-8d76-4813-a5c8-058aab4cf96a"
             },
             {
-              "buttonText": "Нет",
+              "buttonText": "2",
               "triggerGUID": "00000000-0000-0000-0000-000000000000",
               "eventGUID": "e5d6762c-aec9-4d1d-95ec-dc70a7b5cbb2"
+            },
+            {
+              "buttonText": "3",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "ab34be27-7799-41d2-aa74-75f96f09362e"
             }
           ],
           "GUID": "b1cc8da4-9a18-443e-82b8-bc863e98f867",
@@ -861,7 +866,7 @@
               "entityProperties": {
                 "name": "AT-ST Token",
                 "isActive": false,
-                "theText": "Когда <color=\"red\">AT-ST</color> побеждён, нажмите \"AT-ST уничтожен\".",
+                "theText": "Когда <color=\"red\">AT-ST</color> будет уничтожен, нажмите \"AT-ST уничтожен\".",
                 "entityColor": "Blue",
                 "buttonActions": [
                   {
@@ -1075,6 +1080,35 @@
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
+    },
+    {
+      "GUID": "ab34be27-7799-41d2-aa74-75f96f09362e",
+      "isGlobal": true,
+      "name": "Advantage 3",
+      "eventText": "Две имперские фигурки с наибольшей стоимостью концентрируются.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "useAnyHeroDefeated": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": []
     }
   ],
   "mapEntities": [
@@ -1194,7 +1228,7 @@
       "entityProperties": {
         "name": "AT-ST Token",
         "isActive": true,
-        "theText": "Когда <color=\"red\">AT-ST</color> побеждён, нажмите \"AT-ST уничтожен\".",
+        "theText": "Когда <color=\"red\">AT-ST</color> будет уничтожен, нажмите \"AT-ST уничтожен\".",
         "entityColor": "Blue",
         "buttonActions": [
           {
@@ -1772,5 +1806,6 @@
     }
   ],
   "eventGroups": [],
-  "entityGroups": []
+  "entityGroups": [],
+  "customCharacters": []
 }
