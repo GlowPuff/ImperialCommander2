@@ -370,7 +370,7 @@ public static class DataStore
 							Utils.LogTranslationError( $"LoadUILanguage()::Found missing UI translation [{Language}]: {field.Name}" );
 					}
 				}
-				catch ( Exception e ) {/* Debug.Log( $"{prop.Name}, {e.Message}" );*/ }
+				catch ( Exception ) {/* Debug.Log( $"{prop.Name}, {e.Message}" );*/ }
 			}
 
 			return englishObject;

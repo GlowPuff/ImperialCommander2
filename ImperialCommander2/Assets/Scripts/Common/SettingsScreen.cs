@@ -11,7 +11,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle, roundLimitToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle, roundLimitToggleOn, roundLimitToggleOff, roundLimitToggleDangerous;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -67,7 +67,9 @@ public class SettingsScreen : MonoBehaviour
 		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
 		zoomToggle.isOn = PlayerPrefs.GetInt( "zoombuttons" ) == 1;
 		viewToggle.isOn = PlayerPrefs.GetInt( "viewToggle" ) == 1;
-		roundLimitToggle.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 1;
+		roundLimitToggleOn.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 1;//0=off, 1=on, 2=dangerous
+		roundLimitToggleOff.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 0;//0=off, 1=on, 2=dangerous
+		roundLimitToggleDangerous.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 2;//0=off, 1=on, 2=dangerous
 		toggleBusy = false;
 
 		//set the translated UI strings
@@ -163,9 +165,17 @@ public class SettingsScreen : MonoBehaviour
 				c.CameraViewToggle( t.isOn ? CameraView.TopDown : CameraView.Normal );
 			}
 		}
-		else if ( t.name.ToLower() == "round limit toggle" )
+		else if ( t.name.ToLower() == "round limit on" )
 		{
-			PlayerPrefs.SetInt( "roundLimitToggle", t.isOn ? 1 : 0 );
+			PlayerPrefs.SetInt( "roundLimitToggle", 1 );
+		}
+		else if ( t.name.ToLower() == "round limit off" )
+		{
+			PlayerPrefs.SetInt( "roundLimitToggle", 0 );
+		}
+		else if ( t.name.ToLower() == "round limit dangerous" )
+		{
+			PlayerPrefs.SetInt( "roundLimitToggle", 2 );
 		}
 	}
 

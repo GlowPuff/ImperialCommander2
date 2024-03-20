@@ -18,7 +18,7 @@ public class UILanguage
 
 public class UISettings
 {
-	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok, quickClose, ambient, zoomButtons, topdownView, roundLimit;
+	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok, quickClose, ambient, zoomButtons, topdownView, roundLimitOn, roundLimitOff, roundLimitDangerous;
 }
 
 public class UITitle
