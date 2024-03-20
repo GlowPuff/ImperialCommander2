@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -253,7 +252,9 @@ namespace Saga
 				//imported campaign name is stored into 'bonusText'
 				//package GUID is stored into 'expansionText'
 				Mission m = FileManager.LoadEmbeddedMission( structure.packageGUID.ToString(), structure.projectItem.missionGUID, out DataStore.sagaSessionData.missionStringified );
+
 				DataStore.mission = m;
+
 				if ( m != null )
 				{
 					var ign = m.missionProperties.bannedGroups.Select( x => { return DataStore.deploymentCards.GetDeploymentCard( x ); } );
@@ -322,18 +323,21 @@ namespace Saga
 			//set text based on custom or built-in mission
 			if ( structure.missionSource == MissionSource.Custom )
 			{
+				setupOptions.projectItem.pickerMode = PickerMode.Custom;
 				missionPicker.pickerMode = PickerMode.Custom;
 				descriptionTextBox.gameObject.SetActive( true );
 				viewMissionCardButton.gameObject.SetActive( false );
 			}
 			else if ( structure.missionSource == MissionSource.Official )
 			{
+				setupOptions.projectItem.pickerMode = PickerMode.BuiltIn;
 				missionPicker.pickerMode = PickerMode.BuiltIn;
 				descriptionTextBox.gameObject.SetActive( false );
 				viewMissionCardButton.gameObject.SetActive( true );
 			}
 			else if ( structure.missionSource == MissionSource.Embedded )//from a custom campaign
 			{
+				setupOptions.projectItem.pickerMode = PickerMode.Embedded;
 				missionPicker.pickerMode = PickerMode.Embedded;
 				descriptionTextBox.gameObject.SetActive( false );
 				viewMissionCardButton.gameObject.SetActive( false );
@@ -353,79 +357,58 @@ namespace Saga
 			missionPicker.isBusy = true;
 
 			//load/validate the mission
-			if ( missionPicker.pickerMode == PickerMode.Custom )
+			if ( missionPicker.pickerMode == PickerMode.Custom )//custom mission
 			{
 				DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename, out DataStore.sagaSessionData.missionStringified );
 				if ( DataStore.mission != null )
 				{
+					//set the Mission translation, if there is one
+					//var translation = FileManager.GetCustomMissionTranslation( setupOptions.projectItem.fullPathWithFilename );
+					////automatically skips if it's null
+					//TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
+
 					Warp();
 				}
 			}
-			else if ( missionPicker.pickerMode == PickerMode.Embedded )
+			else if ( missionPicker.pickerMode == PickerMode.Embedded )//embedded inside custom campaign package
 			{
 				//mission is already loaded into DataStore.mission and stringified
 				if ( DataStore.mission != null )
 				{
+					//set the translation, if there is one, and inject it into the Mission data
+					//var translation = RunningCampaign.campaignStructure.GetTranslatedMission();
+					////automatically skips if it's null
+					//TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
+
 					Warp();
 				}
 			}
-			else if ( missionPicker.pickerMode == PickerMode.BuiltIn )
+			else if ( missionPicker.pickerMode == PickerMode.BuiltIn )//official mission
 			{
-				StartMission( setupOptions );
-			}
-		}
+				string stringified = "";
+				//load the Mission, set it into the DataStore
+				Mission m = FileManager.LoadMissionFromResource( setupOptions.projectItem.missionID, out stringified );
+				DataStore.mission = m;
 
-		/// <summary>
-		/// start an official Mission
-		/// </summary>
-		void StartMission( SagaSetupOptions options )//string missionID )//example: Core 1
-		{
-			string stringified = "";
-			//load the Mission, set it into the DataStore
-			Mission m = FileManager.LoadMissionFromResource( options.projectItem.missionID, out stringified );
-			DataStore.mission = m;
-
-			if ( DataStore.mission != null )
-			{
-				DataStore.sagaSessionData.missionStringified = stringified;
-
-				//load the translation for this Mission
-				if ( options.projectItem.hasTranslation )
+				if ( DataStore.mission != null )
 				{
-					try
-					{
-						string mText = Resources.Load<TextAsset>( $"Languages/{DataStore.Language}/Missions/{options.projectItem.expansion}/{options.projectItem.fileName}_{DataStore.Language}" )?.text;
+					DataStore.sagaSessionData.missionStringified = stringified;
 
-						TranslatedMission translation = null;
+					//if ( setupOptions.projectItem.hasTranslation )
+					//{
+					//	//set the translation, if there is one, and inject it into the Mission data
+					//	var translation = FileManager.GetOfficialMissionTranslation( setupOptions.projectItem );
+					//	//automatically skips if it's null
+					//	TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
+					//}
+					//else
+					//	Debug.Log( $"OnStartMission()::No Mission translation found for '{DataStore.mission.missionProperties.missionName}'\nPATH: Languages/{DataStore.Language}/Missions/{setupOptions.projectItem.expansion}/{setupOptions.projectItem.fileName}_{DataStore.Language}" );
 
-						if ( mText != null )
-						{
-							translation = JsonConvert.DeserializeObject<TranslatedMission>( mText );
-							if ( translation != null )
-							{
-								//set the translation and inject it into the Mission data
-								TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
-							}
-						}
-
-						if ( mText is null || translation is null )
-						{
-							//just log the warning, no need to throw an error and halt Mission start
-							Utils.LogWarning( $"StartMission()::Couldn't load translation\n{DataStore.Language}/Missions/{options.projectItem.expansion}/{options.projectItem.fileName}_{DataStore.Language}" );
-						}
-					}
-					catch ( Exception e )
-					{
-						errorPanel.Show( "StartMission()", $"Could not load mission:\n'{options.projectItem.missionID}'\n{e.Message}" );
-						return;
-					}
+					Warp();
 				}
-
-				//now load the Mission
-				Warp();
+				else
+					errorPanel.Show( "StartMission()", $"Could not load mission:\n'{setupOptions.projectItem.missionID}'" );
 			}
-			else
-				errorPanel.Show( "StartMission()", $"Could not load mission:\n'{options.projectItem.missionID}'" );
 		}
 
 		public void AddHero()

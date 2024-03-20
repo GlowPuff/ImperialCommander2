@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace Saga
@@ -18,6 +19,17 @@ namespace Saga
 		public byte[] iconBytesBuffer = new byte[0];
 
 		public CampaignPackage() { }
+
+		public CampaignTranslationItem GetTranslation( Guid missionGUID )
+		{
+			return campaignTranslationItems.Where( x => x.assignedMissionGUID == missionGUID ).FirstOr( null );
+		}
+
+		public TranslatedMission GetTranslatedMission( Guid missionGUID )
+		{
+			var item = campaignTranslationItems.Where( x => x.assignedMissionGUID == missionGUID ).FirstOr( null );
+			return item.translatedMission;
+		}
 	}
 
 	public class CampaignMissionItem
@@ -36,6 +48,8 @@ namespace Saga
 	{
 		public string fileName;
 		public bool isInstruction;
+		public Guid assignedMissionGUID;
+		public string assignedMissionName;
 
 		//store the actual translations for packing as individual files later, but don't serialize it here
 		[JsonIgnore]

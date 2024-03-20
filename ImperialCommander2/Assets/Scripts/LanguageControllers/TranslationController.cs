@@ -25,16 +25,19 @@ namespace Saga
 		public void SetMissionTranslation( TranslatedMission translation, Mission mission )
 		{
 			//inject it into the Mission
-			InjectTranslationIntoMission( translation, mission );
-
-			Debug.Log( $"SetMissionTranslation::Mission translation set: {translation.languageID}" );
+			if ( mission != null && translation != null )
+			{
+				InjectTranslationIntoMission( translation, mission );
+				Debug.Log( $"SetMissionTranslation::Mission translation set: {translation.languageID}" );
+			}
+			else
+				Debug.Log( "SetMissionTranslation()::WARNING::mission or translation is null" );
 		}
 
 		private void InjectTranslationIntoMission( TranslatedMission translation, Mission mission )
 		{
 			try
 			{
-
 				if ( translation != null )
 				{
 					Debug.Log( "InjectTranslation()::Injecting translation into loaded Mission..." );

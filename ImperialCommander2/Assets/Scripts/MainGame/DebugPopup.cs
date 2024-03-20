@@ -1,6 +1,10 @@
 ﻿using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class DebugPopup : MonoBehaviour
 {
 	public TextMeshProUGUI threat, modifier;
@@ -11,8 +15,8 @@ public class DebugPopup : MonoBehaviour
 	{
 		gameObject.SetActive( true );
 
-		threat.text = DataStore.uiLanguage.uiMainApp.debugThreatUC + ": " + DataStore.sessionData.gameVars.currentThreat.ToString();
-		modifier.text = DataStore.uiLanguage.uiMainApp.debugDepModUC + ": " + DataStore.sessionData.gameVars.deploymentModifier.ToString();
+		//threat.text = DataStore.uiLanguage.uiMainApp.debugThreatUC + ": " + DataStore.sessionData.gameVars.currentThreat.ToString();
+		//modifier.text = DataStore.uiLanguage.uiMainApp.debugDepModUC + ": " + DataStore.sessionData.gameVars.deploymentModifier.ToString();
 
 		foreach ( var cd in DataStore.deploymentHand )
 		{

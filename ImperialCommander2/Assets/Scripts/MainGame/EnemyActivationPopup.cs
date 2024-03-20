@@ -9,9 +9,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// Handles both Saga and Classic
-/// </summary>
 public class EnemyActivationPopup : MonoBehaviour
 {
 	public Image fader;
@@ -75,98 +72,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		else
 			ignoreText.text = "";
 
-		if ( DataStore.gameType == GameType.Saga )
-		{
-			ShowSaga( cd, difficulty );
-			return;
-		}
-
-		///classic mode below this line
-		cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
-		if ( cardInstruction == null )
-		{
-			Debug.Log( "cardInstruction is NULL: " + cd.id );
-			GlowEngine.FindUnityObject<QuickMessage>().Show( "EnemyActivationPopup: cardInstruction is NULL: " + cd.id );
-			return;
-		}
-
-		if ( !cardDescriptor.hasActivated )
-		{
-			//if multiple card instructions, pick 1
-			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
-			InstructionOption io = cardInstruction.content[rnd[0]];
-			List<string> instructions = io.instruction;
-
-			DeploymentCard potentialRebel = FindRebel();
-
-			if ( potentialRebel != null )
-			{
-				rebel1 = potentialRebel.name;
-				if ( DataStore.gameType == GameType.Saga )
-				{
-					//check for a target name override, id will be null if this is using "Other" as a target
-					//sending null as the id will return a null instead of the All override
-					var ovrd = DataStore.sagaSessionData.gameVars.GetDeploymentOverride( potentialRebel.id );
-					if ( ovrd != null )
-						rebel1 = ovrd.nameOverride;
-				}
-			}
-			else
-				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
-
-			//rebel1 has been set, now it's safe to parse instructions that use it for targeting
-			ParseInstructions( instructions );
-			ParseBonus( cd.id, difficulty );
-
-			//save this card's activation state
-			cardDescriptor.hasActivated = true;
-			cardDescriptor.rebelName = rebel1;
-			cardDescriptor.instructionOption = io;
-			cardDescriptor.bonusName = bonusNameText.text;
-			cardDescriptor.bonusText = bonusText.text;
-		}
-		else
-		{
-			//get new target
-			DeploymentCard potentialRebel = FindRebel();
-
-			//re-use target
-			if ( cardDescriptor.rebelName != null )
-				rebel1 = cardDescriptor.rebelName;
-			else if ( potentialRebel != null )
-				rebel1 = potentialRebel.name;
-			else
-				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
-
-			//re-use instructions
-			if ( cardDescriptor.instructionOption != null )
-			{
-				List<string> instructions = cardDescriptor.instructionOption.instruction;
-				//check for instruction override
-				ParseInstructions( instructions );
-			}
-			else//get new instructions for this activation
-			{
-				InstructionOption io = cardInstruction.content[GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count )[0]];
-				List<string> instructions = io.instruction;
-				//check for instruction override
-				ParseInstructions( instructions );
-				cardDescriptor.instructionOption = io;
-			}
-
-			if ( cardDescriptor.bonusName != null
-				&& cardDescriptor.bonusText != null )//re-use activation bonus
-			{
-				bonusNameText.text = cardDescriptor.bonusName;
-				bonusText.text = cardDescriptor.bonusText;
-			}
-			else//get a new bonus for this activation
-			{
-				ParseBonus( cd.id, difficulty );
-				cardDescriptor.bonusName = bonusNameText.text;
-				cardDescriptor.bonusText = bonusText.text;
-			}
-		}
+		ShowSaga( cd, difficulty );
 	}
 
 	void ShowSaga( DeploymentCard cd, Difficulty difficulty )

@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 //Handle toggling HEROES and ALLY ONLY
 public class HeroAllyToggleContainer : MonoBehaviour
 {
@@ -31,8 +35,8 @@ public class HeroAllyToggleContainer : MonoBehaviour
 	public void ResetUI( ChooserMode mode )
 	{
 		chooserMode = mode;
-		if ( mode == ChooserMode.Ally )//reset ally to none
-			DataStore.sessionData.selectedAlly = null;
+		//if ( mode == ChooserMode.Ally )//reset ally to none
+		//	DataStore.sessionData.selectedAlly = null;
 
 		selectedHero = null;
 		enemyNameText.text = "";
@@ -100,16 +104,16 @@ public class HeroAllyToggleContainer : MonoBehaviour
 
 	public void OnBack()
 	{
-		if ( chooserMode == ChooserMode.Hero )
-		{
-			if ( selectedHero != null && !DataStore.sessionData.selectedDeploymentCards[4].ContainsCard( selectedHero ) )
-				DataStore.sessionData.selectedDeploymentCards[4].Add( selectedHero );
-		}
-		else if ( chooserMode == ChooserMode.Ally )
-		{
-			if ( selectedHero != null )
-				DataStore.sessionData.selectedAlly = selectedHero;
-		}
+		//if ( chooserMode == ChooserMode.Hero )
+		//{
+		//	if ( selectedHero != null && !DataStore.sessionData.selectedDeploymentCards[4].ContainsCard( selectedHero ) )
+		//		DataStore.sessionData.selectedDeploymentCards[4].Add( selectedHero );
+		//}
+		//else if ( chooserMode == ChooserMode.Ally )
+		//{
+		//	if ( selectedHero != null )
+		//		DataStore.sessionData.selectedAlly = selectedHero;
+		//}
 		FindObjectOfType<GroupChooserScreen>().OnBack();
 	}
 

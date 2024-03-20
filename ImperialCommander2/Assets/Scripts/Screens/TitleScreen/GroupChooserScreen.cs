@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class GroupChooserScreen : MonoBehaviour
 {
 	public Image previewImage, fader;
@@ -68,7 +72,7 @@ public class GroupChooserScreen : MonoBehaviour
 			//update the expansion tabs so they display their card counts
 			for ( int i = 0; i < 8; i++ )
 			{
-				expansionController.UpdateText( i, DataStore.sessionData.selectedDeploymentCards[dataGroupIndex].Count( x => x.expansion.ToLower() == ((Expansion)i).ToString().ToLower() ) );
+				//expansionController.UpdateText( i, DataStore.sessionData.selectedDeploymentCards[dataGroupIndex].Count( x => x.expansion.ToLower() == ((Expansion)i).ToString().ToLower() ) );
 			}
 			enemyChooserPanel.SetActive( true );
 			groupToggleContainer.ResetUI( dataGroupIndex );

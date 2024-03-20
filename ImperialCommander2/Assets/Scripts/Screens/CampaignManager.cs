@@ -37,6 +37,7 @@ namespace Saga
 		public Sprite[] expansionSprites;
 		public HelpPanel helpPanel;
 		public GameObject campaignHelpMockup;
+		public ErrorPanel errorPanel;
 		//translatable UI
 		public CampaignLanguageController languageController;
 
@@ -45,6 +46,24 @@ namespace Saga
 		Sound sound;
 		int view = 1;//0=left, 1=right
 		float aspect;
+
+		void LogCallback( string condition, string stackTrace, LogType type )
+		{
+			//only capture errors, exceptions, asserts
+			if ( type != LogType.Warning && type != LogType.Log )
+				errorPanel.Show( $"An Error Occurred of Type <color=green>{type}</color>", $"<color=yellow>{condition}</color>\n\n{stackTrace.Replace( "(at", "\n\n(at" )}" );
+		}
+
+		private void OnDestroy()
+		{
+			Application.logMessageReceived -= LogCallback;
+		}
+
+		private void Awake()
+		{
+			//Exception handling for any Unity thrown exception, such as from asset management
+			Application.logMessageReceived += LogCallback;
+		}
 
 		void Start()
 		{
@@ -114,7 +133,7 @@ namespace Saga
 			if ( RunningCampaign.sagaCampaignGUID != null && RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				sagaCampaign = SagaCampaign.LoadCampaignState( RunningCampaign.sagaCampaignGUID );
-				sagaCampaign.FixExpansionCodes();
+				//sagaCampaign.FixExpansionCodes();
 			}
 			else//error or debugging, setup new test campaign
 			{
@@ -163,7 +182,7 @@ namespace Saga
 					}
 				}
 				else
-					Utils.LogError( $"CampaignManager::InitUI()::Campaign package is null, couldn't load its icon:\n{sagaCampaign.campaignImportedName}, {sagaCampaign.campaignPackage.GUID}" );
+					Utils.LogError( $"CampaignManager::InitUI()::The original Campaign Package is either missing or was manipulated, and no longer exists in its original form.\nCampaign Name: [{sagaCampaign.campaignImportedName}], GUID= {sagaCampaign.campaignPackage.GUID}" );
 			}
 
 			creditsWheel.ResetWheeler( sagaCampaign.credits );

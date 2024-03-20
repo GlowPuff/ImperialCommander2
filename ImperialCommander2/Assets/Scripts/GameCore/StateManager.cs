@@ -182,6 +182,7 @@ namespace Saga
 				}
 				DataStore.mission = JsonConvert.DeserializeObject<Mission>( json );
 
+
 				//deployment hand
 				path = Path.Combine( basePath, "deploymenthand.json" );
 				using ( StreamReader sr = new StreamReader( path ) )

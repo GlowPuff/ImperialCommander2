@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 //Handle toggling ENEMY GROUPS and VILLAINS ONLY
 public class GroupToggleContainer : MonoBehaviour
 {
@@ -45,16 +49,16 @@ public class GroupToggleContainer : MonoBehaviour
 			cardPrefab.gameObject.SetActive( false );
 
 
-		if ( buttonToggles[index].isOn )
-		{
-			DataStore.sessionData.selectedDeploymentCards[groupIndex].Add( enemyCards[index] );
-			cardPrefab.InitCard( enemyCards[index] );
-		}
-		else
-		{
-			DataStore.sessionData.selectedDeploymentCards[groupIndex].Remove( enemyCards[index] );
-			cardPrefab.gameObject.SetActive( false );
-		}
+		//if ( buttonToggles[index].isOn )
+		//{
+		//	DataStore.sessionData.selectedDeploymentCards[groupIndex].Add( enemyCards[index] );
+		//	cardPrefab.InitCard( enemyCards[index] );
+		//}
+		//else
+		//{
+		//	DataStore.sessionData.selectedDeploymentCards[groupIndex].Remove( enemyCards[index] );
+		//	cardPrefab.gameObject.SetActive( false );
+		//}
 
 		expansionController.UpdateText( (int)selectedExpansion, buttonToggles.Count( x => x.isOn ) );
 	}
@@ -87,15 +91,15 @@ public class GroupToggleContainer : MonoBehaviour
 		enemyCards = deploymentCards.Where( x => x.expansion == expansion ).ToList();
 		if ( expansion == "Other" )
 			enemyCards.Add( custom );
-		List<DeploymentCard> prevSelected = DataStore.sessionData.selectedDeploymentCards[groupIndex];
+		//List<DeploymentCard> prevSelected = DataStore.sessionData.selectedDeploymentCards[groupIndex];
 
 		for ( int i = 0; i < enemyCards.Count; i++ )
 		{
 			var child = transform.GetChild( i );
 			//switch on if previously selected
 			//do it while Toggle is INACTIVE so OnToggle code doesn't run
-			if ( prevSelected.ContainsCard( enemyCards[i] ) )
-				buttonToggles[i].isOn = true;
+			//if ( prevSelected.ContainsCard( enemyCards[i] ) )
+			//	buttonToggles[i].isOn = true;
 			child.gameObject.SetActive( true );//re-enable the Toggle
 
 			var id = int.Parse( enemyCards[i].id.Substring( 2 ).TrimStart( '0' ) );
@@ -143,8 +147,8 @@ public class GroupToggleContainer : MonoBehaviour
 		{
 			if ( groupIndex != i )
 			{
-				if ( DataStore.sessionData.selectedDeploymentCards[i].ContainsCard( cd ) )
-					found = true;
+				//if ( DataStore.sessionData.selectedDeploymentCards[i].ContainsCard( cd ) )
+				//	found = true;
 			}
 		}
 

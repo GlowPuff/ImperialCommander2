@@ -87,7 +87,7 @@ namespace Saga
 		public void FixExpansionCodes()
 		{
 			//Doesn't seem to be necessary anymore?
-			//Official campaigns containing "Other" missions retain their "Other" expansionCode just fine
+			//official campaigns containing "Other" missions retain their "Other" expansionCode just fine
 
 			//for ( int i = 0; i < campaignStructures.Count; i++ )
 			//{
@@ -246,9 +246,14 @@ namespace Saga
 
 		public string GetCampaignInfo()
 		{
-			if ( campaignType == CampaignType.Imported )
+			if ( campaignType == CampaignType.Imported )//custom campaign package
 			{
-				return campaignPackage.campaignInstructions;
+				//check if there's a translation first
+				string instructions = FileManager.LoadEmbeddedCampaignInstructions( campaignPackage.GUID );
+				if ( !string.IsNullOrEmpty( instructions ) )
+					return instructions;
+				else
+					return campaignPackage.campaignInstructions;
 			}
 			else
 			{

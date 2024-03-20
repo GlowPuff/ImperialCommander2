@@ -201,18 +201,29 @@ namespace Saga
 			return exp[0].ToString().ToUpper() + exp.Substring( 1 );
 		}
 
+		/// <summary>
+		/// Adds a space to a mission ID, ie: Core6 would return Core6
+		/// </summary>
 		public static string AddSpaceToMissionID( string missionID )
 		{
-			string exp = "";
+			string character = "";
 			string num = "";
 			foreach ( char c in missionID )
 			{
 				if ( !int.TryParse( c.ToString(), out int n ) )
-					exp += c;
+					character += c;
 				else
 					num += c;
 			}
-			return exp[0].ToString().ToUpper() + exp.Substring( 1 ) + " " + num;
+			return character[0].ToString().ToUpper() + character.Substring( 1 ) + " " + num;
+		}
+
+		/// <summary>
+		/// Returns the 2-letter language code from a language ID, ie: "Spanish (ES)" returns ES
+		/// </summary>
+		public static string LanguageID2Code( string languageID )
+		{
+			return languageID.Replace( "(", "" ).Replace( ")", "" ).Split( ' ' )[1];
 		}
 
 		/// <summary>

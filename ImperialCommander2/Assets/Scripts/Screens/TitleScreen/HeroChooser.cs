@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class HeroChooser : MonoBehaviour
 {
 	public Image fader;
@@ -35,7 +39,7 @@ public class HeroChooser : MonoBehaviour
 			tf.GetComponent<Toggle>().isOn = false;
 		}
 
-		selectedHeroes = DataStore.sessionData.MissionHeroes;
+		//selectedHeroes = DataStore.sessionData.MissionHeroes;
 		//Debug.Log( "SELECTED H" );
 		//foreach ( CardDescriptor cd in selectedHeroes )
 		//	Debug.Log( cd.name );
@@ -110,19 +114,19 @@ public class HeroChooser : MonoBehaviour
 	void UpdateInteractable()
 	{
 		//only 4 allowed
-		if ( DataStore.sessionData.MissionHeroes.Count == 4 )
-		{
-			foreach ( Transform tf in container )
-			{
-				if ( !tf.GetComponent<Toggle>().isOn )
-					tf.GetComponent<Toggle>().interactable = false;
-			}
-		}
-		else
-		{
-			foreach ( Transform tf in container )
-				tf.GetComponent<Toggle>().interactable = true;
-		}
+		//if ( DataStore.sessionData.MissionHeroes.Count == 4 )
+		//{
+		//	foreach ( Transform tf in container )
+		//	{
+		//		if ( !tf.GetComponent<Toggle>().isOn )
+		//			tf.GetComponent<Toggle>().interactable = false;
+		//	}
+		//}
+		//else
+		//{
+		//	foreach ( Transform tf in container )
+		//		tf.GetComponent<Toggle>().interactable = true;
+		//}
 	}
 
 	private void Update()

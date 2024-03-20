@@ -32,7 +32,7 @@ public static class DataStore
 			return deploymentCards.Concat( villainCards ).ToList();
 		}
 	}
-	public static SessionData sessionData;
+	//public static SessionData sessionData;
 	public static SagaSession sagaSessionData;
 	public static List<Expansion> ownedExpansions;
 	public static List<DeploymentCard>
@@ -77,6 +77,9 @@ public static class DataStore
 	};
 	public static int languageCode;
 	public static UILanguage uiLanguage;
+	/// <summary>
+	/// Returns the 2-letter language code, ie: De
+	/// </summary>
 	public static string Language { get { return languageCodeList[languageCode]; } }
 	/* Things affected by language
 	 * UI strings
@@ -232,15 +235,6 @@ public static class DataStore
 			PlayerPrefs.SetInt( "language", 0 );
 			PlayerPrefs.Save();
 		}
-	}
-
-	/// <summary>
-	/// Creates new SessionData, always called AFTER InitData
-	/// </summary>
-	public static void StartNewSession()
-	{
-		sessionData = new SessionData();
-		gameType = GameType.Classic;
 	}
 
 	/// <summary>

@@ -6,11 +6,9 @@ using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -87,7 +85,8 @@ namespace Saga
 
 			//make sure we bootstrap a debug session ONLY within Unity
 			if ( isDebugMode && Application.isEditor )
-				bootstrapDEBUG();
+				bootstrapDEBUG( "CORE6" );//optionally pass a string of the official Mission ID, such as CORE1
+
 			//restoreDEBUG();//test restore session, comment this out for production build
 #endif
 
@@ -194,6 +193,10 @@ namespace Saga
 			DataStore.sagaSessionData.gameVars.isNewGame = false;
 		}
 
+		/// <summary>
+		/// Start a debug session
+		/// </summary>
+		/// <param name="missionCode">If empty, defaults to "test.json" in the Documents/ImperialCommander folder. If specified, it's a Mission ID, such as CORE1.</param>
 		void bootstrapDEBUG( string missionCode = "" )
 		{
 			//DEBUG MODE REQUIRES A DUMMY "test.json" MISSION TO ALREADY BE IN THE "Documents/ImperialCommander" FOLDER
@@ -222,7 +225,7 @@ namespace Saga
 			}
 			else
 			{
-				Debug.Log( "BOOTSTRAP OFFICIAL MISSION" + missionCode );
+				Debug.Log( "BOOTSTRAP OFFICIAL MISSION: " + missionCode );
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
 					projectItem = new ProjectItem()
@@ -233,18 +236,12 @@ namespace Saga
 					threatLevel = 3,
 					useAdaptiveDifficulty = true,
 				} );
-				AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( missionCode );
-				loadHandle.Completed += ( x ) =>
-				{
-					if ( x.Status == AsyncOperationStatus.Succeeded )
-					{
-						DataStore.sagaSessionData.missionStringified = x.Result.text;
-						DataStore.mission = FileManager.LoadMissionFromString( x.Result.text );
-						if ( DataStore.mission == null )
-							errorPanel.Show( "StartMission()", $"Could not load mission:\n'{missionCode}'" );
-					}
-					Addressables.Release( loadHandle );
-				};
+
+				//load the mission
+				DataStore.mission = FileManager.LoadMissionFromResource( missionCode, out string missionStringified );
+				DataStore.sagaSessionData.missionStringified = missionStringified;
+				if ( DataStore.mission == null )
+					errorPanel.Show( "StartMission()", $"Could not load mission:\n'{missionCode}'" );
 			}
 
 			//DataStore.sagaSessionData.gameVars.pauseDeployment = true;
@@ -297,6 +294,9 @@ namespace Saga
 			{
 				if ( DataStore.mission == null )
 					return false;
+
+				//inject translation, if one exists
+				SetMissionTranslation();
 
 				//add embedded custom characters and associated data used within the mission to DataStore
 				DataStore.AddEmbeddedImportsToPools();
@@ -522,6 +522,9 @@ namespace Saga
 				return false;
 
 			Debug.Log( $"ContinueGame()::{DataStore.mission.fileName}" );
+
+			//inject translation, if one exists
+			SetMissionTranslation();
 
 			//skip the card and only add imported instructions and bonus effects (true)
 			//the actual global/embedded card data is already loaded from the State Manager
@@ -974,6 +977,38 @@ namespace Saga
 				roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\r\n{DataStore.sagaSessionData.gameVars.round} [<color=red>{DataStore.sagaSessionData.gameVars.roundLimit}</color>]";
 			else
 				roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\r\n{DataStore.sagaSessionData.gameVars.round}";
+		}
+
+		public void SetMissionTranslation()
+		{
+			Debug.Log( $"SetMissionTranslation()::Setting [{DataStore.sagaSessionData.setupOptions.projectItem.pickerMode}] translation..." );
+			//SetMissionTranslation() automatically skips if anything is null
+
+			TranslatedMission translation = null;
+
+			//if it's an official mission
+			if ( DataStore.sagaSessionData.setupOptions.projectItem.pickerMode == PickerMode.BuiltIn )
+			{
+				translation = FileManager.GetOfficialMissionTranslation( DataStore.sagaSessionData.setupOptions.projectItem );
+				TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
+			}
+			//if it's a campaign game
+			else if ( DataStore.sagaSessionData.setupOptions.projectItem.pickerMode == PickerMode.Embedded )
+			{
+				translation = RunningCampaign.campaignStructure.GetTranslatedMission();
+				TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
+			}
+			//custom mission
+			else
+			{
+				translation = FileManager.GetCustomMissionTranslation( DataStore.sagaSessionData.setupOptions.projectItem.fullPathWithFilename );
+				TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
+			}
+
+			if ( translation == null )
+				Debug.Log( $"SetMissionTranslation()::No translation found for Mission: '{DataStore.mission.missionProperties.missionName}' / [{DataStore.mission.missionProperties.missionID}]" );
+
+			Debug.Log( "SetMissionTranslation()::Finished setting translation" );
 		}
 
 		private void Update()

@@ -51,7 +51,7 @@ namespace Saga
 				var c = SagaCampaign.LoadCampaignState( selectedCampaign );
 				if ( c != null )
 				{
-					c.FixExpansionCodes();
+					//c.FixExpansionCodes();
 					FindObjectOfType<TitleController>().NavToCampaignScreen( c );
 				}
 				else

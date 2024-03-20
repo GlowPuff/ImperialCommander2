@@ -516,7 +516,7 @@ namespace Saga
 			}
 			catch ( Exception e )
 			{
-				Utils.LogError( "GetCampaignPackageList()::Could not create Custom Campaign List. Exception: " + e.Message );
+				Utils.LogWarning( "GetCampaignPackageList()::Could not create Custom Campaign List. Exception: " + e.Message );
 				return importedCampaigns;
 			}
 		}
@@ -547,6 +547,90 @@ namespace Saga
 			}
 
 			return null;
+		}
+
+		public static TranslatedMission LoadEmbeddedMissionTranslation( Guid packageGUID, string missionGUID )
+		{
+			if ( packageGUID == Guid.Empty || string.IsNullOrEmpty( missionGUID ) )
+				return null;
+			//do a full load of the package, including the missions
+			var packages = GetCampaignPackageList( false );
+			var p = packages.Where( x => x.GUID.ToString() == packageGUID.ToString() ).FirstOr( null );
+			if ( p != null )
+			{
+				return p.campaignTranslationItems.Where( x => x.assignedMissionGUID == Guid.Parse( missionGUID ) ).FirstOr( null )?.translatedMission;
+			}
+			return null;
+		}
+
+		public static string LoadEmbeddedCampaignInstructions( Guid packageGUID )
+		{
+			if ( packageGUID == Guid.Empty )
+				return null;
+			//do a full load of the package, including the missions
+			var packages = GetCampaignPackageList( false );
+			var p = packages.Where( x => x.GUID.ToString() == packageGUID.ToString() ).FirstOr( null );
+			if ( p != null )
+			{
+				return p.campaignTranslationItems.Where( x => x.isInstruction && x.fileName.ToLower().Contains( $"instructions_{DataStore.Language.ToLower()}" ) ).FirstOr( null )?.campaignInstructionTranslation;
+			}
+			return null;
+		}
+
+		public static TranslatedMission GetCustomMissionTranslation( string fullPathToMission )
+		{
+			//translated filename is expected to be "filename_LANGID.json", ie: JEDI_ES.json for a Mission filename of JEDI.json
+			TranslatedMission translation = null;
+
+			try
+			{
+				FileInfo file = new FileInfo( fullPathToMission );
+				string nameOnly = file.Name.Replace( ".json", "" );
+				string folder = file.Directory.FullName;
+				string translationPath = Path.Combine( folder, $"{nameOnly}_{DataStore.Language.ToUpper()}.json" );
+
+				if ( File.Exists( translationPath ) )
+				{
+					string json = File.ReadAllText( translationPath );
+					translation = JsonConvert.DeserializeObject<TranslatedMission>( json );
+					Debug.Log( $"GetCustomMissionTranslation()::Found translation for Custom Mission at '{translationPath}'" );
+					return translation;
+				}
+				else
+					Debug.Log( "GetCustomMissionTranslation()::No Custom Mission translation found" );
+			}
+			catch ( Exception e )
+			{
+				Utils.LogWarning( $"GetCustomMissionTranslation()::Error loading Custom Mission translation from '{fullPathToMission}'\n{e.Message}" );
+			}
+
+			return translation;
+		}
+
+		public static TranslatedMission GetOfficialMissionTranslation( ProjectItem projectItem )
+		{
+			TranslatedMission translation = null;
+
+			try
+			{
+				string mText = Resources.Load<TextAsset>( $"Languages/{DataStore.Language}/Missions/{projectItem.expansion}/{projectItem.fullPathWithFilename}_{DataStore.Language}" )?.text;
+
+				if ( mText != null )
+				{
+					translation = JsonConvert.DeserializeObject<TranslatedMission>( mText );
+					return translation;
+				}
+				else
+				{
+					Debug.Log( $"GetOfficialMissionTranslation()::No Mission translation found at:\nLanguages/{DataStore.Language}/Missions/{projectItem.expansion}/{projectItem.fullPathWithFilename}_{DataStore.Language}" );
+				}
+			}
+			catch ( Exception e )
+			{
+				Utils.LogWarning( $"GetOfficialMissionTranslation()::Error attempting to find and load a Mission translation for: '{projectItem.missionID}'\n{e.Message}" );
+			}
+
+			return translation;
 		}
 	}
 }

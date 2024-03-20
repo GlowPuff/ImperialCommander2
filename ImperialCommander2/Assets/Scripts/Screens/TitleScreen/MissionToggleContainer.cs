@@ -4,6 +4,10 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 //Handle toggling MISSIONS ONLY
 public class MissionToggleContainer : MonoBehaviour
 {
@@ -49,10 +53,10 @@ public class MissionToggleContainer : MonoBehaviour
 			{
 				//switch on if previously selected
 				//do it while Toggle is INACTIVE so OnToggle code doesn't run
-				if ( DataStore.sessionData.selectedMissionName.ToLower() == missionCards[i].name.ToLower() )
-				{
-					buttonToggles[i].isOn = true;
-				}
+				//if ( DataStore.sessionData.selectedMissionName.ToLower() == missionCards[i].name.ToLower() )
+				//{
+				//	buttonToggles[i].isOn = true;
+				//}
 
 				var child = transform.GetChild( i );
 				child.GetComponent<Toggle>().isOn = false;
@@ -72,17 +76,17 @@ public class MissionToggleContainer : MonoBehaviour
 
 		sound.PlaySound( FX.Click );
 
-		if ( buttonToggles[index].isOn )
-		{
-			DataStore.sessionData.selectedMissionID = missionCards[index].id;
-			DataStore.sessionData.selectedMissionName = missionCards[index].name;
-			DataStore.sessionData.selectedMissionExpansion = selectedExpansion;
-		}
-		else//if nothing selected, reset to core1, mission 1
-		{
-			DataStore.sessionData.selectedMissionID = "core1";
-			DataStore.sessionData.selectedMissionName = DataStore.missionCards["Core"][0].name;
-			DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
-		}
+		//if ( buttonToggles[index].isOn )
+		//{
+		//	DataStore.sessionData.selectedMissionID = missionCards[index].id;
+		//	DataStore.sessionData.selectedMissionName = missionCards[index].name;
+		//	DataStore.sessionData.selectedMissionExpansion = selectedExpansion;
+		//}
+		//else//if nothing selected, reset to core1, mission 1
+		//{
+		//	DataStore.sessionData.selectedMissionID = "core1";
+		//	DataStore.sessionData.selectedMissionName = DataStore.missionCards["Core"][0].name;
+		//	DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
+		//}
 	}
 }

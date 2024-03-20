@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using DG.Tweening;
@@ -203,20 +204,12 @@ public class TitleController : MonoBehaviour
 
 		buttonContainer.interactable = false;
 
-		if ( DataStore.gameType == GameType.Classic )
-		{
-			DataStore.StartNewSession();
-			newGameScreen.ActivateScreen();
-		}
-		else
-		{
-			soundController.FadeOutMusic();
-			FadeOut( 1 );
+		soundController.FadeOutMusic();
+		FadeOut( 1 );
 
-			float foo = 1;
-			DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
-			 SceneManager.LoadScene( "SagaSetup" ) );
-		}
+		float foo = 1;
+		DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+		 SceneManager.LoadScene( "SagaSetup" ) );
 	}
 
 	public void OnContinueSession()
@@ -224,55 +217,28 @@ public class TitleController : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 
-		if ( DataStore.gameType == GameType.Classic )
+		SagaSession session = LoadSagaSession( SessionMode.Saga );
+		if ( session != null )
 		{
-			SessionData session = LoadSession();
-			if ( session != null )
-			{
-				DataStore.sessionData = session;
+			DataStore.sagaSessionData = session;
+			DataStore.sagaSessionData.gameVars.isNewGame = false;
 
-				animator.SetBool( m_OpenParameterId, false );
-				animator.SetBool( expID, false );
-				titleText.FlipOut();
-				donateButton.SetActive( false );
-				docsButton.SetActive( false );
-				versionButton.SetActive( false );
-				buttonContainer.interactable = false;
-				soundController.FadeOutMusic();
-				FadeOut( 1 );
+			animator.SetBool( m_OpenParameterId, false );
+			animator.SetBool( expID, false );
+			titleText.FlipOut();
+			donateButton.SetActive( false );
+			docsButton.SetActive( false );
+			versionButton.SetActive( false );
+			buttonContainer.interactable = false;
+			soundController.FadeOutMusic();
+			FadeOut( 1 );
 
-				float foo = 1;
-				DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
-				 SceneManager.LoadScene( "Main" ) );
-			}
-			else
-				continueButton.interactable = false;
+			float foo = 1;
+			DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+			 SceneManager.LoadScene( "Warp" ) );
 		}
 		else
-		{
-			SagaSession session = LoadSagaSession( SessionMode.Saga );
-			if ( session != null )
-			{
-				DataStore.sagaSessionData = session;
-				DataStore.sagaSessionData.gameVars.isNewGame = false;
-
-				animator.SetBool( m_OpenParameterId, false );
-				animator.SetBool( expID, false );
-				titleText.FlipOut();
-				donateButton.SetActive( false );
-				docsButton.SetActive( false );
-				versionButton.SetActive( false );
-				buttonContainer.interactable = false;
-				soundController.FadeOutMusic();
-				FadeOut( 1 );
-
-				float foo = 1;
-				DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
-				 SceneManager.LoadScene( "Warp" ) );
-			}
-			else
-				continueButton.interactable = false;
-		}
+			continueButton.interactable = false;
 	}
 
 	public void StartTutorial()
@@ -443,31 +409,6 @@ public class TitleController : MonoBehaviour
 		figurePacksExp.text = uie.figurepacks;
 	}
 
-	private bool IsSessionValid()
-	{
-		string basePath = Path.Combine( FileManager.classicSessionPath, "sessiondata.json" );
-
-		if ( !File.Exists( basePath ) )
-			return false;
-
-		string json = "";
-		try
-		{
-			using ( StreamReader sr = new StreamReader( basePath ) )
-			{
-				json = sr.ReadToEnd();
-			}
-			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
-
-			return session.stateManagementVersion == 3;
-		}
-		catch ( Exception e )
-		{
-			Utils.LogError( "IsSessionValid()::" + e.Message );
-			return false;
-		}
-	}
-
 	private bool IsSagaSessionValid( SessionMode sessionMode )
 	{
 		string basePath = "";
@@ -489,41 +430,12 @@ public class TitleController : MonoBehaviour
 			}
 			SagaSession session = JsonConvert.DeserializeObject<SagaSession>( json );
 
-			return session.stateManagementVersion == 1;
+			return session.stateManagementVersion == 2;
 		}
 		catch ( Exception e )
 		{
 			Utils.LogError( "IsSagaSessionValid()::" + e.Message );
 			return false;
-		}
-	}
-
-	/// <summary>
-	/// Load session in Classic mode
-	/// </summary>
-	private SessionData LoadSession()
-	{
-		string basePath = Path.Combine( FileManager.classicSessionPath, "sessiondata.json" );
-
-		if ( !File.Exists( basePath ) )
-			return null;
-
-		string json = "";
-
-		try
-		{
-			using ( StreamReader sr = new StreamReader( basePath ) )
-			{
-				json = sr.ReadToEnd();
-			}
-			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
-
-			return session;
-		}
-		catch ( Exception e )
-		{
-			Utils.LogError( "LoadSession()::" + e.Message );
-			return null;
 		}
 	}
 
@@ -664,10 +576,14 @@ public class TitleController : MonoBehaviour
 			DataStore.sagaSessionData.gameVars.isNewGame = false;
 
 			var cs = SagaCampaign.LoadCampaignState( session.campaignGUID );
-			cs.FixExpansionCodes();
+			//cs.FixExpansionCodes();
 
 			RunningCampaign.sagaCampaignGUID = session.campaignGUID;
 			RunningCampaign.expansionCode = cs.campaignExpansionCode;
+			RunningCampaign.sagaCampaign = cs;
+			//campaignStructure will be null for any type other than Embedded, which is normal
+			//it's only used by Embedded missions to load their translation
+			RunningCampaign.campaignStructure = cs.campaignStructure.Where( x => x.missionID == DataStore.sagaSessionData.setupOptions.projectItem.missionGUID ).FirstOr( null );
 
 			animator.SetBool( m_OpenParameterId, false );
 			animator.SetBool( expID, false );
@@ -728,15 +644,6 @@ public class TitleController : MonoBehaviour
 			//check if saved state is valid
 			continueButton.interactable = IsSagaSessionValid( SessionMode.Saga );
 			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.sagaDescriptionUC;
-		}
-		else if ( classicToggle.isOn )
-		{
-			DataStore.gameType = GameType.Classic;
-			sagaClassicLayoutContainer.SetActive( true );
-			campaignContainer.SetActive( false );
-			//check if saved state is valid
-			continueButton.interactable = IsSessionValid();
-			panelDescriptionText.text = DataStore.uiLanguage.uiCampaign.classicDescriptionUC;
 		}
 		else if ( campaignToggle.isOn )
 		{

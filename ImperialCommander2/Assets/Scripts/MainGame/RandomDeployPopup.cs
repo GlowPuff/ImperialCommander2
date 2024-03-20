@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
 
 public class RandomDeployPopup : MonoBehaviour
 {
@@ -35,41 +37,41 @@ public class RandomDeployPopup : MonoBehaviour
 
 	public void OnConfirm()
 	{
-		int c = mWheelHandler.wheelValue;
-		DeploymentCard cd = null;
-		List<DeploymentCard> list = new List<DeploymentCard>();
-		do
-		{
-			var p = DataStore.deploymentCards
-				.OwnedPlusOther()
-				.MinusDeployed()
-				.MinusInDeploymentHand()
-				.MinusStarting()
-				.MinusReserved()
-				.MinusIgnored()
-				.FilterByFaction()
-				.Concat( DataStore.sessionData.EarnedVillains )
-				.Where( x => x.cost <= c && !list.ContainsCard( x ) )
-				.ToList();
-			if ( p.Count > 0 )
-			{
-				int[] rnd = GlowEngine.GenerateRandomNumbers( p.Count );
-				cd = p[rnd[0]];
-				list.Add( cd );
-				c -= cd.cost;
-			}
-			else
-				cd = null;
-		} while ( cd != null );
+		//int c = mWheelHandler.wheelValue;
+		//DeploymentCard cd = null;
+		//List<DeploymentCard> list = new List<DeploymentCard>();
+		//do
+		//{
+		//	var p = DataStore.deploymentCards
+		//		.OwnedPlusOther()
+		//		.MinusDeployed()
+		//		.MinusInDeploymentHand()
+		//		.MinusStarting()
+		//		.MinusReserved()
+		//		.MinusIgnored()
+		//		.FilterByFaction()
+		//		.Concat( DataStore.sessionData.EarnedVillains )
+		//		.Where( x => x.cost <= c && !list.ContainsCard( x ) )
+		//		.ToList();
+		//	if ( p.Count > 0 )
+		//	{
+		//		int[] rnd = GlowEngine.GenerateRandomNumbers( p.Count );
+		//		cd = p[rnd[0]];
+		//		list.Add( cd );
+		//		c -= cd.cost;
+		//	}
+		//	else
+		//		cd = null;
+		//} while ( cd != null );
 
-		//deploy any groups picked
-		foreach ( var card in list )
-			FindObjectOfType<DeploymentGroupManager>().DeployGroup( card, true );
+		////deploy any groups picked
+		//foreach ( var card in list )
+		//	FindObjectOfType<DeploymentGroupManager>().DeployGroup( card, true );
 
-		string s = DataStore.uiLanguage.uiMainApp.noRandomMatchesUC.Replace( "{d}", mWheelHandler.wheelValue.ToString() );
-		if ( list.Count == 0 )
-			GlowEngine.FindUnityObject<QuickMessage>().Show( $"<color=\"orange\">{s}</color>" );
+		//string s = DataStore.uiLanguage.uiMainApp.noRandomMatchesUC.Replace( "{d}", mWheelHandler.wheelValue.ToString() );
+		//if ( list.Count == 0 )
+		//	GlowEngine.FindUnityObject<QuickMessage>().Show( $"<color=\"orange\">{s}</color>" );
 
-		OnCancel();
+		//OnCancel();
 	}
 }

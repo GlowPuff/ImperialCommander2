@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace Saga
 {
@@ -38,6 +39,35 @@ namespace Saga
 		{
 			string json = JsonConvert.SerializeObject( this );
 			return JsonConvert.DeserializeObject<CampaignStructure>( json );
+		}
+
+		public TranslatedMission GetTranslatedMission()
+		{
+			if ( Guid.TryParse( missionID, out Guid guid ) )
+			{
+				var package = FileManager.GetPackageByGUID( packageGUID );
+				var translationItem = package.GetTranslation( guid );
+
+				if ( translationItem != null )
+				{
+					if ( package != null )
+					{
+						var translation = FileManager.LoadEmbeddedMissionTranslation( package.GUID, missionID );
+						if ( translation != null )
+						{
+							if ( Utils.LanguageID2Code( translation.languageID ).ToLower() == DataStore.Language.ToLower() )
+							{
+								Debug.Log( "GetTranslatedMission()::Found an embedded Mission translation" );
+								return translation;
+							}
+						}
+					}
+				}
+				else
+					Debug.Log( "GetTranslatedMission()::Did not find embedded Mission translation" );
+			}
+
+			return null;
 		}
 	}
 }

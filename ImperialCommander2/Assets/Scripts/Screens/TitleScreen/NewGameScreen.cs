@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using DG.Tweening;
-using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
 
 public class NewGameScreen : MonoBehaviour
 {
@@ -89,7 +90,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnDifficulty()
 	{
 		sound.PlaySound( FX.Click );
-		difficultyText.text = DataStore.sessionData.ToggleDifficulty();
+		//difficultyText.text = DataStore.sessionData.ToggleDifficulty();
 		ColorBlock cb = difficultyButton.colors;
 		cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
 		difficultyButton.colors = cb;
@@ -98,30 +99,30 @@ public class NewGameScreen : MonoBehaviour
 	public void OnOptionalDeployment()
 	{
 		sound.PlaySound( FX.Click );
-		deploymentText.text = DataStore.sessionData.ToggleDeployment();
+		//deploymentText.text = DataStore.sessionData.ToggleDeployment();
 	}
 
 	public void OnImperials()
 	{
 		sound.PlaySound( FX.Click );
-		DataStore.sessionData.ToggleImperials( imperialToggle.isOn );
+		//DataStore.sessionData.ToggleImperials( imperialToggle.isOn );
 	}
 
 	public void OnMercenaries()
 	{
 		sound.PlaySound( FX.Click );
-		DataStore.sessionData.ToggleMercs( mercenaryToggle.isOn );
+		//DataStore.sessionData.ToggleMercs( mercenaryToggle.isOn );
 	}
 
 	public void OnAdaptiveDifficulty()
 	{
-		DataStore.sessionData.useAdaptiveDifficulty = adaptiveToggle.isOn;
+		//DataStore.sessionData.useAdaptiveDifficulty = adaptiveToggle.isOn;
 	}
 
 	public void OnThreatCost()
 	{
 		sound.PlaySound( FX.Click );
-		threatCostText.text = DataStore.sessionData.ToggleThreatCost();
+		//threatCostText.text = DataStore.sessionData.ToggleThreatCost();
 	}
 
 	public void OnViewMissionCard()
@@ -129,8 +130,8 @@ public class NewGameScreen : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 
-		var mc = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id.ToLower() == DataStore.sessionData.selectedMissionID.ToLower() ).First();
-		cardViewPopup.ShowMissionCard( mc );
+		//var mc = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id.ToLower() == DataStore.sessionData.selectedMissionID.ToLower() ).First();
+		//cardViewPopup.ShowMissionCard( mc );
 	}
 
 	public void OnBack()
@@ -160,9 +161,9 @@ public class NewGameScreen : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		string txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" ).text;
-		if ( txt != null )
-			missionTextBox.Show( txt );
+		//string txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" ).text;
+		//if ( txt != null )
+		//	missionTextBox.Show( txt );
 	}
 
 	public void OnChooseEnemyGroups( int btnIndex )
@@ -185,7 +186,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnRemoveHero( int index )
 	{
 		EventSystem.current.SetSelectedGameObject( null );
-		DataStore.sessionData.ToggleHero( heroMetas[index].id );
+		//DataStore.sessionData.ToggleHero( heroMetas[index].id );
 		heroMetas[index].gameObject.SetActive( false );
 		addHeroButton.interactable = true;
 	}
@@ -203,132 +204,132 @@ public class NewGameScreen : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		addAllyButton.SetActive( true );
 		allyImage.gameObject.SetActive( false );
-		DataStore.sessionData.selectedAlly = null;
+		//DataStore.sessionData.selectedAlly = null;
 	}
 
 	public void LoadMissionPreset()
 	{
-		var presets = DataStore.missionPresets[DataStore.sessionData.selectedMissionExpansion.ToString().ToLower()];
-		var mp = presets.Where( x => x.id.ToLower() == DataStore.sessionData.selectedMissionID.ToLower() ).FirstOr( null );
-		if ( mp != null )
-		{
-			//update UI with preset values
-			DataStore.sessionData.threatLevel = mp.defaultThreat;
-			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
+		//var presets = DataStore.missionPresets[DataStore.sessionData.selectedMissionExpansion.ToString().ToLower()];
+		//var mp = presets.Where( x => x.id.ToLower() == DataStore.sessionData.selectedMissionID.ToLower() ).FirstOr( null );
+		//if ( mp != null )
+		//{
+		//	//update UI with preset values
+		//	DataStore.sessionData.threatLevel = mp.defaultThreat;
+		//	threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
 
-			DataStore.sessionData.optionalDeployment = mp.optionalDeployment == "yes" ? YesNo.Yes : YesNo.No;
-			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+		//	DataStore.sessionData.optionalDeployment = mp.optionalDeployment == "yes" ? YesNo.Yes : YesNo.No;
+		//	deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 
-			DataStore.sessionData.includeMercs = mp.factionMerc == "yes" ? true : false;
-			DataStore.sessionData.includeImperials = mp.factionImp == "yes" ? true : false;
-			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
-			imperialToggle.isOn = DataStore.sessionData.includeImperials;
+		//	DataStore.sessionData.includeMercs = mp.factionMerc == "yes" ? true : false;
+		//	DataStore.sessionData.includeImperials = mp.factionImp == "yes" ? true : false;
+		//	mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
+		//	imperialToggle.isOn = DataStore.sessionData.includeImperials;
 
-			DeploymentCard custom = new DeploymentCard() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
+		//	DeploymentCard custom = new DeploymentCard() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
 
-			var allCards = DataStore.deploymentCards.Concat( DataStore.villainCards ).ToList();
-			allCards.Add( custom );
+		//	var allCards = DataStore.deploymentCards.Concat( DataStore.villainCards ).ToList();
+		//	allCards.Add( custom );
 
-			DataStore.sessionData.MissionStarting.Clear();
-			foreach ( var card in mp.initialGroups )
-			{
-				DataStore.sessionData.MissionStarting.Add( allCards.Where( x => x.id == card ).First() );
-			}
-			DataStore.sessionData.MissionReserved.Clear();
-			foreach ( var card in mp.reserveGroups )
-			{
-				DataStore.sessionData.MissionReserved.Add( allCards.Where( x => x.id == card ).First() );
-			}
-			DataStore.sessionData.MissionIgnored.Clear();
-			foreach ( var card in mp.ignoredGroups )
-			{
-				DataStore.sessionData.MissionIgnored.Add( allCards.Where( x => x.id == card ).First() );
-			}
+		//	DataStore.sessionData.MissionStarting.Clear();
+		//	foreach ( var card in mp.initialGroups )
+		//	{
+		//		DataStore.sessionData.MissionStarting.Add( allCards.Where( x => x.id == card ).First() );
+		//	}
+		//	DataStore.sessionData.MissionReserved.Clear();
+		//	foreach ( var card in mp.reserveGroups )
+		//	{
+		//		DataStore.sessionData.MissionReserved.Add( allCards.Where( x => x.id == card ).First() );
+		//	}
+		//	DataStore.sessionData.MissionIgnored.Clear();
+		//	foreach ( var card in mp.ignoredGroups )
+		//	{
+		//		DataStore.sessionData.MissionIgnored.Add( allCards.Where( x => x.id == card ).First() );
+		//	}
 
-			if ( mp.allyGroups.Count > 0 )
-				DataStore.sessionData.selectedAlly = DataStore.allyCards.Where( x => x.id == mp.allyGroups[0] ).First();
-			else
-				DataStore.sessionData.selectedAlly = null;
-		}
+		//	if ( mp.allyGroups.Count > 0 )
+		//		DataStore.sessionData.selectedAlly = DataStore.allyCards.Where( x => x.id == mp.allyGroups[0] ).First();
+		//	else
+		//		DataStore.sessionData.selectedAlly = null;
+		//}
 	}
 
 	public void OnReturnTo()
 	{
-		EventSystem.current.SetSelectedGameObject( null );
-		cg.DOFade( 1, .5f );
+		//EventSystem.current.SetSelectedGameObject( null );
+		//cg.DOFade( 1, .5f );
 
-		//if we just restored a saved default, make sure the expansion from the saved mission is still "owned" (excluding "Other" expansion)
-		if ( DataStore.sessionData.selectedMissionExpansion == Expansion.Other || DataStore.ownedExpansions.Contains( DataStore.sessionData.selectedMissionExpansion ) )
-		{
-			//handle selected mission
-			string n = DataStore.sessionData.selectedMissionID;
-			//restoring defaults calls this method
-			//langauge may have been changed since saving the defaults
-			//instead of relying on the saved mission NAME (possibly wrong language), lookup current translated name using the saved id
-			var c = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id.ToLower() == n.ToLower() ).FirstOr( new MissionCard { name = "" } );
+		////if we just restored a saved default, make sure the expansion from the saved mission is still "owned" (excluding "Other" expansion)
+		//if ( DataStore.sessionData.selectedMissionExpansion == Expansion.Other || DataStore.ownedExpansions.Contains( DataStore.sessionData.selectedMissionExpansion ) )
+		//{
+		//	//handle selected mission
+		//	string n = DataStore.sessionData.selectedMissionID;
+		//	//restoring defaults calls this method
+		//	//langauge may have been changed since saving the defaults
+		//	//instead of relying on the saved mission NAME (possibly wrong language), lookup current translated name using the saved id
+		//	var c = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id.ToLower() == n.ToLower() ).FirstOr( new MissionCard { name = "" } );
 
-			selectedMissionText.text = c.name.ToUpper();
-		}
-		else
-		{
-			//loaded expansions is no longer in OWNED list, reset to core1, mission 1
-			DataStore.sessionData.selectedMissionID = "core1";
-			DataStore.sessionData.selectedMissionName = DataStore.missionCards["Core"][0].name;
-			DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
+		//	selectedMissionText.text = c.name.ToUpper();
+		//}
+		//else
+		//{
+		//	//loaded expansions is no longer in OWNED list, reset to core1, mission 1
+		//	DataStore.sessionData.selectedMissionID = "core1";
+		//	DataStore.sessionData.selectedMissionName = DataStore.missionCards["Core"][0].name;
+		//	DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
 
-			var c = DataStore.missionCards["Core"][0];
-			selectedMissionText.text = c.name.ToUpper();
-		}
+		//	var c = DataStore.missionCards["Core"][0];
+		//	selectedMissionText.text = c.name.ToUpper();
+		//}
 
-		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = true;
-		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = true;
+		//selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = true;
+		//selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = true;
 
-		//handle selected enemy groups
-		for ( int i = 0; i < 4; i++ )
-		{
-			//only the first 4 DeploymentCards
-			//index 4 contains heroes
-			List<DeploymentCard> selectedCards = DataStore.sessionData.selectedDeploymentCards[i];
-			if ( selectedCards.Count > 0 )
-				enemyGroupText[i].text = selectedCards.Count + " " + DataStore.uiLanguage.uiSetup.selected;
-			else
-				enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
-		}
+		////handle selected enemy groups
+		//for ( int i = 0; i < 4; i++ )
+		//{
+		//	//only the first 4 DeploymentCards
+		//	//index 4 contains heroes
+		//	List<DeploymentCard> selectedCards = DataStore.sessionData.selectedDeploymentCards[i];
+		//	if ( selectedCards.Count > 0 )
+		//		enemyGroupText[i].text = selectedCards.Count + " " + DataStore.uiLanguage.uiSetup.selected;
+		//	else
+		//		enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
+		//}
 
-		//handle selected heroes
-		for ( int i = 0; i < 4; i++ )
-			heroMetas[i].gameObject.SetActive( false );
-		addHeroButton.interactable = DataStore.sessionData.MissionHeroes.Count < 4;
+		////handle selected heroes
+		//for ( int i = 0; i < 4; i++ )
+		//	heroMetas[i].gameObject.SetActive( false );
+		//addHeroButton.interactable = DataStore.sessionData.MissionHeroes.Count < 4;
 
-		int idx = 0;
-		foreach ( DeploymentCard dc in DataStore.sessionData.MissionHeroes )
-		{
-			//add thumbnail
-			heroMetas[idx].gameObject.SetActive( true );
-			heroMetas[idx].allyName = dc.name;
-			heroMetas[idx].id = dc.id;
-			heroMetas[idx].allySprite.sprite = Resources.Load<Sprite>( dc.mugShotPath );
-			idx++;
-		}
-		ColorBlock cb = addHeroButton.colors;
-		if ( DataStore.sessionData.MissionHeroes.Count > 0 )
-			cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
-		else
-			cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
-		addHeroButton.colors = cb;
+		//int idx = 0;
+		//foreach ( DeploymentCard dc in DataStore.sessionData.MissionHeroes )
+		//{
+		//	//add thumbnail
+		//	heroMetas[idx].gameObject.SetActive( true );
+		//	heroMetas[idx].allyName = dc.name;
+		//	heroMetas[idx].id = dc.id;
+		//	heroMetas[idx].allySprite.sprite = Resources.Load<Sprite>( dc.mugShotPath );
+		//	idx++;
+		//}
+		//ColorBlock cb = addHeroButton.colors;
+		//if ( DataStore.sessionData.MissionHeroes.Count > 0 )
+		//	cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
+		//else
+		//	cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
+		//addHeroButton.colors = cb;
 
-		//handle selected ally
-		if ( DataStore.sessionData.selectedAlly != null )
-		{
-			addAllyButton.SetActive( false );
-			allyImage.gameObject.SetActive( true );
-			allyImage.sprite = Resources.Load<Sprite>( DataStore.sessionData.selectedAlly.mugShotPath );
-		}
-		else
-		{
-			addAllyButton.SetActive( true );
-			allyImage.gameObject.SetActive( false );
-		}
+		////handle selected ally
+		//if ( DataStore.sessionData.selectedAlly != null )
+		//{
+		//	addAllyButton.SetActive( false );
+		//	allyImage.gameObject.SetActive( true );
+		//	allyImage.sprite = Resources.Load<Sprite>( DataStore.sessionData.selectedAlly.mugShotPath );
+		//}
+		//else
+		//{
+		//	addAllyButton.SetActive( true );
+		//	allyImage.gameObject.SetActive( false );
+		//}
 	}
 
 	public void OnStartNewGame()
@@ -338,8 +339,8 @@ public class NewGameScreen : MonoBehaviour
 		startMissionButton.interactable = false;
 
 		//set threat levels into the state
-		DataStore.sessionData.threatLevel = threatWheelHandler.wheelValue;
-		DataStore.sessionData.addtlThreat = addtlThreatWheelHandler.wheelValue;
+		//DataStore.sessionData.threatLevel = threatWheelHandler.wheelValue;
+		//DataStore.sessionData.addtlThreat = addtlThreatWheelHandler.wheelValue;
 
 		sound.FadeOutMusic();
 		titleController.FadeOut( 1 );
@@ -352,19 +353,19 @@ public class NewGameScreen : MonoBehaviour
 
 	public void SaveDefaults()
 	{
-		DataStore.sessionData.threatLevel = threatWheelHandler.wheelValue;
-		DataStore.sessionData.addtlThreat = addtlThreatWheelHandler.wheelValue;
+		//DataStore.sessionData.threatLevel = threatWheelHandler.wheelValue;
+		//DataStore.sessionData.addtlThreat = addtlThreatWheelHandler.wheelValue;
 
-		defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
-		if ( DataStore.sessionData.SaveDefaults() )
-		{
-			defaultsText.text = DataStore.uiLanguage.uiSetup.saved;
-		}
-		else
-		{
-			defaultsText.color = new Color( 1, 0, 0, 1 );
-			defaultsText.text = "error";
-		}
+		//defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
+		//if ( DataStore.sessionData.SaveDefaults() )
+		//{
+		//	defaultsText.text = DataStore.uiLanguage.uiSetup.saved;
+		//}
+		//else
+		//{
+		//	defaultsText.color = new Color( 1, 0, 0, 1 );
+		//	defaultsText.text = "error";
+		//}
 
 		string path = Path.Combine( Saga.FileManager.classicDefaultsPath, "sessiondata.json" );
 		loadDefaultsButton.interactable = File.Exists( path );
@@ -374,90 +375,90 @@ public class NewGameScreen : MonoBehaviour
 
 	public void LoadDefaults()
 	{
-		defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
+		//defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
 
-		string basePath = Path.Combine( Saga.FileManager.classicDefaultsPath, "sessiondata.json" );
+		//string basePath = Path.Combine( Saga.FileManager.classicDefaultsPath, "sessiondata.json" );
 
-		string json = "";
-		try
-		{
-			using ( StreamReader sr = new StreamReader( basePath ) )
-			{
-				json = sr.ReadToEnd();
-			}
-			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
+		//string json = "";
+		//try
+		//{
+		//	using ( StreamReader sr = new StreamReader( basePath ) )
+		//	{
+		//		json = sr.ReadToEnd();
+		//	}
+		//	SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
 
-			//set card translation text
-			for ( int i = 0; i < session.selectedDeploymentCards.Length; i++ )
-			{
-				DataStore.SetCardTranslations( session.selectedDeploymentCards[i] );
-			}
-			if ( session.selectedAlly != null )
-				DataStore.SetCardTranslations( new List<DeploymentCard>() { session.selectedAlly } );
+		//	//set card translation text
+		//	for ( int i = 0; i < session.selectedDeploymentCards.Length; i++ )
+		//	{
+		//		DataStore.SetCardTranslations( session.selectedDeploymentCards[i] );
+		//	}
+		//	if ( session.selectedAlly != null )
+		//		DataStore.SetCardTranslations( new List<DeploymentCard>() { session.selectedAlly } );
 
-			DataStore.sessionData = session;
+		//	DataStore.sessionData = session;
 
-			//populate UI
-			if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
-			{
-				if ( DataStore.sessionData.difficulty == Difficulty.Easy )
-					difficultyText.text = DataStore.uiLanguage.uiSetup.easy;
-				else if ( DataStore.sessionData.difficulty == Difficulty.Medium )
-					difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
-				else
-					difficultyText.text = DataStore.uiLanguage.uiSetup.hard;
-			}
-			else
-				difficultyText.text = DataStore.uiLanguage.uiSetup.difficulty;
+		//	//populate UI
+		//	if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
+		//	{
+		//		if ( DataStore.sessionData.difficulty == Difficulty.Easy )
+		//			difficultyText.text = DataStore.uiLanguage.uiSetup.easy;
+		//		else if ( DataStore.sessionData.difficulty == Difficulty.Medium )
+		//			difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
+		//		else
+		//			difficultyText.text = DataStore.uiLanguage.uiSetup.hard;
+		//	}
+		//	else
+		//		difficultyText.text = DataStore.uiLanguage.uiSetup.difficulty;
 
-			threatCostText.text = DataStore.sessionData.allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+		//	threatCostText.text = DataStore.sessionData.allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 
-			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+		//	deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 
-			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
-			imperialToggle.isOn = DataStore.sessionData.includeImperials;
-			adaptiveToggle.isOn = DataStore.sessionData.useAdaptiveDifficulty;
+		//	mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
+		//	imperialToggle.isOn = DataStore.sessionData.includeImperials;
+		//	adaptiveToggle.isOn = DataStore.sessionData.useAdaptiveDifficulty;
 
-			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
+		//	threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
 
-			addtlThreatWheelHandler.ResetWheeler( DataStore.sessionData.addtlThreat );
+		//	addtlThreatWheelHandler.ResetWheeler( DataStore.sessionData.addtlThreat );
 
-			//heroes, ally, groups button text, mission
-			OnReturnTo();
+		//	//heroes, ally, groups button text, mission
+		//	OnReturnTo();
 
-			if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
-			{
-				ColorBlock cb = difficultyButton.colors;
-				cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
-				difficultyButton.colors = cb;
-			}
+		//	if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
+		//	{
+		//		ColorBlock cb = difficultyButton.colors;
+		//		cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
+		//		difficultyButton.colors = cb;
+		//	}
 
-			defaultsText.text = DataStore.uiLanguage.uiSetup.loaded;
-		}
-		catch ( System.Exception e )
-		{
-			Debug.Log( "***ERROR*** LoadDefaults:: " + e.Message );
+		//	defaultsText.text = DataStore.uiLanguage.uiSetup.loaded;
+		//}
+		//catch ( System.Exception e )
+		//{
+		//	Debug.Log( "***ERROR*** LoadDefaults:: " + e.Message );
 
-			Saga.Utils.LogError( "LoadDefaults()::\n" + e.Message );
-			defaultsText.color = new Color( 1, 0, 0, 1 );
-			defaultsText.text = "error";
-		}
+		//	Saga.Utils.LogError( "LoadDefaults()::\n" + e.Message );
+		//	defaultsText.color = new Color( 1, 0, 0, 1 );
+		//	defaultsText.text = "error";
+		//}
 
-		defaultsText.DOFade( 0, 2 ).SetDelay( 1 );
+		//defaultsText.DOFade( 0, 2 ).SetDelay( 1 );
 	}
 
 	private void Update()
 	{
 		//check if mission can be started
-		bool heroCheck = DataStore.sessionData.selectedDeploymentCards[4].Count > 0;
-		bool difficulty = DataStore.sessionData.difficulty != Difficulty.NotSet;
-		bool allyRules = DataStore.sessionData.allyRules != AllyRules.NotSet;
-		bool factions = DataStore.sessionData.includeImperials || DataStore.sessionData.includeMercs;
+		//bool heroCheck = DataStore.sessionData.selectedDeploymentCards[4].Count > 0;
+		//bool difficulty = DataStore.sessionData.difficulty != Difficulty.NotSet;
+		//bool allyRules = DataStore.sessionData.allyRules != AllyRules.NotSet;
+		//bool factions = DataStore.sessionData.includeImperials || DataStore.sessionData.includeMercs;
 
-		if ( heroCheck && difficulty && allyRules && factions )
-			startMissionButton.interactable = true;
-		else
-			startMissionButton.interactable = false;
+		//if ( heroCheck && difficulty && allyRules && factions )
+		//	startMissionButton.interactable = true;
+		//else
+		//	startMissionButton.interactable = false;
 
 		if ( Input.GetKeyDown( KeyCode.Escape )
 			&& !GlowEngine.FindUnityObject<GroupChooserScreen>().gameObject.activeInHierarchy
