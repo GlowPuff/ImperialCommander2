@@ -241,6 +241,21 @@ namespace Saga
 		}
 
 		/// <summary>
+		/// Takes user round limit setting [OFF] and whether the Mission has a limit [NO] into consideration, returning false in those cases. Otherwise, returns true if round>=limit and 'setting' matches.
+		/// </summary>
+		public static bool IsRoundLimitReachedWithSetting( int setting )
+		{
+			int limitSetting = PlayerPrefs.GetInt( "roundLimitToggle" );//0=off, 1=on, 2=dangerous
+			if ( limitSetting == setting && DataStore.sagaSessionData.gameVars.roundLimit != -1 )//-1=no limit in Mission
+			{
+				if ( DataStore.sagaSessionData.gameVars.round >= DataStore.sagaSessionData.gameVars.roundLimit )
+					return true;
+			}
+
+			return false;
+		}
+
+		/// <summary>
 		/// Always returns <see langword="true"/>
 		/// </summary>
 		//public static bool AssetExists( object key )

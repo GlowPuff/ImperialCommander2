@@ -49,7 +49,7 @@ namespace Saga
 
 		Sound sound;
 		//isError is set locally when there is an exception so the app doesn't try to save a potentially broken state
-		bool isError = false;//checked by OnQuitSaga() before trying to save state when quitting
+		bool isError { get; set; } = false;//checked by OnQuitSaga() before trying to save state when quitting
 
 		void LogCallback( string condition, string stackTrace, LogType type )
 		{
@@ -588,34 +588,35 @@ namespace Saga
 		/// </summary>
 		void DoEvent( Action callback = null )
 		{
-			EventSystem.current.SetSelectedGameObject( null );
+			//EventSystem.current.SetSelectedGameObject( null );
 			//1 in 4 chance to do an event
-			int[] rnd = GlowEngine.GenerateRandomNumbers( 4 );
-			int roll1 = rnd[0] + 1;
-			roll1 = 0;//Saga doesn't do end-of-round Events
-			if ( roll1 == 1 && DataStore.sagaSessionData.gameVars.eventsTriggered < 3 )
-			{
-				DataStore.sagaSessionData.gameVars.eventsTriggered++;
-				rnd = GlowEngine.GenerateRandomNumbers( DataStore.cardEvents.Count );
-				//get a random event
-				var ev = DataStore.cardEvents[rnd[0]];
-				//remove it from the list of events so it won't activate again
-				DataStore.cardEvents.Remove( ev );
+			//int[] rnd = GlowEngine.GenerateRandomNumbers( 4 );
+			//int roll1 = rnd[0] + 1;
+			//roll1 = 0;//Saga doesn't do end-of-round Events
 
-				//activate it
-				//eventManager.toggleVisButton.SetActive( true );
-				eventPopup.Show( ev, () =>
-				{
-					//eventManager.toggleVisButton.SetActive( false );
-					callback?.Invoke();
-				} );
-			}
-			else
-			{
-				//eventManager.toggleVisButton.SetActive( false );
-				//all turn actions done and shouldn't be any mission events in progress, so start new turn
-				callback?.Invoke();
-			}
+			//if ( roll1 == 1 && DataStore.sagaSessionData.gameVars.eventsTriggered < 3 )
+			//{
+			//	DataStore.sagaSessionData.gameVars.eventsTriggered++;
+			//	rnd = GlowEngine.GenerateRandomNumbers( DataStore.cardEvents.Count );
+			//	//get a random event
+			//	var ev = DataStore.cardEvents[rnd[0]];
+			//	//remove it from the list of events so it won't activate again
+			//	DataStore.cardEvents.Remove( ev );
+
+			//	//activate it
+			//	//eventManager.toggleVisButton.SetActive( true );
+			//	eventPopup.Show( ev, () =>
+			//	{
+			//		//eventManager.toggleVisButton.SetActive( false );
+			//		callback?.Invoke();
+			//	} );
+			//}
+			//else
+			//{
+			//eventManager.toggleVisButton.SetActive( false );
+			//all turn actions done and shouldn't be any mission events in progress, so start new turn
+			callback?.Invoke();
+			//}
 		}
 
 		void DoDeployment( bool skipThreatIncrease, Action callback = null )
@@ -775,10 +776,11 @@ namespace Saga
 				DataStore.sagaSessionData.SaveState();
 
 			//check if the round limit has been reached
-			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1 )//not disabled
+			if ( Utils.IsRoundLimitReachedWithSetting( 1 ) )
 			{
 				Debug.Log( $"OnStartTurn()::Round Limit: {DataStore.sagaSessionData.gameVars.roundLimit}" );
-				if ( DataStore.sagaSessionData.gameVars.round >= DataStore.sagaSessionData.gameVars.roundLimit )
+				//only want the limit event firing ONCE, when round EQUALS limit, NOT >= otherwise it'll keep firing, even though the event manager prevents such things
+				if ( DataStore.sagaSessionData.gameVars.round == DataStore.sagaSessionData.gameVars.roundLimit )
 				{
 					//round limit has been reached
 					if ( DataStore.sagaSessionData.gameVars.roundLimitEvent != Guid.Empty )
@@ -972,11 +974,17 @@ namespace Saga
 
 		public void UpdateRoundNumberUI()
 		{
-			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1
-				&& DataStore.sagaSessionData.gameVars.round <= DataStore.sagaSessionData.gameVars.roundLimit )
-				roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\r\n{DataStore.sagaSessionData.gameVars.round} [<color=red>{DataStore.sagaSessionData.gameVars.roundLimit}</color>]";
-			else
-				roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\r\n{DataStore.sagaSessionData.gameVars.round}";
+			int limitSetting = PlayerPrefs.GetInt( "roundLimitToggle" );
+			string color = limitSetting == 1 ? "red" : "orange";
+
+			roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\n{DataStore.sagaSessionData.gameVars.round}";
+
+			if ( limitSetting == 1 || limitSetting == 2 )
+			{
+				if ( DataStore.sagaSessionData.gameVars.roundLimit != -1
+					&& DataStore.sagaSessionData.gameVars.round <= DataStore.sagaSessionData.gameVars.roundLimit )
+					roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\n{DataStore.sagaSessionData.gameVars.round} / <color={color}>{DataStore.sagaSessionData.gameVars.roundLimit}</color>";
+			}
 		}
 
 		public void SetMissionTranslation()

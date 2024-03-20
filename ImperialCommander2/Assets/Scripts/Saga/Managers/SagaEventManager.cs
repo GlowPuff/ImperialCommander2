@@ -249,7 +249,6 @@ namespace Saga
 				else
 				{
 					Debug.Log( "DoEvent()::Queued " + ev.name );
-					//DataStore.sagaSessionData.gameVars.AddFiredEvent( ev.GUID );
 					if ( !eventQueue.Contains( ev ) )
 						eventQueue.Enqueue( ev );
 
@@ -306,9 +305,6 @@ namespace Saga
 		void ProcessEvent( MissionEvent ev )
 		{
 			Debug.Log( "ProcessEvent()::START PROCESSING EVENT QUEUE::" + ev.name );
-
-			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
-			//toggleVisButton.SetActive( true );
 
 			processingEvents = true;
 
