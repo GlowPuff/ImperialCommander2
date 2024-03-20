@@ -228,6 +228,7 @@ public static class DataStore
 		}
 		catch ( Exception e )
 		{
+			Utils.LogTranslationError( $"LoadTranslatedData() ERROR::Error parsing data\n{e.Message}" );
 			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing data" );
 			Debug.Log( e );
 			//default to English so app loads correctly next time
@@ -281,6 +282,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
+			Utils.LogTranslationError( $"LoadTranslatedData()::Error parsing Events\n{e.Message}" );
 			Utils.LogError( $"LoadTranslatedData()::Error parsing Events\n{e.Message}" );
 			throw e;
 		}
@@ -295,6 +297,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
+			Utils.LogTranslationError( $"LoadTranslatedData() ERROR:\r\nError parsing Instructions\n{e.Message}" );
 			Utils.LogError( $"LoadTranslatedData() ERROR:\r\nError parsing Instructions\n{e.Message}" );
 			throw e;
 		}
@@ -309,6 +312,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
+			Utils.LogTranslationError( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects\n{e.Message}" );
 			Utils.LogError( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects\n{e.Message}" );
 			throw e;
 		}
@@ -335,11 +339,45 @@ public static class DataStore
 	{
 		try
 		{
-			string json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/ui" ).text;
-			return JsonConvert.DeserializeObject<UILanguage>( json );
+			string englishSource = Resources.Load<TextAsset>( "Languages/En/ui" ).text;
+			string translationSource = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/ui" ).text;
+
+			//inject the translation, which may have omissions (which are skipped), into the English source
+			//this way, SOMETHING (English) will be shown, instead of empty strings
+			var englishObject = JsonConvert.DeserializeObject<UILanguage>( englishSource );
+			var translationObject = JsonConvert.DeserializeObject<UILanguage>( translationSource );
+			var expectedProps = typeof( UILanguage ).GetFields();
+
+			foreach ( var prop in expectedProps )
+			{
+				var englishValue = prop.GetValue( englishObject );//uiTitle, etc
+				var transValue = prop.GetValue( translationObject );
+				try
+				{
+					foreach ( var field in englishValue.GetType().GetFields() )//FieldInfo
+					{
+						if ( field.Name == "missionTypeStrings" )
+							continue;
+
+						object value = field.GetValue( transValue );
+						//check for non-null and non-empty string values
+						if ( value != null
+							&& !(value is string && string.IsNullOrEmpty( (string)value )) )
+						{
+							field.SetValue( englishValue, value );
+						}
+						else
+							Utils.LogTranslationError( $"LoadUILanguage()::Found missing UI translation [{Language}]: {field.Name}" );
+					}
+				}
+				catch ( Exception e ) {/* Debug.Log( $"{prop.Name}, {e.Message}" );*/ }
+			}
+
+			return englishObject;
 		}
 		catch ( JsonReaderException e )
 		{
+			Utils.LogTranslationError( $"LoadTranslatedData() ERROR:\r\nError parsing UI Language\n{e.Message}" );
 			Utils.LogError( $"LoadTranslatedData() ERROR:\r\nError parsing UI Language\n{e.Message}" );
 			throw e;
 		}
@@ -368,6 +406,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
+			Utils.LogTranslationError( $"LoadCardTranslations({asset})::Error parsing Card Languages\n{e.Message}" );
 			Utils.LogError( $"LoadCardTranslations({asset})::Error parsing Card Languages\n{e.Message}" );
 			throw e;
 		}
@@ -411,6 +450,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
+			Utils.LogTranslationError( $"LoadMissionCardTranslations({asset})::Error parsing Card Languages\n{e.Message}" );
 			Utils.LogError( $"LoadMissionCardTranslations({asset})::Error parsing Card Languages\n{e.Message}" );
 			throw e;
 		}
@@ -444,6 +484,7 @@ public static class DataStore
 					}
 					else
 					{
+						Utils.LogTranslationError( $"SetCardTranslations()::langcard is null::{toCards[i].name}/{toCards[i].id}" );
 						Debug.Log( $"SetCardTranslations()::langcard is null::{toCards[i].name}/{toCards[i].id}" );
 						//Utils.LogError( $"SetCardTranslations()::langcard is null::{toCards[i].name}/{toCards[i].id}" );
 					}
@@ -467,6 +508,7 @@ public static class DataStore
 		}
 		catch ( JsonException e )
 		{
+			Utils.LogTranslationError( $"LoadHelpOverlays()::Error parsing help.json\n{e.Message}" );
 			Utils.LogError( $"LoadHelpOverlays()::Error parsing help.json\n{e.Message}" );
 			throw e;
 		}
@@ -1080,5 +1122,7 @@ public static class DataStore
 			PlayerPrefs.SetInt( "ambientVolume", 5 );
 		if ( !PlayerPrefs.HasKey( "soundVolume" ) )//1-10
 			PlayerPrefs.SetInt( "soundVolume", 7 );
+		if ( !PlayerPrefs.HasKey( "roundLimitToggle" ) )
+			PlayerPrefs.SetInt( "roundLimitToggle", 1 );
 	}
 }

@@ -31,7 +31,10 @@ namespace Saga
 				Debug.Log( $"SetMissionTranslation::Mission translation set: {translation.languageID}" );
 			}
 			else
+			{
+				Utils.LogTranslationError( "SetMissionTranslation()::WARNING::mission or translation is null" );
 				Debug.Log( "SetMissionTranslation()::WARNING::mission or translation is null" );
+			}
 		}
 
 		private void InjectTranslationIntoMission( TranslatedMission translation, Mission mission )
@@ -210,14 +213,18 @@ namespace Saga
 						}
 					} );
 
-					Debug.Log( "InjectTranslation()::DONE Injecting translation into loaded Mission" );
+					Debug.Log( $"InjectTranslation()::DONE Injecting translation into loaded Mission [{mission.missionProperties.missionName}] / [{DataStore.Language}]" );
 				}
 				else
-					Debug.Log( "InjectTranslation()::translatedMission is null, no translation for this Mission" );
+				{
+					Utils.LogTranslationError( $"InjectTranslation()::translatedMission is null, no translation for this Mission: [{mission.missionProperties.missionName}] / [{DataStore.Language}]" );
+					Debug.Log( $"InjectTranslation()::translatedMission is null, no translation for this Mission: [{mission.missionProperties.missionName}] / [{DataStore.Language}]" );
+				}
 			}
 			catch ( Exception e )
 			{
-				Utils.LogWarning( $"InjectTranslationIntoMission()::Error injecting translation:\n{e.Message}" );
+				Utils.LogTranslationError( $"InjectTranslationIntoMission()::Error injecting translation into [{mission.missionProperties.missionName}] / [{DataStore.Language}]:\n{e.Message}" );
+				Utils.LogWarning( $"InjectTranslationIntoMission()::Error injecting translation into [{mission.missionProperties.missionName}] / [{DataStore.Language}]:\n{e.Message}" );
 			}
 		}
 	}

@@ -11,7 +11,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle, roundLimitToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -67,6 +67,7 @@ public class SettingsScreen : MonoBehaviour
 		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
 		zoomToggle.isOn = PlayerPrefs.GetInt( "zoombuttons" ) == 1;
 		viewToggle.isOn = PlayerPrefs.GetInt( "viewToggle" ) == 1;
+		roundLimitToggle.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 1;
 		toggleBusy = false;
 
 		//set the translated UI strings
@@ -161,6 +162,10 @@ public class SettingsScreen : MonoBehaviour
 			{
 				c.CameraViewToggle( t.isOn ? CameraView.TopDown : CameraView.Normal );
 			}
+		}
+		else if ( t.name.ToLower() == "round limit toggle" )
+		{
+			PlayerPrefs.SetInt( "roundLimitToggle", t.isOn ? 1 : 0 );
 		}
 	}
 

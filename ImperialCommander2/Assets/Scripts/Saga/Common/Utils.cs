@@ -47,6 +47,20 @@ namespace Saga
 			}
 		}
 
+		public static void LogTranslationError( string message )
+		{
+			Debug.Log( "***TRANSLATION ERROR***:\n" + message );
+
+			try
+			{
+				File.AppendAllText( Path.Combine( FileManager.baseDocumentFolder, "IC2_translation_error_log.txt" ), $"{DateTime.Now} :: ERROR TRACE:\n" + message + "\n\n" );
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( "LogTranslationError::" + e.Message );
+			}
+		}
+
 		public static Color String2UnityColor( string s )
 		{
 			switch ( s )
