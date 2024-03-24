@@ -85,7 +85,7 @@ namespace Saga
 
 			//make sure we bootstrap a debug session ONLY within Unity
 			if ( isDebugMode && Application.isEditor )
-				bootstrapDEBUG( "CORE6" );//optionally pass a string of the official Mission ID, such as CORE1
+				bootstrapDEBUG();//optionally pass a string of the official Mission ID, such as CORE1
 
 			//restoreDEBUG();//test restore session, comment this out for production build
 #endif
@@ -385,9 +385,7 @@ namespace Saga
 		void StartNewGame()
 		{
 			//set round number
-			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading.ToUpper() + "\r\n1";
-			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1 )
-				roundText.text += $" [<color=red>{DataStore.sagaSessionData.gameVars.roundLimit}</color>]";
+			UpdateRoundNumberUI();
 
 			//create deployment hand and manual deploy list
 			DataStore.CreateDeploymentHand( DataStore.sagaSessionData.EarnedVillains, DataStore.sagaSessionData.setupOptions.threatLevel );
@@ -551,9 +549,7 @@ namespace Saga
 
 			//retore UI elements
 			//round
-			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sagaSessionData.gameVars.round;
-			if ( DataStore.sagaSessionData.gameVars.roundLimit != -1 )
-				roundText.text += $" [<color=red>{DataStore.sagaSessionData.gameVars.roundLimit}</color>]";
+			UpdateRoundNumberUI();
 
 			//medpac count
 			medPacText.text = DataStore.sagaSessionData.gameVars.medPacCount.ToString();
@@ -721,6 +717,32 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			sound.PlaySound( FX.Vader );
 
+			//check if the round limit has been reached
+			if ( Utils.IsRoundLimitReachedWithSetting( 1 ) )
+			{
+				Debug.Log( $"OnEndRound()::Round Limit: {DataStore.sagaSessionData.gameVars.roundLimit}" );
+				//only want the limit event firing ONCE, when round EQUALS limit, NOT >= otherwise it'll keep firing, even though the event manager prevents such things
+				if ( DataStore.sagaSessionData.gameVars.round == DataStore.sagaSessionData.gameVars.roundLimit )
+				{
+					//round limit has been reached
+					if ( DataStore.sagaSessionData.gameVars.roundLimitEvent != Guid.Empty )
+					{
+						eventManager.DoEvent( DataStore.sagaSessionData.gameVars.roundLimitEvent );
+					}
+				}
+			}
+
+			if ( DataStore.sagaSessionData.gameVars.roundLimit == -1 )
+				Debug.Log( "OnEndRound()::Round Limit: DISABLED" );
+
+			//check for countdown timer events/triggers, +1 because round hasn't been increased
+			var expired = DataStore.sagaSessionData.gameVars.GetExpiredCountdowns();
+			foreach ( var ex in expired )
+			{
+				eventManager.DoEvent( ex.eventGUID );
+				triggerManager.FireTrigger( ex.triggerGUID );
+			}
+
 			DataStore.sagaSessionData.gameVars.isEndTurn = true;
 			eventManager.CheckIfEventsTriggered( () =>
 			{
@@ -775,31 +797,6 @@ namespace Saga
 			if ( !isError )
 				DataStore.sagaSessionData.SaveState();
 
-			//check if the round limit has been reached
-			if ( Utils.IsRoundLimitReachedWithSetting( 1 ) )
-			{
-				Debug.Log( $"OnStartTurn()::Round Limit: {DataStore.sagaSessionData.gameVars.roundLimit}" );
-				//only want the limit event firing ONCE, when round EQUALS limit, NOT >= otherwise it'll keep firing, even though the event manager prevents such things
-				if ( DataStore.sagaSessionData.gameVars.round == DataStore.sagaSessionData.gameVars.roundLimit )
-				{
-					//round limit has been reached
-					if ( DataStore.sagaSessionData.gameVars.roundLimitEvent != Guid.Empty )
-					{
-						eventManager.DoEvent( DataStore.sagaSessionData.gameVars.roundLimitEvent );
-					}
-				}
-			}
-			else
-				Debug.Log( "OnStartTurn()::Round Limit: DISABLED" );
-
-			//now check for countdown timer events/triggers
-			var expired = DataStore.sagaSessionData.gameVars.GetExpiredCountdowns();
-			foreach ( var ex in expired )
-			{
-				eventManager.DoEvent( ex.eventGUID );
-				triggerManager.FireTrigger( ex.triggerGUID );
-			}
-
 			//increase the round and update the UI
 			IncreaseRound();
 
@@ -843,7 +840,7 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			if ( !eventManager.IsUIHidden )
 			{
-				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnQuitSaga, tileManager.currentBiometype );
+				GlowEngine.FindUnityObject<SettingsScreen>().Show( OnQuitSaga, tileManager.currentBiometype, () => UpdateRoundNumberUI() );
 			}
 		}
 
@@ -977,7 +974,7 @@ namespace Saga
 			int limitSetting = PlayerPrefs.GetInt( "roundLimitToggle" );
 			string color = limitSetting == 1 ? "red" : "orange";
 
-			roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading}\n{DataStore.sagaSessionData.gameVars.round}";
+			roundText.text = $"{DataStore.uiLanguage.uiMainApp.roundHeading.ToUpper()}\n{DataStore.sagaSessionData.gameVars.round}";
 
 			if ( limitSetting == 1 || limitSetting == 2 )
 			{

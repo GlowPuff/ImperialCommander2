@@ -158,6 +158,7 @@ namespace Saga
 			int depMod = 2;
 			if ( Utils.IsRoundLimitReachedWithSetting( 2 ) )
 			{
+				Debug.Log( "HandleCalm()::Danger Mode, Threat Gain*2 and Modifier+2" );
 				threatGain *= 2;
 				depMod += 2;
 			}
@@ -230,6 +231,7 @@ namespace Saga
 				int depMod = 1;
 				if ( Utils.IsRoundLimitReachedWithSetting( 2 ) )
 				{
+					Debug.Log( "HandleLanding()::Danger Mode, Threat Gain*2 and Modifier+2" );
 					threatGain *= 2;
 					depMod += 2;
 				}
@@ -309,6 +311,7 @@ namespace Saga
 				int threatGain = DataStore.sagaSessionData.setupOptions.threatLevel + 2;
 				if ( Utils.IsRoundLimitReachedWithSetting( 2 ) )
 				{
+					Debug.Log( "HandleOnslaught()::Danger Mode, Threat Gain*2" );
 					threatGain *= 2;
 				}
 

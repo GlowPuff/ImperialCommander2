@@ -25,12 +25,14 @@ public class SettingsScreen : MonoBehaviour
 	public HelpPanel graphicsHelpPanel;
 
 	Action<SettingsCommand> quitAction;
+	Action callbackAction;
 	bool toggleBusy;
 
-	public void Show( Action<SettingsCommand> onQuit, BiomeType btype = BiomeType.Menu )
+	public void Show( Action<SettingsCommand> onQuit, BiomeType btype = BiomeType.Menu, Action callback = null )
 	{
 		quitAction = onQuit;
 		biomeType = btype;
+		callbackAction = callback;
 		//remove return to title button only if we're already on the title screen
 		returnButton.SetActive( FindObjectOfType<TitleController>() == null );
 
@@ -103,6 +105,7 @@ public class SettingsScreen : MonoBehaviour
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );
+			callbackAction?.Invoke();
 		} );
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
@@ -183,6 +186,7 @@ public class SettingsScreen : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
+		callbackAction?.Invoke();
 		quitAction?.Invoke( SettingsCommand.Quit );
 	}
 
@@ -193,6 +197,7 @@ public class SettingsScreen : MonoBehaviour
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );
+			callbackAction?.Invoke();
 			quitAction?.Invoke( SettingsCommand.ReturnTitles );
 		} );
 		cg.DOFade( 0, .2f );

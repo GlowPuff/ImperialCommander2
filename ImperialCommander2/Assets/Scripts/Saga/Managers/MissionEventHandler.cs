@@ -67,6 +67,7 @@ namespace Saga
 			if ( mm.endMission )
 			{
 				//don't process any more events or event actions after this one
+				Debug.Log( "MissionManagement()::Clearing: Event queue / Event Action queue / endProcessingCallback" );
 				endProcessingCallback = null;
 				eventQueue.Clear();
 				eventActionQueue.Clear();

@@ -18,6 +18,7 @@ public enum GroupTraits { Trooper, Leader, HeavyWeapon, Guardian, Brawler, Droid
 public enum MissionType { Story, Side, Agenda, Threat, Forced, Other, Finale, General, Personal, Villain, Ally }
 public enum GameType { Classic, Saga }
 public enum SessionMode { Classic, Saga, Campaign }
+public enum GameRoundTest { Current, PlusOne }
 
 public class HealthState
 {
