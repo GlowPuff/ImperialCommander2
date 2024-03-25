@@ -501,6 +501,13 @@ public static class DataStore
 	{
 		try
 		{
+			//load the English backup
+			string backupOverlay = Resources.Load<TextAsset>( $"Languages/EN/help" ).text;
+			List<HelpOverlayPanel> backupList = JsonConvert.DeserializeObject<List<HelpOverlayPanel>>( backupOverlay );
+			Debug.Log( $"Loaded English backup UI Help Overlay panels" );
+			uiLanguage.uiHelpOverlayBackup = new UIHelpOverlay() { helpOverlayPanels = backupList.ToArray() };
+
+			//try to load the translated version
 			string helpOverlay = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/help" ).text;
 			List<HelpOverlayPanel> list = JsonConvert.DeserializeObject<List<HelpOverlayPanel>>( helpOverlay );
 			Debug.Log( $"Found Help Overlays for {list.Count} Panels" );

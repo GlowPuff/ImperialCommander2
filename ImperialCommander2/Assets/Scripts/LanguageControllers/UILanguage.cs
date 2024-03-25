@@ -14,6 +14,8 @@ public class UILanguage
 	public UICampaign uiCampaign;
 	public UILogger uiLogger;
 	public UIHelpOverlay uiHelpOverlay;
+
+	public UIHelpOverlay uiHelpOverlayBackup;//the English version to fall back to for missing entries in translations
 }
 
 public class UISettings
