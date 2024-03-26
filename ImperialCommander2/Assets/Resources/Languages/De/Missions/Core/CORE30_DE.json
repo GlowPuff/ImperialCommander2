@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "Beschlagnahmt",
     "missionDescription": "",
-    "missionInfo": "{-} Der Einsatz schreitet voran, wenn die Steuerung der Andockklammer deaktiviert und der Pilot aufgehoben wurde.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+    "missionInfo": "{-} Der Einsatz schreitet voran, wenn die Steuerung der Andockklammer deaktiviert und der Pilot aufgehoben wurde.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
     "campaignName": "Grundspiel",
     "startingObjective": "Findet die Steuerung der Andockklammer und löst sie. Findet und rettet den Piloten.",
     "repositionOverride": "Versperre den Zugang zur Steuerung der Andockklammern und zum Piloten.",
@@ -58,7 +58,7 @@
     {
       "eventName": "Mission Briefing",
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-      "eventText": "Beim Betanken eures Schiffes wurdet ihr wegen des Verdachts auf kriminelle Handlungen in Gewahrsam genommen. Alle eure Papiere waren auf dem neuesten Stand. Obwohl ihr überlegt habt, ob ihr einfach alles in Sichtweite in die Luft jagen sollt, hat euch euer Pilot versichert, dass er sich aus der Sache herausreden kann.\n\nDas war vor drei Stunden, also beschließt ihr, euch aus dem Warteraum zu schleichen. Nachdem ihr euch ein paar Minuten umgesehen habt, kommt ihr gerade rechtzeitig in einem Beobachtungsraum an, um zu sehen, wie euer Pilot in ein Tiergehege geworfen wird. Furchterregende Bestien streifen umher und fletschen rasiermesserscharfe Zähne vor seiner bewusstlosen Gestalt.\n\nUnd zu allem Übel wird euer Schiff auch noch von den Andockklammern festgehalten.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Der Einsatz schreitet voran, wenn die Andockklammern deaktiviert und der Pilot aufgehoben wurde.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+      "eventText": "Beim Betanken eures Schiffes wurdet ihr wegen des Verdachts auf kriminelle Handlungen in Gewahrsam genommen. Alle eure Papiere waren auf dem neuesten Stand. Obwohl ihr überlegt habt, ob ihr einfach alles in Sichtweite in die Luft jagen sollt, hat euch euer Pilot versichert, dass er sich aus der Sache herausreden kann.\n\nDas war vor drei Stunden, also beschließt ihr, euch aus dem Warteraum zu schleichen. Nachdem ihr euch ein paar Minuten umgesehen habt, kommt ihr gerade rechtzeitig in einem Beobachtungsraum an, um zu sehen, wie euer Pilot in ein Tiergehege geworfen wird. Furchterregende Bestien streifen umher und fletschen rasiermesserscharfe Zähne vor seiner bewusstlosen Gestalt.\n\nUnd zu allem Übel wird euer Schiff auch noch von den Andockklammern festgehalten.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Der Einsatz schreitet voran, wenn die Andockklammern deaktiviert und der Pilot aufgehoben wurde.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
       "eventActions": []
     },
     {
@@ -103,7 +103,6 @@
           "repositionInstructions": "",
           "GUID": "66c692b6-09c5-452e-9bd4-59435a93317e",
           "eventActionType": 6,
-          "evName": null,
           "eaName": "Deploy: DG006/Imperial Officer (Elite)"
         },
         {
@@ -113,7 +112,6 @@
           "repositionInstructions": "",
           "GUID": "84bb86d0-1749-4419-89c3-fff27ee5244e",
           "eventActionType": 6,
-          "evName": null,
           "eaName": "Deploy: DG009/Royal Guard"
         }
       ]
@@ -148,7 +146,6 @@
           "repositionInstructions": "Platziere dich auf dem Piloten.",
           "GUID": "fbd3c520-368d-44b3-866e-14edbabc4c69",
           "eventActionType": 6,
-          "evName": null,
           "eaName": "Deploy: DG017/Nexu"
         },
         {
@@ -158,7 +155,6 @@
           "repositionInstructions": "Platziere dich auf dem Piloten.",
           "GUID": "e8ff8c50-17ef-4224-9e44-542f0a34ed33",
           "eventActionType": 6,
-          "evName": null,
           "eaName": "Deploy: DG018/Nexu (Elite)"
         }
       ]
@@ -232,7 +228,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "theText": "{-} Der Einsatz schreitet voran, wenn die Steuerung der Andockklammer deaktiviert und der Pilot aufgehoben wurde.\n{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf das Verteidigungsergebnis eines Helden an, der den Piloten trägt.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Der Einsatz schreitet voran, wenn die Steuerung der Andockklammer deaktiviert und der Pilot aufgehoben wurde.\n{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf das Verteidigungsergebnis eines Helden an, der den Piloten trägt.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "73d53de0-dd21-411e-8a7d-6bbf05758523",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -242,7 +238,7 @@
     {
       "eventName": "Prep for Takeoff",
       "GUID": "e30f6aa1-d319-428d-a3e7-529984a07504",
-      "eventText": "In ziemlich schlechter Verfassung wacht euer Pilot langsam auf. Ihr klärt ihn über die Situation auf.\n\n\"Okay, wenn die Andockklammern gelöst sind, müssen wir nur noch zum Schiff kommen.\" Er zuckt zusammen und hält sich seine verwundete Seite. \"Oh, das werden sie mir büßen ...\", sagt er mit zusammengebissenen Zähnen.\n\n{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf die Verteidigungsergebnisse eines Helden an, der den Piloten trägt.\n{-} Ein Held, der den Piloten trägt, kann mit der Luke interagieren, um den Piloten aufbrechen zu lassen.\n{-} Die Rebellen gewinnen, wenn der Pilot aufbricht.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+      "eventText": "In ziemlich schlechter Verfassung wacht euer Pilot langsam auf. Ihr klärt ihn über die Situation auf.\n\n\"Okay, wenn die Andockklammern gelöst sind, müssen wir nur noch zum Schiff kommen.\" Er zuckt zusammen und hält sich seine verwundete Seite. \"Oh, das werden sie mir büßen ...\", sagt er mit zusammengebissenen Zähnen.\n\n{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf die Verteidigungsergebnisse eines Helden an, der den Piloten trägt.\n{-} Ein Held, der den Piloten trägt, kann mit der Luke interagieren, um den Piloten aufbrechen zu lassen.\n{-} Die Rebellen gewinnen, wenn der Pilot aufbricht.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
       "eventActions": [
         {
           "translatedEntityProperties": [
@@ -263,13 +259,13 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "repositionText": "Blockiere den Zugang zur Luke.",
+          "repositionText": "Versperre den Zugang zur Luke.",
           "GUID": "bc733562-ce49-43b6-9816-462c4a4b24a4",
           "eventActionType": 17,
           "eaName": "Change Reposition Instructions"
         },
         {
-          "theText": "{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf das Verteidigungsergebnis eines Helden an, der den Piloten trägt.\n{-} Ein Held, der den Piloten trägt, kann mit der Luke interagieren, um den Piloten aufbrechen zu lassen.\n{-} Die Rebellen gewinnen, wenn der Pilot aufbricht.\n{-} Die Rebellen verlieren am Ende von Runde 5 oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Wende -1 auf die Geschwindigkeit und -1 {G} auf das Verteidigungsergebnis eines Helden an, der den Piloten trägt.\n{-} Ein Held, der den Piloten trägt, kann mit der Luke interagieren, um den Piloten aufbrechen zu lassen.\n{-} Die Rebellen gewinnen, wenn der Pilot aufbricht.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "eff57a45-1095-4862-b6e8-d3e3ddf20f37",
           "eventActionType": 1,
           "eaName": "Change Mission Info"

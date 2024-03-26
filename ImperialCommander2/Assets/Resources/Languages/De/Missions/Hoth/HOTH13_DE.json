@@ -1,0 +1,642 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Flucht aus der Wolkenstadt",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Rückkehr nach Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zur Tür.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "b3ca91f8-9254-4cd1-8bc9-9cdaef8b81c0",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "af7fbfb3-024e-4231-93f7-bd2e75800864",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "0037a488-aa35-4eeb-9e40-ca21e92bea43",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr schlüpft an den imperialen Streitkräften vorbei und macht euch auf den Weg zu den Gefangenen. Ein gestohlenes Shuttle und wichtige Zugangscodes verschaffen euch einen Ausweg, aber eure Pilotin wird schon nervös.\n\n\"... ihr solltet euch beeilen\", sagt sie durch euer Comlink. \"Imperiale Jäger sind im Anflug. Ich möchte euch nicht hier zurücklassen müssen.\"\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\n{-} Die Tür zum Korridor ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.\n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Korridor öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+      "eventActions": [
+        {
+          "shortText": "Open the door to the Hallway.",
+          "longText": null,
+          "GUID": "b8be6af8-8ecd-44c8-b6e4-faca8debb072",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\n{-} Die Tür zum Korridor ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.\n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Korridor öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "0646a7a3-f06e-44f7-aaff-acb28ecc6a81",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Eure Pilotin weicht dem Feuer von Bodentruppen und TIE-Jägern aus und katapultiert euch aus der Atmosphäre. Nach wenigen Augenblicken befindet ihr euch sicher im Hyperraum.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten die Belohnungskarte \"Versorgung wiederhergestellt\".\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Das Imperium legt die Belohnungskarte \"Versorgungsengpass\" ab.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "\"Lasst uns nicht hier!\" hört ihr die Schreie der Gefangenen, die ihr im Stich lassen musstet. Obwohl ihr sie zurückgelassen habt, entkommt ihr nur knapp.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Das Imperium legt die Belohnungskarte \"Versorgungsengpass\" ab.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Hired Guards",
+      "GUID": "c1227c78-3fd4-4463-814a-6963c57238ee",
+      "eventText": "Die Tür öffnet sich in einen langen Korridor und eine Krankenstation mit einem großen Bacta-Tank.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "af96f392-dfe5-44d2-a839-501918077aeb",
+              "theText": "Diese Tür führt in den Korridor der Einrichtung. Die Gefangenen müssen irgendwo dahinter untergebracht sein.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.",
+              "buttonList": [
+                {
+                  "GUID": "ffd4921f-66c5-4c08-850f-5d9df20df191",
+                  "theText": "Zerstören"
+                },
+                {
+                  "GUID": "d2675649-9fda-438a-9f0b-22464ddfe2e0",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "3853b9b7-df54-42a7-a328-37aa91241cb8",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "3eb2826a-5967-4779-87ec-b1f50c2fb50d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Als ihr den Gang betretet, machen sich gepanzerte Kampfdroiden schussbereit.",
+          "GUID": "84a0357b-4a8b-4869-8218-f2e04c1847cf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2655b035-a9a0-47fb-99e4-f7b869c7e775",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG026/HK Assassin Droid"
+        },
+        {
+          "tbText": "Hinter der Tür, die zur Arrestzelle führt, hört man gedämpfte Stimmen.\n\n{-} Die Tür zur Zelle ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.",
+          "GUID": "f38a53a1-acaf-414c-8ace-a8e30c7f9403",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "In der Nähe wartet euer Flucht-Shuttle mit laufenden Triebwerken auf euch.",
+          "GUID": "74e1a3d3-2062-4a4d-bf60-cc67b68c2ca8",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "{-} Die Tür zum Shuttle ist verriegelt. Eine imperiale Figur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 2 {G}). \n{-} Die Tür zum Shuttle versperrt nicht die Bewegung, die Sichtlinie, die Nachbarschaft oder das Zählen von Feldern für benachbarte Rebellenfiguren.\n{-} Rebellenfiguren im Shuttle erhalten {A}: Wähle eine benachbarte feindliche Figur und lege eine Probe auf {K} ab. Wenn du Erfolg hast, stoße diese Figur bis zu 2 Felder weit.",
+          "GUID": "ef8a486f-665b-4f2f-925a-523957b8b61d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Öffnet die Tür zur Zelle.",
+          "longText": null,
+          "GUID": "e09c3c64-d293-483d-9c56-d94aed7e6e68",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Die Tür zur Zelle ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.\r\n{-} Die Tür zum Shuttle ist verriegelt. Eine imperiale Figur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 2 {G}). \n{-} Die Tür zum Shuttle versperrt nicht die Bewegung, die Sichtlinie, die Nachbarschaft oder das Zählen von Feldern für benachbarte Rebellenfiguren.\n{-} Rebellenfiguren im Shuttle erhalten {A}: Wähle eine benachbarte feindliche Figur und lege eine Probe auf {K} ab. Wenn du Erfolg hast, stoße diese Figur bis zu 2 Felder weit.\r\n{-} Der Einsatz schreitet voran, wenn sich die Tür zur Zelle öffnet.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "e813cd1e-02bd-476e-9d22-f437b3635f28",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 1 Attempt",
+      "GUID": "34eada3d-6036-4097-8f2c-bfa8cddd728f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du beginnst, die Tür aufzustemmen.\n\n{-} Lege eine Probe auf {K} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf der Tür an, dann lege alle Erschöpfungsmarker auf der Tür ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "91c8f085-f9fc-4d02-8e90-f94c99f177c7",
+              "theText": "Du machst ein paar Fortschritte, aber die Tür bleibt geschlossen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf der Tür."
+            }
+          ],
+          "GUID": "e7126a69-e34b-433f-9129-294b0e30435b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Get to the Ship",
+      "GUID": "7828452a-884c-4308-bce1-6027574cacc1",
+      "eventText": "Du brichst die Zellentür auf und entdeckst die verängstigten Gefangenen. Durch die Misshandlung sind viele von ihnen verletzt; sie müssen getragen werden.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "40fa5d19-178e-485d-b13c-8a006c6f055b",
+              "theText": "Diese Tür führt in eine winzige Arrestzelle. Dahinter sind leise Stimmen zu hören.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.",
+              "buttonList": [
+                {
+                  "GUID": "a5d0142b-b325-49e5-aad6-9b0fbbca2869",
+                  "theText": "Zerstören"
+                },
+                {
+                  "GUID": "a58cc32f-58f7-4c48-b007-d96779693657",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "ec9074d2-c4c1-4fc7-befd-ba88bbd38a67",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 1",
+              "GUID": "62c7d941-a06c-40ff-83d7-5ec6f696f4f5",
+              "theText": "Mona Vash, eine arkanische Händlerin, blinzelt in das plötzliche Licht und schirmt ihre Augen mit ihrer Hand ab.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+              "buttonList": [
+                {
+                  "GUID": "87c9e005-39a7-4f8e-bca0-cd4a5c1c92a0",
+                  "theText": "{A} Aufheben"
+                }
+              ]
+            },
+            {
+              "entityName": "Prisoner 2",
+              "GUID": "fb4e0ae3-0470-4f8e-93a1-44051bb3ffa9",
+              "theText": "Boh Kallaak, ein Techniker aus Muun, sieht ramponiert und angeschlagen aus. Er ist zu schwach zum Laufen.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+              "buttonList": [
+                {
+                  "GUID": "1f2e0adf-256e-4b83-baf9-28d7ab56e87c",
+                  "theText": "{A} Aufheben"
+                }
+              ]
+            },
+            {
+              "entityName": "Prisoner 3",
+              "GUID": "233ffcb8-784b-4ca8-a1f9-524cfca32ede",
+              "theText": "Roggnar Dreek, ein Anführer der Ugnaught-Gewerkschaft, ist hier an die Wand gekettet. Er ist verletzt, sieht aber immer noch trotzig und ungebrochen aus.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+              "buttonList": [
+                {
+                  "GUID": "efb00093-f8ab-4866-a0c1-296754bf8e6d",
+                  "theText": "{A} Aufheben"
+                }
+              ]
+            }
+          ],
+          "GUID": "3dbaa231-66ac-414c-a6e5-71efed5cd3e5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Rebellen-Einsatzmarker stellen Gefangene dar.\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+          "GUID": "b08d74fc-bc3d-458e-bebf-c33bc8299d0f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bewege dich zum Shuttle.",
+          "GUID": "3978e551-8df7-426d-b5d3-0a39ff020cc0",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Hebt die Gefangenen auf.",
+          "longText": null,
+          "GUID": "4ecf3324-65fd-45ab-9dfe-40515da4d073",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Die Tür zum Shuttle ist verriegelt. Eine imperiale Figur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 2 {G}). \n{-} Die Tür zum Shuttle versperrt nicht die Bewegung, die Sichtlinie, die Nachbarschaft oder das Zählen von Feldern für benachbarte Rebellenfiguren.\n{-} Rebellenfiguren im Shuttle erhalten {A}: Wähle eine benachbarte feindliche Figur und lege eine Probe auf {K} ab. Wenn du Erfolg hast, stoße diese Figur bis zu 2 Felder weit.\r\n{-} Rebellen-Einsatzmarker stellen Gefangene dar.\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.\r\n{-} Der Einsatz schreitet voran, wenn ein Gefangener aufgehoben wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "e06c3886-c5d5-465d-9f8c-497b5a83c526",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 Attempt",
+      "GUID": "a059f253-529b-41a8-ab24-c973dcad4d73",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du beginnst, die Tür aufzustemmen.\n\n{-} Lege eine Probe auf {K} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf der Tür an, dann lege alle Erschöpfungsmarker auf der Tür ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "65cab51b-f89d-4e8d-96c0-f74484d2c56e",
+              "theText": "Du machst ein paar Fortschritte, aber die Tür bleibt geschlossen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf der Tür."
+            }
+          ],
+          "GUID": "d1bf9a8b-c56a-4acf-8f27-2cdb7c6a8338",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 3 destroyed",
+      "GUID": "0215c853-f483-4fdb-9383-7c723a512546",
+      "eventText": "Die Tür bricht unter dem imperialen Feuer zusammen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "4de6e961-5a78-4fdc-8294-77dff6f9378d",
+              "theText": "Diese Tür führt zu dem vorbereiteten Flucht-Shuttle.\n\n{-} Die Tür ist verriegelt. Eine imperiale Figur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 2 {G}). \n{-} Die Tür zum Shuttle versperrt weder die Bewegung, die Sichtlinie, die Nachbarschaft noch das Zählen von Feldern für benachbarte Rebellenfiguren.",
+              "buttonList": [
+                {
+                  "GUID": "0fe4293f-571e-4889-a537-187c8a2c1a6a",
+                  "theText": "Tür zerstört"
+                }
+              ]
+            }
+          ],
+          "GUID": "3170c859-2774-44a4-ab2a-b37a836744a1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Claim Prisoner",
+      "GUID": "e8a86d8c-cbaa-4712-bdb5-e3a49be23a09",
+      "eventText": "Ihr helft dem Gefangenen ins Shuttle.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Retrieve Prisoner 1",
+      "GUID": "af699820-96d2-4cc7-8a5d-6d96a2d3d5cc",
+      "eventText": "Ihr helft der erschöpften Arkanierin auf und führt sie zum Shuttle.\n\n{-} Wenn eine Figur, die einen Gefangenen trägt, im Shuttle ist, beanspruchen die Helden diesen Gefangenen. Klicke auf das rot hervorgehobene Feld auf dem Shuttle und wähle \"Gefangenen beanspruchen\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 1",
+              "GUID": "67f951da-57a0-410d-b7f8-47321cd83955",
+              "theText": "Mona Vash, eine arkanische Händlerin, blinzelt in das plötzliche Licht und schirmt ihre Augen mit ihrer Hand ab.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+              "buttonList": [
+                {
+                  "GUID": "d046d5dd-a692-4277-bd47-a51fc1862a39",
+                  "theText": "{A} Aufheben"
+                }
+              ]
+            }
+          ],
+          "GUID": "6b2c852a-e022-406c-b79d-810da2683ba2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Retrieve Prisoner 2",
+      "GUID": "07cc097e-4572-4701-8e32-b1440fd4f39b",
+      "eventText": "Du platzierst deine Arme langsam unter dem verletzten Techniker und hebst ihn vorsichtig hoch.\n\n{-} Wenn sich eine Figur, die einen Gefangenen trägt, auf dem Shuttle befindet, beanspruchen die Helden diesen Gefangenen. Klicke auf das rot hervorgehobene Feld des Shuttles und wähle \"Gefangenen beanspruchen\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 2",
+              "GUID": "bc1f5910-3dda-47fa-afd8-2bd6731cfe47",
+              "theText": "Boh Kallaak, ein Techniker aus Muun, sieht ramponiert und angeschlagen aus. Er ist zu schwach zum Laufen.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+              "buttonList": [
+                {
+                  "GUID": "e156449d-52d0-46dc-b6ac-765d4823cdc4",
+                  "theText": "{A} Aufheben"
+                }
+              ]
+            }
+          ],
+          "GUID": "12d05930-d001-427d-b0ae-9500df24c6b4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Retrieve Prisoner 3",
+      "GUID": "54f5d440-f258-4d1f-9ba3-16ce011b7c83",
+      "eventText": "Schnell löst ihr Roggnars Fesseln, helft dem Ugnaught auf die Beine und stützt ihn auf seinem Weg zum Shuttle.\n\n{-} Wenn eine Figur, die einen Gefangenen trägt, im Shuttle ist, beanspruchen die Helden diesen Gefangenen. Klicke auf das rot hervorgehobene Feld des Shuttles und wähle \"Gefangenen beanspruchen\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 3",
+              "GUID": "ac063fa8-fac3-4262-b4eb-57f0eb5a284e",
+              "theText": "Roggnar Dreek, ein Anführer der Ugnaught-Gewerkschaft, ist hier an die Wand gekettet. Er ist verletzt, sieht aber immer noch trotzig und ungebrochen aus.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+              "buttonList": [
+                {
+                  "GUID": "b5e45df4-52e4-4fba-b3c5-7842aa806a84",
+                  "theText": "{A} Aufheben"
+                }
+              ]
+            }
+          ],
+          "GUID": "5218791d-3bc1-4923-bcd2-34136b3caa24",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Prisoner retrieved",
+      "GUID": "b20b06c0-478c-4be8-a296-0cdfa3550582",
+      "eventText": "{-} Wenn eine Figur, die einen Gefangenen trägt, auf dem Shuttle ist, beanspruchen die Helden diesen Gefangenen. Klicke auf das rot hervorgehobene Feld auf dem Shuttle und wähle \"Gefangenen beanspruchen\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shuttle",
+              "GUID": "4cc746d2-353d-4cdc-93fd-53f53808f444",
+              "theText": "Das Flucht-Shuttle wartet mit laufenden Triebwerken.\n\n{-} Wenn eine Figur, die einen Gefangenen trägt, im Shuttle ist, beanspruchen die Helden diesen Gefangenen. Klicke auf \"Gefangenen beanspruchen\".",
+              "buttonList": [
+                {
+                  "GUID": "81291b45-1d34-4f7b-afd6-9ee85b62e95a",
+                  "theText": "Gefangenen beanspruchen"
+                }
+              ]
+            }
+          ],
+          "GUID": "0396d237-9ac6-4dac-a890-bd6871d33c1f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Bringt die Gefangenen zum Shuttle (&Prisoners claimed&/3).",
+          "longText": null,
+          "GUID": "b5918c68-2290-41ae-9348-590e401be6f6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Die Tür zum Shuttle ist verriegelt. Eine imperiale Figur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 2 {G}). \n{-} Die Tür zum Shuttle versperrt nicht die Bewegung, die Sichtlinie, die Nachbarschaft oder das Zählen von Feldern für benachbarte Rebellenfiguren.\n{-} Rebellenfiguren im Shuttle erhalten {A}: Wähle eine benachbarte feindliche Figur und lege eine Probe auf {K} ab. Wenn du Erfolg hast, stoße diese Figur bis zu 2 Felder weit.\r\n{-} Rebellen-Einsatzmarker stellen Gefangene dar.\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.\r\n{-} Wenn eine Figur, die einen Gefangenen trägt, auf dem Shuttle ist, beanspruchen die Helden diesen Gefangenen. Klicke auf das rot hervorgehobene Feld auf dem Shuttle und wähle \"Gefangenen beanspruchen\".\r\n{-} Wenn die Helden alle drei Gefangenen beansprucht haben, alle Helden im Shuttle sind und sich 3 oder weniger imperiale Figuren im Shuttle befinden, startet das Shuttle.\n{-} Die Rebellen gewinnen, wenn das Shuttle startet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "9f428ca2-054e-4e62-bd82-c91210b7ea1a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "All Prisoners Claimed",
+      "GUID": "d4e77d46-d2f7-430c-842b-77dbb3b57730",
+      "eventText": "Endlich gelingt es euch, alle Gefangenen an Bord des Flucht-Shuttles zu bringen. Jetzt müsst ihr nur noch die Imperialen loswerden.\n\n{-} Wenn alle Helden im Shuttle sind und sich 3 oder weniger imperiale Figuren im Shuttle befinden, klicke auf das rot hervorgehobene Symbol auf dem Shuttle und wähle \"Shuttle starten\", um den Einsatz zu beenden.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shuttle",
+              "GUID": "a4842df4-8d57-40cb-b25c-9cbabfd880bc",
+              "theText": "Das Flucht-Shuttle wartet mit laufenden Triebwerken.\n\n{-} Wenn eine Figur, die einen Gefangenen trägt, im Shuttle ist, beanspruchen die Helden diesen Gefangenen. Klicke auf \"Gefangenen beanspruchen\".",
+              "buttonList": [
+                {
+                  "GUID": "9c104ab8-3716-4482-9f86-56fea02c3366",
+                  "theText": "Shuttle starten (Einsatz beenden)"
+                }
+              ]
+            }
+          ],
+          "GUID": "c26ac1ea-72c1-4142-8f5e-34e35203193f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "7692b006-4792-47d8-a266-43502df48b8e",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "381a3165-706d-493c-8a63-b3ddf490a6af",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "83f8b9f7-7b94-4412-829b-b157d7688926",
+      "mainText": "Diese Tür führt in den Korridor der Einrichtung. Die Gefangenen müssen irgendwo dahinter untergebracht sein.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.",
+      "buttonList": [
+        {
+          "GUID": "c6d34aa7-b002-4a7c-8547-b34e87708196",
+          "theText": "Zerstören"
+        },
+        {
+          "GUID": "32c21c4f-d330-4854-a3f2-4edf60634a58",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "71c0e53d-ab8e-4f3a-b2e6-e92a7e37f361",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "e0d54d9e-2b64-4fa8-8f25-088603fdca28",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "73e5c1f4-e8d9-4069-bb88-c34ed857b200",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "3219f2ca-91f4-4a8f-a521-5460d3a82578",
+      "mainText": "Diese Tür führt in eine winzige Arrestzelle. Dahinter sind leise Stimmen zu hören.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: Keine). Ein Held kann mit einer Tür interagieren (2 {K} oder {I}), um zu versuchen, sie zu öffnen.",
+      "buttonList": [
+        {
+          "GUID": "ebcfd55a-dbca-40bd-b48b-ed315a629bf0",
+          "theText": "Zerstören"
+        },
+        {
+          "GUID": "acad6a96-c6a5-4aad-9ce6-64bcd351b290",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "14652dbb-dbe4-4e86-8dde-c1b4642e3b2e",
+      "mainText": "Diese Tür führt zu dem vorbereiteten Flucht-Shuttle.\n\n{-} Die Tür ist verriegelt. Eine imperiale Figur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 2 {G}). \n{-} Die Tür zum Shuttle versperrt weder die Bewegung, die Sichtlinie, die Nachbarschaft noch das Zählen von Feldern für benachbarte Rebellenfiguren.",
+      "buttonList": [
+        {
+          "GUID": "c4a9da97-ae35-4ec5-a5c7-64fea78f5367",
+          "theText": "Tür zerstört"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "3452217e-5e00-469a-b52e-a587e4d31d1a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Prisoner 1",
+      "GUID": "53666ee5-5652-402d-bb5f-c22a24a80742",
+      "mainText": "Mona Vash, eine arkanische Händlerin, blinzelt in das plötzliche Licht und schirmt ihre Augen mit ihrer Hand ab.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+      "buttonList": [
+        {
+          "GUID": "070b252f-ad2b-478c-8f3a-b606ffd45571",
+          "theText": "{A} Aufheben"
+        }
+      ]
+    },
+    {
+      "entityName": "Shuttle",
+      "GUID": "0c499b3a-c95a-4ada-b0d9-66bd442fd086",
+      "mainText": "Das Flucht-Shuttle wartet mit laufenden Triebwerken.\n\n{-} Wenn eine Figur, die einen Gefangenen trägt, im Shuttle ist, beanspruchen die Helden diesen Gefangenen. Klicke auf \"Gefangenen beanspruchen\".",
+      "buttonList": [
+        {
+          "GUID": "0cf0bbab-785d-4220-b475-d6574d1184db",
+          "theText": "Gefangenen beanspruchen"
+        }
+      ]
+    },
+    {
+      "entityName": "Prisoner 2",
+      "GUID": "136dee09-2345-4dfc-a461-bbc2d30a736c",
+      "mainText": "Boh Kallaak, ein Techniker aus Muun, sieht ramponiert und angeschlagen aus. Er ist zu schwach zum Laufen.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+      "buttonList": [
+        {
+          "GUID": "af782714-8938-42d9-89dc-43d5d7169fcf",
+          "theText": "{A} Aufheben"
+        }
+      ]
+    },
+    {
+      "entityName": "Prisoner 3",
+      "GUID": "2511d750-8f36-43db-8dd4-51dc7dd9d8fb",
+      "mainText": "Roggnar Dreek, ein Anführer der Ugnaught-Gewerkschaft, ist hier an die Wand gekettet. Er ist verletzt, sieht aber immer noch trotzig und ungebrochen aus.\n\n{-} Eine Rebellenfigur kann einen Gefangenen aufheben. Eine Figur kann nur 1 Gefangenen tragen.",
+      "buttonList": [
+        {
+          "GUID": "752e1b14-714f-4649-9967-7acf37f6b25f",
+          "theText": "{A} Aufheben"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

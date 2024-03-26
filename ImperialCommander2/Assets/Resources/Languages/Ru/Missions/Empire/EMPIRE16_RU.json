@@ -1,0 +1,485 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Незаконченное дело",
+    "missionDescription": "",
+    "missionInfo": "{-} Разместите по 1 жетону нейтральной миссии на каждой выделенной зелёным клетке. Это взрывчатка. Фигурки могут переносить по 2 взрывчатки. \r\n{-} Герой может потратить 2 очка движения чтобы подобрать взрывчатку не тратя действие. Затем, этот герой может пройти проверку {K}. В случае успеха, он получает 1 очко движения.\r\n{-} Герой может потратить 2 очка движения и сбросить переносимую взрывчатку, чтобы выбрать клетку в пределах 2 клеток от персонажа и бросить красный кубик. Каждая фигурка или объект на выбранной клетке, а так же рядом с ней, получают {H} в количестве выпавших {H}.\r\n{-} Двери заперты. Они не могут быть атакованы, но могут получать {H} (здоровье: 4).\r\n{-} Повстанцы победят, когда все терминалы управления будут уничтожены.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+    "campaignName": "Сердце Империи",
+    "startingObjective": "Найдите и уничтожьте терминалы управления (&Terminals&/2).",
+    "repositionOverride": "Заблокировать доступ к взрывчатке, терминалам и дверям.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "1d677f56-0cf7-4d43-bf01-ac19b7b15ae4",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "fe29fd35-956a-429d-97fc-68295946a667",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d757dbd3-b86f-42ce-a031-5ee6de0f7ddb",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "2b532819-3393-47d9-876a-030c4655d99e",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "e569f04d-df13-4366-b9b5-b0af3df0c882",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "4e4e7e34-23c5-4dc7-81ce-3ade51351c76",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Лицо Дроккатты застывает, когда в поле зрения появляется лагерь рабов. Вуки указывает вниз на запасы управляемой взрывчатки, используемой для шахтёрских работ в лагере, и рычит, указывая на план. Если вы сможете найти центральные системы лагеря, вы сможете запустить разрушительную цепную реакцию.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.\r\n{-} Двери заперты. Они не могут быть атакованы, но могут получать {H} (здоровье: 4).\r\n{-} Повстанцы победят, когда все терминалы управления будут уничтожены.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+      "eventActions": [
+        {
+          "tbText": "{-} Разместите по 1 жетону нейтральной миссии на каждой выделенной зелёным клетке. Это взрывчатка. Фигурки могут переносить по 2 взрывчатки. \r\n{-} Герой может потратить 2 очка движения чтобы подобрать взрывчатку не тратя действие. Затем, этот герой может пройти проверку {K}. В случае успеха, он получает 1 очко движения.\r\n{-} Герой может потратить 2 очка движения и сбросить переносимую взрывчатку, чтобы выбрать клетку в пределах 2 клеток от персонажа и бросить красный кубик. Каждая фигурка или объект на выбранной клетке, а так же рядом с ней, получают {H} в количестве выпавших {H}.",
+          "GUID": "509d8166-6ee0-4752-9900-c635d4a05a71",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Дроккатта торжествующе ревёт, в то время как вокруг вас пылает лагерь рабов, а его охранники и офицеры в ужасе разбегаются. Вы добираетесь до места, где держат рабов, открываете двери камер, и воссоединившиеся вуки обнимаются.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Дроккатта получает карту награды \"Рёв вуки\".\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Отчаянный рёв рабов-вуки наполняет воздух, в то время как вы чудом сбегаете. Улетая, вы видите, как они тянутся к небу, словно пытаясь ухватиться за свою ускользающую свободу.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Well Guarded",
+      "GUID": "ab06dbe0-3e59-4f7e-bd56-504af492a40d",
+      "eventText": "Когда дым над обломками двери рассеивается, вы видите устрашающее зрелище: Переносная пушка, управляемая штурмовиком-разведчиком, нацелена прямо на вас.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Guard Post Door",
+              "GUID": "96bc87f4-1203-4303-ad4b-4a521038b525",
+              "theText": "Дверь на пост охраны накрепко заперта.\r\n\r\n{-} Дверь не может быть атакована, но может получать {H} (здоровье: 4).",
+              "buttonList": [
+                {
+                  "GUID": "cadfd50e-40bf-4880-af23-19d4ad1394fa",
+                  "theText": "Уничтожить"
+                }
+              ]
+            },
+            {
+              "entityName": "Bonus Explosive 1",
+              "GUID": "4a7ff3b4-1bce-472c-ae7f-5f4c87d46e3a",
+              "theText": "Разместите взрывчатку здесь.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "5e314a5b-7379-495d-a85e-ab1f8beab5d3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "741b542f-6ece-4744-967a-809c6a2c8823",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "tbText": "На нескольких полках лежат ещё заряды.\r\n\r\n{-} Разместите взрывчатку на выделенных клетках.",
+          "GUID": "69a334f7-b2ff-415e-a5c4-ace74fec474c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Break Time is Over",
+      "GUID": "84d02e4c-dfa7-470d-9b3b-3d058b0f9e95",
+      "eventText": "Дверь выбита взрывной волной, оставив в стене рваную дыру. В столовой за ней, враги вскакивают с сидений и достают оружие. Больше зарядов взрывчатки лежит в углу.\r\n\r\n{-} Разместите взрывчатку на выделенных клетках.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Mess Hall Door",
+              "GUID": "e647fce4-f9ca-4baa-a792-1167100dd076",
+              "theText": "Дверь в столовую накрепко заперта.\r\n\r\n{-} Дверь не может быть атакована, но может получать {H} (здоровье: 4).",
+              "buttonList": []
+            },
+            {
+              "entityName": "Bonus Explosive 2-3",
+              "GUID": "fc4a1482-a366-4373-aaf0-2b65668e75ce",
+              "theText": "Разместите взрывчатку на каждой клетке здесь.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "920c7a0f-0110-46a1-ba01-eca57a686588",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Strike at the Heart",
+      "GUID": "98d4a82a-c4c4-4e21-949e-126dae153169",
+      "eventText": "Вот он – центр управления. Терминалы тихо гудят в полумраке. Всё больше врагов устремляются вперёд, чтобы остановить вас.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control Center Door",
+              "GUID": "7ec728ec-4aab-4959-a1cb-c8497170e107",
+              "theText": "Дверь в центр управления накрепко заперта.\r\n\r\n{-} Дверь не может быть атакована, но может получать {H} (здоровье: 4).",
+              "buttonList": []
+            },
+            {
+              "entityName": "Bonus Explosive 4",
+              "GUID": "49558f89-c991-4920-98c7-2c5048b39207",
+              "theText": "Разместите взрывчатку на каждой клетке здесь.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "d31f2376-caf8-425e-b51a-e7acb87ba907",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "На нескольких полках лежат ещё заряды.\r\n\r\n{-} Разместите взрывчатку на выделенных клетках.",
+          "GUID": "2cdf00fb-e625-4d7b-a5e3-ef78866b2f5a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 1 Destroyed",
+      "GUID": "3e89c37c-de21-4a5f-ba26-642a4f297e60",
+      "eventText": "Терминал исчезает с громким взрывом.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "6df2c520-5645-4a0e-8514-a53764b83192",
+              "theText": "Терминал управления содержит все данные, необходимые для работы работорговцев.\r\n\r\n{-} Терминал не может быть атакован, но может получать {H} (здоровье: 3).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "ff9fe04a-8adf-46f4-8b78-0ba32cb54e17",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 2 Destroyed",
+      "GUID": "ad009194-1a6f-48c9-8947-56ef25e4af8a",
+      "eventText": "Терминал исчезает с громким взрывом.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "a7745b69-13b9-452f-86ad-ba02a6fdb365",
+              "theText": "Терминал управления содержит все данные, необходимые для работы работорговцев.\r\n\r\n{-} Терминал не может быть атакован, но может получать {H} (здоровье: 3).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "23de8989-f58e-462a-ba0f-90fa117b6984",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "54f93e35-087b-4b94-a81f-e607209a1ea5",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "1564d569-84e0-4395-a3f7-7a3f215dde81",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "39d5451b-f482-4f60-8469-345961622c64",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3feeba55-873e-479e-b271-4277bbeb703d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "fa4b5786-1385-4de8-819b-cc8c9c7d3a24",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "dc5a0bb6-0d25-4450-b831-4f61afbc9d0d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "674b8b91-cded-4b3a-b28b-d44e68c95f74",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "961452c2-5844-4114-b5ae-3ab0ffb8bb5d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Bonus Explosive 1",
+      "GUID": "b3c559cd-a0a7-46c6-8692-91a81a021304",
+      "mainText": "Разместите взрывчатку здесь.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 1-2",
+      "GUID": "27276092-60ee-4410-a648-537a22cb6e22",
+      "mainText": "Разместите взрывчатку на каждой клетке здесь.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 3-6",
+      "GUID": "18f0c238-a719-4b2e-85d2-755f5ba45fa2",
+      "mainText": "Разместите взрывчатку на каждой клетке здесь.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 7-8",
+      "GUID": "d4e096d9-1503-47f7-96de-89dad916d12b",
+      "mainText": "Разместите взрывчатку на каждой клетке здесь.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 9-12",
+      "GUID": "47abd7cd-9e2d-46cd-aed0-49b45ae1062f",
+      "mainText": "Разместите взрывчатку на каждой клетке здесь.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Guard Post Door",
+      "GUID": "b8bfb5cc-fbf1-4dfd-b203-02f6c695ea4a",
+      "mainText": "Дверь на пост охраны накрепко заперта.\r\n\r\n{-} Дверь не может быть атакована, но может получать {H} (здоровье: 4).",
+      "buttonList": [
+        {
+          "GUID": "56fdaf18-14fe-4660-9a99-41fff4a780a2",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Mess Hall Door",
+      "GUID": "ce3bf3f2-9679-42da-be60-45449af273c0",
+      "mainText": "Дверь в столовую накрепко заперта.\r\n\r\n{-} Дверь не может быть атакована, но может получать {H} (здоровье: 4).",
+      "buttonList": [
+        {
+          "GUID": "b73fd9ed-2046-4e04-b38e-f0b4abea7075",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Control Center Door",
+      "GUID": "32c538b2-30c1-418c-a054-3f812eb247f1",
+      "mainText": "Дверь в центр управления накрепко заперта.\r\n\r\n{-} Дверь не может быть атакована, но может получать {H} (здоровье: 4).",
+      "buttonList": [
+        {
+          "GUID": "057adc3f-5f71-4f85-a492-330426abc987",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "fa408722-f9d9-4254-afb9-10f1c0b578d6",
+      "mainText": "Терминал управления содержит все данные, необходимые для работы работорговцев.\r\n\r\n{-} Терминал не может быть атакован, но может получать {H} (здоровье: 3).",
+      "buttonList": [
+        {
+          "GUID": "27e9f853-fab2-4845-9459-e180c30e093b",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "2b4643de-7c94-4cdf-a266-515af895a44a",
+      "mainText": "Терминал управления содержит все данные, необходимые для работы работорговцев.\r\n\r\n{-} Терминал не может быть атакован, но может получать {H} (здоровье: 3).",
+      "buttonList": [
+        {
+          "GUID": "8b35ab2d-d9a5-4b8c-b437-57d2a0f5ac8c",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Bonus Explosive 2-3",
+      "GUID": "16845ce3-4d6f-4322-96c1-c03d0194f877",
+      "mainText": "Разместите взрывчатку на каждой клетке здесь.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Bonus Explosive 4",
+      "GUID": "51430dd1-253c-40e8-a452-e783821d765b",
+      "mainText": "Разместите взрывчатку на каждой клетке здесь.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "58a56a1f-5c4b-4504-a296-3cd098f27824",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

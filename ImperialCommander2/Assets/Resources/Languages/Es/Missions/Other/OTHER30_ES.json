@@ -1,0 +1,863 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Mercancía en tránsito",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Aliado Contrabandista de la Alianza",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a la puerta.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "a8acb61d-fdf2-447a-9d14-8b03ff19918f",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "3a43bd7b-826e-48cc-bb28-7687edf0999e",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "dbb9f62e-4583-41c4-9cd6-1e9a2b8d0f8a",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "6d04aca4-b457-4162-985b-9aa3e2dbe622",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Una instalación, lóbrega y muy deteriorada, se alza en la cima de una colina. Un pelotón de soldados de asalto patrulla el perímetro con sus armas preparadas.\r\n\r\n{-} Despliega a los Héroes en la casilla resaltada en azul.",
+      "eventActions": [
+        {
+          "tbText": "A través de vuestro comunicador escucháis una voz que no os resulta familiar:\r\n\r\n\"Aquí Tagg Ronin; esa nave que han derribado era mía. Conseguí burlar a la patrulla exterior, pero necesitaré más potencia de fuego para terminar el trabajo. Intentad superar a esos guardias y entonces podremos entrar, coger lo que necesitamos y salir antes de que sepan qué les golpeó.\"\r\n\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando los Héroes encuentran los alijos.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos.",
+          "GUID": "8d260b8e-80e7-4346-a192-ca994441e0cc",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Encontrar los alijos.",
+          "longText": null,
+          "GUID": "21399a01-1a7d-45bc-8f52-b03d839652b2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando los Héroes encuentran los alijos.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos.",
+          "GUID": "327ab905-e5f9-4c9a-b8bf-5baec22d3dc0",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Salís por la puerta trasera de la instalación y encontráis una nave de carga nueva, con mejores defensas que la anterior, esperando a que subáis a bordo vuestra carga. La tripulación grita para que os apresuréis mientras corréis hacia la nave. Los disparos de los blásteres imperiales pasan silbando a vuestro alrededor mientras escapáis.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben al Contrabandista de la Alianza como Aliado.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Los disparos de los blásteres impactan a vuestro alrededor a medida que superan vuestra posición. Os veis obligados a abandonar la misión e incluso los suministros de los que ya os habíais apoderado. Cuando lleguéis a vuestro transporte junto a Tagg, tendréis que explicar a la tripulación que sólo transportarán pasajeros y ningún cargamento.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Allegiance",
+      "GUID": "9f0149e9-7592-41c8-9bf8-20c5a539229d",
+      "eventText": "Tras la puerta veis un viejo pasillo en ruinas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "268c1228-9b74-4c29-98c6-4bf6f1efed89",
+              "theText": "Una puerta deteriorada protege la instalación del calor del exterior.",
+              "buttonList": [
+                {
+                  "GUID": "4ff2a2f9-3ce3-458e-adf7-20fbbe898602",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "3af1526e-ba13-457c-a89e-eca3dc7fc781",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Un tipo robusto con chaleco apunta su bláster hacia vosotros, pero lo baja cuando se percata de que estáis con la Alianza.\r\n\r\n\"Qué bien que hayáis venido\" dice Tagg. \"¿Listos para trabajar en equipo?\"",
+          "GUID": "29974ec8-b9e8-47db-bcbe-a5d97ab93706",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "customName": "Tagg Ronin (<color=\"red\">Contrabandista de la Alianza</color>)",
+          "GUID": "561a6cc6-a90b-41c1-bf69-c517338eb503",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "{-} Aplica +*1* Vida a Tagg Ronin.",
+          "GUID": "4aef35b8-b200-407f-8cb5-971f71fb961c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Surrounded",
+      "GUID": "c3da9c97-bf75-40b8-ac26-32cf8314f090",
+      "eventText": "Tras la puerta encontráis un pequeño taller.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "6a959595-5897-4063-9629-2754605f800d",
+              "theText": "Una puerta oxidada lleva a la parte interior de la instalación.",
+              "buttonList": [
+                {
+                  "GUID": "a5f4bcd5-02b1-4f0e-8d8d-74a291294c93",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "98c806fc-f642-47f2-ab4f-3e31d4c02db6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Los guardias ya os estaban esperando. Al mismo tiempo, escucháis gruñidos del exterior cuando se acercan unos Cazarrecompensas trandoshanos con las armas desenfundadas.",
+          "GUID": "84ecac8e-9556-4fc7-adb2-64176e9783d2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "642b2171-697f-4f1c-9511-b5df903bde55",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "tbText": "Uno de los alijos perdidos se encuentra en una esquina de la sala.",
+          "GUID": "5487b060-effc-4f12-adfe-82f6d625fb6d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cache 1",
+              "GUID": "ae6e1b44-fe30-4a52-8a58-3ae481ed2dea",
+              "theText": "Un alijo lleno de armas y suministros se encuentra en la esquina de la sala.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "c38f371b-c334-4ad5-89a8-171e777a1174",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "402dafad-3689-4109-99be-c499528ab589",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.\r\n{-} La misión avanza cuando todos los alijos han sido recuperados.",
+          "GUID": "f2692e41-e6f5-484a-b662-4528043da7ba",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Estar adyacente al alijo más cercano con menos figuras del bando Imperial adyacentes a él.",
+          "GUID": "dbd5b0b7-7af8-40aa-914e-29dba552d6f1",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Recuperar todos los alijos (&Caches&/4).",
+          "longText": null,
+          "GUID": "14c406fe-7784-4553-893c-1a2a2e20461e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Las fichas de Misión neutrales representan alijos.\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.\r\n{-} La misión avanza cuando todos los alijos han sido recuperados.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos.",
+          "GUID": "ef2758fd-98de-4dae-8c9f-c8a63f04040b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Well-Protected",
+      "GUID": "93d3dd72-5684-4c72-8c91-b426ca7a4a46",
+      "eventText": "La puerta se abre para dar paso a una vieja fábrica abandonada.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "378a9fc6-a82e-4abe-916f-eacb7bb77a28",
+              "theText": "Una puerta oxidada lleva a la parte interior de la instalación.",
+              "buttonList": [
+                {
+                  "GUID": "c932dd79-b769-4174-8a56-988d0bb295ec",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "504c32b7-6be6-4bb4-8243-576590025905",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Uno de los alijos se encuentra junto a la pared.",
+          "GUID": "32ee6922-9439-4111-ac88-52bde8b26bf3",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cache 2",
+              "GUID": "93ad28c7-624c-4c73-ae40-477e8b84253d",
+              "theText": "Un alijo lleno de armas y suministros se encuentra junto a la pared.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "f3dedff4-8bc0-4c68-bc97-7df0310a3203",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "33726fd3-0c95-4795-ada3-b15dfaef8bee",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Más guardias desenfundan sus armas cuando entráis.",
+          "GUID": "29afc6e2-fef0-4746-9258-95915a2ef634",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "c8478329-341c-4280-a498-3e5b07eac87b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Final Force",
+      "GUID": "9f523a3f-80ae-435b-ad03-319e61c4eaed",
+      "eventText": "El aire caliente entra cuando abrís la puerta. Al final de un largo pasillo, la instalación se abre al exterior.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 4",
+              "GUID": "c050d92d-e2da-42dd-aa97-61a2cfd4ef9b",
+              "theText": "La puerta está muy deteriorada. El exterior no puede estar lejos.",
+              "buttonList": [
+                {
+                  "GUID": "411ea9cd-3e18-40f7-855d-fe1576c6fa9b",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "5b462db3-0222-413a-bfed-ce6cd54070aa",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "46f1246d-24f9-44a4-adf3-d9fddcb3db74",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Los alijos restantes están almacenados en estanterías.",
+          "GUID": "5834b20d-ee9d-4c3a-9873-3d6aa48fd301",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cache 3",
+              "GUID": "f091eb7d-39dc-4092-a9e3-439802711699",
+              "theText": "Un alijo lleno de armas y suministros se encuentra en la estantería.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "1523d437-27c0-401f-b6f5-fafdaa020e9b",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            },
+            {
+              "entityName": "Cache 4",
+              "GUID": "ee90b6ea-d53a-464a-9fce-50022384b56a",
+              "theText": "Un alijo lleno de armas y suministros se encuentra en la estantería.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "aacb1ad2-e45f-41ad-837d-0fcbaa950331",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "0bd4494f-1792-40b7-b636-d49db802f2c3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Varios enemigos vigilan el pasillo.",
+          "GUID": "a3a1a4bc-7958-4c5e-a79e-28fae92adca2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Un carguero espera para recogeros en el exterior.",
+          "GUID": "fc16fbc8-fc17-4e08-976d-ec94a44bb93a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Extraction Point",
+              "GUID": "7f29e863-f60e-4513-871e-19da3531d756",
+              "theText": "Un carguero espera aquí con los motores en marcha.\r\n\r\n{-} Cuando todos los alijos han sido recuperados y todos los Héroes están sobre el punto de extracción o adyacentes al mismo, pulsa sobre \"Los Héroes se marchan\".",
+              "buttonList": []
+            }
+          ],
+          "GUID": "d161fa8d-1cb5-4ac1-9040-44a1fd3b88f1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Cuando todos los alijos han sido recuperados y todos los Héroes están sobre el punto de extracción o adyacentes al mismo, pulsa sobre el punto de extracción y elige \"Los Héroes se marchan\".",
+          "GUID": "db1cb449-c639-4564-8cb8-4a3ffade8877",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Las fichas de Misión neutrales representan alijos.\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.\r\n{-} Cuando todos los alijos han sido recuperados y todos los Héroes están sobre el punto de extracción o adyacentes al mismo, pulsa sobre el punto de extracción y elige \"Los Héroes se marchan\".\r\n{-} La misión avanza cuando todos los alijos han sido recuperados.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos.",
+          "GUID": "56bd0bbc-48ff-4a6d-8487-8247efc69678",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Cache 1",
+      "GUID": "49085db1-e9bd-4770-b17b-90d52a8d7896",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Coges el alijo y lo levantas.\r\n\r\n{-} Realiza una prueba de {K}. Si hay una figura del bando Imperial sobre este alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d584e3d7-332c-4b48-bef5-31f785d4b662",
+              "theText": "Dejas el alijo en su sitio, pues pesa demasiado. Tenéis que seguir intentándolo."
+            },
+            {
+              "GUID": "93a868fb-9be6-41c0-b27b-a3a6065a70c8",
+              "theText": null
+            }
+          ],
+          "GUID": "e890503a-a6b8-4414-a904-aad395b75b63",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Cache 1",
+      "GUID": "8e6404a4-55c9-41c9-a4f4-286fd42e0262",
+      "eventText": "Levantas el alijo y te lo cargas al hombro.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cache 1",
+              "GUID": "954804c8-6341-4df8-a2eb-bb8efd484b1f",
+              "theText": "Un alijo lleno de armas y suministros se encuentra en la esquina de la sala.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "2d21784b-fe4e-4b17-8e29-21f25941d3d8",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "8d299a68-87e0-4db7-86c6-1544ee00f80b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Cache 2",
+      "GUID": "2d8aea80-a25c-4725-9635-120873dcd8eb",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Coges el alijo y lo levantas.\r\n\r\n{-} Realiza una prueba de {K}. Si hay una figura del bando Imperial sobre este alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "f7b75869-95a6-4d81-844d-2bef27b2b74b",
+              "theText": "Dejas el alijo en su sitio, pues pesa demasiado. Tenéis que seguir intentándolo."
+            },
+            {
+              "GUID": "6285758b-0915-426f-97e5-6d06cd327708",
+              "theText": null
+            }
+          ],
+          "GUID": "f29e8829-7ffe-49a2-aa84-e0b0fc3674bf",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Cache 2",
+      "GUID": "dd131c9e-305c-4380-9292-8b9ca3bd34fa",
+      "eventText": "Levantas el alijo y te lo cargas al hombro.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cache 2",
+              "GUID": "a6e7c308-7827-4a9b-b639-c0ea53b4f6e2",
+              "theText": "Un alijo lleno de armas y suministros se encuentra junto a la pared.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "54e63295-c1a7-4e09-8850-6673fbad4383",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "006bdf80-2b48-437f-b7b3-52cb1fdd8590",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Cache 3",
+      "GUID": "02f3113f-79de-4e71-8107-b1bb852fa1ea",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Coges el alijo y lo levantas.\r\n\r\n{-} Realiza una prueba de {K}. Si hay una figura del bando Imperial sobre este alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "bd20ed24-571c-4130-a38b-fd7de5d0290f",
+              "theText": "Dejas el alijo en su sitio, pues pesa demasiado. Tenéis que seguir intentándolo."
+            },
+            {
+              "GUID": "c5d5e95e-2114-42bd-bfa9-9eb86eb40256",
+              "theText": null
+            }
+          ],
+          "GUID": "faba0956-7a01-43c5-a0de-99440f89fdbc",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Cache 3",
+      "GUID": "e9131508-8ba9-4a50-95a0-091a14ff7f93",
+      "eventText": "Levantas el alijo y te lo cargas al hombro.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cache 3",
+              "GUID": "f5b5e891-4a37-42ca-8939-ecd555b80a34",
+              "theText": "Un alijo lleno de armas y suministros se encuentra en la estantería.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "b3561efb-d7fa-440a-91b5-b7d058188fcb",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "c0dc0733-fd07-4e7d-818f-94bd7507cb98",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Cache 4",
+      "GUID": "b271b474-6a2e-4755-a533-fd00eb93c45c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Coges el alijo y lo levantas.\r\n\r\n{-} Realiza una prueba de {K}. Si hay una figura del bando Imperial sobre este alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "a7577126-02ff-4ea9-9705-9dc8cd67d44a",
+              "theText": "Dejas el alijo en su sitio, pues pesa demasiado. Tenéis que seguir intentándolo."
+            },
+            {
+              "GUID": "e7301729-ed38-4e8a-b540-204417751672",
+              "theText": null
+            }
+          ],
+          "GUID": "e826d2fb-44b5-438c-b91d-b1aa83e21d78",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Cache 4",
+      "GUID": "a472fed9-3199-46d2-a1b9-d3f283a65cdc",
+      "eventText": "Levantas el alijo y te lo cargas al hombro.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cache 4",
+              "GUID": "9282929a-4b52-4287-956e-a45e203a8649",
+              "theText": "Un alijo lleno de armas y suministros se encuentra en la estantería.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+              "buttonList": [
+                {
+                  "GUID": "d6945317-f0e0-4d8c-8f80-a0be282f9b5f",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "04bf70db-7dbd-432a-876b-40fc7bda06ce",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "All Caches Retrieved",
+      "GUID": "2db15e38-af3d-4077-b2e5-157f6f19ea56",
+      "eventText": "-¡Ahora vámonos de aquí! -grita Tagg mientras señala el carguero.\r\n\r\n{-} Cuando todos los Héroes están sobre el punto de extracción o adyacentes al mismo, pulsa sobre el punto de extracción y elige \"Los Héroes se marchan\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Blue",
+              "GUID": "1ab9b7ec-46af-4c93-ac0b-2e2b2dbd3fd0",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Extraction Point",
+              "GUID": "d92a4930-4566-4bf2-8ae3-aba5cd72ee77",
+              "theText": "Un carguero espera aquí con los motores en marcha.\r\n\r\n{-} Cuando todos los alijos han sido recuperados y todos los Héroes están sobre el punto de extracción o adyacentes al mismo, pulsa sobre \"Los Héroes se marchan\".",
+              "buttonList": [
+                {
+                  "GUID": "f56ed7b3-52a2-4227-b22c-0496909ef5c9",
+                  "theText": "Los Héroes se marchan (Terminar misión)"
+                }
+              ]
+            }
+          ],
+          "GUID": "44b6331e-c935-40a4-a198-a94902d732d4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso al punto de extracción.",
+          "GUID": "7c4f55ba-8e5a-4c3d-9027-6050b102cbd0",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "¡Escapad!",
+          "longText": null,
+          "GUID": "9f891d3f-c1d4-473d-b442-901539f16d8b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Cuando todos los Héroes están sobre el punto de extracción o adyacentes al mismo, pulsa sobre el punto de extracción y elige \"Los Héroes se marchan\".\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos.",
+          "GUID": "a98f8b50-9b06-4c94-9d72-695914e1b7c6",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "405edeb1-39fa-4bb2-b956-5d50a1d64b3c",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "2d4799fb-2178-4074-815e-1c88ead779a8",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "cb43106c-ac9c-47e5-97ec-fc5110fca8f5",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega a los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "7bffb162-d60e-47cd-822e-a76b01722227",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "7d04ede4-718f-4e9a-b748-be0dace2474c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "2a71e630-5045-44d1-8c87-edd885aa8c93",
+      "mainText": "Una puerta deteriorada protege la instalación del calor del exterior.",
+      "buttonList": [
+        {
+          "GUID": "2cd633f0-94e4-4045-a3c4-1d1bdc13c405",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "114faa29-2c9a-4422-904d-fdd1915c70dc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "18ed1243-3f89-43ac-adce-190a15f76290",
+      "mainText": "Una puerta oxidada lleva a la parte interior de la instalación.",
+      "buttonList": [
+        {
+          "GUID": "5ffcfc55-1a8b-454c-a579-6e719dcc6be2",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "2a22d9f0-5049-4d28-b339-52fba64bcfca",
+      "mainText": "Una puerta oxidada lleva a la parte interior de la instalación.",
+      "buttonList": [
+        {
+          "GUID": "add65bb3-7237-4d77-b777-70e9c4ed1404",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 4",
+      "GUID": "99656fd7-e32c-4009-98a3-f9b33a4d4f1c",
+      "mainText": "La puerta está muy deteriorada. El exterior no puede estar lejos.",
+      "buttonList": [
+        {
+          "GUID": "bc828aec-f9aa-43be-8d7d-f49faf1ce57e",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Cache 1",
+      "GUID": "d4dfe01b-70c6-45bc-8a39-a43225ed7c64",
+      "mainText": "Un alijo lleno de armas y suministros se encuentra en la esquina de la sala.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+      "buttonList": [
+        {
+          "GUID": "e54426f8-7ad7-457c-830e-9226afa5d658",
+          "theText": "{A} Recuperar"
+        }
+      ]
+    },
+    {
+      "entityName": "Cache 2",
+      "GUID": "ebb7f8c5-fa4b-492e-abd9-16f5c468b9ed",
+      "mainText": "Un alijo lleno de armas y suministros se encuentra junto a la pared.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+      "buttonList": [
+        {
+          "GUID": "7a081f4e-016c-4e42-b6f4-2217b783047d",
+          "theText": "{A} Recuperar"
+        }
+      ]
+    },
+    {
+      "entityName": "Cache 3",
+      "GUID": "2782d17c-459e-4acd-88fe-429f544dec61",
+      "mainText": "Un alijo lleno de armas y suministros se encuentra en la estantería.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+      "buttonList": [
+        {
+          "GUID": "18ec02e3-8203-442a-997d-92b291b1823b",
+          "theText": "{A} Recuperar"
+        }
+      ]
+    },
+    {
+      "entityName": "Cache 4",
+      "GUID": "c8d1549f-d92d-4197-8148-8808c37dba62",
+      "mainText": "Un alijo lleno de armas y suministros se encuentra en la estantería.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con un alijo ({K}) para tratar de recuperarlo. Si hay una figura del bando Imperial sobre ese alijo o adyacente al mismo, aplica -1{B} a los resultados de la prueba.",
+      "buttonList": [
+        {
+          "GUID": "3ba67901-8ca1-4027-924c-b32518310e5a",
+          "theText": "{A} Recuperar"
+        }
+      ]
+    },
+    {
+      "entityName": "Extraction Point",
+      "GUID": "b415036b-19d7-4d60-bc16-03ba0651e985",
+      "mainText": "Un carguero espera aquí con los motores en marcha.\r\n\r\n{-} Cuando todos los alijos han sido recuperados y todos los Héroes están sobre el punto de extracción o adyacentes al mismo, pulsa sobre \"Los Héroes se marchan\".",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tagg",
+      "GUID": "e77574a0-75e2-4081-b377-75bc8889a593",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Entrance",
+      "GUID": "a1759dc1-7ae6-4677-b3b1-fedf5393f4c9",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

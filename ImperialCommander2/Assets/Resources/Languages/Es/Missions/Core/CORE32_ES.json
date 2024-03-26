@@ -1,0 +1,447 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Se Busca",
+    "missionDescription": "",
+    "missionInfo": "{-} Las puertas están selladas.\r\n{-} La ficha de misión neutral representa la llave. Después de que sea soltada, un Héroe puede recuperar la llave.\r\n{-} Un héroe que transporte la llave puede abrir la puerta de la Oficina.\r\n{-} Cuando un Héroe debe retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} La misión avanza cuando la puerta de la Oficina se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+    "campaignName": "Juego Base",
+    "startingObjective": "Abrir la puerta de la Oficina.",
+    "repositionOverride": "Bloquear el acceso a la Oficina.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "847582d2-7831-4f28-816f-89d06d381e67",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "f8b126a7-e328-4f4f-be59-fb578da38f79",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ed25c638-9714-4297-896e-76943b285c4a",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Estáis rondando por la cantina llamada Légamo en busca de vuestro esquivo contacto. Un individuo con aspecto de cazarrecompensas surge de las sombras con un bláster desenfundado.\r\n\r\nLas puertas se cierran de golpe; parece que tratan de encerraros aquí. Tendréis que buscar una forma de salir.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas.\r\n{-} La misión avanza cuando la puerta de la Oficina se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Conseguís abriros paso a través de las barricadas. Una vez en terreno abierto podéis encargaros sin problemas de cualquier otro cazarrecompensas que quiera intentar cobrar la recompensa por vuestras cabezas, mientras os encamináis a vuestra nave.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Estáis a punto de escapar cuando uno de vuestros atacantes, al que creíais incapacitado, revela un detonador térmico. Os grita algo en una lengua alienígena mientras os agacháis detrás de cualquier cosa que os pueda servir de cobertura.\r\n\r\nSalís como podéis de entre los escombros, en un estado lamentable, y enviáis la señal de extracción. Algunos estáis más heridos que otros, pero todos sabéis que sois afortunados de seguir con vida.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente misión) en 2. Durante la fase de mejora de los Rebeldes, éstos pueden decidir gastar 100 créditos por héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard 1",
+      "GUID": "03ef51c1-ee9a-4c89-b98a-bd6d8fe503ba",
+      "eventText": "Uno de los trandoshanos parece ser el líder.\r\n\r\n{-} Coloca una ficha de misión neutral bajo el cazador trandoshano en la loseta 27B. Éste transporta la llave.\r\n{-} La ficha de misión neutral representa la llave. Después de que sea soltada, un Héroe puede recuperar la llave.\r\n{-} Un héroe que transporte la llave puede abrir la puerta de la Oficina.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard 2",
+      "GUID": "e20b278f-e899-4ab5-8f9a-4bde3698443d",
+      "eventText": "Uno de los trandoshanos parece ser el líder.\r\n\r\n{-} Coloca una ficha de misión neutral bajo el cazador trandoshano en la loseta 26B. Éste transporta la llave.\r\n{-} La ficha de misión neutral representa la llave. Después de que sea soltada, un Héroe puede recuperar la llave.\r\n{-} Un héroe que transporte la llave puede abrir la puerta de la Oficina.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard Trigger",
+      "GUID": "78de7bf0-36b2-4311-a629-db64f524c097",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Store Room Door",
+      "GUID": "17af65e6-4ce8-4027-83c0-70097ccf7ce3",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Store Room Door",
+              "GUID": "31e1bbcd-3a97-4b72-b73c-8399166e6e97",
+              "theText": "Esta es la puerta del Almacén.\r\n\r\nLa puerta está sellada.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a5f70365-afb4-4dad-99fe-d63a13d59546",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hunted Down",
+      "GUID": "1689a3e7-a07f-46fa-bbf8-b6281ae213bc",
+      "eventText": "La puerta se abre, sólo para revelar una visión aterradora: la silueta mecánica del temible droide cazarrecompensas IG-88, acompañado de un dron de combate volador.\r\n\r\n{-} La puerta del Almacén deja de estar sellada.\r\n{-} Un héroe puede interactuar con el terminal ({I}) para abrir la puerta de la salida. Al final de cada ronda, la puerta de la salida se cierra.\r\n{-} Las fichas de misión del bando Imperial son barricadas. Las barricadas son terreno bloqueado y pueden ser atacadas (Salud: *3*, Defensa: 1 {G}).",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Store Room Door",
+              "GUID": "3167b591-549c-4def-b039-4ee0b5e06d09",
+              "theText": "Esta es la puerta del Almacén.",
+              "buttonList": [
+                {
+                  "GUID": "ebd2ae7b-eb2b-4bb4-a803-47af66ce9209",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Office Door",
+              "GUID": "49599b33-edc0-402a-994a-3aeca049af3f",
+              "theText": "Esta es la puerta de la Oficina.\r\n\r\nLa puerta está sellada. Un héroe que transporte la llave puede abrir la puerta de la Oficina.",
+              "buttonList": [
+                {
+                  "GUID": "31c55e58-5497-404d-b85f-3f1197ef7c33",
+                  "theText": "{A} Open"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "651eba5b-e277-4c57-baa8-42b0b4093d85",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "93ec7dbd-364b-48e6-9a93-a8f795614cc6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "531b39f6-9efd-4617-9625-63d6fe320569",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG071/IG-88"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "708076f8-e610-4d73-9bdb-aaaac4546c79",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG012/Probe Droid"
+        },
+        {
+          "repositionText": "Bloquear el acceso a la salida.",
+          "GUID": "ffbf9260-9a45-4564-9cda-0abd94d7390c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Un héroe puede interactuar con el terminal ({I}) para abrir la puerta de la salida. Al final de cada ronda, la puerta de la salida se cierra.\r\n{-} Las fichas de misión del bando Imperial son barricadas. Las barricadas son terreno bloqueado y pueden ser atacadas (Salud: *3*, Defensa: 1 {G}).\r\n{-} Cuando un Héroe debe retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} La misión avanza cuando la puerta de la Salida se abre\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "2c5aec6b-0229-4372-ba17-7c28634367ae",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Abrir la puerta de la Salida.",
+          "longText": null,
+          "GUID": "9486bd00-99bc-40cc-816a-c4e339e0b416",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Round Close Door",
+      "GUID": "e42221aa-c792-4f4a-807b-dddd9e664b41",
+      "eventText": "La puerta de la Salida se cierra de golpe.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "8acaf478-0c40-4203-ad43-f9bd2324a0f3",
+              "theText": "Ésta es la puerta de la Salida.\r\n\r\nUn héroe puede interactuar con el terminal ({I}) para abrir la puerta de la salida. Al final de cada ronda, la puerta de la salida se cierra.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c3c5f5bf-f9cb-4fb6-a3a4-f08fb5478b02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Exit Door",
+      "GUID": "e2768ed2-c8f6-46fb-87f2-5a4977f2f8bd",
+      "eventText": "La puerta de la Salida se abre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "3d5998d7-598a-42ff-8fdd-5cb1befb3165",
+              "theText": "Ésta es la puerta de la Salida.\r\n\r\nUn héroe puede interactuar con el terminal ({I}) para abrir la puerta de la salida. Al final de cada ronda, la puerta de la salida se cierra.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "aeff8d5b-d069-4aa1-96f6-38e700aebad3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Exit Open First Time",
+      "GUID": "ff07d6b9-675b-4d44-89a9-6c18e2c8fa03",
+      "eventText": "Detrás de la puerta hay un pequeño callejón. Puedes ver la manera de escapar por aquí.\r\n\r\n{-} La ficha de misión Rebelde representa la salida. Cuando todos los Héroes están en la salida o adyacentes a ella, los Héroes escapan y la misión termina.",
+      "eventActions": [
+        {
+          "theText": "{-} Un héroe puede interactuar con el terminal ({I}) para abrir la puerta de la salida. Al final de cada ronda, la puerta de la salida se cierra.\r\n{-} Las fichas de misión del bando Imperial son barricadas. Las barricadas son terreno bloqueado y pueden ser atacadas (Salud: *3*, Defensa: 1 {G}).\r\n{-} La ficha de misión Rebelde representa la salida. Cuando todos los Héroes están en la salida o adyacentes a ella, los Héroes escapan y la misión termina.\r\n{-} Cuando un Héroe debe retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} Los Rebeldes ganan cuando escapan.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "9d481c5f-77cb-46fa-88e5-561a1524f6a5",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "¡Escapar!",
+          "longText": null,
+          "GUID": "8f652f0a-7bae-4fb6-b9d4-7235c7ffb79e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Barricade 1",
+      "GUID": "d53b076f-510d-4139-80d0-a3e7727fa59a",
+      "eventText": "La barricada es reducida a astillas por vuestros ataques.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "4f33ee96-0ae6-4d4b-b32b-73e9b5d6eb1d",
+              "theText": "La puerta de la salida se halla bloqueada por una barricada.\r\n\r\nLas barricadas son terreno bloqueado y pueden ser atacadas (Salud: *3*, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "a0763cb3-011c-4184-a6f5-ab8315391762",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "78c756f6-fbae-4a3f-8df8-a2cf0c6ebafb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Barricade 2",
+      "GUID": "05dbdcda-d19d-4f64-8ee6-cd21dc548d69",
+      "eventText": "La barricada es reducida a astillas por vuestros ataques.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 2",
+              "GUID": "91f2aa10-e44b-41ea-991c-3cd92b65b3b0",
+              "theText": "La puerta de la salida se halla bloqueada por una barricada.\r\n\r\nLas barricadas son terreno bloqueado y pueden ser atacadas (Salud: *3*, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "8a1cd223-eef9-4b3d-8c46-ac7e042fa4ba",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "dda76abe-693c-48b7-adb8-72298fca4d70",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "e8dd9a90-589c-4343-aa29-4f5f8937ecf5",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "40e543f0-78f6-4956-b130-662f52e53b2d",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega aquí a los Héroes",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Store Room Door",
+      "GUID": "9327e697-b67c-4e81-a924-131885ea7944",
+      "mainText": "Esta es la puerta del Almacén.\r\n\r\nLa puerta está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Office Door",
+      "GUID": "df4a89e8-fe54-43be-89e1-7c51374451d2",
+      "mainText": "Esta es la puerta de la Oficina.\r\n\r\nLa puerta está sellada. Un héroe que lleve la llave puede abrir la puerta de la Oficina.",
+      "buttonList": [
+        {
+          "GUID": "7b7fa85e-5b18-44a5-b6bf-087d7219d287",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit Door",
+      "GUID": "3567293a-f305-4937-89c3-4cc92231d1fc",
+      "mainText": "Ésta es la puerta de la Salida.\r\n\r\nUn héroe puede interactuar con el terminal ({I}) para abrir la puerta de la salida. Al final de cada ronda, la puerta de la salida se cierra.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "ed4d1f85-5f14-4071-8280-9b291f9f8733",
+      "mainText": "Esta es la Salida\r\n\r\nCuando todos los Héroes están en la salida o adyacentes a ella, los Héroes escapan y la misión termina.",
+      "buttonList": [
+        {
+          "GUID": "e05ce562-110b-4a38-bb84-1cfc22d4bc86",
+          "theText": "Escapar (Fin de Misión)"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "23a27494-500c-4d9e-a99a-2c24f191845b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "ad2b2088-a892-41e7-8f2c-8bef889959e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "New Terminal",
+      "GUID": "c28acf0e-6c73-4224-9159-04cd5544405f",
+      "mainText": "Este terminal controla la puerta de salida, pero sus medidas de seguridad hacen que no permanezca abierta durante mucho tiempo.\r\n\r\nUn héroe puede interactuar con el terminal ({I}) para abrir la puerta de la salida. Al final de cada ronda, la puerta de la salida se cierra.",
+      "buttonList": [
+        {
+          "GUID": "246e1880-9739-4b68-9042-06835c9f5c61",
+          "theText": "{A} Abrir puerta de Salida"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "08927e2c-5ff7-4465-9fe9-db488f63abca",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "3f83acd9-450d-42ff-9128-e857808dc7d7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Barricade 1",
+      "GUID": "6b48fa4b-394b-4229-9ef9-88eb51492f85",
+      "mainText": "La puerta de la salida se halla bloqueada por una barricada.\r\n\r\nLas barricadas son terreno bloqueado y pueden ser atacadas (Salud: *3*, Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "02e594ae-55cb-4384-bfdd-1f85122eef65",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Barricade 2",
+      "GUID": "e5ccaa95-6372-4cf2-a80e-669bbdcd4b38",
+      "mainText": "La puerta de la salida se halla bloqueada por una barricada.\r\n\r\nLas barricadas son terreno bloqueado y pueden ser atacadas (Salud: *3*, Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "37b13d9a-c6d5-4349-be06-9adbb89fd97b",
+          "theText": "Destruir"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

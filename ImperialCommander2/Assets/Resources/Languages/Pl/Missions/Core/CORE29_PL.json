@@ -1,0 +1,596 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Captured",
+    "missionDescription": "",
+    "missionInfo": "{-} Należy zakryć wszystkie karty przedmiotów należące do bohaterów. Nie mogą oni używać zakrytych kart. Neutralny żeton misji reprezentuje skład broni. Bohater może skorzystać ze składu broni, aby odkryć wszystkie swoje przedmioty.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu, albo skorzystania ze składu broni.\r\n{-} Bohater bez broni może atakować sąsiadujące wrogie figurki, rzucając 1 zieloną i 1 żółtą kością. Przed tym atakiem bohater wykonuje test {K}. Jeśli test jest udany, ten atak zyskuje {B}: +2 {H}.\r\n{-} Drzwi w składzie i przejściu są zabezpieczone. Drzwi sąsiadujące z figurką Imperium nie blokują jej ruchu lub pola widzenia.\r\n{-} Misja pójdzie naprzód, kiedy wszyscy bohaterowie odkryją swoje przedmioty. Bohaterowie przegrają kiedy wszyscy bohaterowie będą ranni.",
+    "campaignName": "Core Game",
+    "startingObjective": "Odzyskaj ekwipunek ze składu broni.",
+    "repositionOverride": "Blokuj dostęp do terminali i żetonów misji.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Nie wiesz już sam, ile czasu zajęły wam próby wydostania się z celi, jednak cały wasz sprzęt - za wyjątkiem ukrytego komunikatora - przepadł bez śladu. Jesteście przekonani, że już nic nie da się zrobić... gdy nagle ściany drżą, a komunikator budzi się do życia!\r\n\r\n\"Za dziesięć sekund...\" Informuje czyjś głos. \"... drzwi do waszej celi zostaną odblokowane. Wasz ekwipunek jest w korytarzu. Uciekajcie! Szybko!\"",
+      "eventActions": [
+        {
+          "tbText": "{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.\r\n{-} Należy zakryć wszystkie karty przedmiotów należące do bohaterów. Nie mogą oni używać zakrytych kart. Neutralny żeton misji reprezentuje skład broni. Bohater może skorzystać ze składu broni, aby odkryć wszystkie swoje przedmioty.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu, albo skorzystania ze składu broni.\r\n{-} Bohater bez broni może atakować sąsiadujące wrogie figurki, rzucając 1 zieloną i 1 żółtą kością. Przed tym atakiem bohater wykonuje test {K}. Jeśli test jest udany, ten atak zyskuje {B}: +2 {H}.\r\n{-} Drzwi w składzie i przejściu są zabezpieczone. Drzwi sąsiadujące z figurką Imperium nie blokują jej ruchu lub pola widzenia.\r\n{-} Misja pójdzie naprzód, kiedy wszyscy bohaterowie odkryją swoje przedmioty. Bohaterowie przegrają kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "d5cc48e2-ad5a-4c57-83e6-3d5bd079cc26",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Trash Compactor",
+      "GUID": "dac171c0-ca6b-492c-915e-54632e294337",
+      "eventText": "Włazy do zgniatarki śmieci się otwierają.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Imperial Token 1",
+              "GUID": "a73523a1-c650-467e-815c-429c5798e58b",
+              "theText": "Wejście do zgniatarki śmieci jest zamknięte.\r\n\r\nBohater może skorzystać ({J} lub {I}) z czerwonego terminala, aby otworzyć wszystkie włazy do zgniatarki śmieci.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Imperial Token 2",
+              "GUID": "fd9d7423-7d02-48e5-8156-00dbbf6021dd",
+              "theText": "Wejście do zgniatarki śmieci jest zamknięte.\r\n\r\nBohater może skorzystać ({J} lub {I}) z czerwonego terminala, aby otworzyć wszystkie włazy do zgniatarki śmieci.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "a8c22f13-aa05-4c76-b3e3-1cb1014a6705",
+              "theText": "Wejście do zgniatarki śmieci jest otwarte.\r\n\r\n{-} Figurka może skorzystać z tego żetonu, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.",
+              "buttonList": [
+                {
+                  "GUID": "77e78cff-71b2-45b3-8ff4-b07eb62afbe2",
+                  "theText": "{A} Zejdź na dół"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "0d66d078-3887-43a0-aec5-ad6b5a73fe52",
+              "theText": "Wejście do zgniatarki śmieci jest otwarte.\r\n\r\n{-} Figurka może skorzystać z tego żetonu, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.",
+              "buttonList": [
+                {
+                  "GUID": "5a785ed0-a6ad-4fd5-ae81-7c620b93403a",
+                  "theText": "{A} Zejdź na dół"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Terminal",
+              "GUID": "804e7d9d-2284-41b8-afa3-01572c42daff",
+              "theText": "Terminal steruje włazami do zgniatarki śmieci.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2c28072e-e528-42aa-86f8-54aa5ebd4240",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Trash Compactor",
+      "GUID": "84d326bd-6bf1-4bd2-b7b6-0637d91b6fe5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Próbujesz włamać się do terminala.\r\n\r\n{-} Wykonaj test {J} lub {I}. Dodaj +1 {B} za każdy żeton zmęczenia na tym terminalu, następnie odrzuć wszystkie żetony zmęczenia z tego terminala. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d7bc3bde-9324-49e4-805f-116a03385032",
+              "theText": "Systemy bezpieczeństwa chroniące terminal są zbyt silne. Musisz próbować ponownie.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na tym terminalu."
+            }
+          ],
+          "GUID": "db5f75d7-2ef2-4374-818b-009effe0de3b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "TC Door Opens",
+      "GUID": "b19d3b9f-40f4-4ed6-844f-1ff7f586ea5f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "a20189f7-1e96-4376-be30-09203367fbe1",
+              "theText": "Te zardzewiałe drzwi zostały zaprojektowane tak, aby osłaniać korytarz przed oparami ze zgniatarki śmieci.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "8767cb64-1d2d-4b6d-85bd-9629c793131f",
+              "theText": "Ten terminal steruje zsypem śmieci, który prowadzi ze zgniatarki.",
+              "buttonList": [
+                {
+                  "GUID": "70dd6469-abca-4237-b717-5369428ba0a9",
+                  "theText": "{A} Zhakuj"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "2932ccdd-a648-4ed3-b9ee-27a677878836",
+              "theText": "Ten terminal steruje zsypem śmieci, który prowadzi ze zgniatarki.",
+              "buttonList": [
+                {
+                  "GUID": "1104e1a7-ec1c-40c2-9501-9d21aa7d55c2",
+                  "theText": "{A} Zhakuj"
+                }
+              ]
+            }
+          ],
+          "GUID": "9bf0635e-ea7a-48e4-b29d-65b3220eaef6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cell Door opens",
+      "GUID": "830aa383-6c6f-4ce4-8cf0-c54bd43f28aa",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "0f5df446-d345-4f27-972d-70c1aa998d7e",
+              "theText": "Drzwi do celi więziennej wyglądają na solidne, ale zostały naruszone przez wasze działania.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bd24e3a6-293d-40cc-a7ae-33f061d4b781",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Ends - Rebel win",
+      "GUID": "719dc69a-6390-40b1-b564-f493ca8d39e4",
+      "eventText": "Brodząc w śmieciach i szlamie, spotykacie innych uwolnionych przed chwilą rebelianckich więźniów. Wspólnie unieszkodliwiacie spotykanych na swojej drodze imperialnych żołnierzy. Postępując zgodnie wskazówkami waszego wybawcy, wyprowadzacie ich na zewnątrz, do czekającego w pobliżu transportowca.\r\n\r\n{-} Bohaterowie wygrali misję!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends - Rebels lose",
+      "GUID": "1c4f99fe-5bd0-4683-afe8-cec815814869",
+      "eventText": "Zostaliście znowu schwytani i jesteście teraz przetrzymywani w placówce o zaostrzonym rygorze. Wkrótce czeka was przeniesienie na Kessel. Na szczęście, po kilku tygodniach, które wypełniają wam ciężkie prace, najwyższe dowództwo Rebelii uruchamia operację ratunkową. Eskadra Łotrów perfekcyjnie wypełnia plan i zostajecie uwolnieni, wraz z kilkoma innymi wysokopostawionymi oficerami Rebelii.\r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} Należy zwiększyć poziom zagrożenia następnej misji (i tylko następnej misji) o 2. Podczas etapu ulepszeń Rebelii gracze Rebelii mogą zdecydować, że wydają 100 kredytów za każdego bohatera w grze, aby temu zapobiec.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Escape",
+      "GUID": "34fcad06-4144-4a3d-a4dc-00477c794f23",
+      "eventText": "\"Zaparkowałem statek w pobliżu zsypu\" - informuje cię wasz wybawca, \"ale musicie zhakować ich system i otworzyć przejścia. Cokolwiek planujecie, pospieszcie się! Zajmę się nimi, ale nie wiem, jak długo zdołam ich powstrzymać!\"\r\n\r\n{-} Żetony misji Imperium reprezentują zamknięte przejścia, a żetony misji Rebelii reprezentują otwarte przejścia. Bohater może skorzystać ({J} lub {I}) z terminala, aby odwrócić wszystkie żetony misji Imperium w kolorze odpowiadającym temu terminalowi.\r\n{-} Figurka może skorzystać z czerwonego żetonu misji Rebelii, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu, albo skorzystania ze składu broni.\r\n{-} Drzwi w składzie i przejściu są zabezpieczone. Drzwi sąsiadujące z figurką Imperium nie blokują jej ruchu lub pola widzenia.\r\n{-} Jeśli wszyscy bohaterowie znaleźli się na polach z żółtymi żetonami Rebelii lub na polach sąsiadujących, kliknij \"Odejdź\" na żetonie, aby wygrać misję.\r\n{-} Bohaterowie przegrają kiedy wszyscy bohaterowie będą ranni.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Terminal",
+              "GUID": "e39142fe-f976-4cc0-8b01-fab676149b3e",
+              "theText": "Terminal steruje włazami do zgniatarki śmieci.",
+              "buttonList": [
+                {
+                  "GUID": "d07e8b47-9270-42c7-8345-3a390573ac74",
+                  "theText": "{A} Zhakuj"
+                }
+              ]
+            },
+            {
+              "entityName": "Equipment Cache",
+              "GUID": "e85d7f60-35b1-4d2f-b350-fe50d10efc0b",
+              "theText": "Wasz sprzęt jest przechowywany w tym schowku.\r\n\r\nBohater może skorzystać ze składu broni, aby odkryć wszystkie swoje przedmioty. Kiedy wszyscy bohaterowie odkryją swoje przedmioty, kliknij \"Ekwipunek odzyskany\", aby misja poszła naprzód.",
+              "buttonList": [
+                {
+                  "GUID": "46189a01-0904-4ebc-a466-8f049306a9f1",
+                  "theText": "Ekwipunek odzyskany"
+                }
+              ]
+            }
+          ],
+          "GUID": "d037a863-7eaf-4f34-9ea8-a18575344161",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Żetony misji Imperium reprezentują zamknięte przejścia, a żetony misji Rebelii reprezentują otwarte przejścia. Bohater może skorzystać ({J} lub {I}) z terminala, aby odwrócić wszystkie żetony misji Imperium w kolorze odpowiadającym temu terminalowi.\r\n{-} Figurka może skorzystać z czerwonego żetonu misji Rebelii, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu, albo skorzystania ze składu broni.\r\n{-} Drzwi w składzie i przejściu są zabezpieczone. Drzwi sąsiadujące z figurką Imperium nie blokują jej ruchu lub pola widzenia.\r\n{-} Jeśli wszyscy bohaterowie znaleźli się na polach z żółtymi żetonami Rebelii lub na polach sąsiadujących, kliknij \"Odejdź\" na żetonie, aby wygrać misję.\r\n{-} Bohaterowie przegrają kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "6ea359dc-7a18-447a-82f0-9b519291687a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Znajdź sposób na otwarcie włazów do zgniatarki śmieci.",
+          "longText": null,
+          "GUID": "f7550b2c-70a0-4626-9abb-dc83a99ec9b7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Garbage Chute",
+      "GUID": "c9a18ce4-ba8b-4b62-83f3-92f94a20c944",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Próbujesz włamać się do terminala.\r\n\r\n{-} Wykonaj test {J} lub {I}. Dodaj +1 {B} za każdy żeton zmęczenia na tym terminalu, następnie odrzuć wszystkie żetony zmęczenia z tego terminala. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "86a3d9d5-16e5-4d31-8953-f26c41e88b3a",
+              "theText": "Systemy bezpieczeństwa chroniące terminal są zbyt silne. Musisz próbować ponownie.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na tym terminalu."
+            }
+          ],
+          "GUID": "44b7b7ad-e373-421c-86e6-f68037705e87",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Garbage Chute Opens",
+      "GUID": "0d4a3a62-9f44-4bc6-be0b-c26cb015d0fa",
+      "eventText": "Zsyp na śmieci się otwiera. To może być wasza droga na wolność!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Imperial Token 1",
+              "GUID": "f64a3ddc-8299-484e-ad7a-5b321d92f238",
+              "theText": "Zsyp ze zgniatarki śmieci jest zamknięty. Można go otworzyć tylko za pomocą żółtego terminala.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Imperial Token 2",
+              "GUID": "4b484ec0-3e00-415c-b7d7-9541b76d6788",
+              "theText": "Zsyp ze zgniatarki śmieci jest zamknięty. Można go otworzyć tylko za pomocą żółtego terminala.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Rebel Token 1",
+              "GUID": "51512a82-2895-4d99-b15f-55409439aabe",
+              "theText": "Zsyp na śmieci jest otwarty. To jest wasza droga ucieczki!\r\n\r\n{-} Jeśli wszyscy bohaterowie znaleźli się na polach z żółtymi żetonami Rebelii lub na polach sąsiadujących, kliknij \"Odejdź\" na żetonie, aby wygrać misję.",
+              "buttonList": [
+                {
+                  "GUID": "a3c0c164-f131-4531-bb47-33ddcfb69068",
+                  "theText": "Odejdź"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Rebel Token 2",
+              "GUID": "e090a1a6-0740-4569-860a-137f44a410ad",
+              "theText": "Zsyp na śmieci jest otwarty. To jest wasza droga ucieczki!\r\n\r\n{-} Jeśli wszyscy bohaterowie znaleźli się na polach z żółtymi żetonami Rebelii lub na polach sąsiadujących, kliknij \"Odejdź\" na żetonie, aby wygrać misję.",
+              "buttonList": [
+                {
+                  "GUID": "32ccd7b4-d960-487d-bda1-78374621431f",
+                  "theText": "Odejdź"
+                }
+              ]
+            },
+            {
+              "entityName": "Hallway Door",
+              "GUID": "79e4978f-94ff-48cd-a9a2-f17195cf0e22",
+              "theText": "Drzwi są zamknięte.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Storage Room Door",
+              "GUID": "277565b4-8ce5-47ce-8b45-bb97c91247f8",
+              "theText": "Drzwi są zamknięte.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "0b777269-cbbe-47fc-b8e3-68e221342ec9",
+              "theText": "Ten terminal steruje zsypem śmieci, który prowadzi ze zgniatarki.",
+              "buttonList": [
+                {
+                  "GUID": "52174907-05eb-44b1-b6be-03eb2b71cb06",
+                  "theText": "{A} Zhakuj"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "a685ee5f-2f84-46e0-ac4a-521f69b5018f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "933d6bd5-b9fb-42b5-b4f2-f2d8b42c460d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Odejdź przez zsyp na śmieci.",
+          "longText": null,
+          "GUID": "5d87d0fe-7871-4024-ab3f-8d2ee647ae61",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu, albo skorzystania ze składu broni.\r\n{-} Jeśli wszyscy bohaterowie znaleźli się na polach z żółtymi żetonami Rebelii lub na polach sąsiadujących, kliknij \"Odejdź\" na żetonie, aby wygrać misję.",
+          "GUID": "866c4cbf-2e35-4de7-adcb-4716d9ac6489",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb down",
+      "GUID": "af2f95f6-b30c-4fe8-8a75-066141a6c200",
+      "eventText": "Schodzicie w dół do dziury i wkrótce okazuje się, że otaczają was śmieci. Co za niesamowity zapach!",
+      "eventActions": [
+        {
+          "shortText": "Otwórz zsyp na śmieci w zgniatarce.",
+          "longText": null,
+          "GUID": "f52451ad-3c33-40db-ba4f-1d973c12606d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "82a639ca-e6f6-4bfa-abfb-7cfc73002e4c",
+              "theText": "Wejście do zgniatarki śmieci jest otwarte.\r\n\r\n{-} Figurka może skorzystać z tego żetonu, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "3f89a360-fc83-4409-a9c6-5658dda96af8",
+              "theText": "Wejście do zgniatarki śmieci jest otwarte.\r\n\r\n{-} Figurka może skorzystać z tego żetonu, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "4e3c96d9-b0c1-497a-9fe7-ec7b1047dc44",
+              "theText": "Te zardzewiałe drzwi zostały zaprojektowane tak, aby osłaniać korytarz przed oparami ze zgniatarki śmieci.",
+              "buttonList": [
+                {
+                  "GUID": "b5c48878-24cc-41d9-8434-9ae450c65de5",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "93de1451-40e7-4d18-adcf-92baefb3bbd7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Entrance",
+      "GUID": "9c2b4f3a-c336-4a80-b015-7e27365a5326",
+      "mainText": "To jest cela bohaterów. Należy rozmieścić ich tutaj.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "29cd84c0-58f9-47e9-8ced-432f5515d9e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "e78a0a86-e764-49fd-82f2-77fe019574e4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "d3d0ae17-f9cd-4516-8d5c-01b385b5080d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "0a45fcb1-2c6a-4c21-9877-86be6dfba11e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "82225e76-06ab-4aec-9069-a5bec843b375",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "551def1d-2afe-4ea1-b828-27c9a2b18c0a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3be15fdc-a062-48c8-9d31-794fa22dfb6b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite Officer",
+      "GUID": "644e7104-8a58-4189-84c2-d091fcc1f864",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 3",
+      "GUID": "d992e442-5c6f-46ac-80d4-1b20cdeb4d04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 2",
+      "GUID": "55c48f99-c50a-4219-a4f7-209f6c75e465",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 1",
+      "GUID": "84c3e752-11bb-4ae5-b09d-17513513f2cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Terminal",
+      "GUID": "0f6454f8-bc95-447e-ad51-72f7e4db9f1e",
+      "mainText": "Terminal steruje włazami do zgniatarki śmieci.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 1",
+      "GUID": "69856693-788f-4357-8b7a-333a7dfdc330",
+      "mainText": "Ten terminal steruje zsypem śmieci, który prowadzi ze zgniatarki.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 2",
+      "GUID": "49632046-382f-4407-9584-39f8c1c2f7fe",
+      "mainText": "Ten terminal steruje zsypem śmieci, który prowadzi ze zgniatarki.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 1",
+      "GUID": "e45723b0-7379-4d17-974e-a1dbd1dc22c5",
+      "mainText": "Wejście do zgniatarki śmieci jest zamknięte.\r\n\r\n{-} Bohater może skorzystać ({J} lub {I}) z czerwonego terminala, aby otworzyć wszystkie włazy do zgniatarki śmieci.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 2",
+      "GUID": "03cf63aa-bb2f-4427-b9b3-b3c82a0ca20b",
+      "mainText": "Wejście do zgniatarki śmieci jest zamknięte.\r\n\r\n{-} Bohater może skorzystać ({J} lub {I}) z czerwonego terminala, aby otworzyć wszystkie włazy do zgniatarki śmieci.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Rebel Token 2",
+      "GUID": "5f4f90d0-c524-4cd2-8d92-b7a72348fb1c",
+      "mainText": "Wejście do zgniatarki śmieci jest otwarte.\r\n\r\n{-} Figurka może skorzystać z tego żetonu, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.",
+      "buttonList": [
+        {
+          "GUID": "368f0b76-a31c-43e9-b8c2-6b464d8f2233",
+          "theText": "{A} Zejdź na dół"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Rebel Token 1",
+      "GUID": "16037a15-1ded-4a0b-b9eb-fd0851e594b0",
+      "mainText": "Wejście do zgniatarki śmieci jest otwarte.\r\n\r\n{-} Figurka może skorzystać z tego żetonu, aby umieścić swoją figurkę na dowolnym pustym polu zgniatarki śmieci.",
+      "buttonList": [
+        {
+          "GUID": "258b5ec7-e671-433f-be5d-2bcb0346c928",
+          "theText": "{A} Zejdź na dół"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Imperial Token 1",
+      "GUID": "7f6aeb7e-44e0-4e52-8308-fe0ba221ff23",
+      "mainText": "Zsyp ze zgniatarki śmieci jest zamknięty. Można go otworzyć tylko za pomocą żółtego terminala.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Imperial Token 2",
+      "GUID": "889af84e-a26f-43bc-8d52-2ebff893a032",
+      "mainText": "Zsyp ze zgniatarki śmieci jest zamknięty. Można go otworzyć tylko za pomocą żółtego terminala.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "d5879e17-e5cc-4501-867f-4bdbac0cc5b6",
+      "mainText": "Drzwi do celi więziennej są wykonane z litej plastali, ale zostały odblokowane przez waszego wybawcę.",
+      "buttonList": [
+        {
+          "GUID": "9990c353-00d3-431c-8365-b4c3b074a092",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Hallway Door",
+      "GUID": "719a6aeb-dfa5-4819-8a15-f05c55a23ec5",
+      "mainText": "Drzwi w przejściu są zabezpieczone.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Trash Compactor Door",
+      "GUID": "61c10a4f-dddd-4a68-9081-25c6def3540b",
+      "mainText": "Te zardzewiałe drzwi zostały zaprojektowane tak, aby osłaniać korytarz przed oparami ze zgniatarki śmieci.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Storage Room Door",
+      "GUID": "2f12d2ec-1b90-4b91-b043-9207d5d66d81",
+      "mainText": "Drzwi w składzie są zabezpieczone.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Rebel Token 1",
+      "GUID": "27ce12b5-ea26-4cc4-b0f3-d069df9f0622",
+      "mainText": "Zsyp na śmieci jest otwarty. To jest wasza droga ucieczki!\r\n\r\n{-} Jeśli wszyscy bohaterowie znaleźli się na polach z żółtymi żetonami Rebelii lub na polach sąsiadujących, kliknij \"Odejdź\" na żetonie, aby wygrać misję.",
+      "buttonList": [
+        {
+          "GUID": "4b9f202c-8cde-4f88-ad54-f88094648ba3",
+          "theText": "Odejdź"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Rebel Token 2",
+      "GUID": "04ca1c00-2ec6-4883-bd9c-683acec240a3",
+      "mainText": "Zsyp na śmieci jest otwarty. To jest wasza droga ucieczki!\r\n\r\n{-} Jeśli wszyscy bohaterowie znaleźli się na polach z żółtymi żetonami Rebelii lub na polach sąsiadujących, kliknij \"Odejdź\" na żetonie, aby wygrać misję.",
+      "buttonList": [
+        {
+          "GUID": "1aa1f395-cdf7-4a60-9fc9-2077ac41f891",
+          "theText": "Odejdź"
+        }
+      ]
+    },
+    {
+      "entityName": "Equipment Cache",
+      "GUID": "b66ecce5-eb8d-4ee9-a701-ac60739f926c",
+      "mainText": "Wasz sprzęt jest przechowywany w tym schowku.\r\n\r\n{-} Bohater może skorzystać ze składu broni, aby odkryć wszystkie swoje przedmioty. Kiedy wszyscy bohaterowie odkryją swoje przedmioty, kliknij \"Ekwipunek odzyskany\", aby misja poszła naprzód.",
+      "buttonList": [
+        {
+          "GUID": "2d680aee-d2c5-43ae-b100-444cbf4c1bf6",
+          "theText": "Ekwipunek odzyskany"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

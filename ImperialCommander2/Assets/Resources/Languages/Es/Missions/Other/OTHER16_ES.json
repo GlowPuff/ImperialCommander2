@@ -1,0 +1,537 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Emboscada en el bosque",
+    "missionDescription": "",
+    "missionInfo": "{-} Las fichas de Misión neutrales forman un árbol caído. El árbol caído es terreno bloqueado. Un Héroe puede interactuar con el árbol caído para intentar apartarlo del camino.\r\n{-} La misión avanza cuando los Rebeldes retiran el árbol y entran en el claro.\r\n{-} Los Rebeldes pierden al final de la ronda 5 o cuando todos los Héroes están heridos.",
+    "campaignName": "Pack de Villano General Weiss",
+    "startingObjective": "Retirar el árbol que bloquea el claro.",
+    "repositionOverride": "Bloquear el acceso a los suministros ocultos.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7e6cf458-548d-464d-b7a1-413802f07437",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "2cd38487-2fb3-4e4e-96ea-54f5d5bb4394",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ac3a1db0-ab0e-457b-97ee-a3d7b9fca316",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Atravesáis con cautela el bosque para llegar hasta el emplazamiento de un escondite Rebelde abandonado. Aunque los servicios de inteligencia de la Alianza os han asegurado que el equipo de ataque ha dejado atrás este lugar, también os han advertido de la peligrosa fauna de la zona\r\n\r\n{-} Despliega los Héroes en la casilla marcada en azul.\r\n{-} Las fichas de Misión neutrales forman un árbol caído. El árbol caído es terreno bloqueado. Un Héroe puede interactuar con el árbol caído para intentar apartarlo del camino.\r\n{-} La misión avanza cuando los Rebeldes retiran el árbol y entran en el claro.\r\n{-} Los Rebeldes pierden al final de la ronda 5 o cuando todos los Héroes están heridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Weiss sigue disparando contra vosotros mientras vuestro transporte alza el vuelo. La nave sale de órbita con un par de marcas de impactos más, pero tanto vosotros como los suministros estáis intactos.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Salís del bosque a trompicones varios días después, maltrechos y hambrientos. Weiss os persiguió sin piedad, y sólo conseguisteis evadirle por pura suerte\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} El Imperio gana al <color=\"red\">General Weiss</color> (Jefe de operaciones) como Villano.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Tree Remove Attempt",
+      "GUID": "ee6d2372-8a36-48ed-82b0-bb3444ccc661",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Intentáis levantar el árbol para apartarlo.\r\n\r\n{-} Realiza una prueba de {K}. Aplica +1 {B} por cada ficha de tensión sobre el árbol, después descarta todas las fichas de tensión del árbol. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e22177b3-839a-46e6-875f-03f30bf3c1af",
+              "theText": "Haces algunos progresos, pero el árbol aún bloquea el camino. Debéis seguir intentándolo.\r\n\r\n{-} Coloca 1 ficha de tensión sobre el árbol por cada resultado {B} obtenido."
+            }
+          ],
+          "GUID": "ba6d9cfd-6814-4d95-8137-5189d846ed7c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Tree Remove Success",
+      "GUID": "2972f6be-19a0-405a-a1e3-4fcafc346357",
+      "eventText": "Resoplando, consiguís echar el árbol caído a un lado, despejando el camino.\r\n\r\n{-} Descarta todas las fichas del árbol.\r\n{-} La primera vez que una figura Rebelde entre en una de las casillas resaltadas, pulsa sobre la casilla y selecciona \"Entrar en el claro\".",
+      "eventActions": [
+        {
+          "shortText": "Entrar en el claro.",
+          "longText": "",
+          "GUID": "7c943d2e-bc87-4ab3-81d4-c848f4383fcf",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Tree 1",
+              "GUID": "11d826af-8825-4b1b-8579-5d31f6c9edbd",
+              "theText": "Un árbol caído bloquea el camino a la entrada. Parece pesado.\r\n\r\n{-} Un Héroe puede interactuar con el árbol ({K}) para intentar retirarlo.",
+              "buttonList": [
+                {
+                  "GUID": "c87e8209-0539-4550-a732-9d7b0cfddecf",
+                  "theText": "{A} Empezar a tirar"
+                }
+              ]
+            },
+            {
+              "entityName": "Tree 2",
+              "GUID": "2ad45d9e-8af2-4a0b-b181-11717ccd20a2",
+              "theText": "Un árbol caído bloquea el camino a la entrada. Parece pesado.\r\n\r\n{-} Un Héroe puede interactuar con el árbol ({K}) para intentar retirarlo.",
+              "buttonList": [
+                {
+                  "GUID": "f91b6e52-c485-494a-964f-a60bf304d609",
+                  "theText": "{A} Empezar a tirar"
+                }
+              ]
+            },
+            {
+              "entityName": "Tree 3",
+              "GUID": "82d9de7f-28e4-46d2-b4fa-3e82697e3a0c",
+              "theText": "Un árbol caído bloquea el camino a la entrada. Parece pesado.\r\n\r\n{-} Un Héroe puede interactuar con el árbol ({K}) para intentar retirarlo.",
+              "buttonList": [
+                {
+                  "GUID": "3e308a13-1479-49ef-be82-6c9ad23f233a",
+                  "theText": "{A} Empezar a tirar"
+                }
+              ]
+            },
+            {
+              "entityName": "Enter Clearing",
+              "GUID": "9ff69c77-357a-460f-80fa-7498670547c8",
+              "theText": "{-} La primera vez que una figura Rebelde entre en una de las casillas resaltadas, selecciona \"Entrar en el claro\".",
+              "buttonList": [
+                {
+                  "GUID": "e79755c7-a606-40ce-9b7d-9bd0334c14ac",
+                  "theText": "Entrar en el claro"
+                }
+              ]
+            }
+          ],
+          "GUID": "f0f687e2-ebef-4a91-bf6d-19bbd975a2ff",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Supply Search Attempt",
+      "GUID": "467a7fb3-e453-4dca-bfc9-a4364929516a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empiezas a buscar los suministros con premura.\r\n\r\n{-} Realiza una prueba de {J}. Aplica +1 {B} por cada ficha de tensión sobre la ficha de misión, después descarta todas las fichas de tensión de la ficha de misión. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "58598ae1-544e-430c-87cf-db3705ad47aa",
+              "theText": "Los suministros están bien escondidos. Tenéis que seguir intentándolo.\r\n\r\n{-} Coloca 1 ficha de tensión sobre el escondite por cada resultado {B} obtenido."
+            }
+          ],
+          "GUID": "52d67f65-7f2c-47ed-b848-954a03b0534b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Strike Team",
+      "GUID": "b9008d93-db6c-4874-bcf7-8f6634530373",
+      "eventText": "Oís una voz siniestra que resuena por el bosque.\r\n\r\n-¡No podéis escapar, Rebeldes! Si os rendís voluntariamente, puede que tengamos piedad con vosotros. No puedo prometer lo mismo si huís.\r\n\r\n{-} Las fichas rojas de Misión Rebelde representan los suministros ocultos. Un Héroe puede interactuar con los suministros ocultos ({J}) para buscarlos.\r\n{-} La misión avanza cuando se encuentran los suministros ocultos.",
+      "eventActions": [
+        {
+          "shortText": "Encontrar los suministros ocultos.",
+          "longText": null,
+          "GUID": "3abf2477-18f6-4c85-a481-825ae9c12195",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Enter Clearing",
+              "GUID": "ad52d7b7-af56-4b62-b9d9-3819a291f4c5",
+              "theText": "{-} La primera vez que una figura Rebelde entre en una de las casillas resaltadas, selecciona \"Entrar en el claro\".",
+              "buttonList": [
+                {
+                  "GUID": "04981d9f-8fdf-4b2a-9001-ffdfeb2ef3f4",
+                  "theText": "Entrar en el claro"
+                }
+              ]
+            },
+            {
+              "entityName": "Crate1",
+              "GUID": "c3374a82-d473-49d7-8c7c-086bbab33c97",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "dc3e7a3b-b10c-4eb4-87c3-5504e97423f3",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 1",
+              "GUID": "3d602369-10a5-4071-9385-3ce2ccd749a0",
+              "theText": "Hay una vieja estación de comunicaciones en lo alto de la escalera.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "800a6c23-5955-4355-b139-bb41e4fbfd35",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Supply Cache",
+              "GUID": "25209059-43a4-4940-921f-98669716555e",
+              "theText": "Los suministros deberían estar escondidos cerca de aquí.\r\n\r\n{-} Un Héroe puede interactuar con la ficha Rebelde ({J}) para buscar los suministros.",
+              "buttonList": [
+                {
+                  "GUID": "decd9c21-09e4-44ee-afd7-dd3b42164888",
+                  "theText": "{A} Buscar los suministros"
+                }
+              ]
+            }
+          ],
+          "GUID": "c973a72e-b5f0-4dc5-84a8-9b1d06286a74",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Las fichas rojas de Misión Rebelde representan los suministros ocultos. Un Héroe puede interactuar con los suministros ocultos ({J}) para buscarlos.\r\n{-} La misión avanza cuando se encuentran los suministros ocultos.\r\n{-} Los Rebeldes pierden al final de la ronda 5 o cuando todos los Héroes están heridos.",
+          "GUID": "b1ea71a8-b07f-4f17-8b01-b654cf3b7b5a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9cd9295b-557f-46c9-a9d1-932a37f2ad5d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG073/General Weiss"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cabe58ef-dee8-42a9-8f87-3bc20aa93561",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ed77ace6-da9b-408d-a036-e05970b37041",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG013/Probe Droid (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Extract",
+      "GUID": "f64c24d1-8f26-4841-ac47-494aeb8bda41",
+      "eventText": "Por fin tenéis los suministros ocultos\r\n\r\n{-} Un Héroe puede interactuar con el terminal ({I}) para solicitar la extracción.\r\n{-} La misión avanza cuando los Héroes solicitan la extracción.\r\n{-} Los Rebeldes pierden al final de la ronda 5 o cuando todos los Héroes están heridos, o cuando el Héroe que lleva los suministros ocultos se retira (pulsa sobre el terminal y selecciona \"Retirar Héroe\").",
+      "eventActions": [
+        {
+          "shortText": "Solicitar la extracción.",
+          "longText": "",
+          "GUID": "06ebbb5e-0a0d-4ecf-8b27-3f57f780d5a9",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "65acf8a0-7229-47ef-b739-0f4f37bd39d3",
+              "theText": "Hay una vieja estación de comunicaciones en lo alto de la escalera.\r\n\r\n{-} Un Héroe puede interactuar con el terminal ({I}) para solicitar la extracción.",
+              "buttonList": [
+                {
+                  "GUID": "c55bb339-c12e-4a66-94ce-38444eb365de",
+                  "theText": "{A} ({I}) Solicitar extracción"
+                },
+                {
+                  "GUID": "c893ce76-389d-4666-a56d-df4f807b7375",
+                  "theText": "Retirar Héroe"
+                }
+              ]
+            },
+            {
+              "entityName": "Supply Cache",
+              "GUID": "212d3e1f-d159-4f11-8f04-50c003b820c1",
+              "theText": "Los suministros deberían estar escondidos cerca de aquí.\r\n\r\n{-} Un Héroe puede interactuar con la ficha Rebelde ({J}) para buscar los suministros.",
+              "buttonList": [
+                {
+                  "GUID": "a8a6ee89-3e67-4d8e-a2d2-74de70d3cabf",
+                  "theText": "{A} Buscar los suministros"
+                }
+              ]
+            }
+          ],
+          "GUID": "93c6eca1-130d-4cf1-92c3-cc0bc501f212",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso al terminal y a la Entrada.",
+          "GUID": "2172833a-af08-4a43-842a-4313669537bc",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Un Héroe puede interactuar con el terminal ({I}) para solicitar la extracción.\r\n{-} La misión avanza cuando los Héroes solicitan la extracción.\r\n{-} Los Rebeldes pierden al final de la ronda 5 o cuando todos los Héroes están heridos, o cuando el Héroe que lleva los suministros ocultos se retira (pulsa sobre el terminal y selecciona \"Retirar Héroe\").",
+          "GUID": "e8ec291c-cdfb-4be2-8b84-c55213be2d31",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Call for Extraction",
+      "GUID": "10b6b761-3270-4b35-98e0-c827fa6dc850",
+      "eventText": "{-} La ficha verde de Misión Rebelde representa la Salida. El Héroe con los suministros ocultos puede escapar por la Salida.\r\n{-} Los Rebeldes ganan cuando el Héroe con los suministros ocultos escapa por la Salida.\r\n{-} Los Rebeldes pierden al final de la ronda 5 o cuando todos los Héroes están heridos, o cuando el Héroe que lleva los suministros ocultos se retira (pulsa sobre el terminal y selecciona \"Retirar Héroe\").",
+      "eventActions": [
+        {
+          "shortText": "¡Escapad!",
+          "longText": null,
+          "GUID": "deb7eb1b-07da-45d9-a224-1a32cde2ede7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "346db000-7c53-4d04-b7b9-2933e2a4edfb",
+              "theText": "El camino por el que vinisteis lleva de vuelta al bosque, donde podríais despistar a las tropas Imperiales con facilidad.\r\n\r\n{-} El Héroe que lleva los suministros puede escapar por la Salida, terminando la misión.\r\n{-} Los Rebeldes pierden cuando el Héroe que lleva los suministros se retira. Si eso ocurre, selecciona \"Retirar Héroe\".",
+              "buttonList": [
+                {
+                  "GUID": "d8fba3bd-4532-419d-82a6-95a4d8c0c5a8",
+                  "theText": "Escapar"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 1",
+              "GUID": "0ead5ec6-e1d9-4179-9eee-2870b43cd996",
+              "theText": "Hay una vieja estación de comunicaciones en lo alto de la escalera.",
+              "buttonList": [
+                {
+                  "GUID": "f9767b19-5a57-444c-af14-1ef22efb4f55",
+                  "theText": "Retirar Héroe"
+                }
+              ]
+            }
+          ],
+          "GUID": "baa47cff-a984-4459-b38a-22dc76ee73fa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} La ficha verde de Misión Rebelde representa la Salida. El Héroe con los suministros ocultos puede escapar por la Salida.\r\n{-} Los Rebeldes ganan cuando el Héroe con los suministros ocultos escapa por la Salida.\r\n{-} Los Rebeldes pierden al final de la ronda 5 o cuando todos los Héroes están heridos, o cuando el Héroe que lleva los suministros ocultos se retira (pulsa sobre el terminal y selecciona \"Retirar Héroe\").",
+          "GUID": "85fb34a2-884b-4abc-a995-dc48212bf482",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "b8372f8e-7eb8-48c3-b7d4-44a91358df39",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "40ed0308-b3ea-4615-b084-677649769f81",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "d50f80e3-0d1b-4b02-b1ed-271b2e686c3e",
+      "mainText": "El camino por el que vinisteis lleva de vuelta al bosque, donde podríais despistar a las tropas Imperiales con facilidad.\r\n\r\n{-} El Héroe que lleva los suministros puede escapar por la Salida, terminando la misión.\r\n{-} Los Rebeldes pierden cuando el Héroe que lleva los suministros se retira. Si eso ocurre, selecciona \"Retirar Héroe\".",
+      "buttonList": [
+        {
+          "GUID": "644f2e86-2e61-4b6a-9cda-4601170c5dbb",
+          "theText": "Escapar"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "991bebfe-af21-4fbd-b0ba-b11da36c644e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "27f533dc-d5bf-4084-a26b-740a000038a0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Weiss",
+      "GUID": "bde8faad-b2f6-4b5e-81a8-02f44626ac31",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Tree 1",
+      "GUID": "0c426fee-844f-4282-9b6f-219caa5b4e99",
+      "mainText": "Un árbol caído bloquea el camino a la entrada. Parece pesado.\r\n\r\n{-} Un Héroe puede interactuar con el árbol ({K}) para intentar retirarlo.",
+      "buttonList": [
+        {
+          "GUID": "ce8775aa-13fb-4ad0-b9eb-85d86149631f",
+          "theText": "{A} Empezar a tirar"
+        }
+      ]
+    },
+    {
+      "entityName": "Tree 2",
+      "GUID": "16d60478-dabd-4805-b9ce-36aa7bb8bafd",
+      "mainText": "Un árbol caído bloquea el camino a la entrada. Parece pesado.\r\n\r\n{-} Un Héroe puede interactuar con el árbol ({K}) para intentar retirarlo.",
+      "buttonList": [
+        {
+          "GUID": "4903d713-83ec-44cb-b863-abfe4126537f",
+          "theText": "{A} Empezar a tirar"
+        }
+      ]
+    },
+    {
+      "entityName": "Tree 3",
+      "GUID": "fa9a648c-0949-4b34-8476-5ed5e433c83b",
+      "mainText": "Un árbol caído bloquea el camino a la entrada. Parece pesado.\r\n\r\n{-} Un Héroe puede interactuar con el árbol ({K}) para intentar retirarlo.",
+      "buttonList": [
+        {
+          "GUID": "0f7b123f-ab18-494d-bcab-403439b6dc8a",
+          "theText": "{A} Empezar a tirar"
+        }
+      ]
+    },
+    {
+      "entityName": "Enter Clearing",
+      "GUID": "03302d90-3287-4924-ba80-4874c2b24293",
+      "mainText": "{-} La primera vez que una figura Rebelde entre en una de las casillas resaltadas, selecciona \"Entrar en el claro\".",
+      "buttonList": [
+        {
+          "GUID": "f7fe954d-3e50-419a-b204-8d8381712161",
+          "theText": "Entrar en el claro"
+        }
+      ]
+    },
+    {
+      "entityName": "Supply Cache",
+      "GUID": "4eef3aa4-5ca6-46eb-bbc0-5963ff0875e4",
+      "mainText": "Los suministros deberían estar escondidos cerca de aquí.\r\n\r\n{-} Un Héroe puede interactuar con la ficha Rebelde ({J}) para buscar los suministros.",
+      "buttonList": [
+        {
+          "GUID": "8ee8a1a7-8606-4c1f-ba1a-1570384b1773",
+          "theText": "{A} Buscar los suministros"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "d38a51cc-b55b-42a1-a5b5-52abc9702d23",
+      "mainText": "Hay una vieja estación de comunicaciones en lo alto de la escalera.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "1593836d-160f-4e01-b84c-81252b6c692b",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Nexu",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

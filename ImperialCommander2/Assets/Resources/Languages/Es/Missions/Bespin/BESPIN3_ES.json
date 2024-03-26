@@ -1,0 +1,575 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Adquisición Hostil",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "El Gambito de Bespin",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a la celda.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "f49504ed-b538-457d-97b7-858b80a08db0",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "56c71cb9-3240-4e2a-bfe2-424635f5b45d",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "9d0e48d5-b717-4653-8fa3-f114e1adb9f8",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "33c8c41e-ae0f-48ad-902c-08724f4b26bb",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "fb693e22-eda5-46de-98de-74df63c4e2df",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Incluso la OSI tiene puntos ciegos. Algunos trabajadores ugnaught afines os muestran cómo llegar a la sala de congelación de carbonita sin ser detectados.\r\n\r\nArrancáis la rejilla de la pared y os preparáis. Puede que el camino haya sido seguro, pero la cámara no lo es.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.",
+      "eventActions": [
+        {
+          "tbText": "{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con la puerta de la Celda ({I}) para abrirla.\r\n{-} La misión avanza cuando la puerta de la Celda se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 7 o cuando todos los Héroes están heridos.",
+          "GUID": "b5251b68-e8cc-40b4-bbed-6a802487af13",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Abrir la puerta de la Celda.",
+          "longText": null,
+          "GUID": "91952d74-89c6-4932-8646-1879becf7a5f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con la puerta de la Celda ({I}) para abrirla.\r\n{-} La misión avanza cuando la puerta de la Celda se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 7 o cuando todos los Héroes están heridos.",
+          "GUID": "0b5d8b6c-16f6-479f-bf1b-af9582494b0b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "A pesar de vuestra situación desesperada, las tropas imperiales dan prioridad a proteger al agente Blaise, que ahora está congelado. Lando parece estar disfrutando demasiado del momento.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Si se está jugando esta misión como una misión secundaria, los Héroes reciben la carta de Recompensa \"Labores Humanitarias\".",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"El gambito de Bespin\"?",
+          "buttonList": [
+            {
+              "GUID": "a6ce9472-2690-4d59-ace4-f16ff2831191",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "c0914855-28b9-4ac5-8ef6-2d37f2997e69",
+              "theText": "No"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Las defensas de Blaise resultaron muy efectivas y frustraron vuestro contraataque. Vuestra única opción es retiraros.\r\n\r\n{-} Los Rebeldes pierden la misión",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"El gambito de Bespin\"?",
+          "buttonList": [
+            {
+              "GUID": "4e24233e-40a9-4ed6-8ca9-eca1b50db05d",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "cfe65d16-2324-41d2-a8ef-19335febab33",
+              "theText": "No"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "-¿Qué dónde están mis \"amigos rebeldes\", Interrogador? Aquí mismo, ¡hijo de un bantha!\" Los métodos de interrogación del OSI son altamente clasificados, pero sea lo que sea que ha ocurrido aquí, Lando se lo ha tomado como algo muy personal. -Tus cabezas de cubo no han podido salvarte. ¿Quién está congelado ahora? ¡Tú! ¡No yo, maldito pastor de nerfs!\r\n\r\nApartáis al enfervorecido Lando de los controles. Aunque la preocupación principal de la OSI es el secretismo, las incontables tropas imperiales que sin duda se dirigen hacia vosotros serán mucho más agresivas. Os dirigís al cuartel general inmediatamente.\r\n\r\nUna vez a salvo junto a la guerrilla, Lando revela que le robó a Blaise unos códigos de vigilancia antes de escapar. Se dirige a los soldados: -Esto no es lo que fuimos a buscar, pero supone una oportunidad para la resistencia. ¡Es el momento de asestar un golpe a la ocupación imperial! Los líderes de la resistencia comienzan inmediatamente a poner en marcha un plan que, obviamente, ya han practicado.\r\n\r\nLando se gira hacia vosotros. -Gracias, amigos. Habéis hecho suficiente. Nosotros nos encargaremos a partir de aquí. Volved con el Alto Mando. Puede que nunca sepamos lo que contenían esos códigos imperiales, pero al menos no nos quedaremos con las manos vacías.\r\n\r\n{-} ¡Los Rebeldes ganan la campaña!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Incapaces de superar a la OSI, os retiráis en medio de una abrumadora lluvia de disparos de bláster. Lando vuelve a adentrarse en los túneles de servicio y se apresura para advertir a la guerrilla. Mientras os preparáis para seguirle, sentís los primeros disparos de bláster.\r\n\r\nTras un breve pero intenso tiroteo, sois sometidos y golpeados. -No, no, no. No vais a morir. Todavía. Todavía queda mucho que aprender. Blaise da algunas órdenes, y veis cómo los médicos atienden vuestras heridas antes de que perdáis el conocimiento.\r\n\r\nTras semanas de interrogatorios, Blaise está satisfecho por haber doblegado a los Rebeldes. Los infiltadores de la OSI asaltan los bastiones de la guerrilla y acaban con la resistencia. La paz y la estabilidad vuelven a imperar en la Ciudad de las Nubes.\r\n\r\n¡Larga vida al Emperador!\r\n\r\n{-} Los Rebeldes pierden la campaña.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Cell Door Attempt",
+      "GUID": "43162076-510d-4770-ae85-76bfc27fb14b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a forzar la cerradura.\r\n\r\n{-} Realiza una prueba de {I}. Aplica +1 {B} a la prueba por cada ficha de Tensión en la puerta, y descarta las fichas de Tensión de la puerta. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "b34aa8c5-edea-44f8-88cf-a85851bc6275",
+              "theText": "No hacéis ningún progreso."
+            },
+            {
+              "GUID": "ff84ec7a-3511-4e55-a050-70fb33240a21",
+              "theText": null
+            }
+          ],
+          "GUID": "e6e99c20-3773-4192-9ba4-53cdddf3aa28",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "A Familiar Face",
+      "GUID": "39145145-213a-4a97-8aca-b807b6490e0a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "29e99fdf-b5a0-44ba-b3e0-04a9b52efaf3",
+              "theText": "La puerta de la improvisada celda de detención está bien cerrada.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con la puerta de la Celda ({I}) para abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "a84f22fc-6cfa-4dd4-a9e3-0396dbf86aaf",
+                  "theText": "{A} Forzar la cerradura"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "88bb3582-e997-42a3-ad66-1d31e85cd41f",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "a0bc8948-2ef4-4ec0-b768-907c98a987b7",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "9bc0335d-2e66-48ab-a4c5-b1a3a4b6f847",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Command Center Door Right",
+              "GUID": "1926693f-7bd5-4d44-a118-0cdeb0e04602",
+              "theText": "Esta puerta separa el Centro de Mando y el Pasillo.",
+              "buttonList": [
+                {
+                  "GUID": "3829fa31-09af-4279-9de2-17de3d98c462",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "04f40adf-75d5-41d0-95c5-9f2e42c06bf9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Lando mira hacia arriba cubierto de magulladuras mientras murmulla. -Ya veremos quién termina congelado, desgraciado de la OSl...",
+          "GUID": "d9fa8045-ca8f-4181-ab79-5088f06bb333",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "customName": null,
+          "GUID": "73165d65-a241-414f-a37a-2e9cfbd23870",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "-Vamos- murmura Lando, poniéndose en pie. -Sé que Blaise está en algún lugar del centro de mando. Por suerte, todavía tengo los códigos necesarios.\r\n\r\n{-} Los rebeldes controlan a <color=\"red\">Lando Calrissian</color> como Aliado.\r\n{-} La puerta entre el Centro de Mando y el Pasillo no está sellada para las figuras del bando Rebeldes.\r\n{-} La misión avanza cuando la puerta entre el Centro de Mando y el Pasillo se abre.",
+          "GUID": "10ddd084-c8bf-47c6-b956-977420442233",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Justo cuando salís de la celda, un enorme trandoshano entra por una puerta, rugiendo y empuñando una enorme arma. Le siguen más tropas.",
+          "GUID": "8e4042a8-092c-4682-8584-cde2624b2110",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dcf65c52-77ed-438b-8999-92e4d855c314",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG080/Bossk"
+        },
+        {
+          "shortText": "Abrir la puerta entre el Pasillo y el Centro de Mando.",
+          "longText": null,
+          "GUID": "e8d65c9e-c973-468c-80ab-eeb99b611a24",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La puerta entre la Sala de Carbonita y el Centro de Mando está cerrada.\r\n{-} La puerta entre el Centro de Mando y el Pasillo está sellada para las figuras del bando imperial.\r\n{-} La misión avanza cuando la puerta entre el Centro de Mando y el Pasillo se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 7 o cuando todos los Héroes están heridos.",
+          "GUID": "3b81f647-bbf7-4eca-8327-a3d32d9ae7fc",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Bloquear el acceso al Centro de Mando.",
+          "GUID": "e4d34cac-dd5e-4f74-b954-126b59d03715",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Hostage Situation",
+      "GUID": "5a6df01a-8d45-4fa2-a250-d1f6962ba22b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Center Door Right",
+              "GUID": "9a940fa1-d106-4da9-b7d7-b466faa869ea",
+              "theText": "La puerta entre el Centro de Mando y el Pasillo está sellada.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Carbonite Chamber",
+              "GUID": "0b3f6ca9-369f-4edc-a22f-bf2db6cab599",
+              "theText": "El vapor sale del foso de carbonita. Está listo para ser utilizado.\r\n\r\n{-} Durante la activación de una figura del bando Rebelde, si el <color=\"red\">Agente Blaise</color> está adyacente al Foso de carbonita, esa figura del bando rebelde puede interactuar con el <color=\"red\">Agente Blaise</color> ({K}) para congelarlo en carbonita, terminando la misión.",
+              "buttonList": [
+                {
+                  "GUID": "9bc9146a-86fa-446f-9e5f-f18b7636a3a6",
+                  "theText": "Congelar a Blaise (Fin de la Misión)"
+                }
+              ]
+            },
+            {
+              "entityName": "Command Center Door Left",
+              "GUID": "e5e7878f-6efa-4419-b798-020b3fcf25d9",
+              "theText": "Esta puerta separa el Foso de Carbonita y el Centro de Mando.",
+              "buttonList": [
+                {
+                  "GUID": "835cf19f-2f66-4c68-b0f9-89ad39aac1c3",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "fd367eb7-fc6b-4376-976f-ad4f44daab7f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso al Foso de Carbonita.",
+          "GUID": "c07bf4e3-0112-4183-8531-40447972b53d",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "El Agente Blaise, que ha estado ocupado comprobando información en una terminal, levanta la vista sorprendido cuando irrumpís en el centro de mando. Desenfunda su arma y su ayudante lo imita rápidamente. ",
+          "GUID": "4e0945ac-4637-4d06-8259-c0343b70833b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "Mientras esté adyacente a una figura del bando rebelde, el <color=\"red\">Agente Blaise</color> no puede salir voluntariamente de su espacio.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "fb7f8734-3b36-4598-9207-3c475e6edd96",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG079/Agent Blaise"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5c205672-3dca-472f-a13c-9a5504cf640a",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Podéis acabar con esto de una vez por todas. Con Blaise bajo vuestro control, podéis intentar que experimente lo que hizo a tantos otros: El frío silencio de la Fosa de Carbonita.\r\n\r\n{-} La puerta del Foso de Carbonita se abre para las figuras del bando Rebeldes.\r\n{-} El <color=\"red\">Agente Blaise</color> no puede sufrir {H} y no puede ser derrotado. Mientras esté adyacente a una figura del bando Rebelde, el <color=\"red\">Agente Blaise</color> no puede salir voluntariamente de su espacio.\r\n{-} Durante su activación, una figura del bando Rebelde adyacente al <color=\"red\">Agente Blaise</color> puede realizar una prueba {K}. Si tiene éxito, ese héroe empuja al <color=\"red\">Agente Blaise</color> hasta 2 casillas. De lo contrario, ese héroe empuja al <color=\"red\">Agente Blaise</color> hasta 1 casilla. Límite de una vez por activación.\r\n{-} Durante la activación de una figura del bando Rebelde, si <color=\"red\">Agente Blaise</color> está adyacente a la Fosa de Carbonita (resaltado rojo), esa figura Rebelde puede interactuar con el Agente Blaise ({K}) para congelarlo en carbonita.\r\n{-} Los Rebeldes ganan cuando el <color=\"red\">Agente Blaise</color> es congelado en carbonita.",
+          "GUID": "0b610221-4a2a-4039-8630-5ad46406b485",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Congelar al <color=\"red\">Agente Blaise</color> en carbonita.",
+          "longText": null,
+          "GUID": "6bca99b5-203f-4d82-8a05-385849a5ff54",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas para el bando imperial\r\n{-} El <color=\"red\">Agente Blaise</color> no puede sufrir {H} y no puede ser derrotado. Mientras esté adyacente a una figura del bando Rebelde, el <color=\"red\">Agente Blaise</color> no puede salir voluntariamente de su espacio.\r\n{-} Durante su activación, una figura del bando Rebelde adyacente al <color=\"red\">Agente Blaise</color> puede realizar una prueba {K}. Si tiene éxito, ese héroe empuja al <color=\"red\">Agente Blaise</color> hasta 2 casillas. De lo contrario, ese héroe empuja al <color=\"red\">Agente Blaise</color> hasta 1 casilla. Límite de una vez por activación.\r\n{-} Durante la activación de una figura del bando Rebelde, si <color=\"red\">Agente Blaise</color> está adyacente a la Fosa de Carbonita (resaltado rojo), esa figura Rebelde puede interactuar con el Agente Blaise ({K}) para congelarlo en carbonita.\r\n{-} Los Rebeldes ganan cuando el <color=\"red\">Agente Blaise</color> es congelado en carbonita.\r\n{-} Los Rebeldes pierden al final de la ronda 7 o cuando todos los Héroes están heridos.",
+          "GUID": "d16e6ea6-5610-4e52-9985-0a7a7adf4c05",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Open CC Door Left",
+      "GUID": "2582d6fc-6f95-4533-ad37-d35933d6fdd0",
+      "eventText": "La puerta se abre de golpe. Alertados por los gritos del Agente Blaise, un escuadrón de soldados de asalto entra en tropel.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Center Door Left",
+              "GUID": "00f83e0d-1acd-435b-a27c-7b8bae02ffd9",
+              "theText": "La puerta entre el Foso de Carbonita y el Centro de Mando está sellada.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "b92eda8d-fcad-403b-88c0-a594ec3a3c16",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "015b54ff-cfbf-478b-b935-d730dadae8e5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "03751d04-e60f-4353-a566-f54628dab1d4",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "20e61345-83ac-4410-9e02-b9728f3b25cc",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "fe729197-bdcb-4746-bf21-dc1ddbeb9625",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "56cebf5a-1c42-45b6-b5d7-a7a710d2842d",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "ce28cf20-2624-430a-8e5f-78f842ea8500",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "1109fbc8-1835-4e92-8d41-a069c8bfbc04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "17d7de92-95e0-4d46-b39c-0cc55524b252",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 1",
+      "GUID": "f25e6e73-5e26-4d00-aa1d-fd0d85e2b1d1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 2",
+      "GUID": "1772f4dc-f2b5-40db-8bef-92c0e3e0d9af",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 3",
+      "GUID": "e3d82a43-e46d-42d7-b859-8ef51fdb5a7b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "1ebccf52-2047-44c4-8a10-017951b63124",
+      "mainText": "La puerta de la improvisada celda de detención está bien cerrada.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con la puerta de la Celda ({I}) para abrirla.",
+      "buttonList": [
+        {
+          "GUID": "67118e41-5e5f-4896-bddf-e3a7e7ba8baa",
+          "theText": "{A} Forzar cerradura"
+        }
+      ]
+    },
+    {
+      "entityName": "Command Center Door Left",
+      "GUID": "c3fdd431-884b-43e5-9740-171b85b4321d",
+      "mainText": "La puerta entre el Foso de Carbonita y el Centro de Mando está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Command Center Door Right",
+      "GUID": "90e59ed2-d289-4d88-af4a-ed48a5313d56",
+      "mainText": "La puerta entre el Centro de Mando y el Pasillo está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "7517db83-c6af-4fcd-a9ab-0274ab9679f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "d40f0588-3761-4977-91f6-5d8dbe09b59c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "f4b49e42-189f-4d55-ad1b-3cfe3ddfbf21",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "5c1d90d4-9521-4074-8b53-94eb737d2860",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Carbonite Chamber",
+      "GUID": "ee2df8ea-85ad-4155-a243-b3a1b180c1cc",
+      "mainText": "El vapor sale del foso de carbonita. Está listo para ser utilizado.\r\n\r\n{-} Durante la activación de una figura del bando rebelde, si el <color=\"red\">Agente Blaise</color> está adyacente al Foso de carbonita, esa figura del bando rebelde puede interactuar con el <color=\"red\"> Agente Blaise</color> ({K}) para congelarlo en carbonita, terminando la misión.",
+      "buttonList": [
+        {
+          "GUID": "c7e44115-732d-4edb-b971-7a3f5a8cc14e",
+          "theText": "Congelar a Blaise (Fin de la misión)"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Wing Guard",
+      "customInstructions": ""
+    }
+  ]
+}

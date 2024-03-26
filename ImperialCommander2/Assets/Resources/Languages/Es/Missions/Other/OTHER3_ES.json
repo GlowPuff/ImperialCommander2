@@ -1,0 +1,381 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Armada y Operativa",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Aliado Saboteadores Rebeldes",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a la puerta.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "74ad2d5a-c08a-41a8-942f-b2ae5cf91d5a",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "2df6b29e-12b6-422d-aa64-71d1fa786dcb",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "22d22b30-6734-4dc5-81f6-613d7af230f4",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "d45f4870-3cc1-4773-b63a-dda6fd2a7ae6",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Estáis aquí junto a un par de Duros para destruir un prototipo de nave de guerra que el Imperio se prepara para lanzar. Atravesáis las alcantarillas hasta la zona de pruebas con la esperanza de no ser descubiertos. Los Duros os detienen.\r\n\r\n{-} Despliega los Saboteadores Rebeldes en los espacios resaltados en rojo.\r\n{-} Despliega los Héroes en la casilla resaltada en azul.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "99204e6b-6f24-4be3-b4f2-9f5d4254399a",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "-Este es el sitio-, dice uno de ellos. -Tenemos suficientes cargas, así que dejad que nosotros nos ocupemos de esa nave cuando entremos. Vosotros limitaros a mantener a raya a sus tropas-.\r\n\r\n{-} Los Saboteadores Rebeldes reciben Vida adicional igual a dos veces el nivel de amenaza. Cuando un Saboteador Rebelde es atacado mientras está adyacente a un Héroe sano que podría ser el objetivo del ataque, ese Héroe puede sufrir 2 {C} para convertirse en el objetivo del ataque.\r\n{-} La misión avanza cuando la puerta de la Zona de Pruebas se abra.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes estén heridos.",
+          "GUID": "d23c970c-0469-477e-8294-917231d8cbfe",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Entrar a la Zona de Pruebas",
+          "longText": null,
+          "GUID": "4f221cc6-b669-4a74-aebb-bab28ccb7181",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Los Saboteadores Rebeldes reciben Vida adicional igual a dos veces el nivel de amenaza. Cuando un Saboteador Rebelde es atacado mientras está adyacente a un Héroe sano que podría ser el objetivo del ataque, ese Héroe puede sufrir 2 {C} para convertirse en el objetivo del ataque.\r\n{-} La misión avanza cuando la puerta de la Zona de Pruebas se abra.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes estén heridos.",
+          "GUID": "1aafef5a-4dc0-4d81-b7a1-64041f594237",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Mientras colocáis la última carga en la nave, oís cómo un oficial Imperial ordena a sus tropas que huyan. Corréis tan rápido como podéis, y oís una explosión descomunal a vuestra espalda.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben los Saboteadores Rebeldes como Aliados.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "La nave se enciende con un sonoro chirrido y alza el vuelo antes de que podáis terminar el trabajo. \r\n\r\nSin embargo, en lugar de salir disparada, maniobra realizando un arco antes de descender. Brillantes disparos de bláster de color rojo llueven en vuestra dirección. \r\n\r\nEscapáis con vida a duras penas.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe..",
+      "eventActions": []
+    },
+    {
+      "eventName": "Rebel Saboteurs Defeated",
+      "GUID": "a7aaf8ac-fd21-47d8-972e-6c9b4c6a9c34",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Outer Defenses",
+      "GUID": "ee5eeb5c-8288-4e14-bcdc-5ba53fa8d39b",
+      "eventText": "A medida que avanzáis hacia la Zona de Pruebas, los guardias, ahora alertados de vuestra presencia, comienzan a responder con mayor organización y potencia de fuego",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Yellow",
+              "GUID": "bef3e48e-50f6-4b60-874f-6ead2b41b10b",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "b9466c15-f8d8-49b7-a6d6-14e233d8a475",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "67dbba27-b513-46f5-b3a0-ada274cbf138",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        }
+      ]
+    },
+    {
+      "eventName": "Protect the Prototype",
+      "GUID": "3dacbd53-8f45-4f34-884f-2a9cfaa5f59c",
+      "eventText": "Entráis en la zona de pruebas y veis una terrorífica nave de guerra con armas letales.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "71a7d5bd-8212-4d2c-a48b-8e1e1f640e69",
+              "theText": "La puerta del hangar da acceso a la Zona de Pruebas donde se supone que está la nave de guerra.",
+              "buttonList": [
+                {
+                  "GUID": "3b12297c-3d3e-43c0-8602-6962ac28de20",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "284935be-3501-4fef-9b67-d8eff74775c3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las casillas resaltadas en verde en la Zona de Pruebas forman la nave de guerra. Una figura puede atacar a la nave de guerra (Vida: 10 más *2*, Defensa: *1* {G}).\r\n{-} Un Saboteador Rebelde puede interactuar con la nave de guerra. Si lo hace, la nave de guerra sufre 5 {H}. Límite de una vez por figura por ronda.",
+          "GUID": "e671805a-b32f-4944-b400-7b6ded22355b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "El prototipo es tan impresionante que por poco no veis a los guardias Trandoshanos que se acercan a vosotros",
+          "GUID": "89fcfc78-5343-4b20-be80-f7263796efef",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cf881cab-2282-478c-9625-9165e88aae06",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "848117ea-8134-49a5-9b59-3526f04dc3ee",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "tbText": "Alzáis vuestras armas y avanzais para proteger a vuestros aliados.\r\n\r\n{-} Los Rebeldes ganan cuando la nave de guerra sea destruida.",
+          "GUID": "6d4afcc3-0833-4b12-8be1-6d66af7f315a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquear el acceso a la nave de guerra.",
+          "GUID": "b529a341-e5c6-481e-a063-5fe17f5cf888",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Destruir la nave de guerra.",
+          "longText": null,
+          "GUID": "194412fa-1242-484f-863c-fb778272019c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Los Saboteadores Rebeldes reciben Vida adicional igual a dos veces el nivel de amenaza. Cuando un Saboteador Rebelde es atacado mientras está adyacente a un Héroe sano que podría ser el objetivo del ataque, ese Héroe puede sufrir 2 {C} para convertirse en el objetivo del ataque.\r\n{-} Las casillas resaltadas en verde en la Zona de Pruebas forman la nave de guerra. Una figura puede atacar a la nave de guerra (Vida: 10 más *2*, Defensa: *1* {G}).\r\n{-} Un Saboteador Rebelde puede interactuar con la nave de guerra. Si lo hace, la nave de guerra sufre 5 {H}. Límite de una vez por figura por ronda.\r\n{-} Los Rebeldes ganan cuando la nave de guerra sea destruida.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes estén heridos.",
+          "GUID": "6fc8f107-93b9-4e10-8dc1-f518f8cbae0e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "87bf6dae-0c5b-477d-ad68-c1d7d8815354",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "4f96688f-8ba1-498b-9671-495a251fad0b",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "0f4d66bd-8253-4c7d-b8e0-4963bf795379",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "5ad5746d-1ca4-4d49-82bc-0e9f2106d01d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "b684571d-1825-4cf8-80e4-eba513522696",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "685d3f49-d64f-4d11-a3db-787fcc7d7e3c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "02e4db11-f537-48ef-9c1c-a3bdb724ba56",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "b4a68436-c521-476d-b474-7c48a4508cc3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "ecc8e69f-ac93-48bf-b8d9-f52c1e4cc210",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "c401ef27-631d-42cd-9320-eebd2e2fb5f0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Warship",
+      "GUID": "d39dbb1c-99a7-42dc-85fc-58e35ccfcfd7",
+      "mainText": "El prototipo de nave tiene un aspecto intimidador, cargada con suficiente armamanto para destruir incluso una nave capital. Parece estar prácticamente lista para volar.\r\n\r\n{-} Una figura puede atacar a la nave de guerra (Vida: 10 más *2*, Defensa: *1* {G}).\r\n{-} Un Saboteador Rebelde puede interactuar con la nave de guerra. Si lo hace, la nave de guerra sufre 5 {H}. Límite de una vez por figura por ronda.",
+      "buttonList": [
+        {
+          "GUID": "af29fab0-ff31-4f51-8919-760c76d611ec",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "0f987763-d2c3-426d-8063-1d0b76f117cc",
+      "mainText": "La puerta del hangar da acceso a la Zona de Pruebas donde se supone que está la nave de guerra.",
+      "buttonList": [
+        {
+          "GUID": "45f21948-7ffa-492e-8793-2f791c6af070",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance Allies",
+      "GUID": "8bea9838-3e50-4913-8add-2e5566a7cda9",
+      "mainText": "Despliega los Saboteadores Rebeldes aquí.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

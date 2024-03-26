@@ -1,0 +1,393 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Obsesión oscura",
+    "missionDescription": "",
+    "missionInfo": "{-} <color=\"red\">Darth Vader</color> gana +1 {G}.\r\n{-} <color=\"red\">Darth Vader</color> no puede ser empujado por las capacidades de los Héroes.\r\n{-} Cuando <color=\"red\">Darth Vader</color> es atacado mientras está adyacente a un soldado de asalto o un <color=\"red\">soldado de asalto (élite)</color> que podría ser objetivo de ese ataque, ese soldado de asalto pasar a ser el objetivo del ataque.\r\n{-} La ficha de Misión de bando Rebelde roja representa a Luke Skywalker.\r\n{-} Una vez por activación, un Héroe puede interactuar con un terminal ({I}) para cerrar la puerta abierta más cercana a Luke. Las puertas que han sido abiertas después de la preparación no pueden volver a ser cerradas.\r\n{-} Las puertas están selladas. Una figura puede atacar a una puerta (Vida: 5, Defensa: 1 {G}).\r\n{-} Cuando todos los Héroes están heridos, <color=\"red\">Darth Vader</color> puede atacar a Luke.\r\n{-} Cuando <color=\"red\">Darth Vader</color> termina su activación adyacente a Luke, ataca a Luke.\r\n{-} Los Rebeldes ganan al final de la ronda 6 o cuando <color=\"red\">Darth Vader</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando <color=\"red\">Darth Vader</color> ataque a Luke.",
+    "campaignName": "Pack de Villano Darth Vader (Señor de los Sith)",
+    "startingObjective": "Mantener a <color=\"red\">Darth Vader</color> alejado de Luke.",
+    "repositionOverride": "Todos excepto <color=\"red>Darth Vader</color>, Soldados de asalto: Bloquear la línea de visión de los Rebeldes con <color=\"red>Darth Vader</color>.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "fa7ea3fe-e2bd-4cc4-af47-992f2b8c5233",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "c1fd9946-ba3e-4736-80c2-3c1ca3114202",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ef3e5fa6-a895-4def-96fa-a40b7f33392c",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Acompañáis a Luke Skywalker en una misión secreta de sabotaje. El objetivo es una fortaleza imperial y vuestra tarea consiste en proteger al héroe de la Rebelión.\r\n\r\nEstáis vigilando la entrada al edificio cuando recibís el siguiente mensaje:\r\n\r\n—¡Ha venido Vader! ¡Salid de allí en seguida!",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "{-} Esta figura descarta cualquier estado perjudical, a continuación sufre 1 {H} por cada estado descartado. Si esta figura va a ser derrotada, no es derrotada hasta el final de su activación.\r\n{Q}{A} BRUTALIDAD: Mueve 4 para enfrentarte a 2 o más Rebeldes. A continuación, ataca a cada Rebelde adyacente.\r\n{Q} Mueve 4 para atacar a {R1}.\r\n{A} ESTRANGULAR CON LA FUERZA: Mueve 2 hacia {R1}. A continuación, esa figura sufre 2 {H} y 1 {C}.\r\n{A} Mueve 6 hacia {R1}.\r\n{-} EMPUJAR CON LA FUERZA: Coloca los dos Soldados de asalto o <color=\"red\">Soldados de asalto (élite)</color> más cercanos adyacentes a esta figura.",
+          "modification": "+1 {G}",
+          "repositionInstructions": "",
+          "GUID": "bbaf2b80-a12f-4a4d-ae45-c865db559b70",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG072/Darth Vader"
+        },
+        {
+          "repositionText": "Estar adyacente a <color=\"red>Darth Vader</color>.",
+          "GUID": "f2842974-39f2-4a2f-a259-6d35390db780",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Darth Vader</color> gana +1 {G}.\r\n{-} <color=\"red\">Darth Vader</color> no puede ser empujado por las capacidades de los Héroes.\r\n{-} Cuando <color=\"red\">Darth Vader</color> es atacado mientras está adyacente a un soldado de asalto o un <color=\"red\">soldado de asalto (élite)</color> que podría ser objetivo de ese ataque, ese soldado de asalto pasar a ser el objetivo del ataque.\r\n{-} La ficha de Misión de bando Rebelde roja representa a Luke Skywalker.\r\n{-} Una vez por activación, un Héroe puede interactuar con un terminal ({I}) para cerrar la puerta abierta más cercana a Luke. Las puertas que han sido abiertas después de la preparación no pueden volver a ser cerradas.\r\n{-} Las puertas están selladas. Una figura puede atacar a una puerta (Vida: 5, Defensa: 1 {G}).\r\n{-} Cuando todos los Héroes están heridos, <color=\"red\">Darth Vader</color> puede atacar a Luke.\r\n{-} Cuando <color=\"red\">Darth Vader</color> termina su activación adyacente a Luke, ataca a Luke.\r\n{-} Los Rebeldes ganan al final de la ronda 6 o cuando <color=\"red\">Darth Vader</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando <color=\"red\">Darth Vader</color> ataca a Luke.\r\n{-} Despliega los Héroes en la casilla resaltada en azul.",
+          "GUID": "b46690e4-0eed-42a1-aacb-a69e1156cb93",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "El estruendo de una explosión a vuestras espaldas hace estremecer toda la sala. La voz de Luke se oye por el comunicador:\r\n\r\n—He terminado aquí atrás y he abierto otra salida. ¡Seguidme!\r\n\r\n{-} ¡Los Héroes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Oís a Luke gritar desde el fondo del pasillo. Cuando acudís corriendo, veis a Vader de pie junto a un Luke Skywalker derrotado e indefenso.\r\nMientras el señor de los Sith se acerca, detonáis un explosivo para abrir un agujero hacia el exterior. Con Vader distraído por la explosión, agarráis a Luke y os arrojáis por el agujero abierto en la pared mientras a vuestro alrededor llueven disparos de bláster.\r\n\r\n{-} Los Héroes pierden la misión.\r\n{-} El jugador Imperial recibe como Villano a <color=\"red\">Darth Vader</color>.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Outer Door",
+      "GUID": "8c6180fd-ca09-4702-bd86-9ef4bb5e9f8f",
+      "eventText": "La puerta se derrumba.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outer Door",
+              "GUID": "309d3ebc-ea64-48e4-8004-98ab3f1d9d41",
+              "theText": "La puerta exterior conduce al interior de la instalación, donde está Luke. No detendrá a Vader mucho tiempo.\r\n\r\nLa puerta esta sellada. Una figura puede atacarla (Vida: 5, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "5f09d976-889a-432d-bcfb-44fb7cc92967",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "f7b125d1-360f-402b-b8c1-b52dd9377117",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Outer Door",
+      "GUID": "732f6f98-e9ad-446b-aa1d-c107236a3343",
+      "eventText": "La puerta se cierra completamente, protegiendo a Luke, de momento. No resistirá el embate durante mucho tiempo.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outer Door",
+              "GUID": "bf3e985b-7076-44bd-811a-d4d252bf62c8",
+              "theText": "La puerta exterior conduce al interior de la instalación, donde está Luke. No detendrá a Vader mucho tiempo.\r\n\r\nLa puerta esta sellada. Una figura puede atacarla (Vida: 5, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "5f16da22-62ba-43a7-bb13-b435d2df5358",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "6810a3e4-5576-4d79-9900-da3c833781f1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Inner Door",
+      "GUID": "936b12bf-db4c-4b98-842e-f8b165432a85",
+      "eventText": "La puerta cae hacia dentro, sobresaltando a Luke, que levanta la vista de su trabajo.\r\n\r\n—¡Mantenedlo ocupado! —os grita—. ¡Sólo necesito un minuto más!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Inner Door",
+              "GUID": "41ca60c0-daad-4491-b647-2810fa69121c",
+              "theText": "Justo detrás de la puerta interior está la sala donde Luke trata de sabotear la instalación.\r\n\r\nLa puerta esta sellada. Una figura puede atacarla (Vida: 5, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "6f94bb21-0e6e-48cf-8f6d-ca9bff2d7aeb",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "b4f37196-a497-4c40-b039-4ca75b950b49",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Inner Door",
+      "GUID": "fc04bc99-4637-44f2-8a96-2a9fe9e930df",
+      "eventText": "La puerta se cierra completamente, protegiendo a Luke, de momento. No resistirá el embate durante mucho tiempo.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Inner Door",
+              "GUID": "87686079-92f9-43a8-aa4d-2fa9fbb9b4cf",
+              "theText": "Justo detrás de la puerta interior está la sala donde Luke trata de sabotear la instalación.\r\n\r\nLa puerta esta sellada. Una figura puede atacarla (Vida: 5, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "56629b57-7531-4072-ba8d-e5c65a89b4bc",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "4edef6fd-5edd-4261-858a-31c2ca090c68",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "All Heroes Wounded",
+      "GUID": "72b8e023-a13f-4a6a-9118-c0dd1983778a",
+      "eventText": "Cuando el último de vosotros cae a causa de las heridas sufridas, un grito de triunfo emerge entre las tropas imperiales.\r\n\r\nDarth Vader, sin embargo, permanece en silencio a excepción de su respirador mecánico y el zumbido de su sable láser. En lugar de remataros, su atención se dirige inmediatamente a Luke.\r\n\r\n{-} <color=\"red>Darth Vader</color> puede ahora atacar a Luke.\r\n{-} Cuando <color=\"red\">Darth Vader</color> termina su activación adyacente a Luke, ataca a Luke.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Esta figura descarta cualquier estado perjudicial, a continuación sufre 1 {H} por cada estado descartado. Si esta figura va a ser derrotada, no es derrotada hasta el final de su activación.\r\n{A} Mueve 4 hacia el lugar del sabotaje.\r\n{A} Abre una puerta a 3 o menos casillas de esta figura.\r\n{A} Mueve 4 hacia el lugar del sabotaje.\r\n{-} EMPUJAR CON LA FUERZA: Coloca los dos Soldados de asalto o <color=\"red\">Soldados de asalto</color> más cercanos adyacentes a esta figura.\r\n{-} Ataca a Luke.",
+          "GUID": "089b7e67-ca7e-43a7-8a78-663e92c5f2ad",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Luke Skywalker",
+              "GUID": "4f556654-8057-4596-a30f-b31c159eb84f",
+              "theText": "Luke Skywalker trata apresuradamente de terminar su tarea. Sabe que tiene a Vader casi encima de él.\r\n\r\n{-} Cuando <color=\"red\">Darth Vader</color> termina su activación adyacente a Luke, ataca a Luke.",
+              "buttonList": [
+                {
+                  "GUID": "ae1c976e-0e81-4be1-9d9a-85b2bc540edf",
+                  "theText": "Atacar a Luke"
+                }
+              ]
+            }
+          ],
+          "GUID": "3d50cdf3-5437-4061-a218-bb452e0de08d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal inactive",
+      "GUID": "ae8e4014-4dca-422a-b20f-cff802d83794",
+      "eventText": "Las puertas no pueden ser cerradas de nuevo.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal",
+              "GUID": "e8099175-c5ee-4909-a5a9-740ae5885b09",
+              "theText": "El terminal está ahora inutilizado.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bf3a2f63-b4d3-4e16-8099-7b465c4c3e54",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Security Breach",
+      "GUID": "e7582cfd-c7ae-4831-97c0-91ff8af2dca9",
+      "eventText": "Empiezan a sonar alarmas por toda la instalación a medida que más y más tropas imperiales son alertadas de vuestra presencia. Un nuevo pelotón de soldados de asalto acude raudo para ayudar a Vader en su avance.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dde9c01f-02a0-4bba-bfa3-11268ed1ce1f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "Power of the Dark Side",
+      "GUID": "c0f7a89b-1d57-4f86-baf1-9ee8cd1a5676",
+      "eventText": "La cólera de Vader va en aumento, y notáis una energía oscura que os envuelve a medida que el señor de los Sith manipula en su favor el lado oscuro de la Fuerza.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "3373fecb-9138-4f6e-bcec-b4782dc98997",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "6259579a-437b-4177-820a-ffc2a6dfc1a8",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Vader",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "45be4ca8-b6a7-4685-aa29-bbf28d60ef60",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "0f224098-3061-4955-8eaf-dca23d59f052",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "2f1cdb7d-56bb-4b61-9ce3-4a8625216eba",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Outer Door",
+      "GUID": "ef73d503-8f0e-4768-8b4b-3e1570c68d1f",
+      "mainText": "La puerta exterior conduce al interior de la instalación, donde está Luke. No detendrá a Vader mucho tiempo.\r\n\r\nLa puerta esta sellada. Una figura puede atacarla (Vida: 5, Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "6d4cd8ed-f070-433b-87ca-81ea20501f8d",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Inner Door",
+      "GUID": "72b5929e-b47b-46c8-852f-2a82a12f67a2",
+      "mainText": "Justo detrás de la puerta interior está la sala donde Luke trata de sabotear la instalación.\r\n\r\nLa puerta esta sellada. Una figura puede atacarla (Vida: 5, Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "b6bca997-cb00-42e3-9073-b0c80d8a6b11",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Luke Skywalker",
+      "GUID": "a86f044a-bce5-4201-b5a7-d2879b7cdd0e",
+      "mainText": "Luke Skywalker trata apresuradamente de terminar su tarea.\r\n\r\n{-} Cuando todos los Héores están heridos,  <color=\"red>Darth Vader</color> puede atacar a Luke.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "dd0d7fc1-f7a9-4321-9c5a-06918c372689",
+      "mainText": "Este terminal controla las puertas.\r\n\r\n{-} Una vez por activación, un Héroe puede interactuar con el terminal ({I}) para cerrar o abrir la puerta más cercana a Luke. Las puertas que se abran después de la preparación no pueden ser cerradas de nuevo.\r\n{-} Cada puerta sólo puede cerrarse una vez. Si se abre de nuevo, es destruida y no puede ser cerrada otra vez.",
+      "buttonList": [
+        {
+          "GUID": "9d5abea4-b6a0-4b81-bd8e-fc9b672b0b81",
+          "theText": "{A} ({I}) Cerrar la puerta exterior"
+        },
+        {
+          "GUID": "dd54ebd6-03d8-4bff-a60c-3faf602e3ac7",
+          "theText": "{A} ({I}) Cerrar la puerta interior"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

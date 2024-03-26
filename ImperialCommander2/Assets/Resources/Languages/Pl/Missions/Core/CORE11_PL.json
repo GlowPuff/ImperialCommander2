@@ -1,0 +1,588 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Under Siege",
+    "missionDescription": "",
+    "missionInfo": "{-} Żetony misji reprezentują pozycje strategiczne. Jeśli na końcu dowolnej rundy figurka Imperium zajmuje kafelek z pozycją strategiczną i na tym kafelku nie ma żadnych zdrowych figurek Rebelii, ta pozycja zostaje zajęta przez Imperium. Imperium przejmuje jej żeton.\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.\r\n{-} Bohaterowie wygrają na końcu rundy 8.\r\n{-} Bohaterowie przegrają kiedy Imperium zajmie 4 pozycje strategiczne lub kiedy wszyscy bohaterowie zostaną zmuszeni do wycofania się. Kiedy wszyscy bohaterowie wycofają się kliknij na pole zaznaczone na zielono i wybierz \"Bohaterowie wycofali się\".",
+    "campaignName": "Core Game",
+    "startingObjective": "Obroń pozycje strategiczne. (Pozycje strategiczne zajęte przez Imperium: &Sites taken&/4)",
+    "repositionOverride": "Najbliższa pozycja strategiczna nie zajęta przez co najmniej dwie figurki Imperium.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "827b99ae-363a-47dd-b845-1d7130b36ad6",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "fabd6f5f-4e77-4685-8514-80e850d7427a",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "42965739-f412-415c-9df4-26fde0e1f392",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "17ea4354-f911-4fce-93be-3666386aef37",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "b61421c7-d835-46cb-a3f2-01a1c49bfe9c",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "28249e53-3725-4a27-949c-ea8fe840a995",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Dowództwo powierzyło wam pozornie proste zadanie: macie przeprowadzić akcję dywersyjną, dzięki której inny zespół będzie mógł infiltrować placówkę kontrolowaną przez Weissa.\r\n\r\nRozkazy dowództwa są jasne: \"Nie zakłócajcie ani nie zagłuszajcie żadnych sygnałów. Jeśli wyślą sygnał z prośbą o pomoc, świetnie. Jeżeli nie, będzie to oznaczało, że za słabo się postaraliście.\"\r\n\r\nZważywszy na ilość imperialnych sił otaczających kompleks, postaraliście się bardzo skrupulatnie.\r\n\r\nPo rozprawieniu się z imperialnymi żołnierzami na terenie placówki, przygotowujecie się do jej obrony. Wiele drzwi zatrzaśnięto i zabarykadowano na wypadek ataku z zewnątrz. Spodziewacie się ofensywy i macie nadzieję, że wasze pospiesznie wzniesione fortyfikacje wytrzymają dość długo, żeby sobie poradzić z napastnikami.\r\n\r\n{-} Należy umieścić 1 żeton misji Rebelii na każdym kafelku z polem zaznaczonym na czerwono.\r\n{-} Żetony misji reprezentują pozycje strategiczne. Jeśli na końcu dowolnej rundy figurka Imperium zajmuje kafelek z pozycją strategiczną i na tym kafelku nie ma żadnych zdrowych figurek Rebelii, ta pozycja zostaje zajęta przez Imperium. Imperium przejmuje jej żeton.\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.\r\n{-} Bohaterowie wygrają na końcu rundy 8.\r\n{-} Bohaterowie przegrają kiedy Imperium zajmie 4 pozycje strategiczne lub kiedy wszyscy bohaterowie zostaną zmuszeni do wycofania się. Kiedy wszyscy bohaterowie wycofają się kliknij na pole zaznaczone na zielono i wybierz \"Bohaterowie wycofali się\".\r\n{-} Gracze Rebelii rozstawiają swoje figurki na dowolnych polach wnętrza.",
+      "eventActions": [
+        {
+          "newInstructions": "Wszystkie figurki Imperium będą atakować drzwi zamiast Rebeliantów, jeśli jest to najszybsza droga do zajęcia pozycji strategicznej.",
+          "GUID": "c38f00ef-c5f7-4130-be5d-0d4267f5bc8a",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "newInstructions": "{-} Kiedy ta grupa rozpatruje ROZKAZ, to po wykonaniu ataku z tego rozkazu, grupa która otrzymała rozkaz porusza się o 2 w kierunku najbliższej pozycji strategicznej znajdującej się na kafelku nie zajętym przez co najmniej 2 figurki Imperium.",
+          "GUID": "1a726c83-5fed-4b28-a01b-32bcc0257bd2",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Chociaż otrzymaliście rozkaz do wycofania się kilka minut temu, nadal zaciekle bronicie posterunku, pomimo niesprzyjających warunków.\r\n\r\nPóźniej dowiadujecie się, że te dodatkowe parę minut dało innym zespołom czas na bezpieczny odwrót. Wasz pilot nie był zachwycony na widok myśliwców wroga wysłanych za wami w pościg, ale daliście radę.\r\n\r\nDzięki sukcesowi zwiadu udało się ujawnić nowy projekt powstający pod nadzorem Weissa. Z uzyskanych informacji wynika, że może on przysporzyć Rebelii wielu problemów.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Należy umieścić w grze kartę misji fabularnej \"Imperialna gościnność\".\r\n{-} Każdy gracz dostaje 2 PD. Bohaterowie dostają 200 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Oddziały imperialnych żołnierzy wdzierają się na teren kompleksu i nie jesteście w stanie dłużej odpierać ataku. Wycofujecie się w pospiechu - możecie tylko mieć nadzieję, że czas, który zdołaliście zapewnić drugiemu zespołowi wystarczy im na wypełnienie misji.\r\n\r\nSzczęście wam dopisuje: natychmiast po odwrocie otrzymujecie informację od dowództwa. Dowódczyni nie wspomina ani słowem o waszych dokonaniach, a zamiast tego skupia się na informacjach uzyskanych przez drugi zespół. \"Weiss opracowuje nową broń\" – informuje was. \"I mamy wobec niej poważne obawy. Najwyższe dowództwo domaga się szczegółowych informacji, więc nie bądźcie zaskoczeni, jeśli już wkrótce dostaniecie przydział do kolejnej misji.\" \r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} ▸ Jeśli 4 pozycje strategiczne zostały zajęte przed końcem rundy 6, należy umieścić w grze kartę misji fabularnej \"Misja Solo\".\r\n{-} W przeciwnym razie należy umieścić w grze kartę misji fabularnej \"Imperialna gościnność\" i każdy gracz dostaje 1 PD.\r\n{-} Każdy gracz dostaje 1 PD w dodatku do PD, które już ewentualnie dostał. Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Door North Destroyed",
+      "GUID": "90d1b4d1-be9e-46b0-a3c2-296dd70b2b8f",
+      "eventText": "Drzwi rozpadają się pod naporem Imperium.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door North",
+              "GUID": "ffa66119-6440-4198-9b64-34cce69ef8b5",
+              "theText": "Solidne drzwi prowadzą na zewnątrz kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+              "buttonList": [
+                {
+                  "GUID": "2d777e9a-8d77-473a-b1ba-66a00d4bde9a",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "28d34923-bd25-4d56-ba22-327853725c43",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door West Destroyed",
+      "GUID": "6d27aa05-8749-42a7-b5f9-c87c1d25a0f8",
+      "eventText": "Drzwi rozpadają się pod naporem Imperium.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door West",
+              "GUID": "918310f1-3b26-46a7-b13d-7eb1bcb32342",
+              "theText": "Solidne drzwi prowadzą wgłąb kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żyyotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+              "buttonList": [
+                {
+                  "GUID": "79af972d-d90e-4bac-bd28-ee202fc751eb",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "d50380f8-f882-4ac9-b9a6-3d0411ff535f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door East Destroyed",
+      "GUID": "72ef0c64-a827-4197-bcfc-d9e4c75daf42",
+      "eventText": "Drzwi rozpadają się pod naporem Imperium.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door East",
+              "GUID": "db0ab614-9c27-46ea-b67e-33eaa4e1d58f",
+              "theText": "Solidne drzwi prowadzą na zewnątrz kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+              "buttonList": [
+                {
+                  "GUID": "c6972345-93a5-47a0-be75-006381823df8",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "11fe6849-ed7f-4c80-a2ef-35339d6942dc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door South Destroyed",
+      "GUID": "4bb0438e-fab6-4344-9cb9-52fc282af205",
+      "eventText": "Drzwi rozpadają się pod naporem Imperium.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door South",
+              "GUID": "04b6c2df-50f2-47ce-a1cc-ba81090b4ca9",
+              "theText": "Solidne drzwi prowadzą wgłąb kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+              "buttonList": [
+                {
+                  "GUID": "a98293ed-aeea-4c0c-84ed-b88d73b16f59",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "33caeab1-5e1e-4f6e-9665-42a5c47d1fca",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Imperial Capture",
+      "GUID": "ac4ad5ed-82a8-4689-8d3c-f540e2bb0cc5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Ile jest kafelków z punktem strategicznym, bez zdrowej figurki Rebelii na kafelku i z co najmniej jedną figurką Imperium na kafelku?",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "329063cc-21d8-4ddc-b1b2-daa2b86b50a5",
+              "theText": null
+            },
+            {
+              "GUID": "8c32786c-818e-4c56-a163-a32baae259f5",
+              "theText": null
+            },
+            {
+              "GUID": "2e152e21-1d59-44a2-b99e-aefec524f2ee",
+              "theText": null
+            },
+            {
+              "GUID": "d778f441-07ca-4dc7-a90b-ea6ccb4fcffc",
+              "theText": null
+            },
+            {
+              "GUID": "e6d48132-69f2-4572-aaa4-6efb545fa18d",
+              "theText": null
+            }
+          ],
+          "GUID": "f8294708-3f8d-42c5-aed6-4f4459413dc4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Imperial Capture 1",
+      "GUID": "537a8e7f-221e-4f25-a26e-f558dd57b1aa",
+      "eventText": "Imperium ufortyfikowało zdobyte punkty.\r\n\r\n{-} Te pozycje zostają zajęte przez Imperium. Odrzuć te żetony.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 2",
+      "GUID": "d6113ed7-0f2d-4199-b875-005d39042e14",
+      "eventText": "Imperium ufortyfikowało zdobyte punkty.\r\n\r\n{-} Te pozycje zostają zajęte przez Imperium. Odrzuć te żetony.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 3",
+      "GUID": "62676cdb-452c-4c37-8602-5afa9972d5eb",
+      "eventText": "Imperium ufortyfikowało zdobyte punkty.\r\n\r\n{-} Te pozycje zostają zajęte przez Imperium. Odrzuć te żetony.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 4",
+      "GUID": "1cc27b31-bcdc-47a7-a1b8-cc1638ffbfee",
+      "eventText": "Imperium ufortyfikowało zdobyte punkty.\r\n\r\n{-} Te pozycje zostają zajęte przez Imperium. Odrzuć te żetony.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 0",
+      "GUID": "fc33f044-a723-4ce7-90a7-2f806c55c4f3",
+      "eventText": "Ku przerażeniu i wściekłości ich przywódców, Imperium poczyniło niewielkie postępy.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Wave 1",
+      "GUID": "85b75175-11ae-41a3-b6e2-05951e077bf6",
+      "eventText": "Wygląda na to, że w miejsce każdego żołnierza, którego zdołacie pokonać, pojawia się kolejnych trzech. Chociaż bronicie placówki z najwyższym trudem, póki co baza wciąż pozostaje pod waszą kontrolą.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "e95ee450-b488-4c50-9191-9dc5fb37620c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Assault - Trigger",
+      "GUID": "1e6d3a2a-7f03-4245-aef8-875bed6ec770",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Assault-1",
+      "GUID": "d5587515-8c6f-4636-a830-a8abd6579f32",
+      "eventText": "Ogień artyleryjski pada na kompleks. Nagle jedne z chronionych drzwi zostają wysadzone w powietrze, wyrzucając wszędzie tlące się odłamki.\r\n\r\n{-} Usuń drzwi z największą liczbą figurek Rebelii w promieniu 3 pól.\r\n{-} Należy rzucić 1 czerwoną kością. Każda figurka Rebelii w promieniu 3 pól od tych drzwi otrzymuje {H} równe liczbie wyrzuconych wyników {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Assault-2",
+      "GUID": "a8b9a758-67f4-4d67-a284-2144d859f522",
+      "eventText": "W oddali słychać zakodowane transmisje radiowe Imperium, sygnalizujące zbliżające się posiłki.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Wave 2",
+      "GUID": "b920817b-0fcf-4dc7-8dc8-5a28b28a1a83",
+      "eventText": "Z każdą upływającą chwilą obrona przychodzi wam coraz trudniej, jednak wkrótce otrzymujecie wiadomość, że drugi zespół już prawie wypełnił swoją misję.\r\n\r\nKorytarze rozbrzmiewają pobliskimi dźwiękami eksplozji - to tylko kwestia czasu, zanim imperialne oddziały wedrą się do środka. Macie tylko nadzieję, że wybuchy nie oznaczają, iż już tego dokonali...",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "15a9f143-7ba1-49c0-9994-f546c883e522",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Specialists - Trigger",
+      "GUID": "28b144e0-9278-4d30-87e2-cf3e5f0f11ba",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Specialists-1",
+      "GUID": "e05da1bd-81c4-45fa-9ba2-09e7942a1795",
+      "eventText": "Słychać mechaniczny brzęk i warkot. Ogromna bojowa jednostka wychodzi z lasu, z działami gotowymi do strzału.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4ab567b6-13de-48ed-a3e5-1eb060925285",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG014/AT-ST"
+        }
+      ]
+    },
+    {
+      "eventName": "Specialists-2",
+      "GUID": "7d96e633-09e6-4e52-b783-2c49f29424e3",
+      "eventText": "Słyszycie syczący dźwięk palnika do cięcia, a następnie krótką, ale gwałtowną eksplozję, gdy otwiera się otwór wentylacyjny. Wrogowie wpadają do środka, w samo serce kompleksu. Ich nagłe przybycie całkowicie was zaskoczyło.\r\n\r\n{-} W tej rundzie Imperium otrzymuje dwie pierwsze aktywacje. Kliknij ikonę \"Następna aktywacja\" aby aktywować pierwsze dwie grupy bez wykonywania aktywacji Rebelii.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Wave 3",
+      "GUID": "b1377a3f-3a85-4fda-8857-64b23737a51a",
+      "eventText": "Nie wierzycie własnym oczom – pośród ciał poległych żołnierzy w waszą stronę kroczy nie kto inny, a sam straszliwy Darth Vader.\r\n\r\nOtrzymujecie informację, z której wynika, że lada chwila drugi zespół rozpocznie odwrót. Chociaż wypełnili swoje zadanie, wiecie aż za dobrze, że dodatkowe kilka minut może stanowić dla nich ogromną różnicę.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "1fe83cbc-fc56-444a-a03e-bdeaf44c76aa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG072/Darth Vader"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "2f610d32-7e36-4e55-b60b-f7d0e3668f15",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "eb91e47c-df47-4fd3-bd57-ee7746d1bb17",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "c27f4ad4-b136-4e34-b18c-d717afb40661",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "1c7bdb35-6237-466b-9965-21cee348796f",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP E-Web",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Heroes withdrawn",
+      "GUID": "fc1e56aa-2472-471f-a805-18928d0ace00",
+      "mainText": "Kiedy wszyscy bohaterowie wycofają się, kliknij \"Bohaterowie wycofali się\".",
+      "buttonList": [
+        {
+          "GUID": "8875b42f-4120-4eb7-aac5-aacb57da9ffb",
+          "theText": "Bohaterowie wycofali się (Zakończ misję)"
+        }
+      ]
+    },
+    {
+      "entityName": "Capture Site",
+      "GUID": "18f8a5d2-960e-4d89-8d02-1c83415c1c20",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate)",
+      "GUID": "c9dde8d2-f67b-4752-8513-19961c5df3ec",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate) (Duplicate)",
+      "GUID": "3736f6ad-eb5d-41fa-81d0-709e5533b48a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate) (Duplicate) (Duplicate)",
+      "GUID": "a1c44d68-8da8-4357-92c3-2723fbcb5048",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate) (Duplicate) (Duplicate) (Duplicate)",
+      "GUID": "b50371bc-4960-42a1-a6ba-8668897423bd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP AT-ST",
+      "GUID": "9eda6375-5593-488d-9833-572a5104767f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "96096f01-99e7-4761-9729-319564f73ad8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "0e4ca184-d044-4bbc-90bc-cb5f4393d80e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "2149341e-b917-4595-952e-6ab062a0a63b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "6fc50ef3-9191-4721-8521-7a7cade02ac1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "184d0a25-8864-490b-9c29-f605f34cf442",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door North",
+      "GUID": "e4abd589-83f6-4bee-b266-cafd131bd5a0",
+      "mainText": "Solidne drzwi prowadzą na zewnątrz kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+      "buttonList": [
+        {
+          "GUID": "3c2a265f-3e51-4f81-855a-39c84cadd868",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Door East",
+      "GUID": "2c105e11-d552-4065-8800-68a05569a099",
+      "mainText": "Solidne drzwi prowadzą na zewnątrz kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+      "buttonList": [
+        {
+          "GUID": "267648fb-9aa4-4af9-9ba4-32f8b30dd957",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Door West",
+      "GUID": "71e51334-3a34-4f78-a9e1-ba534f3a3b64",
+      "mainText": "Solidne drzwi prowadzą wgłąb kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+      "buttonList": [
+        {
+          "GUID": "44cedb8d-cfdd-4100-9b92-6c1207433c70",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Door South",
+      "GUID": "a92d82bb-182f-462a-ba99-7f8a9fd97b7b",
+      "mainText": "Solidne drzwi prowadzą wgłąb kompleksu, ale nie utrzymają Imperium zbyt długo.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może je atakować (żywotność: 6, obrona: 1 czarna kość).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, ani pola widzenia.",
+      "buttonList": [
+        {
+          "GUID": "3779d042-d706-4642-a51c-6566de992ce2",
+          "theText": "Zniszcz"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "E-Web Engineer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

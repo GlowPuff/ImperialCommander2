@@ -1,0 +1,837 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Call to Action",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Tyrants of Lothal",
+    "startingObjective": "",
+    "repositionOverride": "Blokuj dostęp do przesyłki na punkcie przechwycenia.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "378fe5d7-8a8e-49e2-93cc-d055de90bad2",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "f31466a9-6cf8-4a35-b3b1-bbca25d6f2b7",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ff97f117-4293-4bc5-8fc9-99c8faad157c",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Przechwytujecie imperialną dostawę broni, która przewijała się przez targowiska na Lothal. Informacje o waszym kontakcie były prawidłowe. Adrenalina w was pulsuje, podczas gdy modlicie się, żeby dotarł do punktu przechwycenia zgodnie z harmonogramem.\r\n\r\n{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko jedną akcję i może jej użyć wyłącznie do wykonania ruchu.",
+      "eventActions": [
+        {
+          "tbText": "Ładunek jest ciężki, ale sanie repulsorowe umożliwiają jego przemieszczanie.",
+          "GUID": "61789c71-c004-42fd-bd1c-d8bee072fedd",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shipment",
+              "GUID": "5368912a-0247-457c-a6a7-53eb986ff2f5",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "1b8e1dde-3178-4b37-ab2f-b3525174ce8f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Żeton misji Imperium reprezentuje przesyłkę. Raz podczas aktywacji bohater znajdujący się na polu z przesyłką lub na polu sąsiadującym może ją odepchnąć o 1 pole.",
+          "GUID": "5175e5bf-9801-4f56-9e2c-8e8265bb7f9f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Wasz kontakt podał bardzo konkretne współrzędne miejsca, do którego należy dostarczyć przesyłkę.",
+          "GUID": "3ee188f9-43d6-4bcd-855f-b17c32c94af4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shipment",
+              "GUID": "1f8f0b73-beaf-4486-869c-4f5304ca2197",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Extraction Point",
+              "GUID": "36bb4ce6-72c9-4248-9681-7c9386c6ece5",
+              "theText": "Statek waszego kontaktu czeka tutaj.\r\n\r\n{-} Gdy przesyłka znajdzie się na tym polu, kliknij \"Przesyłka wysłana \".",
+              "buttonList": [
+                {
+                  "GUID": "19f99a4a-07f4-44a0-804b-0300e95a7e7a",
+                  "theText": "Przesyłka wysłana"
+                }
+              ]
+            }
+          ],
+          "GUID": "93878fae-0733-4dec-b799-ac870d2b3024",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Żeton misji Rebelii reprezentuje punkt przechwycenia. Kiedy przesyłka znajdzie się na punkcie, kliknij na żeton i wybierz \"Przesyłka wysłana\".\r\n{-} Misja pójdzie naprzód, kiedy przesyłka zostanie wysłana.\r\n{-} Misja dobiegnie końca na końcu rundy 4 jeśli przesyłka nie zostanie wysłana, na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "049ac23d-9fe8-497a-9d28-dfc5bc7d7778",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Zabierz przesyłkę do punktu przechwycenia.",
+          "longText": null,
+          "GUID": "d6db4f3a-3883-4f20-ac31-9d9151a54b3c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko jedną akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Żeton misji Imperium reprezentuje przesyłkę. Raz podczas aktywacji bohater znajdujący się na polu z przesyłką lub na polu sąsiadującym może ją odepchnąć o 1 pole.\r\n{-} Żeton misji Rebelii reprezentuje punkt przechwycenia. Kiedy przesyłka znajdzie się na punkcie, kliknij na żeton i wybierz \"Przesyłka wysłana\".\r\n{-} Misja pójdzie naprzód, kiedy przesyłka zostanie wysłana.\r\n{-} Misja dobiegnie końca na końcu rundy 4 jeśli przesyłka nie zostanie wysłana, na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "a5de9754-b29b-4604-99fb-0cd8e527f0e3",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Nad waszymi głowami unosi się wahadłowiec. Mężczyzna z zieloną maską zakrywającą górną połowę twarzy pomaga wam przejść przez właz. “Witamy na pokładzie Upiora.”\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Bohaterowie muszą wybrać 1 bohatera, który dostaje kartę nagrody “Przywódca komórki Nova”.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Tyrani z Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "0d3e12e7-35ea-432e-878f-f6abd45b6040",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "09e4d0ff-835d-4a68-a917-3f46d381f47a",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "fa160c96-ff1c-4306-ad5f-f40d51ef9331",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Wśród traw wybuchają eksplozje, które ledwie udaje wam się ominąć. Postać w mandalorińskiej zbroi rzuca jeszcze kilka granatów z wahadłowca, zanim podaje wam linę.\r\n\r\n{-} Bohaterowie przegrali misję.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Tyrani z Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "ac7d367e-25a1-4f92-b311-81681fb5926e",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "f4416ff4-b2cc-4d0a-a7c5-16f1a4826315",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "922d0b18-3b9c-4426-b8b1-9d79afd7d873",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Win",
+      "GUID": "1fb0c0b1-7388-42f6-9c4c-801de27f03a5",
+      "eventText": "\"Ezra, zabierz nas z powrotem do Ducha,\" mówi mężczyzna w masce do młodszego kolegi za sterami wahadłowca. \"Nazywam się Kanan Jarrus. Nie wiedziałem, że na Lothal pozostali jeszcze jacyś Rebelianci.\"\r\n\r\nMówicie mu, że dopiero zaczęliście walczyć z Imperium. \"Zaczęliście podążać trudną ścieżką,\" mówi w końcu, “ale macie sojusznika w Widmach. Przekażemy wam,wszystko co musicie wiedzieć.\"\r\n\r\n\"Po prostu nie liczcie na to, że będzie łatwo,\" dodaje Ezra. “Kanan nie uczy łatwo.”\r\n\r\n{-} Każdy bohater dostaje 2 PD.\r\n{-} Bohaterowie dostają 300 kredytów za każdego bohatera w grze.\r\n{-} Bohaterowie dostają <color=\"red\">Kanana Jarrusa</color> (Widmo-1), <color=\"red\">Zeba Orreliosa</color> (Widmo-4), <color=\"red\">Sabine Wren</color> (Widmo-5) i <color=\"red\">Ezrę Bridgera</color> (Widmo-6) jako sojuszników. Dodatkowo bohaterowie dostają <color=\"red\">Herę Syndullę</color> (Widmo-2) i <color=\"red\">C1-10P</color> (“Choppera”) jako sojuszników, jeśli posiadają ten zestaw figurkowy.",
+      "eventActions": [
+        {
+          "mainText": "Należy wybrać jedno z poniższych.\r\n\r\n{-} Rozszerzona minikampania: Jest rozgrywana rozszerzona minikampania, zawierająca zestaw przeciwnika Hondo Ohnaka.\r\n{-} Minikampania: Jest rozgrywana standardowa minikampania \"Tyrani z Lothal\".",
+          "buttonList": [
+            {
+              "GUID": "581b61ab-b1cf-4cfc-b5e8-d57b5ee59671",
+              "theText": "Rozszerzona minikampania"
+            },
+            {
+              "GUID": "83251f70-a773-4fae-9b92-a4e91d494b5f",
+              "theText": "Minikampania"
+            }
+          ],
+          "GUID": "d93f8f65-094a-440f-bd2c-2849d9099137",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Defeat",
+      "GUID": "ee9e6f21-9b9f-47ca-b982-44b59453a837",
+      "eventText": "“Nie jesteście fanami subtelności, prawda?” mówi dziewczyna. “Jestem Sabine. To Zeb.” Wskazuje na wielkiego Lasata wciśniętego w fotel pilota. “Chodźmy!”\r\n\r\nZeb rzuca jej spojrzenie. “Tak naprawdę nie zabieramy ich z powrotem do Ducha,” warczy i zgrzyta zębami. “Prawdopodobnie nie mają pojęcia, co robią.”\r\n\r\nSabine siada na fotelu drugiego pilota. “Muszą się jakoś nauczyć! Kto lepiej ich nauczy niż my?”\r\n\r\n{-} Każdy bohater dostaje 2 PD.\r\n{-} Bohaterowie dostają 300 kredytów za każdego bohatera w grze.\r\n{-} Bohaterowie dostają <color=\"red\">Kanana Jarrusa</color> (Widmo-1), <color=\"red\">Zeba Orreliosa</color> (Widmo-4), <color=\"red\">Sabine Wren</color> (Widmo-5) i <color=\"red\">Ezrę Bridgera</color> (Widmo-6) jako sojuszników. Dodatkowo bohaterowie dostają <color=\"red\">Herę Syndullę</color> (Widmo-2) i <color=\"red\">C1-10P</color> (“Choppera”) jako sojuszników, jeśli posiadają ten zestaw figurkowy.",
+      "eventActions": [
+        {
+          "mainText": "Należy wybrać jedno z poniższych.\r\n\r\n{-} Rozszerzona minikampania: Jest rozgrywana rozszerzona minikampania, zawierająca zestaw przeciwnika Hondo Ohnaka.\r\n{-} Minikampania: Jest rozgrywana standardowa minikampania \"Tyrani z Lothal\".",
+          "buttonList": [
+            {
+              "GUID": "93d71bef-afed-4d05-9469-8942ae8aad6b",
+              "theText": "Rozszerzona minikampania"
+            },
+            {
+              "GUID": "4497ea51-871e-4c2d-85fa-b8a6b180d291",
+              "theText": "Minikampania"
+            }
+          ],
+          "GUID": "c47a75a7-d9d7-4f27-ab49-39ee814934b8",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "No campaign",
+      "GUID": "8fe1b24a-487b-46a0-9e81-94329508e0dc",
+      "eventText": "{-} Każdy bohater dostaje 1 PD.\r\n{-} Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Extended campaign 1",
+      "GUID": "2f95d44b-fe49-4580-aed5-8b4db04f67d8",
+      "eventText": "Kiedy Upiór zabiera was na statek, odzywa się sygnał komunikatora. Przemawia chłodny głos waszego lokalnego kontaktu, N-4M. “Powinienem był dokładniej sprawdzić pana Ohnakę”, przyznaje. Głośnik droida warczy i wariuje. “Na szczęście moi informatorzy widzieli, jak pan Ohnaka wchodzi na pokład statku, aby odlecieć. Mogę przekazać jego prawdopodobne miejsce przeznaczenia.”\r\n\r\nMówicie swoim zbawicielom, że musicie zrobić objazd przed spotkaniem z resztą ich grupy, a oni proponują wysłanie kogoś do pomocy. Macie niedokończony interes z Hondo Ohnaką...\r\n\r\n{-} Następna aktywna misja to “Piracki podstęp” (zestaw przeciwnika Hondo Ohnaka).",
+      "eventActions": []
+    },
+    {
+      "eventName": "Regular mini campaign",
+      "GUID": "5912594d-6f76-449a-8572-5004d336bdd9",
+      "eventText": "Dokujecie frachtowcem VCX-100. Na pokładzie spotykacie resztę załogi, w tym kapitan Herę Syndullę. “Możemy wykorzystać każdą pomoc, jaką zdobędziemy” mówi “i jeśli moi ludzie wam ufają, ja też. Mamy więcej pracy do wykonania niż pozostali.\r\n\r\n“Słyszeliście o Wielkim Admirale Thrawnie? Postawił cały sektor w stanie wysokiej gotowości. Ledwo możemy się ruszyć.” Opiera się o mały stolik na środku pokoju. “Mamy sojuszników na Seelos. Wolffe i Gregor, którzy uratowali imperialne kody od skradzionej maszyny kroczącej, ale potrzebują pomocy w ucieczce Imperium. Mamy też trop do starej kryjówki przemytników na Devaron, zawierającej trasy najlepszych szlaków przemytu przez sektor. Jeśli uda nam się je zdobyć, możemy uniknąć imperialnych patroli i nie będziemy w ogóle potrzebować kodów.” Zwraca się do was. “Jeśli możecie nam pomóc, wyślę z wami kogoś z mojej załogi.”\r\n\r\n{-} Bohaterowie muszą wybrać, czy chcą pomóc Wolffemu i Gregorowi, czy zbadać kryjówkę przemytnika.\r\n{-} Jeśli bohaterowie spróbują pomóc Wolffemu i Gregorowi następna aktywna misja to “Piaski Seelos”.\r\n{-} Jeśli bohaterowie chcą zbadać kryjówkę przemytnika następna aktywna misja to “Pojedynek na Devaron”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Just Business",
+      "GUID": "b0060326-f45b-4228-b15f-23ce78756a6a",
+      "eventText": "Wasz kontakt, Hondo Ohnaka, uśmiecha się, gdy wciąga przesyłkę na pokład swojego statku. “Bardzo dobrze, moi przyjaciele!” Statek zaczyna się wznosić, zanim zdążycie wejść na pokład. “Niestety zaproponowano mi lepszą ofertę.” Hondo celuje w was swoim blasterem, a jednocześnie przybywa więcej Imperialnych.\r\n\r\n{-} Należy odrzucić przesyłkę.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1* żywotności",
+          "repositionInstructions": "",
+          "GUID": "ff06cb3b-b18f-4033-bdf6-1e5c642b6248",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG086/Hondo Ohnaka"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "55f717fa-8c0a-4318-a57c-82e3ad8e01bd",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG057/Death Trooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f0eecc17-35eb-44f0-8377-00969e7dd3d6",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Extraction Point",
+              "GUID": "1b390272-f828-4ce5-abf6-522a18519eab",
+              "theText": "Statek waszego kontaktu czeka tutaj.\r\n\r\n{-} Gdy przesyłka znajdzie się na tym polu, kliknij \"Przesyłka wysłana \".",
+              "buttonList": [
+                {
+                  "GUID": "b14be948-cfc3-4b12-bba7-fd73358145ed",
+                  "theText": "Przesyłka wysłana"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "0c05fbb3-6d10-4dc2-afb7-5f2bfbbf3c4e",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "dd8bdb66-66e7-43f0-a770-c2da320463e3",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "83777b67-baeb-40f4-8aed-6b42dfcb54aa",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "33dda837-3a41-4976-bf43-2d45a2013fa0",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "ebb911a2-d6f3-49ea-9854-58d4ec5bba85",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "a1594c7e-6493-4280-a37d-5786bf5e4443",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Słyszycie trzeszczenie przez komunikator. “Każdy wróg Imperium jest naszym przyjacielem. Trzymacie się, nadchodzimy!!”\r\n\r\nDaleko w oddali widzicie statek zmierzający przez atmosferę Lothal w kierunku pobliskich pól otoczonych wzgórzami.",
+          "GUID": "23956a87-99c9-4c58-89d4-3399a3f20942",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "\"Nie możemy ustalić waszej pozycji\" mówi ktoś przez komunikator. \"Na dole powinny być jakieś stare flary sygnalizacyjne. Znajdźcie je i zapalcie, a potem wytrzymajcie do naszego przybycia!\"",
+          "GUID": "42a00ded-0412-4aed-9ec5-60831a2ea12e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 1",
+              "GUID": "f27755d0-fa37-4167-ba6c-7da35b60ff14",
+              "theText": "W wysokiej trawie ukryta jest stara flara sygnalizacyjna.\r\n\r\n{-} Zdrowy bohater może skorzystać z flary aby ją zapalić.",
+              "buttonList": [
+                {
+                  "GUID": "6e729cd1-5a06-4969-be44-499291a063a3",
+                  "theText": "{A} Zapal flarę"
+                }
+              ]
+            },
+            {
+              "entityName": "Flare 2",
+              "GUID": "72eac405-89f9-423c-93f0-2c7919a54ec8",
+              "theText": "W wysokiej trawie ukryta jest stara flara sygnalizacyjna.\r\n\r\n{-} Zdrowy bohater może skorzystać z flary aby ją zapalić.",
+              "buttonList": [
+                {
+                  "GUID": "062b6d8e-a8a5-4926-90fe-b04cfd4799b6",
+                  "theText": "{A} Zapal flarę"
+                }
+              ]
+            }
+          ],
+          "GUID": "dffe2be3-c998-479d-88da-4c0e6c5543ef",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Neutralne żetony misji reprezentują flary. Zdrowy bohater może skorzystać z flary aby ją zapalić.\r\n{-} Podczas rundy 6, na początku fazy porządków, jeśli wszyscy bohaterowie znajdują się na polach (kafelek Lothal 1B + końcówki 18B) i flara jest zapalona, bohaterowie odlatują.\r\n{-} Bohaterowie wygrają misję kiedy odlecą.\r\n",
+          "GUID": "3fcbc2af-f689-4078-9e2d-77346a297fc2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Blokuj dostęp na pola i do flar.",
+          "GUID": "8fd5ec26-893e-4d07-8693-0c7a6b0a43cd",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Idź na pola i zapal flarę.",
+          "longText": null,
+          "GUID": "d692bd06-79b5-4093-816c-9b461bcd332a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko jedną akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Neutralne żetony misji reprezentują flary. Zdrowy bohater może skorzystać z flary aby ją zapalić.\r\n{-} Podczas rundy 6, na początku fazy porządków, jeśli wszyscy bohaterowie znajdują się na polach (kafelek Lothal 1B + końcówki 18B) i flara jest zapalona, bohaterowie odlatują.\r\n{-} Bohaterowie wygrają misję kiedy odlecą.",
+          "GUID": "3355f52c-c2fe-49b4-89e8-921293ea2274",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Through the Grasses",
+      "GUID": "8e4e3e0c-636a-44bd-be5a-06cad04c466a",
+      "eventText": "Z sykiem i wysuniętymi pazurami małe, lecz zaciekłe stworzenia pędzą poprzez trawy.",
+      "eventActions": []
+    },
+    {
+      "eventName": "TtG 1",
+      "GUID": "6fbb5727-232f-4c90-9047-77337ae9ff72",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a0fd6641-f4c6-4c06-9973-328e2525a9cc",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "TtG 2",
+      "GUID": "b115132b-4e81-4714-8a75-31524f9baadb",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f0579950-6dab-401e-b0b9-a2f9e9adc14c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "TtG 3",
+      "GUID": "0e11190b-c9fb-49af-9fd8-ebd5048611c1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5fa42b6a-3841-4359-a311-25bc7735bcf8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose EoR 4",
+      "GUID": "aeed9077-9ae2-4d8d-8491-bd05c5418602",
+      "eventText": "Wśród traw wybuchają eksplozje, które ledwie udaje wam się ominąć. Postać w mandalorińskiej zbroi rzuca jeszcze kilka granatów z wahadłowca, zanim podaje wam linę.\r\n\r\n{-} Bohaterowie przegrali misję.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Tyrani z Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "4f1c74f2-ebb7-4fbf-985d-cb259422cc82",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "e207aa67-4ea8-4359-bfaa-7c78f4545c8c",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "0ba34e01-d216-4e1d-a6e5-084b819b8751",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Light Flare 1",
+      "GUID": "e7c87a79-948c-43d2-84ce-bb6c436b710c",
+      "eventText": "Flara zapala się.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 1",
+              "GUID": "978e86c8-1bf5-4969-a82e-1337fc5e5946",
+              "theText": "Zapalona flara sygnalizuje skąd was ewakuować.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Flare 2",
+              "GUID": "ccc9ddb7-1597-4068-9695-77aa0ce2e2bb",
+              "theText": "W wysokiej trawie ukryta jest stara flara sygnalizacyjna.\r\n\r\n{-} Zdrowy bohater może skorzystać z flary aby ją zapalić.",
+              "buttonList": [
+                {
+                  "GUID": "74e2f2b8-9df1-4407-8ee0-633530aa8e70",
+                  "theText": "{A} Zapal flarę"
+                }
+              ]
+            }
+          ],
+          "GUID": "8a546068-968d-47a3-99d3-f85608bb31c6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Light Flare 2",
+      "GUID": "6691f4dc-526d-4957-ab5c-6f41e1e1ce02",
+      "eventText": "Flara zapala się.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 2",
+              "GUID": "f486d0f5-2018-4ae6-9844-faacdeb7b706",
+              "theText": "Zapalona flara sygnalizuje skąd was ewakuować.",
+              "buttonList": [
+                {
+                  "GUID": "ab2a6644-716d-4a90-8640-ddbf618d8f4e",
+                  "theText": "{A} Zapal flarę"
+                }
+              ]
+            },
+            {
+              "entityName": "Flare 1",
+              "GUID": "d08ac51e-6d8c-4000-80de-39775d884809",
+              "theText": "W wysokiej trawie ukryta jest stara flara sygnalizacyjna.\r\n\r\n{-} Zdrowy bohater może skorzystać z flary aby ją zapalić.",
+              "buttonList": [
+                {
+                  "GUID": "ecb42195-2b64-4185-ab34-b9b83986af82",
+                  "theText": "{A} Zapal flarę"
+                }
+              ]
+            }
+          ],
+          "GUID": "b95e4db9-2699-4f40-ae98-9ad2634375d7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose EoR 6",
+      "GUID": "98caa46e-9c66-420d-acf4-f1bb611f589c",
+      "eventText": "Wśród traw wybuchają eksplozje, które ledwie udaje wam się ominąć. Postać w mandalorińskiej zbroi rzuca jeszcze kilka granatów z wahadłowca, zanim podaje wam linę.\r\n\r\n{-} Bohaterowie przegrali misję.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Tyrani z Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "fa2af160-9420-468e-b5e6-510bffd7ea14",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "e477ac22-62ae-4bc1-8c88-c645aafe861f",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "b1310a82-a6a2-4c3c-94b5-293dbc83de58",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Extraction",
+      "GUID": "5eaf63ee-16f4-4acf-b56d-4325802d6adf",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Czy wszyscy bohaterowie znajdują się na polach (kafelek Lothal 1B + końcówki 18B)?",
+          "buttonList": [
+            {
+              "GUID": "7e9a9323-8b98-4896-a980-9be34634924c",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "2234c0c8-7daf-471b-bb00-62b978c6e5ae",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "a860318a-30e3-41f3-997a-eb7fe75745ea",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Deadly Reinforcements",
+      "GUID": "49eecdc6-74bd-4c09-adfd-e737caa39cb8",
+      "eventText": "Gdy tajemniczy wahadłowiec zbliża się, aby was zabrać, widzicie wysoką, czarną, opancerzoną postać, która śledzi wasze poczynania z oddali.",
+      "eventActions": []
+    },
+    {
+      "eventName": "DR Red 1",
+      "GUID": "eb8a5e8e-54eb-4bcc-a716-c1d682db5059",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0b44fbdb-01b6-4e0c-bb48-13a9c383c06c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "DR Red 2",
+      "GUID": "da3db78c-0222-41fe-83ad-d55227fa81a7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "d1408fb0-631a-4fc1-973e-8b58cff8b388",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Flare lit",
+      "GUID": "9946a3cb-eaca-4308-a83d-2e59c6929d00",
+      "eventText": "Gotowe. Flara sygnalizacyjna została zapalona. Wszystko, co musicie teraz zrobić, to wytrzymać do ewakuacji.\r\n\r\n{-} Podczas rundy 6, na początku fazy porządków, jeśli wszyscy bohaterowie znajdują się na polach (kafelek Lothal 1B + końcówki 18B), bohaterowie odlatują.",
+      "eventActions": [
+        {
+          "shortText": "Wyjdź na pola i utrzymaj pozycję do końca rundy 6.",
+          "longText": null,
+          "GUID": "934de7db-bb04-4e4f-beeb-c87dfda44ac9",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Podczas rundy 6, na początku fazy porządków, jeśli wszyscy bohaterowie znajdują się na polach (kafelek Lothal 1B + końcówki 18B) i flara jest zapalona, bohaterowie odlatują.\r\n{-} Bohaterowie wygrają misję kiedy odlecą.",
+          "GUID": "63eb5410-e28a-4074-aa84-a92a5948c1c6",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Blokuj dostęp na pola.",
+          "GUID": "a738fc39-a402-4dfa-9bfc-e239876cda7f",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "e34c3439-87e3-4f2e-bf3e-74de40cebb38",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "35ce8ca5-b55d-4deb-adb6-6f3b402b1109",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Należy rozstawić bohaterów na tym punkcie.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "e4a239be-46e9-4900-8bde-7b22addd6076",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "c8076ba2-7821-4a91-a270-17f63c43b8a1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP DTrooper",
+      "GUID": "c0582188-b644-417a-84d6-ce48cec37d5d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "f4ffe43c-5aa5-42c6-9e0e-49ae207f02e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Shipment",
+      "GUID": "809ffe1c-f923-4dfb-a405-857eb3da9bc8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Extraction Point",
+      "GUID": "5623f69a-1069-4eaa-a0f9-149868929344",
+      "mainText": "Statek waszego kontaktu czeka tutaj.\r\n\r\n{-} Gdy przesyłka znajdzie się na tym polu, kliknij \"Przesyłka wysłana \".",
+      "buttonList": [
+        {
+          "GUID": "68abc7e8-d2e8-4208-a93a-0409a9dd21d5",
+          "theText": "Przesyłka wysłana"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "97874263-64e3-4d2e-a6de-e70812d70ca2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "023eb255-f92b-4d04-b9e1-c3fd8594bb96",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "c6afcb04-34c4-4bdc-86a5-a579dd780c2c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "f0b362ab-ed1f-4b50-84fb-63b6c6389f8a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "567b4688-4d18-4d5f-ba35-b076b643c91b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Extraction Point",
+      "GUID": "d1bc238a-30f2-4090-b981-7a772daee38b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 1",
+      "GUID": "a92e178c-0773-4db0-bef7-1fc6211f0544",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 2",
+      "GUID": "43de767d-41cc-4c6a-87bc-4c6ae20bb83a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 3",
+      "GUID": "f042d66b-ebf2-4988-85e7-df9ac4b13939",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Flare 1",
+      "GUID": "068d38fd-3572-4214-9dcf-3d9381f7e5dd",
+      "mainText": "W wysokiej trawie ukryta jest stara flara sygnalizacyjna.\r\n\r\n{-} Zdrowy bohater może skorzystać z flary aby ją zapalić.",
+      "buttonList": [
+        {
+          "GUID": "7fdf9b90-7eb4-47e7-b4a0-2e9749034984",
+          "theText": "{A} Zapal flarę"
+        }
+      ]
+    },
+    {
+      "entityName": "Flare 2",
+      "GUID": "52404f4c-cce7-4d88-8450-00bec3c2c091",
+      "mainText": "W wysokiej trawie ukryta jest stara flara sygnalizacyjna.\r\n\r\n{-} Zdrowy bohater może skorzystać z flary aby ją zapalić.",
+      "buttonList": [
+        {
+          "GUID": "8db9b2e0-0085-4d0f-8986-d499030d86f2",
+          "theText": "{A} Zapal flarę"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Death Trooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

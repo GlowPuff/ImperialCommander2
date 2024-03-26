@@ -1,0 +1,933 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Cornered",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "The Grand Inquisitor (Sith Loyalist) Villain Pack",
+    "startingObjective": "",
+    "repositionOverride": "",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "3523e0da-3ff2-443c-ab3b-a7e0184cbea5",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "62629392-ae58-411a-9bd1-5125ca7c0071",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "60f13806-9861-4822-9166-6b7bb3e32b7a",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Udaje wam się dotrzeć do bezpiecznego schronienia na parę godzin przed przybyciem Imperium.\r\n\r\n{-} Należy rozstawić figurki Rebelii na dowolnych polach wnętrza.\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Figurki Imperium atakują drzwi, jeśli stoją na drodze do celu.",
+          "GUID": "9512eabf-8623-4a01-81b7-0f660aef47d7",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "tbText": "Uchodźcy, których udało wam się dostarczyć do kryjówki, są zmęczeni, wyczerpani i przestraszeni.",
+          "GUID": "f19b5727-8c36-4dd7-b7d4-d84948cb82a7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Tassi",
+              "GUID": "13c12c5f-c3d2-49a9-8c3e-313290ba454f",
+              "theText": "Tassi Gol'berat, młoda złodziejka z Balosar, próbuje ukryć się za taśmą transportową, zasłaniając głowę rękami.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "38603b6a-e47c-4062-b680-8cc44c69ddbc",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "97e9be4e-1614-4ea0-99e9-6f89db633fe7",
+                  "theText": "Pokonaj"
+                }
+              ]
+            },
+            {
+              "entityName": "Refugee Camsir",
+              "GUID": "0b97f5ef-6653-448d-ad1e-34eb738fa36d",
+              "theText": "Camsir, młody chłopiec z plemienia Duros, chowa się za półką, podczas gdy jego matka rozpaczliwie szepcze do niego, aby był cicho.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "738b5284-7bc3-4f8c-a022-6a418c32b15e",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "96d3ef9f-d4a6-4aba-adf8-271a30757ed0",
+                  "theText": "Pokonaj"
+                }
+              ]
+            },
+            {
+              "entityName": "Refugee Dumudu",
+              "GUID": "84958d94-e6ee-4150-bea6-7777117c0b76",
+              "theText": "Dumudu, kobieta z Duros, próbuje uspokoić swojego spanikowanego syna.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "006fa2b6-f1b3-4d1e-90fa-c536b6d0e4e3",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "a6585fc0-ab9d-4ccb-bf30-058f273b1649",
+                  "theText": "Pokonaj"
+                }
+              ]
+            },
+            {
+              "entityName": "Refugee Sheedro",
+              "GUID": "da7c2669-2408-41ff-9971-9656b401be04",
+              "theText": "Sheedro Volanir, stolarz z Chalactan, próbuje ukryć się w warsztacie.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "c3fb0f15-94f8-4561-abe3-8585a0a0a865",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "6818a6cf-0b14-41f4-b857-9ed3895c719e",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "4229e7f2-ed0c-4a38-b93e-d592dff9de20",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Neutralne żetony misji reprezentują wyrzutków. Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+          "GUID": "94a60646-8bfd-4817-b64e-bade50a967e0",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Wasz pilot ostrzega was jednak, że namierzył sygnaturę myśliwca TIE Inkwizytora.\r\n\r\n{-} Bohaterowie wygrają na końcu rundy 5.\r\n{-} Bohaterowie przegrają kiedy wszystkie wyrzutki zostaną pokonane lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "5e7a820a-c15e-4d84-9d77-1321844b1f13",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Chroń wyrzutków (pozostali przy życiu: &Refugee Count&/4).",
+          "longText": null,
+          "GUID": "1a250b82-bed0-4647-b7b0-769913091c0c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.\r\n{-} Neutralne żetony misji reprezentują wyrzutków. Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n{-} Bohaterowie wygrają na końcu rundy 5.\r\n{-} Bohaterowie przegrają kiedy wszystkie wyrzutki zostaną pokonane lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "a3e456a9-c833-436a-88f9-a75da20ac3fa",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Udaje wam się odpierać atak sił Imperium - do czasu przybycia posiłków. Bombardowanie Y-wingów zmusza wrogie wojska do odwrotu. Uchodźcy są bezpieczni - wasz trud nie poszedł na marne.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 100 kredytów za każdego bohatera w grze.\r\n{-} Bohaterowie dostają dodatkowo 50 kredytów za każdego pozostałego przy życiu wyrzutka.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Osaczeni i pozbawieni możliwości manewru, walczycie resztką sił - ledwo udaje wam się uciec. Po podjęciu przez pilota dowiadujecie się od niego, że wciąż odbiera sygnał TIE-a Wielkiego Inkwizytora, niezamierzającego najwyraźniej wam odpuścić.\r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} Imperium dostaje <color=\"red\">Wielkiego Inkwizytora</color> (Poplecznika Sithów) jako przeciwnika.\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Destroy Door 1",
+      "GUID": "bed8758b-bc7f-4f2f-96d2-79d0cedadda6",
+      "eventText": "Pod naporem Imperium drzwi w końcu rozpadły się na kawałki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "866f5e8d-5711-42f9-a6de-40586cebdb7b",
+              "theText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+              "buttonList": [
+                {
+                  "GUID": "0b740220-70ac-43ae-93ee-526fcf3ce3c9",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "28ba18fc-1970-497e-9cd3-4bf8f48d0473",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Door 2",
+      "GUID": "8c385b9f-3426-4938-9234-5a2d52d0cb45",
+      "eventText": "Pod naporem Imperium drzwi w końcu rozpadły się na kawałki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "6bf465d6-0361-47dc-a4c6-3a90034f2a35",
+              "theText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+              "buttonList": [
+                {
+                  "GUID": "c7b327d7-b221-45ad-9415-ff2e96be3c51",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "0d9f8b93-30d3-48d5-8c29-133da257df55",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Door 3",
+      "GUID": "e9aeb323-c0d8-4726-9837-b7167fa3ecec",
+      "eventText": "Pod naporem Imperium drzwi w końcu rozpadły się na kawałki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "c3ba332d-521a-42de-baed-e624bde63cbd",
+              "theText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+              "buttonList": [
+                {
+                  "GUID": "ce1a1168-d8d7-4c6c-aa62-567d3cf84eb3",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "76dba787-5b15-449b-a00a-d94b9779ae63",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Door 4",
+      "GUID": "43361512-66a0-4a51-906a-08a42023bcb5",
+      "eventText": "Pod naporem Imperium drzwi w końcu rozpadły się na kawałki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 4",
+              "GUID": "6899c0fb-7072-440c-b92d-e7dae2b822c6",
+              "theText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+              "buttonList": [
+                {
+                  "GUID": "a8cae31c-3305-499c-a856-0106caf09e63",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "9fd0d19a-a4ce-4fb8-81d6-f2eaf82f1fde",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "EG Reveal Force",
+      "GUID": "5bcc07fb-32ee-40b9-a404-fc8946562668",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "EG Reveal 2",
+      "GUID": "d171d16a-753b-46a8-bec9-d4f745af85bf",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "EG Reveal 3",
+      "GUID": "c8884eb6-c6a2-4494-a625-b2d0db4a8aef",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "EG Reveal 4",
+      "GUID": "70fa5695-976a-4f54-93b1-27b01e050645",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal Tassi Trigger",
+      "GUID": "dd36e42c-2574-4267-b3ec-c346f4913804",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal Tassi Force",
+      "GUID": "505aa8a4-a5db-481d-b544-43de43e03071",
+      "eventText": "Tassi krzyczy, potyka się i podnosi ręce, by odeprzeć atak - nagle blasterowe pociski zastygają w powietrzu. Czułki Tassi drgają w zaskoczeniu, gdy wpatruje się we własne ręce.\r\n\r\n{-} Należy zamienić żeton Tassi na kolorowy. Tassi jest wyrzutkiem wrażliwym na Moc.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Tassi",
+              "GUID": "8b9cfc9d-c31c-4c1c-9764-839c465b1b19",
+              "theText": "Tassi Gol'berat, młoda złodziejka z Balosar, próbuje ukryć się za taśmą transportową, zasłaniając głowę rękami.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Tassi podczas obrony dodaje 1 białą kość do swojej puli obrony.\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "b563c87f-ec2f-4a9e-9083-ec1410631a0b",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "dce104c4-0b73-495a-9124-7a07768688a3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "\"To ona!\" krzyczy oficer, a siły Imperium ruszają naprzód.\r\n\r\n{-} 2 figurki Imperium o najwyższym koszcie figurki mogą przerwać, aby wykonać ruch o 3 w kierunku wyrzutka wrażliwego na Moc.",
+          "GUID": "fe216127-fbfd-45f8-a4e1-8721bec6252a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.\r\n{-} Neutralne żetony misji reprezentują wyrzutków. Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.\r\n{-} Bohaterowie wygrają na końcu rundy 5.\r\n{-} Bohaterowie przegrają kiedy wszystkie wyrzutki zostaną pokonane lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "9d2ca643-d0bc-47c0-b50f-be66ca7665af",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Tassi Regular",
+      "GUID": "ebd0f3ac-c15b-49c6-92ec-ca7ac3258ef1",
+      "eventText": "Tassi krzyczy i potyka się, gdy atak ją trafia.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Tassi",
+              "GUID": "feb49b77-af58-449d-91cd-de7cf974e016",
+              "theText": "Tassi Gol'berat, młoda złodziejka z Balosar, próbuje ukryć się za taśmą transportową, zasłaniając głowę rękami.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). \r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "7ba0a721-6806-4a75-b2ff-6e9802d7883c",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "e67452f4-8030-4fa9-904c-b8ebce8eb5d8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Camsir Trigger",
+      "GUID": "831bba8c-535b-4a8e-a59b-3f17bc28b420",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal Camsir Force",
+      "GUID": "bbe267d3-c139-46ea-a898-9c32da9cc16d",
+      "eventText": "Camsir skulił się ze strachu i nagle przedmioty z półek spadają na imperialnych, odrzucając ich. Dziecko ma wielkie oczy i patrzy z podziwem.\r\n\r\n{-} Należy zamienić żeton Camsira na kolorowy. Camsir jest wyrzutkiem wrażliwym na Moc.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Camsir",
+              "GUID": "5e91ce66-b734-4faa-a0c0-4a3540babccb",
+              "theText": "Camsir, młody chłopiec z plemienia Duros, chowa się za półką, podczas gdy jego matka rozpaczliwie szepcze do niego, aby był cicho.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). While defending, Camsir adds 1 white die to the defense pool.\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "cca4ffb1-20a0-4f48-8eea-00b9ffc1e308",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "76a3532e-493f-41c8-9f97-40af56d186be",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "\"To on!\" krzyczy oficer, a siły Imperium ruszają naprzód.\r\n\r\n{-} 2 figurki Imperium o najwyższym koszcie figurki mogą przerwać, aby wykonać ruch o 3 w kierunku wyrzutka wrażliwego na Moc.",
+          "GUID": "5d547d57-9467-47be-b910-a43151c298f3",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.\r\n{-} Neutralne żetony misji reprezentują wyrzutków. Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.\r\n{-} Bohaterowie wygrają na końcu rundy 5.\r\n{-} Bohaterowie przegrają kiedy wszystkie wyrzutki zostaną pokonane lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "6f57c838-8736-45d0-a6c9-0cd48e8aa35a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Camsir Regular",
+      "GUID": "98ed60f5-0bd7-492f-8078-639d113b9fbe",
+      "eventText": "Camsir krzyczy z bólu, gdy zostaje zaatakowany.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Camsir",
+              "GUID": "59cb2bd7-31d0-4d70-98e4-a4da91616ae0",
+              "theText": "Camsir, młody chłopiec z plemienia Duros, chowa się za półką, podczas gdy jego matka rozpaczliwie szepcze do niego, aby był cicho.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}).\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "b0aeeda2-7ec6-4792-92ae-edafa3104a61",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "39515781-dbe2-4256-b00b-0e37b4def8d9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Dumudu Trigger",
+      "GUID": "ae45015c-305e-4eab-90a4-1b89efc8bfad",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal Dumudu Regular",
+      "GUID": "3510c916-0a3c-48d7-819a-d9a11eef2f63",
+      "eventText": "Dumudu krzyczy i rzuca się na syna, by go chronić.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Dumudu",
+              "GUID": "96a010bd-88ef-4690-8bc5-2bf444ccdc3f",
+              "theText": "Dumudu, kobieta z Duros, próbuje uspokoić swojego spanikowanego syna.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}).\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "7f15e472-9947-4537-96a9-fdabb2a0b9eb",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "f2c810a1-3646-44f8-9812-c2b8e53a0d93",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Sheedro Trigger",
+      "GUID": "cbafe575-4cc9-4522-b305-2513869415c6",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal Sheedro Regular",
+      "GUID": "0797dc26-e2e7-4947-bf4f-b589b8c02e30",
+      "eventText": "Sheedro krzyczy z bólu, gdy zostaje zaatakowany.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Sheedro",
+              "GUID": "937d0c31-9a47-491e-85fc-1d9a20e238ef",
+              "theText": "Sheedro Volanir, stolarz z Chalactan, próbuje ukryć się w warsztacie.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}).\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "4d59e551-8db7-4f89-854d-1e05bf2907c7",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "5a90de1f-bfc7-423c-9877-0dec9a9c745c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Defeat Tassi",
+      "GUID": "d97f2808-3555-470c-9d36-4c58dcbb657c",
+      "eventText": "Tassi w końcu pada pokonana.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Tassi",
+              "GUID": "09914f33-3731-4b0d-abfe-39ca13b34469",
+              "theText": "Tassi Gol'berat, młoda złodziejka z Balosar, próbuje ukryć się za taśmą transportową, zasłaniając głowę rękami.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "fc8cbe83-0764-489d-9716-af29147065d1",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "e6312f11-0a40-45ae-a4e7-e4ccecf94e3f",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "924a635a-d485-493a-9310-744c4bfb66de",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Defeat Camsir",
+      "GUID": "cf61c9e8-1a8d-495e-8477-559b543347ea",
+      "eventText": "Camsir próbuje szukać schronienia pod półkami, które jednak wkrótce się zawalają, grzebiąc go.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Camsir",
+              "GUID": "9a9ff3f1-b9dc-4ef0-9e2a-13e96e7792ea",
+              "theText": "Camsir, młody chłopiec z plemienia Duros, chowa się za półką, podczas gdy jego matka rozpaczliwie szepcze do niego, aby był cicho.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "b019cb4d-6f63-43d0-ab7a-205fe4f76417",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "1c8e16d5-5b16-4728-89b3-161027c82009",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "c334e583-bf31-4c5f-8392-f7e7a8317ca4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Defeat Dumudu",
+      "GUID": "090b75dc-e5eb-4ea5-ab2a-e89be3da8d56",
+      "eventText": "Dumudu rzuca się na imperialnych w ostatnim akcie desperacji, ale wkrótce zostaje zastrzelona.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Dumudu",
+              "GUID": "cad40baf-5683-43f9-a207-8dac39431971",
+              "theText": "Dumudu, kobieta z Duros, próbuje uspokoić swojego spanikowanego syna.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "e71e5fa5-5d94-4a6a-b2a8-72e3c18eeafc",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "3827e103-439d-46bc-9d98-f79ff6290b3c",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "aebff834-d7b0-474e-9940-e719e2e93650",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Defeat Sheedro",
+      "GUID": "cfbc1f40-c53f-4dd0-ab58-ff1bf5e132f9",
+      "eventText": "Oparty plecami o ścianę, Sheedro podnosi ręce, by zasygnalizować poddanie się, ale Imperium nie okazuje litości.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Sheedro",
+              "GUID": "b1568787-7e95-4278-8d33-3ca653b2a10d",
+              "theText": "Sheedro Volanir, stolarz z Chalactan, próbuje ukryć się w warsztacie.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "9746a03c-ad36-416b-a67f-e9962c17c2b4",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "36e64b67-f270-4375-bb62-05abad75f5e7",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "494b0ffa-a67a-4ef4-9707-ff37347845ca",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Dumudu Force",
+      "GUID": "09436472-b65f-4634-a63b-423bd57d085a",
+      "eventText": "Dumudu drży, gdy spadają na nią ataki, po czym zamyka swoje wielkie oczy. Jeden z żołnierzy Imperium potyka się i upuszcza broń, po czym rozgląda się zdezorientowany.\r\n\r\n{-} Należy zamienić żeton Dumudu na kolorowy. Dumudu jest wyrzutkiem wrażliwym na Moc.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Dumudu",
+              "GUID": "43edaf49-01de-4a70-8735-07eb8fbe65fb",
+              "theText": "Dumudu, kobieta z Duros, próbuje uspokoić swojego spanikowanego syna.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). While defending, Dumudu adds 1 white die to the defense pool.\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+              "buttonList": [
+                {
+                  "GUID": "0d4e2569-a99c-4b12-bf34-238ff6e673df",
+                  "theText": "Ujawnij"
+                },
+                {
+                  "GUID": "4c000047-330b-4ea9-b5fd-80a2c8a41e14",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "69a8d8e2-cf88-4766-9dfb-ee88b1c3975c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "\"To ona!\" krzyczy oficer, a siły Imperium ruszają naprzód.\r\n\r\n{-} 2 figurki Imperium o najwyższym koszcie figurki mogą przerwać, aby wykonać ruch o 3 w kierunku wyrzutka wrażliwego na Moc.",
+          "GUID": "f49738d1-ddc0-459d-b5e2-b4c6cadd0a0b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.\r\n{-} Neutralne żetony misji reprezentują wyrzutków. Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.\r\n{-} Bohaterowie wygrają na końcu rundy 5.\r\n{-} Bohaterowie przegrają kiedy wszystkie wyrzutki zostaną pokonane lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "bdce24aa-352b-4b0a-9d1d-53a13d8928ed",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Sheedro Force",
+      "GUID": "f4092645-5ab5-4e1b-8429-a65ebed4a62c",
+      "eventText": "Oczy Sheedro robią się szerokie, po czym jego ręka nagle wystrzela do przodu, a jeden z imperialnych zostaje odrzucony do tyłu przez niewidzialną siłę.\r\n\r\n{-} Należy zamienić żeton Sheedro na kolorowy. Sheedro jest wyrzutkiem wrażliwym na Moc.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Refugee Sheedro",
+              "GUID": "cea966f0-2ae7-4895-a191-53364e8976a1",
+              "theText": "Sheedro Volanir, stolarz z Chalactan, próbuje ukryć się w warsztacie.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). While defending, Sheedro adds 1 white die to the defense pool.\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+              "buttonList": [
+                {
+                  "GUID": "818e9d38-0dd2-4775-a51f-91c061e37381",
+                  "theText": "Pokonaj"
+                }
+              ]
+            }
+          ],
+          "GUID": "86e127d4-1ed7-4d73-8240-e62637d6e1c9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "\"To on!\" krzyczy oficer, a siły Imperium ruszają naprzód.\r\n\r\n{-} 2 figurki Imperium o najwyższym koszcie figurki mogą przerwać, aby wykonać ruch o 3 w kierunku wyrzutka wrażliwego na Moc.",
+          "GUID": "bf4df8d7-8ba9-42b9-85e7-b291a922c6cb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.\r\n{-} Neutralne żetony misji reprezentują wyrzutków. Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n{-} Wyrzutek wrażliwy na Moc podczas obrony dodaje 1 białą kość do swojej puli obrony.\r\n{-} Bohaterowie wygrają na końcu rundy 5.\r\n{-} Bohaterowie przegrają kiedy wszystkie wyrzutki zostaną pokonane lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "780488b6-36c5-4428-b7de-9b226146790c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "The Grand Inquisitor",
+      "GUID": "1b6c8e38-f103-489d-921a-158f8176c9bc",
+      "eventText": "Przez ścianę przenika szkarłatne ostrze miecza świetlnego i już za chwilę w otworze pojawia się złowroga, zakuta w czarny pancerz postać. \"Witajcie.\" Wielki Inkwizytor uśmiecha się do was ze złośliwą satysfakcją, szczerząc zaostrzone kły. \"Gotowi umrzeć?\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Red",
+              "GUID": "b15609c5-9f3a-41e6-8bfb-9f1fa28066ab",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "ab354032-a078-4f86-9c26-be421040d27e",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "8d9b99cd-5b0e-499d-a6ed-8162e1d459ef",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "d2605451-5727-4b4a-b6bc-e48d5a0f2c0c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG087/The Grand Inquisitor"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "2202744f-26ec-484a-8f62-07a6189d483f",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "c6feceaa-835c-4ca1-abdc-2ae622155044",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP E-Web",
+      "GUID": "f26b3329-ea5b-4e68-9d34-4cc26cbedfe1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "0c10406d-0234-46a4-ac17-1154ce51197f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "7fbed75d-be0c-402a-b38c-8f6f4bcbec0d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "9074dc89-80be-4eb4-b1c2-395def7e55b8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "ac035fef-bc1c-4c68-bb31-3138959bcf42",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "292f5073-885a-48c5-aa72-ed8ccff6b77e",
+      "mainText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+      "buttonList": [
+        {
+          "GUID": "aefcd349-0df4-44b9-b32d-04255d041470",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "102c5c26-7782-4f7f-97ca-0fe518a6a11e",
+      "mainText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+      "buttonList": [
+        {
+          "GUID": "13fd8a8e-7e69-4750-894c-ff037c93b30c",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "047d4f81-5e05-43ff-ba03-5eb80cd0c25c",
+      "mainText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+      "buttonList": [
+        {
+          "GUID": "8681cd41-f241-44c7-9c50-d93cc4ed9763",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 4",
+      "GUID": "9441a013-3149-4dfa-bf9e-ac2df8b1f97d",
+      "mainText": "Drzwi zapewniają uchodźcom bezpieczeństwo - na razie.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka Imperium może atakować drzwi (żywotność: 5, obrona: 1 {G}).\r\n{-} Drzwi sąsiadujące z figurką Rebelii nie blokują jej ruchu, pola widzenia, sąsiadowania ani liczenia pól.",
+      "buttonList": [
+        {
+          "GUID": "9057357b-4a76-40d1-b3e2-e9b4b741f393",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Refugee Tassi",
+      "GUID": "f1f5c450-9af9-47cd-af83-6d84ffa37969",
+      "mainText": "Tassi Gol'berat, młoda złodziejka z Balosar, próbuje ukryć się za taśmą transportową, zasłaniając głowę rękami.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+      "buttonList": [
+        {
+          "GUID": "42f3dea0-f761-48a8-9f35-a80c2787100c",
+          "theText": "Ujawnij"
+        },
+        {
+          "GUID": "eb3f7144-d34f-43b5-82a5-76af51ea7984",
+          "theText": "Pokonaj"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "69561386-9bd3-418a-bbcb-16ff4f77e039",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Refugee Camsir",
+      "GUID": "d027b5d7-9455-45e9-858a-0c871e2b4bdb",
+      "mainText": "Camsir, młody chłopiec z plemienia Duros, chowa się za półką, podczas gdy jego matka rozpaczliwie szepcze do niego, aby był cicho.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+      "buttonList": [
+        {
+          "GUID": "cc040058-c89b-48b4-8258-ebdcbf37e250",
+          "theText": "Ujawnij"
+        },
+        {
+          "GUID": "e67c8764-b101-47e1-9475-39cc178a46ab",
+          "theText": "Pokonaj"
+        }
+      ]
+    },
+    {
+      "entityName": "Refugee Dumudu",
+      "GUID": "8a14e512-e7c0-4b8f-aca0-134a473bfa6c",
+      "mainText": "Dumudu, kobieta z Duros, próbuje uspokoić swojego spanikowanego syna.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.\r\n",
+      "buttonList": [
+        {
+          "GUID": "769e2cb3-6af6-47cd-b73d-d4f1aa6680c8",
+          "theText": "Ujawnij"
+        },
+        {
+          "GUID": "d05a05e2-33b5-405f-a4ef-9f630ab83115",
+          "theText": "Pokonaj"
+        }
+      ]
+    },
+    {
+      "entityName": "Refugee Sheedro",
+      "GUID": "e127b561-c1d7-4ab3-997e-36c7591691e4",
+      "mainText": "Sheedro Volanir, stolarz z Chalactan, próbuje ukryć się w warsztacie.\r\n\r\n{-} Figurki Imperium mogą atakować wyrzutków (żywotność: 5, obrona: 1 {G}). Kiedy wyrzutek po raz pierwszy otrzyma {H} lub zostanie wskazany jako cel ataku, należy ujawnić jego żeton. Kliknij na żeton i wybierz \"Ujawnij\".\r\n{-} Kiedy wyrzutek miałby otrzymać {H}, każdy zdrowy bohater, który sąsiaduje z tym wyrzutkiem, wykonuje test {J}. Każdy bohater, którego test jest udany, zmniejsza liczbę otrzymanych {H} o 1 za każdy ze swoich żetonów aktywacji.",
+      "buttonList": [
+        {
+          "GUID": "2fc9b204-3155-489b-9ed2-803e67efee37",
+          "theText": "Ujawnij"
+        },
+        {
+          "GUID": "b49e2080-dd7f-417c-ae4d-972ca6ce211b",
+          "theText": "Pokonaj"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "E-Web Engineer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

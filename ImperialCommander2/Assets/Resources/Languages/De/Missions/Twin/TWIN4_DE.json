@@ -1,0 +1,916 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Krumme Geschäfte",
+    "missionDescription": "",
+    "missionInfo": "{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).\n{-} Der Einsatz schreitet voran, wenn sich eine Tür zur Cantina oder zum Schrottladen öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind und <color=\"red\">R2-D2</color> besiegt ist.",
+    "campaignName": "Im Schatten der Zwillingssonnen",
+    "startingObjective": "Betretet die Cantina. Betretet den Schrottladen.",
+    "repositionOverride": "Versperre den Zugang zu den Türen.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "2f793705-37e5-4dfe-8b52-50d38a647366",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "63fbcf3e-17ff-4881-b5b6-95d8bc56506a",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "e1df9da1-2b4b-43bb-9b37-31bdb07491cf",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "e466afb8-c184-49b7-b412-d8fa95d9ec6c",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Diese Hintergasse in Mos Eisley ist zwar gefährlich, aber sie beherbergt einige der qualifiziertesten Kontakte im System sowie alte Konsolen, die von Schmugglern genutzt werden, um Informationen zu übermitteln, ohne sich persönlich zu treffen. Mit anderen Worten: Der Nutzen ist das Risiko wert.\n\nTrotzdem schleicht ihr vorsichtig durch die Gassen, denn ihr wisst, dass ihr euch nicht nur vor den zwielichtigen Einheimischen in Acht nehmen müsst. Als ihr hört, wie ein Sturmtruppler \"Keine Bewegung!\" ruft, während ein Blasterschuss an euren Köpfen vorbeirauscht, bestätigt sich eure Sorge. Anscheinend seid ihr nicht die Einzigen, die den Wert der Informationen in dieser Gasse erkannt haben.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Stelle <color=\"red\">R2-D2</color> (Loyaler Astromech) auf dem rot markierten Feld auf. Die Helden kontrollieren ihn als Verbündeten.\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).\n{-} Der Einsatz schreitet voran, wenn sich eine Tür zur Cantina oder zum Schrottladen öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind und <color=\"red\">R2-D2</color> besiegt ist.",
+      "eventActions": [
+        {
+          "mainText": "Ist Saska Teft eine Heldin?",
+          "buttonList": [
+            {
+              "GUID": "677657e3-a9cf-4a7a-9e26-7463ea584cba",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "0e69a35b-0826-4dd6-8fa4-60eccc1d1a38",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "47c0ffb9-3267-4e9d-83f7-613739d4ba94",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Durch eine clevere Kombination aus Kampfkraft, technischem Geschick und einfachem Straßenverstand habt ihr wertvolle Informationen über die örtlichen Imperialen erlangt. Nachdem ihr euch aus dem Gefecht zurückgezogen habt, seid ihr voller Tatendrang, um das Kommando mit diesen wertvollen Informationen zu kontaktieren.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Wenn Saska Teft eine Heldin ist, erhält sie die Belohnungskarte \"Datenbrille\". Ansonsten erhalten die Helden 150 Credits pro Held.",
+      "eventActions": [
+        {
+          "mainText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Im Schatten der Zwillingssonnen\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "044b0166-7cb7-4cfd-8ab1-29e68e921929",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "725de5cb-f886-4efd-bc43-ac62d8c066ce",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Es spielt keine Rolle, wie gut die Informationen sind, sie helfen nichts, wenn ihr es nicht lebend raus schafft. Die imperiale Präsenz ist einfach zu stark und ihr entscheidet euch für einen strategischen Rückzug, in der Hoffnung, später zurückzukehren.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Im Schatten der Zwillingssonnen\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "f30429df-8b27-400b-b147-669de8610401",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "2011a785-f552-4309-bf3b-040202936a10",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "Obwohl eure Informationsbeschaffungskampagne erfolgreich war, war das Wissen, das ihr entdeckt habt, ziemlich beunruhigend. Ihr habt festgestellt, dass die imperiale Präsenz auf diesem Planeten viel stärker ist, als ihr dachtet.\n\nEin besonders einflussreicher Kommandant der Sturmtruppen namens Somos führt seit Monaten Überwachungs- und Einschüchterungsaktionen durch, obwohl niemand das endgültige Ziel dieser Aktion zu kennen scheint. Ihr habt auch herausgefunden, dass die imperiale Operationsbasis in den unzugänglichen Jundland-Wiesen liegt.\n\n\"Es ist schlimmer, als ihr denkt\", sagt euer Pilot, als ihr die Informationen weitergebt, die ihr gesammelt habt. \"Ich habe mit den Kommunikationssystemen gearbeitet; der Sternenzerstörer blockiert alles, was die Atmosphäre des Planeten verlässt. Unsere Agenten hier hätten schon seit Monaten um Hilfe rufen können, ohne dass wir etwas mitbekommen hätten. Überprüft die Basis; wir müssen das jetzt klären!\"\n\n{-} Jeder Held erhält 3 EP.\n{-} Die Helden erhalten 300 Credits pro Held.\n{-} Der nächste aktive Einsatz ist \"Eingekesselt\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Entmutigt nach deinem gescheiterten Versuch, Informationen zu sammeln, kontaktiert ihr euren Piloten, um zu erfahren, was er weiß.\n\n\"Nun, die Situation ist nicht gut\", antwortet er. \"Ich weiß nicht viel, aber ich weiß, dass ich keine Informationen nach draußen bekomme. Der Sternenzerstörer blockiert alle Signale, die die Atmosphäre des Planeten verlassen. Solo und die anderen Rebellen hätten schon seit Monaten um Hilfe rufen können und wir hätten es nicht gemerkt.\"\n\n\"Ich kann euch nur sagen, dass ich einige Bewegungen der Sturmtruppen in den Jundland-Wüsten aufspüren konnte. Vielleicht haben sie dort einen Stützpunkt. Ich weiß, es ist ein elender Ort, aber es könnte unsere beste Chance sein.\"\n\n{-} Jeder Held erhält 2 EP.\n{-} Die Helden erhalten 300 Credits pro Held.\n{-} Der nächste aktive Einsatz ist \"Eingekesselt\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Jeder Held erhält 1 EP.\n{-} Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Objective 1-0",
+      "GUID": "e683aa40-bf64-4c00-94f2-0aef2ce13173",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Befragt die Informanten. Betretet den Schrottladen. (Gesammelte Informationen: &Intel&/4)",
+          "longText": "",
+          "GUID": "4f8f59dd-31e0-4275-a2d2-bcefea1a9aa0",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).\n{-} Einsatzmarker stellen Informanten dar. Ein Held kann mit einem Informanten ({J} oder {K}) interagieren, um Informationen über ihn zu sammeln.\n{-} Helden können nicht mit einem Informanten interagieren, wenn sich eine imperiale Figur innerhalb von 3 Feldern um den Informanten befindet.\n{-} Die Rebellen gewinnen, wenn sie alle Informationen gesammelt haben.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind und <color=\"red\">R2-D2</color> besiegt ist.",
+          "GUID": "0179afee-e306-4277-802a-adbe4a853d12",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Versperre den Zugang zu Informanten und bleibe innerhalb von 3 Feldern zu ihnen.",
+          "GUID": "741e74f6-78a6-40a0-8c9c-4379cb74614b",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 0-1",
+      "GUID": "c9263ce2-197a-4ded-abc7-3cb5bb76bc23",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Betretet die Cantina. Untersucht die Terminals. (Gesammelte Informationen: &Intel&/4)",
+          "longText": "",
+          "GUID": "ab708e84-7bdd-4ee3-8856-6c4ab6758491",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).\n{-} Ein Held kann mit einem Terminal interagieren ({J} oder {I}), um Informationen von diesem Terminal zu erhalten.\r\n{-} Helden können nicht mit einem Terminal interagieren, wenn sich eine imperiale Figur innerhalb von 3 Feldern um den Informanten befindet.\r\n{-} Die Rebellen gewinnen, wenn sie alle Informationen gesammelt haben.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind und <color=\"red\">R2-D2</color> besiegt ist.",
+          "GUID": "a4b83317-d5f3-4ab5-9833-e84728f16718",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Versperre den Zugang zu den Terminals und bleibe innerhalb von 3 Feldern zu ihnen.",
+          "GUID": "6e6c6564-c8d5-487d-89d6-9b9925fd685c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 1-1",
+      "GUID": "c741e3b9-1360-4188-a326-2bbd1d953f73",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Befragt die Informanten. Untersucht die Terminals. (Gesammelte Informationen: &Intel&/4)",
+          "longText": "",
+          "GUID": "5fcad494-0a02-48db-b41a-8c4aa2f03726",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).\n{-} Einsatzmarker stellen Informanten dar. Ein Held kann mit einem Informanten ({J} oder {K}) interagieren, um Informationen über ihn zu sammeln.\r\n{-} Ein Held kann mit einem Terminal interagieren ({J} oder {I}), um Informationen von diesem Terminal zu erhalten.\r\n{-} Helden können nicht mit einem Informanten oder Terminal interagieren, wenn sich eine imperiale Figur innerhalb von 3 Feldern um den Informanten befindet.\r\n{-} Die Rebellen gewinnen, wenn sie alle Informationen gesammelt haben.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind und <color=\"red\">R2-D2</color> besiegt ist.\n",
+          "GUID": "aa26621d-8cab-4c7f-9f90-22cca8c5e67a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "",
+          "GUID": "ab38bd97-f08b-4d51-95f8-88bf3a92cb8b",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Saska Yes",
+      "GUID": "ded39e91-531b-4c63-9548-b86d131b1908",
+      "eventText": "Saska bleibt einfach stehen und lacht über die imperialen Einmischungsversuche. \"Was denken die, was sie da tun?\", sagt sie mit sarkastischem Tonfall. \"Das ist meine Heimatstadt, ich kenne mich hier aus!\" R2-D2 piept zustimmend, während sie in der einen Hand ihren Blaster und in der anderen ein unbekanntes, aber leistungsstark aussehendes Gerät zückt.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Rounds",
+      "GUID": "8eb617c3-376e-40da-a352-25ff93e7e46d",
+      "eventText": "Es spielt keine Rolle, wie gut die Informationen sind, sie helfen nichts, wenn ihr es nicht lebend raus schafft. Die imperiale Präsenz ist einfach zu stark und ihr entscheidet euch für einen strategischen Rückzug, in der Hoffnung, später zurückzukehren.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Hast du diesen Einsatz im Rahmen der Minikampagne \"Im Schatten der Zwillingssonnen\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "0a7469d3-116f-4d4c-a7d7-0fcc40d7ac10",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "0ef3b8bc-e0fb-4c1f-a40f-261730593179",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "ee064d1a-8a0a-4f8b-b7af-a46cddb99fe7",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Cantina Door 1 Opens",
+      "GUID": "e8868766-6ebd-4854-9cf0-6f270b8b859a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door 1",
+              "GUID": "1df796c5-22d7-4b4c-a3d9-c00fa79ee75e",
+              "theText": "Hinter dieser Tür sind Stimmen und Musik zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "829e8492-48a8-40ef-bcd7-9495f28d4dc7",
+                  "theText": "{A} Öffnen"
+                },
+                {
+                  "GUID": "c420f743-c4e8-486b-be26-043260c2111c",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "79891fd2-c30c-4d8d-a5c7-bf46a95a7c7a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cantina Door 2 Opens",
+      "GUID": "2414ac6d-7dd1-4588-abc4-798b72d85d26",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door 2",
+              "GUID": "cf67cae7-8c41-4535-a37f-76444c9b1169",
+              "theText": "Hinter dieser Tür sind Stimmen und Musik zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "52da0ffc-b76d-4053-941d-e87431ba9c31",
+                  "theText": "{A} Öffnen"
+                },
+                {
+                  "GUID": "f995e052-d060-470d-90ae-64bee8ea1409",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "429d2578-5fc3-472e-b569-a3e8921aad9f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cantina Door 1 Test",
+      "GUID": "2562faa8-4814-4567-8e8a-249d11269d14",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, die Tür zu öffnen.\n\n{-} Lege eine Probe auf {K} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf der Tür an, dann lege alle Erschöpfungsmarker auf der Tür ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "9297da5f-699c-4019-be0e-011a04b29cc7",
+              "theText": "Die Tür lässt sich nicht bewegen. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf der Tür."
+            }
+          ],
+          "GUID": "54ec33ee-2fcf-4bc0-9666-8ef8e699f5c0",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Cantina Door 2 Test",
+      "GUID": "303137ed-fa25-4b77-bcff-9c1bd095e79b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, die Tür zu öffnen.\n\n{-} Lege eine Probe auf {K} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf der Tür an, dann lege alle Erschöpfungsmarker auf der Tür ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "77f9fe98-f65e-4dbd-996b-e73f8bee5520",
+              "theText": "Die Tür lässt sich nicht bewegen. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf der Tür."
+            }
+          ],
+          "GUID": "ec05a20c-e202-4b84-ae75-3049af345667",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Cantina revealed",
+      "GUID": "613a88b6-b9b2-4019-8842-1e360debefe1",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Junk Shop Door 1 Opens",
+      "GUID": "8b584570-2104-43b4-8f43-a1d2a5383729",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Junk Shop Door 1",
+              "GUID": "bf843cda-f4a7-4197-a386-92feffbfb90e",
+              "theText": "Hinter dieser Tür ist mechanisches Geklapper zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "0536ef14-bd6d-49d6-82fc-968cd12b123d",
+                  "theText": "{A} Öffnen versuchen"
+                },
+                {
+                  "GUID": "794a7675-3083-4f9d-bf13-c7c98397a91c",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "08193aab-2bb5-4980-8092-d5f940a3d5cc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Junk Shop Door 2 Opens",
+      "GUID": "3114f047-7f54-48c7-b2ad-921548f0e44e",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Junk Shop Door 2",
+              "GUID": "8d6eed2b-01fc-4735-b2cc-741ff4869177",
+              "theText": "Hinter dieser Tür ist mechanisches Geklapper zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "fc20ffe4-4239-41f8-96e3-f1d14e0e5159",
+                  "theText": "{A} Öffnen versuchen"
+                },
+                {
+                  "GUID": "17cd4bc6-030c-4c10-8304-037bd710a949",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "3624084a-5d92-4529-be5b-e13b42ea38ca",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Junk Shop Door 1 Test",
+      "GUID": "275dcd92-1787-40a3-805d-3f0f216a6d7f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, die Tür zu öffnen.\n\n{-} Lege eine Probe auf {K} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf der Tür an, dann lege alle Erschöpfungsmarker auf der Tür ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "b570858c-6f6b-4ef6-b7c9-bbec0c6b09f0",
+              "theText": "Die Tür lässt sich nicht bewegen. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf der Tür."
+            }
+          ],
+          "GUID": "e3f4f573-d02e-4ef0-adb0-270be08eab71",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Junk Shop Door 2 Test",
+      "GUID": "58f91fba-fd39-45a0-b7f6-5a0728704bd6",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, die Tür zu öffnen.\n\n{-} Lege eine Probe auf {K} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf der Tür an, dann lege alle Erschöpfungsmarker auf der Tür ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "ae9e7c7b-b188-4fed-90a4-3901bc39e613",
+              "theText": "Die Tür lässt sich nicht bewegen. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf der Tür."
+            }
+          ],
+          "GUID": "fd543598-bfa5-44e8-b59f-e08017adf905",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Informant 1 Test",
+      "GUID": "b289b90e-f01e-43f8-82fe-b1f9f8f8811f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du setzt dich an Amrekks Tisch und hoffst, ihn entweder zu überreden oder einzuschüchtern, damit er deine Fragen beantwortet.\n\n{-} Lege eine Probe auf {K} ab oder {J}. Wende +1 {B} für jeden Erschöpfungsmarker auf Amrekk an, dann lege alle Erschöpfungsmarker auf Amrekk ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "43ba64d8-e8f8-4e7b-9d85-785575f1dbe2",
+              "theText": "Amrekk will nicht reden. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf Amrekk.\n"
+            }
+          ],
+          "GUID": "df56bf79-46fd-47fb-9177-0f185e88187b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Informant 1 Success",
+      "GUID": "b3fe1f77-b176-4797-bc9c-d571bffbe03c",
+      "eventText": "\"Die Tusken sind in Aufruhr\", knurrt Amrekk nach einigem Zureden. \"Das Imperium hat einen Außenposten in den Jundland-Wüsten errichtet und damit ihre traditionellen Wanderrouten blockiert. Es heißt, dass sich einige Tuskenstämme mit den Imps verbündet haben. Jetzt geh und belästige jemand anderen.\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Informant 1",
+              "GUID": "48b220c7-b1e6-4a02-8860-2cc743c9286e",
+              "theText": "Amrekk, ein auf Banthas spezialisierter Weequay-Tierarzt, versucht hier trotz der Anwesenheit der imperialen Soldaten seinen Drink zu genießen.\n\n{-} Ein Held kann mit einem Informanten interagieren ({J} oder {K}), um Informationen von ihm zu erhalten.",
+              "buttonList": [
+                {
+                  "GUID": "4ab4d09d-15a1-451a-96a0-8ced1ced6acd",
+                  "theText": "{A} Befragen"
+                }
+              ]
+            }
+          ],
+          "GUID": "91f3ad96-b675-4d58-b82b-b54e5cee6a41",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Informant 2 Test",
+      "GUID": "52106adc-8a37-4477-ae58-5fda6b7f7ccd",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du gehst auf die Bar zu und hoffst, dass du ein paar Informationen aus Sienn herausbekommst.\n\n{-} Lege eine Probe auf {K} ab oder {J}. Wende +1 {B} für jeden Erschöpfungsmarker auf Sienn an, dann lege alle Erschöpfungsmarker auf Sienn ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d1508b1d-202f-4bb6-8636-273348a8b52f",
+              "theText": "Sienn wirft immer wieder einen Blick auf deine Waffen und die toten Soldaten. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf Sienn.\n"
+            }
+          ],
+          "GUID": "f36961f9-c35a-4adc-8d1e-d82570d48be9",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Informant 2 Success",
+      "GUID": "ecf5c3b3-0290-4f83-a9ad-8720e8a68686",
+      "eventText": "\"Ja, ich habe ein paar Dinge gehört\", gibt Sienn schließlich mit leiser Stimme zu und versucht, nicht zu viel Aufmerksamkeit zu erregen. \"Sie werden von einem Kerl namens Somos angeführt. Kayn Somos. Ein riesiger Kerl, der beinahe die Truppler-Rüstung sprengt. Es heißt, er sei unbarmherzig, aber seine Männer seien ihm gegenüber auch sehr loyal. Und er hat die Achtung des Imperators.\"\n\nSie macht einen Schritt zurück. \"Das ist alles.\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Informant 2",
+              "GUID": "123e1335-2c6a-4018-8c2a-39b094ce9186",
+              "theText": "Sienn, eine attraktive Twi'lek-Frau, kümmert sich um die Bar und wirft einen nervösen Blick auf die imperialen Soldaten.\n\n{-} Ein Held kann mit einem Informanten interagieren ({J} oder {K}), um Informationen von ihm zu erhalten.",
+              "buttonList": [
+                {
+                  "GUID": "be473bdd-a805-4222-9b80-64e38d10e4e4",
+                  "theText": "{A} Befragen"
+                }
+              ]
+            }
+          ],
+          "GUID": "799c66fe-359d-4119-9f84-ad9aadd3eafa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Junk Shop Revealed",
+      "GUID": "3293e124-a562-4039-905a-8be5dfb26b37",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Terminal 1 Test",
+      "GUID": "f2478945-d9e6-43b1-8a2b-5f758d438ad3",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du wischst den Staub vom Terminal und versuchst, auf die Daten zuzugreifen.\n\n{-} Lege eine Probe auf {J} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Terminal an, dann lege alle Erschöpfungsmarker auf dem Terminal ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "46fadd2f-b760-4d3b-a567-2b22cb14b91f",
+              "theText": "Das Terminal ist alt und langsam und lässt dich frustriert zurück. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf dem Terminal."
+            }
+          ],
+          "GUID": "36493ced-dadc-4e50-9d25-282aee3365bd",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 1 Success",
+      "GUID": "35f140fe-216c-41ce-8fc1-5482e15aced8",
+      "eventText": "Es gibt nicht viel, aber es gelingt dir, einige Daten über imperiale Truppenbewegungen in der Umgebung von Mos Eisley zu sammeln. Offenbar haben sie mit einigen Schwarzmarkthändlern in der Stadt zu tun.\n\nKurz darauf schaltet sich das Terminal ab und Funken fliegen aus der Konsole.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "3a510e9e-134a-424f-8b18-6efbfaded639",
+              "theText": "In der hintersten Ecke des Schrottladens steht ein verstaubtes Terminal. Es könnte nützliche Daten enthalten.\n\n{-} Ein Held kann mit einem Terminal interagieren ({J} oder {I}), um Informationen über dieses Terminal zu erhalten.",
+              "buttonList": [
+                {
+                  "GUID": "441ba26f-2105-46f4-b384-255a31814c0f",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            }
+          ],
+          "GUID": "66b9a88d-b5b9-4019-878b-1565c5b01703",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 2 Test",
+      "GUID": "6fd4f485-d675-47b4-bcbb-9471331a90b8",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, auf die Daten zuzugreifen, ohne den Prozess zu unterbrechen.\n\n{-} Lege eine Probe auf {J} oder {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Terminal an, dann lege alle Erschöpfungsmarker auf dem Terminal ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "7bb82ae8-1f09-44c0-b287-43b4134994a6",
+              "theText": "Jemand wusste, was er tat, als er die Daten verschlüsselt hat. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf dem Terminal."
+            }
+          ],
+          "GUID": "9b4863b2-1c85-41c7-96ac-1da30193666d",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 2 Success",
+      "GUID": "80d92e43-f885-40a0-8377-f91517fdebdb",
+      "eventText": "Es gelingt dir, einige Daten über die Finanzströme auf dem Schwarzmarkt von Mos Eisley zu sammeln. Einige davon stehen mit den Imperialen in Verbindung, aber es ist unmöglich, Details herauszufinden. Offenbar hat das Imperium versucht, Mos Eisleys Wirtschaft durch die Hintertür zu beeinflussen.\n\nKurze Zeit später schalteten die Sicherheitsprotokolle das Terminal endgültig ab.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "7822a335-9c7d-49b5-8f45-34577fee4eb0",
+              "theText": "Ein Terminal im Schrottladen summt leise vor sich hin und verarbeitet Daten. Es könnte nützliche Daten enthalten.\n\n{-} Ein Held kann mit einem Terminal interagieren ({J} oder {I}), um Informationen über dieses Terminal zu erhalten.",
+              "buttonList": [
+                {
+                  "GUID": "48b6abd2-bbfc-4150-96f9-f3472202565d",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            }
+          ],
+          "GUID": "3a6a6c68-d312-4dd5-8596-89d40ed0cc06",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reinforcements",
+      "GUID": "2ab98328-5304-44c4-9500-628e60e0be84",
+      "eventText": "Vor der Cantina und dem Schrottladen ist ein lauter Tumult zu hören. Aus einer Gasse stürmen brüllende Tusken-Räuber heran, die ihre Gaffi-Stöcke schwingen. Gleichzeitig wird ein Tor auf der anderen Seite der Straße aufgesprengt, und weitere Truppen rücken vor.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2b28f9c4-3fc7-4c2e-9854-2a6257c80921",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG021/Tusken Raider"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "ef2aeb22-583e-442f-b20e-d8db28b84c91",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "4e6e4e83-6111-4fc7-8306-f2daa4d0f182",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "29e57f23-8278-4048-b1e1-6812e89f9117",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance Artoo",
+      "GUID": "f5d20c78-966a-41ee-b4bf-2446a9399961",
+      "mainText": "Stelle <color=\"red\">R2-D2</color> hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 2",
+      "GUID": "a1dee674-4484-46f7-a904-17a3d5019248",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "ee13361e-9918-41d4-9a4a-4f91121ab4d0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "d17033d2-edc7-43f7-9bf3-baccb3875933",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "d8fb385b-cccc-4ecc-a57b-58a701642533",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "0bf24492-f8ec-40a5-964d-327c6421f19f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 3",
+      "GUID": "c5ce6da4-f003-41b4-8ebb-d523ca3a1981",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "b7afc1ad-fe48-46cd-b6fb-fb7c213a9433",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "70f2c672-3792-4a55-87f2-b1de449bc43c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 3",
+      "GUID": "f03799e6-8f27-4c11-aead-c99de0b1e8a1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cantina Door 1",
+      "GUID": "b64be74e-3048-4456-8e67-090e5fd5ad9a",
+      "mainText": "Hinter dieser Tür sind Stimmen und Musik zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+      "buttonList": [
+        {
+          "GUID": "cfcc0a3b-e93f-4707-a9e8-c69aecc63be3",
+          "theText": "{A} Öffnen versuchen"
+        },
+        {
+          "GUID": "28699dcd-771a-4912-aad5-b5d05a98f207",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Cantina Door 2",
+      "GUID": "8dbb677d-3a1f-43e8-9958-351c55e767a0",
+      "mainText": "Hinter dieser Tür sind Stimmen und Musik zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+      "buttonList": [
+        {
+          "GUID": "d4d9e8b3-9ed5-470f-a393-dfc4ba461171",
+          "theText": "{A} Öffnen versuchen"
+        },
+        {
+          "GUID": "2184ee5d-ecb9-4252-866f-3dc6b7fdaeb0",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Junk Shop Door 1",
+      "GUID": "40aad4da-59a3-487e-af3a-7bb921d7f2a0",
+      "mainText": "Hinter dieser Tür ist mechanisches Geklapper zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+      "buttonList": [
+        {
+          "GUID": "e2b86310-b656-48b7-bb57-23df08ad61b7",
+          "theText": "{A} Öffnen versuchen"
+        },
+        {
+          "GUID": "87ad1c63-8929-4c53-8c1c-7e54d2a05d7d",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Junk Shop Door 2",
+      "GUID": "0f269c05-f810-4ed7-80f4-9359f0da0c4d",
+      "mainText": "Hinter dieser Tür ist mechanisches Geklapper zu hören.\n\n{-} Türen sind verriegelt. Ein Held kann mit einer Tür interagieren ({K} oder {I}), um sie zu öffnen. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: Keine).",
+      "buttonList": [
+        {
+          "GUID": "4aba9e2a-1c9e-4ab1-83d0-b7d62e4de08d",
+          "theText": "{A} Öffnen versuchen"
+        },
+        {
+          "GUID": "1abeae41-4786-48d2-ad43-a7bfd9688106",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Informant 2",
+      "GUID": "3617bea4-ea93-4b31-96c4-f7c1dcc42f9d",
+      "mainText": "Sienn, eine attraktive Twi'lek-Frau, kümmert sich um die Bar und wirft einen nervösen Blick auf die imperialen Soldaten.\n\n{-} Ein Held kann mit einem Informanten interagieren ({J} oder {K}), um Informationen von ihm zu erhalten.",
+      "buttonList": [
+        {
+          "GUID": "c60cc730-c941-484c-810a-fea6f420c8d0",
+          "theText": "{A} Befragen"
+        }
+      ]
+    },
+    {
+      "entityName": "Informant 1",
+      "GUID": "ebd3d4e1-f0ac-4525-bd79-bf07939c262e",
+      "mainText": "Amrekk, ein auf Banthas spezialisierter Weequay-Tierarzt, versucht hier trotz der Anwesenheit der imperialen Soldaten seinen Drink zu genießen.\n\n{-} Ein Held kann mit einem Informanten interagieren ({J} oder {K}), um Informationen von ihm zu erhalten.",
+      "buttonList": [
+        {
+          "GUID": "f4ab7ee5-0077-43d9-acb4-cfbe3009ee01",
+          "theText": "{A} Befragen"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "e09c499e-b15e-4fef-bd51-ae653d4a6498",
+      "mainText": "In der hintersten Ecke des Schrottladens steht ein verstaubtes Terminal. Es könnte nützliche Daten enthalten.\n\n{-} Ein Held kann mit einem Terminal interagieren ({J} oder {I}), um Informationen über dieses Terminal zu erhalten.",
+      "buttonList": [
+        {
+          "GUID": "e4ff3c3c-0001-4643-aa25-c2ab473176ff",
+          "theText": "{A} Hacken"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "9054fdba-b893-4acd-b3ff-f74ea6835fec",
+      "mainText": "Ein Terminal im Schrottladen summt leise vor sich hin und verarbeitet Daten. Es könnte nützliche Daten enthalten.\n\n{-} Ein Held kann mit einem Terminal interagieren ({J} oder {I}), um Informationen über dieses Terminal zu erhalten.",
+      "buttonList": [
+        {
+          "GUID": "a5e6127e-87cc-41db-ac72-8633e357525c",
+          "theText": "{A} Hacken"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "ad023d83-7c35-4245-b4f2-fb5c0f0f19a0",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

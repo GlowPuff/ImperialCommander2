@@ -1,0 +1,587 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Saldando Deudas",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Aliado Lando Calrissian (Tahúr encantador)",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso al terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "ceb010b4-134f-4b5d-befd-d1cca86dcb9d",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "4de72839-0414-4840-adf2-98f1274496e0",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "f7bed639-a036-4278-8295-459bc104235c",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "cb4d3d47-0233-4b45-a4e1-026f81c51391",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Soltar unos cuantos créditos en una infame cantina os ha proporcionado la localización de un mercado negro en un muelle de los nive­les inferiores. Algunos créditos más revelan un nombre: Ras. No es el nombre que queríais oír. Es el principal contacto en la Ciudad de las Nubes para los envíos de la Rebelión.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.",
+      "eventActions": [
+        {
+          "tbText": "El muelle está abarrotado, pero divisáis una puerta sellada que conduce a la zona de control. Por suerte, un carguero atracado parece no estar vigilado. Quizá sus sistemas sigan conectados al muelle.",
+          "GUID": "9655e45a-5abf-4dee-ab62-c5a91324a538",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Dock",
+              "GUID": "2e835b95-567e-4cc4-9527-e31de4702013",
+              "theText": "La consola principal del viejo carguero se puede utilizar para anular el bloqueo de la puerta a la zona de control del muelle.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal ({J} o {I}) para intentar desbloquear la puerta.",
+              "buttonList": [
+                {
+                  "GUID": "069412e4-8eba-4fed-a857-dcd2084071c2",
+                  "theText": "{A} Anular bloqueo de la puerta"
+                }
+              ]
+            }
+          ],
+          "GUID": "d19325ed-bb34-4d4d-97a0-33eb53b24016",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Esta podría ser vuestra oportunidad de llegar a Ras antes de que sea demasiado tarde.\r\n\r\n{-} La puerta está sellada.\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal ({J} o {I}) para intentar desbloquear la puerta.\r\n{-} La misión avanza cuando se desbloquea la puerta.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "cbe4d73e-efb6-4d7a-8790-32c526d1edd6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Desbloquear la puerta.",
+          "longText": null,
+          "GUID": "2813602f-39a5-41a4-bc76-a11fdcae39c5",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La puerta está sellada.\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal ({J} o {I}) para intentar desbloquear la puerta.\r\n{-} La misión avanza cuando se desbloquea la puerta.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "52706750-0e68-42e6-87fa-e25897eedf55",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Le hacéis unos cuantos agujeros más a la consola antes de volver a centrar vuestra atención en el herido Ras. Sus intromisiones han terminado y ahora deberá responder ante el alto mando.\r\n\r\n\"Os dije que pasaría esto.\" dice Lando satisfe­cho, mientras estudia las mercancías. \"Vaya, este licor es del bueno. Hoy es mi día de suerte.\"\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los jugadores rebeldes eligen un Héroe para recibir la carta de Recompensa \"La Dama Fortuna''.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Alertado, un grupo de la Guardia Alada acu­de a vuestra ubicación y os encuentra asaltando un muelle industrial clave para la ciudad. Os arrestan y sólo la elocuente intervención de Lando (junto con un buen número de créditos) evita vuestro encarcelamiento. Sin embargo, habéis sido incapaces de contrarrestar la traición de Ras.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Attempt Terminal Dock",
+      "GUID": "db7d091c-870e-406f-b7cd-db52e4a487ee",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a hackear los sistemas del muelle.\r\n\r\n{-} Realiza una prueba {I}. Aplica a la prueba +1 {B} por cada ficha de Tensión en el terminal, luego descarta todas las fichas de Tensión en el terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "025c1093-9156-47ca-92d6-e0fd58f923db",
+              "theText": "No hacéis ningún progreso. Tenéis que seguir intentándolo.\r\n\r\n{-} Coloca 1 ficha de Tensión en el terminal por cada resultado {B} obtenido."
+            },
+            {
+              "GUID": "b31ec37c-b1b7-4a5a-8034-ffa06f3847f5",
+              "theText": null
+            }
+          ],
+          "GUID": "93d48fc0-3d2f-4db3-a444-1897acf22b5a",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Dock Success",
+      "GUID": "918603dc-eb2b-45cd-b399-af0b0b8c357d",
+      "eventText": "La consola principal del carguero emite un pitido y, a continuación, los pesados cerrojos se deslizan para abrir la puerta de la zona de control.\r\n\r\n{-} La puerta de la zona de control del muelle está ahora desbloqueada para las figuras del bando Rebelde.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Dock",
+              "GUID": "91777f4b-ec43-43d4-a438-5c38a80d510c",
+              "theText": "La consola principal del viejo carguero se puede utilizar para anular el bloqueo de la puerta a la zona de control del muelle.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal ({J} o {I}) para intentar desbloquear la puerta.",
+              "buttonList": [
+                {
+                  "GUID": "62fd9e9f-b832-4004-95f7-7e4855716126",
+                  "theText": "{A} Anular bloqueo de la puerta"
+                }
+              ]
+            },
+            {
+              "entityName": "Door 1",
+              "GUID": "3b36503c-dcac-49e3-ae89-691baa4b2ac3",
+              "theText": "Una robusta puerta de seguridad conduce a la zona de control del muelle.\r\n\r\n{-} La puerta está sellada para las figuras del bando Imperial.",
+              "buttonList": [
+                {
+                  "GUID": "b5ae828d-2ece-4cf0-899b-5ab4a720c370",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "a0a5a9a8-4e6f-429f-a95d-20c95e113243",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso a la puerta.",
+          "GUID": "5af2e0d8-4b77-483c-b48b-741f6ec6fe6c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Entra en la zona de control.",
+          "longText": null,
+          "GUID": "a3d6440c-1863-4240-99b3-541776cab47a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La puerta está cerrada para las figuras del bando Imperial.\r\n{-} La misión avanza cuando la puerta se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "e14da8e2-f58d-4f10-aead-37ea6b642a4a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Cornered!",
+      "GUID": "34a75d93-8dc2-482f-98fb-f59d7e79649b",
+      "eventText": "La puerta da a la zona de control, que está muy bien iluminada.",
+      "eventActions": [
+        {
+          "repositionText": "Bloquear la línea de visión a Ras y el acceso al terminal.",
+          "GUID": "3b12d6ed-af3f-4d4e-a8d3-a3d097694967",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "c8f2d490-c031-4755-a15c-5546ed05ea0c",
+              "theText": "Una robusta puerta de seguridad conduce a la zona de control del muelle.\r\n\r\n{-} La puerta está sellada.\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal ({J} o {I}) para intentar desbloquear la puerta.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "b093c28f-5008-41ec-bbf4-15813f5b5b64",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Un hombre con uniforme de funcionario portuario está de pie al final de la sala.",
+          "GUID": "c3a5f178-3f58-4a30-902a-68d805623349",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Ras (<color=\"red\">Oficial Imperial</color>)",
+          "customText": "",
+          "modification": "+*1* Salud",
+          "repositionInstructions": "",
+          "GUID": "c893c896-5f7d-4232-ba0b-a98ef069d61f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "\"Vaya. Parece que al final los primos sí que estaban prestando atención.\" dice Ras mientras juguetea con una consola.",
+          "GUID": "c1c0658e-71fc-435c-9b90-78c971ec148a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Logs",
+              "GUID": "daabd32c-5cbb-4c81-80cc-344ad003701b",
+              "theText": "La consola de registro del muelle contiene todos los datos recopilados por Ras sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con la terminal ({J} o {I}) para intentar borrar los datos.",
+              "buttonList": [
+                {
+                  "GUID": "c8e4a4f2-a3ae-4aa3-bade-b54b3804dcdc",
+                  "theText": "{A} Borrar Datos"
+                }
+              ]
+            }
+          ],
+          "GUID": "8087cea9-78eb-40e9-83b3-9ff199c6a466",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "\"Pero habéis llegado demasiado tarde. Tengo un acuerdo con el Imperio, y estos registros de envíos me van a hacer rico. ¿Quién podía imaginarse que esto de 'hacia' y 'desde' fuese a valer tanto?¡Vuestras bases secretas van a dejar de ser secretas en breve!\"\r\n\r\nApenas ha terminado de hablar cuando más tropas se abalanzan para deteneros.",
+          "GUID": "5b8833c7-86c9-4139-9635-5b85d05aca88",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Empezáis a disparar en dirección a Ras, que rápidamente se parapeta detrás de la terminal.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con la terminal ({J} o {I}) para intentar borrar los datos.\r\n{-} Los Rebeldes ganan cuando los datos son borrados y Ras es derrotado.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "e0262498-72a7-4f29-aa80-f53cf5ee0800",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Terminal Logs",
+      "GUID": "47888a3b-b824-42ca-b1dd-983fcc272d1a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a hackear la consola de registro.\r\n\r\n{-} Realiza una prueba {I}. Aplica a la prueba +1 {B} por cada ficha de Tensión en el terminal, luego descarta todas las fichas de Tensión en el terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "a9cd2f36-1f28-4986-8267-b7afbfe8b4e4",
+              "theText": "No hacéis ningún progreso. Tenéis que seguir intentándolo.\r\n\r\n{-} Coloca 1 ficha de Tensión en el terminal por cada resultado {B} obtenido."
+            },
+            {
+              "GUID": "69f08698-148a-4f57-96fb-240499c81c62",
+              "theText": null
+            }
+          ],
+          "GUID": "443b4575-174f-4b43-b98a-8c8a5ac19567",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Logs Success",
+      "GUID": "d627a57e-85cb-41dd-b3a4-e001b6c11985",
+      "eventText": "Ahí están: los manifiestos de carga, los registros, ¡todo lo que necesitabas para asegurarte de que las bases rebeldes están seguras!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Logs",
+              "GUID": "b239ac99-6809-4623-8dc9-237567aec304",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "f083234f-ad55-4fbe-9649-4fed25725f28",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Ras Defeated",
+      "GUID": "54bfd67c-8f46-421c-bdd5-100a09985a3f",
+      "eventText": "Tras unos cuantos ataques, Ras se desploma en el suelo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Objective 0-0",
+      "GUID": "df1e6095-5194-4a43-aa72-9960dd5e3777",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Borrar los datos de la consola de registro. Derrota a Ras.",
+          "longText": null,
+          "GUID": "c7b6e592-34b8-4a52-aa70-0912e918ca8c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Una figura del bando Rebelde puede interactuar con la terminal ({J} o {I}) para intentar borrar los datos.\r\n{-} Los Rebeldes ganan cuando los datos son borrados y Ras es derrotado.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "784e1e12-e3db-4f60-8910-6a1d04816b08",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 0-1",
+      "GUID": "2b8b0bf2-d0cf-4129-b0db-0e91e7117165",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Borrar los datos de la consola de registro.",
+          "longText": null,
+          "GUID": "f2c1acd0-4c15-4586-9306-0cf5c22aa469",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Una figura del bando Rebelde puede interactuar con la terminal ({J} o {I}) para intentar borrar los datos.\r\n{-} Los Rebeldes ganan cuando se borran los datos.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "75eb1324-f70a-4d5d-bc1d-7f35a11781b9",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 1-0",
+      "GUID": "b7b2d087-fb96-4905-a806-43c47d1be379",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Derrotar a Ras.",
+          "longText": null,
+          "GUID": "0932b9b7-f61f-4175-8e3e-228f5be65060",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Los Rebeldes ganan cuando Ras es derrotado.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "6e38617c-d7a2-4d56-9194-1936f7fff3b9",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 1-1",
+      "GUID": "2c5c6b45-493f-453e-a027-fe8b3a621db8",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Nada",
+          "longText": null,
+          "GUID": "a5f52e75-3dc1-4d45-ba53-7f29e81acc19",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Los Rebeldes ganan cuando los datos son borrados y Ras es derrotado.\r\n{-} Los Rebeldes pierden al final de la ronda 6 o cuando todos los Héroes están heridos.",
+          "GUID": "6db44977-177a-47ce-aad8-a1c39c4af045",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "The Upper Hand",
+      "GUID": "b21d08e2-f064-4e68-9c44-cd1c9a092b94",
+      "eventText": "\"Ras, te dije lo que pasaría si 'perdías' otro de mis envíos\" oís a lo lejos, entre sonidos de disparos de bláster. No sois los únicos perjudicados.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "070411f1-dab6-43c5-87a3-5403a931c062",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "85a4dff6-708c-4ad2-85b5-3f6f86db417a",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "bc0f02b4-4691-4633-bed3-3c7bcc7c6584",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "e0e5d284-44c1-4373-b221-91a20f0a610e",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Ugnaught 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Ugnaught 2",
+      "GUID": "8d5e4e37-71a2-4c0f-ab58-f3481133725d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EUgnaught",
+      "GUID": "b3f45cbf-01b1-48a4-9a58-f9bb0ede8c84",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 1",
+      "GUID": "7370f142-92fc-4c70-9f4c-dc6fb41df9cc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 2",
+      "GUID": "8e62c07a-7efb-4429-9fb9-b610283764bc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 3",
+      "GUID": "a655b281-7fbe-40fd-b039-09c780ab64c9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "72624ac2-31f0-4b26-9736-106f6bf81752",
+      "mainText": "Una robusta puerta de seguridad conduce a la zona de control del muelle.\r\n\r\n{-} La puerta está sellada.\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal ({J} o {I}) para intentar desbloquear la puerta.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal Dock",
+      "GUID": "857ed19d-8d77-4e66-ae49-6c3da9c615d1",
+      "mainText": "La consola principal del viejo carguero se puede utilizar para anular el bloqueo de la puerta a la zona de control del muelle.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal ({J} o {I}) para intentar desbloquear la puerta.",
+      "buttonList": [
+        {
+          "GUID": "51c91187-60ef-4172-a9a0-4cc90701a700",
+          "theText": "{A} Anular bloqueo de la puerta"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Logs",
+      "GUID": "ccf2b84c-5abd-4291-acd6-400f51821af6",
+      "mainText": "La consola de registro del muelle contiene todos los datos recopilados por Ras sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con la terminal ({J} o {I}) para intentar borrar los datos.",
+      "buttonList": [
+        {
+          "GUID": "43b674eb-ab28-42e9-9a69-b68462ea3926",
+          "theText": "{A} Borrar Datos"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Lando",
+      "GUID": "a328e1cd-7a60-4141-8917-087fbfbf3fb0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "51b8d95e-bc5e-423b-82ca-a6e02f70df32",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Ugnaught Tinkerer",
+      "customInstructions": "{-} Cuando ataca, el droide chatarra gana Perforante 1."
+    },
+    {
+      "cardName": "Ugnaught Tinkerer",
+      "customInstructions": "{-} Cuando ataca, el droide chatarra gana Perforante 1."
+    },
+    {
+      "cardName": "Ugnaught Tinkerer (Elite)",
+      "customInstructions": "{-} Cuando ataca, el droide chatarra gana Perforante 1."
+    },
+    {
+      "cardName": "Wing Guard",
+      "customInstructions": ""
+    }
+  ]
+}

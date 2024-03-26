@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "Gesucht",
     "missionDescription": "",
-    "missionInfo": "{-} Die Türen sind verriegelt.\n{-} Der neutrale Einsatzmarker ist die Schlüsselkarte. Nachdem sie fallen gelassen wurde, kann ein Held die Schlüsselkarte aufheben.\n{-} Ein Held, der die Schlüsselkarte trägt, kann die Tür zum Büro öffnen.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Büro öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
+    "missionInfo": "{-} Die Türen sind verriegelt.\n{-} Der neutrale Einsatzmarker ist die Schlüsselkarte. Nachdem sie fallen gelassen wurde, kann ein Held die Schlüsselkarte aufheben.\n{-} Ein Held, der die Schlüsselkarte trägt, kann die Tür zum Büro öffnen.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Büro öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
     "campaignName": "Grundspiel",
     "startingObjective": "Öffnet die Tür zum Büro.",
     "repositionOverride": "Versperre den Zugang zum Büro.",
@@ -58,7 +58,7 @@
     {
       "eventName": "Mission Briefing",
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-      "eventText": "In der Cantina Ooze haltet ihr Ausschau nach eurem schwer zu fassenden Kontaktmann. Eine Gestalt, die einem Kopfgeldjäger sehr ähnlich sieht, tritt mit gezücktem Blaster aus dem Schatten.\n\nDie Türen knallen zu. So wie es aussieht, versuchen sie, euch hier gefangen zu halten. Ihr müsst einen Weg nach draußen finden.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind verriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Büro öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 6 oder wenn alle Helden verwundet sind.",
+      "eventText": "In der Cantina Ooze haltet ihr Ausschau nach eurem schwer zu fassenden Kontaktmann. Eine Gestalt, die einem Kopfgeldjäger sehr ähnlich sieht, tritt mit gezücktem Blaster aus dem Schatten.\n\nDie Türen knallen zu. So wie es aussieht, versuchen sie, euch hier gefangen zu halten. Ihr müsst einen Weg nach draußen finden.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind verriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Büro öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
       "eventActions": []
     },
     {
@@ -158,7 +158,6 @@
           "repositionInstructions": "",
           "GUID": "531b39f6-9efd-4617-9625-63d6fe320569",
           "eventActionType": 6,
-          "evName": null,
           "eaName": "Deploy: DG071/IG-88"
         },
         {
@@ -168,17 +167,16 @@
           "repositionInstructions": "",
           "GUID": "708076f8-e610-4d73-9bdb-aaaac4546c79",
           "eventActionType": 6,
-          "evName": null,
           "eaName": "Deploy: DG012/Probe Droid"
         },
         {
-          "repositionText": "Blockiere den Zugang zum Ausgang.",
+          "repositionText": "Versperre den Zugang zum Ausgang.",
           "GUID": "ffbf9260-9a45-4564-9cda-0abd94d7390c",
           "eventActionType": 17,
           "eaName": "Change Reposition Instructions"
         },
         {
-          "theText": "{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.\n{-} Die imperialen Einsatzmarker sind Barrikaden. Barrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Ausgang öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 6 oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.\n{-} Die imperialen Einsatzmarker sind Barrikaden. Barrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Ausgang öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "2c5aec6b-0229-4372-ba17-7c28634367ae",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -238,7 +236,7 @@
       "eventText": "Hinter der Tür liegt eine kleine Hintergasse. Von hier aus könnt ihr einen Fluchtweg sehen.\n\n{-} Der Rebellen-Einsatzmarker stellt den Ausgang dar. Wenn alle Helden auf oder benachbart zum Ausgang sind, brechen die Helden auf und beenden den Einsatz.",
       "eventActions": [
         {
-          "theText": "{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.\n{-} Die imperialen Einsatzmarker sind Barrikaden. Barrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).\n{-} Der Rebellen-Einsatzmarker stellt den Ausgang dar. Wenn alle Helden auf oder benachbart zum Ausgang sind, brechen die Helden auf und beenden den Einsatz.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Die Rebellen gewinnen den Einsatz, wenn sie aufbrechen.\n{-} Die Rebellen verlieren am Ende von Runde 6 oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.\n{-} Die imperialen Einsatzmarker sind Barrikaden. Barrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).\n{-} Der Rebellen-Einsatzmarker stellt den Ausgang dar. Wenn alle Helden auf oder benachbart zum Ausgang sind, brechen die Helden auf und beenden den Einsatz.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Die Rebellen gewinnen den Einsatz, wenn sie aufbrechen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "9d481c5f-77cb-46fa-88e5-561a1524f6a5",
           "eventActionType": 1,
           "eaName": "Change Mission Info"

@@ -1,0 +1,748 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Extracción",
+    "missionDescription": "",
+    "missionInfo": "{-} El senador Feralo es una figura del bando Rebelde controlada por los Héroes que no se activa. El senador Feralo no puede sufrir {H}. El senador Feralo no bloquea las líneas de visión. Al final de la activación de cada Héroe, el senador Feralo gana 2 puntos de movimiento. Si una figura del bando Imperial controla al senador Feralo, el senador Feralo es arrestado.\r\n{-} Cuando un Héroe deba retirarse, en lugar de ello queda incapacitado. Al activarse, tan solo dispone de una acción, y solo puede usar esa acción para realizar un movimiento. Los Héroes incapacitados no cuentan para determinar quien controla al senador Feralo.\r\n{-} Las puertas están selladas.\r\n{-} Una figura que esté adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para llamarlo.\r\n{-} La ficha de Misión Rebelde es la escalera de mantenimiento. Una figura que esté en la escalera o adyacente a ella puede gastar 2 puntos de movimiento para subir al Tejado.\r\n{-} La misión avanza cuando una figura del bando Rebelde entra en el Tejado.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos, o cuando el senador Feralo es arrestado. Cuando el senador Feralo es arrestado, pulsa sobre la ficha de Misión Imperial y elige \"Senador arrestado\".",
+    "campaignName": "",
+    "startingObjective": "Subir al Tejado. Proteger al senador Feralo.",
+    "repositionOverride": "Estar adyacente al <b>Senador Feralo</b>. Bloquear el acceso al Tejado.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "5cd4af94-67e9-43d5-b29d-4ea0ad09f0e6",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "be7c13c3-190b-4a12-b7d4-7bbdecc6347b",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "0eae3620-3fc6-4574-ba84-8aadeda4aedb",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "f1ca26f5-67f4-4f25-b357-bfd8024823d7",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "No se ha escatimado en lujos para el apartamento del senador Feralo, con escudos de energía protegiendo una sala de mantenimiento al sur. Justo cuando el senador Feralo empieza a informaros, escucháis unos golpes en la puerta. El senador Feralo suspira.\r\n\r\n\"Han venido a por mí\" dice. \"Tenemos que irnos.\"\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas.\r\n{-} Una figura que esté adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para llamarlo.\r\n{-} La ficha de Misión Rebelde es la escalera de mantenimiento. Una figura que esté en la escalera o adyacente a ella puede gastar 2 puntos de movimiento para subir al Tejado.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Energy Shields",
+              "GUID": "a500406b-e183-4067-aa34-a59c685a3351",
+              "theText": "Coloca un escudo de energía en cada casilla.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "81d13d78-8ee1-44c3-8d64-4fe5d6df8772",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Coloca un escudo de energía en cada casilla resaltada en morado.",
+          "GUID": "ee433e25-ba21-448e-8492-446f9b13e665",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Deploy Feralo",
+              "GUID": "ff3f845b-213f-46d3-86a5-6ece73bdd3cc",
+              "theText": "Coloca aquí una ficha de Misión neutral. Este es el senador Feralo.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "106ed52e-121c-4386-852a-d4915ec1545c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "El senador Feralo se levanta de su asiento, listo para partir.\r\n\r\n{-} Coloca 1 ficha de Misión neutral en la casilla resaltada en verde. Este es el senador Feralo.\r\n{-} El senador Feralo es una figura del bando Rebelde controlada por los Héroes que no se activa. El senador Feralo no puede sufrir {H}. El senador Feralo no bloquea las líneas de visión. Al final de la activación de cada Héroe, el senador Feralo gana 2 puntos de movimiento. Si una figura del bando Imperial controla al senador Feralo, el senador Feralo es arrestado.",
+          "GUID": "ff061fba-acc9-4147-a8cc-09005921d2bf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "{-} La misión avanza cuando una figura del bando Rebelde entra en el Tejado.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos, o cuando el senador Feralo es arrestado. Cuando el senador Feralo es arrestado, pulsa sobre la ficha de Misión Imperial y elige \"Senador arrestado\".",
+          "GUID": "99131a7d-c4aa-48c8-a8da-c0f11be0640d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "El senador Feralo recobra el aliento y se seca el sudor de la cara. El ahora fugitivo senador le da las gracias profusamente a su hija mientras la abraza con fuerza. Promete dar cuanta ayuda le sea posible y que la información que consiguió será de utilidad.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Ko-Tun Feralo recibe la carta de Recompensa \"Eficiencia de la Alianza\".\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Los Imperiales apresan al senador Feralo y se retiran tan rápidamente como aparecieron. Los intentos de consolar a Ko-Tun solo dan pie a una respuesta sucinta: \"Sabía los riesgos\".\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Move Elevator to Penthouse",
+      "GUID": "97d134dc-32be-49ff-8d60-c90c840d95ef",
+      "eventText": "Con un tenue sonido, el ascensor llega al ático.\r\n\r\n{-} Una figura que esté en el ascensor o adyacente a él puede gastar 2 puntos de movimiento para mover al Tejado el ascensor (pieza 33A) y todas las figuras y fichas que haya en él. Pulsa sobre la casilla resaltada y selecciona \"Mover al Tejado\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Roof Elevator Door",
+              "GUID": "1e4f5e5f-64f9-4684-9252-66d6117720ca",
+              "theText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para que el ascensor venga al Tejado.",
+              "buttonList": [
+                {
+                  "GUID": "1ed77689-e185-42e9-8a20-2aedee8dc1ca",
+                  "theText": "Llamar al ascensor"
+                }
+              ]
+            }
+          ],
+          "GUID": "ba9dc938-4472-4e38-85db-5ba6e91dfebb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Elevator Door",
+              "GUID": "15158a84-90be-4b8e-8e6a-4ed873c77304",
+              "theText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para llamar al ascensor.",
+              "buttonList": [
+                {
+                  "GUID": "2c814409-4fa6-43f1-a929-f8c0cbb7b31b",
+                  "theText": "Llamar al ascensor"
+                }
+              ]
+            }
+          ],
+          "GUID": "cd2d7c45-b7c5-4fac-a7b0-469c29eea254",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Move Elevator to Roof",
+      "GUID": "0e2a0d19-cd52-4f0d-a054-be55e13a0326",
+      "eventText": "Con un tenue sonido, el ascensor llega al tejado.\r\n\r\n{-} Una figura que esté en el ascensor o adyacente a él puede gastar 2 puntos de movimiento para mover al Ático el ascensor (pieza 33A) y todas las figuras y fichas que haya en él. Pulsa sobre la casilla resaltada y selecciona \"Mover al Ático\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Elevator Door",
+              "GUID": "72e48d55-db10-4d56-90c8-34db7714829b",
+              "theText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para que el ascensor venga al Ático.",
+              "buttonList": [
+                {
+                  "GUID": "b109cc57-88a4-4b36-bb51-6bda109f162a",
+                  "theText": "Llamar al ascensor"
+                }
+              ]
+            }
+          ],
+          "GUID": "d298c500-d2cb-489f-ad2f-c7f427921dd9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Roof Elevator Door",
+              "GUID": "4cc88b69-266f-44fa-9cdf-eb61be482702",
+              "theText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para que el ascensor venga al Tejado.",
+              "buttonList": [
+                {
+                  "GUID": "52f9ceba-81c3-4c8b-af62-d78eb7d10dac",
+                  "theText": "Llamar al ascensor"
+                }
+              ]
+            }
+          ],
+          "GUID": "137def3f-86ea-40ef-83da-f955fdfbd108",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb Roof Elevator Yes",
+      "GUID": "2f06a2db-d374-4172-a2c3-e5d4d7e6b6f0",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Ladder",
+              "GUID": "5a4a9b39-18b4-4544-9bc3-368038530aab",
+              "theText": "Una escalera de mantenimiento lleva al Tejado.\r\n\r\n{-} Una figura que esté en la escalera o adyacente a ella puede gastar 2 puntos de movimiento para colocarse en la escalera del Tejado.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "fe444a19-765b-4583-beb5-0fb43e3b2e26",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb Roof Elevator No",
+      "GUID": "387511a4-a33b-4c2f-8149-2399907d156d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Ladder",
+              "GUID": "02cffe63-f6ca-4c5f-a5a6-4bad3266b307",
+              "theText": "Una escalera de mantenimiento lleva al Tejado.\r\n\r\n{-} Una figura que esté en la escalera o adyacente a ella puede gastar 2 puntos de movimiento para colocarse en la escalera del Tejado.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "13eb6326-f9a1-4a3c-91fa-c3072052647f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof Revealed Climb",
+      "GUID": "59c35f49-1c2a-4f6e-8906-4fe4e1ad2c2b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "{-} Coloca tu figura sobre la ficha de Misión Rebelde azul. Esta es la Escalera del Tejado.",
+          "GUID": "f5e2c3da-d5f8-4a9e-92f9-3a89b72fc973",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Un viento cortante te salpica la cara de agua de lluvia. La silueta repleta de luces de neón de Coruscant se extiende ante ti. En el borde del tejado, la lanzadera de escape espera, pero no estáis solos. Los enemigos se acercan.",
+          "GUID": "af3d9e6c-2d29-49d1-b4ab-6aa6f758fec6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "87ccf23b-3afb-437f-a3dc-4974a590e8ea",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "90349e44-7611-401e-b65f-f8df9f036a74",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "fd8b0790-4b50-47b9-9ddd-8afd47827073",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Getaway Shuttle",
+              "GUID": "cc2895b1-0dfd-4be1-b887-201ec080ab98",
+              "theText": "Los motores de la lanzadera ya resuenan, esperando para despegar.\r\n\r\n{-} La primera vez que una figura del bando Rebelde entre en la Lanzadera de Escape, selecciona \"Entrar\".",
+              "buttonList": [
+                {
+                  "GUID": "296ec509-4e7d-4102-9710-1bea49fe4070",
+                  "theText": "Entrar"
+                }
+              ]
+            }
+          ],
+          "GUID": "3f69f2ca-2fd2-4099-b5f4-e5fc3fc59447",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las casillas resaltadas en azul representan la Lanzadera de Escape. La primera vez que una figura del bando Rebelde entre en la Lanzadera de Escape, pulsa sobre la Lanzadera de Escape y selecciona \"Entrar\".",
+          "GUID": "02d1a8f2-547c-499b-8e7a-f05fe92b9aac",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof elevator revealed",
+      "GUID": "8d149370-fcf5-493e-bed8-383b7a05d0a1",
+      "eventText": "En el lado norte del Tejado, un ascensor espera con las puertas abiertas.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Call elevator first time",
+      "GUID": "116d3f6f-db3d-4cd4-86f9-eb0e783ec41a",
+      "eventText": "Con un tenue sonido, el ascensor llega al ático.\r\n\r\n{-} Una figura que esté en el ascensor o adyacente a él puede gastar 2 puntos de movimiento para mover al Tejado el ascensor (pieza 33A) y todas las figuras y fichas que haya en él. Pulsa sobre la casilla resaltada y selecciona \"Mover al Tejado\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Elevator Door",
+              "GUID": "ac8ef46f-33da-447e-a253-f16ad1a3d1ed",
+              "theText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para que el ascensor venga al Ático.",
+              "buttonList": [
+                {
+                  "GUID": "e12c025d-6627-4abc-91b8-150499791df2",
+                  "theText": "Llamar al ascensor"
+                }
+              ]
+            },
+            {
+              "entityName": "Roof Elevator Door",
+              "GUID": "7cb548d3-cbb0-422c-acaa-9c3676cff361",
+              "theText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para que el ascensor venga al Tejado.",
+              "buttonList": [
+                {
+                  "GUID": "0d7ae462-f9c5-4643-84d1-9d983256ba90",
+                  "theText": "Llamar al ascensor"
+                }
+              ]
+            }
+          ],
+          "GUID": "44bd9e12-ea61-4416-b9bc-40258e855eaf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof Revealed Elevator",
+      "GUID": "f3f340dd-b33a-44f4-8a04-3ac8a67a4ee5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Ladder",
+              "GUID": "6ff5cb75-548c-489d-8482-a44c09556c71",
+              "theText": "Una escalera de mantenimiento lleva al Tejado.\r\n\r\n{-} Una figura que esté en la escalera o adyacente a ella puede gastar 2 puntos de movimiento para colocarse en la escalera del Tejado.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "51dc0827-356e-4dc6-88d6-19be99961171",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "ad5f1015-c074-41e8-8324-2ca55750b24c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "d069ce8c-3ffb-40b9-8172-a5243b1d14c5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Un viento cortante te salpica la cara de agua de lluvia. La silueta repleta de luces de neón de Coruscant se extiende ante ti. En el borde del tejado, la lanzadera de escape espera, pero no estáis solos. Los enemigos se acercan.",
+          "GUID": "164190b0-460d-4f16-81bb-509371739b36",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Getaway Shuttle",
+              "GUID": "0a5b9c18-c31d-4aa4-90b1-17e2c89bb9c9",
+              "theText": "Los motores de la lanzadera ya resuenan, esperando para despegar.\r\n\r\n{-} La primera vez que una figura del bando Rebelde entre en la Lanzadera de Escape, selecciona \"Entrar\".",
+              "buttonList": [
+                {
+                  "GUID": "5f270c19-6578-488c-ac93-fac9adaf9c93",
+                  "theText": "Entrar"
+                }
+              ]
+            }
+          ],
+          "GUID": "a61993e9-1494-4444-ada4-403d7095d9a6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las casillas resaltadas en azul representan la Lanzadera de Escape. La primera vez que una figura del bando Rebelde entre en la Lanzadera de Escape, pulsa sobre la Lanzadera de Escape y selecciona \"Entrar\".",
+          "GUID": "f4e52685-253a-4a87-8e89-dd379445372b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof Objectives",
+      "GUID": "170e9b56-b77c-4538-b74e-89516f8de6f1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "repositionText": "Estar adyacente al <b>Senador Feralo</b>. Bloquear el acceso a la Lanzadera de Escape.",
+          "GUID": "2f3e8841-cf95-4867-8786-3f0adc190678",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Entrar en la Lanzadera de Escape.",
+          "longText": null,
+          "GUID": "03d18282-ef6a-4be8-a810-51f30dd94021",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} El senador Feralo es una figura del bando Rebelde controlada por los Héroes que no se activa. El senador Feralo no puede sufrir {H}. El senador Feralo no bloquea las líneas de visión. Al final de la activación de cada Héroe, el senador Feralo gana 2 puntos de movimiento. Si una figura del bando Imperial controla al senador Feralo, el senador Feralo es arrestado.\r\n{-} Cuando un Héroe deba retirarse, en lugar de ello queda incapacitado. Al activarse, tan solo dispone de una acción, y solo puede usar esa acción para realizar un movimiento. Los Héroes incapacitados no cuentan para determinar quien controla al senador Feralo.\r\n{-} Las puertas están selladas.\r\n{-} Una figura que esté adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para llamarlo.\r\n{-} Una figura que esté en una escalera o adyacente a ella puede gastar 2 puntos de movimiento para moverse a la otra escalera.\r\n{-} La primera vez que una figura del bando Rebelde entre en la Lanzadera de Escape, pulsa sobre la Lanzadera de Escape y selecciona \"Entrar\".\r\n{-} La misión avanza cuando una figura del bando Rebelde entra en la lanzadera.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos, o cuando el senador Feralo es arrestado. Cuando el senador Feralo es arrestado, pulsa sobre la ficha de Misión Imperial y elige \"Senador arrestado\".",
+          "GUID": "aa47a19c-9cb4-41b1-a2d6-1e4946aacf7e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Secure the Shuttle",
+      "GUID": "243bc80e-0db4-4c90-b40f-53dd9caadbe3",
+      "eventText": "\"¡No tan rápido!\" grita un soldado que os espera emboscado. \"¡No escaparéis tan fácilmente, escoria rebelde!\"\r\n\r\n¡La lanzadera está repleta de fuerzas imperiales!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Getaway Shuttle",
+              "GUID": "72930a10-ed51-41fd-8907-34b90fa8240d",
+              "theText": "Los motores de la lanzadera ya resuenan, esperando para despegar.\r\n\r\n{-} Cuando el senador Feralo y todos los Héroes estén en la Lanzadera de Escape y no haya figuras del bando Imperial en la Lanzadera de Escape, pulsa sobre la Lanzadera y selecciona \"Despegar\" para que la lanzadera despegue y termine la misión.",
+              "buttonList": [
+                {
+                  "GUID": "41cd7558-6640-4447-90cf-97682e37eca0",
+                  "theText": "Despegar"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "4cec999f-7408-4c2e-9073-6913a044e808",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "611b7f67-cea4-42db-9f46-bab7385bede4",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "a42abebb-dba0-4ca8-8551-706bae8fdc8c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "1f7f1a14-0c5a-41bf-a40c-7584c2809528",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} El senador Feralo es una figura del bando Rebelde controlada por los Héroes que no se activa. El senador Feralo no puede sufrir {H}. El senador Feralo no bloquea las líneas de visión. Al final de la activación de cada Héroe, el senador Feralo gana 2 puntos de movimiento. Si una figura del bando Imperial controla al senador Feralo, el senador Feralo es arrestado.\r\n{-} Cuando un Héroe deba retirarse, en lugar de ello queda incapacitado. Al activarse, tan solo dispone de una acción, y solo puede usar esa acción para realizar un movimiento. Los Héroes incapacitados no cuentan para determinar quien controla al senador Feralo.\r\n{-} Las puertas están selladas.\r\n{-} Una figura que esté adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para llamarlo.\r\n{-} Una figura que esté en una escalera o adyacente a ella puede gastar 2 puntos de movimiento para moverse a la otra escalera.\r\n{-} Cuando el senador Feralo y todos los Héroes estén en la Lanzadera de Escape y no haya figuras del bando Imperial en la Lanzadera de Escape, pulsa sobre la Lanzadera y selecciona \"Despegar\" para que la lanzadera despegue.\r\n{-} Los Rebeldes ganan cuando la lanzadera despega.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos, o cuando el senador Feralo es arrestado. Cuando el senador Feralo es arrestado, pulsa sobre la ficha de Misión Imperial y elige \"Senador arrestado\".",
+          "GUID": "ed500348-c954-40b6-b93c-cfe611e2c7c2",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Escapar en la lanzadera.",
+          "longText": null,
+          "GUID": "c812975a-32b7-490f-b63c-158f2dad876b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "{-} Cuando el senador Feralo y todos los Héroes estén en la Lanzadera de Escape y no haya figuras del bando Imperial en la Lanzadera de Escape, pulsa sobre la Lanzadera y selecciona \"Despegar\" para que la lanzadera despegue.\r\n{-} Los Rebeldes ganan cuando la lanzadera despega.",
+          "GUID": "04a6b2ce-64c8-45bd-b201-fd90c8eec4b1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Los comunicadores de los imperiales no emiten más que ruido, pero podéis oír con claridad a las tropas que se apresuran por llegar al tejado.\r\n\r\n{-} Coloca en el Tejado todas las figuras del bando Imperial que estén en el Ático, repartiéndolas de forma equitativa entre la escalera y las casillas que hay delante del ascensor.\r\n{-} A continuación, cada figura que fue colocada sufre 1 {H}, a menos que este sea el último {H} necesario para derrotarla.",
+          "GUID": "7b606ede-3436-40b9-8126-199d4b12bdd2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Estar adyacente al <b>Senador Feralo</b>. Estar en la Lanzadera de Escape.",
+          "GUID": "f01c9de2-5f94-4e5b-bade-021e3a249129",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "915f1fc9-d1d9-428b-bcc5-43cd7bd38ea3",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "eb8d1594-d071-4196-9268-7d7eb5293b11",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "a1268e83-6cfd-4a71-b28b-f55e3e111b9e",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Roof Elevator Door",
+      "GUID": "7b95f341-255f-4ae4-82a3-c1277d92fc1f",
+      "mainText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para que el ascensor venga al Tejado.",
+      "buttonList": [
+        {
+          "GUID": "244aa60d-a399-4efb-913b-82c68d4befa8",
+          "theText": "Llamar al ascensor"
+        }
+      ]
+    },
+    {
+      "entityName": "Penthouse Elevator Door",
+      "GUID": "9d070583-3cb6-4843-9317-edd09614ba96",
+      "mainText": "La puerta del ascensor está cerrada.\r\n\r\n{-} Una figura adyacente a la puerta del ascensor puede gastar 2 puntos de movimiento para que el ascensor venga al Ático.",
+      "buttonList": [
+        {
+          "GUID": "5d3424d0-342d-4a90-9d7b-bc34cf80f7e7",
+          "theText": "Llamar al ascensor"
+        }
+      ]
+    },
+    {
+      "entityName": "HL Penthouse Elevator",
+      "GUID": "45eb97de-96b4-40a4-b17e-6fe859cf1d51",
+      "mainText": "{-} Una figura que esté en el ascensor o adyacente a él puede gastar 2 puntos de movimiento para moveral Tejado el ascensor (pieza 33A) y todas las figuras y fichas que haya en él.",
+      "buttonList": [
+        {
+          "GUID": "59f931f0-70c9-42a5-bd63-060a01c9dba1",
+          "theText": "Mover al Tejado"
+        }
+      ]
+    },
+    {
+      "entityName": "HL Roof Elevator",
+      "GUID": "d2847ef6-057d-4fc2-800c-00087074f428",
+      "mainText": "{-} Una figura que esté en el ascensor o adyacente a él puede gastar 2 puntos de movimiento para mover al Ático el ascensor (pieza 33A) y todas las figuras y fichas que haya en él.",
+      "buttonList": [
+        {
+          "GUID": "2335b5a9-2a41-416a-835c-223746c04b63",
+          "theText": "Mover al Ático"
+        }
+      ]
+    },
+    {
+      "entityName": "Penthouse Ladder",
+      "GUID": "2b66deb7-5066-4e18-846b-addbcc08334a",
+      "mainText": "Una escalera de mantenimiento sube al Tejado.\r\n\r\n{-} Una figura que esté en la escalera o adyacente a ella puede gastar 2 puntos de movimiento para subir al Tejado.",
+      "buttonList": [
+        {
+          "GUID": "a781a497-a20c-4d38-9621-7cb22c3ee5e0",
+          "theText": "Subir al Tejado"
+        }
+      ]
+    },
+    {
+      "entityName": "Roof Ladder",
+      "GUID": "ce39b028-12f7-4de4-a03e-04bed8eac7dd",
+      "mainText": "Una escalera de mantenimiento baja al Ático.\r\n\r\n{-} Una figura que esté en la escalera o adyacente a ella puede gastar 2 puntos de movimiento para colocarse en la escalera del Ático.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "a0348b93-ab27-4f83-a024-fc51a1439b5f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Arrest Token",
+      "GUID": "a0c92f24-5cf0-447c-93a2-a5d8f21e669e",
+      "mainText": "{-} Cuando el senador Feralo es arrestado, pulsa sobre la ficha de Misión Imperial y elige \"Senador arrestado\".",
+      "buttonList": [
+        {
+          "GUID": "06c32136-850f-4a51-b829-23207129f0e2",
+          "theText": "Senador arrestado"
+        }
+      ]
+    },
+    {
+      "entityName": "Deploy Feralo",
+      "GUID": "5325ccd2-487f-43ef-8fd5-428fc8bfe7ef",
+      "mainText": "Coloca aquí 1 ficha de Misión neutral. Este es el senador Feralo.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Energy Shields",
+      "GUID": "bfc794e7-c2ba-43ec-a52f-fa2ae983b661",
+      "mainText": "Coloca un escudo de energía en cada casilla.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Getaway Shuttle",
+      "GUID": "19ea0644-3db7-4a51-be1d-c1e3123e424f",
+      "mainText": "Los motores de la lanzadera ya resuenan, esperando para despegar.\r\n\r\n{-} La primera vez que una figura del bando Rebelde entre en la Lanzadera de Escape, selecciona \"Entrar\".",
+      "buttonList": [
+        {
+          "GUID": "7f0f7ad9-c3bc-4890-a6b1-d7e3b017099d",
+          "theText": "Entrar"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Probe Droid 2",
+      "GUID": "c2f017df-f10b-4375-89c2-a50148047f3f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 1",
+      "GUID": "248451bc-2b93-4faa-811e-1152a1abb8e2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 2",
+      "GUID": "f13bde19-8985-4944-b913-b3421625fd26",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "32da67c2-e698-427b-a253-ccbe7c82c425",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Shuttle",
+      "GUID": "a9fbd8d1-2108-430f-8a6a-a6a22b917b3f",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Riot Trooper",
+      "customInstructions": ""
+    }
+  ]
+}

@@ -123,6 +123,9 @@ namespace Saga
 					case 29:
 						eventActionAction = item.ToObject<SetCountdown>();
 						break;
+					case 30:
+						eventActionAction = item.ToObject<AddCampaignReward>();
+						break;
 				}
 				eObserver.Add( eventActionAction );
 			}

@@ -1,0 +1,484 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "El asunto de Anchorhead",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Villano Capitán Terro (Ejecutor de las Tierras Yermas)",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso al terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "e11bb596-d71b-4e5b-8a3b-24844450c593",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "9b76edab-44d5-41b6-9cf7-013f32e87dbe",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "429bcf73-b72b-41e5-982b-e5ee1c72b075",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Llegáis a Anchorhead casi al anochecer; las fuerzas Imperiales tienen tomada la ciudad desde hace semanas. Debéis encontrar y derrotar al capitán Terro para liberar la ciudad de su ley marcial.\r\n\r\nEl servicio de inteligencia de la Alianza os advierte que Terro es más peligroso cuando está flanqueado por su fuerza de seguridad personal. Estas advertencias no se pueden tomar a la ligera, pero tenéis que continuar con vuestra misión, sea cual sea el riesgo.\r\n\r\n{-} Despliega a los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "d0bbbca8-a27a-4344-b89c-9c0785b5536b",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "8a6c0371-aa45-40ab-bd28-a7f511b19a85",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue",
+              "GUID": "b519ea71-6b43-47be-a672-6663371c05a4",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Dewback",
+              "GUID": "90005e9a-1c3d-4c27-b698-8bc2b8490985",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "5eca56be-fdaa-4297-bb13-09f2ea2bab18",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Os encontráis con una patrulla que está hostigando a unos civiles. Sin mediar provocación alguna, un soldado empieza a disparar en las calles. No estáis dispuestos a quedaros mirando, e intervenís.\r\n\r\n{-} Despliega el <color=\"red\">Jinete de Dewback</color> en la casilla resaltada en rojo.",
+          "GUID": "93c5d7e4-b6d8-4798-9904-eb8eb11d1e54",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b1392ee6-b128-4491-abc1-da550e864154",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG062/Dewback Rider (Elite)"
+        },
+        {
+          "tbText": "Una estación de seguridad cercana controla los cierres de las puertas.",
+          "GUID": "4de8a5cb-9ccf-44ea-b6e3-e68433043c60",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "8739953c-879b-4c8a-9f92-415d102ce121",
+              "theText": "La estación de seguridad controla los cierres de las puertas.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal para desactivarlo.",
+              "buttonList": [
+                {
+                  "GUID": "9b3ba89e-54a4-4603-8a95-e133606b16f5",
+                  "theText": "{A} Desactivar"
+                }
+              ]
+            }
+          ],
+          "GUID": "ce04491c-0355-4534-8b40-f2890bbf135c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Mientras el jinete de dewback esté rondando la zona, no podéis ir a buscar a Terro. Primero tendréis que deshaceros de él.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal para desactivarlo.\r\n{-} Cuando el <color=\"red\">Jinete de Dewback</color> sea derrotado y el terminal esté desactivado, todas las puertas se abren.\r\n{-} La misión avanza cuando las puertas se abren.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "4aa5f311-6de5-44c0-b03a-525057d25bdf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Dewback",
+              "GUID": "ea3c75ac-3aca-4241-9390-311c84e4a41a",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ac29ee03-b298-456f-b4b2-d98045b5fb2c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Terro maldice cuando se ve obligado a retirarse. No queda claro si está más disgustado con vosotros o con el fracaso de sus propios hombres.\r\n\r\nA Anchorhead le llevará un tiempo volver a la normalidad, pero la recuperación puede empezar.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "-¿Esto era lo mejor que la Alianza podía enviar? -Terro se burla de vosotros mientras huís de vuestra fracasada incursión. Dado que habéis reforzado involuntariamente su reinado del terror, os preocupa el futuro de Anchorhead.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} El Imperio recibe al <color=\"red\">Capitán Terro</color> (Ejecutor de las Tierras Yermas) como Villano.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Dewback defeated",
+      "GUID": "fe1cd2d7-5b03-4ff7-b2ee-cbb0009e9e04",
+      "eventText": "El dewback se encabrita, derribando a su jinete, y huye.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Terminal disabled",
+      "GUID": "9cd65661-08f6-443d-8c0c-d9927d02fc3d",
+      "eventText": "Desactiváis la estación de seguridad con rapidez.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "9914303c-ef48-4a19-ba03-b3478bcc1896",
+              "theText": "La estación de seguridad controla los cierres de las puertas.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal para desactivarlo.",
+              "buttonList": [
+                {
+                  "GUID": "7a9c5581-4955-4b81-9f83-7297751c8ec8",
+                  "theText": "{A} Desactivar"
+                }
+              ]
+            }
+          ],
+          "GUID": "37cb8b59-6399-4922-83e2-e11302b2b13e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 0-0",
+      "GUID": "83e7f94a-f91c-43be-a41f-3bce5f03eb6d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Derrotar al <color=\"red\">Jinete de Dewback</color> y desactivar el terminal.",
+          "longText": null,
+          "GUID": "e090a187-6240-4082-8915-334b03dc943a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal para desactivarlo.\r\n{-} Cuando el <color=\"red\">Jinete de Dewback</color> sea derrotado y el terminal esté desactivado, todas las puertas se abren.\r\n{-} La misión avanza cuando las puertas se abren.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "8d56a06f-d922-4e01-88cf-5d43fdcf4a37",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 0-1",
+      "GUID": "210c07b0-07a6-4620-962f-2eaba2edb912",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Derrotar al <color=\"red\">Jinete de Dewback</color>.",
+          "longText": null,
+          "GUID": "08e35029-cc2d-43ee-b66c-1dab64632c96",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas.\r\n{-} Cuando el <color=\"red\">Jinete de Dewback</color> sea derrotado, todas las puertas se abren.\r\n{-} La misión avanza cuando las puertas se abren.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "1d5e4b11-ebcc-4dd9-be32-5acd185bda4c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 1-0",
+      "GUID": "7c2cf36e-49c2-4266-889f-fe3ed701a89c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Desactivar el terminal.",
+          "longText": null,
+          "GUID": "e5a68dcb-d7c9-4cf3-8854-557e3cd95193",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas.\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal para desactivarlo.\r\n{-} Cuando el terminal esté desactivado, todas las puertas se abren.\r\n{-} La misión avanza cuando las puertas se abren.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "e60c64a0-db75-49c5-89bb-c2de1a86757c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Take on the Cavalry",
+      "GUID": "b8a625eb-1c36-4dd2-bc5a-f5f83e3829d5",
+      "eventText": "Las puertas se abren a una gran plaza polvorienta.",
+      "eventActions": [
+        {
+          "tbText": "-Me preguntaba cuánto tiempo tardaríais en aparecer, escoria rebelde -Terro se ríe mientras gira su dewback para encararse a vosotros.",
+          "GUID": "788fe63d-c8ee-435a-8066-aef2a1156561",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*2* Vida",
+          "repositionInstructions": "",
+          "GUID": "89e585ff-2b68-4980-9b7a-81ac871b5f0d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG082/Captain Terro"
+        },
+        {
+          "tbText": "-¡A por ellos! -grita a sus hombres-. ¡Acribilladlos!",
+          "GUID": "e790a306-6485-40da-a601-67a900ab8676",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a5eabb0b-04eb-464a-a4b7-9739996ac495",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4c10bdd1-4216-4b05-8815-89748da55014",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "repositionText": "Bloquear la línea de visión al <color=\"red\">Capitán Terro</color>.",
+          "GUID": "0cee6db0-5ee7-4bd2-9cfd-fb2631ff8bb5",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "{-} Siempre que un grupo de Soldados de asalto se active, el <color=\"red\">Capitán Terro</color> se prepara.\r\n{-} Los Rebeldes ganan cuando el <color=\"red\">Capitán Terro</color> es derrotado.",
+          "GUID": "c16dcca6-b300-4454-b14a-1ffcad879675",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Derrotar al <color=\"red\">Capitán Terro</color>.",
+          "longText": null,
+          "GUID": "5820c7ff-5da9-4824-b44d-70e23924b3b5",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Siempre que un grupo de Soldados de asalto se active, el <color=\"red\">Capitán Terro</color> se prepara.\r\n{-} Los Rebeldes ganan cuando el <color=\"red\">Capitán Terro</color> es derrotado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "e8a6f035-48a5-4d6c-9f3a-2a2dc6d1305c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Stormtrooper 1 activates",
+      "GUID": "99093b4a-b8a5-4674-8503-e4b63866ed95",
+      "eventText": "Los soldados de asalto avanzan, coordinando su asalto con su capitán.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Stormtrooper 2 activates",
+      "GUID": "d1f85042-7081-4541-954b-d08db93b4c00",
+      "eventText": "Los soldados de asalto avanzan, coordinando su asalto con su capitán.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "b80e3384-b1e7-452e-9b0f-3490465438ee",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "0167d6f3-22d9-4e6f-a221-56af4316a76c",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Jet 1",
+      "GUID": "34066778-c32c-4ef2-816b-a59a768a4bd1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Jet 2",
+      "GUID": "c40f7cb8-2a9e-4ca8-8cde-44cd7703ad8f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 2",
+      "GUID": "61500267-fb2d-4ca7-9679-535ab394dc37",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "a287fa5c-c2fa-467d-951d-93204fb007e4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Dewback",
+      "GUID": "e5676a35-7665-42f9-bf69-3cf84845cc07",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "dd0a7c48-68fb-4451-b88b-f0e608e7f623",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "83a3d4f9-ab9a-4861-8d6d-7c5f66a8ddff",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "ce4ea8b0-9f24-4591-9590-bf822e57f4fc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "3e33d0f4-cc54-4544-b8bc-630876de4b94",
+      "mainText": "La estación de seguridad controla los cierres de las puertas.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal para desactivarlo.",
+      "buttonList": [
+        {
+          "GUID": "1f033269-0881-4b97-85a6-02c17e739d06",
+          "theText": "{A} Desactivar"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "789aa176-8f5c-47be-a001-27abc2ab1d66",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door North",
+      "GUID": "f9e3510a-c6cd-43d1-9177-a61a779e5313",
+      "mainText": "Una vieja puerta lleva fuera de la zona del hangar.\r\n\r\n{-} La puerta está sellada.\r\n{-} Cuando el <color=\"red\">Jinete de Dewback</color> sea derrotado y el terminal esté desactivado, todas las puertas se abren.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door South",
+      "GUID": "72961af9-c9d8-4a05-a386-b611b72bd465",
+      "mainText": "Una vieja puerta lleva fuera de la zona del hangar.\r\n\r\n{-} La puerta está sellada.\r\n{-} Cuando el <color=\"red\">Jinete de Dewback</color> sea derrotado y el terminal esté desactivado, todas las puertas se abren.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Jet Trooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

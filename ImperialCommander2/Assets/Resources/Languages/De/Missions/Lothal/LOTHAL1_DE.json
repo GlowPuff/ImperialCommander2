@@ -1,0 +1,837 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Aufruf zum Widerstand",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Tyrannen von Lothal",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zur Lieferung und zur Abholstelle.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "378fe5d7-8a8e-49e2-93cc-d055de90bad2",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "f31466a9-6cf8-4a35-b3b1-bbca25d6f2b7",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ff97f117-4293-4bc5-8fc9-99c8faad157c",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr fangt die imperiale Waffenlieferung ab, als sie durch die Märkte von Lothal geschleust wird. Die Informationen eures Kontakts waren gut. Aufgeregt hofft ihr, dass er pünktlich am Abholpunkt ankommt.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.",
+      "eventActions": [
+        {
+          "tbText": "Die Lieferung ist schwer, aber mit dem Repulsorschlitten ist es zumindest möglich, sie zu bewegen.",
+          "GUID": "61789c71-c004-42fd-bd1c-d8bee072fedd",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shipment",
+              "GUID": "5368912a-0247-457c-a6a7-53eb986ff2f5",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "1b8e1dde-3178-4b37-ab2f-b3525174ce8f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Der imperiale Einsatzmarker stellt die Lieferung dar. Einmal während seiner Aktivierung kann ein Held, der auf oder benachbart zu der Lieferung ist, die Lieferung um 1 Feld stoßen.",
+          "GUID": "5175e5bf-9801-4f56-9e2c-8e8265bb7f9f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Euer Kontakt hat euch sehr genaue Koordinaten gegeben, wohin ihr die Lieferung bringen müsst.",
+          "GUID": "3ee188f9-43d6-4bcd-855f-b17c32c94af4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shipment",
+              "GUID": "1f8f0b73-beaf-4486-869c-4f5304ca2197",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Extraction Point",
+              "GUID": "36bb4ce6-72c9-4248-9681-7c9386c6ece5",
+              "theText": "Das Schiff eures Kontakts wartet hier.\n\n{-} Wenn die Lieferung dieses Feld betritt, klickt auf \"Lieferung abgeholt\".",
+              "buttonList": [
+                {
+                  "GUID": "19f99a4a-07f4-44a0-804b-0300e95a7e7a",
+                  "theText": "Lieferung abgeholt"
+                }
+              ]
+            }
+          ],
+          "GUID": "93878fae-0733-4dec-b799-ac870d2b3024",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Der Rebellen-Einsatzmarker stellt die Abholstelle dar. Wenn die Lieferung die Abholstelle erreicht, klickt auf den Marker und wählt \"Lieferung abgeholt\".\n{-} Der Einsatz schreitet voran, wenn die Lieferung abgeholt wird.\n{-} Die Rebellen verlieren am Ende von Runde 4, falls die Lieferung nicht abgeholt wurde, am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
+          "GUID": "049ac23d-9fe8-497a-9d28-dfc5bc7d7778",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Bringt die Lieferung zur Abholstelle.",
+          "longText": null,
+          "GUID": "d6db4f3a-3883-4f20-ac31-9d9151a54b3c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Der imperiale Einsatzmarker stellt die Lieferung dar. Einmal während seiner Aktivierung kann ein Held, der auf oder benachbart zu der Lieferung ist, die Lieferung um 1 Feld stoßen.\r\n{-} Der Rebellen-Einsatzmarker stellt die Abholstelle dar. Wenn die Lieferung die Abholstelle erreicht, klickt auf den Marker und wählt \"Lieferung abgeholt\".\n{-} Der Einsatz schreitet voran, wenn die Lieferung abgeholt wird.\n{-} Die Rebellen verlieren am Ende von Runde 4, falls die Lieferung nicht abgeholt wurde, am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
+          "GUID": "a5de9754-b29b-4604-99fb-0cd8e527f0e3",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Ein Shuttle schwebt über euch. Ein Mann mit einer grünen Maske, die die obere Hälfte seines Gesichts bedeckt, hilft euch durch die Heckluke. \"Willkommen an Bord der Phantom.\"\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Spieler der Rebellen wählen 1 Helden aus, der die Belohnungskarte \"Anführer der Nova-Gruppe\" erhält.",
+      "eventActions": [
+        {
+          "mainText": "Spielt ihr diesen Einsatz im Rahmen der Minikampagne \"Tyrannen von Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "0d3e12e7-35ea-432e-878f-f6abd45b6040",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "09e4d0ff-835d-4a68-a917-3f46d381f47a",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "fa160c96-ff1c-4306-ad5f-f40d51ef9331",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Explosionen erschüttern die Graslandschaft und verfehlen euch nur knapp. Eine Gestalt in mandalorianischer Rüstung wirft noch ein paar Granaten aus einem Shuttle, bevor sie ein Seil zu euch herunterlässt.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Spielt ihr diesen Einsatz im Rahmen der Minikampagne \"Tyrannen von Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "ac7d367e-25a1-4f92-b311-81681fb5926e",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "f4416ff4-b2cc-4d0a-a7c5-16f1a4826315",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "922d0b18-3b9c-4426-b8b1-9d79afd7d873",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Win",
+      "GUID": "1fb0c0b1-7388-42f6-9c4c-801de27f03a5",
+      "eventText": "\"Ezra, bring uns zurück zur Ghost\", sagt der Mann mit der Maske zu dem jüngeren Mann an der Steuerung des Shuttles. \"Mein Name ist Kanan Jarrus. Ich wusste nicht, dass es noch andere Rebellen auf Lothal gibt.\"\n\nIhr erklärt ihm, dass ihr gerade erst mit dem Kampf gegen das Imperium begonnen habt. \"Ihr habt einen schweren Weg eingeschlagen\", sagt er schließlich, \"aber mit den Spectres habt ihr Verbündete. Wir werden euch alles zeigen, was ihr wissen müsst.\"\n\n\"Aber erwartet nicht, dass das leicht wird\", fügt Ezra hinzu. \"Kanans Lektionen sind nie leicht.\"\n\n{-} Jeder Held erhält 2 EP.\n{-} Die Helden erhalten 300 Credits pro Held.\n{-} Die Helden erhalten <color=\"red\">Kanan Jarrus</color> (Spectre-1), <color=\"red\">Zeb Orrelios</color> (Spectre-4), <color=\"red\">Sabine Wren</color> (Spectre-5), und <color=\"red\">Ezra Bridger</color> (Spectre-6) als Verbündete. Falls ihr den Verbündeten-Pack \"Hera Syndulla und C1-10P\" besitzt, erhalten die Helden außerdem <color=\"red\">Hera Syndulla</color> (Spectre-2) und <color=\"red\">C1-10P</color> (\"Chopper\") als Verbündete.",
+      "eventActions": [
+        {
+          "mainText": "Bitte wählt unten die richtige Option aus.\n\n{-} Erweiterte Kampagne: Ich spiele die erweiterte Minikampagne mit dem \"Hondo Ohnaka\" Schurken-Pack.\n{-} Minikampagne: Ich spiele die reguläre Minikampagne \"Tyrannen von Lothal\" ohne das Schurken-Pack.",
+          "buttonList": [
+            {
+              "GUID": "581b61ab-b1cf-4cfc-b5e8-d57b5ee59671",
+              "theText": "Erweiterte Kampagne"
+            },
+            {
+              "GUID": "83251f70-a773-4fae-9b92-a4e91d494b5f",
+              "theText": "Minikampagne"
+            }
+          ],
+          "GUID": "d93f8f65-094a-440f-bd2c-2849d9099137",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Defeat",
+      "GUID": "ee9e6f21-9b9f-47ca-b982-44b59453a837",
+      "eventText": "\"Subtilität ist nicht gerade euer Ding, oder?\", sagt das Mädchen. \"Ich bin Sabine. Das ist Zeb.\" Sie deutet auf den großen Lasat, der auf dem Pilotensitz sitzt. \"Los geht's!\"\n\nZeb wirft ihr einen bösen Blick zu. \"Wir werden sie nicht wirklich zur Ghost zurückbringen\", knurrt er und knirscht mit den Zähnen. \"Die haben doch keine Ahnung, was sie da tun.\"\n\nSabine lässt sich auf den Copilotensitz fallen. \"Irgendwie müssen sie es doch lernen! Und wer könnte es ihnen besser beibringen als wir?\"\n\n{-} Jeder Held erhält 2 EP.\n{-} Die Helden erhalten 300 Credits pro Held.\n{-} Die Helden erhalten <color=\"red\">Kanan Jarrus</color> (Spectre-1), <color=\"red\">Zeb Orrelios</color> (Spectre-4), <color=\"red\">Sabine Wren</color> (Spectre-5), und <color=\"red\">Ezra Bridger</color> (Spectre-6) als Verbündete. Falls ihr den Verbündeten-Pack \"Hera Syndulla und C1-10P\" besitzt, erhalten die Helden außerdem <color=\"red\">Hera Syndulla</color> (Spectre-2) und <color=\"red\">C1-10P</color> (\"Chopper\") als Verbündete.",
+      "eventActions": [
+        {
+          "mainText": "Bitte wählt unten die richtige Option aus.\n\n{-} Erweiterte Kampagne: Ich spiele die erweiterte Minikampagne mit dem \"Hondo Ohnaka\" Schurken-Pack.\n{-} Minikampagne: Ich spiele die reguläre Minikampagne \"Tyrannen von Lothal\" ohne das Schurken-Pack.",
+          "buttonList": [
+            {
+              "GUID": "93d71bef-afed-4d05-9469-8942ae8aad6b",
+              "theText": "Erweiterte Kampagne"
+            },
+            {
+              "GUID": "4497ea51-871e-4c2d-85fa-b8a6b180d291",
+              "theText": "Minikampagne"
+            }
+          ],
+          "GUID": "c47a75a7-d9d7-4f27-ab49-39ee814934b8",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "No campaign",
+      "GUID": "8fe1b24a-487b-46a0-9e81-94329508e0dc",
+      "eventText": "{-} Jeder Held erhält 1 EP.\n{-} Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Extended campaign 1",
+      "GUID": "2f95d44b-fe49-4580-aed5-8b4db04f67d8",
+      "eventText": "Während die Phantom euch zu eurem eigenen Schiff geleitet, piepst euer Comlink. Die kühle Stimme eures lokalen Kontakts, N-4M, ist zu hören. \"Ich hätte Herrn Ohnaka gründlicher überprüfen sollen\", räumt er ein. Der Vokabulator des Droiden surrt und stottert. \"Zum Glück haben meine Informanten gesehen, wie Herr Ohnaka ein Schiff bestiegen hat, um abzureisen. Ich kann sein wahrscheinliches Ziel übermitteln.\"\n\nIhr teilt euren Rettern mit, dass ihr einen Umweg machen müsst, bevor ihr den Rest der Gruppe trefft, und sie bieten euch an, jemanden mitzuschicken. Ihr habt noch eine Rechnung mit Hondo Ohnaka offen...\n\n{-} Der nächste aktive Einsatz ist \"Der Piraten-Coup\" (\"Hondo Ohnaka\"-Schurken-Pack).",
+      "eventActions": []
+    },
+    {
+      "eventName": "Regular mini campaign",
+      "GUID": "5912594d-6f76-449a-8572-5004d336bdd9",
+      "eventText": "Ihr dockt an einen VCX-100-Frachter an. An Bord lernt ihr den Rest der Besatzung kennen, darunter auch Captain Hera Syndulla. \"Wir können jede Hilfe gebrauchen\", sagt sie, \"und wenn meine Leute euch vertrauen, tue ich das auch. Wir haben mehr Arbeit als Personal, um sie zu erledigen.\"\n\n\"Habt ihr schon von Großadmiral Thrawn gehört? Er hat den ganzen Sektor in höchste Alarmbereitschaft versetzt. Wir können uns kaum noch bewegen.\" Sie lehnt sich gegen den kleinen Tisch in der Mitte des Raumes. \"Wir haben Verbündete auf Seelos, Wolffe und Gregor, die einige imperiale Codes aus einem gestohlenen Läufer geborgen haben, aber sie brauchen Hilfe, um dem Imperium zu entkommen. Außerdem haben wir Hinweise auf ein altes Schmugglerversteck auf Devaron gefunden, in dem sich Karten mit den besten Schmuggelrouten durch den Sektor befinden. Wenn wir sie bekommen, könnten wir den imperialen Patrouillen ausweichen und bräuchten überhaupt keine Codes mehr.\" Sie wendet sich an euch. \"Wenn ihr uns hier helfen könnt, schicke ich jemanden von meiner Crew mit.\"\n\n{-} Die Helden entscheiden gemeinsam, ob sie Wolffe und Gregor helfen oder das Schmugglerversteck untersuchen wollen.\n{-} Wenn sich die Helden dafür entscheiden, Wolffe und Gregor zu helfen, ist der nächste aktive Einsatz \"Im Sand von Seelos\".\n{-} Wenn die Helden sich entscheiden, das Schmugglerversteck zu untersuchen, ist der nächste aktive Einsatz \"Duell auf Devaron\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Just Business",
+      "GUID": "b0060326-f45b-4228-b15f-23ce78756a6a",
+      "eventText": "Euer Kontaktmann, Hondo Ohnaka, grinst, als er die Lieferung an Bord seines Schiffes holt. \"Sehr gut, meine Freunde!\" Das Schiff beginnt zu steigen, bevor ihr an Bord gehen könnt. \"Leider wurde mir ein besseres Angebot gemacht.\" Hondo richtet seinen Blaster auf euch, und weitere Imperiale treffen ein.\n\n{-} Legt die Lieferung ab.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1* Ges.",
+          "repositionInstructions": "",
+          "GUID": "ff06cb3b-b18f-4033-bdf6-1e5c642b6248",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG086/Hondo Ohnaka"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "55f717fa-8c0a-4318-a57c-82e3ad8e01bd",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG057/Death Trooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f0eecc17-35eb-44f0-8377-00969e7dd3d6",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Extraction Point",
+              "GUID": "1b390272-f828-4ce5-abf6-522a18519eab",
+              "theText": "Das Schiff eures Kontakts wartet hier.\n\n{-} Wenn die Lieferung dieses Feld betritt, klickt auf \"Lieferung abgeholt\".",
+              "buttonList": [
+                {
+                  "GUID": "b14be948-cfc3-4b12-bba7-fd73358145ed",
+                  "theText": "Lieferung abgeholt"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "0c05fbb3-6d10-4dc2-afb7-5f2bfbbf3c4e",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "dd8bdb66-66e7-43f0-a770-c2da320463e3",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "83777b67-baeb-40f4-8aed-6b42dfcb54aa",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "33dda837-3a41-4976-bf43-2d45a2013fa0",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "ebb911a2-d6f3-49ea-9854-58d4ec5bba85",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "a1594c7e-6493-4280-a37d-5786bf5e4443",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Eine Stimme knistert über euer Funkgerät. \"Jeder Feind des Imperiums ist ein Freund von uns. Haltet durch, wir kommen!\"\n\nIn der Ferne könnt ihr ein Schiff erkennen, das durch die Atmosphäre von Lothal auf die nahegelegene Hochebene zusteuert.",
+          "GUID": "23956a87-99c9-4c58-89d4-3399a3f20942",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "\"Wir können eure Position nicht erfassen\", sagt die Stimme über Funk. \"Da unten sollten ein paar alte Signalfeuer sein. Findet sie und zündet eins an, dann müsst ihr nur noch durchhalten, bis wir bei euch sind!\"",
+          "GUID": "42a00ded-0412-4aed-9ec5-60831a2ea12e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 1",
+              "GUID": "f27755d0-fa37-4167-ba6c-7da35b60ff14",
+              "theText": "Eine alte Signalbake ist im hohen Gras versteckt.\n\n{-} Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu entzünden.",
+              "buttonList": [
+                {
+                  "GUID": "6e729cd1-5a06-4969-be44-499291a063a3",
+                  "theText": "{A} Aktivieren"
+                }
+              ]
+            },
+            {
+              "entityName": "Flare 2",
+              "GUID": "72eac405-89f9-423c-93f0-2c7919a54ec8",
+              "theText": "Eine alte Signalbake ist im hohen Gras versteckt.\n\n{-} Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu entzünden.",
+              "buttonList": [
+                {
+                  "GUID": "062b6d8e-a8a5-4926-90fe-b04cfd4799b6",
+                  "theText": "{A} Aktivieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "dffe2be3-c998-479d-88da-4c0e6c5543ef",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Neutrale Einsatzmarker stellen Signalbaken dar. Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu aktivieren.\n{-} Wenn sich alle Helden in Runde 6 zu Beginn der Statusphase auf der Hochebene (Spielplanteil Lothal 1B + Endteile) befinden und eine Signalbake aktiviert wurde, brechen die Helden auf.\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.",
+          "GUID": "3fcbc2af-f689-4078-9e2d-77346a297fc2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Versperre den Zugang zu den Feldern und den Signalbaken.",
+          "GUID": "8fd5ec26-893e-4d07-8693-0c7a6b0a43cd",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Betretet die Hochebene und aktiviert eine Signalbake.",
+          "longText": null,
+          "GUID": "d692bd06-79b5-4093-816c-9b461bcd332a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Neutrale Einsatzmarker stellen Signalbaken dar. Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu aktivieren.\n{-} Wenn sich alle Helden in Runde 6 zu Beginn der Statusphase auf der Hochebene (Spielplanteil Lothal 1B + Endteile) befinden und eine Signalbake aktiviert wurde, brechen die Helden auf.\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "3355f52c-c2fe-49b4-89e8-921293ea2274",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Through the Grasses",
+      "GUID": "8e4e3e0c-636a-44bd-be5a-06cad04c466a",
+      "eventText": "Fauchend und mit ausgefahrenen Klauen stürmen kleine, aber wilde Kreaturen durch die Gräser.",
+      "eventActions": []
+    },
+    {
+      "eventName": "TtG 1",
+      "GUID": "6fbb5727-232f-4c90-9047-77337ae9ff72",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a0fd6641-f4c6-4c06-9973-328e2525a9cc",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "TtG 2",
+      "GUID": "b115132b-4e81-4714-8a75-31524f9baadb",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f0579950-6dab-401e-b0b9-a2f9e9adc14c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "TtG 3",
+      "GUID": "0e11190b-c9fb-49af-9fd8-ebd5048611c1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5fa42b6a-3841-4359-a311-25bc7735bcf8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose EoR 4",
+      "GUID": "aeed9077-9ae2-4d8d-8491-bd05c5418602",
+      "eventText": "Explosionen erschüttern die Graslandschaft und verfehlen euch nur knapp. Eine Gestalt in mandalorianischer Rüstung wirft noch ein paar Granaten aus einem Shuttle, bevor sie ein Seil zu euch herunterlässt.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Spielt ihr diesen Einsatz im Rahmen der Minikampagne \"Tyrannen von Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "4f1c74f2-ebb7-4fbf-985d-cb259422cc82",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "e207aa67-4ea8-4359-bfaa-7c78f4545c8c",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "0ba34e01-d216-4e1d-a6e5-084b819b8751",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Light Flare 1",
+      "GUID": "e7c87a79-948c-43d2-84ce-bb6c436b710c",
+      "eventText": "Die Signalbake leuchtet auf.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 1",
+              "GUID": "978e86c8-1bf5-4969-a82e-1337fc5e5946",
+              "theText": "Die Signalbake wurde aktiviert und sendet das Zeichen zur Abholung.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Flare 2",
+              "GUID": "ccc9ddb7-1597-4068-9695-77aa0ce2e2bb",
+              "theText": "Eine alte Signalbake ist im hohen Gras versteckt.\n\n{-} Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu entzünden.",
+              "buttonList": [
+                {
+                  "GUID": "74e2f2b8-9df1-4407-8ee0-633530aa8e70",
+                  "theText": "{A} Aktivieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "8a546068-968d-47a3-99d3-f85608bb31c6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Light Flare 2",
+      "GUID": "6691f4dc-526d-4957-ab5c-6f41e1e1ce02",
+      "eventText": "Die Signalbake leuchtet auf.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 2",
+              "GUID": "f486d0f5-2018-4ae6-9844-faacdeb7b706",
+              "theText": "Die Signalbake wurde aktiviert und sendet das Zeichen zur Abholung.",
+              "buttonList": [
+                {
+                  "GUID": "ab2a6644-716d-4a90-8640-ddbf618d8f4e",
+                  "theText": ""
+                }
+              ]
+            },
+            {
+              "entityName": "Flare 1",
+              "GUID": "d08ac51e-6d8c-4000-80de-39775d884809",
+              "theText": "Eine alte Signalbake ist im hohen Gras versteckt.\n\n{-} Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu entzünden.",
+              "buttonList": [
+                {
+                  "GUID": "ecb42195-2b64-4185-ab34-b9b83986af82",
+                  "theText": "{A} Aktivieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "b95e4db9-2699-4f40-ae98-9ad2634375d7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose EoR 6",
+      "GUID": "98caa46e-9c66-420d-acf4-f1bb611f589c",
+      "eventText": "Explosionen erschüttern die Graslandschaft und verfehlen euch nur knapp. Eine Gestalt in mandalorianischer Rüstung wirft noch ein paar Granaten aus einem Shuttle, bevor sie ein Seil zu euch herunterlässt.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Spielt ihr diesen Einsatz im Rahmen der Minikampagne \"Tyrannen von Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "fa2af160-9420-468e-b5e6-510bffd7ea14",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "e477ac22-62ae-4bc1-8c88-c645aafe861f",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "b1310a82-a6a2-4c3c-94b5-293dbc83de58",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Extraction",
+      "GUID": "5eaf63ee-16f4-4acf-b56d-4325802d6adf",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Sind alle Helden auf der Hochebene (Spielplanteil Lothal 1B + Endteile)?",
+          "buttonList": [
+            {
+              "GUID": "7e9a9323-8b98-4896-a980-9be34634924c",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "2234c0c8-7daf-471b-bb00-62b978c6e5ae",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "a860318a-30e3-41f3-997a-eb7fe75745ea",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Deadly Reinforcements",
+      "GUID": "49eecdc6-74bd-4c09-adfd-e737caa39cb8",
+      "eventText": "Als sich der geheimnisvolle Frachter nähert, um euch herauszuholen, bemerkt ihr eine große, schwarz gepanzerte Gestalt, die sich durch das Gras an euch heranschleicht.",
+      "eventActions": []
+    },
+    {
+      "eventName": "DR Red 1",
+      "GUID": "eb8a5e8e-54eb-4bcc-a716-c1d682db5059",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0b44fbdb-01b6-4e0c-bb48-13a9c383c06c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "DR Red 2",
+      "GUID": "da3db78c-0222-41fe-83ad-d55227fa81a7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "d1408fb0-631a-4fc1-973e-8b58cff8b388",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Flare lit",
+      "GUID": "9946a3cb-eaca-4308-a83d-2e59c6929d00",
+      "eventText": "Geschafft. Die Signalbake ist aktiviert. Jetzt müsst ihr nur noch bis zur Abholung durchhalten.\n\n{-} Wenn sich alle Helden in Runde 6 zu Beginn der Statusphase auf der Hochebene (Spielplanteil Lothal 1B + Endteile) befinden, brechen die Helden auf.",
+      "eventActions": [
+        {
+          "shortText": "Begebt euch auf die Hochebene und haltet bis zum Ende von Runde 6 durch.",
+          "longText": null,
+          "GUID": "934de7db-bb04-4e4f-beeb-c87dfda44ac9",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich alle Helden in Runde 6 zu Beginn der Statusphase auf der Hochebene (Spielplanteil Lothal 1B + Endteile) befinden, brechen die Helden auf.\r\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "63eb5410-e28a-4074-aa84-a92a5948c1c6",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Versperre den Zugang zu der Hochebene.",
+          "GUID": "a738fc39-a402-4dfa-9bfc-e239876cda7f",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "e34c3439-87e3-4f2e-bf3e-74de40cebb38",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "35ce8ca5-b55d-4deb-adb6-6f3b402b1109",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "e4a239be-46e9-4900-8bde-7b22addd6076",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "c8076ba2-7821-4a91-a270-17f63c43b8a1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP DTrooper",
+      "GUID": "c0582188-b644-417a-84d6-ce48cec37d5d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "f4ffe43c-5aa5-42c6-9e0e-49ae207f02e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Shipment",
+      "GUID": "809ffe1c-f923-4dfb-a405-857eb3da9bc8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Extraction Point",
+      "GUID": "5623f69a-1069-4eaa-a0f9-149868929344",
+      "mainText": "Das Schiff eures Kontakts wartet hier.\n\n{-} Wenn die Lieferung dieses Feld betritt, klickt auf \"Lieferung abgeholt\".",
+      "buttonList": [
+        {
+          "GUID": "68abc7e8-d2e8-4208-a93a-0409a9dd21d5",
+          "theText": "Lieferung abgeholt"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "97874263-64e3-4d2e-a6de-e70812d70ca2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "023eb255-f92b-4d04-b9e1-c3fd8594bb96",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "c6afcb04-34c4-4bdc-86a5-a579dd780c2c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "f0b362ab-ed1f-4b50-84fb-63b6c6389f8a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "567b4688-4d18-4d5f-ba35-b076b643c91b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Extraction Point",
+      "GUID": "d1bc238a-30f2-4090-b981-7a772daee38b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 1",
+      "GUID": "a92e178c-0773-4db0-bef7-1fc6211f0544",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 2",
+      "GUID": "43de767d-41cc-4c6a-87bc-4c6ae20bb83a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 3",
+      "GUID": "f042d66b-ebf2-4988-85e7-df9ac4b13939",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Flare 1",
+      "GUID": "068d38fd-3572-4214-9dcf-3d9381f7e5dd",
+      "mainText": "Eine alte Signalbake ist im hohen Gras versteckt.\n\n{-} Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu entzünden.",
+      "buttonList": [
+        {
+          "GUID": "7fdf9b90-7eb4-47e7-b4a0-2e9749034984",
+          "theText": "{A} Aktivieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Flare 2",
+      "GUID": "52404f4c-cce7-4d88-8450-00bec3c2c091",
+      "mainText": "Eine alte Signalbake ist im hohen Gras versteckt.\n\n{-} Ein unversehrter Held kann mit einer Signalbake interagieren, um sie zu entzünden.",
+      "buttonList": [
+        {
+          "GUID": "8db9b2e0-0085-4d0f-8986-d499030d86f2",
+          "theText": "{A} Aktivieren"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Death Trooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

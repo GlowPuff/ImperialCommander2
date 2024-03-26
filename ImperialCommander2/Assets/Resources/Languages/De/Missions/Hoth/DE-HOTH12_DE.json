@@ -1,0 +1,400 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Vorbeugende Maßnahmen",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Rückkehr nach Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zur Tür.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "604a189d-2bc1-4c70-8779-8eb0ca5fc262",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "c453a4a2-1c8c-4574-a1ed-a6adf659d311",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "39dbc682-e362-434f-91e6-cb9df8a90f26",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "d600e7a5-6e56-40e0-a4c7-259ffbcb1271",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr marschiert so schnell wie möglich in Richtung der Haftanstalt, in der Draylen festgehalten wird, denn ihr wisst, dass er jeden Moment hingerichtet werden kann. Als ihr von Wachen erwartet werdet, schreitet MHD-19 ohne Furcht voran. Irgendwie könnt ihr sogar in seinen mechanischen Augen sehen, dass er seinen Freund unbedingt retten will.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Draylen wird am Ende von Runde 3 hingerichtet, wenn die Tür zum Inhaftierungs-Block geschlossen ist.\n{-} Der Einsatz schreitet voran, wenn die Tür zum Inhaftierungs-Block geöffnet wird.\n{-} Die Rebellen verlieren, wenn Draylen hingerichtet wird.",
+      "eventActions": [
+        {
+          "shortText": "Betretet den Inhaftierungs-Block.",
+          "longText": null,
+          "GUID": "217ffb66-2109-42f6-bb40-43c06f6840b7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Draylen wird am Ende von Runde 3 hingerichtet, wenn die Tür zum Inhaftierungs-Block geschlossen ist.\n{-} Der Einsatz schreitet voran, wenn die Tür zum Inhaftierungs-Block geöffnet wird.\n{-} Die Rebellen verlieren, wenn Draylen hingerichtet wird.",
+          "GUID": "fb7ec40f-7311-4072-86f5-5fba7aae2e3b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "\"Dee?\", sagt Draylen verwirrt, als er in das Gesicht des Droiden blickt. \"Du bist wegen mir gekommen. Ich wusste, du würdest...\" Er schläft vor Erschöpfung ein, während MHD-19 sich pflichtbewusst um seine Verletzungen kümmert.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} MHD-19 erhält die Belohnungskarte \"Hardware-Upgrade\".\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "MHD-19 blickt in die sterbenden Augen seines ehemaligen Befreiers. \"Es ist nicht deine Schuld, Dee\", sagt Draylen mit seinem letzten Atemzug. Der Droide ist tagelang in tiefe Trauer versunken.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Draylen executed",
+      "GUID": "2af32c1f-e279-4bc5-9155-96266a2fb9e0",
+      "eventText": "Ihr kämpft immer noch mit den Verteidigern der Anlage, als ihr eine Durchsage über die Kommunikationssysteme der Station hört. \"Hinrichtung eingeleitet.\" Ein einzelner Blasterschuss ertönt.\n\nSpäter findet ihr Draylen außerhalb der Anlage, wo er kurzerhand in den Schnee geworfen wurde, der durch sein Blut rot gefärbt ist. Nicht einmal die Fähigkeiten von MHD-19 können ihn retten.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Impassable",
+      "GUID": "9d2c4fcf-1453-4927-8d00-ed320bd71839",
+      "eventText": "Die Tür zur Haftanstalt gleitet auf.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "59503b8e-5f59-45a0-b671-0de2d4b6fcd3",
+              "theText": "Eine robuste Tür führt in die Haftanstalt.",
+              "buttonList": [
+                {
+                  "GUID": "7d63729e-0d97-47e2-a903-e361b108fba4",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "0fd421d9-1f19-40b0-8faa-df6b36b01384",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Als ihr hereinstürmt, um nach Draylen zu suchen, bringen sich rot gepanzerte Wachen in Position, um euch den Weg zu versperren.",
+          "GUID": "9e919ad4-9ffc-4417-92dc-98094fe33e52",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f4036bbd-01cf-4384-bcba-6bfd249b2dd0",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Loyalty Fulfilled",
+      "GUID": "6b5deffb-8a13-46f8-9c10-5b4b2160d27c",
+      "eventText": "Endlich wird die Tür zum Inhaftierungs-Block aufgesprengt. Dahinter liegt ein großer Raum, in dem alles für die Hinrichtung vorbereitet wird.",
+      "eventActions": [
+        {
+          "repositionText": "Versperre den Zugang zum Evakuierungspunkt.",
+          "GUID": "0be64fde-67df-477e-91eb-9fd7f5ab485f",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "19a67bb7-c259-4133-9634-41b126a213b3",
+              "theText": "Eine Transparistahl-Tür führt in den Inhaftierungs-Block.",
+              "buttonList": [
+                {
+                  "GUID": "a07ad75d-fece-47d9-b39e-17b38af60c50",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "93ce0092-5c00-49e2-9534-85bf3877c93b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Draylens Wärter eilen sofort herbei, um euch aufzuhalten.",
+          "GUID": "1e241bc0-bc73-4372-b79a-87bf2170e2e4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Am anderen Ende des Raums blickt ein erschöpfter Draylen überrascht auf und scheint dann Kraft aus eurem Erscheinen zu schöpfen. Er schafft es, seine Fesseln zu lösen und stolpert auf die Beine.",
+          "GUID": "8124f053-d79e-4a0e-9d74-ca2c89a984b7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Draylen",
+              "GUID": "23eca03f-26f8-49ad-9379-759b933ac1f8",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "b227d982-d16a-4e5f-8e7a-77abc59e88b4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Der Rebellen-Einsatzmarker stellt Draylen dar. Draylen ist eine Rebellenfigur (Gesundheit: 6 plus Bedrohungsgrad, Geschwindigkeit: 2, Verteidigung: 1 weißer Würfel). Die Helden kontrollieren Draylen als Verbündeten.\n{-} Wenn ein Angriff auf Draylen deklariert wird, kann sich ein unversehrter Held, der benachbart ist, dafür entscheiden, ihn zu verteidigen. Wenn er dies tut, füge 1 schwarzen Würfel zum Verteidigungspool hinzu. Nachdem der Angriff durchgeführt wurde, erleidet dieser Held {H} in Höhe der {G}-Ergebnisse.",
+          "GUID": "a33751b7-83ff-47bd-830a-973780553080",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Draylen",
+              "GUID": "bac184e0-9c03-4554-9b82-74e1e8fd5918",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Evacuation Point",
+              "GUID": "4d0445fb-7b6d-4ce6-9406-09a315bbd4cd",
+              "theText": "Euer Flucht-Shuttle wartet direkt hinter diesem Hügel.\n\n{-} Draylen kann durch den Evakuierungspunkt entkommen. Wenn er das tut, klicke auf \"Draylen entkommt\", um den Einsatz zu beenden.",
+              "buttonList": [
+                {
+                  "GUID": "8ab426f8-299b-49cb-8c88-aa9307da1373",
+                  "theText": "Draylen entkommt (Einsatz beenden)"
+                }
+              ]
+            }
+          ],
+          "GUID": "8f35acd5-4b38-4112-9b6b-16712a46313c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Ihr stürmt vor, um Draylen zu beschützen.\n\n{-} Draylen kann über den Evakuierungspunkt entkommen (grün hervorgehobener Bereich). Wenn er das tut, klicke auf den grün hervorgehobenen Bereich und wähle \"Draylen entkommt\".\n{-} Die Rebellen gewinnen, wenn Draylen entkommt.\n{-} Die Rebellen verlieren, wenn Draylen besiegt wird.",
+          "GUID": "4dc8c75f-e05a-4976-9dfb-8e029e4ffe83",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Helft Draylen zu entkommen.",
+          "longText": null,
+          "GUID": "91c8c262-9e6e-40c6-aa7a-3f430f6d4653",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Der Rebellen-Einsatzmarker stellt Draylen dar. Draylen ist eine Rebellenfigur (Gesundheit: 6 plus Bedrohungsgrad, Geschwindigkeit: 2, Verteidigung: 1 weißer Würfel). Die Helden kontrollieren Draylen als Verbündeten.\n{-} Wenn ein Angriff auf Draylen deklariert wird, kann sich ein unversehrter Held, der benachbart ist, dafür entscheiden, ihn zu verteidigen. Wenn er dies tut, füge 1 schwarzen Würfel zum Verteidigungspool hinzu. Nachdem der Angriff durchgeführt wurde, erleidet dieser Held {H} in Höhe der {G}-Ergebnisse.\r\n{-} Draylen kann über den Evakuierungspunkt entkommen (grün hervorgehobener Bereich). Wenn er das tut, klicke auf den grün hervorgehobenen Bereich und wähle \"Draylen entkommt\".\n{-} Die Rebellen gewinnen, wenn Draylen entkommt.\n{-} Die Rebellen verlieren, wenn Draylen besiegt wird.",
+          "GUID": "7753dc06-8b68-4761-821a-d2949b65a0c1",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "8958ce02-fea6-4f51-bbff-af4e635b9aad",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "937ec489-0d1b-4538-a507-7c509d8209e0",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "4ad06caa-79bb-4314-b6b6-c4a10a6ae815",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP STrooper 1",
+      "GUID": "98c64c49-1dc2-4712-b957-920c8ec8e6fe",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP STrooper 2",
+      "GUID": "63f41c77-c534-444c-9b53-56a5ff06e3f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP STrooper 3",
+      "GUID": "8d2f7d5a-bcc7-4280-b04f-e8c684739cf0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "dd1c99d9-5265-449c-90b0-42a4c299ffb3",
+      "mainText": "Eine robuste Tür führt in die Haftanstalt.",
+      "buttonList": [
+        {
+          "GUID": "eb4472c9-0ee0-4fb2-b292-74bc3f951196",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "0b8c1c73-ed0f-465c-adf4-20d0e2482d30",
+      "mainText": "Eine Transparistahl-Tür führt in den Inhaftierungs-Block.",
+      "buttonList": [
+        {
+          "GUID": "151d6701-980d-4218-8b95-823004b5fc23",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "c3592ca4-f6a3-4d50-9686-28c5a0577eb8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "a92c7ce7-041f-4941-b38a-9dd2cb4dbea8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Draylen",
+      "GUID": "3d67379d-0ddf-4d4c-b34d-789541cd4f05",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Evacuation Point",
+      "GUID": "f78b99d6-349c-42d7-bda4-da7d176d701a",
+      "mainText": "Euer Flucht-Shuttle wartet direkt hinter diesem Hügel.\n\n{-} Draylen kann durch den Evakuierungspunkt entkommen. Wenn er das tut, klicke auf \"Draylen entkommt\", um den Einsatz zu beenden.",
+      "buttonList": [
+        {
+          "GUID": "47b1bbd1-7e27-4814-9ea4-854316bc5b91",
+          "theText": "Draylen entkommt (Einsatz beenden)"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Snowtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

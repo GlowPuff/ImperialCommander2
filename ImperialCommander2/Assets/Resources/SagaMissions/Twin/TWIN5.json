@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "TWIN5.json",
   "fileVersion": "22",
-  "saveDate": "2/28/2024",
-  "timeTicks": 638447395011988256,
+  "saveDate": "3/25/2024",
+  "timeTicks": 638469776399727911,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Fire in the Sky",
@@ -15,11 +15,11 @@
     "startingObjective": "Open the doors.",
     "missionID": "Twin 5",
     "customMissionIdentifier": "a0734e77-2089-42d2-a13f-b24e60f28868",
-    "missionInfo": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} Doors are locked. A hero can interact with the green terminal ({I}) to open the doors leading into the ship.\r\n{-} The mission will progress when the doors leading into the ship open.\r\n{-} The Rebels lose at the end of Round 9, or when all heroes are wounded.",
+    "missionInfo": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} Doors are locked. A hero can interact with the green terminal ({I}) to open the doors leading into the ship.\r\n{-} The mission will progress when the doors leading into the ship open.\r\n{-} The Rebels lose when all heroes are wounded.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 9,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Block access to the terminals.",
@@ -67,48 +67,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "8be8b63a-2a58-4838-92b3-38788382993c",
@@ -268,48 +228,8 @@
       "name": "Section 2 - Inner Ship",
       "GUID": "f5c01c8b-6887-4734-842d-dde693caa58a",
       "invisibleUntilActivated": true,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "c8aac7c7-2f06-4743-a465-19f72893db3f",
@@ -580,7 +500,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "This Star Destroyer has posed a threat in this area for far too long, and the time has finally come to do something about it. You have been sent in to invade the ship, take out its defenses, and trigger its destruction however you can.\r\n\r\nFlying toward the massive starship, you transmit stolen Imperial codes to override its detectors, praying that they work. You stare at the turbolasers, waiting for them to activate, but they never do; it looks like you'll make it through this phase of the journey, at least.\r\n\r\nYour pilot transmits the code to open the hangar, and you fly in and land your shuttle. As expected, this phase is met with considerably more resistance. An officer triggers the alarm, causing Imperials to begin flooding into the hangar. This you were ready for, however, and you draw your weapons and charge the Imperials, eager to complete the mission.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} Doors are locked. A hero can interact with the green terminal ({I}) to open the doors leading into the ship.\r\n{-} The mission will progress when the doors leading into the ship open.\r\n{-} The Rebels lose at the end of Round 9, or when all heroes are wounded.",
+      "eventText": "This Star Destroyer has posed a threat in this area for far too long, and the time has finally come to do something about it. You have been sent in to invade the ship, take out its defenses, and trigger its destruction however you can.\r\n\r\nFlying toward the massive starship, you transmit stolen Imperial codes to override its detectors, praying that they work. You stare at the turbolasers, waiting for them to activate, but they never do; it looks like you'll make it through this phase of the journey, at least.\r\n\r\nYour pilot transmits the code to open the hangar, and you fly in and land your shuttle. As expected, this phase is met with considerably more resistance. An officer triggers the alarm, causing Imperials to begin flooding into the hangar. This you were ready for, however, and you draw your weapons and charge the Imperials, eager to complete the mission.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} Doors are locked. A hero can interact with the green terminal ({I}) to open the doors leading into the ship.\r\n{-} The mission will progress when the doors leading into the ship open.\r\n{-} The Rebels lose when all heroes are wounded.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -653,6 +573,12 @@
           "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
           "eventActionType": 5,
           "displayName": "Question Prompt"
+        },
+        {
+          "creditsToModify": 100,
+          "displayName": "Modify Credits",
+          "GUID": "5971bda0-54fe-4d7f-8131-e20a9a483139",
+          "eventActionType": 25
         }
       ]
     },
@@ -668,7 +594,7 @@
       "startOfRound": 1,
       "endOfRound": 9,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -827,6 +753,18 @@
           "GUID": "a923b249-e777-4e8b-9f03-1438a308557d",
           "eventActionType": 0,
           "displayName": "Mission Management"
+        },
+        {
+          "xpToAdd": 1,
+          "displayName": "Modify XP",
+          "GUID": "817369e5-8bb1-4c3c-b279-0a00986c1009",
+          "eventActionType": 24
+        },
+        {
+          "creditsToModify": 100,
+          "displayName": "Modify Credits",
+          "GUID": "78b836cb-2442-418f-b3e6-986fbec6b8ad",
+          "eventActionType": 25
         }
       ]
     },
@@ -866,7 +804,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} Doors are locked. The blue terminal can be destroyed (Health: *2*, Defense: 2 {G}). When it is, the door to the weapons console opens.\r\n{-} The mission will progress when the door protecting the weapons console opens.\r\n{-} The Rebels lose at the end of Round 9, or when all heroes are wounded.",
+          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} Doors are locked. The blue terminal can be destroyed (Health: *2*, Defense: 2 {G}). When it is, the door to the weapons console opens.\r\n{-} The mission will progress when the door protecting the weapons console opens.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "bc0c3004-4114-4730-877e-47392e84d188",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1096,7 +1034,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The red Imperial mission token represents the weapons console. A hero can interact with the weapons console ({I} or {J}) to slice it.\r\n{-} The blue Rebel mission token represents the Exit.\r\n{-} After the weapons console has been sliced, if all heroes are on or adjacent to the Exit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.\r\n{-} The Rebels lose at the end of Round 9, or when all heroes are wounded.",
+          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The red Imperial mission token represents the weapons console. A hero can interact with the weapons console ({I} or {J}) to slice it.\r\n{-} The blue Rebel mission token represents the Exit.\r\n{-} After the weapons console has been sliced, if all heroes are on or adjacent to the Exit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "57714259-4d93-4af2-ab10-e0327211555b",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1332,7 +1270,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The blue Rebel mission token represents the Exit. If all heroes are on or adjacent to the Exit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.\r\n{-} The Rebels lose at the end of Round 9, or when all heroes are wounded.",
+          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The blue Rebel mission token represents the Exit. If all heroes are on or adjacent to the Exit, the heroes depart.\r\n{-} The Rebels win when the heroes depart.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "6a7996c0-29d9-4b73-bf2d-670328f06a32",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1546,7 +1484,6 @@
       "entityType": 5,
       "entityPosition": "850,1030",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,

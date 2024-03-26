@@ -1,0 +1,485 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Ich bin noch nicht fertig",
+    "missionDescription": "",
+    "missionInfo": "{-} Platziere 1 neutralen Einsatzmarker auf jedem grün hervorgehobenen Feld. Dies sind Sprengsätze. Eine Figur kann bis zu 2 Sprengsätze tragen. \n{-} Ein Held kann 2 Bewegungspunkte ausgeben, um einen Sprengsatz aufzuheben, ohne eine Aktion aufzuwenden. Dann darf der Held eine Probe auf {K} ablegen. Bei Erfolg erhält der Held 1 Bewegungspunkt.\n{-} Ein Held kann 2 Bewegungspunkte ausgeben und einen Sprengsatz ablegen, den er trägt, um ein bis zu 2 Felder entferntes Feld zu wählen und einen roten Würfel zu werfen. Jede Figur und jedes Objekt auf oder benachbart zu dem gewählten Feld erleidet {H} in Höhe des {H}-Ergebnisses.\n{-} Türen sind verriegelt. Sie können nicht angegriffen werden, können aber {H} erleiden (Gesundheit: 4).\n{-} Die Rebellen gewinnen, wenn alle Kontrollterminals zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+    "campaignName": "Im Herzen des Imperiums",
+    "startingObjective": "Findet und zerstört die Steuerterminals (&Terminals&/2).",
+    "repositionOverride": "Versperre den Zugang zu Sprengsätzen, Terminals und Türen.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "1d677f56-0cf7-4d43-bf01-ac19b7b15ae4",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "fe29fd35-956a-429d-97fc-68295946a667",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d757dbd3-b86f-42ce-a031-5ee6de0f7ddb",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "2b532819-3393-47d9-876a-030c4655d99e",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "e569f04d-df13-4366-b9b5-b0af3df0c882",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "4e4e7e34-23c5-4dc7-81ce-3ade51351c76",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Drokkattas Gesichtsausdruck verfinstert sich, als das Sklavenlager in Sichtweite kommt. Drokkatta deutet auf die Sprengsätze, die für den Abbau des Lagers verwendet werden, und gibt knurrend den Plan zu verstehen. Wenn ihr die zentralen Systeme des Lagers finden könnt, könnt ihr eine verheerende Kettenreaktion auslösen.\n\n{-} Stelle die Helden auf dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind verriegelt. Sie können nicht angegriffen werden, können aber {H} erleiden (Gesundheit: 4).\n{-} Die Rebellen gewinnen, wenn alle Kontrollterminals zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+      "eventActions": [
+        {
+          "tbText": "{-} Platziere 1 neutralen Einsatzmarker auf jedem grün hervorgehobenen Feld. Dies sind Sprengsätze. Eine Figur kann bis zu 2 Sprengsätze tragen. \n{-} Ein Held kann 2 Bewegungspunkte ausgeben, um einen Sprengsatz aufzuheben, ohne eine Aktion aufzuwenden. Dann darf der Held eine Probe auf {K} ablegen. Bei Erfolg erhält der Held 1 Bewegungspunkt.\n{-} Ein Held kann 2 Bewegungspunkte ausgeben und einen Sprengsatz ablegen, den er trägt, um ein bis zu 2 Felder entferntes Feld zu wählen und einen roten Würfel zu werfen. Jede Figur und jedes Objekt auf oder benachbart zu dem gewählten Feld erleidet {H} in Höhe des {H}-Ergebnisses.",
+          "GUID": "509d8166-6ee0-4752-9900-c635d4a05a71",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Drokkatta brüllt triumphierend, während das Sklavenlager um euch herum brennt und die Wachen und Offiziere verängstigt flüchten. Ihr erreicht den Ort, an dem die Sklaven festgehalten werden, öffnet die Zellentüren, und die wiedervereinten Wookiees umarmen sich.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Drokkatta erhält die Belohnungskarte \"Wookiee-Gebrüll\".\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Das verzweifelte Heulen der Wookiee-Sklaven erfüllt die Luft, während ihr gerade noch entkommen könnt. Aus der Luft seht ihr, wie sie ihre Hände in den Himmel strecken, als ob sie nach ihrer verlorenen Freiheit greifen wollten.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Well Guarded",
+      "GUID": "ab06dbe0-3e59-4f7e-bd56-504af492a40d",
+      "eventText": "Als sich der Rauch über den Türtrümmern lichtet, bietet sich euch ein furchteinflößender Anblick: Eine tragbare Kanone, die von einem Spähtruppler bedient wird, zielt direkt auf euch.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Guard Post Door",
+              "GUID": "96bc87f4-1203-4303-ad4b-4a521038b525",
+              "theText": "Die Tür zum Wachposten ist fest verriegelt.\n\n{-} Die Tür kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 4).",
+              "buttonList": [
+                {
+                  "GUID": "cadfd50e-40bf-4880-af23-19d4ad1394fa",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "Bonus Explosive 1",
+              "GUID": "4a7ff3b4-1bce-472c-ae7f-5f4c87d46e3a",
+              "theText": "Platziere hier einen Sprengsatz.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "5e314a5b-7379-495d-a85e-ab1f8beab5d3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "741b542f-6ece-4744-967a-809c6a2c8823",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "tbText": "In einigen Regalen liegen weitere Sprengladungen.\n\n{-} Platziere einen Sprengsatz auf dem hervorgehobenen Feld.",
+          "GUID": "69a334f7-b2ff-415e-a5c4-ace74fec474c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Break Time is Over",
+      "GUID": "84d02e4c-dfa7-470d-9b3b-3d058b0f9e95",
+      "eventText": "Die Tür wird durch die Explosion aufgerissen und hinterlässt ein klaffendes Loch in der Wand. Im Pausenraum dahinter springen einige Feinde von ihren Sitzen auf und ziehen ihre Waffen. Weitere Sprengsätze liegen in einer Ecke.\n\n{-} Platziere einen Sprengsatz auf jedem der hervorgehobenen Felder.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Mess Hall Door",
+              "GUID": "e647fce4-f9ca-4baa-a792-1167100dd076",
+              "theText": "Die Tür zum Pausenraum ist fest verriegelt.\n\n{-} Die Tür kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 4).",
+              "buttonList": []
+            },
+            {
+              "entityName": "Bonus Explosive 2-3",
+              "GUID": "fc4a1482-a366-4373-aaf0-2b65668e75ce",
+              "theText": "Platziere auf jedem dieser Felder einen Sprengsatz.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "920c7a0f-0110-46a1-ba01-eca57a686588",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Strike at the Heart",
+      "GUID": "98d4a82a-c4c4-4e21-949e-126dae153169",
+      "eventText": "Da ist sie - die Steuerzentrale. Die Terminals summen leise im Zwielicht. Mehr Feinde rücken vor, um euch aufzuhalten.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control Center Door",
+              "GUID": "7ec728ec-4aab-4959-a1cb-c8497170e107",
+              "theText": "Die Tür zur Steuerzentrale ist fest verriegelt.\n\n{-} Die Tür kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 4).",
+              "buttonList": []
+            },
+            {
+              "entityName": "Bonus Explosive 4",
+              "GUID": "49558f89-c991-4920-98c7-2c5048b39207",
+              "theText": "Platziere hier einen Sprengsatz.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "d31f2376-caf8-425e-b51a-e7acb87ba907",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "In einigen Regalen liegen weitere Sprengladungen.\n\n{-} Platziere einen Sprengsatz auf dem hervorgehobenen Feld.",
+          "GUID": "2cdf00fb-e625-4d7b-a5e3-ef78866b2f5a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 1 Destroyed",
+      "GUID": "3e89c37c-de21-4a5f-ba26-642a4f297e60",
+      "eventText": "Das Terminal explodiert mit einem lauten Knall.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "6df2c520-5645-4a0e-8514-a53764b83192",
+              "theText": "Das Kontrollterminal enthält alle Daten, die für den Betrieb der Sklavenhändler notwendig sind.\n\n{-} Das Terminal kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 3).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "ff9fe04a-8adf-46f4-8b78-0ba32cb54e17",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 2 Destroyed",
+      "GUID": "ad009194-1a6f-48c9-8947-56ef25e4af8a",
+      "eventText": "Das Terminal explodiert mit einem lauten Knall.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "a7745b69-13b9-452f-86ad-ba02a6fdb365",
+              "theText": "Das Kontrollterminal enthält alle Daten, die für den Betrieb der Sklavenhändler notwendig sind.\n\n{-} Das Terminal kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 3).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "23de8989-f58e-462a-ba0f-90fa117b6984",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "54f93e35-087b-4b94-a81f-e607209a1ea5",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "1564d569-84e0-4395-a3f7-7a3f215dde81",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "39d5451b-f482-4f60-8469-345961622c64",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3feeba55-873e-479e-b271-4277bbeb703d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "fa4b5786-1385-4de8-819b-cc8c9c7d3a24",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "dc5a0bb6-0d25-4450-b831-4f61afbc9d0d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "674b8b91-cded-4b3a-b28b-d44e68c95f74",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "961452c2-5844-4114-b5ae-3ab0ffb8bb5d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Bonus Explosive 1",
+      "GUID": "b3c559cd-a0a7-46c6-8692-91a81a021304",
+      "mainText": "Platziere hier einen Sprengsatz.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 1-2",
+      "GUID": "27276092-60ee-4410-a648-537a22cb6e22",
+      "mainText": "Platziere auf jedem dieser Felder einen Sprengsatz.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 3-6",
+      "GUID": "18f0c238-a719-4b2e-85d2-755f5ba45fa2",
+      "mainText": "Platziere auf jedem dieser Felder einen Sprengsatz.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 7-8",
+      "GUID": "d4e096d9-1503-47f7-96de-89dad916d12b",
+      "mainText": "Platziere auf jedem dieser Felder einen Sprengsatz.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Explosives 9-12",
+      "GUID": "47abd7cd-9e2d-46cd-aed0-49b45ae1062f",
+      "mainText": "Platziere auf jedem dieser Felder einen Sprengsatz.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Guard Post Door",
+      "GUID": "b8bfb5cc-fbf1-4dfd-b203-02f6c695ea4a",
+      "mainText": "Die Tür zum Wachposten ist fest verriegelt.\n\n{-} Die Tür kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 4).",
+      "buttonList": [
+        {
+          "GUID": "56fdaf18-14fe-4660-9a99-41fff4a780a2",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Mess Hall Door",
+      "GUID": "ce3bf3f2-9679-42da-be60-45449af273c0",
+      "mainText": "Die Tür zum Pausenraum ist fest verriegelt.\n\n{-} Die Tür kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 4).",
+      "buttonList": [
+        {
+          "GUID": "b73fd9ed-2046-4e04-b38e-f0b4abea7075",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Control Center Door",
+      "GUID": "32c538b2-30c1-418c-a054-3f812eb247f1",
+      "mainText": "Die Tür zur Steuerzentrale ist fest verriegelt.\n\n{-} Die Tür kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 4).",
+      "buttonList": [
+        {
+          "GUID": "057adc3f-5f71-4f85-a492-330426abc987",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "fa408722-f9d9-4254-afb9-10f1c0b578d6",
+      "mainText": "Das Kontrollterminal enthält alle Daten, die für den Betrieb der Sklavenhändler notwendig sind.\n\n{-} Das Terminal kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 3).",
+      "buttonList": [
+        {
+          "GUID": "27e9f853-fab2-4845-9459-e180c30e093b",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "2b4643de-7c94-4cdf-a266-515af895a44a",
+      "mainText": "Das Kontrollterminal enthält alle Daten, die für den Betrieb der Sklavenhändler notwendig sind.\n\n{-} Das Terminal kann nicht angegriffen werden, kann aber {H} erleiden (Gesundheit: 3).",
+      "buttonList": [
+        {
+          "GUID": "8b35ab2d-d9a5-4b8c-b437-57d2a0f5ac8c",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Bonus Explosive 2-3",
+      "GUID": "16845ce3-4d6f-4322-96c1-c03d0194f877",
+      "mainText": "Platziere auf jedem dieser Felder einen Sprengsatz.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Bonus Explosive 4",
+      "GUID": "51430dd1-253c-40e8-a452-e783821d765b",
+      "mainText": "Platziere hier einen Sprengsatz.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "58a56a1f-5c4b-4504-a296-3cd098f27824",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

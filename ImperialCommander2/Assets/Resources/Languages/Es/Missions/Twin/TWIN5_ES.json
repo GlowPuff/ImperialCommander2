@@ -1,0 +1,544 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Fuego en el cielo",
+    "missionDescription": "",
+    "missionInfo": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.\r\n{-} La misión avanza cuando las puertas que llevan al interior de la nave se abren.\r\n{-} Los Rebeldes pierden al final de la ronda 9, o cuando todos los Héroes están heridos.",
+    "campaignName": "Sombras Gemelas",
+    "startingObjective": "Abrir las puertas.",
+    "repositionOverride": "Bloquear el acceso a los terminales.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "4a7bd81f-cc8d-457a-8dcc-54dfd186b615",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "a1e5975e-bdc8-42bb-b091-8a946ac43630",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "dc42ba6c-3af5-4a6a-8c89-20d7958b7fb1",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Este destructor estelar lleva demasiado tiempo suponiendo una amenaza para la zona, y ha llegado la hora de hacer algo al respecto. Habéis sido enviados a abordar la nave, eliminar sus defensas y provocar su destrucción de cualquier forma que podáis.\r\n\r\nVoláis hacia la descomunal astronave, transmitís los códigos imperiales robados para evitar sus detectores y rezáis para que funcionen. Miráis fijamente los turboláseres, temiendo que se activen, pero nunca lo hacen; parece que al menos sobreviviréis a esta parte del viaje.\r\n\r\nVuestro piloto transmite el código para abrir el hangar y aterriza vuestra lanzadera en el interior. Como esperabais, en esta parte del plan encontráis considerablemente más resistencia. Un oficial activa la alarma, provocando que las tropas imperiales comiencen a inundar el hangar. Sin embargo, venís preparados para esto y sacáis vuestras armas para cargar contra los imperiales, deseosos de completar la misión.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.\r\n{-} La misión avanza cuando las puertas que llevan al interior de la nave se abren.\r\n{-} Los Rebeldes pierden al final de la ronda 9, o cuando todos los Héroes están heridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Subís a bordo de la lanzadera mientras los disparos de los blásteres impactan a vuestro alrededor. Vuestro piloto pisa el acelerador y despega del hangar para poneros a salvo. Por la ventana, veis cómo los turboláseres del destructor estelar, ahora dirigidos por el control remoto que habéis instalado en la consola de armas, se apuntan mutuamente y disparan. Una serie de explosiones, primero pequeñas y cada vez más grandes, se propagan por toda la astronave hasta que una última explosión la hace pedazos. Voláis hacia las estrellas, dejando fuego y trozos de metal quemado tras vosotros.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": [
+        {
+          "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
+          "buttonList": [
+            {
+              "GUID": "14800255-708a-4ee4-9ed1-828ca7bc16d6",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "92fff5d7-837e-4965-8ae8-958e8924ffd1",
+              "theText": "No"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Fuisteis unos ingenuos al pensar que podríais invadir una astronave imperial tan bien protegida. Estáis completamente superados por las patrullas y los soldados, y os adentráis en lo más profundo de la nave en busca de un lugar donde esconderos hasta que podáis escapar.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Aumenta el nivel de amenaza de la próxima misión (y solo de la próxima misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": [
+        {
+          "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
+          "buttonList": [
+            {
+              "GUID": "ee6ebbab-cf82-4690-bc65-18ca1bf67e9b",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "e7807218-5db3-4cf5-bb4b-6e13fb36d153",
+              "theText": "No"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "¡Éxito! La destrucción de un destructor estelar siempre es una gran victoria para la Rebelión, pero al ser esta la base de operaciones de toda la actividad imperial contra la Alianza en este planeta, la victoria es todavía más dulce. Aunque captáis numerosas señales de naves de salvamento escapando de la zona, incluido el Esclavo I, sabéis que la misión ha sido un completo éxito.\r\n\r\nDedicáis un tiempo a buscar a varios agentes rebeldes en el planeta e informarles de la situación y su resolución, además de a celebrar la victoria.\r\n\r\nPero lo mejor de todo es que con la interferencia del destructor estelar neutralizada, los canales de comunicación con el Alto Mando vuelven a estar abiertos. Al fin podéis contactar con vuestros superiores e informarles de que no sólo habéis descubierto una nueva amenaza imperial, sino que ya la habéis neutralizado. Al recibir estas maravillosas noticias, el Alto Mando os solicita que regreséis al cuartel general de la Alianza para recibir condecoraciones por vuestra habilidad y vuestro valor.\r\n\r\n{-} ¡Los Rebeldes ganan la campaña!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Avanzáis a escondidas por el destructor estelar, intentando manteneros a salvo e incluso completar la misión si podéis. De repente, os encontráis acorralados por Kayn Somos, el poderoso comandante de los soldados de asalto, que empuña su bláster. Cuando todo parece perdido, escucháis a vuestro piloto en el comunicador, que habla con tono sombrío.\r\n\r\n-Ha sido un placer servir a vuestro lado, pero parece que este es el final del camino. He alcanzado el control de armas; la misión está por encima de todo. ¡Larga vida a la República!\r\n\r\nEl comunicador se queda mudo y a continuación escucháis varios ruidos mecánicos cuando el sistema de turboláseres de la nave se activa y se vuelve contra ella misma. Sentís pequeños temblores y ondas expansivas a medida que explosiones cada vez mayores recorren la nave. La misión ha sido completada, pero se ha pagado un alto precio. Sólo os queda esperar que vuestro sacrificio no haya sido en vano.\r\n\r\nLarga vida a la República.\r\n\r\n{-} Los Rebeldes pierden la campaña.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Heavy Security",
+      "GUID": "1d1405ca-441a-4bdf-a5b7-5a912fa455d7",
+      "eventText": "Las puertas se abren, revelando el puente del Destructor Estelar. Podéis oír una voz que viene de un comunicador: -La nave ha llegado-. Mientras los soldados imperiales se giran para enfrentarse a vosotros y proteger el terminal de seguridad, veis la silueta de Boba Fett entrando en la sala que hay tras ellos.\r\n\r\n{-} Las puertas están selladas. El terminal azul puede ser destruido (Vida: *2*, Defensa: 2 {G}). Cuando es destruido, la puerta de la consola de armas se abre.\r\n{-} La misión avanza cuando la puerta que protege la consola de armas se abre.",
+      "eventActions": [
+        {
+          "shortText": "Destruir el terminal azul.",
+          "longText": null,
+          "GUID": "b4987cd3-72a8-473f-b21e-5b2c0a1041f2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Las puertas están selladas. El terminal azul puede ser destruido (Vida: *2*, Defensa: 2{G}). Cuando es destruido, la puerta de la consola de armas se abre.\r\n{-} La misión avanza cuando la puerta que protege la consola de armas se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 9, o cuando todos los Héroes están heridos.",
+          "GUID": "bc0c3004-4114-4730-877e-47392e84d188",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bridge Door 1",
+              "GUID": "7592261b-80d8-4d01-a3d9-435f58886662",
+              "theText": "Esta puerta lleva a la parte interior del Destructor Estelar.\r\n\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Bridge Door 2",
+              "GUID": "75f3e0f0-1a75-4d88-849a-7802968426da",
+              "theText": "Esta puerta lleva a la parte interior del Destructor Estelar.\r\n\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Green Terminal",
+              "GUID": "3378f333-7f5d-4ab1-a78a-580608ff0182",
+              "theText": "Un terminal empotrado en la esquina controla el cierre de las puertas.\r\n\r\n{-} Un Héroe puede interactuar con el terminal verde ({I}) para tratar de abrir las puertas que llevan al interior de la nave.",
+              "buttonList": [
+                {
+                  "GUID": "5c3828d9-d72c-4d5f-97f5-d4ff17f00dbf",
+                  "theText": "{A} Piratear"
+                }
+              ]
+            }
+          ],
+          "GUID": "c33ccbb4-dc8b-4be7-a258-4801f2f0b7a2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "c3553617-4f6d-440b-9c0b-1417e7443469",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a71c6899-c9c8-4d22-a37e-f9ac3ee173b1",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG076/Boba Fett"
+        }
+      ]
+    },
+    {
+      "eventName": "Blow this Thing and Go Home",
+      "GUID": "71750480-de81-4152-b0da-f1f0033e0b5a",
+      "eventText": "El terminal de seguridad chisporrotea y explota con una lluvia de chispas, provocando que la puerta de la consola de armas se abra rápidamente. Con esta consola podríais conseguir que los turboláseres de la nave se volvieran contra la propia nave.\r\n\r\n{-} La ficha de Misión roja Imperial representa la consola de armas. Un Héroe puede interactuar con la consola de armas ({I} o {J}) para piratearla.\r\n{-} La ficha de Misión azul Rebelde representa la Salida.\r\n{-} Cuando la consola de armas haya sido pirateada, si todos los Héroes están en la Salida o adyacentes a ella, los Héroes escapan.\r\n{-} Los Rebeldes ganan cuando los Héroes escapan.",
+      "eventActions": [
+        {
+          "shortText": "Piratear la consola de armas.",
+          "longText": null,
+          "GUID": "f867205c-6a5a-478b-aaf1-3be6fde80bf7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La ficha de Misión roja Imperial representa la consola de armas. Un Héroe puede interactuar con la consola de armas ({I} o {J}) para piratearla.\r\n{-} La ficha de Misión azul Rebelde representa la Salida.\r\n{-} Cuando la consola de armas haya sido pirateada, si todos los Héroes están en la Salida o adyacentes a ella, los Héroes escapan.\r\n{-} Los Rebeldes ganan cuando los Héroes escapan.\r\n{-} Los Rebeldes pierden al final de la ronda 9, o cuando todos los Héroes están heridos.",
+          "GUID": "57714259-4d93-4af2-ab10-e0327211555b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Weapons Door",
+              "GUID": "eb303811-30a0-414d-9eb1-e7eb83164e3f",
+              "theText": "El terminal de seguridad del puente controla la puerta de la consola de armas.\r\n\r\n{-} Cuando el terminal azul es destruido, la puerta de la consola de armas se abre.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Exit",
+              "GUID": "d6652de1-0f86-4d16-8f34-d1c467204ff9",
+              "theText": "Vuestra lanzadera espera en el extremo del hangar.\r\n\r\n{-} Cuando la consola de armas haya sido pirateada, si todos los Héroes están en la Salida o adyacentes a ella, pulsa \"Escapar\" para terminar la misión.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Blue Terminal",
+              "GUID": "25e68136-61d2-4336-90fc-9f48f8fafc65",
+              "theText": "El terminal de seguridad del puente mantiene bloqueado el acceso a la consola de armas.\r\n\r\n{-} El terminal azul puede ser destruido (Vida: *2*, Defensa: 2{G}). Cuando es destruido, la puerta de la consola de armas se abre.",
+              "buttonList": [
+                {
+                  "GUID": "baaf0335-2a4c-4074-8eb2-445d09c209a2",
+                  "theText": "Destruir"
+                }
+              ]
+            },
+            {
+              "entityName": "Weapons Console",
+              "GUID": "befd0dcb-28aa-46ee-8749-472ce0248f35",
+              "theText": "La consola de armas controla los turboláseres del Destructor Estelar.\r\n\r\n{-} Un Héroe puede interactuar con la consola de armas ({I} o {J}) para piratearla.",
+              "buttonList": [
+                {
+                  "GUID": "5d61efc7-9e1b-4d87-b982-582726499e9a",
+                  "theText": "{A} Piratear"
+                }
+              ]
+            }
+          ],
+          "GUID": "2c3e4a44-d445-45b7-92ac-ed53a82b5fa9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso a la consola de armas.",
+          "GUID": "a6157ca4-d990-414d-8f8b-c2a3a7951e2c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7ac4e89c-e7b4-460b-88a8-2eb63730537e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "e0860f92-8aac-41c0-99ba-fd8ee91ac32e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "Weapons Console Sliced",
+      "GUID": "d8b0d789-16d7-47d1-b76c-31c1b0eee922",
+      "eventText": "Se escuchan chirridos mecánicos mientras las alarmas suenan con un volumen cada vez más alto. -Evacúen la nave -repite una voz automática por los intercomunicadores-. Fallo crítico inminente en el casco. Evacúen la nave de inmediato. Evacúen la nave de inmediato -. Será mejor que sigáis la recomendación.\r\n\r\n{-} La ficha de Misión azul Rebelde representa la Salida. Si todos los Héroes están en la Salida o adyacentes a ella, los Héroes escapan.\r\n{-} Los Rebeldes ganan cuando los Héroes escapan.",
+      "eventActions": [
+        {
+          "shortText": "¡Escapar!",
+          "longText": null,
+          "GUID": "8dc7fb62-f6df-40b0-9a95-90834c3d0338",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La ficha de Misión azul Rebelde representa la Salida. Si todos los Héroes están en la Salida o adyacentes a ella, los Héroes escapan.\r\n{-} Los Rebeldes ganan cuando los Héroes escapan.\r\n{-} Los Rebeldes pierden al final de la ronda 9, o cuando todos los Héroes están heridos.",
+          "GUID": "6a7996c0-29d9-4b73-bf2d-670328f06a32",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "834fc02b-d959-49f5-bb39-5e6fb562f886",
+              "theText": "Vuestra lanzadera espera en el extremo del hangar.\r\n\r\n{-} Si todos los Héroes están en la Salida o adyacentes a ella, pulsa \"Escapar\" para terminar la misión.",
+              "buttonList": [
+                {
+                  "GUID": "3577c95d-b5f4-4fcd-b8f4-67ce921605de",
+                  "theText": "Escapar"
+                }
+              ]
+            },
+            {
+              "entityName": "Weapons Console",
+              "GUID": "3ff76d7d-d508-44e2-b916-016ba31fe856",
+              "theText": "La consola de armas controla los turboláseres del Destructor Estelar.\r\n\r\n{-} Un Héroe puede interactuar con la consola de armas ({I} o {J}) para piratearla.",
+              "buttonList": [
+                {
+                  "GUID": "ba41b752-2b4f-41ee-a155-df7a2c20b84c",
+                  "theText": "{A} Piratear"
+                }
+              ]
+            }
+          ],
+          "GUID": "f6353b60-a1a4-41f9-b7f8-9e5577ed9fc3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso a la salida.",
+          "GUID": "32f32849-60d5-4e73-9aec-539720c2ab31",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Slice Attempt",
+      "GUID": "a58aaa0b-889c-4f0d-a670-47c07812a51e",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Intentas desencriptar los códigos que abren la puerta.\r\n\r\n{-} Realiza una prueba de {I}. Aplica +1 {B} por cada ficha de tensión sobre el terminal, y descarta todas las fichas de tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e79238ff-2f65-4071-86ff-5758bce66371",
+              "theText": "Haces algunos progresos, pero aún no has encontrado el código. Tenéis que seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de tensión sobre el terminal."
+            }
+          ],
+          "GUID": "19731c6f-05e2-4a38-9587-53b019bb31f4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Weapon Slice Attempt",
+      "GUID": "629570dc-6490-4e5e-aafc-f7ff11077940",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Reconectas algunos cables con rapidez y empiezas a teclear comandos para hacerte con el control de la consola de armas.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} por cada ficha de tensión sobre la consola de armas, y descarta todas las fichas de tensión de la consola de armas. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "4da88fa5-4429-4e94-a0db-50a9a8a0890b",
+              "theText": "Haces algunos progresos, pero la consola de armas todavía resiste. Tenéis que seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de tensión sobre el terminal."
+            }
+          ],
+          "GUID": "8a2ab172-b834-4606-be1b-796b23f8fc91",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "6cb590f1-0142-4577-b79a-589e2959367e",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "a1dc2995-229e-4555-85e1-a4fc1675b99e",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHTrooper 1",
+      "GUID": "563c9200-70f7-455f-833e-037b6805229f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHTrooper 2",
+      "GUID": "a5e819d7-914b-4d7f-83ca-e226ed21b987",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "05247326-52e0-4317-94d3-0461d53c46dd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Bridge Door 1",
+      "GUID": "6dab0c48-22dd-48a8-be4d-5c3242e3bbff",
+      "mainText": "Esta puerta lleva a la parte interior del Destructor Estelar.\r\n\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Bridge Door 2",
+      "GUID": "4165f0fd-4530-473d-88ac-f861a0bee4a0",
+      "mainText": "Esta puerta lleva a la parte interior del Destructor Estelar.\r\n\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con el terminal verde ({I}) para abrir las puertas que llevan al interior de la nave.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Green Terminal",
+      "GUID": "fb96923a-22d2-43d3-b3c1-2632fcaaf6c3",
+      "mainText": "Un terminal empotrado en la esquina controla el cierre de las puertas.\r\n\r\n{-} Un Héroe puede interactuar con el terminal verde ({I}) para tratar de abrir las puertas que llevan al interior de la nave.",
+      "buttonList": [
+        {
+          "GUID": "06b2634a-a7bc-4c73-90ab-9ea2e1b17526",
+          "theText": "{A} Piratear"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "d99f4dd1-0f1c-4eb5-abdf-2c21a12daea2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Boba",
+      "GUID": "2addc31d-6c65-45f8-9477-6e47bad72807",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Blue Terminal",
+      "GUID": "81f210c2-4012-4c05-b224-3aabf3d023b0",
+      "mainText": "El terminal de seguridad del puente mantiene bloqueado el acceso a la consola de armas.\r\n\r\n{-} El terminal azul puede ser destruido (Vida: *2*, Defensa: 2{G}). Cuando es destruido, la puerta de la consola de armas se abre.",
+      "buttonList": [
+        {
+          "GUID": "1a713766-b0a0-49fa-a94b-d7f41010d709",
+          "theText": "Destroy"
+        }
+      ]
+    },
+    {
+      "entityName": "Weapons Door",
+      "GUID": "8da12f6f-093f-47db-9d73-0e4e968ead40",
+      "mainText": "El terminal de seguridad del puente controla la puerta de la consola de armas.\r\n\r\n{-} Cuando el terminal azul es destruido, la puerta de la consola de armas se abre.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Entrance",
+      "GUID": "26db3570-c014-40d4-8538-848857bb80cd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "699d2b0c-270d-450e-a121-3bccb218e97e",
+      "mainText": "Vuestra lanzadera espera en el extremo del hangar.\r\n\r\n{-} Cuando la consola de armas haya sido pirateada, si todos los Héroes están en la Salida o adyacentes a ella, pulsa \"Escapar\" para terminar la misión.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Weapons Console",
+      "GUID": "5b09665f-6279-47a0-98f5-20b88630f713",
+      "mainText": "La consola de armas controla los turboláseres del Destructor Estelar.\r\n\r\n{-} Un Héroe puede interactuar con la consola de armas ({I} o {J}) para piratearla.",
+      "buttonList": [
+        {
+          "GUID": "e8b3483e-f1bf-4642-888a-e3f7fa4bd883",
+          "theText": "{A} Piratear"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

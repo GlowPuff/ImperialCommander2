@@ -1,0 +1,642 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Predisposición sospechosa",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Villano Maul (Sediento de Venganza)",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso al informante y a las puertas.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "1e59a6bb-cf5f-46f1-baec-96a997f50fa8",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "cb815d1f-c33f-4bae-8803-b5f445813fe1",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "a02e0bd6-8dda-4668-8fef-aa9e6ba78e8f",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Un informante tiene algo que deciros sobre el esquivo Maul y está de acuerdo en ayudaros a localizar al antiguo sith. Sin embargo, al llegar a la ubicación del informante, agentes de Maul salen de una instalación cercana.\r\n\r\n{-} Despliega a los Héroes en la casilla resaltada en azul.",
+      "eventActions": [
+        {
+          "tbText": "Vuestro contacto se pone a cubierto encogido de miedo y, de repente, se asusta y se muestra reacio a cooperar.",
+          "GUID": "9de781c1-7320-44d9-a824-7b3f39b35ff9",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Informant",
+              "GUID": "507e66d3-4e21-4b81-af52-ab7877959e6d",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "c21cf3da-8749-401f-adfd-853a255f532e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} La ficha de Misión del bando Rebelde representa al informante. Una vez durante su activación, un Héroe que esté adyacente al informante puede sufrir 1 {C} para empujarlo 1 casilla. Ese Héroe puede realizar una prueba de {K} o {I}. Si la supera, ese Héroe puede empujarlo 2 casillas en lugar de 1.\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.",
+          "GUID": "57232d0d-a564-4a3e-9a60-f71f7f3f591e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Empezáis a abriros camino hacia el informante, con las armas preparadas.\r\n\r\n{-} La misión avanza cuando se abre la puerta.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "c9facddd-a601-4d4c-87cd-a469e2b4824c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Informant",
+              "GUID": "d4f17d46-f727-4349-8253-0034879dfd6b",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "a4db01fd-7754-48ac-bbd4-d475d894342d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Entrar en la guarida.",
+          "longText": null,
+          "GUID": "fb39d927-3b22-4498-a6c8-d989400c57cf",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La ficha de Misión del bando Rebelde representa al informante. Una vez durante su activación, un Héroe que esté adyacente al informante puede sufrir 1 {C} para empujarlo 1 casilla. Ese Héroe puede realizar una prueba de {K} o {I}. Si la supera, ese Héroe puede empujarlo 2 casillas en lugar de 1.\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.\r\n{-} La misión avanza cuando se abre la puerta.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "2eb5bd5e-f0fa-43bb-a9e5-12cf981a461c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "No sois la presa fácil por la que Maul os tomó. Os clava una mirada de desprecio y se interna con rapidez en las sombras, ya que su base de operaciones secreta ha quedado al descubier­to, destruida e inservible. Al final se repondrá, pero por ahora podéis tener por seguro que sus planes han sido postergados.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE Los Héroes reciben 200 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Ensangrentados y descompuestos, os abrís ca­mino por la guarida de vuelta a la seguridad de vuestra nave. Detrás de vosotros, el infor­mante grita: \r\n\r\n-¡Esperad! ¡Prometisteis que me protegeríais! ¡¡No me abandonéis!!\r\n\r\nIntentáis no pensar en el aciago destino que le espera a manos de Maul.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} El Imperio recibe a <color=\"red\">Maul</color> (Sediento de venganza) como Villano.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Extra Help",
+      "GUID": "c6254a78-f832-46eb-a2ba-46e6c0fbf9ea",
+      "eventText": "Más matones de Maul entran en escena.",
+      "eventActions": []
+    },
+    {
+      "eventName": "The Former Master",
+      "GUID": "7bc63b11-5877-4356-a758-393fe20fd042",
+      "eventText": "La puerta se abre y revela un edificio viejo y decrépito pobremente iluminado.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "6c0f8b4f-f6cc-47d5-969e-c5ea85be7a06",
+              "theText": "Una puerta oxidada lleva a la instalación que Maul usa como guarida.\r\n\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.",
+              "buttonList": [
+                {
+                  "GUID": "31fa0cdf-3ea1-4ef7-971a-72555ede91e5",
+                  "theText": "{A} Abrir (informante adyacente)"
+                }
+              ]
+            }
+          ],
+          "GUID": "eafdf6af-25ee-4f1c-b911-de6f5da93bb2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "De pie en la penumbra, Maul, sediento de venganza, gruñe, con un inquietante brillo en los ojos. \r\n\r\n\"Ha sido un error que viniérais aquí.\"\r\n\r\nCon un chasquido y un zumbido, su sable láser de doble hoja se enciende. A continuación, Maul presiona un pequeño botón en su cinturón, y el brillo de un escudo personal lo envuelve.",
+          "GUID": "e96ad765-cd14-45fb-940e-5b9361f22ebf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*2* Vida",
+          "repositionInstructions": "",
+          "GUID": "602cfa8a-8a2e-4de0-a05a-91defc3d4220",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG084/Maul"
+        },
+        {
+          "tbText": "{-} Al inicio de cada activación de <color=\"red\">Maul</color>, si ha sufrido *1* o más {H}, se recupera de todo su {H} y adquiere <color=\"red\">Aturdimiento</color>.\r\n{-} <color=\"red\">Maul</color> no puede ser derrotado durante una ronda en la que aún no haya resuelto una activación.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Maul</color> es derrotado.",
+          "GUID": "6ac7c763-a712-48f7-8241-fa87b19798cd",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Derrotar a <color=\"red\">Maul</color>.",
+          "longText": null,
+          "GUID": "a4b43506-8778-4c8e-ba9f-2174876ced18",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "Los matones de Maul se preparan para defender a su amo.",
+          "GUID": "ec7e829d-ebfb-409a-82f3-ac298adb8ecf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Estáis preparando las armas cuando os percatáis de algo extraño: una célula de energía en la esquina de la sala parpadea al mismo ritmo que el escudo personal de Maul. El escudo parece estar conectado a varias fuentes de energía. Si sois capaces de encontrarlas y eliminarlas, podríais tener las cosas más fáciles en el enfrentamiento con el antiguo Sith.",
+          "GUID": "0d981248-4af5-481a-bfd1-31e0d7c30301",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "f8c37519-15cb-4c68-a901-48dd1e352199",
+              "theText": "La célula de energía emite un ligero zumbido y un parpadeo mientras hace funcionar el escudo personal de Maul.\r\n\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+              "buttonList": [
+                {
+                  "GUID": "e99632b7-66a9-4dd7-97a6-9e2196394e8f",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "d93cc815-50fe-487a-917e-be7377e270cb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+          "GUID": "73b30800-8475-4f45-b59a-72a8a1326de5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquear la línea de visión a <color=\"red\">Maul</color> y a los terminales.",
+          "GUID": "0f9b54b7-d42c-4ebf-ad41-f52119a17afb",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Derrotar a <color=\"red\">Maul</color>. Células de energía destruidas: &Terminals Destroyed&/3",
+          "longText": "",
+          "GUID": "698202db-f638-43c5-b0c7-9ca21fd307d9",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La ficha de Misión del bando Rebelde representa al informante. Una vez durante su activación, un Héroe que esté adyacente al informante puede sufrir 1 {C} para empujarlo 1 casilla. Ese Héroe puede realizar una prueba de {K} o {I}. Si la supera, ese Héroe puede empujarlo 2 casillas en lugar de 1.\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.\r\n{-} Al inicio de cada activación de <color=\"red\">Maul</color>, si ha sufrido *1* o más {H}, se recupera de todo su {H} y adquiere <color=\"red\">Aturdimiento</color>.\r\n{-} <color=\"red\">Maul</color> no puede ser derrotado durante una ronda en la que aún no haya resuelto una activación.\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Maul</color> es derrotado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "48b5b9e0-a739-4361-a201-d4419b2b5801",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Maul Activates",
+      "GUID": "ec3fe1ca-b39e-44eb-a3b7-8bc4cb696a4b",
+      "eventText": "Maul gruñe, y su escudo personal brilla cuando absorbe el daño.\r\n\r\n{-} Si <color=\"red\">Maul</color> ha sufrido *1* o más {H}, se recupera de todo el {H} y adquiere <color=\"red\">Aturdimiento</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Destroy Power Cell 1",
+      "GUID": "0af01602-10d0-454f-bdf9-7dfd7763fbcb",
+      "eventText": "La célula de energía explota entre una lluvia de chispas, y el escudo de Maul parpadea un instante.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "4bc28d80-05bd-49ab-80b7-9d6f32846eb4",
+              "theText": "La célula de energía emite un ligero zumbido y un parpadeo mientras hace funcionar el escudo personal de Maul.\r\n\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+              "buttonList": [
+                {
+                  "GUID": "e7547521-66a5-49d0-9197-8cb32547f058",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "c5baf978-0665-4932-99c1-3ab02da8753a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Power Cell 2",
+      "GUID": "6f4858d7-4e60-4c8f-9ba8-861c7e66e876",
+      "eventText": "La célula de energía explota entre una lluvia de chispas, y el escudo de Maul parpadea un instante.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "1bcf7184-c359-4a0b-9603-0d4bde732a64",
+              "theText": "La célula de energía emite un ligero zumbido y un parpadeo mientras hace funcionar el escudo personal de Maul.\r\n\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+              "buttonList": [
+                {
+                  "GUID": "807ace5a-79d3-4c8c-aa01-998b36fc1f21",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "24aebe45-5140-418d-9a86-4228a7ed1c85",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Power Cell 3",
+      "GUID": "dac3a21b-2027-481a-b06b-8507e31828a5",
+      "eventText": "La célula de energía explota entre una lluvia de chispas, y el escudo de Maul parpadea un instante.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 3",
+              "GUID": "e3326cfb-e14d-458f-b4ed-4966487ae43a",
+              "theText": "La célula de energía emite un ligero zumbido y un parpadeo mientras hace funcionar el escudo personal de Maul.\r\n\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+              "buttonList": [
+                {
+                  "GUID": "72c2d924-23ff-43ef-b700-f4dfc9e14f50",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "0426845e-168f-4537-9bf9-4da6d5268864",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Backup",
+      "GUID": "05e5dee9-f4a9-425c-82ef-190c2537b39c",
+      "eventText": "La puerta se abre para mostrar un pequeño almacén. Una célula de energía zumba suavemente en la esquina.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "98401c65-bed0-45a2-97cd-10076e8c7b8a",
+              "theText": "Esta puerta, que lleva al interior de la guarida, ha visto días mejores.\r\n\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.",
+              "buttonList": [
+                {
+                  "GUID": "e1beb4f1-ee50-4097-9e21-9ee4705f6056",
+                  "theText": "{A} Abrir (informante adyacente)"
+                }
+              ]
+            }
+          ],
+          "GUID": "470244dc-58b3-412a-a8a9-c070aa434310",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Más matones de Maul os esperan aquí.",
+          "GUID": "80bc516c-9c11-45de-a4a2-ca7d38f8b73f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Operatives",
+      "GUID": "d4927c4d-cd77-4869-acb4-e27326a469ad",
+      "eventText": "Tras la puerta hay un viejo taller con una célula de energía en la esquina.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "22912312-df8d-4350-b4a2-bd85ac777241",
+              "theText": "Esta puerta, que lleva al interior de la guarida, ha visto días mejores.\r\n\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.",
+              "buttonList": [
+                {
+                  "GUID": "e2110db3-aba1-4f2f-ab8b-a057746d49cd",
+                  "theText": "{A} Abrir (informante adyacente)"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "11effb6e-0ae3-4044-a697-180490ea80aa",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "acb9d06c-948a-4e2b-9e83-bc9ce15ea957",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Más matones de Maul os esperan aquí.",
+          "GUID": "b2a69aa4-cec2-495e-b4e6-567e8a69e849",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "All Doors Open",
+      "GUID": "61609290-1b25-4595-9d40-b96aebc64065",
+      "eventText": "",
+      "eventActions": [
+        {
+          "theText": "{-} Al inicio de cada activación de <color=\"red\">Maul</color>, si ha sufrido *1* o más {H}, se recupera de todo su {H} y adquiere <color=\"red\">Aturdimiento</color>.\r\n{-} <color=\"red\">Maul</color> no puede ser derrotado durante una ronda en la que aún no haya resuelto una activación.\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Maul</color> es derrotado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "35167888-87bc-46d2-8375-8ba216edf31c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Bloquear el acceso a los terminales.",
+          "GUID": "7ea1252e-7696-40c8-9d6c-2df1efc837c8",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "All Terminals Destroyed",
+      "GUID": "c7bd9b77-1239-47bc-99e1-d22130aeb9b6",
+      "eventText": "La última célula de energía explota. El escudo personal de Maul parpadea por última vez y se apaga. El zabrak gruñe y hace girar su sable láser.\r\n\r\n\"Esto no va a ayudaros. ¡Sois patéticos! ¡Rendíos!\"",
+      "eventActions": [
+        {
+          "repositionText": "Bloquear la línea de visión a <color=\"red\">Maul</color>.",
+          "GUID": "603ca67e-0301-4623-b293-408334846078",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} <color=\"red\">Maul</color> no puede ser derrotado durante una ronda en la que aún no haya resuelto una activación.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Maul</color> es derrotado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "2da3beb3-14b5-4c35-8489-fd1fa827a82e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "240b62f7-4d9e-4b79-985c-df49de97db94",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "7b519e51-a84d-46af-8a8c-0539f5c51fa7",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "997297d0-a929-4b95-899b-d1f2af19e8aa",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "11833111-88f2-4240-b358-a11844651fc2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "f6a12e2a-8e59-4a20-991e-a9169a6c7acc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Clawdite",
+      "GUID": "1460dd4c-9ef1-43e1-abcd-e40a6602b78a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "19a071fd-a09c-4e7e-b35e-02c59ddf6880",
+      "mainText": "Una puerta oxidada lleva a la instalación que Maul usa como guarida.\r\n\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.",
+      "buttonList": [
+        {
+          "GUID": "c0cf03c2-7631-4081-aa40-c1766ee2ccd2",
+          "theText": "{A} Abrir (informante adyacente)"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "4a1c442c-ce64-490f-b4d4-4d45a70beb86",
+      "mainText": "Esta puerta, que lleva al interior de la guarida, ha visto días mejores.\r\n\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.",
+      "buttonList": [
+        {
+          "GUID": "2516d235-8d82-4b9c-959f-38e214e66832",
+          "theText": "{A} Abrir (informante adyacente)"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "1816700c-bc61-44c0-83c3-142d086c5191",
+      "mainText": "Esta puerta, que lleva al interior de la guarida, ha visto días mejores.\r\n\r\n{-} Las puertas están selladas. Una puerta no está sellada para las figuras del bando Rebelde mientras el informante esté adyacente a ella.",
+      "buttonList": [
+        {
+          "GUID": "3a37cacb-83f3-4371-a9cc-50f2c62c43c1",
+          "theText": "{A} Abrir (informante adyacente)"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "0a8a27e1-2a88-46e5-ac44-3e253ff7bf6f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "754b68c8-b523-4c3a-872e-7d86fa29a1fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "38914952-e3f1-4b24-8c7e-9fc587efe1ec",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black",
+      "GUID": "4c600620-9135-41f6-a6bc-4bce2141e1b9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "e4c80318-8982-4804-a34b-8a729d532d71",
+      "mainText": "La célula de energía emite un ligero zumbido y un parpadeo mientras hace funcionar el escudo personal de Maul.\r\n\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+      "buttonList": [
+        {
+          "GUID": "7e350241-31f9-42f5-9ff8-50ff4738273b",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "4feaedb8-4f41-427c-b380-d0a6199c818e",
+      "mainText": "La célula de energía emite un ligero zumbido y un parpadeo mientras hace funcionar el escudo personal de Maul.\r\n\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+      "buttonList": [
+        {
+          "GUID": "fa21c3f8-6f7a-4399-b411-90e5df58babc",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 3",
+      "GUID": "68e0bcb2-a0e2-489d-a65d-5b403b5220fb",
+      "mainText": "La célula de energía emite un ligero zumbido y un parpadeo mientras hace funcionar el escudo personal de Maul.\r\n\r\n{-} Una figura del bando Rebelde puede atacar un terminal (Vida: *1*, Defensa: 1 {G}). Cuando todos los terminales sean destruidos, <color=\"red\">Maul</color> no se recupera de {H} ni adquiere <color=\"red\">Aturdimiento</color> al inicio de su activación.",
+      "buttonList": [
+        {
+          "GUID": "a783994b-04fb-43cc-a649-616322e78d6a",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Informant",
+      "GUID": "5e768af1-85f9-4963-9a0a-126974245044",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Maul 1",
+      "GUID": "2afc066f-8f37-4dfd-a568-a91b2a7fc19b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Maul 2",
+      "GUID": "8e92716d-8fe1-4ecb-ab18-818135ab262c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Maul 3",
+      "GUID": "e2e4b07b-0306-478e-8d07-f9308f3fd77e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Maul 4",
+      "GUID": "4893d857-fbbf-4125-849d-2e21ac93a757",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Clawdite Shapeshifter",
+      "customInstructions": ""
+    }
+  ]
+}

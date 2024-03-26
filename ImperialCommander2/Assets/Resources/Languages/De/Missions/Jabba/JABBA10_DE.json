@@ -1,0 +1,616 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Unerlaubtes Eindringen",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Jabbas Reich",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zur Barrikade.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7acab764-56ab-4e11-94ab-d33e63ea4c47",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "5f0ae261-658b-4a7f-bbfe-ed16d7cf9cc9",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "2f983319-a412-41ca-bd37-edb2a9020900",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "bcecc2da-c8d2-452b-b5ff-8b6b4bd194c9",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr steigt aus den Trümmern eures Schiffes und betrachtet die gleißende, trostlose Landschaft des Dünenmeeres um euch herum. Sand erstreckt sich bis zum Horizont. Die Pilotin versucht wiederholt, das Allianzkommando zu kontaktieren, aber ohne Erfolg.\n\n\"Sturmtruppen nähern sich von Westen!\", ruft einer deiner Begleiter und blickt durch sein Makrobinokular. Ihr umklammert die Waffen an euren Seiten.\n\nEine Kundschafterin auf dem Wrack zeigt nach unten und ruft: \"Sie kommen von dieser kleinen Basis. Wir müssen sie dort stoppen, wo sie herkommen, sonst werden wir überrannt.\" Sie dreht sich zu euch um. \"Wir können uns hier selbst verteidigen. Ihr geht zu dem Stützpunkt und schaltet ihn aus!\"\n\nHastig packt ihr eure Ausrüstung zusammen und helft, eine Verteidigungslinie zu errichten. In aller Eile verabschiedet ihr euch von euren Freunden und Familienangehörigen, die zwischen den Trümmern ausharren. Sie flehen euch an zu bleiben, aber ihr versichert ihnen, dass es euch um ihre Sicherheit geht.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind für imperiale Figuren verriegelt.",
+      "eventActions": [
+        {
+          "tbText": "Als ihr euch dem Stützpunkt nähert und einen großen Bogen um die Sturmtruppen-Patrouille macht, wird euer Gehen zum Joggen. Sobald ihr euch der Außengrenze nähert, hört ihr hinter euch Lärm, und die Garnison des Stützpunkts kommt euch mit erhobenen Blastern entgegen.",
+          "GUID": "04edf1f8-f626-4b0f-a25f-7cd1b89f1770",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Die Begrenzung der Basis besteht aus einem ehemaligen stabilen Metallzaun. Die Jahre im Wüstenklima haben ihn zermürbt.",
+          "GUID": "ea51f14d-dea2-40cc-be4d-c555dbb527fc",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "6243ead2-0d2f-42df-9481-4021ef519aff",
+              "theText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+              "buttonList": [
+                {
+                  "GUID": "11a873c0-6d84-4fd6-ab0a-903d98ba8138",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "Barricade 2",
+              "GUID": "8dbf261a-672e-4670-b75f-8bc2927cc404",
+              "theText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+              "buttonList": [
+                {
+                  "GUID": "194f34c1-0399-4547-8524-8215e0392f19",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "Barricade 3",
+              "GUID": "04c630e4-8bc6-4fce-9333-41467f2f5b4b",
+              "theText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+              "buttonList": [
+                {
+                  "GUID": "26070d33-3062-4b57-bee3-5ff9569ada29",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "2ce0e085-9aca-4419-9bae-76791b7dce17",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.\r\n{-} Der Einsatz schreitet voran, wenn die Barrikade zerstört wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "5499258a-b968-4d1f-9e31-a7e5f77b23eb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Der Stützpunkt wird von den imperialen Streitkräften bewacht.",
+          "GUID": "fa538c15-16f0-4a5f-b7c7-0bd09f470dbf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ea5b7b01-deda-4514-a1bd-638a9458823c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "757e04e4-7ae7-4262-87cb-34aaa3f60aff",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4ab2f4cf-5c20-40b2-8667-95cea541c58f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG036/Jet Trooper"
+        },
+        {
+          "shortText": "Zerstört die Barrikade.",
+          "longText": null,
+          "GUID": "298be73b-cea0-492a-be33-95dc8eb4f4e8",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.\r\n{-} Der Einsatz schreitet voran, wenn die Barrikade zerstört wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "7010bdad-ab41-46cf-ab81-2a3c187118b7",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Der Strom in der Basis flackert und fällt schließlich aus, während Captain Terro seinen verbliebenen Truppen den Rückzug befiehlt. Eine zweite Segelbarke landet vor dem Stützpunkt, und der Weequay, der sie steuert, ruft euch zu: \"Ihr habt gut gekämpft. Eure Freunde sind vorerst in Sicherheit; dafür haben wir gesorgt. Der Große Jabba wünscht, dass ihr mit uns kommt.\"\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": [
+        {
+          "tbText": "Ihr werdet durch das Tor eines gewaltigen Palastes geführt, wo ihr von Bib Fortuna, Jabbas Twi'lek-Majordomo, empfangen werdet. \"Chowbasa Ootmian\", sagt er mit seiner rauen Stimme, bevor er mit einem schweren Dialekt zu Basic übergeht. \"Jabba der Hutte hat ein Angebot für euch. Er bietet euren Freunden und Familien eine sichere Zuflucht. Im Gegenzug werdet ihr ihm eure einzigartigen Fähigkeiten zur Verfügung stellen, um bei verschiedenen Aufgaben zu helfen, die er benötigt. Wenn diese Vereinbarung zu unser aller Zufriedenheit ausfällt, verspricht Jabba euch und euren Begleitern seinen Schutz, solange ihr auf Tatooine bleibt.\" Dann gibt er den Weequay ein Zeichen, die euch zu euren neuen Unterkünften eskortieren, damit ihr euch ausruhen könnt.\n\n{-} Bringe die Haupteinsatzkarten \"Überladung\" und \"Geschäfte unter Feinden\" ins Spiel.",
+          "GUID": "b900e96a-c5dc-46fd-a417-ef9af200c220",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Verfolgt von Flammen und Blasterbolzen zieht ihr euch von dem Stützpunkt zurück. Ihr seht, wie eine zweite Segelbarke über euch hinwegrast. Ihr Weequay-Pilot ruft euch zu: \"Wir können euch zu Jabba bringen und eure Freunde in Sicherheit schaffen, wenn ihr mit uns kommt, es sei denn, ihr wollt euer Glück weiter mit dem Imperium versuchen.\" Ihr packt die Leiter und klettert auf das Schiff, während es über das Dünenmeer davonrast.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": [
+        {
+          "tbText": "Ihr werdet durch das Tor eines gewaltigen Palastes geführt, wo ihr von Bib Fortuna, Jabbas Twi'lek-Majordomo, empfangen werdet. \"Chowbasa Ootmian\", sagt er mit seiner rauen Stimme, bevor er mit einem schweren Dialekt zu Basic übergeht. \"Jabba der Hutte hat ein Angebot für euch. Er bietet euren Freunden und Familien eine sichere Zuflucht. Im Gegenzug werdet ihr ihm eure einzigartigen Fähigkeiten zur Verfügung stellen, um bei verschiedenen Aufgaben zu helfen, die er benötigt. Wenn diese Vereinbarung zu unser aller Zufriedenheit ausfällt, verspricht Jabba euch und euren Begleitern seinen Schutz, solange ihr auf Tatooine bleibt.\" Dann gibt er den Weequay ein Zeichen, die euch zu euren neuen Unterkünften eskortieren, damit ihr euch ausruhen könnt.\n\n{-} Bringe die Haupteinsatzkarten \"Überladung\" und \"Geschäfte unter Feinden\" ins Spiel.",
+          "GUID": "b75477b8-fbfd-4c22-8346-120fb2ddc174",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Barricade destroyed",
+      "GUID": "242847c7-8f84-4d6b-ad0c-c72e4435a3c1",
+      "eventText": "Der Zaun bricht zu einem Haufen verbrannter Metallstangen zusammen. Vor euch rücken weiterhin Imperiale vor.\n\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "0139be67-ccff-4c3d-8317-fdfce1a17101",
+              "theText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+              "buttonList": [
+                {
+                  "GUID": "4e5504a5-59b9-4ecf-857b-d0540354a959",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "Barricade 2",
+              "GUID": "c4388e42-f991-4b79-a64d-bce726338398",
+              "theText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+              "buttonList": [
+                {
+                  "GUID": "ef46ed5f-565b-4233-b27c-350256961759",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "Barricade 3",
+              "GUID": "ffb4cf59-18a9-42fd-b0c0-05fcc2778e88",
+              "theText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+              "buttonList": [
+                {
+                  "GUID": "d3e02862-144a-4ff1-9c26-3e736be05ba1",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "61d7b894-898d-4ac9-8df5-e260b75ac8ac",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Door",
+              "GUID": "7dfddd44-7267-42a5-913c-0ef919c0d117",
+              "theText": "The door to the command post is weathered by the heat and the sand.\r\n\r\n{-} The door is locked to Imperial figures.",
+              "buttonList": [
+                {
+                  "GUID": "3503933a-5dd7-44fb-bd9f-fb18095fa9af",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "6f2561da-c339-4228-a74b-a2824022539e",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "4ea5b4d6-1540-4b4d-af34-1190fc61f815",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "36f7ad16-d14d-43ed-addd-5c97ac8b372d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG011/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "85def665-3289-4518-971c-824f3f146fcb",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "tbText": "Ihr werdet von einem lauten Rauschen überrascht, als eine von Weequay-Söldnern gesteuerte Segelbarke unweit von euch landet.",
+          "GUID": "541bce54-d518-40af-bd02-99bafb0aa1f7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Die Weequay halten Blaster in ihren ledrigen Händen. \"Ihr betretet Jabbas Sand unbefugt. Ihr seid nicht willkommen.\" Knurrend richten sie ihre Gewehre auf die Sturmtruppen.",
+          "GUID": "7115573c-a2af-439d-9a83-37536074b5ae",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Versperre den Zugang zur Tür.",
+          "GUID": "0eb26a29-fc79-4401-99c2-68b566e55d03",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Betretet den Kommandoposten.",
+          "longText": null,
+          "GUID": "79d8616d-9d99-4c92-93dd-000a64a2ed9d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "b8f360e9-d308-4c87-b52c-1cbfd4097d3c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "The Captain's Squad",
+      "GUID": "31463858-b82b-44bf-bd3f-02e3e2265f61",
+      "eventText": "Ihr brecht die Schutztür zum Haupthangar des Stützpunkts auf und werdet von Stimmengewirr empfangen, das durch den Filter der Sturmtruppen-Helme dringt.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door",
+              "GUID": "be287b21-dbc6-4307-ad3d-216b917e959b",
+              "theText": "Die Tür zum Kommandoposten ist verwittert von der Hitze und dem Sand.\n\n{-} Die Tür ist für imperiale Figuren verriegelt.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "651c22f8-36ca-4dda-b59d-78ae6c0b14c5",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "440a086e-f062-427e-8c32-13e93c42058b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Sturmtruppen: Sei benachbart zu dem Terminal.\n{-} Alle anderen: Versperre den Zugang zum Terminal.",
+          "GUID": "4eb6a756-aff1-431b-b7b2-52a1cce28611",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "Sei benachbart zu dem Terminal.",
+          "GUID": "e219d22d-df7c-4c8f-ad7a-40b9bec9f719",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "tbText": "Der Kommandant der Sturmtruppen dreht sich auf seinem Taurücken zu euch um, während Feuer aus seinem Flammenwerfer schießt. \"Verteidigungsformation, Männer! Schaltet sie aus!\"\n\nDie Soldaten antworten: \"Ja, Sir, Captain Terro, Sir\", und legen an.",
+          "GUID": "97e15158-f7fe-43a2-879a-1be25d3be9ed",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "3e4558b8-fea5-4857-bc1f-afd18b5a40a4",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG082/Captain Terro"
+        },
+        {
+          "tbText": "Die Sicherheitskonsole des Kommandopostens ist in einer Ecke in der Nähe installiert. Wenn ihr den Stützpunkt sabotiert, könnt ihr vielleicht alle gestrandeten Passagiere in Sicherheit bringen.",
+          "GUID": "cfb3e395-2ad5-40e3-8ac7-beddb9079891",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal",
+              "GUID": "faec14f4-d3e6-4388-a75a-c3774c466feb",
+              "theText": "Die Sicherheitskonsole des Kommandopostens kontrolliert alle zentralen Systeme.\n\n{-} Ein Held kann mit dem Terminal interagieren, um den Stützpunkt zu sabotieren.\n{-} Helden können nicht mit dem Terminal interagieren, solange mindestens 1 Sturmtruppler benachbart zu dem Terminal ist.",
+              "buttonList": [
+                {
+                  "GUID": "1a282a38-3c65-44db-a554-922edf300c20",
+                  "theText": "{A} Stützpunkt sabotieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "219fe8d1-96a5-4dae-9e30-f31c9bb86256",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Ein Held kann mit dem Terminal interagieren, um den Stützpunkt zu sabotieren.\n{-} Helden können nicht mit dem Terminal interagieren, solange mindestens 1 Sturmtruppler benachbart zu dem Terminal ist.\n{-} Die Rebellen gewinnen, wenn der Stützpunkt sabotiert wird.",
+          "GUID": "43c09f94-0398-4f84-92bc-5b9e2b39f6dd",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Sabotiert den Stützpunkt.",
+          "longText": null,
+          "GUID": "e0f28fee-71de-48f7-be64-2a91569f621c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Ein Held kann mit dem Terminal interagieren, um den Stützpunkt zu sabotieren.\n{-} Helden können nicht mit dem Terminal interagieren, solange mindestens 1 Sturmtruppler benachbart zu dem Terminal ist.\n{-} Die Rebellen gewinnen, wenn der Stützpunkt sabotiert wird.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "08a1a458-0d90-49d4-8ab4-caad65086039",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "f0f65930-1142-4ad5-ad21-4175b0e38385",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "27d4e3d4-e1d5-4766-ad23-6ec60f88618f",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "a0b5dd66-c66f-4cbb-8bbd-98948168745c",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "a763d0ed-fee2-4434-9eb0-208e0bb94c23",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "f5788252-0b6f-43ff-9ba7-4559489a993b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Jet 1",
+      "GUID": "74ea226e-7005-479d-b38c-b9045e487018",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Jet 2",
+      "GUID": "74c964bd-c3d8-4ac2-98d9-a7bc85322304",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3d4280dd-48fa-4415-82ac-4a6b3e0cdaf4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "e1658822-16ab-4443-bc9b-01b0bb3f2929",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "51cf5c4e-c363-47ca-a612-6a85525c3a94",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "2760f0cd-5330-4fba-9702-4926bd218e8b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 3",
+      "GUID": "2eede34b-5c03-411a-ac2a-4ef07d343142",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door",
+      "GUID": "e3672ce3-9662-4166-8f53-5e24ccca8d5c",
+      "mainText": "Die Tür zum Kommandoposten ist verwittert von der Hitze und dem Sand.\n\n{-} Die Tür ist für imperiale Figuren verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Barricade 1",
+      "GUID": "63717e9f-76d5-4c33-a535-e0c6cfefa006",
+      "mainText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+      "buttonList": [
+        {
+          "GUID": "73e70306-fe6e-4ad5-91f3-e22bcae6246b",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Barricade 2",
+      "GUID": "1e149c77-4092-427e-8caf-1a9325f9b539",
+      "mainText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+      "buttonList": [
+        {
+          "GUID": "b3f00532-4575-441b-a900-667e62ed2810",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Barricade 3",
+      "GUID": "a0f25169-8798-4bb4-9fda-5c8b1f750123",
+      "mainText": "Die imperiale Barrikade war einst ein stabiler Zaun, der mit Sandsäcken befestigt war. Jetzt ist sie durch das Wüstenklima stark verschlissen.\n\n{-} Die neutralen Einsatzmarker stellen eine Barrikade dar. Eine Rebellenfigur kann die Barrikade angreifen (Gesundheit: 4, Verteidigung: 1 {G}). Die Barrikade versperrt die Bewegung, die Sichtlinie, die Nachbarschaft und das Zählen von Feldern.",
+      "buttonList": [
+        {
+          "GUID": "4ccca20f-eed8-448d-9cf1-0cb887eddb64",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "46a18e09-04d0-449e-9cea-93de0b11c490",
+      "mainText": "Die Sicherheitskonsole des Kommandopostens kontrolliert alle zentralen Systeme.\n\n{-} Ein Held kann mit dem Terminal interagieren, um den Stützpunkt zu sabotieren.\n{-} Helden können nicht mit dem Terminal interagieren, solange mindestens 1 Sturmtruppler benachbart zu dem Terminal ist.",
+      "buttonList": [
+        {
+          "GUID": "c02a0d63-2c65-4cd2-b299-a4b106d02722",
+          "theText": "{A} Stützpunkt sabotieren"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Terro",
+      "GUID": "f4d06af7-99b0-41c5-b536-781d45338749",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Weequay 1",
+      "GUID": "8e7c28ac-de47-4487-b936-2dcf61698410",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Weequay 2",
+      "GUID": "d0a4bc71-bf6f-4f96-ae2a-7c031acbdcc7",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": []
+}

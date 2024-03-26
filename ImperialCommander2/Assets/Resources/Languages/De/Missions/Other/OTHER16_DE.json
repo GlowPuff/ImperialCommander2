@@ -1,0 +1,537 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Überfall im Wald",
+    "missionDescription": "",
+    "missionInfo": "{-} Die neutralen Einsatzmarker stellen einen umgestürzten Baum dar. Der umgestürzte Baum ist versperrtes Gelände. Ein Held kann mit dem umgestürzten Baum interagieren ({K)} und versuchen, ihn aus dem Weg zu stoßen.\n{-} Der Einsatz schreitet voran, wenn die Rebellen die Lichtung betreten.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+    "campaignName": "General Weiss (Feldkommandeur) Schurken-Pack",
+    "startingObjective": "Entfernt den Baum, der die Lichtung versperrt.",
+    "repositionOverride": "Versperre den Zugang zu den versteckten Vorräten.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7e6cf458-548d-464d-b7a1-413802f07437",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "2cd38487-2fb3-4e4e-96ea-54f5d5bb4394",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ac3a1db0-ab0e-457b-97ee-a3d7b9fca316",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Vorsichtig bewegt ihr euch durch das Unterholz in Richtung des verlassenen Rebellenverstecks. Der Geheimdienst der Allianz hat euch zwar versichert, dass die Angreifer weitergezogen sind, aber sie haben auch vor wilden Tieren in der Gegend gewarnt.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die neutralen Einsatzmarker stellen einen umgestürzten Baum dar. Der umgestürzte Baum ist versperrtes Gelände. Ein Held kann mit dem umgestürzten Baum interagieren ({K}) und versuchen, ihn aus dem Weg zu stoßen.\r\n{-} Der Einsatz schreitet voran, wenn die Rebellen die Lichtung betreten.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Weiss feuert weiter auf euch, während euer Schiff an Höhe gewinnt. Ihr verlasst den Orbit mit ein paar weiteren Brandstellen, aber ansonsten bleiben ihr und die Vorräte unversehrt.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Einige Tage später stolpert ihr angeschlagen und halb verhungert aus dem Wald. Weiss' Verfolgung war erbarmungslos, und nur durch pures Glück seid ihr ihm entkommen.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Das Imperium erhält <color=\"red\">General Weiss</color> (Feldkommandeur) als Schurken.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Tree Remove Attempt",
+      "GUID": "ee6d2372-8a36-48ed-82b0-bb3444ccc661",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, den Baum anzuheben und wegzuziehen.\n\n{-} Lege eine Probe auf {K} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Baum an und lege dann alle Erschöpfungsmarker von dem Baum ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e22177b3-839a-46e6-875f-03f30bf3c1af",
+              "theText": "Du kommst etwas voran, aber der Baum versperrt immer noch den Weg. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf dem Baum."
+            }
+          ],
+          "GUID": "ba6d9cfd-6814-4d95-8137-5189d846ed7c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Tree Remove Success",
+      "GUID": "2972f6be-19a0-405a-a1e3-4fcafc346357",
+      "eventText": "Stöhnend zerrt ihr den umgestürzten Baum zur Seite und macht den Weg frei.\n\n{-} Lege alle Baummarker ab.\n{-} Wenn eine Rebellenfigur das erste Mal eines der hervorgehobenen Felder betritt, klickt ihr auf die Markierung und wählt \"Lichtung betreten\".",
+      "eventActions": [
+        {
+          "shortText": "Betretet die Lichtung.",
+          "longText": "",
+          "GUID": "7c943d2e-bc87-4ab3-81d4-c848f4383fcf",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Tree 1",
+              "GUID": "11d826af-8825-4b1b-8579-5d31f6c9edbd",
+              "theText": "Ein umgestürzter Baum versperrt den Weg zum Eingang. Er sieht schwer aus.\n\n{-} Ein Held kann mit dem Baum interagieren ({K}), um zu versuchen, ihn zu entfernen.",
+              "buttonList": [
+                {
+                  "GUID": "c87e8209-0539-4550-a732-9d7b0cfddecf",
+                  "theText": "{A} Wegschieben"
+                }
+              ]
+            },
+            {
+              "entityName": "Tree 2",
+              "GUID": "2ad45d9e-8af2-4a0b-b181-11717ccd20a2",
+              "theText": "Ein umgestürzter Baum versperrt den Weg zum Eingang. Er sieht schwer aus.\n\n{-} Ein Held kann mit dem Baum interagieren ({K}), um zu versuchen, ihn zu entfernen.",
+              "buttonList": [
+                {
+                  "GUID": "f91b6e52-c485-494a-964f-a60bf304d609",
+                  "theText": "{A} Wegschieben"
+                }
+              ]
+            },
+            {
+              "entityName": "Tree 3",
+              "GUID": "82d9de7f-28e4-46d2-b4fa-3e82697e3a0c",
+              "theText": "Ein umgestürzter Baum versperrt den Weg zum Eingang. Er sieht schwer aus.\n\n{-} Ein Held kann mit dem Baum interagieren ({K}), um zu versuchen, ihn zu entfernen.",
+              "buttonList": [
+                {
+                  "GUID": "3e308a13-1479-49ef-be82-6c9ad23f233a",
+                  "theText": "{A} Wegschieben"
+                }
+              ]
+            },
+            {
+              "entityName": "Enter Clearing",
+              "GUID": "9ff69c77-357a-460f-80fa-7498670547c8",
+              "theText": "{-} Wenn eine Rebellenfigur das erste Mal eines der hervorgehobenen Felder betritt, klickt auf \"Lichtung betreten\".",
+              "buttonList": [
+                {
+                  "GUID": "e79755c7-a606-40ce-9b7d-9bd0334c14ac",
+                  "theText": "Lichtung betreten"
+                }
+              ]
+            }
+          ],
+          "GUID": "f0f687e2-ebef-4a91-bf6d-19bbd975a2ff",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Supply Search Attempt",
+      "GUID": "467a7fb3-e453-4dca-bfc9-a4364929516a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du beginnst eilig, nach den Vorräten zu suchen.\n\n{-} Lege eine Probe auf {J} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Einsatzmarker an und lege dann alle Erschöpfungsmarker von dem Einsatzmarker ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "58598ae1-544e-430c-87cf-db3705ad47aa",
+              "theText": "Die Vorräte sind gut versteckt. Du musst es weiter versuchen.\n\n{-} Platziere für jedes erhaltene {B}-Ergebnis 1 Erschöpfungsmarker auf dem Versteck."
+            }
+          ],
+          "GUID": "52d67f65-7f2c-47ed-b848-954a03b0534b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Strike Team",
+      "GUID": "b9008d93-db6c-4874-bcf7-8f6634530373",
+      "eventText": "Ihr hört eine bedrohliche Stimme, die durch den Wald schallt. \"Ihr könnt nicht entkommen, Rebellen! Wenn ihr euch freiwillig ergebt, lassen wir vielleicht Gnade walten. Dieses Versprechen kann ich nicht geben, wenn ihr zu fliehen versucht.\"\n\n{-} Der rote Rebellen-Einsatzmarker steht für die versteckten Vorräte. Ein Held kann mit den versteckten Vorräten interagieren ({J}), um nach ihnen zu suchen.\n{-} Der Einsatz schreitet voran, wenn die versteckten Vorräte gefunden wurden.",
+      "eventActions": [
+        {
+          "shortText": "Findet die versteckten Vorräte.",
+          "longText": null,
+          "GUID": "3abf2477-18f6-4c85-a481-825ae9c12195",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Enter Clearing",
+              "GUID": "ad52d7b7-af56-4b62-b9d9-3819a291f4c5",
+              "theText": "{-} Wenn eine Rebellenfigur das erste Mal eines der hervorgehobenen Felder betritt, klickt auf \"Lichtung betreten\".",
+              "buttonList": [
+                {
+                  "GUID": "04981d9f-8fdf-4b2a-9001-ffdfeb2ef3f4",
+                  "theText": "Lichtung betreten"
+                }
+              ]
+            },
+            {
+              "entityName": "Crate1",
+              "GUID": "c3374a82-d473-49d7-8c7c-086bbab33c97",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "dc3e7a3b-b10c-4eb4-87c3-5504e97423f3",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 1",
+              "GUID": "3d602369-10a5-4071-9385-3ce2ccd749a0",
+              "theText": "Oben auf der Treppe befindet sich eine alte Kommunikationsstation.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "800a6c23-5955-4355-b139-bb41e4fbfd35",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Supply Cache",
+              "GUID": "25209059-43a4-4940-921f-98669716555e",
+              "theText": "Die Vorräte sollten irgendwo in diesem Bereich versteckt sein.\n\n{-} Ein Held kann mit dem Rebellenmarker interagieren ({J}), um nach den Vorräten zu suchen.",
+              "buttonList": [
+                {
+                  "GUID": "decd9c21-09e4-44ee-afd7-dd3b42164888",
+                  "theText": "{A} Vorräte suchen"
+                }
+              ]
+            }
+          ],
+          "GUID": "c973a72e-b5f0-4dc5-84a8-9b1d06286a74",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Der rote Rebellen-Einsatzmarker steht für die versteckten Vorräte. Ein Held kann mit den versteckten Vorräten interagieren ({J}), um nach ihnen zu suchen.\n{-} Der Einsatz schreitet voran, wenn die versteckten Vorräte gefunden wurden.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "b1ea71a8-b07f-4f17-8b01-b654cf3b7b5a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9cd9295b-557f-46c9-a9d1-932a37f2ad5d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG073/General Weiss"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cabe58ef-dee8-42a9-8f87-3bc20aa93561",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ed77ace6-da9b-408d-a036-e05970b37041",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG013/Probe Droid (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Extract",
+      "GUID": "f64c24d1-8f26-4841-ac47-494aeb8bda41",
+      "eventText": "Endlich findet ihr die Vorräte und schnappt sie euch.\n\n{-} Ein Held kann mit dem Terminal interagieren ({I}), um eine Evakuierung anzufordern.\n{-} Der Einsatz schreitet voran, wenn die Helden die Evakuierung anfordern.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind oder wenn der Held, der die Vorräte trägt, sich zurückzieht (klickt auf das Terminal und wählt \"Held zieht sich zurück\").",
+      "eventActions": [
+        {
+          "shortText": "Fordert eine Evakuierung an.",
+          "longText": "",
+          "GUID": "06ebbb5e-0a0d-4ecf-8b27-3f57f780d5a9",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "65acf8a0-7229-47ef-b739-0f4f37bd39d3",
+              "theText": "Oben auf der Treppe befindet sich eine alte Kommunikationsstation.\r\n\r\n{-} Ein Held kann mit dem Terminal interagieren ({I}), um eine Evakuierung anzufordern.",
+              "buttonList": [
+                {
+                  "GUID": "c55bb339-c12e-4a66-94ce-38444eb365de",
+                  "theText": "{A} ({I}) Evakuierung anfordern"
+                },
+                {
+                  "GUID": "c893ce76-389d-4666-a56d-df4f807b7375",
+                  "theText": "Held zieht sich zurück"
+                }
+              ]
+            },
+            {
+              "entityName": "Supply Cache",
+              "GUID": "212d3e1f-d159-4f11-8f04-50c003b820c1",
+              "theText": "Die Vorräte sollten irgendwo in diesem Bereich versteckt sein.\n\n{-} Ein Held kann mit dem Rebellenmarker interagieren ({J}), um nach den Vorräten zu suchen.",
+              "buttonList": [
+                {
+                  "GUID": "a8a6ee89-3e67-4d8e-a2d2-74de70d3cabf",
+                  "theText": "{A} Vorräte suchen"
+                }
+              ]
+            }
+          ],
+          "GUID": "93c6eca1-130d-4cf1-92c3-cc0bc501f212",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Versperre den Zugang zum Terminal und dem Eingang.",
+          "GUID": "2172833a-af08-4a43-842a-4313669537bc",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Ein Held kann mit dem Terminal interagieren ({I}), um eine Evakuierung anzufordern.\n{-} Der Einsatz schreitet voran, wenn die Helden die Evakuierung anfordern.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind oder wenn der Held, der die Vorräte trägt, sich zurückzieht (klickt auf das Terminal und wählt \"Held zieht sich zurück\").",
+          "GUID": "e8ec291c-cdfb-4be2-8b84-c55213be2d31",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Call for Extraction",
+      "GUID": "10b6b761-3270-4b35-98e0-c827fa6dc850",
+      "eventText": "{-} Der grüne Rebellen-Einsatzmarker stellt den Ausgang dar. Der Held mit den versteckten Vorräten kann durch den Ausgang entkommen.\n{-} Die Rebellen gewinnen, wenn der Held mit den versteckten Vorräten durch den Ausgang entkommt.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind oder wenn der Held, der die Vorräte trägt, sich zurückzieht (klickt auf das Terminal und wählt \"Held zieht sich zurück\").",
+      "eventActions": [
+        {
+          "shortText": "Entkommt!",
+          "longText": null,
+          "GUID": "deb7eb1b-07da-45d9-a224-1a32cde2ede7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "346db000-7c53-4d04-b7b9-2933e2a4edfb",
+              "theText": "Der Weg, von dem ihr gekommen seid, führt zurück ins Unterholz, wo ihr die imperialen Truppen leicht abschütteln könntet.\n\n{-} Der Held mit den versteckten Vorräten kann durch den Ausgang entkommen und den Einsatz beenden.\n{-} Die Rebellen verlieren, wenn sich der Held mit den versteckten Vorräten zurückzieht. Wenn dies passiert, klickz auf \"Held zieht sich zurück\".",
+              "buttonList": [
+                {
+                  "GUID": "d8fba3bd-4532-419d-82a6-95a4d8c0c5a8",
+                  "theText": "Entkommen (Einsatz beenden)"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 1",
+              "GUID": "0ead5ec6-e1d9-4179-9eee-2870b43cd996",
+              "theText": "Oben auf der Treppe befindet sich eine alte Kommunikationsstation.",
+              "buttonList": [
+                {
+                  "GUID": "f9767b19-5a57-444c-af14-1ef22efb4f55",
+                  "theText": "Held zieht sich zurück"
+                }
+              ]
+            }
+          ],
+          "GUID": "baa47cff-a984-4459-b38a-22dc76ee73fa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} The green Rebel mission token represents the exit. The hero with the hidden supplies can escape through the exit.\r\n{-} The Rebels win when the hero with the hidden supplies escapes through the exit.\r\n{-} The Rebels lose when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
+          "GUID": "85fb34a2-884b-4abc-a995-dc48212bf482",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "b8372f8e-7eb8-48c3-b7d4-44a91358df39",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "40ed0308-b3ea-4615-b084-677649769f81",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "d50f80e3-0d1b-4b02-b1ed-271b2e686c3e",
+      "mainText": "Der Weg, von dem ihr gekommen seid, führt zurück ins Unterholz, wo ihr die imperialen Truppen leicht abschütteln könntet.\n\n{-} Der Held mit den versteckten Vorräten kann durch den Ausgang entkommen und den Einsatz beenden.\n{-} Die Rebellen verlieren, wenn sich der Held mit den versteckten Vorräten zurückzieht. Wenn dies passiert, klickz auf \"Held zieht sich zurück\".",
+      "buttonList": [
+        {
+          "GUID": "644f2e86-2e61-4b6a-9cda-4601170c5dbb",
+          "theText": "Entkommen (Einsatz beenden)"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "991bebfe-af21-4fbd-b0ba-b11da36c644e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "27f533dc-d5bf-4084-a26b-740a000038a0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Weiss",
+      "GUID": "bde8faad-b2f6-4b5e-81a8-02f44626ac31",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Tree 1",
+      "GUID": "0c426fee-844f-4282-9b6f-219caa5b4e99",
+      "mainText": "Ein umgestürzter Baum versperrt den Weg zum Eingang. Er sieht schwer aus.\n\n{-} Ein Held kann mit dem Baum interagieren ({K}), um zu versuchen, ihn zu entfernen.",
+      "buttonList": [
+        {
+          "GUID": "ce8775aa-13fb-4ad0-b9eb-85d86149631f",
+          "theText": "{A} Wegschieben"
+        }
+      ]
+    },
+    {
+      "entityName": "Tree 2",
+      "GUID": "16d60478-dabd-4805-b9ce-36aa7bb8bafd",
+      "mainText": "Ein umgestürzter Baum versperrt den Weg zum Eingang. Er sieht schwer aus.\n\n{-} Ein Held kann mit dem Baum interagieren ({K}), um zu versuchen, ihn zu entfernen.",
+      "buttonList": [
+        {
+          "GUID": "4903d713-83ec-44cb-b863-abfe4126537f",
+          "theText": "{A} Wegschieben"
+        }
+      ]
+    },
+    {
+      "entityName": "Tree 3",
+      "GUID": "fa9a648c-0949-4b34-8476-5ed5e433c83b",
+      "mainText": "Ein umgestürzter Baum versperrt den Weg zum Eingang. Er sieht schwer aus.\n\n{-} Ein Held kann mit dem Baum interagieren ({K}), um zu versuchen, ihn zu entfernen.",
+      "buttonList": [
+        {
+          "GUID": "0f7b123f-ab18-494d-bcab-403439b6dc8a",
+          "theText": "{A} Wegschieben"
+        }
+      ]
+    },
+    {
+      "entityName": "Enter Clearing",
+      "GUID": "03302d90-3287-4924-ba80-4874c2b24293",
+      "mainText": "{-} Wenn eine Rebellenfigur das erste Mal eines der hervorgehobenen Felder betritt, klickt auf \"Lichtung betreten\".",
+      "buttonList": [
+        {
+          "GUID": "f7fe954d-3e50-419a-b204-8d8381712161",
+          "theText": "Lichtung betreten"
+        }
+      ]
+    },
+    {
+      "entityName": "Supply Cache",
+      "GUID": "4eef3aa4-5ca6-46eb-bbc0-5963ff0875e4",
+      "mainText": "Die Vorräte sollten irgendwo in diesem Bereich versteckt sein.\n\n{-} Ein Held kann mit dem Rebellenmarker interagieren ({J}), um nach den Vorräten zu suchen.",
+      "buttonList": [
+        {
+          "GUID": "8ee8a1a7-8606-4c1f-ba1a-1570384b1773",
+          "theText": "{A} Vorräte suchen"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "d38a51cc-b55b-42a1-a5b5-52abc9702d23",
+      "mainText": "Oben auf der Treppe befindet sich eine alte Kommunikationsstation.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "1593836d-160f-4e01-b84c-81252b6c692b",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Nexu",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

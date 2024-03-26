@@ -1,0 +1,757 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Eingekesselt",
+    "missionDescription": "",
+    "missionInfo": "{-} Wenn <color=\"red\">R2-D2</color> oder <color=\"red\">C-3PO</color> sich verteidigen, entferne 1 Würfel aus ihrem Verteidigungspool, wenn sie sich nicht innerhalb von 4 Feldern um einen Helden befinden.\n{-} Imperiale Einsatzmarker stellen Barrikaden und Fallen dar und sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände. Ein Held kann mit einem Marker interagieren und versuchen, ihn zu entfernen.\n{-} Tusken-Räuber auf dem schmalen Pfad (Zwillingssonnen-Spielplanteil 05B) sind Scharfschützen, die auf Anweisung Figuren auf dem gesamten Spielplan angreifen können.\n{-} Die Tür ist verriegelt. Eine Figur kann die Tür angreifen (Gesundheit: *1*, Verteidigung: 1 {G}).\n{-} Der Einsatz schreitet voran, wenn eine Rebellenfigur den schmalen Pfad erklimmt (klicke auf die grüne Markierung und wähle \"Klettern\".\n{-} Die Rebellen verlieren, wenn alle Helden verwundet und <color=\"red\">R2-D2</color> und <color=\"red\">C-3PO</color> besiegt sind.",
+    "campaignName": "Im Schatten der Zwillingssonnen",
+    "startingObjective": "Erklimmt den schmalen Pfad.",
+    "repositionOverride": "Versperre den Zugang zur Tür und zum Terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "324a2829-730b-440e-93d2-274ab7000522",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "1bdcd4b6-33b9-4f4a-9f88-435131a5302b",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d5cabb83-3ebf-4445-9eaa-c799aab01e63",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9474dfae-1552-4fd3-a903-d6138d3bd780",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Der Fels unter euren Füßen ist unnachgiebig und die Hitze der Zwillingssonnen von Tatooine ist unerträglich, während ihr durch die Jundland-Wüste klettert. C-3PO wiederholt eure Gefühle mit wehmütiger Stimme: \"Das ist kein Ort für zivilisierte Wesen. Hier draußen werden wir sicher umkommen.\"\n\nSein Gegenstück, R2-D2, piepst ihn an und rollt voraus. Ihr seid gezwungen, euer Unbehagen zu ignorieren, als ein Blasterschuss an euch vorbeirauscht, abgefeuert von den Sturmtruppen, die ihr jetzt vor euch seht. Als ihr euch in Bewegung setzt, um sie anzugreifen, bemerkt ihr eine Gruppe Tusken über euch, die sich in Position bringen, um die Schlucht hinunterzuschießen, während ihr den langen Anstieg bewältigt.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "37835dc0-55a3-4171-8531-e13185e04499",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "customName": null,
+          "GUID": "0f981860-b7b5-4963-ac12-35f079ce575e",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "{-} Die Helden kontrollieren <color=\"red\">R2-D2</color> und <color=\"red\">C-3PO</color> als Verbündete.\r\n{-} Wenn <color=\"red\">R2-D2</color> oder <color=\"red\">C-3PO</color> sich verteidigen, entferne 1 Würfel aus ihrem Verteidigungspool, wenn sie sich nicht innerhalb von 4 Feldern um einen Helden befinden.\n{-} Imperiale Einsatzmarker stellen Barrikaden und Fallen dar und sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände. Ein Held kann mit einem Marker interagieren und versuchen, ihn zu entfernen.\n{-} Tusken-Räuber auf dem schmalen Pfad (Zwillingssonnen-Spielplanteil 05B) sind Scharfschützen, die auf Anweisung Figuren auf dem gesamten Spielplan angreifen können.\n{-} Die Tür ist verriegelt. Eine Figur kann die Tür angreifen (Gesundheit: *1*, Verteidigung: 1 {G}).\n{-} Der Einsatz schreitet voran, wenn eine Rebellenfigur den schmalen Pfad erklimmt (klicke auf die grüne Markierung und wähle \"Klettern\".\n{-} Die Rebellen verlieren, wenn alle Helden verwundet und <color=\"red\">R2-D2</color> und <color=\"red\">C-3PO</color> besiegt sind.",
+          "GUID": "4ad617c5-a911-4290-be4a-d7a9c79f0eda",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Nach einem zermürbenden Aufstieg und schweren Kämpfen dringt ihr in den Stützpunkt ein und stehlt die imperialen Pläne aus der zentralen Konsole, um hoffentlich alle imperialen Verschwörungen zu vereiteln.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten die Belohnungskarte \"Partner\". (Diese Belohnungskarte funktioniert anders, wenn man mit <b>Imperial Commander</b> spielt. Siehe den Abschnitt <b>Rules Change</b> in der Wiki-Dokumentation für Details).",
+      "eventActions": [
+        {
+          "mainText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Im Schatten der Zwillingssonnen\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "bd74c6b8-03b5-4b99-b098-7c3857cc2bef",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "8c29e961-bf68-4e72-bbd9-c0139dee8bc4",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Das Klettern und der Kampf haben euch an den Rand eurer Belastbarkeit gebracht, und ihr müsst einfach kapitulieren und umkehren. Ihr hofft, dass dieser Stützpunkt für eine der weniger schädlichen Operationen des Imperiums bestimmt ist.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Im Schatten der Zwillingssonnen\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "1d8e7f1d-959f-4fa5-a174-940952051598",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "ecbe5c7b-cd0d-46d4-a905-131a95911991",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "Nachdem euer Pilot eine brillante Extraktion aus eurem Infiltrationseinsatz durchgeführt hat, sammelt ihr euch wieder in eurem Shuttle und plant euer weiteres Vorgehen. Aus den Plänen, die ihr gestohlen habt, geht hervor, dass Kayn Somos, der Kommandant der Sturmtruppen, dem ihr begegnet seid, einen Aufklärungseinsatz leitet, um den Helden der Rebellion, Luke Skywalker, zur Strecke zu bringen. Die Operation nutzt den im Orbit kreisenden Sternenzerstörer als Zentrale, und so wie es aussieht, wird er bald ausrücken, was bedeutet, dass sie ihn gefunden haben. Die Zeit zum Handeln ist gekommen.\n\nDie Pläne enthalten auch die Andockcodes des Sternenzerstörers. Euer Pilot sagt euch, dass das ausreichen sollte, um euer Shuttle an den Turbolasern vorbei in den Haupthangar des Schiffes zu bringen. Danach liegt es an euch, einen Weg zu finden, dieses Ding zu zerstören und es lebend wieder zu verlassen.\n\n{-} Jeder Held erhält 3 EP.\n{-} Die Helden erhalten 300 Credits pro Held.\n{-} Helden erhalten <color=\"red\">R2-D2</color> (Loyaler Astromech) und <color=\"red\">C-3PO</color> (Roboter-Mensch-Kontakter) als Verbündete.\n{-} Der nächste aktive Einsatz ist \"Brennender Himmel\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "\"Ihr wisst wirklich, wie ihr euch in brenzlige Situationen bringen könnt, oder?\" Der schnippische Kommentar eures Piloten kommt über euer Comlink, während er euch mit einem gewagten Rettungsmanöver aus der Schusslinie holt.\n\n\"Also immer noch keine weiteren Informationen? Nun, alles, was ich herausfinden konnte, ist, dass der Sternenzerstörer bald nach Sullust fliegen wird, wenn ich einige Messwerte richtig verstanden habe. Ich weiß es nicht genau, aber ich glaube, sie sind hinter Luke her. Das war der Ort seines letzten Einsatzes. Sie müssen hier Aufklärungsarbeit betrieben haben.\"\n\nDa ihr wisst, dass euch nur wenig Zeit bleibt, um den Helden der Rebellion zu retten, heckt ihr einen Plan aus, um euch an Bord eines imperialen Shuttles zu schleichen und auf den Sternenzerstörer zu gelangen. Ihr seid euch nicht sicher, was ihr an Bord tun könnt, aber ihr hofft, dass sich eine Gelegenheit ergibt.\n\n{-} Jeder Held erhält 2 EP.\n{-} Die Helden erhalten 300 Credits pro Held.\n{-} Helden erhalten <color=\"red\">R2-D2</color> (Loyaler Astromech) und <color=\"red\">C-3PO</color> (Roboter-Mensch-Kontakter) als Verbündete.\n{-} Der nächste aktive Einsatz ist \"Infiltration\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Jeder Held erhält 1 EP.\n{-} Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round Limit",
+      "GUID": "cc82e014-6c01-4e9b-8674-00a575d7a794",
+      "eventText": "Das Klettern und der Kampf haben euch an den Rand eurer Belastbarkeit gebracht, und ihr müsst einfach kapitulieren und umkehren. Ihr hofft, dass dieser Stützpunkt für eine der weniger schädlichen Operationen des Imperiums bestimmt ist.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Im Schatten der Zwillingssonnen\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "22594630-87d8-4e92-8c1d-a80a693f9174",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "77b8dba2-b3f4-4aef-a5f3-d4d3fc60a585",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "161ea904-5b7c-4b3a-b565-b5871da81ae4",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "R2-D2 defeated",
+      "GUID": "fc9ebd58-d346-4f33-b590-597e66ab759b",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "C-3PO defeated",
+      "GUID": "a02f3fe2-13fd-475b-aa4b-a8a654ac6b95",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Door",
+      "GUID": "3daf4a5f-5ca4-40b6-a732-7f7a74903587",
+      "eventText": "Kühle Luft strömt aus dem klimatisierten Gebäude, als die Tür aufgeht.\n\n{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Pläne abzurufen.\n{-} Die Rebellen gewinnen, wenn ein Held die Pläne abruft.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "dbaf96f9-fef5-4363-aabb-a31a7572fdb4",
+              "theText": "Die Tür führt in die imperiale Anlage.\n\n{-} Die Tür ist verriegelt. Eine Figur kann die Tür angreifen (Gesundheit: *1*, Verteidigung: 1 {G}).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a8b99d52-a80e-4519-8149-f7b9e8134b39",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Ruft die Pläne vom Terminal ab.",
+          "longText": null,
+          "GUID": "be0f5232-96aa-40a8-9586-e8cbdbd6d9f2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn <color=\"red\">R2-D2</color> oder <color=\"red\">C-3PO</color> sich verteidigen, entferne 1 Würfel aus ihrem Verteidigungspool, wenn sie sich nicht innerhalb von 4 Feldern um einen Helden befinden.\n{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Pläne abzurufen.\n{-} Die Rebellen gewinnen, wenn ein Held die Pläne abruft.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind und <color=\"red\">R2-D2</color> und <color=\"red\">C-3PO</color> besiegt werden.",
+          "GUID": "61cba9b9-6332-4443-bdae-557c1e9d0509",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Narrow Path Entered",
+      "GUID": "6095b3ff-c7aa-4f56-855f-c650b8ea2b3d",
+      "eventText": "Als ihr mit dem Aufstieg beginnt, greifen die Tusken-Räuber nach ihren Gaffi-Stöcken und stürmen auf euch zu.\n\n{-} Der Einsatz schreitet voran, wenn die Tür zur Anlage zerstört wird.",
+      "eventActions": [
+        {
+          "theText": "{-} Die Helden kontrollieren <color=\"red\">R2-D2</color> und <color=\"red\">C-3PO</color> als Verbündete.\n{-} Wenn <color=\"red\">R2-D2</color> oder <color=\"red\">C-3PO</color> sich verteidigen, entferne 1 Würfel aus ihrem Verteidigungspool, wenn sie sich nicht innerhalb von 4 Feldern um einen Helden befinden.\n{-} Imperiale Einsatzmarker stellen Barrikaden und Fallen dar und sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände. Ein Held kann mit einem Marker interagieren und versuchen, ihn zu entfernen.\n{-} Tusken-Räuber auf dem schmalen Pfad (Zwillingssonnne-Spielplanteil 05B) sind Scharfschützen, die auf Anweisung Figuren auf der gesamten Karte angreifen können.\n{-} Die Tür ist verriegelt. Eine Figur kann die Tür angreifen (Gesundheit: *1*, Verteidigung: 1 {G}).\n{-} Der Einsatz schreitet voran, wenn die Tür zur Anlage zerstört ist.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet und <color=\"red\">R2-D2</color> und <color=\"red\">C-3PO</color> besiegt sind.",
+          "GUID": "268db73d-8bcc-4841-bbf0-359438006dbf",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Betretet das Gelände.",
+          "longText": null,
+          "GUID": "f4e547b5-28c8-4018-a9a3-8b4e12c1b896",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Narrow Path",
+              "GUID": "184cd330-058f-4fb3-8d0a-ca0be4e2003f",
+              "theText": "Ein gewundener, schmaler Pfad führt an der Seite des Canyons entlang. Es ist ein langer und mühsamer Aufstieg.\n\n{-} Wenn eine Rebellenfigur das erste Mal den schmalen Pfad betritt, klicke auf \"Klettern\".",
+              "buttonList": [
+                {
+                  "GUID": "7e4b0da1-e739-4b84-9a47-669ac60f6b35",
+                  "theText": "Klettern"
+                }
+              ]
+            }
+          ],
+          "GUID": "4ba0d02d-9246-4e07-b06c-02ac8db71652",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "cd191d59-7dad-4c14-9c47-7e0dd92e7c35",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du fängst an, dich in das Terminal zu hacken.\n\n{-} Lege eine Probe auf {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Terminal an, dann lege alle Erschöpfungsmarker auf dem Terminal ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "ca752a8c-2b8d-4be0-8b18-fc19102c0244",
+              "theText": "Die Sicherheitssysteme halten stand. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf dem Terminal."
+            }
+          ],
+          "GUID": "e4c03dbf-00c5-4d1a-8bcb-f5076f424259",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Heat of the Suns",
+      "GUID": "299727e4-b187-4222-8aa9-1dbabeff6a99",
+      "eventText": "Die Hitze der Zwillingssonnen von Tatooine ist erbarmungslos. Ihr spürt, wie sie euch die Kraft raubt.\n\n{-} Jeder Held legt eine Probe auf {I} ab. Jeder Held, der versagt, wird <color=\"red\">Geschwächt</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Yellow Barricade Removed",
+      "GUID": "26dc59a7-333d-4647-8dc2-52cb50c6e229",
+      "eventText": "Schließlich gibt das Tor nach und gleitet auf. Gleichzeitig schrillen Alarme durch die Wüstenhitze.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Barricade 1",
+              "GUID": "c55b4777-006c-42a1-b39a-29289b569803",
+              "theText": "Das Imperium hat hier einen Zaun errichtet, der ein kompliziertes Schloss aufweist.\n\n{-} Ein Held kann mit dem Zaun interagieren und versuchen, das Schloss zu knacken.",
+              "buttonList": [
+                {
+                  "GUID": "99380c8c-4c08-4cfb-81e8-f4affca71eb6",
+                  "theText": "{A} Schloss knacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Barricade 2",
+              "GUID": "74859529-6b01-44b0-b76d-fb1d541d9a16",
+              "theText": "Das Imperium hat hier einen Zaun errichtet, der ein kompliziertes Schloss aufweist.\n\n{-} Ein Held kann mit dem Zaun interagieren und versuchen, das Schloss zu knacken.",
+              "buttonList": [
+                {
+                  "GUID": "1ef4a3cb-dd67-4906-ae0c-cbf3bbc40723",
+                  "theText": "{A} Schloss knacken"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "18645343-6037-4abd-99b5-80db2d2badca",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "3a8f0b64-437d-41a5-926a-58d91d60fc7e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Yellow Attempt",
+      "GUID": "acd6547b-e222-4702-b92e-b661c92881c1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, das Schloss am Tor zu knacken.\n\n{-} Lege eine Probe auf {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf den gelben Einsatzmarkern an, dann lege alle Erschöpfungsmarker auf den gelben Einsatzmarkern ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "6964be2e-8bd2-4557-86ef-f4810f3d8a81",
+              "theText": "Du machst einige Fortschritte, aber das Schloss hält. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf den gelben Einsatzmarkern."
+            }
+          ],
+          "GUID": "27424fb1-bd9f-4fc6-8aae-48463fc61560",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Attempt",
+      "GUID": "542c0da1-3d1d-4ac6-89b9-65a0caabcb9c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du fängst an, die Felsen wegzuziehen.\n\n{-} Lege eine Probe auf {K} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf den grünen Einsatzmarkern an, dann lege alle Erschöpfungsmarker auf den grünen Einsatzmarkern ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "973ea2cf-cda4-4a17-ab62-9a2e78eea4e8",
+              "theText": "Du machst einige Fortschritte, aber es liegt noch einiges an Arbeit vor dir. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf den grünen Einsatzmarkern.\n"
+            }
+          ],
+          "GUID": "96bc9c81-e8ad-46cc-9e7f-baf859c68feb",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Barricade Removed",
+      "GUID": "c209ae7c-8d30-4cc8-9ecb-9b5f5dcd6442",
+      "eventText": "Es gelingt euch endlich, euch einen Weg nach vorne zu bahnen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Green Barricade",
+              "GUID": "49d6124c-d86a-434e-a77a-e58c3f95ec6d",
+              "theText": "Die Tusken-Räuber haben einen Steinschlag ausgelöst. Riesige Felsen versperren den Weg.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Ein Held kann mit den Felsen interagieren und versuchen, sie zu entfernen.",
+              "buttonList": [
+                {
+                  "GUID": "6a104a60-888b-42a4-bd3e-a4d0ac0bb106",
+                  "theText": "{A} Entfernen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "44ef3229-c7e6-4e42-beb6-5822a07871bb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "26b2946d-b711-49a9-be25-53beb72ae812",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Attempt",
+      "GUID": "b0343c2c-d0fa-49f5-9f25-3a7e8b82e059",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, dich vorsichtig durch die Auslöser zu schlängeln.\n\n{-} Lege eine Probe auf {J} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem roten Einsatzmarker an, dann lege alle Erschöpfungsmarker auf dem roten Einsatzmarker ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "f7e382d1-948a-4380-af84-3a39e62cb6ca",
+              "theText": "Ein Sprengsatz explodiert in deiner Nähe und schleudert rasiermesserscharfe Splitter umher.\n\n{-} Du erleidest 2 {H} und wirst <color=\"red\">Blutend</color>."
+            },
+            {
+              "GUID": "6ca67ab1-3a1e-4970-8462-4c17a9c1aafa",
+              "theText": "Du bahnst dir einen sicheren Weg und entschärfst die Fallen."
+            }
+          ],
+          "GUID": "453a52a9-7e27-43ea-904b-1f65a10712df",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Removed",
+      "GUID": "2ff5ef48-9a4a-4b40-88d5-ef684b983dfd",
+      "eventText": "Als ihr euch dem Stützpunkt nähert, schreitet ein Kommandant der Sturmtruppen heraus und ruft seinen Soldaten zu: \"Kämpft härter, ihr Narren! Wir können nicht zulassen, dass dieses Rebellenpack alles zunichte macht, was wir erreicht haben!\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 1",
+              "GUID": "57e3a45a-3a03-4f3c-9553-f52c68a87e6f",
+              "theText": "Das Imperium hat den schmalen Pfad mit Minen und anderen Fallen versehen.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Ein Held kann mit den Fallen interagieren und versuchen, sie zu entfernen.",
+              "buttonList": [
+                {
+                  "GUID": "aac3d39f-e591-49c4-b5e9-5d22d598d0a3",
+                  "theText": "{A} Entfernen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "3935f472-c399-4e92-8105-4236d522466c",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "23666b4c-befe-4ff0-9b36-b4cdbb9ab113",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "19605115-2230-451b-8e72-ffe5759c5159",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9970da39-b251-4bd2-be05-f03221c8d114",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Attempt",
+      "GUID": "b27fef3c-8c20-4e01-8c8b-a53cdb404241",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, dich vorsichtig durch die Auslöser zu schlängeln.\n\n{-} Lege eine Probe auf {J} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem roten Einsatzmarker an, dann lege alle Erschöpfungsmarker auf dem roten Einsatzmarker ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1b13b451-d282-4c28-9f92-2801fb06806e",
+              "theText": "Ein Sprengsatz explodiert in deiner Nähe und schleudert rasiermesserscharfe Splitter umher.\n\n{-} Du erleidest 2 {H} und wirst <color=\"red\">Blutend</color>."
+            },
+            {
+              "GUID": "fad88174-952b-43be-951c-81e24c393fac",
+              "theText": "Du bahnst dir einen sicheren Weg und entschärfst die Fallen."
+            }
+          ],
+          "GUID": "43a0d136-2318-46e0-9ff8-4950f16b6092",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Removed",
+      "GUID": "85cebcf8-c072-4deb-9310-3c2fb6905fc7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 2",
+              "GUID": "70d39b82-ca4f-4e94-8795-392d073f99f1",
+              "theText": "Das Imperium hat den schmalen Pfad mit Minen und anderen Fallen versehen.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Ein Held kann mit den Fallen interagieren und versuchen, sie zu entfernen.",
+              "buttonList": [
+                {
+                  "GUID": "0b00ba43-e951-492c-aad6-a8210c5b63cb",
+                  "theText": "{A} Entfernen"
+                }
+              ]
+            }
+          ],
+          "GUID": "de36bdbd-56eb-4ff4-be87-21fe52d9503b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "27223615-6599-4609-b1cc-2ad8aaa3e691",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "8320b094-a652-488f-a6e6-de3fc02f84de",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "fcec21ce-37d1-49da-bc87-c440f2b014bf",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP R2-D2",
+      "GUID": "a68aaf34-7548-4f9c-b87b-eb91a95e637b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP 3PO",
+      "GUID": "88ae215d-c925-4758-a66f-a7f5ac77cc76",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 2",
+      "GUID": "92bd617d-f424-4259-9959-860ee748d91d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "f1e88402-ee51-4558-a1c2-d98ce94f2ac8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 1",
+      "GUID": "41d13a0e-35f6-4a44-a5f7-80eaf347c89b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 2",
+      "GUID": "b68a7e88-6ddb-478b-b62c-9d9d41ad51e0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 1",
+      "GUID": "c64deca0-e973-44f4-b85c-8dec42caf319",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 2",
+      "GUID": "0623b2ab-5bd4-411e-93a3-709ae0669b42",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "78ddaab1-3664-4f2b-b0a2-f23332f9c12f",
+      "mainText": "Die Tür führt in die imperiale Anlage.\n\n{-} Die Tür ist verriegelt. Eine Figur kann die Tür angreifen (Gesundheit: *1*, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "872b5b98-5374-4247-963e-4d959c64746e",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Narrow Path",
+      "GUID": "d4b69a45-37c8-4848-a698-77d99b609ea6",
+      "mainText": "Ein gewundener, schmaler Pfad führt an der Seite des Canyons entlang. Es ist ein langer und mühsamer Aufstieg.\n\n{-} Wenn eine Rebellenfigur das erste Mal den schmalen Pfad betritt, klicke auf \"Klettern\".",
+      "buttonList": [
+        {
+          "GUID": "2ad8ba7e-7ab8-4cf8-bb79-d7e3c8026cad",
+          "theText": "Klettern"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "c133c9c6-cdb6-4425-8a1c-96a57a8fb816",
+      "mainText": "Ein einzelnes Terminal enthält die Betriebsdaten.\n\n{-} Ein Held kann mit dem Terminal interagieren ({I}), um zu versuchen, die Pläne zu erhalten.",
+      "buttonList": [
+        {
+          "GUID": "0c1161c8-8048-459b-852f-731b530b1628",
+          "theText": "{A} Hacken"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 1",
+      "GUID": "8797db84-fad6-4efd-83bf-ecc769129664",
+      "mainText": "Das Imperium hat hier einen Zaun errichtet, der ein kompliziertes Schloss aufweist.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Eine Rebellenfigur kann mit dem Zaun interagieren und versuchen, das Schloss zu knacken.",
+      "buttonList": [
+        {
+          "GUID": "7c16c517-1937-4b8b-bf77-19dad67e2270",
+          "theText": "{A} Schloss knacken"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 2",
+      "GUID": "0aae7804-0de7-4bad-a479-996cd1618ec5",
+      "mainText": "Das Imperium hat hier einen Zaun errichtet, der ein kompliziertes Schloss aufweist.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Eine Rebellenfigur kann mit dem Zaun interagieren und versuchen, das Schloss zu knacken.",
+      "buttonList": [
+        {
+          "GUID": "57e1da51-c71e-426c-b63a-6a5c4c4c3bab",
+          "theText": "{A} Schloss knacken"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "17e3c444-37c0-455d-a752-80613721db11",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "f2501918-e1f9-4f32-89aa-0036b110941f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Green Barricade",
+      "GUID": "680b548b-d73f-45df-b8ed-3420a6a6bf21",
+      "mainText": "Die Tusken-Räuber haben einen Steinschlag ausgelöst. Riesige Felsen versperren den Weg.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Eine Rebellenfigur kann mit den Felsen interagieren und versuchen, sie zu entfernen.",
+      "buttonList": [
+        {
+          "GUID": "123edccc-7bea-426b-b184-11b79b69e6d8",
+          "theText": "{A} Entfernen"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 1",
+      "GUID": "07575fd7-76b8-4c39-9efc-ecb61c267043",
+      "mainText": "Das Imperium hat den schmalen Pfad mit Minen und anderen Fallen versehen.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Eine Rebellenfigur kann mit den Fallen interagieren und versuchen, sie zu entfernen.",
+      "buttonList": [
+        {
+          "GUID": "785599b8-04f2-473a-90bb-fe690c02ae5e",
+          "theText": "{A} Entfernen"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 2",
+      "GUID": "3d438bf3-6e55-4faa-b215-fc89351398e1",
+      "mainText": "Das Imperium hat den schmalen Pfad mit Minen und anderen Fallen versehen.\n\n{-} Imperiale Einsatzmarker sind unpassierbares Gelände. Tusken-Räuber behandeln imperiale Einsatzmarker wie normales Gelände.\n{-} Eine Rebellenfigur kann mit den Fallen interagieren und versuchen, sie zu entfernen.",
+      "buttonList": [
+        {
+          "GUID": "b6c0c6a5-db87-4954-ac7a-e1e80743fa5e",
+          "theText": "{A} Entfernen"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Tusken Raider",
+      "customInstructions": "{Q}{A} Führe einen Fernkampfangriff mit 2 blauen Würfeln durch, der auf {rebel} zielt und 8 Zielsicherheit erfordert. Während dieses Angriffs hast du eine Sichtlinie zu einer beliebigen Figur auf einem Außenfeld. Dieser Angriff erhält {B}: +2 Zielsicherheit. Während dieses Angriffs kannst du keine anderen Fähigkeiten einsetzen."
+    },
+    {
+      "cardName": "Tusken Raider (Elite)",
+      "customInstructions": "{Q}{A} Führe einen Fernkampfangriff mit 2 blauen Würfeln durch, der auf {rebel} zielt und 8 Zielsicherheit erfordert. Während dieses Angriffs hast du eine Sichtlinie zu einer beliebigen Figur auf einem Außenfeld. Dieser Angriff erhält {B}: +2 Zielsicherheit. Während dieses Angriffs kannst du keine anderen Fähigkeiten einsetzen."
+    }
+  ]
+}

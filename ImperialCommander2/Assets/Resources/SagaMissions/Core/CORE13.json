@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE13.json",
   "fileVersion": "22",
-  "saveDate": "2/26/2024",
-  "timeTicks": 638445114294213885,
+  "saveDate": "3/25/2024",
+  "timeTicks": 638469761453264794,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Brushfire",
@@ -15,11 +15,11 @@
     "startingObjective": "Disarm the explosives (&Explosives disarmed&/6)",
     "missionID": "Core 13",
     "customMissionIdentifier": "9396f49a-6695-4c46-a4e8-e4483b713ec5",
-    "missionInfo": "{-}Mission tokens represent explosives. A hero can interact with an explosive ({I}) to\r\ndisarm and discard it. If the hero is Fenn or is within 3 spaces of Fenn, the figure disarms and retrieves the explosive instead.\r\n {-}If an explosive is dropped, place the token Rebel side up. The explosive remains disarmed, and a Rebel figure can retrieve it.\r\n{-}A hero carrying an explosive can interact with the <color=\"red\">AT-ST</color> to place 1 explosive on the <color=\"red\">AT-ST</color>.\r\n{-}At the end of each round, discard all explosives from the <color=\"red\">AT-ST</color>. It suffers 5 {H} for each token discarded.\r\n{-}The Rebels win when all explosives have been disarmed.\r\n{-}The Rebels lose at the end of Round 5, or when all heroes are wounded.",
+    "missionInfo": "{-}Mission tokens represent explosives. A hero can interact with an explosive ({I}) to\r\ndisarm and discard it. If the hero is Fenn or is within 3 spaces of Fenn, the figure disarms and retrieves the explosive instead.\r\n {-}If an explosive is dropped, place the token Rebel side up. The explosive remains disarmed, and a Rebel figure can retrieve it.\r\n{-}A hero carrying an explosive can interact with the <color=\"red\">AT-ST</color> to place 1 explosive on the <color=\"red\">AT-ST</color>.\r\n{-}At the end of each round, discard all explosives from the <color=\"red\">AT-ST</color>. It suffers 5 {H} for each token discarded.\r\n{-}The Rebels win when all explosives have been disarmed.\r\n{-}The Rebels lose when all heroes are wounded.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 5,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "670cc1af-503e-4bcd-9cc9-cb46708358fd",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Block access to the explosives.",
@@ -62,48 +62,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "9f8ec78f-61e3-4bfd-bb4f-6eaea709cc6d",
@@ -646,7 +606,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "\"Hurry up!\" Fenn barks, charging through the underbrush. Driven by singular purpose, he curses the shortsighted caution of Rebel High Command. They repeatedly denied support, saying it would be too dangerous.\r\n\r\n\"I guess it's just as well,\" he says, shaking his head as you continue.\"Anyone else they sent would've screwed it up.\"\r\n\r\n{-}Deploy the heroes to the blue highlighted space.\r\n{-}Mission tokens represent explosives. A hero can interact with an explosive ({I}) to\r\ndisarm and discard it. If the hero is Fenn or is within 3 spaces of Fenn, the figure disarms and retrieves the explosive instead.\r\n {-}If an explosive is dropped, place the token Rebel side up. The explosive remains disarmed, and a Rebel figure can retrieve it.\r\n{-}A hero carrying an explosive can interact with the <color=\"red\">AT-ST</color> to place 1 explosive on the <color=\"red\">AT-ST</color>.\r\n{-}At the end of each round, discard all explosives from the <color=\"red\">AT-ST</color>. It suffers 5 {H} for each token discarded.\r\n{-}The Rebels win when all explosives have been disarmed.\r\n{-}The Rebels lose at the end of Round 5, or when all heroes are wounded.",
+      "eventText": "\"Hurry up!\" Fenn barks, charging through the underbrush. Driven by singular purpose, he curses the shortsighted caution of Rebel High Command. They repeatedly denied support, saying it would be too dangerous.\r\n\r\n\"I guess it's just as well,\" he says, shaking his head as you continue.\"Anyone else they sent would've screwed it up.\"\r\n\r\n{-}Deploy the heroes to the blue highlighted space.\r\n{-}Mission tokens represent explosives. A hero can interact with an explosive ({I}) to\r\ndisarm and discard it. If the hero is Fenn or is within 3 spaces of Fenn, the figure disarms and retrieves the explosive instead.\r\n {-}If an explosive is dropped, place the token Rebel side up. The explosive remains disarmed, and a Rebel figure can retrieve it.\r\n{-}A hero carrying an explosive can interact with the <color=\"red\">AT-ST</color> to place 1 explosive on the <color=\"red\">AT-ST</color>.\r\n{-}At the end of each round, discard all explosives from the <color=\"red\">AT-ST</color>. It suffers 5 {H} for each token discarded.\r\n{-}The Rebels win when all explosives have been disarmed.\r\n{-}The Rebels lose when all heroes are wounded.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -720,6 +680,18 @@
           "GUID": "dc5e6db6-e2d8-4c8f-8ddf-eae443aa55c7",
           "eventActionType": 0,
           "displayName": "Mission Management"
+        },
+        {
+          "xpToAdd": 1,
+          "displayName": "Modify XP",
+          "GUID": "27367ff2-6e64-48b4-b8f3-6123a4d29dd0",
+          "eventActionType": 24
+        },
+        {
+          "creditsToModify": 100,
+          "displayName": "Modify Credits",
+          "GUID": "4073d08f-af00-4674-b981-a654929ee0f8",
+          "eventActionType": 25
         }
       ]
     },
@@ -735,7 +707,7 @@
       "startOfRound": 1,
       "endOfRound": 5,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -761,6 +733,18 @@
           "GUID": "e43ebd8d-2452-42fd-9847-927384f8fd3d",
           "eventActionType": 0,
           "displayName": "Mission Management"
+        },
+        {
+          "xpToAdd": 1,
+          "displayName": "Modify XP",
+          "GUID": "777917a0-7536-492f-9972-2d23381fa217",
+          "eventActionType": 24
+        },
+        {
+          "creditsToModify": 100,
+          "displayName": "Modify Credits",
+          "GUID": "6625eb42-1f6e-4090-b877-912fff746f8b",
+          "eventActionType": 25
         }
       ]
     },
@@ -2571,7 +2555,6 @@
       "entityType": 5,
       "entityPosition": "920,1020",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,

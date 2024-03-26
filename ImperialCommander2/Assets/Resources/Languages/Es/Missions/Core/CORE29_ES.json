@@ -1,0 +1,596 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Capturados",
+    "missionDescription": "",
+    "missionInfo": "{-} Todas la cartas de Objeto de los Héroes se ponen boca abajo. Las cartas boca abajo no se pueden usar. La ficha de Misión neutral representa el equipo confiscado. Un Héroe puede interactuar con el equipo confiscado para poner boca arriba sus cartas de Objeto.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello, queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento o para interactuar con el equipo confiscado.\r\n{-} Un Héroe sin ningún arma puede atacar con 1 dado verde y 1 dado amarillo a una figura enemiga adyacente. Antes de este ataque, el Héroe realiza una prueba de {K}. Si la supera, el ataque gana: {B}: +2 {H}.\r\n{-} Las puertas del Almacén y del Vestíbulo estan selladas. Una puerta adyacente a una figura del bando Imperial no bloquea su movimiento ni su línea de visión.\r\n{-} La mision avanza cuando todos lo Héroes tienen boca arriba sus cartas de Objeto.",
+    "campaignName": "Juego Base",
+    "startingObjective": "Recupear el equipo confiscado.",
+    "repositionOverride": "Bloquear el acceso a los terminales y a las fichas de misión.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Lleváis días buscando una forma de escapar de vuestra celda, pero os han quitado vuestro equipo, con la única excepción de un comunicador muy bien escondido. \r\n\r\nYa casi habéis abandonado toda esperanza, cuando todo el edificio tiembla y vuestro comunicador emite un crujido. \r\n\r\n-En diez segundos -dice por él una voz- la puerta de vuestra celda se abrirá. Vuestro equipo esta al final del pasillo. Corred hacia allí ... ¡ahora!",
+      "eventActions": [
+        {
+          "tbText": "{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Todas la cartas de Objeto de los Héroes se ponen boca abajo. Las cartas boca abajo no se pueden usar. La ficha de Misión neutral representa el equipo confiscado. Un Héroe puede interactuar con el equipo confiscado para poner boca arriba sus cartas de Objeto.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello, queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento o para interactuar con el equipo confiscado.\r\n{-} Un Héroe sin ningún arma puede atacar con 1 dado verde y 1 dado amarillo a una figura enemiga adyacente. Antes de este ataque, el Héroe realiza una prueba de {K}. Si la supera, el ataque gana: {B}: +2 {H}.\r\n{-} Las puertas del Almacén y del Vestíbulo estan selladas. Una puerta adyacente a una figura del bando Imperial no bloquea su movimiento ni su línea de visión.\r\n{-} La mision avanza cuando todos lo Héroes tienen boca arriba sus cartas de Objeto. \r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+          "GUID": "d5cc48e2-ad5a-4c57-83e6-3d5bd079cc26",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Trash Compactor",
+      "GUID": "dac171c0-ca6b-492c-915e-54632e294337",
+      "eventText": "Las escotillas del Triturador de Residuos se abren.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Imperial Token 1",
+              "GUID": "a73523a1-c650-467e-815c-429c5798e58b",
+              "theText": "La entrada al Triturador de Residuos está cerrada. \r\n\r\n{-} Un Héroe puede interactuar con el terminal rojo para abrir todas los accesos al Triturador de Residuos.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Imperial Token 2",
+              "GUID": "fd9d7423-7d02-48e5-8156-00dbbf6021dd",
+              "theText": "La entrada al Triturador de Residuos está cerrada. \r\n\r\n{-} Un Héroe puede interactuar con el terminal rojo para abrir todas los accesos al Triturador de Residuos.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "a8c22f13-aa05-4c76-b3e3-1cb1014a6705",
+              "theText": "La entrada al Triturador de Residuos está abierta. \r\n\r\n{-} Un Héroe puede interactuar con esta ficha para bajar al Triturador de Residuos.",
+              "buttonList": [
+                {
+                  "GUID": "77e78cff-71b2-45b3-8ff4-b07eb62afbe2",
+                  "theText": "{A} Bajar"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "0d66d078-3887-43a0-aec5-ad6b5a73fe52",
+              "theText": "La entrada al Triturador de Residuos está abierta. \r\n\r\n{-} Un Héroe puede interactuar con esta ficha para bajar al Triturador de Residuos.",
+              "buttonList": [
+                {
+                  "GUID": "5a785ed0-a6ad-4fd5-ae81-7c620b93403a",
+                  "theText": "{A} Bajar"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Terminal",
+              "GUID": "804e7d9d-2284-41b8-afa3-01572c42daff",
+              "theText": "El terminal controla las escotillas de acceso al Triturador de Residuos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2c28072e-e528-42aa-86f8-54aa5ebd4240",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Trash Compactor",
+      "GUID": "84d326bd-6bf1-4bd2-b7b6-0637d91b6fe5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Intentáis piratear el terminal.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} a la prueba por cada ficha de Tensión en terminal, y descarta las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d7bc3bde-9324-49e4-805f-116a03385032",
+              "theText": "El sistema de seguridad del terminal es demasiado sofisticado. Tienes que seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de Tensión sobre el terminal."
+            }
+          ],
+          "GUID": "db5f75d7-2ef2-4374-818b-009effe0de3b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "TC Door Opens",
+      "GUID": "b19d3b9f-40f4-4ed6-844f-1ff7f586ea5f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "a20189f7-1e96-4376-be30-09203367fbe1",
+              "theText": "Esta puerta vieja y oxidada claramente fue diseñada para aislar el pasillo de los vapores del Triturador de Residuos.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "8767cb64-1d2d-4b6d-85bd-9629c793131f",
+              "theText": "Este terminal controla el conducto de residuos que sale del Triturador.",
+              "buttonList": [
+                {
+                  "GUID": "70dd6469-abca-4237-b717-5369428ba0a9",
+                  "theText": "{A} Piratear"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "2932ccdd-a648-4ed3-b9ee-27a677878836",
+              "theText": "Este terminal controla el conducto de residuos que sale del Triturador.",
+              "buttonList": [
+                {
+                  "GUID": "1104e1a7-ec1c-40c2-9501-9d21aa7d55c2",
+                  "theText": "{A} Piratear"
+                }
+              ]
+            }
+          ],
+          "GUID": "9bf0635e-ea7a-48e4-b29d-65b3220eaef6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cell Door opens",
+      "GUID": "830aa383-6c6f-4ce4-8cf0-c54bd43f28aa",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "0f5df446-d345-4f27-972d-70c1aa998d7e",
+              "theText": "La puerta de la celda parece sólida, pero vuestros esfuerzos la han debilitado.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bd24e3a6-293d-40cc-a7ae-33f061d4b781",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Ends - Rebel win",
+      "GUID": "719dc69a-6390-40b1-b564-f493ca8d39e4",
+      "eventText": "Arrastrándoos entre la suciedad y los desperdicios, os topáis con otro grupo de prisioneros Rebeldes que han sido liberados recientemente. Trabajando juntos, conseguís superar a las tropas Imperiales que se interponen en vuestro camino. Siguiendo las instrucciones de vuestro salvador, guiais a todo el mundo hasta el transporte que os espera no muy lejos.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends - Rebels lose",
+      "GUID": "1c4f99fe-5bd0-4683-afe8-cec815814869",
+      "eventText": "Volvéis a ser capturados y esta vez os vigilan con mayor atención mientras sois trasladados a Kessel. Afortunadamente, tras un par de semanas de trabajos forzados, el Alto Mando de la Alianza Rebelde inicia una operaci6n de rescate a gran escala. El Escuadrón Pícaro hace un trabajo magnífico y sois liberados junto a algunos oficiales Rebeldes de alto rango.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 2. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 100 créditos por Héroe para evitar esto.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Escape",
+      "GUID": "34fcad06-4144-4a3d-a4dc-00477c794f23",
+      "eventText": "- He aparcado la nave cerca del basurero- os dice vuestro rescatador-, pero tendréis que piratear su sistema y abrir los pasadizos. ¡Hagáis lo que hagáis, daos prisa! Los estoy manteniendo ocupados, pero no sé cuanto aguantaré.\r\n\r\n{-} Las fichas de Misión Imperiales representan pasadizos cerrados, y las Rebeldes, pasadizos abiertos. Un Héroe puede interactuar con un terminal para darle la vuelta a todas las fichas de Misión Imperiales del mismo color que el terminal.\r\n{-} Una figura puede interactuar con una ficha de Misión Rebelde para colocar esa misma figura en una casilla vacía del Triturador de Residuos.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello, queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento o para interactuar con el equipo confiscado.\r\n{-} Las puertas del Almacén y del Vestíbulo estan selladas. Una puerta adyacente a una figura del bando Imperial no bloquea su movimiento ni su línea de visión.\r\n{-}  La salida del Triturador de Residuos está abierta. ¡Es vuestra vía de escape!\r\n{-} Si todos los Héroes están encima de las fichas del bando Rebelde amarillas, o adyacentes a ellas, pulsa sobre \"Despegar\" en la ficha para ganar la misión.\r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Terminal",
+              "GUID": "e39142fe-f976-4cc0-8b01-fab676149b3e",
+              "theText": "El terminal controla las escotillas de acceso al Triturador de Residuos.",
+              "buttonList": [
+                {
+                  "GUID": "d07e8b47-9270-42c7-8345-3a390573ac74",
+                  "theText": "{A} Piratear"
+                }
+              ]
+            },
+            {
+              "entityName": "Equipment Cache",
+              "GUID": "e85d7f60-35b1-4d2f-b350-fe50d10efc0b",
+              "theText": "Vuestro equipo confiscado está aquí.\r\n\r\n{-} Un Héroe puede interactuar con el equipo confiscado para poner boca arriba sus cartas de Objeto. Cuando todos los Héroes le hayan dado la vuelta a sus cartas de Objeto, pulsa sobre \"Equipo Recuperado\" para que la misión avance.",
+              "buttonList": [
+                {
+                  "GUID": "46189a01-0904-4ebc-a466-8f049306a9f1",
+                  "theText": "Equipo Recuperado"
+                }
+              ]
+            }
+          ],
+          "GUID": "d037a863-7eaf-4f34-9ea8-a18575344161",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Las fichas de Misión Imperiales representan pasadizos cerrados, y las Rebeldes, pasadizos abiertos. Un Héroe puede interactuar con un terminal para darle la vuelta a todas las fichas de Misión Imperiales del mismo color que el terminal.\r\n{-} Una figura puede interactuar con una ficha de Misión Rebelde para colocar esa misma figura en una casilla vacía del Triturador de Residuos.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello, queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento o para interactuar con el equipo confiscado.\r\n{-} Las puertas del Almacén y del Vestíbulo estan selladas. Una puerta adyacente a una figura del bando Imperial no bloquea su movimiento ni su línea de visión.\r\n{-}  La salida del Triturador de Residuos está abierta. ¡Es vuestra vía de escape!\r\n{-} Si todos los Héroes están encima de las fichas del bando Rebelde amarillas, o adyacentes a ellas, pulsa sobre \"Despegar\" para ganar la misión., pulsa sobre \"Despegar\" en la ficha para ganar la misión.\r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+          "GUID": "6ea359dc-7a18-447a-82f0-9b519291687a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Encontrar la forma de abrir las escotillas del Triturador de Residuos.",
+          "longText": null,
+          "GUID": "f7550b2c-70a0-4626-9abb-dc83a99ec9b7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Garbage Chute",
+      "GUID": "c9a18ce4-ba8b-4b62-83f3-92f94a20c944",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Intentáis piratear el terminal.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} a la prueba por cada ficha de Tensión en terminal, y descarta las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "86a3d9d5-16e5-4d31-8953-f26c41e88b3a",
+              "theText": "El sistema de seguridad del terminal es demasiado sofisticado. Tienes que seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de Tensión sobre el terminal."
+            }
+          ],
+          "GUID": "44b7b7ad-e373-421c-86e6-f68037705e87",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Garbage Chute Opens",
+      "GUID": "0d4a3a62-9f44-4bc6-be0b-c26cb015d0fa",
+      "eventText": "El conducto de residuos se abre. ¡Esta podría ser vuestra vía de escape!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Imperial Token 1",
+              "GUID": "f64a3ddc-8299-484e-ad7a-5b321d92f238",
+              "theText": "La salida del Triturador de Residuos está bloqueada. Solo puede abrirse desde un terminal amarillo.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Imperial Token 2",
+              "GUID": "4b484ec0-3e00-415c-b7d7-9541b76d6788",
+              "theText": "La salida del Triturador de Residuos está bloqueada. Solo puede abrirse desde un terminal amarillo.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Rebel Token 1",
+              "GUID": "51512a82-2895-4d99-b15f-55409439aabe",
+              "theText": "La salida del Triturador de Residuos está abierta. ¡Es vuestra vía de escape!\r\n\r\n{-} Si todos los Héroes están encima de las fichas del bando Rebelde amarillas, o adyacentes a ellas, pulsa sobre \"Despegar\" para ganar la misión.",
+              "buttonList": [
+                {
+                  "GUID": "a3c0c164-f131-4531-bb47-33ddcfb69068",
+                  "theText": "Despegar"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Rebel Token 2",
+              "GUID": "e090a1a6-0740-4569-860a-137f44a410ad",
+              "theText": "La salida del Triturador de Residuos está abierta. ¡Es vuestra vía de escape!\r\n\r\n{-} Si todos los Héroes están encima de las fichas del bando Rebelde amarillas, o adyacentes a ellas, pulsa sobre \"Despegar\" para ganar la misión.",
+              "buttonList": [
+                {
+                  "GUID": "32ccd7b4-d960-487d-bda1-78374621431f",
+                  "theText": "Despegar"
+                }
+              ]
+            },
+            {
+              "entityName": "Hallway Door",
+              "GUID": "79e4978f-94ff-48cd-a9a2-f17195cf0e22",
+              "theText": "La puerta está bloqueada.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Storage Room Door",
+              "GUID": "277565b4-8ce5-47ce-8b45-bb97c91247f8",
+              "theText": "La puerta está bloqueada.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "0b777269-cbbe-47fc-b8e3-68e221342ec9",
+              "theText": "Este terminal controla el conducto de residuos que sale del Triturador.",
+              "buttonList": [
+                {
+                  "GUID": "52174907-05eb-44b1-b6be-03eb2b71cb06",
+                  "theText": "{A} Piratear"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "a685ee5f-2f84-46e0-ac4a-521f69b5018f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "933d6bd5-b9fb-42b5-b4f2-f2d8b42c460d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Escapar a traves del conducto de residuos.",
+          "longText": null,
+          "GUID": "5d87d0fe-7871-4024-ab3f-8d2ee647ae61",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello, queda incapacitado. Al activarse, tan solo dispone de una acción y sólo puede usar esa acción para realizar un movimiento o para interactuar con el equipo confiscado.\r\n{-} Si todos los Héroes están encima de las fichas del bando Rebelde amarillas, o adyacentes a ellas, pulsa sobre \"Despegar\" en la ficha para ganar la misión.",
+          "GUID": "866c4cbf-2e35-4de7-adcb-4716d9ac6489",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb down",
+      "GUID": "af2f95f6-b30c-4fe8-8a75-066141a6c200",
+      "eventText": "Bajas por el agujero y te encuentras rodeado de desperdicios. ¡Que olor tan delicioso habéis descubierto!",
+      "eventActions": [
+        {
+          "shortText": "Abrir el conducto de residuos del Triturador.",
+          "longText": null,
+          "GUID": "f52451ad-3c33-40db-ba4f-1d973c12606d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "82a639ca-e6f6-4bfa-abfb-7cfc73002e4c",
+              "theText": "La entrada al Triturador de Residuos está abierta.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con esta ficha para colocar la figura en cualquier casilla vacía del Triturador de Residuos.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "3f89a360-fc83-4409-a9c6-5658dda96af8",
+              "theText": "La entrada al Triturador de Residuos está abierta.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con esta ficha para colocar la figura en cualquier casilla vacía del Triturador de Residuos.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "4e3c96d9-b0c1-497a-9fe7-ec7b1047dc44",
+              "theText": "Esta puerta vieja y oxidada claramente fue diseñada para aislar el pasillo de los vapores del Triturador de Residuos.",
+              "buttonList": [
+                {
+                  "GUID": "b5c48878-24cc-41d9-8434-9ae450c65de5",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "93de1451-40e7-4d18-adcf-92baefb3bbd7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Entrance",
+      "GUID": "9c2b4f3a-c336-4a80-b015-7e27365a5326",
+      "mainText": "Esta es la celda donde los Héroes están detenidos. Despliégalos aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "29cd84c0-58f9-47e9-8ced-432f5515d9e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "e78a0a86-e764-49fd-82f2-77fe019574e4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "d3d0ae17-f9cd-4516-8d5c-01b385b5080d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "0a45fcb1-2c6a-4c21-9877-86be6dfba11e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "82225e76-06ab-4aec-9069-a5bec843b375",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "551def1d-2afe-4ea1-b828-27c9a2b18c0a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3be15fdc-a062-48c8-9d31-794fa22dfb6b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite Officer",
+      "GUID": "644e7104-8a58-4189-84c2-d091fcc1f864",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 3",
+      "GUID": "d992e442-5c6f-46ac-80d4-1b20cdeb4d04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 2",
+      "GUID": "55c48f99-c50a-4219-a4f7-209f6c75e465",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 1",
+      "GUID": "84c3e752-11bb-4ae5-b09d-17513513f2cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Terminal",
+      "GUID": "0f6454f8-bc95-447e-ad51-72f7e4db9f1e",
+      "mainText": "El terminal controla las escotillas de acceso al Triturador de Residuos.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 1",
+      "GUID": "69856693-788f-4357-8b7a-333a7dfdc330",
+      "mainText": "Este terminal controla el conducto de residuos que sale del Triturador.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 2",
+      "GUID": "49632046-382f-4407-9584-39f8c1c2f7fe",
+      "mainText": "Este terminal controla el conducto de residuos que sale del Triturador.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 1",
+      "GUID": "e45723b0-7379-4d17-974e-a1dbd1dc22c5",
+      "mainText": "La entrada al Triturador de Residuos está cerrada. \r\n\r\n{-} Un Héroe puede interactuar con el terminal rojo para abrir todas los accesos al Triturador de Residuos.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 2",
+      "GUID": "03cf63aa-bb2f-4427-b9b3-b3c82a0ca20b",
+      "mainText": "La entrada al Triturador de Residuos está cerrada. \r\n\r\n{-} Un Héroe puede interactuar con el terminal rojo para abrir todas los accesos al Triturador de Residuos.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Rebel Token 2",
+      "GUID": "5f4f90d0-c524-4cd2-8d92-b7a72348fb1c",
+      "mainText": "La entrada al Triturador de Residuos está abierta. \r\n\r\n{-} Un Héroe puede interactuar con esta ficha para bajar al Triturador de Residuos.",
+      "buttonList": [
+        {
+          "GUID": "368f0b76-a31c-43e9-b8c2-6b464d8f2233",
+          "theText": "{A} Bajar"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Rebel Token 1",
+      "GUID": "16037a15-1ded-4a0b-b9eb-fd0851e594b0",
+      "mainText": "La entrada al Triturador de Residuos está abierta. \r\n\r\n{-} Un Héroe puede interactuar con esta ficha para bajar al Triturador de Residuos.",
+      "buttonList": [
+        {
+          "GUID": "258b5ec7-e671-433f-be5d-2bcb0346c928",
+          "theText": "{A} Bajar"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Imperial Token 1",
+      "GUID": "7f6aeb7e-44e0-4e52-8308-fe0ba221ff23",
+      "mainText": "La salida del Triturador de Residuos está bloqueada. Solo puede abrirse desde un terminal amarillo.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Imperial Token 2",
+      "GUID": "889af84e-a26f-43bc-8d52-2ebff893a032",
+      "mainText": "La salida del Triturador de Residuos está bloqueada. Solo puede abrirse desde un terminal amarillo.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "d5879e17-e5cc-4501-867f-4bdbac0cc5b6",
+      "mainText": "La puera de la celda es de plastiacero sólido, pero ha sido desbloqueada por vuestro rescatador.",
+      "buttonList": [
+        {
+          "GUID": "9990c353-00d3-431c-8365-b4c3b074a092",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Hallway Door",
+      "GUID": "719a6aeb-dfa5-4819-8a15-f05c55a23ec5",
+      "mainText": "La puerta del vestíbulo está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Trash Compactor Door",
+      "GUID": "61c10a4f-dddd-4a68-9081-25c6def3540b",
+      "mainText": "Esta puerta vieja y oxidada claramente fue diseñada para aislar el pasillo de los vapores del Triturador de Residuos.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Storage Room Door",
+      "GUID": "2f12d2ec-1b90-4b91-b043-9207d5d66d81",
+      "mainText": "La puerta del almacén está bloqueada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Rebel Token 1",
+      "GUID": "27ce12b5-ea26-4cc4-b0f3-d069df9f0622",
+      "mainText": "El conducto de residuos está abierto. ¡Esta podría ser vuestra vía de escape!\r\n\r\n{-} Si todos los Héroes están encima de las fichas del bando Rebelde amarillas, o adyacentes a ellas, pulsa sobre \"Despegar\" para ganar la misión.",
+      "buttonList": [
+        {
+          "GUID": "4b9f202c-8cde-4f88-ad54-f88094648ba3",
+          "theText": "Despegar"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Rebel Token 2",
+      "GUID": "04ca1c00-2ec6-4883-bd9c-683acec240a3",
+      "mainText": "El conducto de residuos está abierto. ¡Esta podría ser vuestra vía de escape!\r\n\r\n{-} Si todos los Héroes están encima de las fichas del bando Rebelde amarillas, o adyacentes a ellas, pulsa sobre \"Despegar\" para ganar la misión.",
+      "buttonList": [
+        {
+          "GUID": "1aa1f395-cdf7-4a60-9fc9-2077ac41f891",
+          "theText": "Despegar"
+        }
+      ]
+    },
+    {
+      "entityName": "Equipment Cache",
+      "GUID": "b66ecce5-eb8d-4ee9-a701-ac60739f926c",
+      "mainText": "Vuestro equipo confiscado está aquí.\r\n\r\n{-} Un Héroe puede interactuar con el equipo confiscado para poner boca arriba sus cartas de Objeto. Cuando todos los Héroes le hayan dado la vuelta a sus cartas de Objeto, pulsa sobre \"Equipo Recuperado\" para que la misión avance.",
+      "buttonList": [
+        {
+          "GUID": "2d680aee-d2c5-43ae-b100-444cbf4c1bf6",
+          "theText": "Equipo Recuperado"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

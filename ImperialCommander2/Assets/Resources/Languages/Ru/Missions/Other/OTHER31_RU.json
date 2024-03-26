@@ -1,0 +1,1690 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Хищник и жертва",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Набор \"Боба Фетт (Бесчестный охотник за головами)\"",
+    "startingObjective": "",
+    "repositionOverride": "Находиться в пределах 3 клеток от груза.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "6c8f6b61-d4bb-4b39-a6f7-0c71a73dc809",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "10301d3e-437b-4c87-9c75-7266ee35ed94",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "40a20a67-ca40-4067-a9f9-0007bc104eca",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Вы думали, что вы и ваш груз благополучно вернулись домой, когда внезапно <i>Раб I</i> появился в небе позади вас, сбивая ваш корабль. Теперь вы совершили аварийную посадку посреди леса, в окружении имперцев и наемников. Должно быть, они всё это подстроили с самого начала.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.",
+      "eventActions": [
+        {
+          "tbText": "Прибывший отряд загружает ваш груз на ховер-сани для последующей транспортировки. Вы отбиваетесь от них, но сразу за ними идет другая волна врагов.",
+          "GUID": "45de078b-d71e-4b4c-8f4d-13b0282d1cb0",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "a665cc34-918d-4b3f-b8ad-6dbd011dbd4f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Extraction Point",
+              "GUID": "659b8bc1-23b2-44fb-9610-0129d2626f71",
+              "theText": "Имперский транспортный корабль завис здесь в ожидании груза.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "6b91f405-6b94-4338-930a-e76e8a1b74da",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Повстанческий жетон задания — груз.\r\n{-} В начале каждой фазы статуса, Империя перемещает груз, передвигая его на 1 клетку. Количество клеток увеличивается на 1 если в пределах 3 клеток от груза есть имперская фигурка. Количество клеток увеличивается на 1 если в пределах 3 клеток от груза нет здоровых фигурок.\r\n{-} Повстанцы победят, в конце раунда 6.\r\n{-} Повстанцы проиграют когда груз достигнет точки эвакуации (выделена зелёным).",
+          "GUID": "c8b1436b-e86b-42d8-9603-dd0bd0bad175",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Повсюду вокруг вас заряжаются имперские энергоустановки.",
+          "GUID": "b71ef875-aa16-4132-9557-24cfe96fc210",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "8d69a4fc-97b2-4dc4-8d0e-fa22386a14a9",
+              "theText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+              "buttonList": [
+                {
+                  "GUID": "63cacd22-891f-4ad4-8ffc-478a0baa5d1d",
+                  "theText": "Уничтожить"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 2",
+              "GUID": "57d26274-512c-4b5d-83e8-3be33868d0ae",
+              "theText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+              "buttonList": [
+                {
+                  "GUID": "56113bf0-22e4-4465-a17a-8eccb893d215",
+                  "theText": "Уничтожить"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 3",
+              "GUID": "3c9b8f60-22d9-4c67-a8d1-1776748e8a94",
+              "theText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+              "buttonList": [
+                {
+                  "GUID": "7703a853-43f2-468f-b263-25bb975f34dc",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "9430faed-58c7-4725-9f63-b7ddefc31365",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Вы готовите своё оружие и продвигаетесь к грузу и энергетическим установкам.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+          "GUID": "1cd887e4-f8f6-4fc7-b953-b8ac3b8f278f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Предотвратите доставку груза в точку эвакуации.",
+          "longText": null,
+          "GUID": "9105d042-cb87-4eef-8281-7be0f5843255",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Повстанческий жетон задания — груз.\r\n{-} В начале каждой фазы статуса, Империя перемещает груз, передвигая его на 1 клетку. Количество клеток увеличивается на 1 если в пределах 3 клеток от груза есть имперская фигурка. Количество клеток увеличивается на 1 если в пределах 3 клеток от груза нет здоровых фигурок.\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).\r\n{-} Повстанцы победят, в конце раунда 6.\r\n{-} Повстанцы проиграют когда груз достигнет точки эвакуации (выделена зелёным).",
+          "GUID": "50edcecd-a7e2-4668-94e8-982cae8261b5",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Пробираясь сквозь толпу имперцев и охотников за головами, вы отбираете груз у несостоявшихся грабителей. Прикрываясь бластерным огнём, вы скрываетесь глубоко в лесу, надеясь, что новый эвакуационный шаттл скоро найдёт вас.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Каждый герой получает 1 ОО. Герои получают по 200 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Сдерживаемые массированным огнем, вы не в состоянии помешать охотникам за головами погрузить ваш груз на корабль. Имперский шаттл взлетает, нагруженный ценными припасами повстанцев, а <i>Раб I</i> следует за ним.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Империя получает <color=\"red\">Бобу Фетта</color> (бесчестный охотник за головами) в качестве злодея.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Round Question",
+      "GUID": "5790cac6-5d58-4b9d-a9af-28de38459fe3",
+      "eventText": "Ховер-сани с припасами повстанцев скользят вперёд.",
+      "eventActions": [
+        {
+          "mainText": "Выберите верный вариант: Кто находится в пределах 3 клеток от груза?\r\n\r\n1: Как минимум 1 здоровый герой, и никаких имперских фигурок\r\n2: Как минимум 1 здоровый герой, как минимум 1 имперская фигурка\r\n3: Ни здоровых героев, ни имперских фигурок\r\n4: Нет здоровых героев, как минимум 1 имперская фигурка",
+          "buttonList": [
+            {
+              "GUID": "a2b01e14-1f1f-425a-9d89-2981b939c4fd",
+              "theText": "1"
+            },
+            {
+              "GUID": "8cad51f5-0050-4872-b4cc-84f8d5c9f96e",
+              "theText": "2"
+            },
+            {
+              "GUID": "baba6294-7838-409e-840d-ac97460ca445",
+              "theText": "3"
+            },
+            {
+              "GUID": "7e056440-ade0-4503-9abc-f4011ff4112b",
+              "theText": "4"
+            }
+          ],
+          "GUID": "13bd68d9-cbe9-4804-8598-cc62e5fab483",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Position +1",
+      "GUID": "b9165ab6-ff1e-4389-9100-21f39a5ccebb",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Position +2",
+      "GUID": "da7dd909-c57f-4ae4-95cc-a7b36d764b8e",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Position +3",
+      "GUID": "760e79c6-22c0-492a-a3c1-e1cf01ce0208",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat Increase 1",
+      "GUID": "e26ffdbd-be43-4282-aba2-6d5700eba36a",
+      "eventText": "Имперский сигнал тревоги продолжает разноситься по лесу.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat Increase 2",
+      "GUID": "da4a5839-93ed-4659-bce0-25bbf9def728",
+      "eventText": "Имперский сигнал тревоги продолжает разноситься по лесу.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bonus Movement 0",
+      "GUID": "0b8fde14-54ff-4a5d-a78f-61087ff22af6",
+      "eventText": "Имперские двигатели увеличивают мощность, перемещая груз вперёд.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bonus Movement 1",
+      "GUID": "17e92060-935f-4ce9-914a-cbfad24e4d67",
+      "eventText": "Имперские двигатели увеличивают мощность, перемещая груз вперёд.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bonus Movement 2",
+      "GUID": "f36b769e-67cd-4693-a695-6c0c76e98ad9",
+      "eventText": "Имперские двигатели увеличивают мощность, перемещая груз вперёд.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bonus Movement 3",
+      "GUID": "5d67ca84-f5f5-41c9-bf41-2a14ac509a17",
+      "eventText": "Имперские двигатели увеличивают мощность, перемещая груз вперёд.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 1 Over",
+      "GUID": "b08ad911-378f-4198-811a-ae4e8a1d4271",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Rebels Win",
+      "GUID": "f33ef806-e6e9-4592-8a94-067ed405e045",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Fire Event Group",
+      "GUID": "af503992-c4e9-4c4a-82d3-627433c3d755",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat Terminal 1",
+      "GUID": "4cf73bb0-3833-4271-8d69-101e8dec3d58",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat Terminal 2",
+      "GUID": "4b9d8c66-5c61-408b-9174-5018aa04e837",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat Terminal 3",
+      "GUID": "8112ca41-978e-430e-820e-fde95ec9dfc1",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "All Terminals Destroyed",
+      "GUID": "36fad1e2-a575-43c6-b12d-02e56413ccb8",
+      "eventText": "Имперские энергоустановки отключились навсегда. Они больше не будут поддерживать имперские войска.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Destroy Terminal 1",
+      "GUID": "c3f79dfc-9e73-4e45-95cf-7a645c118ddd",
+      "eventText": "Энергетическая установка взрывается, искры разлетаются во все стороны.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "2448aee8-8a8f-417a-8e1e-9b2c619d8fec",
+              "theText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "97bfe553-630f-4b7f-bbca-950e598d5cea",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 2",
+      "GUID": "8020582d-d8d9-439b-b18b-0c46562c39f7",
+      "eventText": "Энергетическая установка взрывается, искры разлетаются во все стороны.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "26b4a3ff-bccf-4d80-911f-6ae3041a6fb2",
+              "theText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+              "buttonList": [
+                {
+                  "GUID": "d3cc28e5-6935-4614-ac09-c01699912114",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "eaca5e58-0972-4d55-9c1f-f0bc25c1f47a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 3",
+      "GUID": "bf0cb96d-387a-4e68-b5be-0c9236bfdd52",
+      "eventText": "Энергетическая установка взрывается, искры разлетаются во все стороны.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 3",
+              "GUID": "642b8931-38cf-4a9f-8e03-1495653f17fd",
+              "theText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+              "buttonList": [
+                {
+                  "GUID": "9bd04978-78c6-4a2c-8e8e-d159a74253c0",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "382921c7-a599-4f0b-84da-2373bb05eb4c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Predator",
+      "GUID": "0df5996d-a74a-473e-9861-bcd35d4dd2e8",
+      "eventText": "Вы слышите рёв двигателей, механический скрежет и шипение, когда огромный корабль класса Фаирспрей, принадлежащий Бобе Фетту, приземляется рядом с местом столкновения.\r\n\r\nНаёмник выходит, обнажив оружие, готовый сделать всё возможное, чтобы получить свою награду.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "de8f4b1a-1eab-461b-afdb-eef02558591f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG076/Boba Fett"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 2",
+      "GUID": "a5f4e5ea-9b31-47d2-9f4a-21bdec0d3d0e",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "339e4df3-0670-4b82-8356-23be03cb7893",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "0d6eb550-7bb1-4390-94eb-0724f3e8b550",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "4f870842-7946-4ed9-9a53-0e4080e6c3d4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 3",
+      "GUID": "ef4e1177-3d9e-4327-b762-7ada4b47d22d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "3fa973d6-b9e7-4751-9937-a8002677d8ef",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "2ff1aafb-cd49-42b2-b56f-df8c50edfb7a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "873ed4ea-7329-452a-be38-b2e32ea4502d",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2f9863fe-9b13-4f90-8573-4f5ccd74e01c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 4",
+      "GUID": "e8244674-3ef7-4ae7-ae49-42049410ed9b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "74d3db0b-eecb-411a-9bbf-c26a8b4101a7",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "b4ea2f2f-21c6-4004-888c-2a097008018f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "03af6807-c9d9-4743-bc34-f16b84312c3c",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "eda9fa68-1dce-42c8-a801-1ca9c09a9811",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bb711c3e-9eb8-4190-84a1-456a7bc18bcc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 5",
+      "GUID": "17bbc248-b13c-47f3-a318-d477d7e9e882",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "ef26f893-2568-48dc-a30f-2ada23386fdf",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "f026e5db-66c9-4d05-8051-2464e60f0352",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "e07cf83e-5d5f-474c-ba17-d359dd12cd1f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "6ee03781-7b3f-484a-84cb-5677f5e9109a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "bf24a372-3ac8-47ea-bc0a-f08fa48e3445",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "01d09682-d010-4739-a8ed-5112c44a543d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 6",
+      "GUID": "f87bed2f-5c4b-4545-970c-6ac6bb3a1a61",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "b82e6804-582c-47b5-85f3-c3015ca34fab",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "b4fa9004-c6c9-431a-8f2f-119d6ddc3cb2",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "07d6031d-9cb1-4807-a2c7-38ebc61f7477",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "6601bf65-a382-4a36-b025-23f3d01b336a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "3f50c329-4de2-46e7-b855-027d4352e0bf",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "7bfb4a0f-a5f2-48fd-9633-f88a1872be01",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "9745100a-64c3-450f-ad97-1d3fc2f8024b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 7",
+      "GUID": "f2d87b85-f003-4a69-a5b9-25d798186717",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "2501524f-d7f4-451d-9b97-f4f5550b0ed4",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "0008abed-d95a-4f1b-ba84-dc5c0b20f113",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "ca2f1bcd-ff78-4f27-a1ad-4a6fec6e0e91",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "1b3513c3-d587-42fd-8555-2d28307d0502",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "49682419-ac02-45ae-80b4-ca22a631e787",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "f4084632-e1be-4628-bcc0-0020c586004a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "2d073980-af40-41ae-934d-f72b9cf37fc6",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bf99bc43-eaef-4e3e-b488-ef9a9de4b43a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 8",
+      "GUID": "a546b7d5-b025-4c06-8eb9-028a6fb2a4a3",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "ce5ac905-4897-425a-8ec0-ff411a75f11d",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "4e48e0b7-2419-472c-8dba-a08b2046f8c6",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "4b72bd8e-41eb-495e-89c0-e14936338877",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "03c3508c-82d0-4a7c-9146-79a99ac14a12",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "170c8b39-1a6b-472e-9d91-b488cbd06db4",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "2a515b13-79f0-4ba3-9b73-d535c8f0e7bd",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "437a3f3c-68e9-493b-92d1-c2c6a18bc73a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "2475734a-03f5-49db-8b02-45fbf3778a71",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "fb8a1948-f5eb-49ed-90ca-f4b6f41baa44",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 9",
+      "GUID": "ad61dc55-d0e5-4836-9b49-f0ef5cc79859",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "b9dcb13e-44a0-4f6e-84fe-a0839685aa95",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "3340597c-ece1-4e72-8a66-36717f68022d",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "c8002822-65ce-405c-a671-98b830e6e13c",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "9b8f298b-ee03-4b3d-a03e-d6845e1e67b8",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "55fd7221-088b-46dd-a302-7758425a39d4",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "392f1ba5-8ca5-40ec-8dab-9dc6d0bf17a3",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "ca5dc4ea-cafe-4f04-9e4c-a54ff3f003eb",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "4f868a73-78e5-4752-a0ba-71d9250fd218",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "0fb5e7cd-f3d6-4b82-81b5-ed696b50bff9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "b3fd1fb7-44de-4589-a850-8bfdf7106b1f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "b56cbf48-dcdd-402e-9280-120ee386e274",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 10",
+      "GUID": "4ee6e4c4-1b19-4d77-b58b-a1e703eafa86",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "c6866cdb-c0dc-43c9-bc8b-d333c3d4e86e",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "b25dbda4-4c2c-4718-a108-732e7783b1b7",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "c40098a9-b6f9-4929-b3df-534357c460d1",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "6d14c4c2-e55e-49a4-bf6e-96150784d29f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "17e58771-1373-40ce-b92d-2bfc26f814e0",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "f02297aa-afb6-482a-a201-81ef302e75fb",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "3b4534ba-b728-4900-bdef-2886f7ec1655",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "626890a3-7cd7-4f72-adea-11fb1cb90936",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "0fef5442-8c4b-469d-b4b6-3151be6876c7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "a8f8dc05-9980-4a33-b812-2a12596ede24",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 10",
+              "GUID": "ec3c23f4-3f75-4c05-b718-6c280dbc7465",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "90b80799-1a6c-495f-9a12-177c0a519951",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 11",
+      "GUID": "6001aa2c-4ba8-4bc7-8813-a4d66adb10b4",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "8903bc49-36da-4ace-a675-592e68b84083",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "ab8d842d-c63c-4d02-aa6a-536d230be55f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "dd188e55-ee91-4ac1-9aac-724c6ce9279a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "948aca0f-d5ec-40ff-bd1e-db8a3198c59f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "ef44e0e5-c60b-4786-b24b-6dbce2a6995a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "912e20f9-2211-43d7-8463-9062d97a9600",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "88e3d4db-869c-40bb-8c58-4e12093a94fd",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "37f3cd87-28d0-44e1-8333-674acd7ca455",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "1c247876-e1ab-448a-a34b-9a215fc35093",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "ea4d6f02-9b12-4fe8-83eb-0e61650852d2",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 10",
+              "GUID": "825ab796-4d0a-423d-aed8-6bb6b0d75f42",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 11",
+              "GUID": "9c625763-9483-4391-91d8-75a3c627b800",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "7957bba0-cf17-46f7-8198-b5b01011710a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 12",
+      "GUID": "b1749138-4b33-4d90-99d9-1c4845a96df6",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "a0636eeb-e29d-499a-b657-f64749f1d142",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "15b8e5a7-18e9-4f7d-bc84-e6eb79456fab",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "384f7548-2e06-4fa7-a371-653dff0daf19",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "af2b793e-6744-4ed5-98d0-3fb3519851b3",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "bc98a8bb-f04a-4a9a-84c1-0398bdcc0300",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "40f4b50b-638e-48a8-97d8-12b43036df00",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "59bef643-d7ab-4d0f-a338-3730adb2985b",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "a3658713-c053-4eeb-947b-02a8d7fb3888",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "22896309-f01b-4119-bc4b-423693af67ca",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "c68347c0-cc0f-400f-b0e4-1d5769187292",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 10",
+              "GUID": "8aceb2c3-7855-4278-94bd-de8279297486",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 11",
+              "GUID": "66fb54aa-a900-4f3c-8b6b-5c1d185ae90e",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 12",
+              "GUID": "8a3adbf4-4d57-40b2-80b1-71bf60a4555d",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "5c754317-8853-4420-9e43-9a251f0bb8eb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 13",
+      "GUID": "cff188f3-39c1-479e-adce-84e9009ccf30",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "dbc3e398-312a-4ab0-b8cb-6bda45062d1a",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "be87ad4b-fd52-4841-969d-5038686c1f95",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "4087463a-af77-4db5-a7fd-686be918b4cc",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "ddf0b945-6c3a-4555-bd71-f5e1468a3b4b",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "0b44ec51-d20f-49d8-bfc8-1c98cd639f27",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "aca93228-e6ea-46aa-9a42-aff0f860ca78",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "b6cef7b0-a5ed-488f-9435-787f6dff5935",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "048c095e-79d5-4ad0-9715-d1610737393d",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "9e62322a-a830-4e06-8e0c-7f2fac7edb2c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "4343d3c2-2080-4b8b-b44f-9cf7bcd88226",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 10",
+              "GUID": "94dac3b9-8d3e-46ac-aa5d-9459289d8e15",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 11",
+              "GUID": "9f891c1a-bbbc-4ecb-99f6-9a2c2ad74c93",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 12",
+              "GUID": "41606103-cf2c-4163-9a5b-074bde77d3a4",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 13",
+              "GUID": "2a6f8b1b-e1ac-4e2d-9890-6f43f7431046",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "63604a62-083b-4a90-b0a2-57b6e6acaa61",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 14",
+      "GUID": "a4cc1d3a-9a81-4b92-8ec2-dd3d51e66252",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "f0cd1436-1a02-4c14-a2e0-5054eaf80e55",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "109fcf27-c726-46ca-a66e-a36643caa344",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "362f601b-d492-44d4-8011-46abae292dd6",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "9bc1dd1a-3965-4d1d-b98e-baa1df5a9a4c",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "f17e490a-12ab-4bc7-8d4c-ac844d5eea1e",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "1cb969c3-0b81-4202-8d4e-3ec5f37580b2",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "fc42a4f0-0b60-4a32-a5bd-8b1a863e9080",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "fc0c0be0-93a5-48b7-8410-8430dfbcf3e9",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "f2331e0d-0ef3-450b-a22d-45b0a45f9750",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "fc24326a-5cf1-49e4-a057-c25b1654d4fd",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 10",
+              "GUID": "4e2760ab-1ef0-4fb2-a926-787c468a2cf2",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 11",
+              "GUID": "cba3f5d7-44a3-4286-94b7-6bb52fcce525",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 12",
+              "GUID": "9b170b60-7343-463e-99d9-04fea6a3d39e",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 13",
+              "GUID": "1b01468c-b3ef-4bc5-9c9b-a8dea429cd23",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 14",
+              "GUID": "232a7f3e-7af5-44a6-95d1-d484c3f452f9",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "218517ad-2c8c-453f-b38f-d71777806bf1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 15",
+      "GUID": "9fcbd265-7286-4ecc-8cc8-ef834d8c2b28",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "9e6c6a89-007c-4d44-b314-7a0951e63882",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "7477a921-0501-4de4-9905-2712991ec28d",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "7699a629-b515-494c-a9cf-7d67f79d3be5",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "13f8fe9f-d831-47a0-a29c-1567c17e9fe6",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "bbef6d45-679f-4394-91ef-20248887e852",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "9931b98a-6013-4675-8305-6e4e83698251",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "6f7ac4af-829a-4d2d-95b5-d26cec36b14b",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "b46b314b-dc1b-47aa-9be5-19350666b09c",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "f216f4d4-0a30-4542-9e75-b72d3a372e03",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "488dd973-e049-4f23-b2eb-e2519e3d214c",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 10",
+              "GUID": "0f8ee2b8-7aea-46c6-ac71-e6f10131cd5d",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 11",
+              "GUID": "cbfaa0be-f4ae-4a70-9f04-e8d2c087d1d1",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 12",
+              "GUID": "efe10d91-7242-4d2a-b070-6c66810b3995",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 13",
+              "GUID": "a425b4bc-8660-47e0-9a91-66eadae35c3c",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 14",
+              "GUID": "5ca50c31-4392-438b-964f-a7b8dd87b0f8",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 15",
+              "GUID": "74a1dfcc-4443-4958-8042-024917ec975b",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2182acff-c131-44c3-9c85-cfbc2df6c43f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cargo Position 16",
+      "GUID": "ec6b3a3b-8ded-4afb-bd40-8fa3fe7d8b1c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 1",
+              "GUID": "bf0a400b-e5f5-45a6-b3c8-93eb2b53335e",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 2",
+              "GUID": "317ccc2d-7e77-4800-99dc-9b30f0bf62d5",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 3",
+              "GUID": "210d0c1d-e186-4232-84d9-f8ac308962b5",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 4",
+              "GUID": "fa809682-f3a0-481e-9494-ccab772ac5dc",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 5",
+              "GUID": "91f20420-643f-490c-ad13-e2f23bd01ac9",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 6",
+              "GUID": "31237126-a4f2-4ded-b301-3926ab527d70",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 7",
+              "GUID": "c419bd84-9469-447b-b46f-6e77ea361f7f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 8",
+              "GUID": "0fb7994d-e5f8-4236-a72d-a510a4a8394b",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a1a583e8-4613-4ca4-817c-f9e0e2204b5d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cargo 9",
+              "GUID": "1a943cfc-0d99-4230-88a7-52dd94ca517c",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 10",
+              "GUID": "39ef5f6f-28ae-4c8f-90ef-fe21236c8231",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 11",
+              "GUID": "18e7c58e-3cee-4bf4-af07-4aec3ba3147b",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 12",
+              "GUID": "3a2eecbf-fd44-4a8e-a7bd-dca65bab0449",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 13",
+              "GUID": "0773cf74-c4c0-406e-b24c-0e6af9ea132f",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 14",
+              "GUID": "ed8eeec9-c88d-49ad-a543-d5eadd8a8cf6",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 15",
+              "GUID": "f794b85a-fdc0-4268-ada4-511a2b9a9e84",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Cargo 16",
+              "GUID": "4ec5e197-49ff-49b7-bd8e-2421672e91b2",
+              "theText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "7834ee13-0b79-48aa-be7b-82412c19add8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "82b35351-5189-4ae8-b9e4-355789205d9c",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "a5ee89ca-ce3c-46b6-adf9-da2bc577d60c",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "1d3164ff-b954-45ca-a89d-6f2986c233d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "c043e593-4597-498b-9fdb-e3a6f65dc037",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "4ea904e1-c9d7-441f-bfa2-3b0cefa9df9c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "7fb14ccd-c245-4335-8e03-1d588800bb7f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 1",
+      "GUID": "cb655fee-a42e-45f0-8087-dc4154713f92",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Extraction Point",
+      "GUID": "fa38656b-ec2f-4611-af97-ddf36181a96b",
+      "mainText": "Имперский транспортный корабль завис здесь в ожидании груза.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 2",
+      "GUID": "4e976be5-fbdc-4131-a69e-77836608f1c8",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 3",
+      "GUID": "9d5faa32-e9a3-43e8-a74f-70d2871a0ba5",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 4",
+      "GUID": "95c4b2d2-79eb-41c8-a33a-153872cc59c7",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 5",
+      "GUID": "f958f2eb-2eae-488e-bf71-397a8caf2388",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 6",
+      "GUID": "63e5b3a9-1613-4f89-93bd-21259c68c392",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 7",
+      "GUID": "5f50e5fc-3cdd-403d-966b-bf6909f78f4c",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 8",
+      "GUID": "5523d467-3abc-4a25-b25b-74dc52c24e5e",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 9",
+      "GUID": "43c498a6-5dfc-4351-a88a-816ea0e89fac",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 10",
+      "GUID": "af87fd47-3d58-41e8-9760-7a0ffb02afd8",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 11",
+      "GUID": "35dc4175-2267-49a5-9c3f-d9795db0d97e",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 12",
+      "GUID": "5f6fe8e4-1515-4edd-9d67-689d2d693998",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 13",
+      "GUID": "0fed712e-cfa4-4891-acb5-1f713236f740",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 14",
+      "GUID": "cadd22c1-78a2-47b5-83bc-9dd2fefa5ad6",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 15",
+      "GUID": "ad9edf47-a424-4d80-9100-09196a94dae0",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cargo 16",
+      "GUID": "7c435df3-24a0-4b4c-a6a6-a8a4ff5a4400",
+      "mainText": "Припасы повстанцев на ховер-санях медленно перемещаются к месту эвакуации.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "05569a35-b8a5-4cf5-ba0e-195d7cf3ef4a",
+      "mainText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+      "buttonList": [
+        {
+          "GUID": "0606a88c-5f6e-4757-8a8f-654388c79da4",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "97327054-64f6-42a0-a0c7-e7ede5bdb665",
+      "mainText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+      "buttonList": [
+        {
+          "GUID": "cee625b6-916c-40e1-b716-5d07f49a5e2d",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 3",
+      "GUID": "3fa3199d-db22-44b8-8234-c2b1cc244879",
+      "mainText": "Энергоустановка распределяет мощность среди имперских войск, снабжая их энергией.\r\n\r\n{-} В конце каждого раунда, {D} увеличивается на количество терминалов находящихся на поле.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: *1*, защита: 2{G}).",
+      "buttonList": [
+        {
+          "GUID": "c532251d-9baf-41ac-a3eb-25b1a41a1c70",
+          "theText": "Уничтожить"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Nexu",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

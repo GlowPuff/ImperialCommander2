@@ -1,0 +1,932 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Extralimitación ejecutiva",
+    "missionDescription": "Los Héroes deben incorporar un Aliado Espectro a esta misión. Si los Héroes no han ganado aún un Aliado Espectro, ganan un Aliado Espectro a su elección únicamente para esta misión. ==== El Imperio ha cerrado su presa sobre Lothal. Uno de sus oficiales, el coronel Xarok, ha ganado cierta notoriedad por sus brutales prácticas. Un agente local en Lothal se encontrará con vosotros para que juntos podáis enviar un mensaje: la Rebelión no se va a quedar de brazos cruzados.",
+    "missionInfo": "",
+    "campaignName": "Pack de Aliado Ezra Bridger y Kanan Jarrus",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a las puertas.",
+    "additionalMissionInfo": "Los Héroes deben incorporar un Aliado Espectro a esta misión. Si no han ganado aún un Aliado Espectro, ganan un Aliado Espectro a su elección sólo para esta misión."
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "47376865-426b-469c-a52f-ce98917c1451",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "69ce4b10-ef7c-40f2-9a67-65664cd72e3f",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "5d8754e8-5c4e-4fc5-96a6-e7932922eaa8",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "def8c56e-ed27-43e5-bf92-fd2cf0834c73",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Os dirigís a la cantina que el tiránico coronel Xarok suele usar como cuartel general, decididos a darle un castigo ejemplar al despiadado hombre.\r\n\r\n{-} Despliega a los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas.",
+      "eventActions": [
+        {
+          "tbText": "Dos de los tenientes de Xarok vuelven su atención hacia vosotros de inmediato.",
+          "GUID": "2f4ffbc4-af99-4278-8f61-d7baf5d678ac",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Teniente de Xarok (Oficial Imperial)",
+          "customText": "",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "4c051cc6-9e17-4673-a88a-08ca3a320e4c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": "Teniente de Xarok (Oficial Imperial)",
+          "customText": "",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "4d34ccc2-5f42-40c7-b439-e984207a1f4e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "tbText": "Los tenientes deben de tener el código de la puerta. Preparáis vuestras armas.\r\n\r\n{-} Cuando los dos Oficiales Imperiales sean derrotados, la puerta al Mercado deja de estar sellada.\r\n{-} La misión avanza cuando se abre la puerta al Mercado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "92a08eb0-63d1-457c-88f9-2e5a8f072168",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Derrotar a los tenientes (&Officers defeated&/2).",
+          "longText": null,
+          "GUID": "b797777e-cc9f-4929-a78a-ffb19265fc7f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas. Cuando los dos Oficiales Imperiales sean derrotados, la puerta al Mercado deja de estar sellada.\r\n{-} La misión avanza cuando se abre la puerta al Mercado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "e9c7060c-7b14-49ea-9357-3372b567b174",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Sometéis a Xarok con una serie de rápidos puñetazos y lo atáis a la mesa. A pesar de sus súplicas, decidís abandonarlo a merced de los ciudadanos.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Si se está jugando esta misión como una misión secundaria, los Héroes reciben 1 Aliado Espectro a su elección como Aliado.",
+      "eventActions": [
+        {
+          "mainText": "¿Estáis jugando esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "67eeae33-2f73-4c13-b09d-9124c2120b0e",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "9c2570cd-3b07-44d6-b9fa-b8c6e506596f",
+              "theText": "No"
+            }
+          ],
+          "GUID": "fa160c96-ff1c-4306-ad5f-f40d51ef9331",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Xarok y sus guardias os superan y os veis obligados a retroceder. Mientras huís volando, veis a los hombres de Xarok golpear a algunos lugareños y hacerlos prisioneros, haciéndoles pagar a ellos por los crímenes que habéis cometido vosotros.\r\n\r\n{-} Los Rebeldes pierden la misión.",
+      "eventActions": [
+        {
+          "mainText": "¿Estáis jugando esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "91d9a6f0-827a-408f-9184-becd00195eaa",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "998960a0-bee5-4079-a22f-b849faf91b35",
+              "theText": "No"
+            }
+          ],
+          "GUID": "922d0b18-3b9c-4426-b8b1-9d79afd7d873",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Win",
+      "GUID": "1fb0c0b1-7388-42f6-9c4c-801de27f03a5",
+      "eventText": "Poco después de vuestra partida, N-4M os pone al día sobre el estado del antiguo dominio de Xarok: las fuerzas Imperiales han intentado recuperar el control, pero se han topado con resistencia.\n\n\"Son buenas personas\" dice Ezra cuando volvéis al <i>Espíritu</i>, \"hartas del Imperio. No permitirán que Thrawn los pisotee.\"\n\n\"Y Thrawn tampoco pasará por alto el mensaje que acabamos de mandarle\" replica Kanan. \"Seguimos luchando y no podrá detenernos.\"\n\r\n{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 200 créditos por Héroe.",
+      "eventActions": [
+        {
+          "tbText": "A bordo del <i>Espíritu</i>, os encontráis a Hera y Sabine revisando los restos de un droide infiltrador E-XD.\r\n\r\n\"Últimamente nos hemos encontrado con más de uno de estos cacharros intentando seguirnos\" explica Hera. \"Y Thrawn no deja de acosarnos. Hay que igualar el terreno de juego.\"\r\n\r\n\"Démosle otras cosas por las que preocuparse\" sugiere Sabine. \"Aunque solo sirva para mantener a algunos soldados de asalto entretenidos. No pudimos quedarnos lo bastante en Geonosis como para que pudiera comprobarlo, pero me parece que podríamos poner en marcha algunos de aquellos viejos droides de combate.\"\r\n\r\n\"O bien\" interviene Hera, \"podríamos intentar ayudar a los rebeldes Twi'lek de Ryloth. El Imperio lleva demasiado tiempo interceptando sus suministros. Si podemos ayudarles a presentar batalla, Thrawn tendrá una cosa más de la que preocuparse.\"\r\n\r\n{-} Los Héroes deciden de forma colectiva si echan un vistazo a la fábrica de droides o ayudan a los rebeldes Twi'lek.\r\n{-} Si los Héroes eligen echar un vistazo a la fábrica de droides, la siguiente misión activa es \"Asedio en Geonosis\".\r\n{-} Si los Héroes eligen ayudar a los rebeldes Twi'lek, la siguiente misión activa es \"Carrera en Ryloth\".",
+          "GUID": "70297cc7-1998-4869-9593-2a516352352b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Defeat",
+      "GUID": "ee9e6f21-9b9f-47ca-b982-44b59453a837",
+      "eventText": "N-4M os informa de que Xarok ha endurecido sus represalias: su presa de hierro sigue siendo asfixiante. Ezra parece decepcionado al conocer las noticias.\n\n\"Son buenas personas. No se merecen esto.\"\n\n\"Nadie se lo merece\" coincide Kanan, poniendo la mano en el hombro de Ezra. \"Y por eso no vamos a dejar de luchar. Ganemos o perdamos, cada batalla es una chispa que podría encender el fuego de algo mayor. Le enseñaremos a la gente que rebelarse es posible.\"\n\n\"Entonces, será mejor que nos aseguremos de que la Rebelión aguanta lo suficiente para que puedan unirse a ella\" concluye Ezra.\r\n\r\n{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": [
+        {
+          "tbText": "A bordo del <i>Espíritu</i>, os encontráis a Hera y Sabine revisando los restos de un droide infiltrador E-XD.\r\n\r\n\"Últimamente nos hemos encontrado con más de uno de estos cacharros intentando seguirnos\" explica Hera. \"Y Thrawn no deja de acosarnos. Hay que igualar el terreno de juego.\"\r\n\r\n\"Démosle otras cosas por las que preocuparse\" sugiere Sabine. \"Aunque solo sirva para mantener a algunos soldados de asalto entretenidos. No pudimos quedarnos lo bastante en Geonosis como para que pudiera comprobarlo, pero me parece que podríamos poner en marcha algunos de aquellos viejos droides de combate.\"\r\n\r\n\"O bien\" interviene Hera, \"podríamos intentar ayudar a los rebeldes Twi'lek de Ryloth. El Imperio lleva demasiado tiempo interceptando sus suministros. Si podemos ayudarles a presentar batalla, Thrawn tendrá una cosa más de la que preocuparse.\"\r\n\r\n{-} Los Héroes deciden de forma colectiva si echan un vistazo a la fábrica de droides o ayudan a los rebeldes Twi'lek.\r\n{-} Si los Héroes eligen echar un vistazo a la fábrica de droides, la siguiente misión activa es \"Asedio en Geonosis\".\r\n{-} Si los Héroes eligen ayudar a los rebeldes Twi'lek, la siguiente misión activa es \"Carrera en Ryloth\".",
+          "GUID": "47287281-1fab-4266-9d77-5cc0c3028fc9",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "No campaign",
+      "GUID": "8fe1b24a-487b-46a0-9e81-94329508e0dc",
+      "eventText": "{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Support Bystander 1",
+      "GUID": "0fdc59af-c3a0-4aca-8aa1-c2f56a3b83c8",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Hablas con la bailarina Twi'lek, intentando ponerla de tu parte.\r\n\r\n{-} Realiza una prueba de {J}. Aplica +1 {B} por cada ficha de Tensión sobre la Twi'lek, después descarta todas las fichas de Tensión de la Twi'lek. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "55983163-fb95-45b1-8ab6-ad17a1043583",
+              "theText": ""
+            }
+          ],
+          "GUID": "51192d65-2799-44d4-8483-bd54f7ba1ee8",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander fail 1",
+      "GUID": "5120c926-1a40-42d3-9f8c-34787a958e28",
+      "eventText": "La Twi'lek sacude la cabeza con fuerza.\r\n\r\n-Lo siento. Xarok es una persona horrible, pero tengo una familia que mantener. No contéis conmigo.\r\n\r\nSale corriendo de la cantina.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 1",
+              "GUID": "b430cc6f-3fd7-404c-888c-04bd2f47a635",
+              "theText": "Una Twi'lek de piel verde con ropa de baile observa el enfrentamiento con los ojos como platos, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a la Twi'lek para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "c77dbce2-0019-4c49-bbad-9c67bd5c809e",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            }
+          ],
+          "GUID": "c1756912-4a30-42e0-a647-18128842492b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander success 1",
+      "GUID": "cd5ef512-40f3-480b-9fe7-4d06f05d54a1",
+      "eventText": "La Twi'lek sopesa tus palabras durante un momento, y asiente con solemnidad.\r\n\r\n-Tienes razón. Todos debemos poner de nuestra parte. ¡No a Xarok!\r\n\r\nSalta de la pista de baile y comienza a forcejear con uno de los guardias.\r\n\r\n{-} Ganas 1 {e}.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 1",
+              "GUID": "589c26ce-0e57-4c35-a8c4-b33eb892d776",
+              "theText": "La bailarina Twi'lek está forcejeando con algunos guardias, tratando de mantenerlos ocupados.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "3e07b059-5bab-4b35-a49e-e329ce25a9f7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Support Bystander 2",
+      "GUID": "24100fb5-c565-4b43-9f33-ebcda3e9a7f2",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Hablas con el camarero Besalisko, intentando ponerlo de tu parte.\r\n\r\n{-} Realiza una prueba de {J}. Aplica +1 {B} por cada ficha de Tensión sobre el Besalisko, después descarta todas las fichas de Tensión del Besalisko. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "ee5d92e0-0d3c-4c50-ac28-a3eade001aca",
+              "theText": ""
+            }
+          ],
+          "GUID": "4baf8ac4-6834-43a6-9ae9-cff387aa4a8b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander fail 2",
+      "GUID": "d821bef7-d455-4d8c-ba8c-eb142ee602cb",
+      "eventText": "El Besalisko hace rechinar sus dientes.\r\n\r\n-No sabes lo fuerte que es Xarok -te dice. A continuación, abre una trampilla al sótano y desaparece a través de ella.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 2",
+              "GUID": "b4adee0f-2097-46c8-92d6-f7b3a1745680",
+              "theText": "El camarero Besalisko está agazapado tras la barra, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente al Besalisko para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "2b547ce7-4bcd-446c-90bf-074f5e3fdcb6",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            }
+          ],
+          "GUID": "c93d5953-d175-4809-ab73-fc3775f631f6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander success 2",
+      "GUID": "fc0846f0-9c69-4311-a6f9-9de931aa7799",
+      "eventText": "El Besalisko duda, pero entonces da un golpe sobre la barra.\r\n\r\n-¡Tienes razón! ¡Hemos estado callados demasiado tiempo! ¡Esto es por toda la gente a la que has oprimido, Xarok!\r\n\r\nEmpieza a lanzar vasos y jarras a los guardias.\r\n\r\n{-} Ganas 1 {e}.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 2",
+              "GUID": "19b06dbd-996a-4824-918c-02356200edec",
+              "theText": "El camarero Besalisko ataca a los guardias con vasos y jarras, lanzándolas con sus cuatro manos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "83ac68d0-6aa7-48ea-b41a-c377720afeb7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Support Bystander 3",
+      "GUID": "6e2ee961-5179-4325-b645-080f4b9f542c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Hablas con la portera Devaroniana, intentando ponerla de tu parte.\r\n\r\n{-} Realiza una prueba de {J}. Aplica +1 {B} por cada ficha de Tensión sobre la Devaroniana, después descarta todas las fichas de Tensión de la Devaroniana. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "287be08e-d127-4157-a277-da86b0c3c0d7",
+              "theText": ""
+            }
+          ],
+          "GUID": "3f4813b0-c28c-4c40-b05d-a17211a09f50",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander fail 3",
+      "GUID": "9021515e-dc3c-487f-b4fb-b5f95154008f",
+      "eventText": "La Devaroniana levanta sus grandes manos.\r\n\r\n-No, lo siento. La vida con Xarok no es maravillosa, pero al menos es vida. Prefiero esperar y ver qué pasa.\r\n\r\nSe marcha del mercado con rapidez.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 3",
+              "GUID": "604a4af6-e3a4-4444-8748-b51ff18557a2",
+              "theText": "La portera de la cantina, una Devaroniana alta, se mantiene apartada de la lucha, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a la Devaroniana para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "33f7be67-8c25-46eb-bbe2-f8ccfefef07e",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eba1ade-d6cb-4b9b-9d0c-ec3a0134163a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander success 3",
+      "GUID": "d38e248b-2c1a-45f4-a0bb-585ad0321f3f",
+      "eventText": "La Devaroniana sonríe, mostrando sus dientes puntiagudos.\r\n\r\n-Ah, bueno. Al menos va a ser interesante, ¿no? ¡Abajo los dictadores!\r\n\r\nSe lanza contra un guardia, derribándolo al suelo.\r\n\r\n{-} Ganas 1 {e}.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 3",
+              "GUID": "e4c8b14d-dcb7-4d5d-84d0-44cc74feb917",
+              "theText": "La portera Devaroniana castiga a los guardias con sus puños.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c67ec705-9386-4aa1-8155-1449aed14a1f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Support Bystander 4",
+      "GUID": "fdc822ea-ca16-4929-9d70-d73c0256a4b0",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Hablas con el mercader humano, intentando ponerlo de tu parte.\r\n\r\n{-} Realiza una prueba de {J}. Aplica +1 {B} por cada ficha de Tensión sobre el humano, después descarta todas las fichas de Tensión del humano. Introduce el número de éxitos.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "cc30bb69-b0fc-44b2-8a11-b2839255b90c",
+              "theText": ""
+            }
+          ],
+          "GUID": "308be456-8063-4f1a-8763-4d8d9f0b0359",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander fail 4",
+      "GUID": "c9f41c0c-774e-4e1e-b9fb-142c4154b75c",
+      "eventText": "El hombre sacude la cabeza. Se queda en silencio unos largos segundos, y solamente dice:\r\n\r\n-No.\r\n\r\nA continuación, se esconde detrás de su puesto.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 4",
+              "GUID": "327c781e-4826-4bff-902f-2bbad58acd3c",
+              "theText": "Uno de los clientes de la cantina, un humano viejo, intenta seguir disfrutando de su bebida, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente al humano para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "a7125c1c-23b8-49c9-8793-5644367aa40d",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            }
+          ],
+          "GUID": "2d30a8c2-0ea5-4cdd-b55e-f0ab21371bd5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Bystander success 4",
+      "GUID": "138f7ec3-ca52-4b98-8623-17d4a0fdf645",
+      "eventText": "El viejo se queda en silencio unos largos segundos, con una expresión de tristeza en la cara. Entonces cierra los puños y dice en voz baja:\r\n\r\n-Esto ya se ha alargado demasiado, ¿verdad?\r\n\r\nDe repente, extiende la pierna y hace tropezar a uno de los guardias.\r\n\r\n{-} Ganas 1 {e}.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 4",
+              "GUID": "b6608609-036f-4853-a524-f21381d25016",
+              "theText": "El viejo pone todo su empeño en ser una molestia para los guardias.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "be845913-a81c-49a2-8c56-096c7ea1b4ba",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Unwelcome Visitors",
+      "GUID": "5fc7dde5-549c-4e7b-a1ec-89d350948c5e",
+      "eventText": "Alertados por la conmoción, un escuadrón de soldados de asalto se acerca.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "25f02b6d-0645-48a1-a647-1121e477172c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "tbText": "El brillo de la armadura de los soldados indica lo nueva que es.\r\n\r\n{-} Cada figura de este grupo gana 1 {g}.",
+          "GUID": "76d78fa9-2159-42ea-a615-4168ff36878a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Market Door unlocks",
+      "GUID": "d467ef40-2398-477f-8533-e1963f777730",
+      "eventText": "Cogéis los cilindros de código de los tenientes.\r\n\r\n{-} La puerta al Mercado deja de estar sellada.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door",
+              "GUID": "1a082e07-5264-4eb6-8bbc-6a8e1ce10a52",
+              "theText": "La puerta que lleva al mercado cubierto se puede abrir.",
+              "buttonList": [
+                {
+                  "GUID": "50eb435d-e0f1-4447-84ad-a523f2c29837",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "4a83db33-e1a3-41a7-8183-6d9f225604f1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Entrar en el Mercado.",
+          "longText": null,
+          "GUID": "f05589eb-6809-458a-91b7-f9d2722ebfea",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La misión avanza cuando se abre la puerta al Mercado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "e293e23c-eb1c-49ef-8d77-0fc9e8dd6f3d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Let's Finish This",
+      "GUID": "7c9eedb8-13be-4bef-9084-90145b9b1bbd",
+      "eventText": "Atravesáis Ia puerta de un empujón y os topáis de frente con los guardias de Xarok en el mercado y en la cantina.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door",
+              "GUID": "8929d033-ad41-4f7f-b672-d87e44abf32c",
+              "theText": "La puerta que lleva al mercado cubierto está bien cerrada.\r\n\r\n{-} Cuando los dos Oficiales Imperiales sean derrotados, la puerta a la Cantina deja de estar sellada.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "79292fbf-874e-418b-9460-74f0a829311f",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "1d12a1c5-ff89-4863-a798-86faf20fd099",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "5aed43da-ceae-4541-873f-055d55831c98",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "cb6d5827-1d9f-4b48-9369-5bd7234b0350",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "El tirano da gritos por el sistema de comunicaciones, ignorando su inminente caída.",
+          "GUID": "2f454d03-5c4e-43b6-b660-447a1d5d9a33",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Coronel Xarok (<color=\"red\">Oficial Imperial</color>)",
+          "customText": "{A} La otra figura del bando Imperial con el coste de figura más alto que no tenga <color=\"red\">Concentración</color> adquiere <color=\"red\">Concentración</color>.\r\n{A} ORDEN DE TIRANO: La otra figura del bando Imperial con el coste de figura más alto que pueda atacar, ataca a {rebel}.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "38cc0fe2-1328-482a-a2e5-154b186f099c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Un soldado con armadura negra parece tener el código de la puerta a la zona privada.",
+          "GUID": "273a2aff-030f-4c43-ab64-4fc68c73966b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Guardia de la puerta (<color=\"red\">Soldado de la muerte</color>)",
+          "customText": "",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "a5080384-6a6c-4c2e-b2a9-a6ca20b7ccaa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        },
+        {
+          "tbText": "{-} La puerta a la Zona privada está sellada. Cuando el Guardia de la puerta (<color=\"red\">Soldado de la muerte</color>) sea derrotado, la puerta deja de estar sellada.\r\n{-} La misión avanza cuando la puerta a la Zona privada se abre.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "f4e7621b-b7ff-4305-9711-1ceee8e03faa",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Más guardaespaldas de Xarok se reúnen en el mercado y en la cantina.",
+          "GUID": "7f1ec946-7b55-4b79-938a-88da5185ca4a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Casi todo el mundo huye cuando entráis, pero unos pocos transeúntes se quedan. No están seguros de si deberían unirse a la lucha contra Xarok.",
+          "GUID": "de0f8f83-8ea3-4a41-8164-1faf0e3f065e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bystander 1",
+              "GUID": "c7f4dd1a-1241-4294-9473-31315ae088db",
+              "theText": "Una Twi'lek de piel verde con ropa de baile observa el enfrentamiento con los ojos como platos, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a la Twi'lek para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "3859f700-20e4-47d9-91e9-34dacdf2668f",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            },
+            {
+              "entityName": "Bystander 2",
+              "GUID": "c275d756-de5a-43c8-b61a-1cb0c6208184",
+              "theText": "El camarero Besalisko está agazapado tras la barra, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente al Besalisko para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "a337834e-bd69-473c-bfc3-3a2a89ae9d6e",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            },
+            {
+              "entityName": "Bystander 3",
+              "GUID": "9a61457c-5d9a-4b9f-b640-80018aa42619",
+              "theText": "La portera del mercado, una Devaroniana alta, se mantiene apartada de la lucha, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a la Devaroniana para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "467d0439-2470-4ee3-92ee-f89ee0c113f4",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            },
+            {
+              "entityName": "Bystander 4",
+              "GUID": "93b741e0-42fe-4977-9f3c-da94d089b132",
+              "theText": "Uno de los mercaderes, un humano viejo, intenta mantenerse alejado de los problemas, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente al humano para intentar ganarse su apoyo ({J}).",
+              "buttonList": [
+                {
+                  "GUID": "ea610dd4-08b9-4941-88a1-f040d9b4d04f",
+                  "theText": "Ganar apoyo"
+                }
+              ]
+            }
+          ],
+          "GUID": "3e3e1eee-40e2-4716-9bf4-036c6595c425",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las fichas de Misión neutrales representan transeúntes. Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a un transeúnte para intentar ganarse su apoyo ({J}).",
+          "GUID": "e963e5d7-d847-4acb-a666-1362aa5048d1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Derrotar al <color=\"red\">Soldado de la muerte</color>.",
+          "longText": null,
+          "GUID": "3f499bc6-29a2-4a81-b3ab-9337187bc1d4",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las fichas de Misión neutrales representan transeúntes. Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a un transeúnte para intentar ganarse su apoyo ({J}).\r\n{-} La puerta a la Zona privada está sellada. Cuando el Guardia de la puerta (<color=\"red\">Soldado de la muerte</color>) sea derrotado, la puerta deja de estar sellada.\r\n{-} La misión avanza cuando la puerta a la Zona privada se abre.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "76b7e871-2cd8-42e3-8a12-5f0ed353b77a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Back Room Door open",
+      "GUID": "d799de49-fd28-45b0-ab42-e3e5253e7938",
+      "eventText": "La puerta de la Zona privada se abre. El Coronel Xarok está pegado a un micrófono, todavía gritando órdenes e intentando ignoraros.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Back Room Door",
+              "GUID": "be6211ae-a734-4003-9adc-5053a70c62ec",
+              "theText": "Una robusta puerta lleva a la zona privada. La iracunda voz de Xarok puede oírse al otro lado, gritando órdenes.\r\n\r\n{-} La puerta a la Zona privada está sellada. Cuando el <color=\"red\">Soldado de la muerte</color> sea derrotado, la puerta deja de estar sellada.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "07312cb3-98df-4c9a-8bb0-ef0db15078f2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": null,
+          "GUID": "500b4276-317d-425f-81b4-4344b8d10504",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "Tenéis que subyugar a Xarok, pero demasiada brutalidad enviaría un mensaje erróneo.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el Coronel Xarok ({K} o {J}) para que Xarok sufra 1 {H} por cada éxito. Durante esta prueba, esa figura del bando Rebelde puede sufrir 1 {C} para volver a tirar cualquier cantidad de dados. Xarok no puede recuperarse de {H}, y no puede sufrir {H} por otro medio que no sea esta interacción.",
+          "GUID": "f48efc9a-8a22-4977-9f4a-e7490f66cfd2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Las fichas de Misión neutrales representan transeúntes. Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a un transeúnte para intentar ganarse su apoyo ({J}).\r\n{-} Una figura del bando Rebelde puede interactuar con el Coronel Xarok ({K} o {J}) para que Xarok sufra 1 {H} por cada éxito. Durante esta prueba, esa figura del bando Rebelde puede sufrir 1 {C} para volver a tirar cualquier cantidad de dados. Xarok no puede recuperarse de {H}, y no puede sufrir {H} por otro medio que no sea esta interacción.\r\n{-} Los Rebeldes ganan cuando el Coronel Xarok sea derrotado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "bd37ec6c-8f16-42ef-a8b8-ec42f9a1d4a4",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Death Trooper defeated",
+      "GUID": "606e0d85-ac16-46cc-885e-fca7e1fba956",
+      "eventText": "Tomáis el cilindro de código del Soldado de la muerte caído.\r\n\r\n{-} La puerta a la Zona privada deja de estar sellada.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Back Room Door",
+              "GUID": "4defc65e-4344-401f-933b-4fb3b800e106",
+              "theText": "Una robusta puerta lleva a la zona privada. La iracunda voz de Xarok puede oírse al otro lado, gritando órdenes.",
+              "buttonList": [
+                {
+                  "GUID": "63f85ece-d8a8-4978-bd60-43946871820b",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "c4ce4e2d-0976-41ae-929d-bf6e88fdf977",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Derrotar al Coronel Xarok.",
+          "longText": null,
+          "GUID": "c0693081-e5fc-4dfc-afa1-c67ccd6fe77f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las fichas de Misión neutrales representan transeúntes. Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a un transeúnte para intentar ganarse su apoyo ({J}).\r\n{-} Los Rebeldes ganan cuando el Coronel Xarok sea derrotado.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "GUID": "5ef93f0e-a7fb-4b2a-a82b-0e592ecb5487",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "22a2fb35-cb6b-4d95-8a71-9cf55edb95a8",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "90135971-bff7-4e1d-8a36-2785d166bc00",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "fd123b12-9d45-4afa-826f-90a9bed011f9",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cantina Door",
+      "GUID": "d0baa93d-5323-4a5f-9e86-7f2e249e61aa",
+      "mainText": "La puerta que lleva al mercado cubierto está bien cerrada.\r\n\r\n{-} Cuando los dos Oficiales Imperiales sean derrotados, la puerta a la Cantina deja de estar sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Back Room Door",
+      "GUID": "0a0c060d-083f-4e3d-9ff7-7642840af866",
+      "mainText": "Una robusta puerta lleva a la zona privada. La iracunda voz de Xarok puede oírse al otro lado, gritando órdenes.\r\n\r\n{-} La puerta a la Zona privada está sellada. Cuando el <color=\"red\">Soldado de la muerte</color> sea derrotado, la puerta deja de estar sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer 2",
+      "GUID": "a3dd3dd2-8b20-40f4-bd1f-e584af9dda50",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "d806f278-88b0-4df3-9574-609b6454c073",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Death Trooper",
+      "GUID": "3e3e0315-baa3-4e95-9eb1-4ba841105ec8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "a2ab878c-79d9-43f3-9a6e-aa64a4eef7b2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "cf90f3fa-de1d-4b9e-858c-73f2e5718255",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "d486b2a6-0001-4a6b-9172-983eb7a7b671",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "568e02f3-150d-4ba3-b34b-891317672d7e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Bystander 1",
+      "GUID": "9a8b8cd9-6f75-44dd-a3eb-f4d66f0110e2",
+      "mainText": "Una Twi'lek de piel verde con ropa de baile observa el enfrentamiento con los ojos como platos, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a la Twi'lek para intentar ganarse su apoyo ({J}).",
+      "buttonList": [
+        {
+          "GUID": "18a9c14d-f8b1-4d5f-b8aa-39ee746f904f",
+          "theText": "Ganar apoyo"
+        }
+      ]
+    },
+    {
+      "entityName": "Bystander 2",
+      "GUID": "b86a3b9b-1863-4b58-b922-9f048837a029",
+      "mainText": "El camarero Besalisko está agazapado tras la barra, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente al Besalisko para intentar ganarse su apoyo ({J}).",
+      "buttonList": [
+        {
+          "GUID": "5771e04d-9207-4cd1-ac26-bed16282194c",
+          "theText": "Ganar apoyo"
+        }
+      ]
+    },
+    {
+      "entityName": "Bystander 3",
+      "GUID": "e853aebb-bae0-4207-b89a-d5da629c2a8b",
+      "mainText": "La portera del mercado, una Devaroniana alta, se mantiene apartada de la lucha, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente a la Devaroniana para intentar ganarse su apoyo ({J}).",
+      "buttonList": [
+        {
+          "GUID": "18124f31-1d6d-4c99-af76-8774cf8bf058",
+          "theText": "Ganar apoyo"
+        }
+      ]
+    },
+    {
+      "entityName": "Bystander 4",
+      "GUID": "73108b97-d1b0-44f7-83ed-b705ef9121a1",
+      "mainText": "Uno de los mercaderes, un humano viejo, intenta mantenerse alejado de los problemas, sin saber si debería participar y oponerse al tirano.\r\n\r\n{-} Un Héroe puede gastar 1 punto de movimiento cuando esté en la misma casilla o adyacente al humano para intentar ganarse su apoyo ({J}).",
+      "buttonList": [
+        {
+          "GUID": "8a59176c-6bc6-4ba1-b85c-27df797af40c",
+          "theText": "Ganar apoyo"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Death Trooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

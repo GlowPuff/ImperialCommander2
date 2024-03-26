@@ -1,0 +1,501 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Сила управления",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Набор \"Каин Сомос (Командир штурмовиков)\"",
+    "startingObjective": "",
+    "repositionOverride": "Заблокировать доступ к дверям.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "185c5cc4-2f26-49e7-88c6-e429ba047819",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "0c38df8d-848a-4a45-a40f-bf9b0f57b6fe",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "5463d666-9cbe-4f73-bcb7-0c8f204a1729",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Вы врываетесь в здание с оружием в руках, намереваясь найти и победить печально известного командира Каина Сомоса и саботировать его миссию по борьбе с повстанцами.\r\n\r\nХотя вы встречаете сильное сопротивление, Сомоса нигде не видно. Вы продвигаетесь вперёд через вражеские войска, пытаясь добраться до командира.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.\r\n{-} Двери заперты для имперских фигурок.\r\n{-} Задание продолжится, когда дверь будет открыта.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+      "eventActions": [
+        {
+          "shortText": "Продвигайтесь вглубь объекта.",
+          "longText": "",
+          "GUID": "dc294855-8ece-41ca-9dc9-57bf48bc9556",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Двери заперты для имперских фигурок.\r\n{-} Задание продолжится, когда дверь будет открыта.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+          "GUID": "b67fc92f-ce7d-4122-b6cd-27b1fed2ff74",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Вы преследуете Сомоса, думая, что загнали его в угол, но его репутация неуловимого остаётся верной. Его войска преграждают вам путь, чтобы защитить своего командира, пока он трусливо убегает через заднюю дверь. Хотя вы и не одолели его, по крайней мере, вы нарушили его планы и спасли бесчисленные жизни повстанцев.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Каждый герой получает 1 ОО. Герои получают по 200 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Вы понимаете, что попытка атаковать учебный центр полный штурмовиков в лоб была ошибкой. Натиск имперцев слишком силён, и заставляет вас отступить. Вы связываетесь со всеми известными сторонниками повстанцев в этом районе, убеждая их эвакуироваться.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Империя получает <color=\"red\">Каина Сомоса</color> (Командир штурмовиков) в качестве злодея.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Door 1",
+      "GUID": "a94c2c6d-0f71-4c40-ba59-f28ecd747fac",
+      "eventText": "Дверь открывается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "32a4d8a6-8066-4e09-aea4-e5891aa96d25",
+              "theText": "Бронированная дверь ведёт вглубь помещения.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+              "buttonList": [
+                {
+                  "GUID": "e4974649-93ce-4992-a63d-28ab56293a4c",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "dae3c55f-db28-45cd-a09d-8d541ead831d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door 2",
+      "GUID": "71d2f290-f4c3-4230-8ea0-5d698d4a8128",
+      "eventText": "Дверь открывается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "3cd05d3f-4eb3-478e-ac4e-68302885e654",
+              "theText": "Бронированная дверь ведёт вглубь помещения.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+              "buttonList": [
+                {
+                  "GUID": "a8c97615-f6db-4688-92cc-8397eb79c20e",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "6290b708-9499-4982-92a2-b67a7e3b1111",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door 3",
+      "GUID": "63f1c4b0-885e-4487-be59-4e4331d1642b",
+      "eventText": "Дверь открывается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "f5a9eee5-62bd-467e-90ef-42fca0569a4c",
+              "theText": "Бронированная дверь ведёт вглубь помещения.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+              "buttonList": [
+                {
+                  "GUID": "33239782-59bf-40fb-a37a-eb00d403a05f",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "3870e4eb-f922-4a91-9229-a8baea434f3d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Target Acquired",
+      "GUID": "dc540a05-6da7-4f15-8b18-ff2249105870",
+      "eventText": "В коридоре за дверью огромный мужчина в броне штурмовика оборачивается к вам. \"Схватить их, солдаты\" — рычит он.\r\n\r\n\"Так точно, сэр, коммандер Сомос!\" Его солдаты немедленно поднимают оружие.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+1{G}, +*1* к здоровью",
+          "repositionInstructions": "",
+          "GUID": "69127561-d33d-457b-88d5-7dd2e01b5efd",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7ebcd0b6-698d-4b69-ab6f-550c9478ef23",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "tbText": "{-} Дверь в командный центр заперта. Другие двери заперты для имперских фигурок.\r\n{-} Задание продолжится, когда <color=\"red\">Каин Сомос</color> будет побеждён.",
+          "GUID": "d3bafd73-9442-42b1-8f4e-b1b011fd98ea",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Заблокировать поле зрения до <color=\"red\">Каина Сомоса</color>.",
+          "GUID": "02106833-f9ed-4b1c-9128-9ee5467c5bb2",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Победите <color=\"red\">Каина Сомоса</color>.",
+          "longText": null,
+          "GUID": "116b5843-c711-4c12-a1d3-248e9cd68d1f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Дверь в командный центр заперта. Другие двери заперты для имперских фигурок.\r\n{-} Задание продолжится, когда <color=\"red\">Каин Сомос</color> будет побеждён.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+          "GUID": "4807e77e-4790-46af-b498-384da12260e6",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Last Stand",
+      "GUID": "f5a065c2-8f0d-4c58-a9b5-86ec877e1532",
+      "eventText": "Дверь открывается в большой командный центр.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Hub Door",
+              "GUID": "bffa65a5-238c-477c-bb2c-1b27886418d5",
+              "theText": "Прочная дверь ведёт в командный центр комплекса.\r\n\r\n{-} Дверь заперта.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "add8dd0e-5f1c-462d-b5c7-93991f339fec",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "900e0a61-142a-417a-ac0d-22644667cbe2",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "7321cbd0-4f4e-4c84-bad3-c5fa1d14bbbf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Сомос стоит потрёпанный, но не побеждённый.",
+          "GUID": "121a7506-6e04-4ffc-84db-2a4a3c1ac977",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+1{G}",
+          "repositionInstructions": "",
+          "GUID": "cc4c7927-39ef-46e4-9421-f61d5dd44161",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Каин Сомос</color> получает *1* {H}.",
+          "GUID": "d534bf79-5f8e-47e9-b5ca-e0a7398f0862",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Сомоса прикрывают две огромные лазерные пушки. Он угрожающе указывает в вашу сторону, приказывая атаковать.",
+          "GUID": "6a9225bb-2a32-4ca9-b8e5-81037f81c022",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "bfff636d-0b61-4962-9ef2-44894e3aac77",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f26812f9-19e7-4d37-ba6a-65c865220cde",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG008/E-Web Engineer (Elite)"
+        },
+        {
+          "tbText": "{-} Каждый наводчик E-Web имеет *2* здоровья вместо указанного на карточке.\r\n{-} Повстанцы победят, когда <color=\"red\">Каин Сомос</color> будет побеждён во второй раз.",
+          "GUID": "62f98221-2893-466b-94fb-1c867b484fde",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Заблокировать поле зрения до <color=\"red\">Каина Сомоса</color>.",
+          "GUID": "c63c3c4b-f157-44fa-9f6d-b8971f7f7d06",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Победите <color=\"red\">Каина Сомоса</color>.",
+          "longText": "",
+          "GUID": "697e70e6-eab0-4d45-9b11-320f1f518156",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Каждый наводчик E-Web имеет *2* здоровья вместо указанного на карточке.\r\n{-} Повстанцы победят, когда <color=\"red\">Каин Сомос</color> будет побеждён во второй раз.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+          "GUID": "aec0188d-006a-4a19-8c2d-9e461972c84c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Strategic Withdrawal",
+      "GUID": "7a380233-a1b0-480f-b666-b9392ca0f7c4",
+      "eventText": "Раненый Сомос, пошатываясь, вваливается в командный центр, и взрывозащищённая дверь закрывается за ним.\r\n\r\n{-} Дверь в командный центр разблокирована для повстанческих фигурок.\r\n{-} Задание продолжится, когда дверь в командный центр будет открыта.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Hub Door",
+              "GUID": "92b6d4a7-634a-48bc-98ee-17be45efd777",
+              "theText": "Взрывозащищённая дверь ведёт в командный центр комплекса.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+              "buttonList": [
+                {
+                  "GUID": "c5b1ad06-2e21-42c5-b7a3-d837e8682185",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "df69e68c-a8ff-4a70-a198-d8eed5d1adc3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Заблокировать доступ к двери командного центра.",
+          "GUID": "fc96733a-1a94-4d33-858a-3505794cb932",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Следуйте за Сомосом в командный центр.",
+          "longText": null,
+          "GUID": "0c4b65d4-5728-4442-9c63-ce9aef822a72",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Двери заперты для имперских фигурок.\r\n{-} Задание продолжится, когда дверь в командный центр будет открыта.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+          "GUID": "31945a70-6a5f-438d-8c87-5820e696f20e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "1e50ef3a-900a-4d6a-b44f-7618b7b4e7f6",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "dff1843e-bdd3-4206-bddc-acfa27c477b1",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "ac660855-4909-4e84-8157-ad5bb20bf776",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "9de3ea15-8963-42aa-a867-5b5c7132018a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "d0fc8550-2b34-43da-b3a3-424811718b08",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "d7ebcb77-84f8-42b8-a7b2-133ae1952eee",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "5585905e-5a8b-45d4-8a09-2b3cd6351592",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "539ea6a2-3141-4606-8b51-778c22912af1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "57cb4d68-de65-4b84-bb86-24b6d82a2e0e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Command Hub Door",
+      "GUID": "a603e692-ee1c-4c9c-930f-c337f4465f03",
+      "mainText": "Взрывозащищённая дверь ведёт в командный центр комплекса.\r\n\r\n{-} Дверь заперта.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "913a05bc-a3d8-44c0-abab-778c0ef408d0",
+      "mainText": "Бронированная дверь ведёт вглубь помещения.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+      "buttonList": [
+        {
+          "GUID": "adcb1356-fa1f-4bb5-b92d-73cb8c555f68",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "9b3be61f-3036-461f-9b54-283288e9dd1e",
+      "mainText": "Бронированная дверь ведёт вглубь помещения.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+      "buttonList": [
+        {
+          "GUID": "852d6705-f70a-40cd-8f7f-317cda337358",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "4d881508-4a99-4af5-bf01-64a2aade1158",
+      "mainText": "Бронированная дверь ведёт вглубь помещения.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+      "buttonList": [
+        {
+          "GUID": "d2baf3d0-fccd-4a7b-9f79-5dc43de69edd",
+          "theText": "{A} Открыть"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

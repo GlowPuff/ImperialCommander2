@@ -1,0 +1,381 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Вооружённые и действующие",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Набор \"Диверсанты повстанцев\"",
+    "startingObjective": "",
+    "repositionOverride": "Заблокировать доступ к двери.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "74ad2d5a-c08a-41a8-942f-b2ae5cf91d5a",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "2df6b29e-12b6-422d-aa64-71d1fa786dcb",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "22d22b30-6734-4dc5-81f6-613d7af230f4",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "d45f4870-3cc1-4773-b63a-dda6fd2a7ae6",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Вы здесь с парой дюросов, чтобы уничтожить новый прототип военного корабля, который готовит к запуску Империя. Вы пробираетесь через канализацию к Имперскому полигону, надеясь, что вы останетесь незамеченными. Дюросы останавливают вас.\r\n\r\n{-} Дислоцируйте диверсантов повстанцев на выделенные красным клетки.\r\n{-} Дислоцируйте героев на выделенную синим клетку.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "99204e6b-6f24-4be3-b4f2-9f5d4254399a",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "— Это место, – говорит один из диверсантов, — У нас много зарядов, так что позвольте нам занятся этим кораблём, когда мы войдём. Просто держите их войска подальше от нас.\r\n\r\n{-} Диверсанты повстанцев получают дополнительное здоровье в размере удвоенного уровня угрозы. Когда диверсант атакуется, находясь рядом со здоровым героем, который может стать целью этой атаки, герой может получить 2{C} чтобы стать целью этой атаки.\r\n{-} Задание продолжится, когда дверь на испытательный полигон будет открыта.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+          "GUID": "d23c970c-0469-477e-8294-917231d8cbfe",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Войдите на испытательный полигон.",
+          "longText": null,
+          "GUID": "4f221cc6-b669-4a74-aebb-bab28ccb7181",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Диверсанты повстанцев получают дополнительное здоровье в размере удвоенного уровня угрозы. Когда диверсант атакуется, находясь рядом со здоровым героем, который может стать целью этой атаки, герой может получить 2{C} чтобы стать целью этой атаки.\r\n{-} Задание продолжится, когда дверь на испытательный полигон будет открыта.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+          "GUID": "1aafef5a-4dc0-4d81-b7a1-64041f594237",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Имперский офицер кричит своим войскам бежать, когда вы устанавливаете последний заряд на корабле. Убегая так быстро, как только можете, вы слышите позади себя мощный взрыв.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Герои получают диверсантов повстанцев в качестве союзников.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "С громким воем корабль оживает. Прежде чем вы успели закончить свою работу, он взмывает в воздух.\r\n\r\nОднако вместо того, чтобы скрыться из виду, он пролетает по высокой дуге и пикирует к земле. Ярко красный бластерный огонь вырывается в вашу сторону.\r\n\r\nВы едва спасаетесь.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Rebel Saboteurs Defeated",
+      "GUID": "a7aaf8ac-fd21-47d8-972e-6c9b4c6a9c34",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Outer Defenses",
+      "GUID": "ee5eeb5c-8288-4e14-bcdc-5ba53fa8d39b",
+      "eventText": "По мере того, как вы приближаетесь к месту проведения испытаний, охранники, теперь предупреждённые о вашем присутствии, начинают реагировать с большей организованностью и огневой мощью.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Yellow",
+              "GUID": "bef3e48e-50f6-4b60-874f-6ead2b41b10b",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "b9466c15-f8d8-49b7-a6d6-14e233d8a475",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "67dbba27-b513-46f5-b3a0-ada274cbf138",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        }
+      ]
+    },
+    {
+      "eventName": "Protect the Prototype",
+      "GUID": "3dacbd53-8f45-4f34-884f-2a9cfaa5f59c",
+      "eventText": "Вы входите на полигон и видите ужасающий военный корабль со смертоносным оружием.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "71a7d5bd-8212-4d2c-a48b-8e1e1f640e69",
+              "theText": "Дверь ангара ведёт на испытательный полигон, где должен находиться военный корабль.",
+              "buttonList": [
+                {
+                  "GUID": "3b12297c-3d3e-43c0-8602-6962ac28de20",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "284935be-3501-4fef-9b67-d8eff74775c3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Выделенные зелёным клетки на испытательном полигоне представляют собой военный корабль. Фигурка может атаковать военный корабль (здоровье: 10 плюс *2*, защита: *1* {G}).\r\n{-} Диверсанты повстанцев могут взаимодействовать с военным кораблём. Если они делают это, военный корабль получает 5{H}. Ограничение — один раз на фигурку за раунд.",
+          "GUID": "e671805a-b32f-4944-b400-7b6ded22355b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Прототип настолько внушает благоговейный трепет, что вы почти не замечаете приближающихся к вам трандошанских охранников.",
+          "GUID": "89fcfc78-5343-4b20-be80-f7263796efef",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cf881cab-2282-478c-9625-9165e88aae06",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "848117ea-8134-49a5-9b59-3526f04dc3ee",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "tbText": "Вы поднимаете своё оружие и двигаетесь вперёд, чтобы защитить своих союзников.\r\n\r\n{-} Повстанцы победят, когда военный корабль будет уничтожен.",
+          "GUID": "6d4afcc3-0833-4b12-8be1-6d66af7f315a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Заблокировать доступ к военному кораблю.",
+          "GUID": "b529a341-e5c6-481e-a063-5fe17f5cf888",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Уничтожить военный корабль.",
+          "longText": null,
+          "GUID": "194412fa-1242-484f-863c-fb778272019c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Диверсанты повстанцев получают дополнительное здоровье в размере удвоенного уровня угрозы. Когда диверсант атакуется, находясь рядом со здоровым героем, который может стать целью этой атаки, герой может получить 2{C} чтобы стать целью этой атаки.\r\n{-} Выделенные зелёным клетки на испытательном полигоне представляют собой военный корабль. Фигурка может атаковать военный корабль (здоровье: 10 плюс *2*, защита: *1* {G}).\r\n{-} Диверсанты повстанцев могут взаимодействовать с военным кораблём. Если они делают это, военный корабль получает 5{H}. Ограничение — один раз на фигурку за раунд.\r\n{-} Повстанцы победят, когда военный корабль будет уничтожен.\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои будут ранены.",
+          "GUID": "6fc8f107-93b9-4e10-8dc1-f518f8cbae0e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "87bf6dae-0c5b-477d-ad68-c1d7d8815354",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "4f96688f-8ba1-498b-9671-495a251fad0b",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "0f4d66bd-8253-4c7d-b8e0-4963bf795379",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "5ad5746d-1ca4-4d49-82bc-0e9f2106d01d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "b684571d-1825-4cf8-80e4-eba513522696",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "685d3f49-d64f-4d11-a3db-787fcc7d7e3c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "02e4db11-f537-48ef-9c1c-a3bdb724ba56",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "b4a68436-c521-476d-b474-7c48a4508cc3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "ecc8e69f-ac93-48bf-b8d9-f52c1e4cc210",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "c401ef27-631d-42cd-9320-eebd2e2fb5f0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Warship",
+      "GUID": "d39dbb1c-99a7-42dc-85fc-58e35ccfcfd7",
+      "mainText": "Прототип истребителя выглядит устрашающе, оснащённый достаточным количеством оружия, чтобы взрывать даже крупные корабли. Он выглядит практически готовым к полёту.\r\n\r\n{-} Фигурка может атаковать военный корабль (здоровье: 10 плюс *2*, защита: *1* {G}).\r\n{-} Диверсанты повстанцев могут взаимодействовать с военным кораблём. Если они делают это, военный корабль получает 5{H}. Ограничение — один раз на фигурку за раунд.",
+      "buttonList": [
+        {
+          "GUID": "af29fab0-ff31-4f51-8919-760c76d611ec",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "0f987763-d2c3-426d-8063-1d0b76f117cc",
+      "mainText": "Дверь ангара ведёт на испытательный полигон, где должен находиться военный корабль.",
+      "buttonList": [
+        {
+          "GUID": "45f21948-7ffa-492e-8793-2f791c6af070",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance Allies",
+      "GUID": "8bea9838-3e50-4913-8add-2e5566a7cda9",
+      "mainText": "Дислоцируйте диверсантов повстанцев на эти клетки.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}
