@@ -786,7 +786,12 @@ namespace Saga
 			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				Debug.Log( $"SagaEventManager()::PROCESSING ModifyCredits: {mcredits.creditsToModify}" );
-				RunningCampaign.sagaCampaign.credits += mcredits.creditsToModify;
+				Debug.Log( $"SagaEventManager()::ModifyCredits: Multiply by hero count: {mcredits.multiplyByHeroCount}" );
+				if ( mcredits.multiplyByHeroCount )
+					RunningCampaign.sagaCampaign.credits += mcredits.creditsToModify * RunningCampaign.sagaCampaign.campaignHeroes.Count;
+				else
+					RunningCampaign.sagaCampaign.credits += mcredits.creditsToModify;
+
 				RunningCampaign.sagaCampaign.SaveCampaignState();
 				Debug.Log( $"ModifyCredits()::New Credits: {RunningCampaign.sagaCampaign.credits}" );
 			}
