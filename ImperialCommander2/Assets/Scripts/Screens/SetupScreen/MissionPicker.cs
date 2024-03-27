@@ -157,7 +157,15 @@ namespace Saga
 
 		private List<string> getMissionNames( string expansion ) => expansion switch
 		{
-			"Core" => Enumerable.Range( 1, 32 ).Select( i => $"Core{i}" ).ToList(),
+			//"Core", "Twin", "Hoth", "Bespin", "Jabba", "Empire", "Lothal", "Other"
+			"Core" => Enumerable.Range( 1, 32 ).Select( i => $"{expansion}{i}" ).ToList(),
+			"Twin" => Enumerable.Range( 1, 6 ).Select( i => $"{expansion}{i}" ).ToList(),
+			"Hoth" => Enumerable.Range( 1, 16 ).Select( i => $"{expansion}{i}" ).ToList(),
+			"Bespin" => Enumerable.Range( 1, 6 ).Select( i => $"{expansion}{i}" ).ToList(),
+			"Jabba" => Enumerable.Range( 1, 16 ).Select( i => $"{expansion}{i}" ).ToList(),
+			"Empire" => Enumerable.Range( 1, 16 ).Select( i => $"{expansion}{i}" ).ToList(),
+			"Lothal" => Enumerable.Range( 1, 6 ).Select( i => $"{expansion}{i}" ).ToList(),
+			"Other" => Enumerable.Range( 1, 40 ).Select( i => $"{expansion}{i}" ).ToList(),
 			_ => new List<string>()
 		};
 
