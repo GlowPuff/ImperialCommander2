@@ -148,26 +148,25 @@ public class TitleController : MonoBehaviour
 				return false;
 			}
 
-			return StartCommandlineMission( path, args[1], false );
+			return SetupCommandlineMission( path, args[1], false );
 		}
 		else if ( args.Length == 3 && args[1].ToLower() == "-b" )
 		{
 			string[] expansionNames = new string[] { "Core", "Twin", "Hoth", "Bespin", "Jabba", "Empire", "Lothal", "Other" };
-			bool valid = false;
-			expansionNames.ToList().ForEach( x =>
+			foreach ( var item in expansionNames )
 			{
-				if ( args[2].ToLower().StartsWith( x.ToLower() ) )
+				if ( args[2].ToLower().StartsWith( item.ToLower() ) )
 				{
-					valid = StartCommandlineMission( "", args[2], true );
+					if ( SetupCommandlineMission( "", args[2], true ) )
+						return true;
 				}
-			} );
-
-			return valid;
+			}
 		}
+
 		return false;
 	}
 
-	private bool StartCommandlineMission( string path, string filename, bool isBuiltin )
+	private bool SetupCommandlineMission( string path, string filename, bool isBuiltin )
 	{
 		var setupOptions = new SagaSetupOptions()
 		{
