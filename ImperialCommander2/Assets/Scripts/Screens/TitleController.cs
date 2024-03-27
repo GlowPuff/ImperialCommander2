@@ -137,30 +137,59 @@ public class TitleController : MonoBehaviour
 	{
 		//first array element is appName.exe
 		string[] args = Environment.GetCommandLineArgs();
-		//args = new string[2] { "foo.exe", "atest.json" };//"CORE1-A New Threat.json" };//DEBUG TESTING
+		//args = new string[2] { "foo.exe", "atest.json" };//DEBUG TESTING
+
 		if ( args.Length == 2 )
 		{
 			string path = Path.Combine( FileManager.baseDocumentFolder, args[1] );
-			var setupOptions = new SagaSetupOptions()
+			if ( !File.Exists( path ) )
 			{
-				difficulty = Difficulty.Medium,
-				threatLevel = 3,
-				projectItem = new ProjectItem() { fullPathWithFilename = path, fileName = args[1] },
-				isDebugging = true
-			};
+				Utils.LogWarning( $"BootStrapTestMission()::File doesn't exist at: {path}" );
+				return false;
+			}
 
-			Debug.Log( "***BootStrapTestMission***" );
-			DataStore.StartNewSagaSession( setupOptions );
-			//add some heroes to test with
-			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
-			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
-			DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
-			//try to load the mission
-			DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename );
-			if ( DataStore.mission != null )
-				return true;
+			return StartCommandlineMission( path, args[1], false );
+		}
+		else if ( args.Length == 3 && args[1].ToLower() == "-b" )
+		{
+			string[] expansionNames = new string[] { "Core", "Twin", "Hoth", "Bespin", "Jabba", "Empire", "Lothal", "Other" };
+			bool valid = false;
+			expansionNames.ToList().ForEach( x =>
+			{
+				if ( args[2].ToLower().StartsWith( x.ToLower() ) )
+				{
+					valid = StartCommandlineMission( "", args[2], true );
+				}
+			} );
+
+			return valid;
 		}
 		return false;
+	}
+
+	private bool StartCommandlineMission( string path, string filename, bool isBuiltin )
+	{
+		var setupOptions = new SagaSetupOptions()
+		{
+			difficulty = Difficulty.Medium,
+			threatLevel = 3,
+			projectItem = new ProjectItem() { fullPathWithFilename = path, fileName = filename },
+			isDebugging = true,
+		};
+
+		Debug.Log( "***BootStrapTestMission***" );
+		DataStore.StartNewSagaSession( setupOptions );
+		//add some heroes to test with
+		DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
+		DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
+		DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+		//try to load the mission
+		if ( !isBuiltin )
+			DataStore.mission = FileManager.LoadMission( setupOptions.projectItem.fullPathWithFilename );
+		else
+			DataStore.mission = FileManager.LoadMissionFromResource( filename, out string stringified );
+
+		return DataStore.mission != null;
 	}
 
 	private void OnEnable()

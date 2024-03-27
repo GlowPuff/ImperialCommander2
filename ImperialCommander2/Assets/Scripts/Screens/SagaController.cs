@@ -994,6 +994,12 @@ namespace Saga
 			//if it's an official mission
 			if ( DataStore.sagaSessionData.setupOptions.projectItem.pickerMode == PickerMode.BuiltIn )
 			{
+				if ( DataStore.Language.ToUpper() == "EN" )
+				{
+					Debug.Log( $"SetMissionTranslation()::Skipping, Language=EN" );
+					return;
+				}
+
 				translation = FileManager.GetOfficialMissionTranslation( DataStore.sagaSessionData.setupOptions.projectItem );
 				TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
 			}

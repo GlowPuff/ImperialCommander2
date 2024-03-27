@@ -142,7 +142,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Load a Mission from Unity Resources, also return stringified version
+		/// Load a baseline control Mission from Unity Resources, also return stringified version
 		/// </summary>
 		public static Mission LoadMissionFromResource( string missionID, out string stringified )
 		{

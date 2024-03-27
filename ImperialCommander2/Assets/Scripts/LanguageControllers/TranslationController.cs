@@ -24,13 +24,6 @@ namespace Saga
 		/// </summary>
 		public void SetMissionTranslation( TranslatedMission translation, Mission mission )
 		{
-			//skip if we're in English
-			if ( DataStore.Language.ToUpper() == "EN" )
-			{
-				Debug.Log( $"SetMissionTranslation()::Skipping, Language=EN" );
-				return;
-			}
-
 			//inject it into the Mission
 			if ( mission != null && translation != null )
 			{
