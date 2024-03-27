@@ -774,10 +774,10 @@ namespace Saga
 				Debug.Log( $"SagaEventManager()::PROCESSING ModifyXP: {mxp.xpToAdd}" );
 				RunningCampaign.sagaCampaign.campaignHeroes.ForEach( x => x.xpAmount += mxp.xpToAdd );
 				RunningCampaign.sagaCampaign.SaveCampaignState();
-				Debug.Log( $"ModifyXP()::New XP: {RunningCampaign.sagaCampaign.XP}" );
 			}
 			else
 				Debug.Log( "SagaEventManager()::ModifyXP()::Campaign isn't active" );
+
 			NextEventAction();
 		}
 
@@ -797,6 +797,7 @@ namespace Saga
 			}
 			else
 				Debug.Log( "SagaEventManager()::ModifyCredits()::Campaign isn't active" );
+
 			NextEventAction();
 		}
 
@@ -813,6 +814,7 @@ namespace Saga
 			}
 			else
 				Debug.Log( "SagaEventManager()::ModifyFameAwards()::Campaign isn't active" );
+
 			NextEventAction();
 		}
 
@@ -829,6 +831,54 @@ namespace Saga
 			}
 			else
 				Debug.Log( "SagaEventManager()::SetNextMission()::Campaign isn't active" );
+
+			NextEventAction();
+		}
+
+		void AddCampaignRewards( AddCampaignReward acr )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING AddCampaignRewards" );
+
+				foreach ( var item in acr.campaignItems )
+				{
+					if ( !RunningCampaign.sagaCampaign.campaignItems.Contains( item ) )
+					{
+						RunningCampaign.sagaCampaign.campaignItems.Add( item );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Item: {item}" );
+					}
+				}
+				foreach ( var item in acr.campaignRewards )
+				{
+					if ( !RunningCampaign.sagaCampaign.campaignRewards.Contains( item ) )
+					{
+						RunningCampaign.sagaCampaign.campaignRewards.Add( item );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Reward: {item}" );
+					}
+				}
+				foreach ( var item in acr.earnedVillains )
+				{
+					DeploymentCard card = DataStore.villainCards.GetDeploymentCard( item );
+					if ( RunningCampaign.sagaCampaign.campaignVillains.GetDeploymentCard( item ) == null )
+					{
+						RunningCampaign.sagaCampaign.campaignVillains.Add( card );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Villain: {card.name} / {card.id}" );
+					}
+				}
+				foreach ( var item in acr.earnedAllies )
+				{
+					DeploymentCard card = DataStore.allyCards.GetDeploymentCard( item );
+					if ( RunningCampaign.sagaCampaign.campaignAllies.GetDeploymentCard( item ) == null )
+					{
+						RunningCampaign.sagaCampaign.campaignAllies.Add( card );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Ally: {card.name} / {card.id}" );
+					}
+				}
+
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+			}
+
 			NextEventAction();
 		}
 	}

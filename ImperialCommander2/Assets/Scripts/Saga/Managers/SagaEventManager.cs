@@ -68,7 +68,7 @@ namespace Saga
 
 		public void SetEndProcessingCallback( Action callback )
 		{
-			Debug.Log( "SetEndProcessingCallback()::SET" );
+			Debug.Log( "SetEndProcessingCallback()::CALLBACK SET" );
 			endProcessingCallback = callback;
 		}
 
@@ -145,6 +145,8 @@ namespace Saga
 					}
 				}
 			}
+
+			Debug.Log( "CheckIfEventsTriggered()::FINISHED LOOKING FOR EVENT TRIGGERS, FIRING CALLBACK" );
 
 			callback?.Invoke();
 		}
@@ -432,6 +434,9 @@ namespace Saga
 					break;
 				case EventActionType.G11:
 					SetCountdown( eventAction as SetCountdown );
+					break;
+				case EventActionType.CM5:
+					AddCampaignRewards( eventAction as AddCampaignReward );
 					break;
 				default:
 					Debug.Log( "ProcessEventAction()::EVENT TYPE NOT SUPPORTED: " + eventAction.eventActionType.ToString() + " = " + (int)eventAction.eventActionType );
