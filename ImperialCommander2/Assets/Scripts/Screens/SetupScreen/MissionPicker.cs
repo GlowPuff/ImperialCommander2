@@ -6,9 +6,7 @@ using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 namespace Saga
@@ -385,20 +383,12 @@ namespace Saga
 				isBusy = true;
 				try
 				{
-					AsyncOperationHandle<TextAsset> loadHandle = Addressables.LoadAssetAsync<TextAsset>( selectedMission.fullPathWithFilename );
-					loadHandle.Completed += ( x ) =>
-					{
-						if ( x.Status == AsyncOperationStatus.Succeeded )
-						{
-							m = FileManager.LoadMissionFromString( x.Result.text );
-							doneAction();
-						}
-						else
-							FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
-
-						Addressables.Release( loadHandle );
-						isBusy = false;
-					};
+					m = FileManager.LoadMissionFromResource( selectedMission.fullPathWithFilename, out string stringified );
+					if ( m != null )
+						doneAction();
+					else
+						FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
+					isBusy = false;
 				}
 				catch ( Exception e )
 				{

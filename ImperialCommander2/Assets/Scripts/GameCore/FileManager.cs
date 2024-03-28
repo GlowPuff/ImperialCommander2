@@ -146,6 +146,13 @@ namespace Saga
 		/// </summary>
 		public static Mission LoadMissionFromResource( string missionID, out string stringified )
 		{
+			if ( string.IsNullOrEmpty( missionID ) )
+			{
+				Utils.LogError( "LoadMissionFromResource()::'missionID' is null" );
+				stringified = "";
+				return null;
+			}
+
 			stringified = "";
 
 			try
