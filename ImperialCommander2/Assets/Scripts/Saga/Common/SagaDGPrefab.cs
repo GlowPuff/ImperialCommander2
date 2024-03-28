@@ -306,6 +306,12 @@ namespace Saga
 
 			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDefeated, cardDescriptor.name );
 
+			//20% chance vader speaks
+			if ( GlowEngine.RandomBool( 30 ) )
+			{
+				GlowTimer.SetTimer( 1, () => FindObjectOfType<SagaController>().sound.PlaySound( 14 ) );
+			}
+
 			//visually remove group from screen
 			if ( ovrd == null || (ovrd != null && ovrd.canBeDefeated) )
 			{

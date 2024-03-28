@@ -116,6 +116,8 @@ public class TitleController : MonoBehaviour
 		{
 			SceneManager.LoadScene( "Saga" );
 		}
+		else
+			soundController.PlaySound( 1 );
 	}
 
 #if UNITY_EDITOR
@@ -221,6 +223,8 @@ public class TitleController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
+		soundController.PlaySound( 3 );
+
 		animator.SetBool( m_OpenParameterId, false );
 		animator.SetBool( expID, false );
 
@@ -392,12 +396,13 @@ public class TitleController : MonoBehaviour
 	private void SetTranslatedUI()
 	{
 		UITitle ui = DataStore.uiLanguage.uiTitle;
+		UISetup uiSetup = DataStore.uiLanguage.uiSetup;
 
 		tutorialDropdown.options.Clear();
 		tutorialDropdown.AddOptions( new List<string>( new string[] { ui.tutorialUC + " 1", ui.tutorialUC + " 2", ui.tutorialUC + " 3" } ) );
 
 		uiCampaigns.text = ui.campaigns;
-		uiSaga.text = ui.saga;
+		uiSaga.text = uiSetup.missionChooser;
 		uiClassic.text = ui.classic;
 		uiMenuHeader.text = ui.menuHeading;
 		uiNewGameBtn.text = ui.newGameBtn;
@@ -568,6 +573,8 @@ public class TitleController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
+		soundController.PlaySound( 2 );
+
 		animator.SetBool( m_OpenParameterId, false );
 		animator.SetBool( expID, false );
 
@@ -581,6 +588,7 @@ public class TitleController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
+
 		animator.SetBool( m_OpenParameterId, false );
 		animator.SetBool( expID, false );
 

@@ -224,6 +224,9 @@ namespace Saga
 				projectItem = structure.projectItem,
 			};
 
+			//only used by FileManager.GetOfficialMissionTranslation() for official campaign missions
+			setupOptions.projectItem.expansion = structure.expansionCode;
+
 			//deactivate mission picker
 			rightPanel.SetActive( false );
 			//add heroes
@@ -652,6 +655,7 @@ namespace Saga
 		public void Warp()
 		{
 			sound.PlaySound( FX.Click );
+			sound.PlaySound( 3 );
 			sound.FadeOutMusic();
 
 			thrusterRoot.DOMoveZ( -30, 2 );

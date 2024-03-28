@@ -47,7 +47,7 @@ namespace Saga
 		public VolumeProfile volume;
 		public bool isDebugMode = false;//can be toggled within Unity
 
-		Sound sound;
+		public Sound sound;
 		//isError is set locally when there is an exception so the app doesn't try to save a potentially broken state
 		bool isError { get; set; } = false;//checked by OnQuitSaga() before trying to save state when quitting
 
@@ -272,6 +272,8 @@ namespace Saga
 
 		public void EndMission()
 		{
+			sound.PlaySound( 13 );
+
 			//remove the state
 			DataStore.sagaSessionData.RemoveState();
 
@@ -520,6 +522,8 @@ namespace Saga
 				return false;
 
 			Debug.Log( $"ContinueGame()::{DataStore.mission.fileName}" );
+
+			sound.PlaySound( 12 );
 
 			//inject translation, if one exists
 			SetMissionTranslation();
@@ -830,7 +834,6 @@ namespace Saga
 				infoBtnTX.DOScale( 1, .2f );
 
 				heroDashboard.Show( DataStore.sagaSessionData.gameVars.currentMissionInfo );
-				//FindObjectOfType<SagaEventManager>().ShowTextBox( DataStore.sagaSessionData.gameVars.currentMissionInfo );
 			}
 		}
 
