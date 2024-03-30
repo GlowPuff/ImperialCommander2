@@ -1063,7 +1063,7 @@ public static class DataStore
 	}
 
 	/// <summary>
-	/// 'id' is case insensitive
+	/// 'id' is case insensitive and can optionally contain a space between the expansion and #, such as 'core 1'
 	/// </summary>
 	public static MissionCard GetMissionCard( string id )
 	{

@@ -283,7 +283,7 @@ namespace Saga
 						{
 							if ( source == MissionSource.Embedded )
 							{
-								var m = campaignPackage.campaignMissionItems.Where( x => x.customMissionIdentifier == customMissionID ).FirstOr( null );
+								var m = campaignPackage.campaignMissionItems.Where( x => x.customMissionIdentifier.ToLower() == customMissionID.ToLower() ).FirstOr( null );
 								if ( m != null )
 								{
 									Debug.Log( $"campaignStructure with Index={index} changed" );
