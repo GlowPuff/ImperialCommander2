@@ -226,6 +226,8 @@ namespace Saga
 
 			//only used by FileManager.GetOfficialMissionTranslation() for official campaign missions
 			setupOptions.projectItem.expansion = structure.expansionCode;
+			//used by SetNextStoryMission() to find the index of the current mission in play (both official and custom campaigns)
+			setupOptions.projectItem.missionID = structure.missionID;
 
 			//deactivate mission picker
 			rightPanel.SetActive( false );

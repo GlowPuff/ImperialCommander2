@@ -273,7 +273,7 @@ namespace Saga
 					throw new Exception( "Custom Mission ID is Empty" );
 
 				//get the index of the current mission in the structure list
-				int idx = campaignStructure.FindIndex( x => x.missionID == DataStore.mission.missionGUID.ToString() );
+				int idx = campaignStructure.FindIndex( x => x.missionID.ToLower() == DataStore.sagaSessionData.setupOptions.projectItem.missionID.ToLower() );
 				if ( idx != -1 )
 				{
 					//find the next Story mission AFTER the current Mission in the structure list
@@ -291,6 +291,7 @@ namespace Saga
 									campaignStructure[index].missionID = m.missionGUID.ToString();
 									campaignStructure[index].projectItem.Title = m.missionName;
 									campaignStructure[index].projectItem.missionGUID = m.missionGUID.ToString();
+									break;
 								}
 								else
 									Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find Mission with customMissionIdentifier={customMissionID}" );
@@ -304,6 +305,7 @@ namespace Saga
 									campaignStructure[index].missionSource = MissionSource.Official;
 									campaignStructure[index].expansionCode = Utils.ParseExpansionName( customMissionID );
 									campaignStructure[index].missionID = customMissionID;
+									break;
 								}
 							}
 						}
