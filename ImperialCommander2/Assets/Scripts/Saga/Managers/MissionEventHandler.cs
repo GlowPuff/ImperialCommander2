@@ -876,6 +876,21 @@ namespace Saga
 					}
 				}
 
+				//medpacks
+				if ( acr.medpacsToModify != 0 )
+				{
+					DataStore.sagaSessionData.gameVars.medPacCount = Math.Max( 0, DataStore.sagaSessionData.gameVars.medPacCount + acr.medpacsToModify );
+					FindObjectOfType<SagaController>().UpdateMedPacCountUI();
+					Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify MedPacs: {acr.medpacsToModify}, new MedPac count: {DataStore.sagaSessionData.gameVars.medPacCount}" );
+				}
+
+				//next mission threat level
+				if ( acr.threatToModify != 0 )
+				{
+					RunningCampaign.sagaCampaign.ModifyNextMissionThreatLevel( acr.threatToModify );
+					Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify Threat: {acr.threatToModify}" );
+				}
+
 				RunningCampaign.sagaCampaign.SaveCampaignState();
 			}
 

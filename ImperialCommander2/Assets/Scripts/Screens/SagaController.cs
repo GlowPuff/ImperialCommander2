@@ -855,9 +855,14 @@ namespace Saga
 			{
 				medpacPopup.Show( () =>
 				{
-					medPacText.text = DataStore.sagaSessionData.gameVars.medPacCount.ToString();
+					UpdateMedPacCountUI();
 				} );
 			}
+		}
+
+		public void UpdateMedPacCountUI()
+		{
+			medPacText.text = DataStore.sagaSessionData.gameVars.medPacCount.ToString();
 		}
 
 		public void OnImperialPopup()

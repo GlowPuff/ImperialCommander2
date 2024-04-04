@@ -31,7 +31,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Same as LogError, but doesn't trigger the Error panel to show
+		/// Logs error to console and to log file, but doesn't trigger the Error panel to show
 		/// </summary>
 		public static void LogWarning( string message )
 		{

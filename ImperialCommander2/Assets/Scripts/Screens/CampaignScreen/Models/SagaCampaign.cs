@@ -309,16 +309,48 @@ namespace Saga
 								}
 							}
 						}
+						else
+							Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find a STORY Mission that follows this Mission in the Campaign structure: {DataStore.sagaSessionData.setupOptions.projectItem.missionID}" );
 					}
 				}
 				else
 				{
-					Debug.Log( "WARNING::SetNextStoryMission()::Couldn't find a STORY Mission" );
+					Debug.Log( "WARNING::SetNextStoryMission()::Couldn't find this Mission in the Campaign Mission structure" );
 				}
 			}
 			catch ( Exception e )
 			{
-				Debug.Log( $"SetNextStoryMission()::{e.Message}" );
+				Utils.LogWarning( $"SetNextStoryMission()::ERROR\n{e.Message}" );
+			}
+		}
+
+		public void ModifyNextMissionThreatLevel( int level )
+		{
+			Debug.Log( $"ModifyNextMissionThreatLevel()::Modify Threat Level by: {level}" );
+
+			try
+			{
+				//get the index of the current mission in the structure list
+				int idx = campaignStructure.FindIndex( x => x.missionID.ToLower() == DataStore.sagaSessionData.setupOptions.projectItem.missionID.ToLower() );
+				if ( idx != -1 )
+				{
+					//find the next mission (any) AFTER the current Mission in the structure list
+					if ( idx + 1 < campaignStructure.Count )
+					{
+						campaignStructure[idx + 1].threatLevel = Math.Max( 0, campaignStructure[idx + 1].threatLevel + level );
+						Debug.Log( $"ModifyNextMissionThreatLevel()::New Threat Level for [Mission index {idx + 1}] Set to [{campaignStructure[idx + 1].threatLevel}]" );
+					}
+					else
+						Debug.Log( "ModifyNextMissionThreatLevel()::There are no Missions after this one in the Campaign Mission structure" );
+				}
+				else
+				{
+					Debug.Log( "WARNING::SetNextStoryMission()::Couldn't find this Mission in the Campaign Mission structure" );
+				}
+			}
+			catch ( Exception e )
+			{
+				Utils.LogWarning( $"ModifyNextMissionThreatLevel()::ERROR\n{e.Message}" );
 			}
 		}
 	}
