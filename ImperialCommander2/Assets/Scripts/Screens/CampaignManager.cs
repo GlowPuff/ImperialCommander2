@@ -328,6 +328,8 @@ namespace Saga
 				if ( !sagaCampaign.campaignItems.Contains( item.id ) )
 				{
 					sagaCampaign.campaignItems.Add( item.id );
+					sagaCampaign.credits = Math.Max( 0, sagaCampaign.credits - item.cost );
+					creditsWheel.ResetWheeler( sagaCampaign.credits );
 					AddItemToUI( item );
 				}
 			}, false );
