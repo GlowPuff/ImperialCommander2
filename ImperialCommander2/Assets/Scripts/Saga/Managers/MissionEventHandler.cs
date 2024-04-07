@@ -837,6 +837,8 @@ namespace Saga
 
 		void AddCampaignRewards( AddCampaignReward acr )
 		{
+			var sagaController = FindObjectOfType<SagaController>();
+
 			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
 			{
 				Debug.Log( $"SagaEventManager()::PROCESSING AddCampaignRewards" );
@@ -846,7 +848,9 @@ namespace Saga
 					if ( !RunningCampaign.sagaCampaign.campaignItems.Contains( item ) )
 					{
 						RunningCampaign.sagaCampaign.campaignItems.Add( item );
-						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Item: {item}" );
+						var reward = DataStore.campaignDataItems.Where( x => x.id == item ).FirstOr( null );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.itemsUC}: + {reward.name}" );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Item: {reward} / {item}" );
 					}
 				}
 				foreach ( var item in acr.campaignRewards )
@@ -854,7 +858,9 @@ namespace Saga
 					if ( !RunningCampaign.sagaCampaign.campaignRewards.Contains( item ) )
 					{
 						RunningCampaign.sagaCampaign.campaignRewards.Add( item );
-						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Reward: {item}" );
+						var reward = DataStore.campaignDataRewards.Where( x => x.id == item ).FirstOr( null );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.rewardsUC}: {reward.name}" );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Reward: {reward} / {item}" );
 					}
 				}
 				foreach ( var item in acr.earnedVillains )
@@ -863,6 +869,7 @@ namespace Saga
 					if ( RunningCampaign.sagaCampaign.campaignVillains.GetDeploymentCard( item ) == null )
 					{
 						RunningCampaign.sagaCampaign.campaignVillains.Add( card );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.villainsUC}: {card.name}" );
 						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Villain: {card.name} / {card.id}" );
 					}
 				}
@@ -872,26 +879,31 @@ namespace Saga
 					if ( RunningCampaign.sagaCampaign.campaignAllies.GetDeploymentCard( item ) == null )
 					{
 						RunningCampaign.sagaCampaign.campaignAllies.Add( card );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.alliesUC}: {card.name}" );
 						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Ally: {card.name} / {card.id}" );
 					}
-				}
-
-				//medpacks
-				if ( acr.medpacsToModify != 0 )
-				{
-					DataStore.sagaSessionData.gameVars.medPacCount = Math.Max( 0, DataStore.sagaSessionData.gameVars.medPacCount + acr.medpacsToModify );
-					FindObjectOfType<SagaController>().UpdateMedPacCountUI();
-					Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify MedPacs: {acr.medpacsToModify}, new MedPac count: {DataStore.sagaSessionData.gameVars.medPacCount}" );
 				}
 
 				//next mission threat level
 				if ( acr.threatToModify != 0 )
 				{
+					string mod = acr.threatToModify > 0 ? "+" : "-";
 					RunningCampaign.sagaCampaign.ModifyNextMissionThreatLevel( acr.threatToModify );
+					sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiMainApp.modThreatHeading.ToLower()} {mod}{acr.threatToModify}" );
 					Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify Threat: {acr.threatToModify}" );
 				}
 
 				RunningCampaign.sagaCampaign.SaveCampaignState();
+			}
+
+			//medpacks
+			if ( acr.medpacsToModify != 0 )
+			{
+				string mod = acr.medpacsToModify > 0 ? "+" : "-";
+				DataStore.sagaSessionData.gameVars.medPacCount = Math.Max( 0, DataStore.sagaSessionData.gameVars.medPacCount + acr.medpacsToModify );
+				FindObjectOfType<SagaController>().UpdateMedPacCountUI();
+				sagaController.toastManager.ShowToast( $"Medpac: {mod}{acr.medpacsToModify}" );
+				Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify MedPacs: {acr.medpacsToModify}, new MedPac count: {DataStore.sagaSessionData.gameVars.medPacCount}" );
 			}
 
 			NextEventAction();

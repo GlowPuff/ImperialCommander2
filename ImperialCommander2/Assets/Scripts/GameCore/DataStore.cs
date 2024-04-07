@@ -49,6 +49,9 @@ public static class DataStore
 	public static List<DeploymentSound> deploymentSounds;
 	public static Dictionary<string, List<MissionPreset>> missionPresets;
 	public static ThumbnailData thumbnailData;
+	//campaign data
+	public static List<CampaignItem> campaignDataItems;
+	public static List<CampaignReward> campaignDataRewards;
 
 	/// <summary>
 	/// all global imported characters picked up at app startup (not the Mission opt-in global imports)
@@ -217,6 +220,9 @@ public static class DataStore
 			LoadMissionCardTranslations();
 			//help overlays
 			uiLanguage.uiHelpOverlay = LoadHelpOverlays();
+			//campaign data (items, rewards)
+			campaignDataItems = FileManager.LoadAssetFromResource<List<CampaignItem>>( $"Languages/{DataStore.Language}/CampaignData/items" );
+			campaignDataRewards = FileManager.LoadAssetFromResource<List<CampaignReward>>( $"Languages/{DataStore.Language}/CampaignData/rewards" );
 
 			//assign translations to card data
 			SetCardTranslations( deploymentCards );

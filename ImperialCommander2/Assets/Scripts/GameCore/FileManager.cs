@@ -639,5 +639,21 @@ namespace Saga
 
 			return translation;
 		}
+
+		public static T LoadAssetFromResource<T>( string assetName )
+		{
+			try
+			{
+				string json = Resources.Load<TextAsset>( assetName ).text;
+				return JsonConvert.DeserializeObject<T>( json );
+			}
+			catch ( JsonReaderException e )
+			{
+				Debug.Log( $"LoadAssetFromResource() ERROR:\r\nError parsing data [{assetName}]" );
+				Debug.Log( e.Message );
+				throw e;
+			}
+		}
+
 	}
 }

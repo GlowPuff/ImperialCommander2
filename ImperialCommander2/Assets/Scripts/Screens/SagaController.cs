@@ -35,6 +35,7 @@ namespace Saga
 		public MedpacPopup medpacPopup;
 		public HeroDashboard heroDashboard;
 		public HelpPanel helpPanel;
+		public ToastManager toastManager;
 		//MANAGERS
 		public CameraController cameraController;
 		public DeploymentManager dgManager;
