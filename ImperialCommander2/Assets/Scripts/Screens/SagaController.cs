@@ -60,8 +60,15 @@ namespace Saga
 		void LogCallback( string condition, string stackTrace, LogType type )
 		{
 			//only capture errors, exceptions, asserts
-			if ( type != LogType.Warning && type != LogType.Log )
-				errorPanel.Show( $"An Error Occurred of Type <color=green>{type}</color>", $"<color=yellow>{condition}</color>\n\n{stackTrace.Replace( "(at", "\n\n(at" )}" );
+			if ( !isError//only show first error if many happen at once
+				&& type != LogType.Warning
+				&& type != LogType.Log )
+			{
+				isError = true;
+
+				errorPanel.Show( $"An Error Occurred of Type <color=green>{type}</color>", $"<color=yellow>{condition}</color>\n\n{stackTrace.Replace( "(at", "\n\n(at" )}", () => isError = false );
+				//reset isError only after the inital error has been seen
+			}
 		}
 
 		private void OnDestroy()

@@ -11,15 +11,18 @@ namespace Saga
 		public PopupBase popupBase;
 		public Text exitText, continueText;
 
+		Action closeCallback = null;
+
 		/// <summary>
 		/// centered message
 		/// </summary>
-		public void Show( string m )
+		public void Show( string m, Action onCloseCallback = null )
 		{
 			exitText.text = DataStore.uiLanguage.uiSettings.quit;
 			continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
 
 			message.text = m;
+			closeCallback = onCloseCallback;
 
 			popupBase.Show();
 		}
@@ -27,7 +30,7 @@ namespace Saga
 		/// <summary>
 		/// Centered header, left-aligned message
 		/// </summary>
-		public void Show( string header, string m )
+		public void Show( string header, string m, Action onCloseCallback = null )
 		{
 			try
 			{
@@ -41,6 +44,7 @@ namespace Saga
 			}
 
 			message.text = $"<color=yellow>{header}</color>\n\n<align=left>{m}</align>";
+			closeCallback = onCloseCallback;
 
 			popupBase.Show();
 		}
@@ -48,7 +52,7 @@ namespace Saga
 		/// <summary>
 		/// Centered header, left-aligned message and stack trace
 		/// </summary>
-		public void Show( string header, Exception e )
+		public void Show( string header, Exception e, Action onCloseCallback = null )
 		{
 			try
 			{
@@ -62,6 +66,7 @@ namespace Saga
 			}
 
 			message.text = $"<color=yellow>{header}</color>\n\n<align=left><color=orange>{e.Message}</color>\n{e.StackTrace.Replace( " at ", "\nat " )}</align>";
+			closeCallback = onCloseCallback;
 
 			popupBase.Show();
 		}
@@ -73,7 +78,7 @@ namespace Saga
 
 		public void Hide()
 		{
-			popupBase.Close();
+			popupBase.Close( closeCallback );
 		}
 
 		public void OnExitApp()
