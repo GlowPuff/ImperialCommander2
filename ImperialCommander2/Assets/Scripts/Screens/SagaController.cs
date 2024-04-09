@@ -47,7 +47,12 @@ namespace Saga
 		public SagaLanguageController languageController;
 		public VolumeProfile volume;
 		public bool isDebugMode = false;//can be toggled within Unity
+		public string debugMissionFilename = "test";//quick start a Mission right from "Saga" screen
+		public int debugThreatLevel = 3;
+		public bool debugAdaptiveDifficulty = false;
+		public Difficulty debugDifficulty = Difficulty.Medium;
 
+		[HideInInspector]
 		public Sound sound;
 		//isError is set locally when there is an exception so the app doesn't try to save a potentially broken state
 		bool isError { get; set; } = false;//checked by OnQuitSaga() before trying to save state when quitting
@@ -212,12 +217,22 @@ namespace Saga
 			if ( string.IsNullOrEmpty( missionCode ) )
 			{
 				Debug.Log( "BOOSTRAP CUSTOM MISSION" );
+
+				if ( string.IsNullOrEmpty( debugMissionFilename ) )
+				{
+					Utils.LogError( "bootstrapDEBUG()::debugMissionFilename is empty" );
+					return;
+				}
+
+				if ( !debugMissionFilename.ToLower().Contains( ".json" ) )
+					debugMissionFilename += ".json";
+
 				DataStore.StartNewSagaSession( new SagaSetupOptions()
 				{
-					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( FileManager.baseDocumentFolder, "test.json" ) },
-					difficulty = Difficulty.Medium,
-					threatLevel = 3,
-					useAdaptiveDifficulty = false,
+					projectItem = new ProjectItem() { fullPathWithFilename = Path.Combine( FileManager.baseDocumentFolder, $"{debugMissionFilename}" ) },
+					difficulty = debugDifficulty,
+					threatLevel = debugThreatLevel,
+					useAdaptiveDifficulty = debugAdaptiveDifficulty,
 				} );
 
 				//try to load the mission
@@ -233,9 +248,9 @@ namespace Saga
 					{
 						missionID = missionCode,
 					},
-					difficulty = Difficulty.Medium,
-					threatLevel = 3,
-					useAdaptiveDifficulty = true,
+					difficulty = debugDifficulty,
+					threatLevel = debugThreatLevel,
+					useAdaptiveDifficulty = debugAdaptiveDifficulty,
 				} );
 
 				//load the mission
