@@ -20,7 +20,7 @@ public class UILanguage
 
 public class UISettings
 {
-	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok, quickClose, ambient, zoomButtons, topdownView, roundLimitOn, roundLimitOff, roundLimitDangerous;
+	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok, quickClose, ambient, zoomButtons, topdownView, roundLimitOn, roundLimitOff, roundLimitDangerous, roundLimitLabel;
 }
 
 public class UITitle

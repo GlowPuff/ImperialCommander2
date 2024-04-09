@@ -40,7 +40,7 @@ namespace Saga
 			woundUC.text = uiSaga.woundUC;
 			//withdrawUC.text = uiSaga.withdrawUC;
 			exhaustUC.text = uiSaga.exhaustUC;
-			heroDefeatUC.text = uiSaga.defeatUC;
+			heroDefeatUC.text = uiSaga.withdrawUC;
 			enemyDefeatUC.text = uiSaga.defeatUC;
 		}
 	}
