@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE1.json",
   "fileVersion": "22",
-  "saveDate": "4/5/2024",
-  "timeTicks": 638479137656940861,
+  "saveDate": "4/9/2024",
+  "timeTicks": 638482790660870027,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "A New Threat",
@@ -528,6 +528,24 @@
       "GUID": "f51a4ed0-e4cf-40f8-bc2e-a96752693297",
       "isGlobal": true,
       "useReset": true,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Early win",
+      "GUID": "977600ed-3dc2-4b1c-b44b-f32fe9a649f3",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 1,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End mission",
+      "GUID": "e9641e6b-62f3-4e26-82fe-777ed9952a42",
+      "isGlobal": true,
+      "useReset": false,
       "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
@@ -1800,15 +1818,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "7630ce7d-cc62-4559-982a-005293f5aec6",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End mission",
+              "triggerGUID": "e9641e6b-62f3-4e26-82fe-777ed9952a42",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "96a51bc3-0ce9-4bb6-b652-a04857a3d566",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1868,6 +1888,160 @@
           "unpauseThreat": false,
           "endMission": true,
           "GUID": "0fd3f04c-a30b-436d-a1d9-8eca2654ebb8",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "e3a486b7-68c8-4165-a875-74a3b79fed2b",
+      "isGlobal": true,
+      "name": "Check Early Win",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 5,
+      "useStartOfRound": false,
+      "useEndOfRound": true,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Early win",
+              "triggerGUID": "977600ed-3dc2-4b1c-b44b-f32fe9a649f3",
+              "setValue": 0,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "8ab7c539-5819-4c42-ba63-64347b9df42a",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "c9e988e6-2624-4ef5-98e0-04343353b19b",
+      "isGlobal": true,
+      "name": "End Mission Early Win",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Early win",
+          "triggerGUID": "977600ed-3dc2-4b1c-b44b-f32fe9a649f3",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End mission",
+          "triggerGUID": "e9641e6b-62f3-4e26-82fe-777ed9952a42",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "eabb7631-3a9f-46ed-b1bf-ffc04a29f603",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "480243aa-5722-4bf2-a909-a82ec4b6a43a",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "2d24ba83-f2e2-4ec1-b0d1-8956e2f578e3",
+      "isGlobal": true,
+      "name": "End Mission No Early Win",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Early win",
+          "triggerGUID": "977600ed-3dc2-4b1c-b44b-f32fe9a649f3",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "End mission",
+          "triggerGUID": "e9641e6b-62f3-4e26-82fe-777ed9952a42",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "561f4490-937d-4b74-ae5e-2863d5fe2799",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }

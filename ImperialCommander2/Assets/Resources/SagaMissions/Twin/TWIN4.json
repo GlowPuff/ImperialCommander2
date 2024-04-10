@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "TWIN4.json",
   "fileVersion": "22",
-  "saveDate": "4/5/2024",
-  "timeTicks": 638479151080048913,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638482113408183295,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Shady Dealings",
@@ -497,6 +497,33 @@
       "maxValue": 4,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Saska Present",
+      "GUID": "4eb4f93f-0c17-4c44-90cb-0abb8435d154",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Mission End",
+      "GUID": "08ca5ad1-b29a-45e4-bd10-f4ed60b818a5",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Win",
+      "GUID": "453a3dd4-f5ba-4e7a-a13d-1add60235ceb",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "globalEvents": [
@@ -769,25 +796,16 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "theText": "Is Saska Teft one of the heroes?",
-          "includeCancel": false,
-          "buttonList": [
-            {
-              "GUID": "677657e3-a9cf-4a7a-9e26-7463ea584cba",
-              "buttonText": "Yes",
-              "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "ded39e91-531b-4c63-9548-b86d131b1908"
-            },
-            {
-              "GUID": "0e69a35b-0826-4dd6-8fa4-60eccc1d1a38",
-              "buttonText": "No",
-              "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "00000000-0000-0000-0000-000000000000"
-            }
-          ],
-          "GUID": "47c0ffb9-3267-4e9d-83f7-613739d4ba94",
-          "eventActionType": 5,
-          "displayName": "Question Prompt"
+          "foundTrigger": "00000000-0000-0000-0000-000000000000",
+          "foundEvent": "ded39e91-531b-4c63-9548-b86d131b1908",
+          "displayName": "Query Group",
+          "groupEnemyToQuery": null,
+          "groupRebelToQuery": {
+            "name": "Saska Teft",
+            "id": "H8"
+          },
+          "GUID": "45bebd76-5cb5-4cfd-81d6-ffa94428977d",
+          "eventActionType": 23
         }
       ]
     },
@@ -847,17 +865,17 @@
           "displayName": "Question Prompt"
         },
         {
-          "campaignItems": [],
-          "campaignRewards": [
-            "personal17"
+          "triggerList": [
+            {
+              "triggerName": "Rebels Win",
+              "triggerGUID": "453a3dd4-f5ba-4e7a-a13d-1add60235ceb",
+              "setValue": 1,
+              "modifyValue": 0
+            }
           ],
-          "earnedVillains": [],
-          "earnedAllies": [],
-          "medpacsToModify": 0,
-          "threatToModify": 0,
-          "GUID": "b5100c41-acb8-42a6-8de4-31be7342ec8f",
-          "eventActionType": 30,
-          "displayName": "Add Campaign Reward"
+          "GUID": "4552c230-6802-428d-9248-fc4b942717f2",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -961,15 +979,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "82efc486-3c27-47ee-8ede-0ccda4119321",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Mission End",
+              "triggerGUID": "08ca5ad1-b29a-45e4-bd10-f4ed60b818a5",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "98997530-2421-4ec8-94e3-89cb6ef310dd",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1076,15 +1096,17 @@
           "displayName": "Modify Credits"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "a923b249-e777-4e8b-9f03-1438a308557d",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Mission End",
+              "triggerGUID": "08ca5ad1-b29a-45e4-bd10-f4ed60b818a5",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "e238b900-dd11-4470-bed7-a80449f182f6",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1301,7 +1323,21 @@
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
       "additionalTriggers": [],
-      "eventActions": []
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Saska Present",
+              "triggerGUID": "4eb4f93f-0c17-4c44-90cb-0abb8435d154",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "6d587a00-2cba-493c-a5a1-e8cb4a44d766",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
     },
     {
       "GUID": "8eb617c3-376e-40da-a352-25ff93e7e46d",
@@ -2539,6 +2575,192 @@
           "GUID": "faaf419f-0425-4727-bef5-d4e7da1619c0",
           "eventActionType": 8,
           "displayName": "Optional Deployment"
+        }
+      ]
+    },
+    {
+      "GUID": "68171728-b28c-46d4-99df-5386557d4e39",
+      "isGlobal": true,
+      "name": "Mission End Win Saska Yes",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Saska Present",
+          "triggerGUID": "4eb4f93f-0c17-4c44-90cb-0abb8435d154",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Mission End",
+          "triggerGUID": "08ca5ad1-b29a-45e4-bd10-f4ed60b818a5",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels Win",
+          "triggerGUID": "453a3dd4-f5ba-4e7a-a13d-1add60235ceb",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [
+            "personal17"
+          ],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 0,
+          "GUID": "45971cce-b614-4755-86da-00b0610b6326",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "c1a14f02-88b8-47e3-9557-94d21dbc57f8",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "0b51f88a-8c97-4646-b2b2-e8895d961e2d",
+      "isGlobal": true,
+      "name": "Mission End Win Saska No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Saska Present",
+          "triggerGUID": "4eb4f93f-0c17-4c44-90cb-0abb8435d154",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Mission End",
+          "triggerGUID": "08ca5ad1-b29a-45e4-bd10-f4ed60b818a5",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels Win",
+          "triggerGUID": "453a3dd4-f5ba-4e7a-a13d-1add60235ceb",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 150,
+          "multiplyByHeroCount": true,
+          "GUID": "db4015f9-489c-4ad1-9ca5-2a0f0e8863bd",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "01d575b2-54b8-4abd-be3f-2164d7c2ec37",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "bd83201c-d0f2-489e-8dcd-8f9f60d53324",
+      "isGlobal": true,
+      "name": "Mission End Defeat",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Mission End",
+          "triggerGUID": "08ca5ad1-b29a-45e4-bd10-f4ed60b818a5",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels Win",
+          "triggerGUID": "453a3dd4-f5ba-4e7a-a13d-1add60235ceb",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "d5e4520d-0a45-4ebb-89fd-fec4994fde37",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

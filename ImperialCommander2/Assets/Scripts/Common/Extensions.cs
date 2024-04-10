@@ -201,4 +201,18 @@ public static class Extensions
 		var h = (rt.anchorMax.y - rt.anchorMin.y) * Screen.height + rt.sizeDelta.y;// * rt.GetCanvas().scaleFactor;
 		return h;
 	}
+
+	public static int FindIndexByProperty<T>( this Queue<T> queue, Func<T, bool> predicate )
+	{
+		int index = 0;
+		foreach ( var item in queue )
+		{
+			if ( predicate( item ) )
+			{
+				return index;
+			}
+			index++;
+		}
+		return -1; // Item not found
+	}
 }

@@ -40,34 +40,39 @@ namespace Saga
 
 			if ( mm.incRoundCounter )
 			{
+				Debug.Log( "MissionManagement()::Increase Round Counter" );
 				sc.IncreaseRound();
 				CheckIfEventsTriggered();
 				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.sagaMainApp.roundIncreasedUC );
 			}
 			if ( mm.pauseDeployment )
 			{
+				Debug.Log( "MissionManagement()::Pause Deployment" );
 				DataStore.sagaSessionData.gameVars.pauseDeployment = true;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseDepMsgUC );
 			}
 			if ( mm.unpauseDeployment )
 			{
+				Debug.Log( "MissionManagement()::Unpause Deployment" );
 				DataStore.sagaSessionData.gameVars.pauseDeployment = false;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC );
 			}
 			if ( mm.pauseThreat )
 			{
+				Debug.Log( "MissionManagement()::Pause Threat" );
 				DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC );
 			}
 			if ( mm.unpauseThreat )
 			{
+				Debug.Log( "MissionManagement()::Unpause Threat" );
 				DataStore.sagaSessionData.gameVars.pauseThreatIncrease = false;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC );
 			}
 			if ( mm.endMission )
 			{
 				//don't process any more events or event actions after this one
-				Debug.Log( "MissionManagement()::Clearing: Event queue / Event Action queue / endProcessingCallback" );
+				Debug.Log( "MissionManagement()::End Mission:Clearing Event queue / Event Action queue / endProcessingCallback" );
 				endProcessingCallback = null;
 				eventQueue.Clear();
 				eventActionQueue.Clear();
@@ -776,7 +781,7 @@ namespace Saga
 				RunningCampaign.sagaCampaign.SaveCampaignState();
 			}
 			else
-				Debug.Log( "SagaEventManager()::ModifyXP()::Campaign isn't active" );
+				Debug.Log( $"SagaEventManager()::ModifyXP({mxp.xpToAdd})::Campaign isn't active" );
 
 			NextEventAction();
 		}
@@ -796,7 +801,7 @@ namespace Saga
 				Debug.Log( $"ModifyCredits()::New Credits: {RunningCampaign.sagaCampaign.credits}" );
 			}
 			else
-				Debug.Log( "SagaEventManager()::ModifyCredits()::Campaign isn't active" );
+				Debug.Log( $"SagaEventManager({mcredits.creditsToModify})::ModifyCredits()::Campaign isn't active" );
 
 			NextEventAction();
 		}
@@ -813,7 +818,7 @@ namespace Saga
 				Debug.Log( $"ModifyFameAwards()::New Awards: {RunningCampaign.sagaCampaign.awards}" );
 			}
 			else
-				Debug.Log( "SagaEventManager()::ModifyFameAwards()::Campaign isn't active" );
+				Debug.Log( $"SagaEventManager(Fame: {mfa.fameToAdd}, Awards: {mfa.awardsToAdd})::ModifyFameAwards()::Campaign isn't active" );
 
 			NextEventAction();
 		}
@@ -830,7 +835,7 @@ namespace Saga
 				RunningCampaign.sagaCampaign.SaveCampaignState();
 			}
 			else
-				Debug.Log( "SagaEventManager()::SetNextMission()::Campaign isn't active" );
+				Debug.Log( $"SagaEventManager(CUSTOMID:[{snm.customMissionID}] / ID:[{snm.missionID}])::SetNextMission()::Campaign isn't active" );
 
 			NextEventAction();
 		}
@@ -895,6 +900,8 @@ namespace Saga
 
 				RunningCampaign.sagaCampaign.SaveCampaignState();
 			}
+			else
+				Debug.Log( $"SagaEventManager(ITEMS:{acr.campaignItems.Count} / REWARDS:{acr.campaignRewards.Count} / VILLAINS:{acr.earnedVillains.Count} / ALLIES:{acr.earnedAllies.Count} / THREAT:{acr.threatToModify})::AddCampaignRewards()::Campaign isn't active" );
 
 			//medpacks
 			if ( acr.medpacsToModify != 0 )

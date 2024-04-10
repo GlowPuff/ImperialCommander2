@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH11.json",
   "fileVersion": "22",
-  "saveDate": "2/28/2024",
-  "timeTicks": 638447398291420252,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638481835510680450,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Know Your Enemy",
@@ -19,7 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 6,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Block access to the door.",
@@ -63,48 +63,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "de3a9557-10b1-4292-80ab-9373137bed36",
@@ -302,48 +262,8 @@
       "name": "Section 2 - Outpost",
       "GUID": "2ba144f1-d9f7-49c8-895a-4f3ee809bed9",
       "invisibleUntilActivated": true,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "2d3ba3ac-4cc4-4b98-b60a-d5737ecc627b",
@@ -481,6 +401,24 @@
           "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "21b5fbf6-eecc-40d0-a63f-150749fa8e15",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "0480f70d-aced-45e0-af38-41b92ec0abce",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -531,6 +469,24 @@
           "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "226183c9-c660-4488-8eb3-b1701469b986",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "ed36548a-3172-457a-82c6-c364294412f0",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -581,6 +537,24 @@
           "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "8260ca23-1fb8-4ce1-9cad-c2ecb766b0e6",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "2d956b91-2277-45f6-920d-0b27ea054004",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -588,7 +562,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "Verena guides you to the hidden coordinates of the abandoned outpost where her brother awaits. She gestures with her knife. \"My brother is an arrogant, boastful man. He is also, regrettably, every bit my equal in skill and technique. Do not underestimate him.\"\r\n\r\n\"I tell you this because many others have,\" she says, touching the scar on her face, \"including myself?\"\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
+      "eventText": "Verena guides you to the hidden coordinates of the abandoned outpost where her brother awaits. She gestures with her knife. \"My brother is an arrogant, boastful man. He is also, regrettably, every bit my equal in skill and technique. Do not underestimate him.\"\r\n\r\n\"I tell you this because many others have,\" she says, touching the scar on her face, \"including myself?\"\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose when all heroes are wounded.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -762,7 +736,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
+          "theText": "{-} The mission will progress when the door opens.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "ce423ad7-5c25-42d3-83cf-161691241d96",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -798,6 +772,32 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "xpToAdd": 1,
+          "GUID": "37b1e1b7-5b68-4da4-85fd-6b9705017e6d",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "1ead394c-a8c3-43be-bf2a-fecf672e2045",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [
+            "personal09"
+          ],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 0,
+          "GUID": "7fd1e475-fd79-4e4d-b951-7a317bf07985",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
           "incRoundCounter": false,
           "pauseDeployment": false,
           "unpauseDeployment": false,
@@ -822,7 +822,7 @@
       "startOfRound": 1,
       "endOfRound": 6,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -838,6 +838,19 @@
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "xpToAdd": 1,
+          "GUID": "45fb4ac7-197f-44b7-9e47-59a51628fc9d",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "bad33ec9-43c5-4a68-8341-89e779072378",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,
@@ -1128,7 +1141,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} The neutral mission marker represents Ivan Talos. Ivan Talos is an Imperial figure.\r\n{-} If a Rebel figure with an Imperial mission token on its hero sheet / deployment card is attacking Ivan Talos, apply an additional +1 {G} to the defense results.\r\n{-} The Rebels win when Ivan Talos is defeated.\r\n{-} The mission ends at the end of Round 6, or when all heroes are wounded.",
+          "theText": "{-} The neutral mission marker represents Ivan Talos. Ivan Talos is an Imperial figure.\r\n{-} If a Rebel figure with an Imperial mission token on its hero sheet / deployment card is attacking Ivan Talos, apply an additional +1 {G} to the defense results.\r\n{-} The Rebels win when Ivan Talos is defeated.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "a2cbdbdc-a407-48e8-889a-c987a917070d",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1212,7 +1225,6 @@
       "entityType": 5,
       "entityPosition": "940,930",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,

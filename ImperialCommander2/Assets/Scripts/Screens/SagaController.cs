@@ -318,7 +318,10 @@ namespace Saga
 			try
 			{
 				if ( DataStore.mission == null )
+				{
+					Debug.Log( "ParseMission()::DataStore.mission is null" );
 					return false;
+				}
 
 				//inject translation, if one exists
 				SetMissionTranslation();
@@ -744,25 +747,19 @@ namespace Saga
 			EventSystem.current.SetSelectedGameObject( null );
 			sound.PlaySound( FX.Vader );
 
-			//check if the round limit has been reached
-			if ( Utils.IsRoundLimitReachedWithSetting( 1 ) )
-			{
-				Debug.Log( $"OnEndRound()::Round Limit: {DataStore.sagaSessionData.gameVars.roundLimit}" );
-				//only want the limit event firing ONCE, when round EQUALS limit, NOT >= otherwise it'll keep firing, even though the event manager prevents such things
-				if ( DataStore.sagaSessionData.gameVars.round == DataStore.sagaSessionData.gameVars.roundLimit )
-				{
-					//round limit has been reached
-					if ( DataStore.sagaSessionData.gameVars.roundLimitEvent != Guid.Empty )
-					{
-						eventManager.DoEvent( DataStore.sagaSessionData.gameVars.roundLimitEvent );
-					}
-				}
-			}
-
 			if ( DataStore.sagaSessionData.gameVars.roundLimit == -1 )
 				Debug.Log( "OnEndRound()::Round Limit: DISABLED" );
 
-			//check for countdown timer events/triggers, +1 because round hasn't been increased
+			DataStore.sagaSessionData.gameVars.isEndTurn = true;
+			//check if any Events with trigger conditions get triggered, then queue and fire them
+			eventManager.CheckIfEventsTriggered( () =>
+			{
+				DataStore.sagaSessionData.gameVars.isEndTurn = false;
+			} );
+			//queue up and fire any "end of CURRENT round" events that were set aside this round
+			eventManager.QueueEndOfCurrentTurnEvents();
+
+			//check for countdown timer events/triggers, then queue and fire them
 			var expired = DataStore.sagaSessionData.gameVars.GetExpiredCountdowns();
 			foreach ( var ex in expired )
 			{
@@ -770,13 +767,20 @@ namespace Saga
 				triggerManager.FireTrigger( ex.triggerGUID );
 			}
 
-			DataStore.sagaSessionData.gameVars.isEndTurn = true;
-			eventManager.CheckIfEventsTriggered( () =>
+			//LAST - check if the round limit (with an Event) has been reached, then add it at the END of the queue to be fired
+			if ( Utils.IsRoundLimitReachedWithSetting( 1 ) )
 			{
-				DataStore.sagaSessionData.gameVars.isEndTurn = false;
-			} );
-			//queue up any end of CURRENT turn events that were fired this round
-			eventManager.QueueEndOfCurrentTurnEvents();
+				Debug.Log( $"OnEndRound()::Round Limit: {DataStore.sagaSessionData.gameVars.roundLimit}" );
+				//only want the limit event firing ONCE, when round EQUALS limit, NOT >= otherwise it'll keep firing, even though the event manager prevents such things
+				if ( DataStore.sagaSessionData.gameVars.round == DataStore.sagaSessionData.gameVars.roundLimit )
+				{
+					//round limit has been reached, add it to the END of the current Event queue
+					if ( DataStore.sagaSessionData.gameVars.roundLimitEvent != Guid.Empty )
+					{
+						eventManager.DoEvent( DataStore.sagaSessionData.gameVars.roundLimitEvent, false );
+					}
+				}
+			}
 
 			Action endAction = () =>
 			{
@@ -1017,6 +1021,13 @@ namespace Saga
 
 		public void SetMissionTranslation()
 		{
+			//sanity check
+			if ( DataStore.sagaSessionData.setupOptions.projectItem == null )
+			{
+				Debug.Log( $"SetMissionTranslation()::Skipping, projectItem is null" );
+				return;
+			}
+
 			Debug.Log( $"SetMissionTranslation()::Setting [{DataStore.sagaSessionData.setupOptions.projectItem.pickerMode}] translation..." );
 			//SetMissionTranslation() automatically skips if anything is null
 

@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE15.json",
   "fileVersion": "22",
-  "saveDate": "2/28/2024",
-  "timeTicks": 638447402652661500,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638481899693093224,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Test of Metal",
@@ -19,7 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 6,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Block access to the terminals.",
@@ -63,48 +63,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "03c26e69-6eeb-4682-ac09-4a7e8acaa320",
@@ -226,48 +186,8 @@
       "name": "Section 2 - Factory",
       "GUID": "ffa6e076-73df-443e-9a3e-8cbd9889e966",
       "invisibleUntilActivated": true,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "a016e4f2-a422-4d2c-bd9e-5e93005f52d7",
@@ -1151,7 +1071,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Imperial mission tokens represent X-8 blaster droids. X-8 blaster droids are Imperial figures (Health: Threat Level, Defense: 1 {G}, Attack: {O}, 1 blue die, +1 {H}).\r\n{-} The mission will progress when the Rebels enter the Factory.\r\n{-} The Rebels lose at the end of Round 6 or when all heroes are wounded.",
+          "theText": "{-} Imperial mission tokens represent X-8 blaster droids. X-8 blaster droids are Imperial figures (Health: Threat Level, Defense: 1 {G}, Attack: {O}, 1 blue die, +1 {H}).\r\n{-} The mission will progress when the Rebels enter the Factory.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "1fb22b0b-4feb-4a48-9e2d-6cd803d6b0c2",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1268,6 +1188,32 @@
       ],
       "eventActions": [
         {
+          "xpToAdd": 1,
+          "GUID": "be64a302-bd64-4efc-b149-417931626877",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "8caeba50-647c-44e3-a6cd-d38f2f880916",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [
+            "personal21"
+          ],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 0,
+          "GUID": "f3e95668-b4ab-4f75-ab96-b1c41279d0b0",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
           "incRoundCounter": false,
           "pauseDeployment": false,
           "unpauseDeployment": false,
@@ -1292,7 +1238,7 @@
       "startOfRound": 1,
       "endOfRound": 6,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -1308,6 +1254,19 @@
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "xpToAdd": 1,
+          "GUID": "15a72afa-40af-42b1-a8f5-cce411690a9d",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "5b470208-e589-4540-b33b-a94ed9479f53",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,
@@ -1531,7 +1490,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Imperial mission tokens represent X-8 blaster droids. X-8 blaster droids are Imperial figures (Health: Threat Level, Defense: 1 {G}, Attack: {O}, 1 blue die, +1 {H}).\r\n{-} A hero can interact with the terminal ({I}) to try and download the schematics.\r\n{-} The mission will progress when the schematics have been downloaded.\r\n{-} The Rebels lose at the end of Round 6 or when all heroes are wounded.",
+          "theText": "{-} Imperial mission tokens represent X-8 blaster droids. X-8 blaster droids are Imperial figures (Health: Threat Level, Defense: 1 {G}, Attack: {O}, 1 blue die, +1 {H}).\r\n{-} A hero can interact with the terminal ({I}) to try and download the schematics.\r\n{-} The mission will progress when the schematics have been downloaded.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "fe08986f-884f-424f-90a5-131bd4dac5a8",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -2365,7 +2324,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Imperial mission tokens represent X-8 blaster droids. X-8 blaster droids are Imperial figures (Health: Threat Level, Defense: 1 {G}, Attack: {O}, 1 blue die, +1 {H}).\r\n{-} Rebel figures can attack a terminal (Health: *1*, Defense: 1 {G}) or interact with a terminal ({K} or {I}) to destroy it.\r\n{-} After the red terminals are destroyed, no more blaster droids are being produced.\r\n{-} The Rebels win when all terminals and all X-8 blaster droids are destroyed.\r\n{-} The Rebels lose at the end of Round 6 or when all heroes are wounded.",
+          "theText": "{-} Imperial mission tokens represent X-8 blaster droids. X-8 blaster droids are Imperial figures (Health: Threat Level, Defense: 1 {G}, Attack: {O}, 1 blue die, +1 {H}).\r\n{-} Rebel figures can attack a terminal (Health: *1*, Defense: 1 {G}) or interact with a terminal ({K} or {I}) to destroy it.\r\n{-} After the red terminals are destroyed, no more blaster droids are being produced.\r\n{-} The Rebels win when all terminals and all X-8 blaster droids are destroyed.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "6beff918-bfb9-4170-ade9-a3f5b6f53271",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -2806,7 +2765,6 @@
       "entityType": 5,
       "entityPosition": "1130,990",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,

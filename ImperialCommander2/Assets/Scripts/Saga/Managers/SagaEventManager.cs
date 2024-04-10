@@ -97,7 +97,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Checks if an event is triggered.
+		/// Checks if an event with a trigger condition is triggered, then fires it.
 		/// Call this when any of the trigger conditions happen (ie: end of turn, hero wounded, trigger value changed)
 		/// </summary>
 		public void CheckIfEventsTriggered( Action callback = null )
@@ -109,7 +109,7 @@ namespace Saga
 				//if this event is NOT repeatable AND it has already fired, continue to next
 				if ( !ev.isRepeatable && DataStore.sagaSessionData.gameVars.firedEvents.Contains( ev.GUID ) )
 				{
-					Debug.Log( "CheckIfEventsTriggered()::NON-REPEAT EVENT, SKIPPING::" + ev.name );
+					//Debug.Log( "CheckIfEventsTriggered()::NON-REPEAT EVENT, SKIPPING::" + ev.name );
 					continue;
 				}
 
@@ -146,7 +146,7 @@ namespace Saga
 				}
 			}
 
-			Debug.Log( "CheckIfEventsTriggered()::FINISHED LOOKING FOR EVENT TRIGGERS, FIRING CALLBACK" );
+			Debug.Log( $"CheckIfEventsTriggered()::FINISHED LOOKING FOR EVENT TRIGGERS, FIRING CALLBACK [{callback != null}]" );
 
 			callback?.Invoke();
 		}
@@ -214,6 +214,55 @@ namespace Saga
 		}
 
 		/// <summary>
+		/// Enqueues an Event, cutInLine makes it fire NEXT instead of LAST, after the currently processing Event
+		/// </summary>
+		void EnqueueEventAfterCurrent( MissionEvent ev, bool cutInLine )
+		{
+			if ( !processingEvents )
+			{
+				Debug.Log( $"EnqueueEventAfterCurrent()::Queue empty, new Event added: [{ev.name}]" );
+				eventQueue.Enqueue( ev );
+			}
+			else if ( !cutInLine )
+			{
+				Debug.Log( $"EnqueueEventAfterCurrent()::new Event added to END of queue: [{ev.name}]" );
+				eventQueue.Enqueue( ev );
+			}
+			else
+			{
+				Guid current = eventQueue.Peek().GUID;
+				int idx = eventQueue.FindIndexByProperty( x => x.GUID == current );
+
+				List<MissionEvent> temp = new List<MissionEvent>();
+				temp.AddRange( eventQueue );
+
+				//if there are no more Events after the current one, just enqueue the new one
+				if ( eventQueue.Count - 1 == idx )
+				{
+					Debug.Log( $"EnqueueEventAfterCurrent()::Current Event is last in queue, new Event added to END of queue: [{ev.name}]" );
+					eventQueue.Enqueue( ev );
+				}
+				else
+				{
+					Debug.Log( $"EnqueueEventAfterCurrent()::Queue has many elements, adding new Event..." );
+
+					eventQueue.Clear();
+
+					for ( int i = 0; i < temp.Count; i++ )
+					{
+						if ( i == idx + 1 )
+						{
+							Debug.Log( $"EnqueueEventAfterCurrent()::Event added at index {idx} [{ev.name}]" );
+							eventQueue.Enqueue( ev );
+						}
+						else
+							eventQueue.Enqueue( temp[i] );
+					}
+				}
+			}
+		}
+
+		/// <summary>
 		/// [DEPRECATED] Just show the event's text
 		/// </summary>
 		public void PreviewEvent( Guid guid )
@@ -225,12 +274,18 @@ namespace Saga
 				FindObjectOfType<SagaController>().errorPanel.Show( "PreviewEvent()", "GUID not found." );
 		}
 
-		public void DoEvent( Guid guid )
+		/// <summary>
+		/// Queues an Event if another Event is in progress, otherwise fires it immediately
+		/// </summary>
+		public void DoEvent( Guid guid, bool cutInLine = true )
 		{
-			DoEvent( EventFromGUID( guid ) );
+			DoEvent( EventFromGUID( guid ), cutInLine );
 		}
 
-		public void DoEvent( MissionEvent ev )
+		/// <summary>
+		/// Queues an Event if another Event is in progress, otherwise fires it immediately
+		/// </summary>
+		public void DoEvent( MissionEvent ev, bool cutInLine = true )
 		{
 			if ( ev != null && ev.GUID != Guid.Empty )
 			{
@@ -252,7 +307,7 @@ namespace Saga
 				{
 					Debug.Log( "DoEvent()::Queued " + ev.name );
 					if ( !eventQueue.Contains( ev ) )
-						eventQueue.Enqueue( ev );
+						EnqueueEventAfterCurrent( ev, cutInLine );
 
 					//start processing if not busy with an event already
 					if ( !processingEvents )
@@ -290,7 +345,7 @@ namespace Saga
 					{
 						Debug.Log( "QueueEndOfCurrentTurnEvents()::EVENT TRIGGERED::" + ev.name );
 						if ( !eventQueue.Contains( ev ) )
-							eventQueue.Enqueue( ev );
+							EnqueueEventAfterCurrent( ev, true );
 					}
 				}
 			}

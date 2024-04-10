@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE1.json",
   "fileVersion": "22",
-  "saveDate": "2/28/2024",
-  "timeTicks": 638447402652563562,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638481861804793917,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Capital Escape",
@@ -15,11 +15,11 @@
     "startingObjective": "",
     "missionID": "Empire 1",
     "customMissionIdentifier": "d5a03657-7412-4f7c-b4a4-fa26d9d9652a",
-    "missionInfo": "{-} A Rebel figure can interact with a facedown terminal ({I}) to try and release a docking clamp, discarding the terminal. During the test, that figure may suffer 1 {C} to reroll up to 2 dice.\r\n{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The mission will progress at the start of a Status Phase if both terminals are discarded and all heroes are adjacent to the speeder. Ignore blocking terrain for this adjacency. When the mission progresses, remove <color=\"red\">Ahsoka Tano</color> from the map.\r\n{-} The Rebels lose at the end of Round 9 or when all heroes are wounded.",
+    "missionInfo": "{-} A Rebel figure can interact with a facedown terminal ({I}) to try and release a docking clamp, discarding the terminal. During the test, that figure may suffer 1 {C} to reroll up to 2 dice.\r\n{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The mission will progress at the start of a Status Phase if both terminals are discarded and all heroes are adjacent to the speeder. Ignore blocking terrain for this adjacency. When the mission progresses, remove <color=\"red\">Ahsoka Tano</color> from the map.\r\n{-} The Rebels lose when all heroes are wounded.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 9,
     "useFixedAlly": 0,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 0,
     "changeRepositionOverride": {
       "theText": "Block access to the terminals.",
@@ -61,48 +61,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "7ad953e9-fad0-49a8-87be-b84d7c2ac21d",
@@ -395,48 +355,8 @@
       "name": "Section 2 - Crash",
       "GUID": "88ad947e-8af3-4706-ae72-f75863bf6bbf",
       "invisibleUntilActivated": true,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "3cbabee7-6ca2-48ba-8a5c-aa20107c9316",
@@ -672,48 +592,8 @@
       "name": "Section 3 - Facility",
       "GUID": "e37f78eb-fe96-4620-845c-d9136d394346",
       "invisibleUntilActivated": true,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "17f68421-0976-45f1-931f-5d02f6ce4541",
@@ -924,6 +804,24 @@
           "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "52bb59c1-986f-4e05-807f-82e408c1c423",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "7c0afa52-6f45-495c-8a78-af3d28c0c72b",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -974,6 +872,24 @@
           "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "d9c6e072-5493-4bb8-a878-05d7bc4fbb2b",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "fb69b016-8ac5-43b4-9ffc-b117f7d76ea5",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -1024,6 +940,24 @@
           "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "a30a95ef-681b-42ab-a835-ce07ed480700",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "3a5ca0d0-fe31-479e-ad53-7c162a776076",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -1122,7 +1056,7 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "Shard in hand, you ready your weapons, determined to let no Imperial forces stop you from getting off the planet.\r\n\r\n{-} The mission will progress at the start of a Status Phase if both terminals are discarded and all heroes are adjacent to the shuttle. Ignore blocking terrain for this adjacency. When the mission progresses, remove <color=\"red\">Ahsoka Tano</color> from the map.\r\n{-} The Rebels lose at the end of Round 9 or when all heroes are wounded.",
+          "theText": "Shard in hand, you ready your weapons, determined to let no Imperial forces stop you from getting off the planet.\r\n\r\n{-} The mission will progress at the start of a Status Phase if both terminals are discarded and all heroes are adjacent to the shuttle. Ignore blocking terrain for this adjacency. When the mission progresses, remove <color=\"red\">Ahsoka Tano</color> from the map.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "105d5364-16a0-432c-a3ef-7e4fb377a943",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -1189,7 +1123,7 @@
       "startOfRound": 1,
       "endOfRound": 9,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -2504,7 +2438,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The mission will progress when the door to the Defense Station opens.\r\n{-} The Rebels lose at the end of Round 9 or when all heroes are wounded.",
+          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The mission will progress when the door to the Defense Station opens.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "4937d94c-e13d-4a48-b41a-b13dfc773423",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -2908,7 +2842,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} A Rebel figure can attack a shield generator (Health: 8, Defense: 2 {G}).\r\n{-} When the shield generators are destroyed and all heroes are on exterior spaces, the heroes are extracted.\r\n{-} The Rebels win when the heroes are extracted.\r\n{-} The Rebels lose at the end of Round 9 or when all heroes are wounded.",
+          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} A Rebel figure can attack a shield generator (Health: 8, Defense: 2 {G}).\r\n{-} When the shield generators are destroyed and all heroes are on exterior spaces, the heroes are extracted.\r\n{-} The Rebels win when the heroes are extracted.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "2ec3d438-a807-4453-868e-77d41406dd11",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -3064,7 +2998,7 @@
           "displayName": "Text Box"
         },
         {
-          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} When all heroes are on exterior spaces, click the Rebel mission token and select \"Extract\" to depart.\r\n{-} The Rebels win when the heroes are extracted.\r\n{-} The Rebels lose at the end of Round 9 or when all heroes are wounded.",
+          "theText": "{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} When all heroes are on exterior spaces, click the Rebel mission token and select \"Extract\" to depart.\r\n{-} The Rebels win when the heroes are extracted.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "1c60e6cf-9029-4f18-b4f2-d63fade195d2",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -3155,7 +3089,6 @@
       "entityType": 5,
       "entityPosition": "1040,940",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,
@@ -3360,7 +3293,6 @@
       "entityType": 5,
       "entityPosition": "1030,940",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "Ahsoka Entrance",
         "isActive": true,
@@ -3454,7 +3386,6 @@
       "entityType": 5,
       "entityPosition": "940,1010",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "Speeder Highlight",
         "isActive": false,
@@ -4023,7 +3954,6 @@
       "entityType": 5,
       "entityPosition": "1220,1100",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "Entrance Facility",
         "isActive": false,
@@ -4043,7 +3973,6 @@
       "entityType": 5,
       "entityPosition": "1180,1030",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "Shields 1",
         "isActive": false,
@@ -4063,7 +3992,6 @@
       "entityType": 5,
       "entityPosition": "1230,1030",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "Shields 2",
         "isActive": false,

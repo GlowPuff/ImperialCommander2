@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "BESPIN4.json",
   "fileVersion": "22",
-  "saveDate": "2/28/2024",
-  "timeTicks": 638447399222994944,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638482097473648218,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Panic in the Streets",
@@ -19,7 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 7,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Enter the Safe Room and block the Rebel's access to it.",
@@ -63,48 +63,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "1c428f65-f9b1-49f5-8895-f678dbbf884e",
@@ -397,48 +357,8 @@
       "name": "Section 2 - Safe Room",
       "GUID": "cca22836-296a-4c4b-b816-2ba1bae86266",
       "invisibleUntilActivated": true,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "cebd963c-8fdf-4e5e-88e4-19f5ee8885d4",
@@ -511,6 +431,33 @@
     {
       "name": "Safe Room Revealed",
       "GUID": "f12b7fc6-b623-4452-ac41-759be4bc4ac8",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Murne present",
+      "GUID": "f3efdada-d1cf-424a-af12-3d6856348074",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Mission ends",
+      "GUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels win",
+      "GUID": "9aee2746-70e5-417c-ab82-ed34944675b4",
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
@@ -602,6 +549,24 @@
           "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "69d4d221-1c90-4e01-906f-6dd6ed2d7351",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "8e948042-34aa-47ed-9ee2-155c29b7c3cf",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -652,6 +617,24 @@
           "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "0c8c4411-4da2-4611-a2c9-64c3ad0b07e0",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "d1945b69-54f8-4d48-8e2c-87d183ea764f",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -702,6 +685,24 @@
           "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "332e376b-d615-4726-a308-ad55b965b236",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "dcedd246-e54e-48b6-bb2b-f3a1f7ce5789",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -709,7 +710,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "After delivering the supplies, you hear a young boy pleading just outside. “I don’t know who’s leading the guerrillas... I mean radicals!” The two Trandoshans don’t appreciate your intervention. By the time the Wing Guard arrive, it’s too late to avoid a fight.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} Doors are locked to Imperial figures.\r\n{-} The heroes lose at the end of Round 7, or when all heroes are wounded.",
+      "eventText": "After delivering the supplies, you hear a young boy pleading just outside. “I don’t know who’s leading the guerrillas... I mean radicals!” The two Trandoshans don’t appreciate your intervention. By the time the Wing Guard arrive, it’s too late to avoid a fight.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} Doors are locked to Imperial figures.\r\n{-} The Rebels lose when all heroes are wounded.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -942,10 +943,22 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Doors are locked to Imperial figures.\r\n{-} Neutral mission tokens represent citizens.\r\n{-} When a hero in line of sight of 1 or more citizens declares an attack, click the panic control token and select \"Increase Panic\".\r\n{-} At the end of each Round, before clicking on \"End Round\", click the panic control token and select \"Trigger Panic\".\r\n{-} Heroes gain {A}: Test {J}. Before rolling, you may suffer up to 2{C} to apply +1 {B} to the results for each {C} suffered. You may push each citizen within 3 spaces of you a number of spaces equal to your successes.\r\n{-} When all citizens are on the Safe Room, there are no Imperial figures on the Safe Room, and all doors are closed, the citizens are safe. Click the panic control token and select \"Citizens safe\".\r\n{-} The heroes win when the citizens are safe.\r\n{-} The heroes lose at the end of Round 7, or when all heroes are wounded.",
+          "theText": "{-} Doors are locked to Imperial figures.\r\n{-} Neutral mission tokens represent citizens.\r\n{-} When a hero in line of sight of 1 or more citizens declares an attack, click the panic control token and select \"Increase Panic\".\r\n{-} At the end of each Round, before clicking on \"End Round\", click the panic control token and select \"Trigger Panic\".\r\n{-} Heroes gain {A}: Test {J}. Before rolling, you may suffer up to 2{C} to apply +1 {B} to the results for each {C} suffered. You may push each citizen within 3 spaces of you a number of spaces equal to your successes.\r\n{-} When all citizens are on the Safe Room, there are no Imperial figures on the Safe Room, and all doors are closed, the citizens are safe. Click the panic control token and select \"Citizens safe\".\r\n{-} The heroes win when the citizens are safe.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "1517b95c-7b09-494b-93b3-1e6d57701325",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
+        },
+        {
+          "foundTrigger": "00000000-0000-0000-0000-000000000000",
+          "foundEvent": "08e45092-174d-4c04-beef-e9f291e44605",
+          "displayName": "Query Group",
+          "groupEnemyToQuery": null,
+          "groupRebelToQuery": {
+            "name": "Murne Rin",
+            "id": "H13"
+          },
+          "GUID": "16b269bc-d7b8-4d6f-bcf0-98aa144eec0a",
+          "eventActionType": 23
         }
       ]
     },
@@ -997,6 +1010,19 @@
           "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
           "eventActionType": 5,
           "displayName": "Question Prompt"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Rebels win",
+              "triggerGUID": "9aee2746-70e5-417c-ab82-ed34944675b4",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "abf93fe0-7c8f-4abf-84df-f0f57267eb5b",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1012,7 +1038,7 @@
       "startOfRound": 1,
       "endOfRound": 7,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -1080,6 +1106,26 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "xpToAdd": 3,
+          "GUID": "1bc15f95-c5e6-4906-8d21-424a0700b5c2",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 300,
+          "multiplyByHeroCount": true,
+          "GUID": "63270f43-e7f9-4f48-b64a-a55571385cc9",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "customMissionID": "",
+          "missionID": "bespin2",
+          "GUID": "d3765f93-5bdc-4d30-bcef-57d71bcfb27a",
+          "eventActionType": 27,
+          "displayName": "Set Next Mission"
+        },
+        {
           "incRoundCounter": false,
           "pauseDeployment": false,
           "unpauseDeployment": false,
@@ -1089,6 +1135,19 @@
           "GUID": "82efc486-3c27-47ee-8ede-0ccda4119321",
           "eventActionType": 0,
           "displayName": "Mission Management"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Mission ends",
+              "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "31268f8c-a5c6-4ac3-aea8-50fb0698893d",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1120,6 +1179,26 @@
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "xpToAdd": 2,
+          "GUID": "229d3f5c-c4b0-4028-8408-e50632ca3058",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 300,
+          "multiplyByHeroCount": true,
+          "GUID": "fc5d7399-05eb-4c74-9d91-adaa05f5963c",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "customMissionID": "",
+          "missionID": "bespin2",
+          "GUID": "e686edfe-9055-4466-ae1b-7b374a465231",
+          "eventActionType": 27,
+          "displayName": "Set Next Mission"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,
@@ -1162,15 +1241,30 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "a923b249-e777-4e8b-9f03-1438a308557d",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "xpToAdd": 1,
+          "GUID": "ed53479d-6b60-4403-9ce8-1ceb6dcae466",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "e5f41faf-ed73-41c0-ad17-71330f7e3d6a",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Mission ends",
+              "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "6b4c7685-a7a2-44f8-a925-692999b3140a",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1985,7 +2079,7 @@
           "displayName": "Text Box"
         },
         {
-          "theText": "{-} Doors are locked to Imperial figures.\r\n{-} A hero can interact with the terminal to close a door.\r\n{-} Neutral mission tokens represent citizens.\r\n{-} When a hero in line of sight of 1 or more citizens declares an attack, click the panic control token and select \"Increase Panic\".\r\n{-} At the end of each Round, before clicking on \"End Round\", click the panic control token and select \"Trigger Panic\".\r\n{-} Heroes gain {A}: Test {J}. Before rolling, you may suffer up to 2{C} to apply +1 {B} to the results for each {C} suffered. You may push each citizen within 3 spaces of you a number of spaces equal to your successes.\r\n{-} When all citizens are on the Safe Room, there are no Imperial figures on the Safe Room, and all doors are closed, the citizens are safe. Click the panic control token and select \"Citizens safe\".\r\n{-} The heroes win when the citizens are safe.\r\n{-} The heroes lose at the end of Round 7, or when all heroes are wounded.",
+          "theText": "{-} Doors are locked to Imperial figures.\r\n{-} A hero can interact with the terminal to close a door.\r\n{-} Neutral mission tokens represent citizens.\r\n{-} When a hero in line of sight of 1 or more citizens declares an attack, click the panic control token and select \"Increase Panic\".\r\n{-} At the end of each Round, before clicking on \"End Round\", click the panic control token and select \"Trigger Panic\".\r\n{-} Heroes gain {A}: Test {J}. Before rolling, you may suffer up to 2{C} to apply +1 {B} to the results for each {C} suffered. You may push each citizen within 3 spaces of you a number of spaces equal to your successes.\r\n{-} When all citizens are on the Safe Room, there are no Imperial figures on the Safe Room, and all doors are closed, the citizens are safe. Click the panic control token and select \"Citizens safe\".\r\n{-} The heroes win when the citizens are safe.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "9ee0aad6-396d-479a-8423-0899c66f379c",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -2165,6 +2259,235 @@
           "displayName": "Deploy: DG080/Bossk"
         }
       ]
+    },
+    {
+      "GUID": "08e45092-174d-4c04-beef-e9f291e44605",
+      "isGlobal": true,
+      "name": "Murne present",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Murne present",
+              "triggerGUID": "f3efdada-d1cf-424a-af12-3d6856348074",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "a9506c89-04e1-465b-a6d5-e09677fbdf6a",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "d874b01b-f209-4b6a-ab29-e61e1026a6ac",
+      "isGlobal": true,
+      "name": "Mission Ends Win Murne Yes",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Murne present",
+          "triggerGUID": "f3efdada-d1cf-424a-af12-3d6856348074",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Mission ends",
+          "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels win",
+          "triggerGUID": "9aee2746-70e5-417c-ab82-ed34944675b4",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [
+            "personal04"
+          ],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 0,
+          "GUID": "e2e542de-2c44-41f0-812a-01891710d085",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "2bbdf042-9fa9-42a8-bd2a-4158298b7665",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "9560afc5-6661-48f1-a146-9564e4489c5c",
+      "isGlobal": true,
+      "name": "Mission Ends Win Murne No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Murne present",
+          "triggerGUID": "f3efdada-d1cf-424a-af12-3d6856348074",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Mission ends",
+          "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels win",
+          "triggerGUID": "9aee2746-70e5-417c-ab82-ed34944675b4",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 150,
+          "multiplyByHeroCount": true,
+          "GUID": "912f4a50-bc19-4f55-a410-dde78d313c7e",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "c98bcfef-d01f-4d8d-bbc3-43b59318eb75",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "16f5f233-66ff-4fee-b0e7-4f622c641fb6",
+      "isGlobal": true,
+      "name": "Mission Ends Defeat",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Mission ends",
+          "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels win",
+          "triggerGUID": "9aee2746-70e5-417c-ab82-ed34944675b4",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "cc5b013d-7de0-45cc-9084-7a7007b4ce58",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
     }
   ],
   "mapEntities": [
@@ -2243,7 +2566,6 @@
       "entityType": 5,
       "entityPosition": "1050,950",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,

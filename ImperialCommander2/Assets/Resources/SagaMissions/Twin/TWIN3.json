@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "TWIN3.json",
   "fileVersion": "22",
-  "saveDate": "4/5/2024",
-  "timeTicks": 638479150052740400,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638482113326277598,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Past-Life Enemies",
@@ -300,6 +300,42 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": -1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Biv present",
+      "GUID": "805937f8-268a-4594-8ddd-993a95336353",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": -1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "The Commander",
+      "GUID": "7fbbff50-8a07-4eb1-b9af-740b53648592",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": -1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Mission end",
+      "GUID": "8eff94e9-816d-4f11-92ef-bdeadd3477e8",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": -1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels win",
+      "GUID": "23db6bea-4941-4de9-8dc5-952bf163818f",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
@@ -638,6 +674,18 @@
           "GUID": "9619346b-a468-4c54-864d-6c4bb854a926",
           "eventActionType": 11,
           "displayName": "Change Group Instructions"
+        },
+        {
+          "foundTrigger": "00000000-0000-0000-0000-000000000000",
+          "foundEvent": "588ebdf2-eae4-4e69-84e0-86bae5060284",
+          "displayName": "Query Group",
+          "groupEnemyToQuery": null,
+          "groupRebelToQuery": {
+            "name": "Biv Bodhrik",
+            "id": "H7"
+          },
+          "GUID": "e97d3aea-23ad-481b-85e4-6f943baf29bb",
+          "eventActionType": 23
         }
       ]
     },
@@ -670,6 +718,19 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "triggerList": [
+            {
+              "triggerName": "Rebels win",
+              "triggerGUID": "23db6bea-4941-4de9-8dc5-952bf163818f",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "f657029b-2bf2-40e6-9efc-0cb86c7efd15",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        },
+        {
           "theText": "Did you play this mission as part of the \"Twin Shadows\" mini campaign?",
           "includeCancel": false,
           "buttonList": [
@@ -689,19 +750,6 @@
           "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
           "eventActionType": 5,
           "displayName": "Question Prompt"
-        },
-        {
-          "campaignItems": [],
-          "campaignRewards": [
-            "personal08"
-          ],
-          "earnedVillains": [],
-          "earnedAllies": [],
-          "medpacsToModify": 0,
-          "threatToModify": 0,
-          "GUID": "7f3b9429-b032-42ac-b050-efa28c672ab0",
-          "eventActionType": 30,
-          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -805,15 +853,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "82efc486-3c27-47ee-8ede-0ccda4119321",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Mission end",
+              "triggerGUID": "8eff94e9-816d-4f11-92ef-bdeadd3477e8",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "cf32d49c-31a6-4d2d-ad89-a8b7a53259d4",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -920,15 +970,17 @@
           "displayName": "Modify Credits"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "a923b249-e777-4e8b-9f03-1438a308557d",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Mission end",
+              "triggerGUID": "8eff94e9-816d-4f11-92ef-bdeadd3477e8",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "99ef0fbc-a84c-47ab-b139-6d9e7786b102",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1167,25 +1219,17 @@
           "displayName": "Map Management"
         },
         {
-          "theText": "Is Biv Bodhrik on the map?",
-          "includeCancel": false,
-          "buttonList": [
+          "triggerList": [
             {
-              "GUID": "a8f42cab-ee91-4b85-818c-be0d4cf410c2",
-              "buttonText": "Yes",
-              "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "87e75fdf-5dae-4988-8e1e-885341b0cbf3"
-            },
-            {
-              "GUID": "78af3b1a-3f10-4c30-82cb-5834574abbcd",
-              "buttonText": "No",
-              "triggerGUID": "00000000-0000-0000-0000-000000000000",
-              "eventGUID": "491102b1-01eb-4340-bc5e-a5bfb5ea6b5d"
+              "triggerName": "The Commander",
+              "triggerGUID": "7fbbff50-8a07-4eb1-b9af-740b53648592",
+              "setValue": 1,
+              "modifyValue": 0
             }
           ],
-          "GUID": "9429bb38-423b-46d7-8af9-ed7faf0e7f16",
-          "eventActionType": 5,
-          "displayName": "Question Prompt"
+          "GUID": "f6780913-9e4c-4d65-8245-a4bb950f1478",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1215,7 +1259,18 @@
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
-      "additionalTriggers": [],
+      "additionalTriggers": [
+        {
+          "triggerName": "Biv present",
+          "triggerGUID": "805937f8-268a-4594-8ddd-993a95336353",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "The Commander",
+          "triggerGUID": "7fbbff50-8a07-4eb1-b9af-740b53648592",
+          "triggerValue": 1
+        }
+      ],
       "eventActions": [
         {
           "enemyName": null,
@@ -1626,7 +1681,18 @@
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
-      "additionalTriggers": [],
+      "additionalTriggers": [
+        {
+          "triggerName": "Biv present",
+          "triggerGUID": "805937f8-268a-4594-8ddd-993a95336353",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "The Commander",
+          "triggerGUID": "7fbbff50-8a07-4eb1-b9af-740b53648592",
+          "triggerValue": 1
+        }
+      ],
       "eventActions": [
         {
           "enemyName": null,
@@ -1758,6 +1824,235 @@
           "GUID": "fe49de41-a152-482a-bbd0-77e4668ead6d",
           "eventActionType": 2,
           "displayName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "GUID": "588ebdf2-eae4-4e69-84e0-86bae5060284",
+      "isGlobal": true,
+      "name": "Biv present",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Biv present",
+              "triggerGUID": "805937f8-268a-4594-8ddd-993a95336353",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "072c56bb-6acc-4845-b9b4-38fbd8b50ae8",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "8d136690-8242-4591-adac-afed87acf4e7",
+      "isGlobal": true,
+      "name": "Mission End Win Biv Yes",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Biv present",
+          "triggerGUID": "805937f8-268a-4594-8ddd-993a95336353",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Mission end",
+          "triggerGUID": "8eff94e9-816d-4f11-92ef-bdeadd3477e8",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels win",
+          "triggerGUID": "23db6bea-4941-4de9-8dc5-952bf163818f",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [
+            "personal08"
+          ],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 0,
+          "GUID": "b01500c3-0ae1-460f-a5d2-d3657f074808",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "a5c35d17-2d7f-4f7b-b971-24eafbe77eb5",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "dc97e4a6-749c-4fbf-8476-89eff649bc06",
+      "isGlobal": true,
+      "name": "Mission End Win Biv No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Biv present",
+          "triggerGUID": "805937f8-268a-4594-8ddd-993a95336353",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Mission end",
+          "triggerGUID": "8eff94e9-816d-4f11-92ef-bdeadd3477e8",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels win",
+          "triggerGUID": "23db6bea-4941-4de9-8dc5-952bf163818f",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 150,
+          "multiplyByHeroCount": true,
+          "GUID": "84eb6ce8-68b0-4eab-90bf-224d879f1834",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "794aac0f-520b-44c4-a941-b194df3bb288",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "26cb05e1-1f26-4267-832f-6a8cbd458571",
+      "isGlobal": true,
+      "name": "Mission End Defeat",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Mission end",
+          "triggerGUID": "8eff94e9-816d-4f11-92ef-bdeadd3477e8",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels win",
+          "triggerGUID": "23db6bea-4941-4de9-8dc5-952bf163818f",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "42b3705a-bd48-410b-95de-685ad361f9de",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

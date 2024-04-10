@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE11.json",
   "fileVersion": "22",
-  "saveDate": "4/5/2024",
-  "timeTicks": 638479141845377770,
+  "saveDate": "4/9/2024",
+  "timeTicks": 638482796999967400,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Under Siege",
@@ -405,6 +405,24 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": 4,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Early Defeat",
+      "GUID": "99e77149-50d0-4854-8478-d83d3cb0e903",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 1,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "5fa8a1f6-63d2-4dad-aebc-a0399d72c7de",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
@@ -1009,15 +1027,17 @@
           "displayName": "Modify Credits"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "5fa8a1f6-63d2-4dad-aebc-a0399d72c7de",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "4c36f04a-5c64-4cbc-9f9c-b5eda3b5d4b9",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2092,6 +2112,173 @@
           "GUID": "459d2a1d-f866-40cc-988b-b3d0176b1c9a",
           "eventActionType": 8,
           "displayName": "Optional Deployment"
+        }
+      ]
+    },
+    {
+      "GUID": "f611e2f4-0c47-445e-9beb-70444601f4fd",
+      "isGlobal": true,
+      "name": "Check Early Defeat",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 6,
+      "useStartOfRound": false,
+      "useEndOfRound": true,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Early Defeat",
+              "triggerGUID": "99e77149-50d0-4854-8478-d83d3cb0e903",
+              "setValue": 0,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "638e1204-2542-4de0-a0e8-fdb94e49073c",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "c50c6aaf-484d-4d57-916b-9a88481941e5",
+      "isGlobal": true,
+      "name": "End Mission Early Defeat",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Early Defeat",
+          "triggerGUID": "99e77149-50d0-4854-8478-d83d3cb0e903",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "5fa8a1f6-63d2-4dad-aebc-a0399d72c7de",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "customMissionID": "",
+          "missionID": "core6",
+          "GUID": "93e21062-cc5f-4103-8be2-6451d1b3af5f",
+          "eventActionType": 27,
+          "displayName": "Set Next Mission"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "cbcb818c-7955-4bba-a6b5-ae8664ce6b40",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "bc91a667-9a7f-4669-9dc5-89f1505fdca8",
+      "isGlobal": true,
+      "name": "End Mission Normal",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Early Defeat",
+          "triggerGUID": "99e77149-50d0-4854-8478-d83d3cb0e903",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "5fa8a1f6-63d2-4dad-aebc-a0399d72c7de",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "customMissionID": "",
+          "missionID": "core7",
+          "GUID": "88d1f756-7d51-4f5e-bd85-f0a077fae2cb",
+          "eventActionType": 27,
+          "displayName": "Set Next Mission"
+        },
+        {
+          "xpToAdd": 1,
+          "GUID": "5f350ec3-79e5-4570-a263-c6068dda4e99",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "d584823e-31e2-4af1-8ccd-0b8454978406",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

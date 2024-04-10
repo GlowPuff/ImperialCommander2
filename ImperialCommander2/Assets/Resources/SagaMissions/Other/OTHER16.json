@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "OTHER16.json",
   "fileVersion": "22",
-  "saveDate": "2/28/2024",
-  "timeTicks": 638447403372389101,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638481953945922603,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Forest Ambush",
@@ -15,7 +15,7 @@
     "startingObjective": "Remove the tree blocking the clearing.",
     "missionID": "Other 16",
     "customMissionIdentifier": "840650d8-f2a5-4b67-9e26-cca57033dcd7",
-    "missionInfo": "{-} The neutral mission tokens form a fallen tree. The fallen tree is blocking terrain. A hero can interact with the fallen tree to try and push it out of the way.\r\n{-} The mission will progress when the Rebels enter the clearing.\r\n{-} The Rebels lose at the end of Round 5 or when all heroes are wounded.",
+    "missionInfo": "{-} The neutral mission tokens form a fallen tree. The fallen tree is blocking terrain. A hero can interact with the fallen tree to try and push it out of the way.\r\n{-} The mission will progress when the Rebels enter the clearing.\r\n{-} The Rebels lose when all heroes are wounded.",
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
@@ -63,48 +63,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "285b2d10-2684-4d55-bca2-627f763bf812",
@@ -356,6 +316,24 @@
           "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "664e7c04-9e47-4df3-b04d-e385c46d188a",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "c0ce249e-2891-4de5-8681-1fd9c256c15c",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -406,6 +384,24 @@
           "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "ff68f0f4-2ff1-41a0-9845-181a1252b0d0",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "465ecf3a-0e78-4ed2-8e97-c7c145273c1d",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -413,7 +409,7 @@
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
       "isGlobal": true,
       "name": "Mission Briefing",
-      "eventText": "You move cautiously through the forest brush toward the site of the abandoned Rebel hideout. Though Alliance Intelligence assured you the raiding team has moved on, they also gave warning of vicious wildlife in the area.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} The neutral mission tokens form a fallen tree. The fallen tree is blocking terrain. A hero can interact with the fallen tree ({K}) to try and push it out of the way.\r\n{-} The red Rebel mission token represents the hidden supplies. A hero can interact with the hidden supplies ({J}) to claim them.\r\n{-} The mission will progress when the Rebels enter the clearing.\r\n{-} The Rebels lose at the end of Round 5 or when all heroes are wounded.",
+      "eventText": "You move cautiously through the forest brush toward the site of the abandoned Rebel hideout. Though Alliance Intelligence assured you the raiding team has moved on, they also gave warning of vicious wildlife in the area.\r\n\r\n{-} Deploy the heroes to the blue highlighted space.\r\n{-} The neutral mission tokens form a fallen tree. The fallen tree is blocking terrain. A hero can interact with the fallen tree ({K}) to try and push it out of the way.\r\n{-} The red Rebel mission token represents the hidden supplies. A hero can interact with the hidden supplies ({J}) to claim them.\r\n{-} The mission will progress when the Rebels enter the clearing.\r\n{-} The Rebels lose when all heroes are wounded.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -467,6 +463,19 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "xpToAdd": 1,
+          "GUID": "e6060f58-5689-4187-9a1a-2ea2bb70f42a",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 200,
+          "multiplyByHeroCount": true,
+          "GUID": "2bdc4f2b-5c5e-448f-ad66-2cedac8e6a38",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
           "incRoundCounter": false,
           "pauseDeployment": false,
           "unpauseDeployment": false,
@@ -491,7 +500,7 @@
       "startOfRound": 1,
       "endOfRound": 5,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -507,6 +516,32 @@
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "xpToAdd": 1,
+          "GUID": "3535ea1f-cfa1-48de-8f6d-9a18467097ae",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "682700bf-f599-43d8-b5a9-d7f673ab2c46",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [
+            "DG073"
+          ],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 0,
+          "GUID": "7fb07d09-384e-4f66-8a9c-66448718d7bb",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,
@@ -871,7 +906,7 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} The red Rebel mission token represents the hidden supplies. A hero can interact with the hidden supplies ({J}) to search for them.\r\n{-} The mission will progress when the hidden supplies are found.\r\n{-} The Rebels lose at the end of Round 5 or when all heroes are wounded.",
+          "theText": "{-} The red Rebel mission token represents the hidden supplies. A hero can interact with the hidden supplies ({J}) to search for them.\r\n{-} The mission will progress when the hidden supplies are found.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "b1ea71a8-b07f-4f17-8b01-b654cf3b7b5a",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1041,7 +1076,7 @@
       "GUID": "f64c24d1-8f26-4841-ac47-494aeb8bda41",
       "isGlobal": true,
       "name": "Extract",
-      "eventText": "You finally find the supplies and grab them.\r\n\r\n{-} A hero can interact with the terminal ({I}) to call for an extraction.\r\n{-} The mission will progress when the heroes call for extraction.\r\n{-} The Rebels lose at the end of Round 5, when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
+      "eventText": "You finally find the supplies and grab them.\r\n\r\n{-} A hero can interact with the terminal ({I}) to call for an extraction.\r\n{-} The mission will progress when the heroes call for extraction.\r\n{-} The Rebels lose when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1162,7 +1197,7 @@
           "displayName": "Change Reposition Instructions"
         },
         {
-          "theText": "{-} A hero can interact with the terminal ({I}) to call for an extraction.\r\n{-} The mission will progress when the heroes call for extraction.\r\n{-} The Rebels lose at the end of Round 5, when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
+          "theText": "{-} A hero can interact with the terminal ({I}) to call for an extraction.\r\n{-} The mission will progress when the heroes call for extraction.\r\n{-} The Rebels lose when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
           "GUID": "e8ec291c-cdfb-4be2-8b84-c55213be2d31",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1173,7 +1208,7 @@
       "GUID": "10b6b761-3270-4b35-98e0-c827fa6dc850",
       "isGlobal": true,
       "name": "Call for Extraction",
-      "eventText": "{-} The green Rebel mission token represents the exit. The hero with the hidden supplies can escape through the exit.\r\n{-} The Rebels win when the hero with the hidden supplies escapes through the exit.\r\n{-} The Rebels lose at the end of Round 5, when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
+      "eventText": "{-} The green Rebel mission token represents the exit. The hero with the hidden supplies can escape through the exit.\r\n{-} The Rebels win when the hero with the hidden supplies escapes through the exit.\r\n{-} The Rebels lose when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1252,7 +1287,7 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} The green Rebel mission token represents the exit. The hero with the hidden supplies can escape through the exit.\r\n{-} The Rebels win when the hero with the hidden supplies escapes through the exit.\r\n{-} The Rebels lose at the end of Round 5, when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
+          "theText": "{-} The green Rebel mission token represents the exit. The hero with the hidden supplies can escape through the exit.\r\n{-} The Rebels win when the hero with the hidden supplies escapes through the exit.\r\n{-} The Rebels lose when all heroes are wounded, or when the hero carrying the supply cache withdraws (click the terminal and select \"Hero withdraws\").",
           "GUID": "85fb34a2-884b-4abc-a995-dc48212bf482",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1313,7 +1348,6 @@
       "entityType": 5,
       "entityPosition": "910,1050",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,
@@ -1614,7 +1648,6 @@
       "entityType": 5,
       "entityPosition": "980,1010",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "Enter Clearing",
         "isActive": false,

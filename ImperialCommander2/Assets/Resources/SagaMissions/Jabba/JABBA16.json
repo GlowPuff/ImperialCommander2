@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA16.json",
   "fileVersion": "22",
-  "saveDate": "2/28/2024",
-  "timeTicks": 638447399670654461,
+  "saveDate": "4/8/2024",
+  "timeTicks": 638481860516764705,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Perilous Hunt",
@@ -19,7 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 6,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Block access to the barricades.",
@@ -62,48 +62,8 @@
       "name": "Start Section",
       "GUID": "11111111-1111-1111-1111-111111111111",
       "invisibleUntilActivated": false,
-      "triggers": [
-        {
-          "name": "None (Section)",
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "useReset": false,
-          "maxValue": -1,
-          "initialValue": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000"
-        }
-      ],
-      "missionEvents": [
-        {
-          "GUID": "00000000-0000-0000-0000-000000000000",
-          "isGlobal": false,
-          "name": "None (Section)",
-          "eventText": "",
-          "allyDefeated": "A001",
-          "heroWounded": "H1",
-          "heroWithdraws": "H1",
-          "activationOf": "DG001",
-          "startOfRound": 1,
-          "endOfRound": 1,
-          "useStartOfRound": false,
-          "useEndOfRound": false,
-          "useStartOfEachRound": false,
-          "useEndOfEachRound": false,
-          "useAllGroupsDefeated": false,
-          "useAllHeroesWounded": false,
-          "useAllyDefeated": false,
-          "useHeroWounded": false,
-          "useHeroWithdraws": false,
-          "useAnyHeroWounded": false,
-          "useAnyHeroDefeated": false,
-          "useActivation": false,
-          "isRepeatable": false,
-          "isEndOfCurrentRound": false,
-          "behaviorAll": true,
-          "additionalTriggers": [],
-          "eventActions": []
-        }
-      ],
+      "triggers": [],
+      "missionEvents": [],
       "mapTiles": [
         {
           "GUID": "15032a79-b97a-4b76-b762-481b7941a7db",
@@ -477,6 +437,24 @@
           "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "72161e6a-df0f-41af-ac86-1d446b3e8032",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "c3b3cf52-51f0-4e55-8c86-8e200bc1532e",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -527,6 +505,24 @@
           "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "f35a7917-ff80-431c-be3c-2b9008560ca7",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "3ca741e4-09dc-42e4-8413-efa65bdf5044",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -577,6 +573,24 @@
           "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": false,
+          "GUID": "7d169cbe-c8de-462b-a2fe-ccb67b4db42b",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 1,
+          "threatToModify": 0,
+          "GUID": "f8fd660d-f50f-46ff-ab6d-5716eddeb996",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
         }
       ]
     },
@@ -708,7 +722,7 @@
           "displayName": "Text Box"
         },
         {
-          "theText": "You draw your weapons and return fire, hoping that the noise will not attract any dangerous creatures.\r\n\r\n{-} The mission will progress when a barricade is destroyed.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
+          "theText": "You draw your weapons and return fire, hoping that the noise will not attract any dangerous creatures.\r\n\r\n{-} The mission will progress when a barricade is destroyed.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "9b27e501-8984-4c2b-90de-0b27cfa910f1",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -721,7 +735,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Pairs of matching Imperial mission tokens each represent a barricade. Barricades are blocking terrain. A Rebel figure can attack a barricade (Health: *1*, Defense: 1 {G}).\r\n{-} The mission will progress when a barricade is destroyed.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
+          "theText": "{-} Pairs of matching Imperial mission tokens each represent a barricade. Barricades are blocking terrain. A Rebel figure can attack a barricade (Health: *1*, Defense: 1 {G}).\r\n{-} The mission will progress when a barricade is destroyed.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "55315e88-d751-47ab-93d4-14106915fb7e",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -763,6 +777,19 @@
       ],
       "eventActions": [
         {
+          "xpToAdd": 1,
+          "GUID": "6a2fd207-107e-4b55-838c-55de6ecae517",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 200,
+          "multiplyByHeroCount": true,
+          "GUID": "505496dc-ba4a-4984-b844-a3817642a432",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
           "incRoundCounter": false,
           "pauseDeployment": false,
           "unpauseDeployment": false,
@@ -787,7 +814,7 @@
       "startOfRound": 1,
       "endOfRound": 6,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -803,6 +830,30 @@
       "behaviorAll": false,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "xpToAdd": 1,
+          "GUID": "f5757556-29af-4788-83a2-cc7e5c5e56e7",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "7c96f5e3-3696-48d3-adf1-b38537e3440f",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "74a71fa6-03e6-4625-b90f-1ce21fdd5a3c",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,
@@ -1632,7 +1683,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Neutral mission tokens represent rancor eggs.\r\n{-} A Rebel figure can retrieve a rancor egg. When he does, that figure may test {J}. If he succeeds, he gains 2 movement points. A figure can carry only 1 rancor egg.\r\n{-} When a figure carrying a rancor egg enters a space adjacent to a cache, the heroes claim that rancor egg. Click the cache and select \"Claim Egg\".\r\n{-} The Rebels win when he heroes have claimed 7 rancor eggs.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
+          "theText": "{-} Neutral mission tokens represent rancor eggs.\r\n{-} A Rebel figure can retrieve a rancor egg. When he does, that figure may test {J}. If he succeeds, he gains 2 movement points. A figure can carry only 1 rancor egg.\r\n{-} When a figure carrying a rancor egg enters a space adjacent to a cache, the heroes claim that rancor egg. Click the cache and select \"Claim Egg\".\r\n{-} The Rebels win when he heroes have claimed 7 rancor eggs.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "7361d710-b923-49ce-935c-0fdf3f3f09c5",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1950,7 +2001,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Neutral mission tokens represent rancor eggs.\r\n{-} A Rebel figure can retrieve a rancor egg. When he does, that figure may test {J}. If he succeeds, he gains 2 movement points. A figure can carry only 1 rancor egg.\r\n{-} The mission will progress when the Rebels retrieve the first egg.\r\n{-} The Rebels lose at the end of Round 6, or when all heroes are wounded.",
+          "theText": "{-} Neutral mission tokens represent rancor eggs.\r\n{-} A Rebel figure can retrieve a rancor egg. When he does, that figure may test {J}. If he succeeds, he gains 2 movement points. A figure can carry only 1 rancor egg.\r\n{-} The mission will progress when the Rebels retrieve the first egg.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "d44ffa4a-c5a0-4d16-99c2-b4d3c6a64545",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -2123,7 +2174,6 @@
       "entityType": 5,
       "entityPosition": "910,990",
       "entityRotation": 0.0,
-      "mapRenderer": null,
       "entityProperties": {
         "name": "New Highlight",
         "isActive": true,

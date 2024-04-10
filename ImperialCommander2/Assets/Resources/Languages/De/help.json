@@ -1,515 +1,527 @@
 [
-	{
-		"panelHelpID": "EnemyActivation",
-		"helpItems": [
-			{
-				"id": "bonus",
-				"helpText": "Bonuseffekt: In jeder Runde erhält eine imperiale Gruppe einen zufälligen Bonuseffekt, der Vorteile bringt. Der Bonuseffekt wird am oberen Rand des Anweisungsfensters angezeigt."
-			},
-			{
-				"id": "card",
-				"helpText": "Aufstellungskarte: Im Aktivierungsfenster wird immer die Aufstellungskarte der Gruppe angezeigt. Außerhalb einer Aktivierung kannst du mit der rechten Maustaste auf das Porträt eines Gegners klicken, um seine Karte zu öffnen."
-			},
-			{
-				"id": "tracker",
-				"helpText": "Schadenszähler: Mit diesem Zähler kannst du nachhalten, wie viel Schaden jede Figur in einer Gruppe erlitten hat. Klicke / tippe auf eine Nummer, um die ID oder den Schaden der Figur zu ändern. Du kannst auch mit der Maus über eine Zahl fahren und das Scrollrad nach oben/unten verwenden, um den Wert zu ändern."
-			},
-			{
-				"id": "instructions",
-				"helpText": "Anweisungen: Wenn eine Aufstellungsgruppe aktiviert wird, werden ihre Anweisungen angezeigt. Jede Figur in der Gruppe, beginnend mit der Figur, die einer Rebellenfigur am nächsten steht, handelt die Anweisungen von oben nach unten ab. Anweisungen, die die Figur nicht abhandeln kann, werden übersprungen (siehe \"Skipping Instructions\" in der Online-Wiki-Hilfe). Nachdem die Figur die letzte Anweisung in der Liste abgehandelt oder übersprungen hat, endet ihre Aktivierung und die nächste Figur in dieser Gruppe wird aktiviert.\nEine imperiale Figur kann während ihrer Aktivierung nicht mehr als zwei Aktionen durchführen. Eine Anweisung kostet eine Aktion für jedes {A} (Aktion) oder {Q} (Angriffsaktion) Symbol, das ihr vorangestellt ist. Wenn die Figur nicht genug Aktionen für eine Anweisung übrig hat, wird diese Anweisung übersprungen. Wenn nicht anders angegeben, kann eine imperiale Figur nie mehr als eine {Q} (Angriffsaktion) pro Aktivierung durchführen."
-			},
-			{
-				"id": "hide",
-				"helpText": "Klicke / tippe auf das Augensymbol, um den Spielplan vorübergehend anzuzeigen. Klicke / tippe erneut, um das Fenster wieder zu öffnen."
-			},
-			{
-				"id": "deploymentCost",
-				"helpText": "Aufstellungskosten: Dies sind die Aufstellungskosten der Gruppe. Die kleine Zahl (falls vorhanden) sind die Kosten für eine einzelne Figur."				
-			},
-			{
-				"id": "mods",
-				"helpText": "Modifikationen: Wenn Änderungen (z. B. zusätzlicher Schaden) auf die Gruppe angewendet werden, werden sie hier angezeigt."
-			},
-			{
-				"id": "size",
-				"helpText": "Gruppengröße: Dies ist die Größe der Gruppe."				
-			},
-			{
-				"id": "surges",
-				"helpText": "Energie-Fähigkeiten: Wenn während des Angriffs einer imperialen Figur {B} gewürfelt werden, gibt die Figur Energie gemäß dieser Liste aus. Die Figur überspringt eine Energie-Fähigkeit, wenn einer der folgenden Punkte zutrifft:\n\n{-}Sie hat diese Fähigkeit bereits während des Angriffs eingesetzt.\n{-}Die Fähigkeit kostet mehr {B}, als sie noch übrig hat.\n{-}Die Fähigkeit hätte keine Wirkung (z. B. die Zielsicherheit erhöhen, wenn der Angriff bereits genug Zielsicherheit hat, oder versuchen, einen Zustand zuzufügen, wenn der Angriff gerade keinen Schaden verursacht).\n{-}Wenn die Figur dann noch {B} übrig hat, wiederholt sie diesen Vorgang und beginnt wieder am Anfang der Liste. Wenn die Figur keine Energie-Fähigkeiten mehr einsetzen kann, haben die verbleibenden {B} keine Wirkung.\n\nEnergie-Fähigkeiten, die durch Bonuseffekte (oben im Anweisungsfenster) hinzugefügt werden, haben immer Priorität 1."				
-			},
-			{
-				"id": "abilities",
-				"helpText": "Gruppen-Fähigkeiten: Hier werden die Fähigkeiten der Aufstellungsgruppe aufgelistet. Hier erfährst du auch, welche Fähigkeiten auf der Aufstellungskarte ignoriert werden sollten."				
-			},
-			{
-				"id": "health",
-				"helpText": "Gesundheit: Die Gesundheit einer Figur in dieser Gruppe."				
-			},
-			{
-				"id": "speed",
-				"helpText": "Geschwindigkeit: Die Geschwindigkeit der Gruppe. Normalerweise brauchst du diesen Wert nicht - die Anweisungen sagen dir, wie weit sich eine Figur bewegen kann."				
-			},
-			{
-				"id": "defense",
-				"helpText": "Verteidigung: Klicke / tippe auf das Verteidigungssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
-			},
-			{
-				"id": "attack",
-				"helpText": "Angreifen: Klicke / tippe auf das Angriffssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
-			},
-			{
-				"id": "colorBlip",
-				"helpText": "Der farbige Kreis zeigt die Farbe an, die der Gruppe zugewiesen wurde."
-			},
-		]
-	},
-	{
-		"panelHelpID": "DiceRoller",
-		"helpItems": [
-			{
-				"id": "dicePanel",
-				"helpText": "Dies sind die Würfelwürfe. Klicke / tippe auf einen Würfel, um ihn zu entfernen."				
-			},
-			{
-				"id": "dicePool",
-				"helpText": "Klicke / tippe, um einen Würfel hinzuzufügen."				
-			},
-			{
-				"id": "mods",
-				"helpText": "Wenn Änderungen (z. B. zusätzlicher Schaden) auf die Gruppe angewendet werden, werden sie hier angezeigt."				
-			},
-			{
-				"id": "card",
-				"helpText": "Hier wird die Aufstellungskarte der Gruppe angezeigt."				
-			},
-			{
-				"id": "hideRoller",
-				"helpText": "Klicke / tippe, um die Sichtbarkeit des Würfelrollers umzuschalten, damit du die Anweisungen zur Aktivierung des Gegners darunter sehen kannst."				
-			}
-		]
-	},
-	{
-		"panelHelpID": "MainGame",
-		"helpItems": [
-			{
-				"id": "heroPanel",
-				"helpText": "Die Rebellen-Helden sowie die aufgestellten Verbündeten werden hier angezeigt. Zurückgezogene Helden / Verbündete sind abgedunkelt. Mit den Aktivierungssymbolen kannst du Aktivierungen nachverfolgen.\n\nKlicke / tippe auf eine Gruppe, um die Optionen Verwunden (nur Helden) oder Besiegen der Gruppe anzuzeigen. Der farbige Kreis zeigt an, ob der Held unversehrt (grün) oder verwundet (rot) ist."				
-			},
-			{
-				"id": "objective",
-				"helpText": "Das aktuelle Ziel, das du erfüllen musst."				
-			},
-			{
-				"id": "enemyPanel",
-				"helpText": "Dies ist die Aufstellungsliste der Gegner, die dir alle derzeit aufgestellten Gruppen anzeigt. Erschöpfte Gruppen sind ausgegraut. Klicke / tippe auf den farbigen Kreis oben links, um der Gruppe eine Farbe zuzuweisen. Klicke / tippe auf eine Gruppe, um die Optionen zum Erschöpfen oder Besiegen der Gruppe anzuzeigen. Erschöpfen kann umgeschaltet werden, wenn du eine Gruppe wieder aktivieren möchtest. Klicke mit der rechten Maustaste auf eine Gruppe / tippe doppelt auf eine Gruppe, um die Aufstellungskarte anzuzeigen.\n\nDie grünen Kreise zeigen die Anzahl der Figuren an, die noch in einer Gruppe sind. Klicke / tippe auf diese Kreise, um sie eine nach der anderen zu entfernen. Wenn die letzte Figur entfernt wird, ist die gesamte Gruppe besiegt."			
-			},
-			{
-				"id": "map",
-				"helpText": "Dies ist der Hauptbildschirm des Spielplans, auf dem du mit dem Einsatz und allen Spielplan-Elementen interagierst. Jedes Mal, wenn ein Fenster geöffnet ist, kannst du das Augensymbol unten links benutzen, um den Spielplan vorübergehend zu öffnen."				
-			},
-			{
-				"id": "imperialActivation",
-				"helpText": "Löse die nächste imperiale Aktivierung aus."				
-			},
-			{
-				"id": "medpacs",
-				"helpText": "Eine Übersicht über deine Medipacks. Du kannst ein Fenster öffnen, um den Überblick über deine Medipacks zu erhalten und die Regeländerungen zu lesen."				
-			},
-			{
-				"id": "missionDashboard",
-				"helpText": "Öffnet das Einsatz-Dashboard.\n\n Das Einsatz-Dashboard hat mehrere Aufgaben. Erstens zeigt es die Einsatzübersicht mit den Einsatzaktualisierungen und besonderen Anweisungen an.\n\n Zweitens zeigt es den Ruhm und die Auszeichnungen an. Ruhm und Auszeichnungen zeigen dir, wie viel Ruhm und wie viele Auszeichnungen du bisher im Einsatz gewonnen hast (nur relevant, wenn du Adaptive Schwierigkeit verwendest). \n\nAußerdem enthält das Dashboard ein Protokoll, das alle Meldungen und Textnachrichten des Einsatzes speichert. Du kannst es verwenden, um Informationen, die du bereits geschlossen hast, erneut zu lesen."				
-			},
-			{
-				"id": "imperialMenu",
-				"helpText": "Öffnet das imperiale Menü."				
-			},
-			{
-				"id": "settings",
-				"helpText": "Öffnet den Bildschirm zur Anzeige der Einstellungen und zum Beenden des Einsatzes."				
-			},
-			{
-				"id": "round",
-				"helpText": "Die aktuelle Rundenzahl."				
-			},
-			{
-				"id": "endRound",
-				"helpText": "Beendet die aktuelle Runde und startet die Statusphase. Dies ist erst möglich, wenn alle imperialen Gruppen aktiviert wurden."
-			},
-		]
-	},
-	{
-		"panelHelpID": "Setup",
-		"helpItems": [
-			{
-				"id": "missionCard",
-				"helpText": "Zeigt die Details und die Beschreibung des Einsatzes an."				
-			},
-			{
-				"id": "difficulty",
-				"helpText": "Klicke / tippe, um die Schwierigkeit des Einsatzes zu ändern."				
-			},
-			{
-				"id": "adaptiveDifficulty",
-				"helpText": "Wähle aus, ob du Adaptive Schwierigkeit verwenden willst oder nicht. Adaptive Schwierigkeit erstattet dem Imperium etwas Bedrohung, wenn du eine Gruppe besiegst, wodurch das Spiel herausfordernder wird."			
-			},
-			{
-				"id": "threat",
-				"helpText": "Legt den Bedrohungsgrad fest.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."				
-			},
-			{
-				"id": "additionalThreat",
-				"helpText": "Wenn du den Einsatz mit zusätzlicher Bedrohung beginnen willst, stelle sie hier ein.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."				
-			},
-			{
-				"id": "ignored",
-				"helpText": "Wähle ignorierte Gruppen aus. Ignorierte Gruppen werden zu Beginn eines Einsatzes nie der Aufstellungshand hinzugefügt. Damit kannst du z. B. verhindern, dass Tusken-Räuber auf Spielplänen mit Schnee erscheinen (dies ist in den meisten Einsätzen bereits voreingestellt). Figuren mit einem grünen Rand sind ausgewählt, d.h. sie werden zur Liste der ignorierten Gruppen hinzugefügt."				
-			},
-			{
-				"id": "villains",
-				"helpText": "Wenn das Imperium in deiner Kampagne Schurken verdient hat, wähle diese Schurken hier aus."				
-			},
-			{
-				"id": "allies",
-				"helpText": "Wähle aus, welchen Verbündeten du mitnehmen willst. Einige Verbündete können für einen bestimmten Einsatz gesperrt sein. Diese werden mit einem roten Umriss angezeigt, können aber trotzdem manuell ausgewählt werden. Die zusätzliche Bedrohung wird automatisch hinzugefügt, wenn du einen Verbündeten manuell auswählst."				
-			},
-			{
-				"id": "heroes",
-				"helpText": "Wähle aus, welche Helden du für den Einsatz verwenden willst."				
-			},
-			{
-				"id": "folder",
-				"helpText": "Klicke auf das Ordnersymbol, um zum vorherigen Ordner zurückzukehren."				
-			},
-			{
-				"id": "missionPanel",
-				"helpText": "Wähle aus, welchen Einsatz du spielen willst."				
-			},
-			{
-				"id": "tiles",
-				"helpText": "Dies öffnet eine Liste der Spielplanteile, die im Einsatz verwendet werden, damit du sie im Voraus vorbereiten kannst."
-			},
-			{
-				"id": "mode",
-				"helpText": "Wechselt zwischen offiziellen (vom Imperial-Commander-Team erstellten und in der App enthalten) und selbst erstellten Einsätzen."				
-			},
-			{
-				"id": "start",
-				"helpText": "Wenn du bereit bist, klicke / tippe hier, um den Einsatz zu starten."
-			},
-		]
-	},
-	{
-		"panelHelpID": "Campaign",
-		"helpItems": [
-			{
-				"id": "campaignName",
-				"helpText": "Klicke / tippe hier, um den benutzerdefinierten Namen der Kampagne zu ändern."				
-			},
-			{
-				"id": "currentCampaign",
-				"helpText": "Die aktuell gewählte Kampagne."				
-			},
-			{
-				"id": "info",
-				"helpText": "Hier werden die Kampagneninformationen angezeigt, zum Beispiel spezielle Regeln für die Kampagne und der allgemeine Kampagnenaufbau."
-			},
-			{
-				"id": "log",
-				"helpText": "Öffnet das Kampagnenlogbuch, in das du Notizen zur Kampagne schreiben kannst."				
-			},
-			{
-				"id": "exit",
-				"helpText": "Kehre zum Startbildschirm zurück."				
-			},
-			{
-				"id": "missionLayout",
-				"helpText": "Dies ist die Struktur der Kampagneneinsätze. Auf der linken Seite siehst du, welchen Einsatztyp du als nächstes spielen musst."
-			},
-			{
-				"id": "missionName",
-				"helpText": "Der Name des Einsatzes. Wenn kein Einsatz vorausgewählt ist, klicke / tippe auf diese Schaltfläche, um einen Einsatz auszuwählen."
-			},
-			{
-				"id": "threat",
-				"helpText": "Der Bedrohungsgrad des Einsatzes. Hinweis: Du kannst den Bedrohungsgrad auch im Bildschirm zum Einrichten des Einsatzes ändern."
-			},
-			{
-				"id": "setup",
-				"helpText": "Klicke / tippe hier, um den Bildschirm zum Einrichten des Einsatzes zu öffnen."				
-			},
-			{
-				"id": "tier",
-				"helpText": "Dies zeigt dir, von welchen Ausrüstungskarten du Karten für die Aufrüstungsphase der Rebellen ziehen kannst. Wenn du klickst oder tippst, ändert sich die Farbe, um anzuzeigen, dass die Aufrüstungsphase der Rebellen abgehandelt wurde."				
-			},
-			{
-				"id": "imperialMission",
-				"helpText": "Das Symbol für imperiale Einsätze. Wenn die Aufrüstungsphase der Rebellen für diesen Einsatz abgehandelt wurde, klicke / tippe auf das Symbol für imperiale Einsätze. Die App sagt dir dann, ob du einen imperialen Einsatz ziehen musst (Imperium-Symbol) oder nicht (Rebellen-Symbol)."				
-			},
-			{
-				"id": "tracking",
-				"helpText": "Hier kannst du Credits verwalten, ebenso wie Ruhm und Auszeichnungen (nur relevant, wenn du mit Adaptiver Schwierigkeit spielst).\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."				
-			},
-			{
-				"id": "heroAdd",
-				"helpText": "Klicke / tippe hier, um einen Helden zum Einsatz hinzuzufügen."				
-			},
-			{
-				"id": "heroIcon",
-				"helpText": "Klicke / tippe auf ein Porträt, um den Helden zu entfernen."				
-			},
-			{
-				"id": "xp",
-				"helpText": "Verwende den EP-Slot, um die EP pro Held festzuhalten.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."				
-			},
-			{
-				"id": "stats",
-				"helpText": "Die Karten und Gegenstände der Heldenklasse, die dem Helden zugewiesen sind. Klicke / tippe auf einen Eintrag, um ihn zu entfernen."
-			},
-			{
-				"id": "addItem",
-				"helpText": "Klicke / tippe, um dem Helden einen Gegenstand zuzuweisen. Es können nur Gegenstände zugewiesen werden, die im Inventar vorhanden sind."				
-			},
-			{
-				"id": "addSkill",
-				"helpText": "Klicke / tippe hier, um dem Helden eine Heldenklassenkarte zuzuweisen."				
-			},
-			{
-				"id": "inventory",
-				"helpText": "Das Kampagneninventar zeigt die Gegenstände, Belohnungen, Schurken und Verbündeten an, die du während der Kampagne erhalten hast. Klicke / tippe auf das Symbol +, um einen Eintrag hinzuzufügen. Unten links im Fenster kannst du zwischen verschiedenen Arten von Gegenständen und Belohnungen wählen. Klicke / tippe auf einen Eintrag, um ihn zu entfernen."				
-			},
-		]
-	},
-	{
-		"panelHelpID": "Title",
-		"helpItems": [
-			{
-				"id": "tutorials",
-				"helpText": "<b>Imperial Commander</b> enthält drei Tutorials, die sich an Spieler richten, die Imperial Assault noch nie gespielt haben. Diese Tutorials erklären, wie man das Spiel spielt und die App benutzt.\n\nWähle das Tutorial aus dem Dropdown-Menü."
-			},
-			{
-				"id": "tutorialStart",
-				"helpText": "Klicke / tippe hier, um ein Fenster mit Informationen über das ausgewählte Tutorial und eine Schaltfläche zum Starten des Tutorials anzuzeigen."
-			},
-			{
-				"id": "language",
-				"helpText": "Wähle deine bevorzugte Sprache für die App."
-			},
-			{
-				"id": "expansions",
-				"helpText": "Klicke / tippe auf diese Schaltfläche, um das Erweiterungsmenü zu öffnen oder auszublenden. Hier kannst du die Erweiterungen auswählen, die du besitzt und mit denen du spielen möchtest. Du kannst in diesem Menü auch eigene Gruppen importieren."
-			},
-			{
-				"id": "options",
-				"helpText": "Öffnet das Optionen-Menü oder schließt die App."
-			},
-			{
-				"id": "mode",
-				"helpText": "Klicke / tippe auf Kampagne oder Saga, um deinen Spielmodus zu wählen.\n\nDer <color=yellow>Saga-Modus</color> ermöglicht es den Spielern, die offiziellen, gedruckten Einsätze auf eine Weise zu erleben, die der offiziellen App sehr nahe kommt. Die App übernimmt die Rolle eines <i>Spielleiters</i> und stellt interaktive Spielpläne zur Verfügung, steuert Ereignisse, Erzählungen und das Verhalten der imperialen Gruppen.\n\nDer<color=yellow>Kampagnen-Modus</color> führt dich mit Hilfe von Saga-Einsätzen durch eine vollständige Kampagne mit der Erweiterung deiner Wahl (oder eine komplett eigene Kampagne). Er stellt die richtige Einsatzliste zusammen und erlaubt die Anpassung der Einsätze dort, wo es erlaubt ist, einschließlich des Hinzufügens und Entfernens von erzwungenen Einsätzen. Der Kampagnenmodus dient außerdem als virtuelles Kampagnenlogbuch."
-			},
-			{
-				"id": "menu",
-				"helpText": "Dies ist das Hauptmenü. Du kannst hier eine neue Kampagne oder einen neuen Einsatz beginnen, eine bestehende Kampagne laden oder mit einem gespeicherten Einsatz fortfahren.\n\n<b>Imperial Commander</b> speichert den Spielstand automatisch nach jeder Runde, nachdem alle Aufstellungen abgehandelt wurden. Klicke / tippe auf Weiter, um den gespeicherten Spielstand zu laden."
-			},
-			{
-				"id": "wiki",
-				"helpText": "Klicke / tippe hier, um die Wiki-Dokumentation in deinem Webbrowser zu öffnen."
-			},
-			{
-				"id": "donate",
-				"helpText": "Wenn du die App unterstützen möchtest, klicke / tippe hier, um die PayPal-Website in deinem Webbrowser zu öffnen."
-			},
-			{
-				"id": "version",
-				"helpText": "Die App prüft, ob du die neueste Version verwendest, so dass du nicht im Repository nach Updates suchen musst.\n\n<color=yellow>Gelb, drehend</color> = Suche nach Updates\n<color=yellow>Gelb, pulsierend</color> = Update verfügbar\n<color=red>Rot, pulsierend</color> = Netzwerkfehler\n<color=green>Grün</color> = auf dem neuesten Stand. \n\nKlicke auf diese Schaltfläche, um ein Fenster anzuzeigen, in dem das Änderungsprotokoll der neuesten Version aufgelistet ist, sowie eine Schaltfläche, die die GitHub-Website des Projekts öffnet, wo du die neueste Version herunterladen kannst."
-			}
-		]
-	},
-	{
-		"panelHelpID": "Settings",
-		"helpItems": [
-			{
-				"id": "audio",
-				"helpText": "Einstellungen für Musik, Soundeffekte und Umgebungsgeräusche."
-			},
-			{
-				"id": "visuals",
-				"helpText": "Einstellungen für visuelle Effekte und die Kameraansicht."
-			},
-			{
-				"id": "interface",
-				"helpText": "Einstellungen für die Benutzeroberfläche."
-			},
-			{
-				"id": "music",
-				"helpText": "Schaltet die Musik ein oder aus. Du kannst auch die Lautstärke der Musik einstellen.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
-			},
-			{
-				"id": "soundEffects",
-				"helpText": "Schaltet die Soundeffekte ein oder aus. Du kannst auch die Lautstärke der Soundeffekte einstellen.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
-			},
-			{
-				"id": "ambient",
-				"helpText": "Schalte die Hintergrundgeräusche ein oder aus. Du kannst auch die Lautstärke der Hintergrundgeräusche einstellen.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
-			},
-			{
-				"id": "quickClose",
-				"helpText": "Wenn diese Option aktiviert ist, kannst du außerhalb der meisten Fenster klicken / tippen, um sie schnell zu schließen, ohne dass du auf die Schaltflächen Schließen, Weiter oder OK klicken / tippen musst."
-			},
-			{
-				"id": "zoom",
-				"helpText": "Wenn diese Option aktiviert ist, werden im Hauptbildschirm Zoom-Tasten für die Kamera angezeigt."
-			},
-			{
-				"id": "bloom",
-				"helpText": "Schaltet einen Bloom-Effekt in der Benutzeroberfläche ein."
-			},
-			{
-				"id": "vignette",
-				"helpText": "Schaltet einen Vignetteneffekt (verdunkelt die Ecken des Bildschirms) in der Benutzeroberfläche ein."
-			},
-			{
-				"id": "view",
-				"helpText": "Wenn diese Option aktiviert ist, zeigt die Kamera im Hauptspiel den Spielplan aus der Vogelperspektive, nicht in einer isometrischen Ansicht."
-			}
-		]
-	},
-	{
-		"panelHelpID": "DeploymentCard",
-		"helpItems": [
-			{
-				"id": "deploymentCost",
-				"helpText": "Aufstellungskosten: Dies sind die Aufstellungskosten der Gruppe. Die kleine Zahl (falls vorhanden) sind die Kosten für eine einzelne Figur."				
-			},
-			{
-				"id": "mods",
-				"helpText": "Modifikationen: Wenn Änderungen (z. B. zusätzlicher Schaden) auf die Gruppe angewendet werden, werden sie hier angezeigt."
-			},
-			{
-				"id": "size",
-				"helpText": "Gruppengröße: Dies ist die Größe der Gruppe."				
-			},
-			{
-				"id": "surges",
-				"helpText": "Energie-Fähigkeiten: Wenn während des Angriffs einer imperialen Figur {B} gewürfelt werden, gibt die Figur Energie gemäß dieser Liste aus. Die Figur überspringt eine Energie-Fähigkeit, wenn einer der folgenden Punkte zutrifft:\n\n{-}Sie hat diese Fähigkeit bereits während des Angriffs eingesetzt.\n{-}Die Fähigkeit kostet mehr {B}, als sie noch übrig hat.\n{-}Die Fähigkeit hätte keine Wirkung (z. B. die Zielsicherheit erhöhen, wenn der Angriff bereits genug Zielsicherheit hat, oder versuchen, einen Zustand zuzufügen, wenn der Angriff gerade keinen Schaden verursacht).\n{-}Wenn die Figur dann noch {B} übrig hat, wiederholt sie diesen Vorgang und beginnt wieder am Anfang der Liste. Wenn die Figur keine Energie-Fähigkeiten mehr einsetzen kann, haben die verbleibenden {B} keine Wirkung.\n\nEnergie-Fähigkeiten, die durch Bonuseffekte (oben im Anweisungsfenster) hinzugefügt werden, haben immer Priorität 1."				
-			},
-			{
-				"id": "abilities",
-				"helpText": "Gruppen-Fähigkeiten: Hier werden die Fähigkeiten der Aufstellungsgruppe aufgelistet. Hier erfährst du auch, welche Fähigkeiten auf der Aufstellungskarte ignoriert werden sollten."				
-			},
-			{
-				"id": "health",
-				"helpText": "Gesundheit: Die Gesundheit einer Figur in dieser Gruppe."				
-			},
-			{
-				"id": "speed",
-				"helpText": "Geschwindigkeit: Die Geschwindigkeit der Gruppe. Normalerweise brauchst du diesen Wert nicht - die Anweisungen sagen dir, wie weit sich eine Figur bewegen kann."				
-			},
-			{
-				"id": "defense",
-				"helpText": "Verteidigung: Klicke / tippe auf das Verteidigungssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
-			},
-			{
-				"id": "attack",
-				"helpText": "Angreifen: Klicke / tippe auf das Angriffssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
-			},
-			{
-				"id": "tracker",
-				"helpText": "Schadenszähler: Mit diesem Zähler kannst du verfolgen, wie viel Schaden jede Figur in einer Gruppe erlitten hat. Klicke / tippe auf eine Nummer, um die ID oder den Schaden der Figur zu ändern. Du kannst auch mit der Maus über eine Zahl fahren und das Scrollrad nach oben/unten verwenden, um den Wert zu ändern."
-			}
-		]
-	},
-	{
-		"panelHelpID": "EnemyVillainSelection",
-		"helpItems": [
-			{
-				"id": "enemyExpansion",
-				"helpText": "Klicke / tippe hier, um die Gruppen anzuzeigen, die zu der jeweiligen Erweiterung gehören. Gruppen aus Figurenpacks sind unter dem imperialen Logo aufgelistet."				
-			},
-			{
-				"id": "enemyCustom",
-				"helpText": "Klicke / tippe hier, um benutzerdefinierte (importierte) Gruppen anzuzeigen."				
-			},
-			{
-				"id": "enemySelection",
-				"helpText": "Klicke / tippe auf Gruppen, um sie auszuwählen oder die Auswahl aufzuheben. Ausgewählte Gruppen haben einen grünen Rahmen. Elite-Gruppen sind rot schattiert."				
-			}
-		]
-	},
-	{
-		"panelHelpID": "HeroAllySelection",
-		"helpItems": [
-			{
-				"id": "heroCustom",
-				"helpText": "Klicke / tippe hier, um benutzerdefinierte (importierte) Helden anzuzeigen."				
-			},
-			{
-				"id": "heroSelection",
-				"helpText": "Klicke / tippe auf ein Porträt, um es auszuwählen oder abzuwählen."				
-			}
-		]
-	},
-	{
-		"panelHelpID": "FigurePack",
-		"helpItems": [
-			{
-				"id": "figurePackInfo",
-				"helpText": "Klicke / tippe auf ein Figurenpack, um es auszuwählen / abzuwählen. Ausgewählte Figurenpacks sind grün schattiert.<b>Bitte beachte:</b> Hier sind nur Figurenpacks aufgelistet, die nicht-einzigartige Gegner hinzufügen. Schurken und Verbündete können einfach bei der Einrichtung des Einsatzes ausgewählt werden."				
-			}
-		]
-	},
-	{
-		"panelHelpID": "ImportGroups",
-		"helpItems": [
-			{
-				"id": "activateGroups",
-				"helpText": "Klicke / tippe auf eine Gruppe, um sie auszuwählen / abzuwählen.\n\nAlle hier ausgewählten Gruppen können genau wie offizielle Gruppen zu den offenen Gruppen hinzugefügt werden. Sie folgen denselben Regeln wie offizielle Gruppen und können auch zu den ignorierten Gruppen hinzugefügt werden, wenn du sie bei einem Einsatz nicht verwenden möchtest."					
-			},
-			{
-				"id": "selectAll",
-				"helpText": "Klicke / tippe hier, um alle Gruppen auszuwählen."				
-			},
-			{
-				"id": "selectNone",
-				"helpText": "Klicke / tippe hier, um alle Gruppen abzuwählen."				
-			},
-			{
-				"id": "ToggleFaction",
-				"helpText": "Klicke / tippe hier, um zwischen den Gruppen Imperial/Söldner und Rebellen umzuschalten."				
-			}
-		]
-	},
-	{
-		"panelHelpID": "ImperialMenu",
-		"helpItems": [
-			{
-				"id": "showGroups",
-				"helpText": "Klicke / tippe auf das Feld, um die Karten aufzudecken, die sich derzeit in der Aufstellungshand befinden."					
-			},
-			{
-				"id": "modifyThreat",
-				"helpText": "Klicke / tippe hier, um die aktuelle Bedrohung zu erhöhen oder zu verringern."				
-			},
-			{
-				"id": "pauseDeployment",
-				"helpText": "Klicke / tippe hier, um Aufstellungen zu pausieren oder wieder zu starten."				
-			},
-			{
-				"id": "pauseThreat",
-				"helpText": "Klicke / tippe hier, um das Erhalten von Bedrohung zu pausieren oder wieder zu starten."				
-			},
-			{
-				"id": "optionalDeployment",
-				"helpText": "Klicke / tippe hier, damit die App sofort eine optionale Aufstellung durchführt."				
-			},
-			{
-				"id": "currentThreat",
-				"helpText": "Dies ist der aktuelle Bedrohungswert."				
-			},
-			{
-				"id": "deploymentModifier",
-				"helpText": "Dies ist der Aufstellungsmodifikator. Je höher der Modifikator ist, desto höher ist die Chance, dass ein gefährlicheres Aufstellungsereignis eintritt. Er ändert sich jede Runde je nach Aufstellungsereignis."				
-			}
-		]
-	},
+  {
+    "panelHelpID": "EnemyActivation",
+    "helpItems": [
+      {
+        "id": "bonus",
+        "helpText": "Bonuseffekt: In jeder Runde erhält eine imperiale Gruppe einen zufälligen Bonuseffekt, der Vorteile bringt. Der Bonuseffekt wird am oberen Rand des Anweisungsfensters angezeigt."
+      },
+      {
+        "id": "card",
+        "helpText": "Aufstellungskarte: Im Aktivierungsfenster wird immer die Aufstellungskarte der Gruppe angezeigt. Außerhalb einer Aktivierung kannst du mit der rechten Maustaste auf das Porträt eines Gegners klicken, um seine Karte zu öffnen."
+      },
+      {
+        "id": "tracker",
+        "helpText": "Schadenszähler: Mit diesem Zähler kannst du nachhalten, wie viel Schaden jede Figur in einer Gruppe erlitten hat. Klicke / tippe auf eine Nummer, um die ID oder den Schaden der Figur zu ändern. Du kannst auch mit der Maus über eine Zahl fahren und das Scrollrad nach oben/unten verwenden, um den Wert zu ändern."
+      },
+      {
+        "id": "instructions",
+        "helpText": "Anweisungen: Wenn eine Aufstellungsgruppe aktiviert wird, werden ihre Anweisungen angezeigt. Jede Figur in der Gruppe, beginnend mit der Figur, die einer Rebellenfigur am nächsten steht, handelt die Anweisungen von oben nach unten ab. Anweisungen, die die Figur nicht abhandeln kann, werden übersprungen (siehe \"Skipping Instructions\" in der Online-Wiki-Hilfe). Nachdem die Figur die letzte Anweisung in der Liste abgehandelt oder übersprungen hat, endet ihre Aktivierung und die nächste Figur in dieser Gruppe wird aktiviert.\nEine imperiale Figur kann während ihrer Aktivierung nicht mehr als zwei Aktionen durchführen. Eine Anweisung kostet eine Aktion für jedes {A} (Aktion) oder {Q} (Angriffsaktion) Symbol, das ihr vorangestellt ist. Wenn die Figur nicht genug Aktionen für eine Anweisung übrig hat, wird diese Anweisung übersprungen. Wenn nicht anders angegeben, kann eine imperiale Figur nie mehr als eine {Q} (Angriffsaktion) pro Aktivierung durchführen."
+      },
+      {
+        "id": "hide",
+        "helpText": "Klicke / tippe auf das Augensymbol, um den Spielplan vorübergehend anzuzeigen. Klicke / tippe erneut, um das Fenster wieder zu öffnen."
+      },
+      {
+        "id": "deploymentCost",
+        "helpText": "Aufstellungskosten: Dies sind die Aufstellungskosten der Gruppe. Die kleine Zahl (falls vorhanden) sind die Kosten für eine einzelne Figur."
+      },
+      {
+        "id": "mods",
+        "helpText": "Modifikationen: Wenn Änderungen (z. B. zusätzlicher Schaden) auf die Gruppe angewendet werden, werden sie hier angezeigt."
+      },
+      {
+        "id": "size",
+        "helpText": "Gruppengröße: Dies ist die Größe der Gruppe."
+      },
+      {
+        "id": "surges",
+        "helpText": "Energie-Fähigkeiten: Wenn während des Angriffs einer imperialen Figur {B} gewürfelt werden, gibt die Figur Energie gemäß dieser Liste aus. Die Figur überspringt eine Energie-Fähigkeit, wenn einer der folgenden Punkte zutrifft:\n\n{-}Sie hat diese Fähigkeit bereits während des Angriffs eingesetzt.\n{-}Die Fähigkeit kostet mehr {B}, als sie noch übrig hat.\n{-}Die Fähigkeit hätte keine Wirkung (z. B. die Zielsicherheit erhöhen, wenn der Angriff bereits genug Zielsicherheit hat, oder versuchen, einen Zustand zuzufügen, wenn der Angriff gerade keinen Schaden verursacht).\n{-}Wenn die Figur dann noch {B} übrig hat, wiederholt sie diesen Vorgang und beginnt wieder am Anfang der Liste. Wenn die Figur keine Energie-Fähigkeiten mehr einsetzen kann, haben die verbleibenden {B} keine Wirkung.\n\nEnergie-Fähigkeiten, die durch Bonuseffekte (oben im Anweisungsfenster) hinzugefügt werden, haben immer Priorität 1."
+      },
+      {
+        "id": "abilities",
+        "helpText": "Gruppen-Fähigkeiten: Hier werden die Fähigkeiten der Aufstellungsgruppe aufgelistet. Hier erfährst du auch, welche Fähigkeiten auf der Aufstellungskarte ignoriert werden sollten."
+      },
+      {
+        "id": "health",
+        "helpText": "Gesundheit: Die Gesundheit einer Figur in dieser Gruppe."
+      },
+      {
+        "id": "speed",
+        "helpText": "Geschwindigkeit: Die Geschwindigkeit der Gruppe. Normalerweise brauchst du diesen Wert nicht - die Anweisungen sagen dir, wie weit sich eine Figur bewegen kann."
+      },
+      {
+        "id": "defense",
+        "helpText": "Verteidigung: Klicke / tippe auf das Verteidigungssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
+      },
+      {
+        "id": "attack",
+        "helpText": "Angreifen: Klicke / tippe auf das Angriffssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
+      },
+      {
+        "id": "colorBlip",
+        "helpText": "Der farbige Kreis zeigt die Farbe an, die der Gruppe zugewiesen wurde."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "DiceRoller",
+    "helpItems": [
+      {
+        "id": "dicePanel",
+        "helpText": "Dies sind die Würfelwürfe. Klicke / tippe auf einen Würfel, um ihn zu entfernen."
+      },
+      {
+        "id": "dicePool",
+        "helpText": "Klicke / tippe, um einen Würfel hinzuzufügen."
+      },
+      {
+        "id": "mods",
+        "helpText": "Wenn Änderungen (z. B. zusätzlicher Schaden) auf die Gruppe angewendet werden, werden sie hier angezeigt."
+      },
+      {
+        "id": "card",
+        "helpText": "Hier wird die Aufstellungskarte der Gruppe angezeigt."
+      },
+      {
+        "id": "hideRoller",
+        "helpText": "Klicke / tippe, um die Sichtbarkeit des Würfelrollers umzuschalten, damit du die Anweisungen zur Aktivierung des Gegners darunter sehen kannst."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "MainGame",
+    "helpItems": [
+      {
+        "id": "heroPanel",
+        "helpText": "Die Rebellen-Helden sowie die aufgestellten Verbündeten werden hier angezeigt. Zurückgezogene Helden / Verbündete sind abgedunkelt. Mit den Aktivierungssymbolen kannst du Aktivierungen nachverfolgen.\n\nKlicke / tippe auf eine Gruppe, um die Optionen Verwunden (nur Helden) oder Besiegen der Gruppe anzuzeigen. Der farbige Kreis zeigt an, ob der Held unversehrt (grün) oder verwundet (rot) ist."
+      },
+      {
+        "id": "objective",
+        "helpText": "Das aktuelle Ziel, das du erfüllen musst."
+      },
+      {
+        "id": "enemyPanel",
+        "helpText": "Dies ist die Aufstellungsliste der Gegner, die dir alle derzeit aufgestellten Gruppen anzeigt. Erschöpfte Gruppen sind ausgegraut. Klicke / tippe auf den farbigen Kreis oben links, um der Gruppe eine Farbe zuzuweisen. Klicke / tippe auf eine Gruppe, um die Optionen zum Erschöpfen oder Besiegen der Gruppe anzuzeigen. Erschöpfen kann umgeschaltet werden, wenn du eine Gruppe wieder aktivieren möchtest. Klicke mit der rechten Maustaste auf eine Gruppe / tippe doppelt auf eine Gruppe, um die Aufstellungskarte anzuzeigen.\n\nDie grünen Kreise zeigen die Anzahl der Figuren an, die noch in einer Gruppe sind. Klicke / tippe auf diese Kreise, um sie eine nach der anderen zu entfernen. Wenn die letzte Figur entfernt wird, ist die gesamte Gruppe besiegt."
+      },
+      {
+        "id": "map",
+        "helpText": "Dies ist der Hauptbildschirm des Spielplans, auf dem du mit dem Einsatz und allen Spielplan-Elementen interagierst. Jedes Mal, wenn ein Fenster geöffnet ist, kannst du das Augensymbol unten links benutzen, um den Spielplan vorübergehend zu öffnen."
+      },
+      {
+        "id": "imperialActivation",
+        "helpText": "Löse die nächste imperiale Aktivierung aus."
+      },
+      {
+        "id": "medpacs",
+        "helpText": "Eine Übersicht über deine Medipacks. Du kannst ein Fenster öffnen, um den Überblick über deine Medipacks zu erhalten und die Regeländerungen zu lesen."
+      },
+      {
+        "id": "missionDashboard",
+        "helpText": "Öffnet das Einsatz-Dashboard.\n\n Das Einsatz-Dashboard hat mehrere Aufgaben. Erstens zeigt es die Einsatzübersicht mit den Einsatzaktualisierungen und besonderen Anweisungen an.\n\n Zweitens zeigt es den Ruhm und die Auszeichnungen an. Ruhm und Auszeichnungen zeigen dir, wie viel Ruhm und wie viele Auszeichnungen du bisher im Einsatz gewonnen hast (nur relevant, wenn du Adaptive Schwierigkeit verwendest). \n\nAußerdem enthält das Dashboard ein Protokoll, das alle Meldungen und Textnachrichten des Einsatzes speichert. Du kannst es verwenden, um Informationen, die du bereits geschlossen hast, erneut zu lesen."
+      },
+      {
+        "id": "imperialMenu",
+        "helpText": "Öffnet das imperiale Menü."
+      },
+      {
+        "id": "settings",
+        "helpText": "Öffnet den Bildschirm zur Anzeige der Einstellungen und zum Beenden des Einsatzes."
+      },
+      {
+        "id": "round",
+        "helpText": "Die aktuelle Rundenzahl."
+      },
+      {
+        "id": "endRound",
+        "helpText": "Beendet die aktuelle Runde und startet die Statusphase. Dies ist erst möglich, wenn alle imperialen Gruppen aktiviert wurden."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Setup",
+    "helpItems": [
+      {
+        "id": "missionCard",
+        "helpText": "Zeigt die Details und die Beschreibung des Einsatzes an."
+      },
+      {
+        "id": "difficulty",
+        "helpText": "Klicke / tippe, um die Schwierigkeit des Einsatzes zu ändern."
+      },
+      {
+        "id": "adaptiveDifficulty",
+        "helpText": "Wähle aus, ob du Adaptive Schwierigkeit verwenden willst oder nicht. Adaptive Schwierigkeit erstattet dem Imperium etwas Bedrohung, wenn du eine Gruppe besiegst, wodurch das Spiel herausfordernder wird."
+      },
+      {
+        "id": "threat",
+        "helpText": "Legt den Bedrohungsgrad fest.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
+      },
+      {
+        "id": "additionalThreat",
+        "helpText": "Wenn du den Einsatz mit zusätzlicher Bedrohung beginnen willst, stelle sie hier ein.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
+      },
+      {
+        "id": "ignored",
+        "helpText": "Wähle ignorierte Gruppen aus. Ignorierte Gruppen werden zu Beginn eines Einsatzes nie der Aufstellungshand hinzugefügt. Damit kannst du z. B. verhindern, dass Tusken-Räuber auf Spielplänen mit Schnee erscheinen (dies ist in den meisten Einsätzen bereits voreingestellt). Figuren mit einem grünen Rand sind ausgewählt, d.h. sie werden zur Liste der ignorierten Gruppen hinzugefügt."
+      },
+      {
+        "id": "villains",
+        "helpText": "Wenn das Imperium in deiner Kampagne Schurken verdient hat, wähle diese Schurken hier aus."
+      },
+      {
+        "id": "allies",
+        "helpText": "Wähle aus, welchen Verbündeten du mitnehmen willst. Einige Verbündete können für einen bestimmten Einsatz gesperrt sein. Diese werden mit einem roten Umriss angezeigt, können aber trotzdem manuell ausgewählt werden. Die zusätzliche Bedrohung wird automatisch hinzugefügt, wenn du einen Verbündeten manuell auswählst."
+      },
+      {
+        "id": "heroes",
+        "helpText": "Wähle aus, welche Helden du für den Einsatz verwenden willst."
+      },
+      {
+        "id": "folder",
+        "helpText": "Klicke auf das Ordnersymbol, um zum vorherigen Ordner zurückzukehren."
+      },
+      {
+        "id": "missionPanel",
+        "helpText": "Wähle aus, welchen Einsatz du spielen willst."
+      },
+      {
+        "id": "tiles",
+        "helpText": "Dies öffnet eine Liste der Spielplanteile, die im Einsatz verwendet werden, damit du sie im Voraus vorbereiten kannst."
+      },
+      {
+        "id": "mode",
+        "helpText": "Wechselt zwischen offiziellen (vom Imperial-Commander-Team erstellten und in der App enthalten) und selbst erstellten Einsätzen."
+      },
+      {
+        "id": "start",
+        "helpText": "Wenn du bereit bist, klicke / tippe hier, um den Einsatz zu starten."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Campaign",
+    "helpItems": [
+      {
+        "id": "campaignName",
+        "helpText": "Klicke / tippe hier, um den benutzerdefinierten Namen der Kampagne zu ändern."
+      },
+      {
+        "id": "currentCampaign",
+        "helpText": "Die aktuell gewählte Kampagne."
+      },
+      {
+        "id": "info",
+        "helpText": "Hier werden die Kampagneninformationen angezeigt, zum Beispiel spezielle Regeln für die Kampagne und der allgemeine Kampagnenaufbau."
+      },
+      {
+        "id": "log",
+        "helpText": "Öffnet das Kampagnenlogbuch, in das du Notizen zur Kampagne schreiben kannst."
+      },
+      {
+        "id": "exit",
+        "helpText": "Kehre zum Startbildschirm zurück."
+      },
+      {
+        "id": "missionLayout",
+        "helpText": "Dies ist die Struktur der Kampagneneinsätze. Auf der linken Seite siehst du, welchen Einsatztyp du als nächstes spielen musst."
+      },
+      {
+        "id": "missionName",
+        "helpText": "Der Name des Einsatzes. Wenn kein Einsatz vorausgewählt ist, klicke / tippe auf diese Schaltfläche, um einen Einsatz auszuwählen."
+      },
+      {
+        "id": "threat",
+        "helpText": "Der Bedrohungsgrad des Einsatzes. Hinweis: Du kannst den Bedrohungsgrad auch im Bildschirm zum Einrichten des Einsatzes ändern."
+      },
+      {
+        "id": "setup",
+        "helpText": "Klicke / tippe hier, um den Bildschirm zum Einrichten des Einsatzes zu öffnen."
+      },
+      {
+        "id": "tier",
+        "helpText": "Dies zeigt dir, von welchen Ausrüstungskarten du Karten für die Aufrüstungsphase der Rebellen ziehen kannst. Wenn du klickst oder tippst, ändert sich die Farbe, um anzuzeigen, dass die Aufrüstungsphase der Rebellen abgehandelt wurde."
+      },
+      {
+        "id": "imperialMission",
+        "helpText": "Das Symbol für imperiale Einsätze. Wenn die Aufrüstungsphase der Rebellen für diesen Einsatz abgehandelt wurde, klicke / tippe auf das Symbol für imperiale Einsätze. Die App sagt dir dann, ob du einen imperialen Einsatz ziehen musst (Imperium-Symbol) oder nicht (Rebellen-Symbol)."
+      },
+      {
+        "id": "tracking",
+        "helpText": "Hier kannst du Credits verwalten, ebenso wie Ruhm und Auszeichnungen (nur relevant, wenn du mit Adaptiver Schwierigkeit spielst).\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
+      },
+      {
+        "id": "heroAdd",
+        "helpText": "Klicke / tippe hier, um einen Helden zum Einsatz hinzuzufügen."
+      },
+      {
+        "id": "heroIcon",
+        "helpText": "Klicke / tippe auf ein Porträt, um den Helden zu entfernen."
+      },
+      {
+        "id": "xp",
+        "helpText": "Verwende den EP-Slot, um die EP pro Held festzuhalten.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
+      },
+      {
+        "id": "stats",
+        "helpText": "Die Karten und Gegenstände der Heldenklasse, die dem Helden zugewiesen sind. Klicke / tippe auf einen Eintrag, um ihn zu entfernen."
+      },
+      {
+        "id": "addItem",
+        "helpText": "Klicke / tippe, um dem Helden einen Gegenstand zuzuweisen. Es können nur Gegenstände zugewiesen werden, die im Inventar vorhanden sind."
+      },
+      {
+        "id": "addSkill",
+        "helpText": "Klicke / tippe hier, um dem Helden eine Heldenklassenkarte zuzuweisen."
+      },
+      {
+        "id": "inventory",
+        "helpText": "Das Kampagneninventar zeigt die Gegenstände, Belohnungen, Schurken und Verbündeten an, die du während der Kampagne erhalten hast. Klicke / tippe auf das Symbol +, um einen Eintrag hinzuzufügen. Unten links im Fenster kannst du zwischen verschiedenen Arten von Gegenständen und Belohnungen wählen. Klicke / tippe auf einen Eintrag, um ihn zu entfernen."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Title",
+    "helpItems": [
+      {
+        "id": "tutorials",
+        "helpText": "<b>Imperial Commander</b> enthält drei Tutorials, die sich an Spieler richten, die Imperial Assault noch nie gespielt haben. Diese Tutorials erklären, wie man das Spiel spielt und die App benutzt.\n\nWähle das Tutorial aus dem Dropdown-Menü."
+      },
+      {
+        "id": "tutorialStart",
+        "helpText": "Klicke / tippe hier, um ein Fenster mit Informationen über das ausgewählte Tutorial und eine Schaltfläche zum Starten des Tutorials anzuzeigen."
+      },
+      {
+        "id": "language",
+        "helpText": "Wähle deine bevorzugte Sprache für die App."
+      },
+      {
+        "id": "expansions",
+        "helpText": "Klicke / tippe auf diese Schaltfläche, um das Erweiterungsmenü zu öffnen oder auszublenden. Hier kannst du die Erweiterungen auswählen, die du besitzt und mit denen du spielen möchtest. Du kannst in diesem Menü auch eigene Gruppen importieren."
+      },
+      {
+        "id": "options",
+        "helpText": "Öffnet das Optionen-Menü oder schließt die App."
+      },
+      {
+        "id": "mode",
+        "helpText": "Klicke / tippe auf \"Kampagne\" oder \"Einsatz wählen\", um deinen Spielmodus auszuwählen.\n\nDer Modus<color=yellow>\"Kampagne\"</color> verwendet einen Kampagnenmanager, der dich durch eine vollständige Kampagne mit der Erweiterung deiner Wahl führt (oder eine vollständig individuell gestaltete Kampagne). Er stellt die richtige Einsatzliste zusammen und erlaubt die Anpassung der Einsätze, wo es erlaubt ist, einschließlich des Hinzufügens und Entfernens von erzwungenen Einsätzen. Der Kampagnenmodus fungiert als \"virtuelles Kampagnenlogbuch\", in dem du EP, Credits und Belohnungen, deine Helden, ihre Fähigkeiten und Gegenstände, allgemeine Gegenstände, die du gekauft hast, erhaltene Schurken und Verbündete festhalten kannst. All diese Dinge kannst du nach Belieben zur Kampagne hinzufügen oder entfernen. Die Kampagne wird automatisch gespeichert.\n\n<color=yellow>Einsatz wählen</color> ist für einmalige Einsätze gedacht, oder für Gruppen, die Kampagnen mit dem gedruckten Kampagnenbuch spielen wollen."
+      },
+      {
+        "id": "menu",
+        "helpText": "Dies ist das Hauptmenü. Du kannst hier eine neue Kampagne oder einen neuen Einsatz beginnen, eine bestehende Kampagne laden oder mit einem gespeicherten Einsatz fortfahren.\n\n<b>Imperial Commander</b> speichert den Spielstand automatisch nach jeder Runde, nachdem alle Aufstellungen abgehandelt wurden. Klicke / tippe auf Weiter, um den gespeicherten Spielstand zu laden."
+      },
+      {
+        "id": "wiki",
+        "helpText": "Klicke / tippe hier, um die Wiki-Dokumentation in deinem Webbrowser zu öffnen."
+      },
+      {
+        "id": "donate",
+        "helpText": "Wenn du die App unterstützen möchtest, klicke / tippe hier, um die PayPal-Website in deinem Webbrowser zu öffnen."
+      },
+      {
+        "id": "version",
+        "helpText": "Die App prüft, ob du die neueste Version verwendest, so dass du nicht im Repository nach Updates suchen musst.\n\n<color=yellow>Gelb, drehend</color> = Suche nach Updates\n<color=yellow>Gelb, pulsierend</color> = Update verfügbar\n<color=red>Rot, pulsierend</color> = Netzwerkfehler\n<color=green>Grün</color> = auf dem neuesten Stand. \n\nKlicke auf diese Schaltfläche, um ein Fenster anzuzeigen, in dem das Änderungsprotokoll der neuesten Version aufgelistet ist, sowie eine Schaltfläche, die die GitHub-Website des Projekts öffnet, wo du die neueste Version herunterladen kannst."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Settings",
+    "helpItems": [
+      {
+        "id": "audio",
+        "helpText": "Einstellungen für Musik, Soundeffekte und Umgebungsgeräusche."
+      },
+      {
+        "id": "visuals",
+        "helpText": "Einstellungen für visuelle Effekte und die Kameraansicht."
+      },
+      {
+        "id": "interface",
+        "helpText": "Einstellungen für die Benutzeroberfläche."
+      },
+      {
+        "id": "music",
+        "helpText": "Schaltet die Musik ein oder aus. Du kannst auch die Lautstärke der Musik einstellen.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
+      },
+      {
+        "id": "soundEffects",
+        "helpText": "Schaltet die Soundeffekte ein oder aus. Du kannst auch die Lautstärke der Soundeffekte einstellen.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
+      },
+      {
+        "id": "ambient",
+        "helpText": "Schalte die Hintergrundgeräusche ein oder aus. Du kannst auch die Lautstärke der Hintergrundgeräusche einstellen.\n\nKlicke / tippe auf die Zahl, um einen Werteinsteller anzuzeigen, oder bewege die Maus über die Zahl und scrolle das Mausrad nach oben/unten, um den Wert anzupassen."
+      },
+      {
+        "id": "quickClose",
+        "helpText": "Wenn diese Option aktiviert ist, kannst du außerhalb der meisten Fenster klicken / tippen, um sie schnell zu schließen, ohne dass du auf die Schaltflächen Schließen, Weiter oder OK klicken / tippen musst."
+      },
+      {
+        "id": "zoom",
+        "helpText": "Wenn diese Option aktiviert ist, werden im Hauptbildschirm Zoom-Tasten für die Kamera angezeigt."
+      },
+      {
+        "id": "bloom",
+        "helpText": "Schaltet einen Bloom-Effekt in der Benutzeroberfläche ein."
+      },
+      {
+        "id": "vignette",
+        "helpText": "Schaltet einen Vignetteneffekt (verdunkelt die Ecken des Bildschirms) in der Benutzeroberfläche ein."
+      },
+      {
+        "id": "view",
+        "helpText": "Wenn diese Option aktiviert ist, zeigt die Kamera im Hauptspiel den Spielplan aus der Vogelperspektive, nicht in einer isometrischen Ansicht."
+      },
+      {
+        "id": "roundLimitOn",
+        "helpText": "Normales Verhalten, bei dem einige Einsätze enden, wenn du zu lange brauchst. Einsätze, die ein Rundenlimit haben, zeigen das Limit in rot neben der aktuellen Rundenzahl an.\n\nBeispiel: 2 / <color=red>4</color>"
+      },
+      {
+        "id": "roundLimitOff",
+        "helpText": "Das Rundenlimit ist deaktiviert und die Einsätze können so lange gespielt werden, wie du willst."
+      },
+      {
+        "id": "roundLimitDangerous",
+        "helpText": "Sobald das Rundenlimit erreicht ist, wird der Einsatz schwieriger, anstatt beendet zu werden. Die am Ende einer Runde erhaltene Bedrohung verdoppelt sich und der Aufstellungsmodifikator erhöht sich jede Runde um weitere 2. Das Rundenlimit wird in orange angezeigt.\n\nBeispiel: 2 / <color=orange>4</color>"
+      }
+    ]
+  },
+  {
+    "panelHelpID": "DeploymentCard",
+    "helpItems": [
+      {
+        "id": "deploymentCost",
+        "helpText": "Aufstellungskosten: Dies sind die Aufstellungskosten der Gruppe. Die kleine Zahl (falls vorhanden) sind die Kosten für eine einzelne Figur."
+      },
+      {
+        "id": "mods",
+        "helpText": "Modifikationen: Wenn Änderungen (z. B. zusätzlicher Schaden) auf die Gruppe angewendet werden, werden sie hier angezeigt."
+      },
+      {
+        "id": "size",
+        "helpText": "Gruppengröße: Dies ist die Größe der Gruppe."
+      },
+      {
+        "id": "surges",
+        "helpText": "Energie-Fähigkeiten: Wenn während des Angriffs einer imperialen Figur {B} gewürfelt werden, gibt die Figur Energie gemäß dieser Liste aus. Die Figur überspringt eine Energie-Fähigkeit, wenn einer der folgenden Punkte zutrifft:\n\n{-}Sie hat diese Fähigkeit bereits während des Angriffs eingesetzt.\n{-}Die Fähigkeit kostet mehr {B}, als sie noch übrig hat.\n{-}Die Fähigkeit hätte keine Wirkung (z. B. die Zielsicherheit erhöhen, wenn der Angriff bereits genug Zielsicherheit hat, oder versuchen, einen Zustand zuzufügen, wenn der Angriff gerade keinen Schaden verursacht).\n{-}Wenn die Figur dann noch {B} übrig hat, wiederholt sie diesen Vorgang und beginnt wieder am Anfang der Liste. Wenn die Figur keine Energie-Fähigkeiten mehr einsetzen kann, haben die verbleibenden {B} keine Wirkung.\n\nEnergie-Fähigkeiten, die durch Bonuseffekte (oben im Anweisungsfenster) hinzugefügt werden, haben immer Priorität 1."
+      },
+      {
+        "id": "abilities",
+        "helpText": "Gruppen-Fähigkeiten: Hier werden die Fähigkeiten der Aufstellungsgruppe aufgelistet. Hier erfährst du auch, welche Fähigkeiten auf der Aufstellungskarte ignoriert werden sollten."
+      },
+      {
+        "id": "health",
+        "helpText": "Gesundheit: Die Gesundheit einer Figur in dieser Gruppe."
+      },
+      {
+        "id": "speed",
+        "helpText": "Geschwindigkeit: Die Geschwindigkeit der Gruppe. Normalerweise brauchst du diesen Wert nicht - die Anweisungen sagen dir, wie weit sich eine Figur bewegen kann."
+      },
+      {
+        "id": "defense",
+        "helpText": "Verteidigung: Klicke / tippe auf das Verteidigungssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
+      },
+      {
+        "id": "attack",
+        "helpText": "Angreifen: Klicke / tippe auf das Angriffssymbol, um den Würfelroller zu öffnen und automatisch die zugewiesenen Würfel zu werfen."
+      },
+      {
+        "id": "tracker",
+        "helpText": "Schadenszähler: Mit diesem Zähler kannst du verfolgen, wie viel Schaden jede Figur in einer Gruppe erlitten hat. Klicke / tippe auf eine Nummer, um die ID oder den Schaden der Figur zu ändern. Du kannst auch mit der Maus über eine Zahl fahren und das Scrollrad nach oben/unten verwenden, um den Wert zu ändern."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "EnemyVillainSelection",
+    "helpItems": [
+      {
+        "id": "enemyExpansion",
+        "helpText": "Klicke / tippe hier, um die Gruppen anzuzeigen, die zu der jeweiligen Erweiterung gehören. Gruppen aus Figurenpacks sind unter dem imperialen Logo aufgelistet."
+      },
+      {
+        "id": "enemyCustom",
+        "helpText": "Klicke / tippe hier, um benutzerdefinierte (importierte) Gruppen anzuzeigen."
+      },
+      {
+        "id": "enemySelection",
+        "helpText": "Klicke / tippe auf Gruppen, um sie auszuwählen oder die Auswahl aufzuheben. Ausgewählte Gruppen haben einen grünen Rahmen. Elite-Gruppen sind rot schattiert."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "HeroAllySelection",
+    "helpItems": [
+      {
+        "id": "heroCustom",
+        "helpText": "Klicke / tippe hier, um benutzerdefinierte (importierte) Helden anzuzeigen."
+      },
+      {
+        "id": "heroSelection",
+        "helpText": "Klicke / tippe auf ein Porträt, um es auszuwählen oder abzuwählen."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "FigurePack",
+    "helpItems": [
+      {
+        "id": "figurePackInfo",
+        "helpText": "Klicke / tippe auf ein Figurenpack, um es auszuwählen / abzuwählen. Ausgewählte Figurenpacks sind grün schattiert.<b>Bitte beachte:</b> Hier sind nur Figurenpacks aufgelistet, die nicht-einzigartige Gegner hinzufügen. Schurken und Verbündete können einfach bei der Einrichtung des Einsatzes ausgewählt werden."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "ImportGroups",
+    "helpItems": [
+      {
+        "id": "activateGroups",
+        "helpText": "Klicke / tippe auf eine Gruppe, um sie auszuwählen / abzuwählen.\n\nAlle hier ausgewählten Gruppen können genau wie offizielle Gruppen zu den offenen Gruppen hinzugefügt werden. Sie folgen denselben Regeln wie offizielle Gruppen und können auch zu den ignorierten Gruppen hinzugefügt werden, wenn du sie bei einem Einsatz nicht verwenden möchtest."
+      },
+      {
+        "id": "selectAll",
+        "helpText": "Klicke / tippe hier, um alle Gruppen auszuwählen."
+      },
+      {
+        "id": "selectNone",
+        "helpText": "Klicke / tippe hier, um alle Gruppen abzuwählen."
+      },
+      {
+        "id": "ToggleFaction",
+        "helpText": "Klicke / tippe hier, um zwischen den Gruppen Imperial/Söldner und Rebellen umzuschalten."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "ImperialMenu",
+    "helpItems": [
+      {
+        "id": "showGroups",
+        "helpText": "Klicke / tippe auf das Feld, um die Karten aufzudecken, die sich derzeit in der Aufstellungshand befinden."
+      },
+      {
+        "id": "modifyThreat",
+        "helpText": "Klicke / tippe hier, um die aktuelle Bedrohung zu erhöhen oder zu verringern."
+      },
+      {
+        "id": "pauseDeployment",
+        "helpText": "Klicke / tippe hier, um Aufstellungen zu pausieren oder wieder zu starten."
+      },
+      {
+        "id": "pauseThreat",
+        "helpText": "Klicke / tippe hier, um das Erhalten von Bedrohung zu pausieren oder wieder zu starten."
+      },
+      {
+        "id": "optionalDeployment",
+        "helpText": "Klicke / tippe hier, damit die App sofort eine optionale Aufstellung durchführt."
+      },
+      {
+        "id": "currentThreat",
+        "helpText": "Dies ist der aktuelle Bedrohungswert."
+      },
+      {
+        "id": "deploymentModifier",
+        "helpText": "Dies ist der Aufstellungsmodifikator. Je höher der Modifikator ist, desto höher ist die Chance, dass ein gefährlicheres Aufstellungsereignis eintritt. Er ändert sich jede Runde je nach Aufstellungsereignis."
+      }
+    ]
+  }
 ]
