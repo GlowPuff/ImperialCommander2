@@ -748,7 +748,7 @@ namespace Saga
 			sound.PlaySound( FX.Vader );
 
 			if ( DataStore.sagaSessionData.gameVars.roundLimit == -1 )
-				Debug.Log( "OnEndRound()::Round Limit: DISABLED" );
+				Debug.Log( "OnEndRound()::Round Limit: DISABLED by Mission" );
 
 			DataStore.sagaSessionData.gameVars.isEndTurn = true;
 			//check if any Events with trigger conditions get triggered, then queue and fire them

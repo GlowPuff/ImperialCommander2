@@ -255,8 +255,8 @@ namespace Saga
 							Debug.Log( $"EnqueueEventAfterCurrent()::Event added at index {idx} [{ev.name}]" );
 							eventQueue.Enqueue( ev );
 						}
-						else
-							eventQueue.Enqueue( temp[i] );
+						//be sure to also queue the currently indexed Event
+						eventQueue.Enqueue( temp[i] );
 					}
 				}
 			}
