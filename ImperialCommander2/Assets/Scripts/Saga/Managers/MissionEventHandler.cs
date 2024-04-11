@@ -894,7 +894,7 @@ namespace Saga
 				{
 					string mod = acr.threatToModify > 0 ? "+" : "-";
 					RunningCampaign.sagaCampaign.ModifyNextMissionThreatLevel( acr.threatToModify );
-					sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiMainApp.modThreatHeading.ToLower()} {mod}{acr.threatToModify}" );
+					sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiMainApp.modThreatHeading.ToUpper()} {mod}{acr.threatToModify}" );
 					Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify Threat: {acr.threatToModify}" );
 				}
 

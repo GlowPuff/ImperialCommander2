@@ -104,6 +104,13 @@ namespace Saga
 			itemToggle.isOn = cs.isItemChecked;
 			threatLevelText.text = cs.threatLevel.ToString();
 
+			//if the threat has been modified by an Event in another Mission, change the default color
+			if ( cs.threatModifiedByMission )
+			{
+				if ( ColorUtility.TryParseHtmlString( "#FF8E00", out var tColor ) )//orange
+					threatLevelText.color = tColor;
+			}
+
 			if ( cs.itemTier != null && cs.itemTier.Length > 0 )
 			{
 				var s = cs.itemTier.Select( x => $"{DataStore.uiLanguage.uiCampaign.tierUC} " + x );

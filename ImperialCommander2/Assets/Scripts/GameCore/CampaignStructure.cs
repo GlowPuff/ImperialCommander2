@@ -27,6 +27,7 @@ namespace Saga
 		public Guid structureGUID;
 		public Guid packageGUID;
 		public bool canModify = true;
+		public bool threatModifiedByMission = false;
 
 		public CampaignStructure()
 		{

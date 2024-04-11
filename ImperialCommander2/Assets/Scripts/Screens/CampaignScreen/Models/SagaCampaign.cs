@@ -338,6 +338,7 @@ namespace Saga
 					if ( idx + 1 < campaignStructure.Count )
 					{
 						campaignStructure[idx + 1].threatLevel = Math.Max( 0, campaignStructure[idx + 1].threatLevel + level );
+						campaignStructure[idx + 1].threatModifiedByMission = true;
 						Debug.Log( $"ModifyNextMissionThreatLevel()::New Threat Level for [Mission index {idx + 1}] Set to [{campaignStructure[idx + 1].threatLevel}]" );
 					}
 					else
