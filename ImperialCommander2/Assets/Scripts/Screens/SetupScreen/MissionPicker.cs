@@ -354,6 +354,8 @@ namespace Saga
 
 		public void OnTiles()
 		{
+			Debug.Log( $"OnTiles()::Mode: {pickerMode}" );
+
 			EventSystem.current.SetSelectedGameObject( null );
 			Mission m = null;
 			Action doneAction = () =>
@@ -376,9 +378,18 @@ namespace Saga
 				if ( m != null )
 					doneAction();
 				else
-					FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
+					FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission (Custom) is null\n'{selectedMission.fullPathWithFilename}'" );
 			}
-			else
+			else if ( pickerMode == PickerMode.Embedded )
+			{
+				var structure = RunningCampaign.campaignStructure;
+				m = FileManager.LoadEmbeddedMission( structure.packageGUID.ToString(), structure.projectItem.missionGUID, out DataStore.sagaSessionData.missionStringified );
+				if ( m != null )
+					doneAction();
+				else
+					FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission (Embedded) is null\n'{selectedMission.fullPathWithFilename}'" );
+			}
+			else if ( pickerMode == PickerMode.BuiltIn )//official
 			{
 				isBusy = true;
 				try
@@ -387,7 +398,7 @@ namespace Saga
 					if ( m != null )
 						doneAction();
 					else
-						FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission is null\n'{selectedMission.fullPathWithFilename}'" );
+						FindObjectOfType<SagaSetup>().errorPanel.Show( "OnTiles()", $"Mission (Official) is null\n'{selectedMission.fullPathWithFilename}'" );
 					isBusy = false;
 				}
 				catch ( Exception e )
