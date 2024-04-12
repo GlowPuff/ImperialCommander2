@@ -11,6 +11,7 @@ namespace Saga
 	{
 		public const string formatVersion = "22";//the EXPECTED mission format
 		public const int expectedCampaignFormatVersion = 2;
+		public static int vaderSound = 0;//increase each time the "defeat" sound is played to mix up which voice clip is used
 
 		/// <summary>
 		/// Logs error to console and to log file, optionally showing the Error Panel (if one exists in the Scene)

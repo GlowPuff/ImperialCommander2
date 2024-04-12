@@ -309,7 +309,10 @@ namespace Saga
 			//chance vader speaks
 			if ( GlowEngine.RandomBool( 30 ) )
 			{
-				GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 14 ) );
+				if ( Utils.vaderSound++ % 2 == 0 )
+					GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 14 ) );
+				else
+					GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 15 ) );
 			}
 
 			//visually remove group from screen
