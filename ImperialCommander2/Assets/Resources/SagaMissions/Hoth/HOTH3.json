@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH3.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638483015776218026,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485162556045726,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "One Step Behind",
@@ -1359,7 +1359,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "You're reasonably certain that you have all the data the facility has to offer, and alert klaxons are blaring. You escape out of the facility, and, after sprinting away from blaster fire for a half mile, you find your pilot waiting for extraction.\r\n\r\nIn addition to the files you've already decrypted, you also managed to find a substantial amount of Imperial code. Hopefully, after it’s analyzed, it will reveal the Empire’s final plan.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If at least half of the heroes were wounded, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "You're reasonably certain that you have all the data the facility has to offer, and alert klaxons are blaring. You escape out of the facility, and, after sprinting away from blaster fire for a half mile, you find your pilot waiting for extraction.\r\n\r\nIn addition to the files you've already decrypted, you also managed to find a substantial amount of Imperial code. Hopefully, after it’s analyzed, it will reveal the Empire’s final plan.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1416,15 +1416,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Are at least half of the heroes wounded?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "7b4a580f-0342-4f60-9fe3-801b533d35d9",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "e44c8058-b65e-4364-a8fc-1454099bd2a5"
+            },
+            {
+              "GUID": "653f89a3-3bc1-479c-bc67-3c7f680b3915",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "3f12b90d-dd85-44a3-ab11-2a732043f3b9"
+            }
+          ],
+          "GUID": "a4665a32-77e2-46db-9b9c-a52ca30b7db1",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1432,7 +1442,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Although the information is not complete, you have no choice but to flee and hope you didn’t miss anything vital.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If the heroes claimed 3 terminals, heroes receive 100 credits per hero.",
+      "eventText": "Although the information is not complete, you have no choice but to flee and hope you didn’t miss anything vital.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2536,7 +2546,7 @@
       "GUID": "f60cba29-4637-419f-b359-f42d3ce1dbd1",
       "isGlobal": true,
       "name": "End Mission Credits Yes",
-      "eventText": "",
+      "eventText": "Because the Rebels claimed 3 terminals, the heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2560,13 +2570,13 @@
       "behaviorAll": true,
       "additionalTriggers": [
         {
-          "triggerName": "End Mission",
-          "triggerGUID": "232e450e-d8b4-4fd5-a45b-95370bc495c0",
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "6f655ad6-ba90-403a-b1f7-bb2286c97533",
           "triggerValue": 1
         },
         {
-          "triggerName": "Bonus Credits",
-          "triggerGUID": "6f655ad6-ba90-403a-b1f7-bb2286c97533",
+          "triggerName": "End Mission",
+          "triggerGUID": "232e450e-d8b4-4fd5-a45b-95370bc495c0",
           "triggerValue": 1
         }
       ],
@@ -2689,6 +2699,99 @@
           "GUID": "8589c11b-f802-41aa-9a82-3dc244f46634",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "e44c8058-b65e-4364-a8fc-1454099bd2a5",
+      "isGlobal": true,
+      "name": "Heroes Wounded Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "b696d5bf-9dfc-4e59-a3fc-75eee7c22018",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "d5de7349-67b9-4f4f-9bfe-bfddb8ceea19",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "3f12b90d-dd85-44a3-ab11-2a732043f3b9",
+      "isGlobal": true,
+      "name": "Heroes Wounded No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "0c9babd9-5fde-47dd-87aa-b972d9b9c675",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

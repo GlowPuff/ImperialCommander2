@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH2.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638483011165162139,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485163812183542,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Home Front",
@@ -1154,7 +1154,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "“Fall back!” the Imperial troops shout to each other after seeing their comrades defeated and their commander fall.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If the barricade was destroyed before the end of Round 3, heroes receive 100 credits per hero. Otherwise, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "“Fall back!” the Imperial troops shout to each other after seeing their comrades defeated and their commander fall.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1205,15 +1205,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "684b95ef-8136-4fe1-ae46-c9d3b219cd43",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "9b15cb76-559d-42c5-b091-b3c5b6e04603",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1221,7 +1223,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "You eventually manage to drive the Imperial troops out, but heavy losses are inflicted upon the settlement and its people. In the aftermath, you walk through the desolation, wondering how long it will be before the Empire returns to finish its task.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If the barricade was destroyed before the end of Round 3, heroes receive 100 credits per hero. Otherwise, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "You eventually manage to drive the Imperial troops out, but heavy losses are inflicted upon the settlement and its people. In the aftermath, you walk through the desolation, wondering how long it will be before the Empire returns to finish its task.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2808,7 +2810,7 @@
       "GUID": "5a967827-e69d-4e55-a17f-e6ab61c1067c",
       "isGlobal": true,
       "name": "End Mission Credits Yes",
-      "eventText": "",
+      "eventText": "Because the barricade was destroyed before the end of Round 3, the heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2867,7 +2869,7 @@
       "GUID": "9c13c492-2e34-45a5-8c57-bb1470f0a920",
       "isGlobal": true,
       "name": "End Mission Credits No",
-      "eventText": "",
+      "eventText": "Because the barricade was not destroyed before the end of Round 3, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2902,6 +2904,17 @@
         }
       ],
       "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "4d9f1f2b-dfe4-4d6d-8c26-e4d42a8c088a",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,

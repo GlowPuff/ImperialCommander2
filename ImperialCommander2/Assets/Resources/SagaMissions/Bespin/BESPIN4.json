@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "BESPIN4.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638482097473648218,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485317608065299,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Panic in the Streets",
@@ -949,16 +949,16 @@
           "displayName": "Change Mission Info"
         },
         {
-          "foundTrigger": "00000000-0000-0000-0000-000000000000",
-          "foundEvent": "08e45092-174d-4c04-beef-e9f291e44605",
-          "displayName": "Query Group",
           "groupEnemyToQuery": null,
           "groupRebelToQuery": {
             "name": "Murne Rin",
             "id": "H13"
           },
+          "foundTrigger": "00000000-0000-0000-0000-000000000000",
+          "foundEvent": "08e45092-174d-4c04-beef-e9f291e44605",
           "GUID": "16b269bc-d7b8-4d6f-bcf0-98aa144eec0a",
-          "eventActionType": 23
+          "eventActionType": 23,
+          "displayName": "Query Group"
         }
       ]
     },
@@ -966,7 +966,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Imperials pound on the doors, but they hold. Safely reunited with their families, many of the civilians apologize for their confusion. After witnessing the disregard the Empire showed, a few even pledge to join the guerrillas.\r\n\r\nStaying here will only endanger these people again. You leave what provisions you can afford to before leading the Imperials away and disappearing into Cloud City.\r\n\r\n{-} The Rebels win the mission!\r\n{-} If Murne Rin is a hero, she gains the “Cam Droid” Reward card. Otherwise, heroes receive 150 credits per hero.",
+      "eventText": "Imperials pound on the doors, but they hold. Safely reunited with their families, many of the civilians apologize for their confusion. After witnessing the disregard the Empire showed, a few even pledge to join the guerrillas.\r\n\r\nStaying here will only endanger these people again. You leave what provisions you can afford to before leading the Imperials away and disappearing into Cloud City.\r\n\r\n{-} The Rebels win the mission!",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -991,6 +991,19 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "triggerList": [
+            {
+              "triggerName": "Rebels win",
+              "triggerGUID": "9aee2746-70e5-417c-ab82-ed34944675b4",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "abf93fe0-7c8f-4abf-84df-f0f57267eb5b",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        },
+        {
           "theText": "Did you play this mission as part of the \"The Bespin Gambit\" mini campaign?",
           "includeCancel": false,
           "buttonList": [
@@ -1010,19 +1023,6 @@
           "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
           "eventActionType": 5,
           "displayName": "Question Prompt"
-        },
-        {
-          "triggerList": [
-            {
-              "triggerName": "Rebels win",
-              "triggerGUID": "9aee2746-70e5-417c-ab82-ed34944675b4",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "abf93fe0-7c8f-4abf-84df-f0f57267eb5b",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1074,197 +1074,6 @@
           "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
           "eventActionType": 5,
           "displayName": "Question Prompt"
-        }
-      ]
-    },
-    {
-      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
-      "isGlobal": true,
-      "name": "Campaign Win Yes",
-      "eventText": "The presence of notorious bounty hunter Bossk on Cloud City concerns you. He doesn’t take small contracts, which means he’s here for something big; something like Imperial codes.\r\n\r\nWorries subside as you return to headquarters and find a few fresh faces. Your restraint in the earlier battle has pulled public support to your side. The people are tired of mistreatment, and at least a few are willing to take a stand.\r\n\r\nThe boy whom you saved from Trandoshans before the fight steps forward. “Thanks for helping me, but many were captured before you arrived. If you can free them, I’m sure we'll have enough support to lead a true rebellion!”\r\n\r\nThe sentiment is sweet, but the boy also makes a point. As the guerrilla ranks grow, so do your resources and your chances of finding the codes. You set out immediately to find the missing civilians.\r\n\r\n{-} Each hero receives 3 XP.\r\n{-} Heroes receive 300 credits per hero.\r\n{-} The next active mission is “Freedom Fighters”.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [],
-      "eventActions": [
-        {
-          "xpToAdd": 3,
-          "GUID": "1bc15f95-c5e6-4906-8d21-424a0700b5c2",
-          "eventActionType": 24,
-          "displayName": "Modify XP"
-        },
-        {
-          "creditsToModify": 300,
-          "multiplyByHeroCount": true,
-          "GUID": "63270f43-e7f9-4f48-b64a-a55571385cc9",
-          "eventActionType": 25,
-          "displayName": "Modify Credits"
-        },
-        {
-          "customMissionID": "",
-          "missionID": "bespin2",
-          "GUID": "d3765f93-5bdc-4d30-bcef-57d71bcfb27a",
-          "eventActionType": 27,
-          "displayName": "Set Next Mission"
-        },
-        {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "82efc486-3c27-47ee-8ede-0ccda4119321",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
-        },
-        {
-          "triggerList": [
-            {
-              "triggerName": "Mission ends",
-              "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "31268f8c-a5c6-4ac3-aea8-50fb0698893d",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
-      "isGlobal": true,
-      "name": "Campaign Defeat Yes",
-      "eventText": "Your mission has gotten complicated, and you struggle to piece it all together. Why are Trandoshans pestering civilians about guerrillas? How are they able to get away with it in front of the Wing Guard? And why would a bounty hunter as notorious as Bossk be on Cloud City?\r\n\r\nAt headquarters, you find it difficult to convince the soldiers to stay. Public support is waning, and with mercenaries roaming the streets freely, the dangers of being associated with the Rebellion have become tangible.\r\n\r\nDangerous or not, you still have a mission. Rumors that Bossk is turning a profit in this chaos by selling slaves only steel your resolve. If these lizards want a part in this conflict, then you'll bring the fight to them.\r\n\r\n{-} Each hero receives 2 XP.\r\n{-} Heroes receive 300 credits per hero.\r\n{-} The next active mission is “Freedom Fighters”.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [],
-      "eventActions": [
-        {
-          "xpToAdd": 2,
-          "GUID": "229d3f5c-c4b0-4028-8408-e50632ca3058",
-          "eventActionType": 24,
-          "displayName": "Modify XP"
-        },
-        {
-          "creditsToModify": 300,
-          "multiplyByHeroCount": true,
-          "GUID": "fc5d7399-05eb-4c74-9d91-adaa05f5963c",
-          "eventActionType": 25,
-          "displayName": "Modify Credits"
-        },
-        {
-          "customMissionID": "",
-          "missionID": "bespin2",
-          "GUID": "e686edfe-9055-4466-ae1b-7b374a465231",
-          "eventActionType": 27,
-          "displayName": "Set Next Mission"
-        },
-        {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "7f01febd-f4fa-4cb9-ba6f-b9e9c1f7d32c",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
-        }
-      ]
-    },
-    {
-      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
-      "isGlobal": true,
-      "name": "Campaign No",
-      "eventText": "{-} Each hero receives 1 XP.\r\n{-} Heroes receive 100 credits per hero.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [],
-      "eventActions": [
-        {
-          "xpToAdd": 1,
-          "GUID": "ed53479d-6b60-4403-9ce8-1ceb6dcae466",
-          "eventActionType": 24,
-          "displayName": "Modify XP"
-        },
-        {
-          "creditsToModify": 100,
-          "multiplyByHeroCount": true,
-          "GUID": "e5f41faf-ed73-41c0-ad17-71330f7e3d6a",
-          "eventActionType": 25,
-          "displayName": "Modify Credits"
-        },
-        {
-          "triggerList": [
-            {
-              "triggerName": "Mission ends",
-              "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "6b4c7685-a7a2-44f8-a925-692999b3140a",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2307,7 +2116,7 @@
       "GUID": "d874b01b-f209-4b6a-ab29-e61e1026a6ac",
       "isGlobal": true,
       "name": "Mission Ends Win Murne Yes",
-      "eventText": "",
+      "eventText": "Murne Rin gains the “Cam Droid” Reward card.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2377,7 +2186,7 @@
       "GUID": "9560afc5-6661-48f1-a146-9564e4489c5c",
       "isGlobal": true,
       "name": "Mission Ends Win Murne No",
-      "eventText": "",
+      "eventText": "The heroes receive 150 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2441,7 +2250,7 @@
       "GUID": "16f5f233-66ff-4fee-b0e7-4f622c641fb6",
       "isGlobal": true,
       "name": "Mission Ends Defeat",
-      "eventText": "",
+      "eventText": "Mission Ends Defeat",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2486,6 +2295,186 @@
           "GUID": "cc5b013d-7de0-45cc-9084-7a7007b4ce58",
           "eventActionType": 0,
           "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "isGlobal": true,
+      "name": "Campaign Win Yes",
+      "eventText": "The presence of notorious bounty hunter Bossk on Cloud City concerns you. He doesn’t take small contracts, which means he’s here for something big; something like Imperial codes.\r\n\r\nWorries subside as you return to headquarters and find a few fresh faces. Your restraint in the earlier battle has pulled public support to your side. The people are tired of mistreatment, and at least a few are willing to take a stand.\r\n\r\nThe boy whom you saved from Trandoshans before the fight steps forward. “Thanks for helping me, but many were captured before you arrived. If you can free them, I’m sure we'll have enough support to lead a true rebellion!”\r\n\r\nThe sentiment is sweet, but the boy also makes a point. As the guerrilla ranks grow, so do your resources and your chances of finding the codes. You set out immediately to find the missing civilians.\r\n\r\n{-} Each hero receives 3 XP.\r\n{-} Heroes receive 300 credits per hero.\r\n{-} The next active mission is “Freedom Fighters”.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "xpToAdd": 3,
+          "GUID": "1bc15f95-c5e6-4906-8d21-424a0700b5c2",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 300,
+          "multiplyByHeroCount": true,
+          "GUID": "63270f43-e7f9-4f48-b64a-a55571385cc9",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "customMissionID": "",
+          "missionID": "bespin2",
+          "GUID": "d3765f93-5bdc-4d30-bcef-57d71bcfb27a",
+          "eventActionType": 27,
+          "displayName": "Set Next Mission"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Mission ends",
+              "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "31268f8c-a5c6-4ac3-aea8-50fb0698893d",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "isGlobal": true,
+      "name": "Campaign Defeat Yes",
+      "eventText": "Your mission has gotten complicated, and you struggle to piece it all together. Why are Trandoshans pestering civilians about guerrillas? How are they able to get away with it in front of the Wing Guard? And why would a bounty hunter as notorious as Bossk be on Cloud City?\r\n\r\nAt headquarters, you find it difficult to convince the soldiers to stay. Public support is waning, and with mercenaries roaming the streets freely, the dangers of being associated with the Rebellion have become tangible.\r\n\r\nDangerous or not, you still have a mission. Rumors that Bossk is turning a profit in this chaos by selling slaves only steel your resolve. If these lizards want a part in this conflict, then you'll bring the fight to them.\r\n\r\n{-} Each hero receives 2 XP.\r\n{-} Heroes receive 300 credits per hero.\r\n{-} The next active mission is “Freedom Fighters”.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "xpToAdd": 2,
+          "GUID": "229d3f5c-c4b0-4028-8408-e50632ca3058",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 300,
+          "multiplyByHeroCount": true,
+          "GUID": "fc5d7399-05eb-4c74-9d91-adaa05f5963c",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "customMissionID": "",
+          "missionID": "bespin2",
+          "GUID": "e686edfe-9055-4466-ae1b-7b374a465231",
+          "eventActionType": 27,
+          "displayName": "Set Next Mission"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "7f01febd-f4fa-4cb9-ba6f-b9e9c1f7d32c",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "isGlobal": true,
+      "name": "Campaign No",
+      "eventText": "{-} Each hero receives 1 XP.\r\n{-} Heroes receive 100 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "xpToAdd": 1,
+          "GUID": "ed53479d-6b60-4403-9ce8-1ceb6dcae466",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "e5f41faf-ed73-41c0-ad17-71330f7e3d6a",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Mission ends",
+              "triggerGUID": "4a2a1826-e9f5-4644-bb7f-9024ee058e80",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "6b4c7685-a7a2-44f8-a925-692999b3140a",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     }

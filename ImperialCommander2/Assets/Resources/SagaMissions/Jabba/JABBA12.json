@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA12.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481854588662779,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485104200573652,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Turf War",
@@ -572,6 +572,24 @@
       "GUID": "4f62e2a2-c21d-4d6c-8c5f-5c7d02008d0f",
       "isGlobal": true,
       "useReset": true,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels lose",
+      "GUID": "aee27def-5c47-4639-8462-3092956b4249",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Bonus Credits",
+      "GUID": "f521a105-792f-4eb2-8f02-d99cac9ec335",
+      "isGlobal": true,
+      "useReset": false,
       "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
@@ -1225,7 +1243,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "By the time you've finally finished, splinters and rubble are all that remain of Jabba's foes. You return to the shuttle, where the pilot compliments your work. The Hutt lord laughs heartily as you tell him the news, and his court erupts into applause.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.\r\n{-} If there is only 1 healthy hero, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "By the time you've finally finished, splinters and rubble are all that remain of Jabba's foes. You return to the shuttle, where the pilot compliments your work. The Hutt lord laughs heartily as you tell him the news, and his court erupts into applause.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1282,15 +1300,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "f878ea0c-6036-4621-8ec8-ccd936098074",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "92f69c84-54e3-4fc4-a915-cca652f30e60"
+            },
+            {
+              "GUID": "9adc6898-c27b-48b3-a7bd-d37ffd1a5a46",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "af3cc853-b46b-466e-b5da-cfeaff00d5f5"
+            }
+          ],
+          "GUID": "72b213fd-2cf4-4d9f-b1fe-54d9f943752c",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1298,7 +1326,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Whoever these rivals are, they've spared no credits on their defenses. You've dealt a blow to their infrastructure, but in the end, you're the ones who must retreat. Jabba is dissatisfied with your failure. His court falls deathly silent as the Hutt lord contemplates your future. Bib Fortuna translates his master’s warning, “You have one last chance.\"\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If 4 structural supports were destroyed, heroes receive 25 credits per hero.",
+      "eventText": "Whoever these rivals are, they've spared no credits on their defenses. You've dealt a blow to their infrastructure, but in the end, you're the ones who must retreat. Jabba is dissatisfied with your failure. His court falls deathly silent as the Hutt lord contemplates your future. Bib Fortuna translates his master’s warning, “You have one last chance.\"\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1349,15 +1377,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Rebels lose",
+              "triggerGUID": "aee27def-5c47-4639-8462-3092956b4249",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "2578d2ec-b6e4-4272-8288-baa9b99d01ea",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2446,6 +2476,259 @@
           "GUID": "60b767d8-5661-44f3-8bd5-6a510a0909d2",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "92f69c84-54e3-4fc4-a915-cca652f30e60",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "98e653be-fd02-461a-9d30-3c01918d1bfd",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "e94d8a7e-dc95-4e95-af10-82c41de04e84",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "af3cc853-b46b-466e-b5da-cfeaff00d5f5",
+      "isGlobal": true,
+      "name": "End Mission No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "12f27513-dd14-491a-9b4c-3a88f69c1a64",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "d7e3b2ff-b9e1-40b7-8bd4-6db74a632d09",
+      "isGlobal": true,
+      "name": "Trigger Bonus Credits",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Supports destroyed",
+          "triggerGUID": "dd8e43ef-1b9a-4d07-896a-369d3ca0a1f8",
+          "triggerValue": 4
+        }
+      ],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Bonus Credits",
+              "triggerGUID": "f521a105-792f-4eb2-8f02-d99cac9ec335",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "2e114cca-de94-4173-b925-e1aa164128b9",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "688d8834-5000-4c90-b5a7-a4eaef8e8034",
+      "isGlobal": true,
+      "name": "Defeat Bonus Credits",
+      "eventText": "Because 4 structural supports were destroyed, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Rebels lose",
+          "triggerGUID": "aee27def-5c47-4639-8462-3092956b4249",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "f521a105-792f-4eb2-8f02-d99cac9ec335",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "129bbfa6-471b-4182-91a7-7eb9f3626dcc",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "78c7cf9f-6c02-4fa9-a596-8c96f7ea3d20",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "ab5d424b-c046-4115-b1d4-8b8131b3174d",
+      "isGlobal": true,
+      "name": "Defeat No Bonus Credits",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Rebels lose",
+          "triggerGUID": "aee27def-5c47-4639-8462-3092956b4249",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "f521a105-792f-4eb2-8f02-d99cac9ec335",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "824bde7e-0b24-49bc-a99f-7a943c326be9",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

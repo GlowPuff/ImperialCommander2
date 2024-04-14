@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "OTHER11.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481949002358840,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485527532322697,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Cornered",
@@ -308,6 +308,15 @@
     {
       "name": "Reveal Regular",
       "GUID": "1af04c10-92a4-4d91-8617-a23cd10139c8",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "285d1e19-87da-49be-89fb-898a296595a5",
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
@@ -682,6 +691,16 @@
           "displayName": "Text Box"
         },
         {
+          "countdownTimerName": "Victory Timer",
+          "countdownTimer": 4,
+          "triggerGUID": "00000000-0000-0000-0000-000000000000",
+          "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "c834c5aa-913f-4727-9dcb-50b88a358623",
+          "eventActionType": 29
+        },
+        {
           "theText": "Protect the refugees (refugees alive: &Refugee Count&/4).",
           "longText": null,
           "GUID": "1a250b82-bed0-4647-b7b0-769913091c0c",
@@ -708,7 +727,7 @@
       "startOfRound": 1,
       "endOfRound": 5,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -725,15 +744,11 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "3274f92b-81b5-4a63-966b-6ac9cb214f53",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
         },
         {
           "xpToAdd": 1,
@@ -742,11 +757,17 @@
           "displayName": "Modify XP"
         },
         {
-          "creditsToModify": 200,
-          "multiplyByHeroCount": true,
-          "GUID": "3274f92b-81b5-4a63-966b-6ac9cb214f53",
-          "eventActionType": 25,
-          "displayName": "Modify Credits"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "285d1e19-87da-49be-89fb-898a296595a5",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "069493d1-6a70-4fea-9af9-19cd2415b5d9",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2709,6 +2730,242 @@
           "GUID": "9a7515f4-0176-4e3b-87aa-27e971715a38",
           "eventActionType": 8,
           "displayName": "Optional Deployment"
+        }
+      ]
+    },
+    {
+      "GUID": "2e4a2062-7c15-4487-9c3a-46d5e5e2ecf8",
+      "isGlobal": true,
+      "name": "End Mission 4 Refugees",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "285d1e19-87da-49be-89fb-898a296595a5",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Refugee Count",
+          "triggerGUID": "e3b20e62-d627-4c5d-8d10-8d97a6b834e7",
+          "triggerValue": 4
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 200,
+          "multiplyByHeroCount": true,
+          "GUID": "d82fafeb-7df8-4b8a-816f-c9a0a58de1b9",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "6e6526d8-c4e0-4ec5-a1e8-ccd7d227189f",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "6db23fd4-9893-4674-8857-1f4a8d294e39",
+      "isGlobal": true,
+      "name": "End Mission 3 Refugees",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "285d1e19-87da-49be-89fb-898a296595a5",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Refugee Count",
+          "triggerGUID": "e3b20e62-d627-4c5d-8d10-8d97a6b834e7",
+          "triggerValue": 3
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 150,
+          "multiplyByHeroCount": true,
+          "GUID": "008ad337-7f13-4829-bedf-7d72082e31d6",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "6034fda0-1ec2-4f8d-95fa-09fbaf5183b3",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "89ad56da-1391-47bc-a152-9e3ed5f519e8",
+      "isGlobal": true,
+      "name": "End Mission 2 Refugees",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "285d1e19-87da-49be-89fb-898a296595a5",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Refugee Count",
+          "triggerGUID": "e3b20e62-d627-4c5d-8d10-8d97a6b834e7",
+          "triggerValue": 2
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "f29bbbe7-8ce6-4bb1-a356-5d56f0ee5090",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "18912cc3-5011-47f2-992c-6f8234f83412",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "8c40407b-06cf-4066-bae0-95d6c78ae6dd",
+      "isGlobal": true,
+      "name": "End Mission 1 Refugee",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "285d1e19-87da-49be-89fb-898a296595a5",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Refugee Count",
+          "triggerGUID": "e3b20e62-d627-4c5d-8d10-8d97a6b834e7",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 50,
+          "multiplyByHeroCount": true,
+          "GUID": "c4b95c1e-a213-4a2b-ae05-3162d6af44c3",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "54667495-e5c8-4a1c-81da-b893fa0d961c",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

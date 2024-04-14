@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH5.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481833288914175,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485162356556291,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Rescue Ops",
@@ -435,6 +435,42 @@
     {
       "name": "Enhanced Interrogation",
       "GUID": "10591d05-cb5b-44b0-aff1-ebecaf38a14e",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Benex Retrieved",
+      "GUID": "399b5a8d-f5b6-456e-8bfd-05d8f9c527d2",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Bonus Credits",
+      "GUID": "8c1de2e1-8bcb-4bf0-a7b0-947f779faf99",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 1,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "ad9105f5-1733-44e5-8803-0d55bfdd39fe",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "EoR 5",
+      "GUID": "593eab23-6851-482d-95e4-a15463bce991",
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
@@ -982,7 +1018,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "With the limp Benex in your arms, you pile into your shuttle as it blasts off. Leia contacts you from her ship. “Well done, team. We saved this one, at least. And maybe he even learned something.”\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If the heroes retrieved Benex before the end of Round 5, the heroes receive 100 credits per hero.",
+      "eventText": "With the limp Benex in your arms, you pile into your shuttle as it blasts off. Leia contacts you from her ship. “Well done, team. We saved this one, at least. And maybe he even learned something.”\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1033,15 +1069,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "ad9105f5-1733-44e5-8803-0d55bfdd39fe",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "1b2592ea-26c6-4849-9009-f508270ac2c1",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1049,7 +1087,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "You are forced to retreat, leaving Benex to General Sorin's mercy. The princess is furious. “How can we restore the Republic if we can’t even protect our friends?” Days later, Benex is finally recovered by a convoy raid during transport. He swears he did not break or reveal information, but Leia remains concerned.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If the heroes retrieved Benex before the end of Round 5, the heroes receive 100 credits per hero.",
+      "eventText": "You are forced to retreat, leaving Benex to General Sorin's mercy. The princess is furious. “How can we restore the Republic if we can’t even protect our friends?” Days later, Benex is finally recovered by a convoy raid during transport. He swears he did not break or reveal information, but Leia remains concerned.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1100,15 +1138,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "ad9105f5-1733-44e5-8803-0d55bfdd39fe",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "f4c4684a-6ea1-4264-945b-6924aa84f50a",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2564,6 +2604,384 @@
           "GUID": "9346c444-b628-4463-9fc0-1e6954a0eb3b",
           "eventActionType": 2,
           "displayName": "Change Objective"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Benex Retrieved",
+              "triggerGUID": "399b5a8d-f5b6-456e-8bfd-05d8f9c527d2",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "fa2e395d-8e0c-4781-9a5e-213f3bc44137",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "1ced2a93-2afa-4d45-af57-79b292f6f2ed",
+      "isGlobal": true,
+      "name": "End of Round 5",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 5,
+      "useStartOfRound": false,
+      "useEndOfRound": true,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "EoR 5",
+              "triggerGUID": "593eab23-6851-482d-95e4-a15463bce991",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "d02de076-dfe9-481c-84df-0c6a510f45c6",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "a8658fdf-f948-4c0c-b2c3-9297acf9ee2f",
+      "isGlobal": true,
+      "name": "End Mission Bonus Credits",
+      "eventText": "Because Benex was retrieved before the end of Round 5, the heroes receive 100 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "ad9105f5-1733-44e5-8803-0d55bfdd39fe",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "8c1de2e1-8bcb-4bf0-a7b0-947f779faf99",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Benex Retrieved",
+          "triggerGUID": "399b5a8d-f5b6-456e-8bfd-05d8f9c527d2",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "e5e03e5d-fddb-43d4-8931-93e915ce0464",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "cb75173a-3e47-46f4-b0c3-d9d7b6e12772",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "99be3934-658c-4b32-a2a2-7eda5c3733be",
+      "isGlobal": true,
+      "name": "End Mission No Bonus Credits 1-0-0",
+      "eventText": "Because Benex was not retrieved before the end of Round 5, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "ad9105f5-1733-44e5-8803-0d55bfdd39fe",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Benex Retrieved",
+          "triggerGUID": "399b5a8d-f5b6-456e-8bfd-05d8f9c527d2",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "8c1de2e1-8bcb-4bf0-a7b0-947f779faf99",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "2923eaf6-5e37-4230-b53a-2b793dc917e9",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "d5e72522-caf9-49de-bf74-7efdbe211fcf",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "90fa7910-0828-420d-9968-2edafacb6da3",
+      "isGlobal": true,
+      "name": "No Bonus Credits",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Benex Retrieved",
+          "triggerGUID": "399b5a8d-f5b6-456e-8bfd-05d8f9c527d2",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "EoR 5",
+          "triggerGUID": "593eab23-6851-482d-95e4-a15463bce991",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Bonus Credits",
+              "triggerGUID": "8c1de2e1-8bcb-4bf0-a7b0-947f779faf99",
+              "setValue": 0,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "40def447-3411-4bee-a93c-8a297132076f",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "ec2917a9-676f-4e17-bd93-db731b5d0317",
+      "isGlobal": true,
+      "name": "End Mission No Bonus Credits 1-1-0",
+      "eventText": "Because Benex was not retrieved before the end of Round 5, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "ad9105f5-1733-44e5-8803-0d55bfdd39fe",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Benex Retrieved",
+          "triggerGUID": "399b5a8d-f5b6-456e-8bfd-05d8f9c527d2",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "8c1de2e1-8bcb-4bf0-a7b0-947f779faf99",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "8475d1ab-5fe8-4c54-89bb-3e497adff4b7",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "dd2d5940-74fb-4c2d-9120-146dcc09d725",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "7b3c52ac-3502-45c0-8c00-a4ab631fa243",
+      "isGlobal": true,
+      "name": "End Mission No Bonus Credits 1-0-1",
+      "eventText": "Because Benex was not retrieved before the end of Round 5, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "ad9105f5-1733-44e5-8803-0d55bfdd39fe",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Benex Retrieved",
+          "triggerGUID": "399b5a8d-f5b6-456e-8bfd-05d8f9c527d2",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "8c1de2e1-8bcb-4bf0-a7b0-947f779faf99",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "64e027fc-e67a-4242-8769-0b3af801c787",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "2ba95153-bbbf-486d-950e-032ef0fba176",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

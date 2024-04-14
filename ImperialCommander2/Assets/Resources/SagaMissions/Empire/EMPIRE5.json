@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE5.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638482934629299016,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485131921848230,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Enemies Closer",
@@ -1059,15 +1059,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "59507f2c-aa1f-405c-b8e6-dad87d1df208",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "6a33976f-0ec9-4fd3-9ba3-56b01f50035b"
+            },
+            {
+              "GUID": "359f4d42-3ab2-44fd-8a7b-643e7d91e1b7",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "81afe5d0-78ce-4569-a8a8-165f0721b80b"
+            }
+          ],
+          "GUID": "66fee1da-6226-4914-8d54-037b7de580ea",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1075,7 +1085,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose Wounded",
-      "eventText": "Vader, shard in hand, motions at you. You feel your throat begin to close and you are no longer able to breathe. Using the Force, he lifts you up and slams your body against the wall as you continue to struggle for air.\r\n\r\nVader strides toward you. “This is the true power of the Force and it will destroy you.” He releases you and you crumple to the ground. You look up to see the towering Sith standing above you, the shard pulsating with Force energy in his hand, before you lose consciousness.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this. \r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If Darth Vader has suffered 9 or more {H}, heroes gain 25 credits per hero.\r\n{-} Place Story Mission card “The Realm of the Dark Side” into play.",
+      "eventText": "Vader, shard in hand, motions at you. You feel your throat begin to close and you are no longer able to breathe. Using the Force, he lifts you up and slams your body against the wall as you continue to struggle for air.\r\n\r\nVader strides toward you. “This is the true power of the Force and it will destroy you.” He releases you and you crumple to the ground. You look up to see the towering Sith standing above you, the shard pulsating with Force energy in his hand, before you lose consciousness.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this. \r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card “The Realm of the Dark Side” into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2179,9 +2189,9 @@
               "eventGUID": "83995958-e60c-414f-bffe-c1b41c81e7b9"
             }
           ],
-          "displayName": "Question Prompt",
           "GUID": "3e772a4d-e005-4a69-b553-9c59a051a188",
-          "eventActionType": 5
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -2189,7 +2199,7 @@
       "GUID": "6b773eb8-e98a-4eaa-a7e4-9023df1855ed",
       "isGlobal": true,
       "name": "Vader Check Yes",
-      "eventText": "The heroes gain 25 credits per hero.",
+      "eventText": "Because <color=\"red\">Darth Vader</color> has suffered 9 or more {H}, heroes gain 25 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2321,6 +2331,99 @@
           "unpauseThreat": false,
           "endMission": true,
           "GUID": "0b70f3ea-0edd-485c-bb9b-ef6a0e579bd6",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "6a33976f-0ec9-4fd3-9ba3-56b01f50035b",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "e8384419-ae36-4713-9c03-6fedf47015d6",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "a6b5358b-6668-4db9-ba21-8ea41fdec6b3",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "81afe5d0-78ce-4569-a8a8-165f0721b80b",
+      "isGlobal": true,
+      "name": "Healthy Hero No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "db5d16f3-ef71-452c-8e1c-8e3c333c38c7",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }

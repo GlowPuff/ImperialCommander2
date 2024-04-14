@@ -2,11 +2,11 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA8.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481859520416480,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485134103895833,
   "languageID": "English (EN)",
   "missionProperties": {
-    "missionName": "Template",
+    "missionName": "Overcharged",
     "campaignName": "Jabba's Realm",
     "missionDescription": "",
     "additionalMissionInfo": "",
@@ -395,6 +395,33 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": -1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Explosives claimed",
+      "GUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 6,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Bonus Credits",
+      "GUID": "04239bab-251e-47c3-b5fd-2a0ee7d3b793",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Lose",
+      "GUID": "06d28ad5-3f61-494a-8b3e-da08d069e856",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
@@ -998,7 +1025,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Bolts whiz dangerously close to your now explosive-laden satchels as you hop into the escape JumpMaster. Below, the Imperials frantically take stock of their emptied depot.\r\n\r\nUpon your return, Gamorreans carry the weapons to a pourstone outbuilding before escorting you to the throne room. \r\n\r\nJabba expels a cloud of smoke laughing while you recount the raid. Salacious B. Crumb interrupts throughout, which also seems to please the Hutt. For now, the truce holds.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.\r\n{-} If there is only 1 healthy hero, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
+      "eventText": "Bolts whiz dangerously close to your now explosive-laden satchels as you hop into the escape JumpMaster. Below, the Imperials frantically take stock of their emptied depot.\r\n\r\nUpon your return, Gamorreans carry the weapons to a pourstone outbuilding before escorting you to the throne room. \r\n\r\nJabba expels a cloud of smoke laughing while you recount the raid. Salacious B. Crumb interrupts throughout, which also seems to please the Hutt. For now, the truce holds.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1043,15 +1070,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "a3c70fef-fa5c-4f33-a9fc-9fb7395e49c3",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "3259108d-87f8-4269-98e8-56b3b95bcb66"
+            },
+            {
+              "GUID": "0aa180cd-ce1a-49aa-90e7-f7bc4dcc4973",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "e3662ae6-172a-4269-bd3d-fef34261cd5a"
+            }
+          ],
+          "GUID": "78dc6ca4-1062-44bb-bd4c-edbda593986b",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1059,7 +1096,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Unprepared for the Imperial reinforcements, you abandon the explosives. You risk Jabba’s wrath, but you won't be able to aid your friends while locked in an Imperial cell, either.\r\n\r\nSalacious B. Crumb mocks you while you explain your failure. This makes Jabba chuckle, which seems to ease his mood. You will have another opportunity to prove your value.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If the heroes have collectively claimed 6 explosives, they receive 25 credits per hero.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
+      "eventText": "Unprepared for the Imperial reinforcements, you abandon the explosives. You risk Jabba’s wrath, but you won't be able to aid your friends while locked in an Imperial cell, either.\r\n\r\nSalacious B. Crumb mocks you while you explain your failure. This makes Jabba chuckle, which seems to ease his mood. You will have another opportunity to prove your value.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1104,15 +1141,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Rebels Lose",
+              "triggerGUID": "06d28ad5-3f61-494a-8b3e-da08d069e856",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "df9843fa-246f-4f7f-8588-2af2dd54fa5f",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1170,6 +1209,19 @@
           "GUID": "72450027-abf0-4ab5-8cd5-71269ea3ef6a",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "aed70b9f-5643-4b3d-9359-9b0abf8363d7",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1227,6 +1279,19 @@
           "GUID": "5452fbe9-5f24-4a9d-9659-945704266135",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "0cb84819-b123-4b7f-9e64-9f8e5fa965e5",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1284,6 +1349,19 @@
           "GUID": "7ea7c4ea-7b7c-41b8-b7e9-a7e84c08c7ff",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "22321771-5200-4371-8795-f57a060f000a",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1341,6 +1419,19 @@
           "GUID": "28357a41-decc-4281-9e3d-42c8411f9ec8",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "4dec78e5-b646-4abb-9170-d99ce06903c1",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1398,6 +1489,19 @@
           "GUID": "6dc0c396-8dd2-419e-b659-fc29a73905a9",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "7cfacf22-34dc-4c4b-8085-60edb3c550fd",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1455,6 +1559,19 @@
           "GUID": "1a066b73-ea09-40b2-b814-50bd67dfc462",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "96e0695a-a518-4e4b-9d05-07eba1a60ba2",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1512,6 +1629,19 @@
           "GUID": "f74bcdd4-83ce-4747-b76a-b089cc6927f6",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "12478e15-42e8-47a1-b983-36b1e04e5a7e",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1569,6 +1699,19 @@
           "GUID": "909ae573-3ff8-414e-8882-7e8bc0e4d4b4",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "ce26e2b7-3e46-462f-81ce-3d443724b8ae",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1626,6 +1769,19 @@
           "GUID": "473d2cac-a8fe-4eb6-b35c-30c2ad5f41ed",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Explosives claimed",
+              "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+              "setValue": -1,
+              "modifyValue": 1
+            }
+          ],
+          "GUID": "e1c1c63f-bb8f-493c-a505-6b9d1b82a389",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2236,6 +2392,259 @@
           "GUID": "9920c721-0c08-4e16-9ac0-39da263447bd",
           "eventActionType": 6,
           "displayName": "Deploy: DG003/Stormtrooper (Elite)"
+        }
+      ]
+    },
+    {
+      "GUID": "3259108d-87f8-4269-98e8-56b3b95bcb66",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "f4c3d682-b129-4e3b-9ca3-8890cb92e4db",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "b26481d4-6b0c-409d-8f33-07a5e2862cd4",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "e3662ae6-172a-4269-bd3d-fef34261cd5a",
+      "isGlobal": true,
+      "name": "End Mission No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "baae4b78-c984-4eb6-a57c-d18fca9b2bea",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "e07e195a-9b7b-46bd-a821-ce34b92c8a93",
+      "isGlobal": true,
+      "name": "6 Explosives Claimed",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Explosives claimed",
+          "triggerGUID": "e589dfda-9e05-468e-b1b5-4cb8ef82adad",
+          "triggerValue": 6
+        }
+      ],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Bonus Credits",
+              "triggerGUID": "04239bab-251e-47c3-b5fd-2a0ee7d3b793",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "978fe5b0-9209-4405-92d5-60f9cf4fb7b9",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "e11d0307-3cd6-4b70-939a-7b6666b83bec",
+      "isGlobal": true,
+      "name": "End Mission Bonus Credits Yes",
+      "eventText": "Because the heroes have collectively claimed at least 6 explosives, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "04239bab-251e-47c3-b5fd-2a0ee7d3b793",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "06d28ad5-3f61-494a-8b3e-da08d069e856",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "00c8d463-c1b3-4237-adb1-bf87c3b3b9ae",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "a85aa5c3-a1f4-4891-83b4-68888c5c741d",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "f7bb74c7-af59-4ad1-b046-e19319f9de45",
+      "isGlobal": true,
+      "name": "End Mission Bonus Credits No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "04239bab-251e-47c3-b5fd-2a0ee7d3b793",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "06d28ad5-3f61-494a-8b3e-da08d069e856",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "b4bda441-3908-48cf-aace-76da6d185646",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

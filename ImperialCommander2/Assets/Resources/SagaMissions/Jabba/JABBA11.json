@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA11.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481853274048888,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485134377457976,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Trophy Hunting",
@@ -433,6 +433,15 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": 2,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Lose",
+      "GUID": "85fbd452-90a7-472b-a149-d5f88da79151",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
@@ -1059,7 +1068,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "With Kallenn dead and the base destroyed, the remaining Imperial forces flee in fear. “You did good work,” your ally says. “Hopefully the next time I see you we'll still be on the same side.\"\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.\r\n{-} If there is only 1 healthy hero, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "With Kallenn dead and the base destroyed, the remaining Imperial forces flee in fear. “You did good work,” your ally says. “Hopefully the next time I see you we'll still be on the same side.\"\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1121,15 +1130,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "368bd8fd-a28e-4c31-8b36-09df234ef973",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "ca92a052-602b-46f9-8404-5fd9791fb7b1"
+            },
+            {
+              "GUID": "f4ca1714-be3d-440f-8125-c2da621cf834",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "2fd01282-14c6-48fb-b46f-122cfd011f62"
+            }
+          ],
+          "GUID": "4f81c548-e099-40bc-9d5f-80a4905eb331",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1188,15 +1207,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Rebels Lose",
+              "triggerGUID": "85fbd452-90a7-472b-a149-d5f88da79151",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "9d2d6fe5-9dca-4f54-bae3-51cbbc6cbe63",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -3395,6 +3416,210 @@
           "GUID": "d489febb-475a-41f7-a280-d65647a3a18d",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "GUID": "ca92a052-602b-46f9-8404-5fd9791fb7b1",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "3afbf48c-bcdf-4c46-aa15-cb49298c262e",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "ff34f5ab-9d18-4e11-afac-22e53474002d",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "2fd01282-14c6-48fb-b46f-122cfd011f62",
+      "isGlobal": true,
+      "name": "End Mission No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "f06dcb07-c09f-4c19-b669-151192c4f161",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "77e1f342-851f-4b24-a57a-70b65a6d858f",
+      "isGlobal": true,
+      "name": "End Mission Kallenn Defeated",
+      "eventText": "Because Kallenn was defeated, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "85fbd452-90a7-472b-a149-d5f88da79151",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Kallenn defeated",
+          "triggerGUID": "b9ec4ab7-03cb-4d47-a648-ea1cf0892447",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "4147aac1-fcf9-4b63-8c2d-d1c831fbc543",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "116a66a1-4da3-4a37-bdc9-4eda00be531b",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "4d6af4c9-d5a2-4689-96f5-398c838c35ba",
+      "isGlobal": true,
+      "name": "End Mission Kallenn Not Defeated",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "85fbd452-90a7-472b-a149-d5f88da79151",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Kallenn defeated",
+          "triggerGUID": "b9ec4ab7-03cb-4d47-a648-ea1cf0892447",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "d2400f1e-1738-4c1a-a007-b3011bbb3eb9",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

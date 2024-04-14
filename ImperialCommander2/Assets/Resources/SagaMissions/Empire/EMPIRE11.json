@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE11.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481896735772245,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485117687850701,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "On the Trail",
@@ -518,6 +518,24 @@
       "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Zaaryn defeated",
+      "GUID": "9e77b1ae-e40d-44c3-8f0d-665236e9b916",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "abd20e8f-c6c9-4ce7-a439-7116d4c9381f",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "globalEvents": [
@@ -973,15 +991,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "1f68e251-f26f-4f96-b95d-c176f711d377",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "bfa2fea0-4e45-4728-9387-c764d4a12de6"
+            },
+            {
+              "GUID": "dee20b04-be8b-47b4-b921-0b7aa0d8408b",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "b2047ba4-08cd-4e6a-bcf2-b2ff8996923e"
+            }
+          ],
+          "GUID": "ee1af1b4-23ca-413e-b1e7-b9119207f661",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -989,7 +1017,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "A flurry of blaster bolts drives you away with only a glimpse of your targets and  their business dealings. You are left with more questions than answers.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If Zaaryn was defeated, heroes receive 25 credits per hero.",
+      "eventText": "A flurry of blaster bolts drives you away with only a glimpse of your targets and  their business dealings. You are left with more questions than answers.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1659,7 +1687,7 @@
               "incVehicle": true,
               "useDefaultPriority": true
             },
-            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedTrigger": "9e77b1ae-e40d-44c3-8f0d-665236e9b916",
             "defeatedEvent": "5a07e273-0654-40e8-86b5-f176e37fb801",
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
@@ -1899,15 +1927,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8aa34dbd-3486-4c36-b289-2d7eb043cb7e",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "abd20e8f-c6c9-4ce7-a439-7116d4c9381f",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "d265ba78-2de3-41a1-990e-da6b17b542a9",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1947,15 +1977,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "ba527f8e-e8ae-409a-b5aa-9fa5ed94d97f",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "abd20e8f-c6c9-4ce7-a439-7116d4c9381f",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "a217f35b-e668-4388-9536-19fa4fcf71ff",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2505,6 +2537,210 @@
           "GUID": "1b5c2679-648f-46eb-bc01-a83bd3cc95c7",
           "eventActionType": 5,
           "displayName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "GUID": "d741721b-4898-4ce1-8023-70c15f8a42a3",
+      "isGlobal": true,
+      "name": "End Mission Zaaryn Defeated",
+      "eventText": "Because Zaaryn was defeated, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Zaaryn defeated",
+          "triggerGUID": "9e77b1ae-e40d-44c3-8f0d-665236e9b916",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "abd20e8f-c6c9-4ce7-a439-7116d4c9381f",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "a8ab3abc-b2b4-4525-9936-698a1f715f25",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "95b85b53-d1fc-42bc-942a-a42f2563c0ac",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "e64a2624-c104-4e73-a400-69e46f6fa13e",
+      "isGlobal": true,
+      "name": "End Mission Zaaryn Not Defeated",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Zaaryn defeated",
+          "triggerGUID": "9e77b1ae-e40d-44c3-8f0d-665236e9b916",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "abd20e8f-c6c9-4ce7-a439-7116d4c9381f",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "69199a61-fe37-4a5c-aa32-d3f7e28a917f",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "bfa2fea0-4e45-4728-9387-c764d4a12de6",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "c4cec81c-0b3d-4ec8-9b75-b752e210ebc5",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "2ce554a8-2d12-4f29-93f0-1cdb92359ae0",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "b2047ba4-08cd-4e6a-bcf2-b2ff8996923e",
+      "isGlobal": true,
+      "name": "End Mission No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "b6428a1e-ff7d-44c2-a411-e523049c343d",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

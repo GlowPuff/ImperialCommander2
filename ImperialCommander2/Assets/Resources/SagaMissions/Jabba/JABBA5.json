@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA5.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481846634481880,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485133799106011,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Hostile Negotiations",
@@ -1179,7 +1179,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "The cargo door isn't even closed when the shuttle departs. Leaving Dosha behind, you treat your wounds and return to Tatooine.\r\n\r\nJabba treats you to a lavish feast upon your return. For the moment, you've earned his graces. The Hutt knows that while spice is valuable, loyalty is priceless.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.\r\n{-} If there are three or more spice barrels on the Spicer's stockpile, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
+      "eventText": "The cargo door isn't even closed when the shuttle departs. Leaving Dosha behind, you treat your wounds and return to Tatooine.\r\n\r\nJabba treats you to a lavish feast upon your return. For the moment, you've earned his graces. The Hutt knows that while spice is valuable, loyalty is priceless.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 1 XP. Heroes receive 200 credits per hero.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1224,15 +1224,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Are there three or more spice barrels on the Spicer's stockpile?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "8000d8eb-f4d3-4c5f-b7df-974b309b352f",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "cfc44763-bcf9-4f75-84fb-9039c4f449ba"
+            },
+            {
+              "GUID": "a1943c2f-8bf7-4596-bdb2-05012758e4f9",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "5c05d4c2-12d1-476e-a7a1-699068368d44"
+            }
+          ],
+          "GUID": "281c5e9a-a0fb-45c9-829b-da7e829de60c",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1240,7 +1250,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Mercenaries continue to pour from the jungle, and you're forced to leave Jabba’s cargo behind. Unable to secure the majority of the spoils, you retreat with your lives to face the Hutt’s disappointment.\r\n\r\nJabba is displeased, but reasonable. You survived the ambush, and your skills have earned a second chance. Knowing that the Hutt lord’s favor is all that protects your families, you prepare for the next task.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If there are three or more spice barrels on the Rebel stockpile, heroes receive 25 credits per hero.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
+      "eventText": "Mercenaries continue to pour from the jungle, and you're forced to leave Jabba’s cargo behind. Unable to secure the majority of the spoils, you retreat with your lives to face the Hutt’s disappointment.\r\n\r\nJabba is displeased, but reasonable. You survived the ambush, and your skills have earned a second chance. Knowing that the Hutt lord’s favor is all that protects your families, you prepare for the next task.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} Discard all remaining active Story Mission cards. Place Story Mission cards \"Trophy Hunting\" and \"Turf War\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1285,15 +1295,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Are there three or more spice barrels on the Spicer's stockpile?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "c32f688f-7162-4881-aed6-89d8caf70592",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "f52f1333-0512-4734-a164-c1942b75b4bd"
+            },
+            {
+              "GUID": "0b47f870-ed75-42bc-aa69-011e970e16d0",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "5c05d4c2-12d1-476e-a7a1-699068368d44"
+            }
+          ],
+          "GUID": "191caa58-aa1f-4759-a451-6cfb828e49d9",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1954,6 +1974,147 @@
         }
       ],
       "eventActions": []
+    },
+    {
+      "GUID": "cfc44763-bcf9-4f75-84fb-9039c4f449ba",
+      "isGlobal": true,
+      "name": "Win Query Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "382b9057-2953-44d1-a743-0a4248f3d479",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "8163df51-7353-410b-9ad9-1172bdd9c928",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "f52f1333-0512-4734-a164-c1942b75b4bd",
+      "isGlobal": true,
+      "name": "Defeat Query Yes",
+      "eventText": "Because there are three or more spice barrels on the Rebel stockpile, the heroes gain 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "236157e4-c3a4-476d-a317-9802ab5ac097",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "b339d919-4d51-4719-8564-967e177d5a67",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "5c05d4c2-12d1-476e-a7a1-699068368d44",
+      "isGlobal": true,
+      "name": "Query No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "6a341cab-1007-4184-837e-e64d9462eef9",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
     }
   ],
   "mapEntities": [

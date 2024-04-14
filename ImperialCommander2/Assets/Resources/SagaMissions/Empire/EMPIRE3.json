@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE3.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638482812961327207,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485460470671450,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Disruption",
@@ -1810,7 +1810,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "You blast open the secret entrance to the hideaway. You find neither Zaaryn nor Maul inside, but you do find records of their negotiations and transactions. You find a small sample of information about the Bardottan sphere shard that Zaaryn gave Maul to prove he had something of value. With an expert to translate it, this sample might be enough to lead you to the location of the shard. Alternatively, locating Maul and Zaaryn could provide the rest of the information Zaaryn has.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 175 credits per hero.\r\n{-} The heroes must choose to reach out to Lorn (the Jedi historian) or to track Maul and Zaaryn. If the heroes reach out to Lorn, place Story Mission card “History Repeats” into play, If the heroes track Maul and Zaaryn, place Story Mission card “On the Run” into  lay.",
+      "eventText": "You blast open the secret entrance to the hideaway. You find neither Zaaryn nor Maul inside, but you do find records of their negotiations and transactions. You find a small sample of information about the Bardottan sphere shard that Zaaryn gave Maul to prove he had something of value. With an expert to translate it, this sample might be enough to lead you to the location of the shard. Alternatively, locating Maul and Zaaryn could provide the rest of the information Zaaryn has.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 175 credits per hero.\r\n{-} The heroes must choose to reach out to Lorn (the Jedi historian) or to track Maul and Zaaryn. If the heroes reach out to Lorn, place Story Mission card “History Repeats” into play, If the heroes track Maul and Zaaryn, place Story Mission card “On the Run” into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1855,15 +1855,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "3daacb3e-d5c4-4aac-97b8-9203586497ce",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "f1cc53c7-387b-43bf-b89b-77b2ffbcd99f",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "28304d37-d19e-4764-b887-a3d16194c2e2"
+            },
+            {
+              "GUID": "3d4a2892-971f-4fc5-af3f-780bdb9cbe2f",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "139d8003-97d6-419c-90d4-8ab86239a009"
+            }
+          ],
+          "GUID": "a743329c-8819-474a-af23-fd1fef735caa",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1871,7 +1881,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "You are lost, confused, and beaten down by various Imperial and mercenary support troops. You reach out on your comlink to your team members to retreat to a rendezvous point, resigned to reaching the artifact yourself before Maul and Zaaryn's plans can unfold.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} The Imperial player earns <color=\"red\">Maul</color> (Seeker of Vengeance) as a villain.\r\n{-} If the Hideaway was revealed, heroes receive 25 credits per hero.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
+      "eventText": "You are lost, confused, and beaten down by various Imperial and mercenary support troops. You reach out on your comlink to your team members to retreat to a rendezvous point, resigned to reaching the artifact yourself before Maul and Zaaryn's plans can unfold.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} The Imperial player earns <color=\"red\">Maul</color> (Seeker of Vengeance) as a villain.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -7105,7 +7115,7 @@
       "GUID": "2c054b7b-a7f4-42a0-a091-26ee2185c6f1",
       "isGlobal": true,
       "name": "End Mission Hideaway Revealed",
-      "eventText": "End Mission Hideaway Revealed",
+      "eventText": "Because the Hideaway was revealed, the heroes receive 25 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -7164,7 +7174,7 @@
       "GUID": "e058a75b-f347-4fed-a43f-d6c9b60447aa",
       "isGlobal": true,
       "name": "End Mission Hideaway Not Revealed",
-      "eventText": "End Mission Hideaway Not Revealed",
+      "eventText": "",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -7213,10 +7223,10 @@
       ]
     },
     {
-      "GUID": "46d48e5b-8193-4699-83d0-8985690d5d9b",
+      "GUID": "28304d37-d19e-4764-b887-a3d16194c2e2",
       "isGlobal": true,
-      "name": "Event Name",
-      "eventText": "Hideaway revealed",
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -7238,14 +7248,72 @@
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
-      "additionalTriggers": [
+      "additionalTriggers": [],
+      "eventActions": [
         {
-          "triggerName": "Hideaway Revealed",
-          "triggerGUID": "057603b7-4df1-4b55-ad93-2fcb4d679376",
-          "triggerValue": 1
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "91c93d4f-c539-4d94-8461-429d348db2e0",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "01912b66-81bb-42b0-96cd-157a17b1cb0b",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
-      ],
-      "eventActions": []
+      ]
+    },
+    {
+      "GUID": "139d8003-97d6-419c-90d4-8ab86239a009",
+      "isGlobal": true,
+      "name": "Healthy Hero No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "66d549b3-5cb1-464c-903f-8c196ff5bd16",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
     }
   ],
   "mapEntities": [
@@ -9135,7 +9203,7 @@
       "deploymentColor": "Blue",
       "Width": 1,
       "Height": 1,
-      "Duration": 1
+      "Duration": 0
     },
     {
       "GUID": "23629034-648d-45e6-bebc-fa15c1c437fc",
@@ -9196,7 +9264,7 @@
       "GUID": "2411f287-2c8e-4650-9183-39c383851aad",
       "name": "Rubble 1",
       "entityType": 5,
-      "entityPosition": "1280,1020",
+      "entityPosition": "1290,1020",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "Rubble 1",
@@ -9215,7 +9283,7 @@
       "GUID": "e8d6f357-ba49-4014-aace-2b38ffa4c409",
       "name": "Rubble 2",
       "entityType": 5,
-      "entityPosition": "1290,1030",
+      "entityPosition": "1300,1030",
       "entityRotation": 0.0,
       "entityProperties": {
         "name": "Rubble 2",

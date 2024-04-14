@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE6.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638482938818814489,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485119623590819,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "From Dark Clutches",
@@ -1258,15 +1258,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "1b0f8e2b-9275-4c20-95d5-6253336be817",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "3be0066d-be4b-4ab2-9bca-d85dbeb287e4"
+            },
+            {
+              "GUID": "dcdf5053-b89e-475b-b9e1-1ed329d510ef",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "286b7a52-13be-45c0-9c46-cc0c27fbc632"
+            }
+          ],
+          "GUID": "bc66a730-22bf-423b-ba2c-d2ef7d076c59",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1274,7 +1284,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "You flee the facility in a hail of blaster fire. A dogged pursuit through the streets of Coruscant forces you to split up, regrouping later back at your hideout. You risk several calls to the other Rebel team's safe house, hopeful at least one of them made it back, but get no response.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If the heroes claimed all captives, heroes receive 25 credits per hero.",
+      "eventText": "You flee the facility in a hail of blaster fire. A dogged pursuit through the streets of Coruscant forces you to split up, regrouping later back at your hideout. You risk several calls to the other Rebel team's safe house, hopeful at least one of them made it back, but get no response.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -4119,7 +4129,7 @@
       "GUID": "99a1700f-0f25-4336-bd1e-70f4d654cbcb",
       "isGlobal": true,
       "name": "End Mission Captives Yes",
-      "eventText": "",
+      "eventText": "Because the heroes claimed all captives, the heroes receive 25 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -4221,6 +4231,99 @@
           "unpauseThreat": false,
           "endMission": true,
           "GUID": "83651db9-d417-4cbb-b2a6-5ed4ac8dfbb9",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "3be0066d-be4b-4ab2-9bca-d85dbeb287e4",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "1631ab19-ca25-47c8-8df5-c77f34ec2e83",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "69d46f07-c0fc-4153-8977-ab29f60e86ed",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "286b7a52-13be-45c0-9c46-cc0c27fbc632",
+      "isGlobal": true,
+      "name": "Healthy Hero No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "e797f0fa-398c-4f8d-8cf6-e56171aba616",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }

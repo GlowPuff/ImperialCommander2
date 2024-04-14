@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA3.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481841549985629,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485141083710461,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Execute the Plan",
@@ -1140,7 +1140,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "You scramble away from the site of the base as it begins to crumble and burn. Captain Terro, lying on the ground, coughs out a final taunt to you, \"You fools. We've all been pawns. Jabba sent me here himself to attack you. Now we're all out of his way. Plus, you have just hand-delivered him a fresh supply of slaves for his trade. You...Rebel...fools...\"\r\n\r\nYou run as fast as you can back to the civilians' new settlement, but you return to find it raided and empty. A few charred buildings and scattered weapons are the only signs of battle, and Jabba’s team and shuttle are nowhere to be seen.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card \"Storming the Palace\" into play.\r\n{-} If there is only 1 healthy hero, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "You scramble away from the site of the base as it begins to crumble and burn. Captain Terro, lying on the ground, coughs out a final taunt to you, \"You fools. We've all been pawns. Jabba sent me here himself to attack you. Now we're all out of his way. Plus, you have just hand-delivered him a fresh supply of slaves for his trade. You...Rebel...fools...\"\r\n\r\nYou run as fast as you can back to the civilians' new settlement, but you return to find it raided and empty. A few charred buildings and scattered weapons are the only signs of battle, and Jabba’s team and shuttle are nowhere to be seen.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card \"Storming the Palace\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1185,15 +1185,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "37a22089-c87f-45a7-b5fd-2d96e6d00e4b",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "164b95ad-353f-42ef-8f9b-55976d3bb0c4"
+            },
+            {
+              "GUID": "8e41cac8-9680-454e-a027-6214654ca227",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "d32ad1d1-ac6f-47cb-bb6b-f37577bab0c9"
+            }
+          ],
+          "GUID": "930af99d-e218-422a-a36a-d6465a077ef5",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1201,7 +1211,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "\"Drop your weapons and surrender,\" Terro snaps at you, and you're forced to oblige. \"You Rebel fools,\" he says. \"You have been pawns. I was sent here by Jabba to disrupt this whole operation. His protection only extended to your civilian friends while they were on Tatooine. And now I'll be bringing you back to him.\" Jabba's mercenaries chuckle maliciously. \r\n\r\n\"I'm sure he will be appreciative for the fresh batch of slaves you will have hand-delivered to his trade, though.\" He pulls out a holographic image of Weequay and Gamorreans loading your friends and family onto a Hutt freighter, burning the settlement behind them.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card \"Mutiny\" into play.\r\n{-} If <color=\"red\">Captain Terro</color> has suffered {H}, heroes receive 25 credits per hero.",
+      "eventText": "\"Drop your weapons and surrender,\" Terro snaps at you, and you're forced to oblige. \"You Rebel fools,\" he says. \"You have been pawns. I was sent here by Jabba to disrupt this whole operation. His protection only extended to your civilian friends while they were on Tatooine. And now I'll be bringing you back to him.\" Jabba's mercenaries chuckle maliciously. \r\n\r\n\"I'm sure he will be appreciative for the fresh batch of slaves you will have hand-delivered to his trade, though.\" He pulls out a holographic image of Weequay and Gamorreans loading your friends and family onto a Hutt freighter, burning the settlement behind them.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card \"Mutiny\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1246,15 +1256,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Has <color=\"red\">Captain Terro</color> suffered any {H}?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "40815cf3-d584-4685-9af5-40a208c6f447",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "c0301eac-b64c-4693-b9f2-ca54a83a062a"
+            },
+            {
+              "GUID": "b459ca21-c4e3-4f30-8ed4-1e43a862b2c2",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "d32ad1d1-ac6f-47cb-bb6b-f37577bab0c9"
+            }
+          ],
+          "GUID": "ce656c7c-c947-4997-8808-0100e624f117",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -2687,6 +2707,147 @@
           "GUID": "a2e0f48d-a1eb-47c8-a1db-fc20163eb917",
           "eventActionType": 15,
           "displayName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "GUID": "164b95ad-353f-42ef-8f9b-55976d3bb0c4",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "60dbb8e9-6dd2-431a-b882-9f15859e48b4",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "7dfa3625-5c28-43b7-8aa9-02b2c4f67d87",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "d32ad1d1-ac6f-47cb-bb6b-f37577bab0c9",
+      "isGlobal": true,
+      "name": "End Mission No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "437c1290-e0f5-4f06-a948-f5603a8328dd",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "c0301eac-b64c-4693-b9f2-ca54a83a062a",
+      "isGlobal": true,
+      "name": "Captain Terro Yes",
+      "eventText": "Because <color=\"red\">Captain Terro</color> has suffered {H}, heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "6281d12e-aa5f-4965-9dde-1b37ef1ae158",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "659938e8-fb67-4a50-ac22-5d018fa51a1e",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

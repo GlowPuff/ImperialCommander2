@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH9.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638483029165916091,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485526252628691,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "White Noise",
@@ -1278,6 +1278,16 @@
           "displayName": "Text Box"
         },
         {
+          "countdownTimerName": "Victory Timer",
+          "countdownTimer": 7,
+          "triggerGUID": "00000000-0000-0000-0000-000000000000",
+          "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "58e093c1-0526-4cfb-8cf5-3107369349e3",
+          "eventActionType": 29
+        },
+        {
           "theText": "Defend the security consoles. Consoles online: &Terminals online&/3",
           "longText": null,
           "GUID": "2bab8b6d-4b8b-423e-8780-df1f392d7c48",
@@ -1304,7 +1314,7 @@
       "startOfRound": 1,
       "endOfRound": 8,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -1347,15 +1357,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "519796d0-ff77-4d1b-82c7-8cb4512c77a8",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "3311c8a3-f26c-413d-9f9b-319aca2ee221",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "a90eab3e-679b-41db-8562-43a05195e138",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -3831,7 +3843,7 @@
       "GUID": "3f28f5fb-09ec-4496-aa48-5b11b20d08d5",
       "isGlobal": true,
       "name": "End Mission Credits Yes",
-      "eventText": "",
+      "eventText": "Because not all doors were destroyed, the heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -3890,7 +3902,7 @@
       "GUID": "85c70953-b881-4d93-ae2f-da1fcd3f43da",
       "isGlobal": true,
       "name": "End Mission Credits No",
-      "eventText": "",
+      "eventText": "Because all doors were destroyed, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -3925,6 +3937,17 @@
         }
       ],
       "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "13e7b3bd-0948-4877-8be0-d272749678eb",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,

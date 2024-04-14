@@ -307,12 +307,28 @@ namespace Saga
 			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.GroupDefeated, cardDescriptor.name );
 
 			//chance vader speaks
-			if ( GlowEngine.RandomBool( 30 ) )
+			//30% chance a special sound plays, or counter are reached
+			if ( GlowEngine.RandomBool( 30 ) || Utils.defeatsWithoutSpecialSound >= 5 )
 			{
-				if ( Utils.vaderSound++ % 2 == 0 )
-					GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 14 ) );
-				else
-					GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 15 ) );
+				Utils.defeatsWithoutSpecialSound = 0;//reset the counter
+
+				if ( GlowEngine.RandomBool( 30 ) )//30% chance it's' wilhelm scream
+				{
+					GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 16 ) );
+				}
+				else//70% chance it's vader
+				{
+					if ( Utils.vaderSound++ % 2 == 0 )
+					{
+						GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 14 ) );
+					}
+					else
+						GlowTimer.SetTimer( 1.5f, () => FindObjectOfType<SagaController>().sound.PlaySound( 15 ) );
+				}
+			}
+			else
+			{
+				Utils.defeatsWithoutSpecialSound++;
 			}
 
 			//visually remove group from screen

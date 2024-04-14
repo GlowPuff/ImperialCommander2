@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA2.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481840489907378,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485140280294982,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Dangerous Allies",
@@ -640,6 +640,24 @@
     {
       "name": "High Ground ",
       "GUID": "4d3e5640-9ba9-4747-8c6e-9d914dd4f780",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Terro Defeated",
+      "GUID": "28f72ede-cdbb-465d-8e0b-117127582a89",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Lose",
+      "GUID": "afb66037-f75e-4938-9f07-702178dedc36",
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
@@ -1393,7 +1411,7 @@
           "pauseThreat": false,
           "unpauseThreat": false,
           "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
+          "GUID": "a72406cd-80e2-4bae-9e58-c336f30b8795",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }
@@ -1403,7 +1421,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Jabba, dissatisfied with your failure to dislodge the Empire, begrudgingly sends reinforcements. They eventually retake the spaceport, but not before Captain Terro manages to destroy a few more ships and torch the supply hangars.\r\n\r\nMercifully, most of the civilians survived by hiding amid the old ships. After gathering the survivors and putting out the last fires, everyone is ready to leave Tatooine forever.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 125 credits per hero.\r\n{-} Place Story Mission card \"Execute the Plan\" into play.",
+      "eventText": "Jabba, dissatisfied with your failure to dislodge the Empire, begrudgingly sends reinforcements. They eventually retake the spaceport, but not before Captain Terro manages to destroy a few more ships and torch the supply hangars.\r\n\r\nMercifully, most of the civilians survived by hiding amid the old ships. After gathering the survivors and putting out the last fires, everyone is ready to leave Tatooine forever.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card \"Execute the Plan\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1434,7 +1452,7 @@
           "displayName": "Modify XP"
         },
         {
-          "creditsToModify": 125,
+          "creditsToModify": 100,
           "multiplyByHeroCount": true,
           "GUID": "68882603-47bb-4d9a-93ec-6d5967611ec7",
           "eventActionType": 25,
@@ -1448,15 +1466,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Rebels Lose",
+              "triggerGUID": "afb66037-f75e-4938-9f07-702178dedc36",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "658eb3dd-18a1-42a4-9557-87b8dcfe80a9",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1894,7 +1914,7 @@
               "incVehicle": true,
               "useDefaultPriority": true
             },
-            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedTrigger": "28f72ede-cdbb-465d-8e0b-117127582a89",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
@@ -2408,6 +2428,124 @@
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
+    },
+    {
+      "GUID": "f14facaf-707b-4a33-aa34-dc5d6fb4ed04",
+      "isGlobal": true,
+      "name": "Rebels Lose Terro Defeated",
+      "eventText": "Because <color=\"red\">Captain Terro</color> was defeated, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Terro Defeated",
+          "triggerGUID": "28f72ede-cdbb-465d-8e0b-117127582a89",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "afb66037-f75e-4938-9f07-702178dedc36",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "8e9b1038-a5c2-47b4-96a6-3d192685dccb",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "c3770694-9886-4cde-a444-d70bb20323e1",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "ed924b8e-b97c-4ae7-9f77-54f6a86fd870",
+      "isGlobal": true,
+      "name": "Rebels Lose Terro Not Defeated",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Terro Defeated",
+          "triggerGUID": "28f72ede-cdbb-465d-8e0b-117127582a89",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "afb66037-f75e-4938-9f07-702178dedc36",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "b19dc3dc-f171-4057-8048-88d9d5c8b5f0",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "60f4c64d-9877-451b-913a-7bcf61b7a0c8",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
     }
   ],
   "mapEntities": [

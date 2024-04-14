@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH1.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638483006203005706,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485168663800087,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Disaster",
@@ -1130,7 +1130,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "More Imperials keep arriving from outlying regions of Haven, and you realize that you've saved everyone you can. Fighting a bitter rear guard action, you escort the civilians back to\r\nyour ship. As soon as the last civilian is aboard, you seal the hatch and wave your pilot off: You still need to find Benex.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If Sorin's AT-ST was defeated, heroes receive 100 credits per hero. Otherwise, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "More Imperials keep arriving from outlying regions of Haven, and you realize that you've saved everyone you can. Fighting a bitter rear guard action, you escort the civilians back to\r\nyour ship. As soon as the last civilian is aboard, you seal the hatch and wave your pilot off: You still need to find Benex.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -3488,7 +3488,7 @@
       "GUID": "fb5085a5-2147-4b2a-b818-cb48b78563de",
       "isGlobal": true,
       "name": "End Mission Sorin Yes",
-      "eventText": "",
+      "eventText": "Because Sorin's AT-ST was defeated, the heroes receive 100 credits per hero. Otherwise, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -3547,7 +3547,7 @@
       "GUID": "37edf974-55f2-41a7-8189-3d900a4fa823",
       "isGlobal": true,
       "name": "End Mission Sorin No",
-      "eventText": "",
+      "eventText": "Because Sorin's AT-ST was not defeated, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -3582,6 +3582,17 @@
         }
       ],
       "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "25f5b58b-6518-442d-8480-d1b53dd679a5",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,

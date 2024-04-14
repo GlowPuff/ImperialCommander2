@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "HOTH8.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638483024522304627,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485525990159926,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "The Last Line",
@@ -331,12 +331,12 @@
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "name": "No bonus credits",
+      "name": "Bonus Credits",
       "GUID": "f53d30e8-7e94-4f2f-a77e-24f4cf0e9202",
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
-      "initialValue": 0,
+      "initialValue": 1,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     },
     {
@@ -1039,6 +1039,16 @@
           "displayName": "Text Box"
         },
         {
+          "countdownTimerName": "Victory Timer",
+          "countdownTimer": 6,
+          "triggerGUID": "00000000-0000-0000-0000-000000000000",
+          "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "e52b563d-55be-4aa0-a8f1-215dd96e1564",
+          "eventActionType": 29
+        },
+        {
           "theText": "Defend the checkpoints and the siege wall.",
           "longText": null,
           "GUID": "9ae23357-7788-43f9-9c6b-1c36b0566c42",
@@ -1057,7 +1067,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "You hear a blaring mechanical horn sound behind you. This is the signal; the evacuation is complete! You immediately retreat, leaving the Imperial forces behind, incapable of reaching their targets.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If <color=\"red\">General Sorin</color> was defeated before the end of Round 3, heroes receive 100 credits per hero.",
+      "eventText": "You hear a blaring mechanical horn sound behind you. This is the signal; the evacuation is complete! You immediately retreat, leaving the Imperial forces behind, incapable of reaching their targets.\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1065,7 +1075,7 @@
       "startOfRound": 1,
       "endOfRound": 7,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -1108,15 +1118,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "4f45dedb-c16e-4666-b836-32d937c1bb9d",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "33f01ab2-e2af-4059-9a85-c6f25bd25c32",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1124,7 +1136,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "There is nothing more you can do; the defense checkpoints and siege wall are overrun, and the Imperials are coming. You run to the bunker and tell them to seal the door. They plead with you that there are more coming, but you know you have to save as many lives as you can. You override the controls and seal the bunker, hoping that some of those who didn’t make it can find refuge elsewhere.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If <color=\"red\">General Sorin</color> was defeated before the end of Round 3, heroes receive 100 credits per hero.",
+      "eventText": "There is nothing more you can do; the defense checkpoints and siege wall are overrun, and the Imperials are coming. You run to the bunker and tell them to seal the door. They plead with you that there are more coming, but you know you have to save as many lives as you can. You override the controls and seal the bunker, hoping that some of those who didn’t make it can find refuge elsewhere.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2056,9 +2068,9 @@
         {
           "triggerList": [
             {
-              "triggerName": "No bonus credits",
+              "triggerName": "Bonus Credits",
               "triggerGUID": "f53d30e8-7e94-4f2f-a77e-24f4cf0e9202",
-              "setValue": 1,
+              "setValue": 0,
               "modifyValue": 0
             }
           ],
@@ -2072,7 +2084,7 @@
       "GUID": "bbe1feeb-50e4-41f3-a928-ca2ac590576b",
       "isGlobal": true,
       "name": "End Mission Credits Yes",
-      "eventText": "",
+      "eventText": "Because <color=\"red\">General Sorin</color> was defeated before the end of Round 3, heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2101,13 +2113,13 @@
           "triggerValue": 1
         },
         {
-          "triggerName": "No bonus credits",
-          "triggerGUID": "f53d30e8-7e94-4f2f-a77e-24f4cf0e9202",
-          "triggerValue": 0
-        },
-        {
           "triggerName": "Sorin defeated",
           "triggerGUID": "518fffc0-a25b-4212-8466-8de4d240ceee",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "f53d30e8-7e94-4f2f-a77e-24f4cf0e9202",
           "triggerValue": 1
         }
       ],
@@ -2136,7 +2148,7 @@
       "GUID": "c76f7da8-6b57-425b-94f8-a685f722ad7d",
       "isGlobal": true,
       "name": "End Mission Credits No",
-      "eventText": "",
+      "eventText": "Because <color=\"red\">General Sorin</color> was not defeated before the end of Round 3, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2163,9 +2175,30 @@
           "triggerName": "End Mission",
           "triggerGUID": "4f45dedb-c16e-4666-b836-32d937c1bb9d",
           "triggerValue": 1
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "f53d30e8-7e94-4f2f-a77e-24f4cf0e9202",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Sorin defeated",
+          "triggerGUID": "518fffc0-a25b-4212-8466-8de4d240ceee",
+          "triggerValue": 0
         }
       ],
       "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "c28f5722-bd23-4a2a-88d9-d09af95d4e6c",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
         {
           "incRoundCounter": false,
           "pauseDeployment": false,
@@ -2174,6 +2207,69 @@
           "unpauseThreat": false,
           "endMission": true,
           "GUID": "c9964145-b852-49b8-90ff-65ab6f339060",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "1d1c1af2-cedd-43f7-a6f6-3506b9ec3c0c",
+      "isGlobal": true,
+      "name": "End Mission Credits No 2",
+      "eventText": "Because <color=\"red\">General Sorin</color> was not defeated before the end of Round 3, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "4f45dedb-c16e-4666-b836-32d937c1bb9d",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Bonus Credits",
+          "triggerGUID": "f53d30e8-7e94-4f2f-a77e-24f4cf0e9202",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "41ceb574-eaae-4741-be6e-f68832621e6e",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "17d72391-c0b0-490b-8aef-4b7ce6f5c76e",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }

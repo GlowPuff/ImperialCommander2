@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE7.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638482955376829234,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485131190029114,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "History Repeats",
@@ -1376,15 +1376,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "d91ae34a-10dd-4629-99d1-8976c7f41f7c",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "cf3b2e8f-cd7e-43d7-b0a3-702717b020cb"
+            },
+            {
+              "GUID": "b1edfc07-cf30-4fe9-8a67-91fc6116a5db",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "75d926c0-6db0-4a12-be84-60c4dce204f0"
+            }
+          ],
+          "GUID": "9457dccf-83a3-4395-a91c-2a7e765f58d5",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1392,7 +1402,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "The onslaught proves to be too much, and you are brought to your knees before the Emperor. He laughs with a vile smile on his face as Lorn presents the Bardottan sphere shard to him. Stormtroopers bind your arms behind you as the Emperor admires his prize.\r\n\r\n“With this power, I will crush your pitiful rebellion,” he says with relish in his voice. “Your public executions will send the message to the entire galaxy that my power is absolute!”\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If Lorn has 1 or more strain tokens on him, heroes receive 25 credits per hero.\r\n{-} Place Story Mission card “The Realm of the Dark Side” into play.",
+      "eventText": "The onslaught proves to be too much, and you are brought to your knees before the Emperor. He laughs with a vile smile on his face as Lorn presents the Bardottan sphere shard to him. Stormtroopers bind your arms behind you as the Emperor admires his prize.\r\n\r\n“With this power, I will crush your pitiful rebellion,” he says with relish in his voice. “Your public executions will send the message to the entire galaxy that my power is absolute!”\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card “The Realm of the Dark Side” into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1464,9 +1474,9 @@
               "eventGUID": "a923238f-5c28-42cc-b442-0275a4dbdd07"
             }
           ],
-          "displayName": "Question Prompt",
           "GUID": "31f6c8ad-6ab4-4e35-b348-7a1be1debd53",
-          "eventActionType": 5
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -2424,7 +2434,7 @@
       "GUID": "14f7a01b-dfc1-4c30-8a5d-3365c705ccd7",
       "isGlobal": true,
       "name": "Lorn Strain Yes",
-      "eventText": "The heroes gain 25 credits per hero.",
+      "eventText": "Because there is at least 1 strain token on Lorn, the heroes gain 25 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2504,6 +2514,99 @@
           "unpauseThreat": false,
           "endMission": true,
           "GUID": "6cc6fa1b-aaf4-4c8e-8068-e2262aca6f7f",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "cf3b2e8f-cd7e-43d7-b0a3-702717b020cb",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "faae12f4-568f-4489-9d96-79b55b95839b",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "8e4c3b3f-73c0-4078-9463-9c13f759a4e5",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "75d926c0-6db0-4a12-be84-60c4dce204f0",
+      "isGlobal": true,
+      "name": "Healthy Hero No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "f539cd15-1557-4a68-af99-528c533fbe68",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }

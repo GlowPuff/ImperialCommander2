@@ -7,12 +7,10 @@ namespace Saga
 	{
 		public string missionName, missionID, fixedAlly, bannedAlly, missionInfo, specificAlly, specificHero, priorityOther, missionDescription, campaignName, startingObjective, additionalMissionInfo;
 		public bool optionalDeployment, factionImperial, factionMercenary;
-		public YesNoAll useFixedAlly, useBannedAlly;//, banAllAllies;
+		public YesNoAll useFixedAlly, useBannedAlly;
 		public CustomInstructionType customInstructionType;
-		//public ThreatModifierType initialThreatType;
 		public PriorityTargetType priorityTargetType;
 		public Guid startingEvent;
-		//public int initialThreatModifier, initialThreatMultiplier;
 		public MissionType missionType;
 		public ChangeReposition changeRepositionOverride;
 		public List<MissionSubType> missionSubType;
@@ -23,5 +21,6 @@ namespace Saga
 		public string customMissionIdentifier = Guid.Empty.ToString();
 		public int roundLimit = -1;
 		public Guid roundLimitEvent = Guid.Empty;
+		public bool useAlternateEventSystem;
 	}
 }

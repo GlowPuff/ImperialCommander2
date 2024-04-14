@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE6.json",
   "fileVersion": "22",
-  "saveDate": "4/5/2024",
-  "timeTicks": 638479139580147941,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485309953578632,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Fly Solo",
@@ -444,6 +444,24 @@
       "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Daring Escape Triggered",
+      "GUID": "079fd79a-bfec-4c52-8229-1efd78d51022",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "8687c026-e0e2-4cae-8f03-d6a74e99f15a",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "globalEvents": [
@@ -849,15 +867,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "8687c026-e0e2-4cae-8f03-d6a74e99f15a",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "0734e703-77d2-4734-ba57-3e41b9aefffc",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -910,15 +930,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "8687c026-e0e2-4cae-8f03-d6a74e99f15a",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "37bb1ad3-67d0-465d-86e8-d38adbe7a631",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1139,6 +1161,12 @@
             {
               "triggerName": "Time to Run",
               "triggerGUID": "b32d7b70-0047-486d-87bc-033fff524514",
+              "setValue": 1,
+              "modifyValue": 0
+            },
+            {
+              "triggerName": "Daring Escape Triggered",
+              "triggerGUID": "079fd79a-bfec-4c52-8229-1efd78d51022",
               "setValue": 1,
               "modifyValue": 0
             }
@@ -1685,6 +1713,128 @@
           "GUID": "1108cb35-5bd3-4eb2-aa85-e411e4eb27d1",
           "eventActionType": 4,
           "displayName": "Modify Threat"
+        }
+      ]
+    },
+    {
+      "GUID": "1204f75d-ec87-43b5-8c42-c5801461984f",
+      "isGlobal": true,
+      "name": "End Mission Daring Escape",
+      "eventText": "Because Han had to free himself, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Daring Escape Triggered",
+          "triggerGUID": "079fd79a-bfec-4c52-8229-1efd78d51022",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "8687c026-e0e2-4cae-8f03-d6a74e99f15a",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "6531c9e1-9dc3-4779-add2-e5ae0533a524",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "49389b90-cedb-4e5c-98b2-a27517d2bf98",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "58d44998-3736-4485-8c40-f7ffa776c77e",
+      "isGlobal": true,
+      "name": "End Mission No Daring Escape",
+      "eventText": "Because the heroes reached Han before he had to free himself, they receive 100 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Daring Escape Triggered",
+          "triggerGUID": "079fd79a-bfec-4c52-8229-1efd78d51022",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "8687c026-e0e2-4cae-8f03-d6a74e99f15a",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "c3b36a52-b7dc-4639-9e04-06c8b79750b0",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "c45b1e8f-e2bc-41b4-af90-42ed3969b991",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

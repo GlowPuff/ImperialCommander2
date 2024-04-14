@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE8.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481887219596445,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485516911736865,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Inside Man",
@@ -378,6 +378,24 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": -1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Lorn claimed",
+      "GUID": "5f077878-5524-4baa-989e-cddd6173c23b",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "5fa5eb4d-cf5f-4f63-82c8-ab277a1c3e2b",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
@@ -814,15 +832,25 @@
           "displayName": "Add Campaign Reward"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "77ae27ff-e203-49d4-b884-8deecad99a56",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "362d4530-7b4e-456a-91d5-fcb2ba8998eb"
+            },
+            {
+              "GUID": "4bf5bf46-e3cc-4476-bd6e-631cb9b38738",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "16922952-689c-47d9-bd9d-c775e0557f1e"
+            }
+          ],
+          "GUID": "3799661a-7225-4383-954c-3d83112553b7",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -830,7 +858,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "With alarms blaring and security guards swarming, you are forced to flee the building before you are able to access the historical records. As you withdraw, you hear Lorn thanking the security forces for saving him from those “terrorists.”\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If a hero claimed Lorn, heroes receive 25 credits per hero.",
+      "eventText": "With alarms blaring and security guards swarming, you are forced to flee the building before you are able to access the historical records. As you withdraw, you hear Lorn thanking the security forces for saving him from those “terrorists.”\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2054,6 +2082,12 @@
               "triggerGUID": "952f7a39-3ba3-46b5-afc9-fec4aa3f076f",
               "setValue": 1,
               "modifyValue": 0
+            },
+            {
+              "triggerName": "Lorn claimed",
+              "triggerGUID": "5f077878-5524-4baa-989e-cddd6173c23b",
+              "setValue": 1,
+              "modifyValue": 0
             }
           ],
           "GUID": "a1eaec30-1d08-4950-a85c-08087553fdb4",
@@ -2113,15 +2147,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "a63e836b-076a-4728-9c84-88cc234532dd",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "5fa5eb4d-cf5f-4f63-82c8-ab277a1c3e2b",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "8ff7b27b-ef65-479a-a84b-58f349270047",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2161,13 +2197,219 @@
           "displayName": "Set Next Mission"
         },
         {
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "5fa5eb4d-cf5f-4f63-82c8-ab277a1c3e2b",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "fa21e387-4767-4271-b73a-36e165ccc88f",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "3a3a21ee-d176-4a4c-8d9d-c8ae50f8d05a",
+      "isGlobal": true,
+      "name": "End Mission Lorn Claimed",
+      "eventText": "Because a hero claimed Lorn, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Lorn claimed",
+          "triggerGUID": "5f077878-5524-4baa-989e-cddd6173c23b",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "5fa5eb4d-cf5f-4f63-82c8-ab277a1c3e2b",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "74fcc8cd-bb47-4f54-946e-f9787967b688",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
           "incRoundCounter": false,
           "pauseDeployment": false,
           "unpauseDeployment": false,
           "pauseThreat": false,
           "unpauseThreat": false,
           "endMission": true,
-          "GUID": "d9bc41bb-6f13-451c-bb85-e1f47e6ff2a4",
+          "GUID": "1ff963bf-6b13-48ee-8c47-afd70972ad17",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "4a8145db-c4c5-4108-995b-0276f01214e0",
+      "isGlobal": true,
+      "name": "End Mission Lorn Not Claimed",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Lorn claimed",
+          "triggerGUID": "5f077878-5524-4baa-989e-cddd6173c23b",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "5fa5eb4d-cf5f-4f63-82c8-ab277a1c3e2b",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "31638b30-b39d-4008-a6d5-d9dbad2a6daa",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "362d4530-7b4e-456a-91d5-fcb2ba8998eb",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "b0cf1195-dbd6-4809-9be3-536e29250e9d",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "7c9fcf15-fb5a-421e-b99d-f34a1d443e03",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "16922952-689c-47d9-bd9d-c775e0557f1e",
+      "isGlobal": true,
+      "name": "Healthy Hero No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "29e34413-1cba-4f13-bbfd-38d634b8d4ce",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }

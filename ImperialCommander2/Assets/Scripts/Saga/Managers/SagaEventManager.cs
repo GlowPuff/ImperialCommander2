@@ -218,6 +218,13 @@ namespace Saga
 		/// </summary>
 		void EnqueueEventAfterCurrent( MissionEvent ev, bool cutInLine )
 		{
+			//check if this Mission is using the alternate Event system
+			if ( DataStore.mission.missionProperties.useAlternateEventSystem )
+			{
+				//Debug.Log( "EnqueueEventAfterCurrent()::Using Alternate Event System" );
+				cutInLine = false;
+			}
+
 			if ( !processingEvents )
 			{
 				Debug.Log( $"EnqueueEventAfterCurrent()::Queue empty, new Event added: [{ev.name}]" );
@@ -225,16 +232,13 @@ namespace Saga
 			}
 			else if ( !cutInLine )
 			{
-				Debug.Log( $"EnqueueEventAfterCurrent()::new Event added to END of queue: [{ev.name}]" );
+				Debug.Log( $"EnqueueEventAfterCurrent()::new Event added to END of queue: [{ev.name}], Alternate Event System=[{DataStore.mission.missionProperties.useAlternateEventSystem}]" );
 				eventQueue.Enqueue( ev );
 			}
 			else
 			{
 				Guid current = eventQueue.Peek().GUID;
 				int idx = eventQueue.FindIndexByProperty( x => x.GUID == current );
-
-				List<MissionEvent> temp = new List<MissionEvent>();
-				temp.AddRange( eventQueue );
 
 				//if there are no more Events after the current one, just enqueue the new one
 				if ( eventQueue.Count - 1 == idx )
@@ -246,16 +250,24 @@ namespace Saga
 				{
 					Debug.Log( $"EnqueueEventAfterCurrent()::Queue has many elements, adding new Event..." );
 
+					//with many events queued, we need to recreate the queue so the new event can cut in line
+					//create a temp list of all Events already in the current queue
+					List<MissionEvent> temp = new List<MissionEvent>();
+					temp.AddRange( eventQueue );
+
+					//reset the actual queue to empty, now that it's copied
 					eventQueue.Clear();
 
+					//go through each queued Event...
 					for ( int i = 0; i < temp.Count; i++ )
 					{
+						//let the new Event cut in line when we're at the currently indexed Event
 						if ( i == idx + 1 )
 						{
 							Debug.Log( $"EnqueueEventAfterCurrent()::New Event added at index {i} [{ev.name}]" );
 							eventQueue.Enqueue( ev );
 						}
-						//be sure to also queue the currently indexed Event
+						//and be sure to also queue the currently indexed Event back into line
 						eventQueue.Enqueue( temp[i] );
 					}
 				}

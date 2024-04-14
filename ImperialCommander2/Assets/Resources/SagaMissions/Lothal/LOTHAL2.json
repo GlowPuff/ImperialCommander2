@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "LOTHAL2.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638482120812666526,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485319955054173,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Duel on Devaron",
@@ -837,16 +837,16 @@
           "displayName": "Change Mission Info"
         },
         {
-          "foundTrigger": "00000000-0000-0000-0000-000000000000",
-          "foundEvent": "f601b513-baf1-49c0-af84-ca7eb67e54d7",
-          "displayName": "Query Group",
           "groupEnemyToQuery": null,
           "groupRebelToQuery": {
             "name": "Tress Hacnua",
             "id": "H21"
           },
+          "foundTrigger": "00000000-0000-0000-0000-000000000000",
+          "foundEvent": "f601b513-baf1-49c0-af84-ca7eb67e54d7",
           "GUID": "aaec2f5d-eab8-4cc5-b8ae-8fc015ebd65b",
-          "eventActionType": 23
+          "eventActionType": 23,
+          "displayName": "Query Group"
         }
       ]
     },
@@ -854,7 +854,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Thoroughly beaten, the beast retreats into the trees. You see the navchip in the mud and scoop it up as you head for your shuttle, knowing the smuggling routes it contains will save many Rebel ships.\r\n\r\n{-} The Rebels win the mission!\r\n{-} If Tress Hacnua is a hero, she receives the “Wholeness” Reward card. Otherwise, heroes receive 150 credits per hero.",
+      "eventText": "Thoroughly beaten, the beast retreats into the trees. You see the navchip in the mud and scoop it up as you head for your shuttle, knowing the smuggling routes it contains will save many Rebel ships.\r\n\r\n{-} The Rebels win the mission!",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -926,7 +926,7 @@
       "startOfRound": 1,
       "endOfRound": 6,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -1070,11 +1070,10 @@
       "additionalTriggers": [],
       "eventActions": [
         {
-          "creditsToModify": 3,
-          "multiplyByHeroCount": false,
-          "GUID": "6e8deebb-2dd4-4286-bb3c-326615af64a9",
-          "eventActionType": 25,
-          "displayName": "Modify Credits"
+          "xpToAdd": 3,
+          "GUID": "552b1d31-0040-472a-9dd4-884ff87d0a8a",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
         },
         {
           "creditsToModify": 300,
@@ -1885,7 +1884,7 @@
       "GUID": "3fa810bd-03be-4388-97ed-038fda088607",
       "isGlobal": true,
       "name": "Mission Ends Win Tress Yes",
-      "eventText": "",
+      "eventText": "Tress Hacnua receives the “Wholeness” Reward card.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1955,7 +1954,7 @@
       "GUID": "db0e4298-cfe5-4bb8-8062-3ee0194026ce",
       "isGlobal": true,
       "name": "Mission Ends Win Tress No",
-      "eventText": "",
+      "eventText": "The heroes receive 150 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",

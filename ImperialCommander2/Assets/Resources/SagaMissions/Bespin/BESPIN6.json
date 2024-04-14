@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "BESPIN6.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638482113553880433,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485317721752336,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Reclassified",
@@ -809,16 +809,16 @@
           "displayName": "Change Mission Info"
         },
         {
-          "foundTrigger": "00000000-0000-0000-0000-000000000000",
-          "foundEvent": "329aef7a-f5e0-4ba8-a4b4-2851c88b5a7b",
-          "displayName": "Query Group",
           "groupEnemyToQuery": null,
           "groupRebelToQuery": {
             "name": "Davith Elso",
             "id": "H12"
           },
+          "foundTrigger": "00000000-0000-0000-0000-000000000000",
+          "foundEvent": "329aef7a-f5e0-4ba8-a4b4-2851c88b5a7b",
           "GUID": "5d0ab0f1-b231-4104-b30d-ccd76d79acfb",
-          "eventActionType": 23
+          "eventActionType": 23,
+          "displayName": "Query Group"
         }
       ]
     },
@@ -826,7 +826,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "With the Alliance documents secured, your team rushes to the shuttle. The mission may have gotten more interesting than anticipated, but the heist was ultimately successful. Rebel secrets, and lives, have been saved today.\r\n\r\n{-} The Rebels win the mission!\r\n{-} If Davith Elso is a hero, he gains the “Radiant Holocron” Reward card. Otherwise, heroes receive 150 credits per hero.",
+      "eventText": "With the Alliance documents secured, your team rushes to the shuttle. The mission may have gotten more interesting than anticipated, but the heist was ultimately successful. Rebel secrets, and lives, have been saved today.\r\n\r\n{-} The Rebels win the mission!",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -850,6 +850,19 @@
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Rebels win",
+              "triggerGUID": "185d5a05-1010-4d6d-b601-465f04c92dc6",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "28b4af3a-ad04-471c-9f2e-45412a711a6e",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        },
         {
           "theText": "Did you play this mission as part of the \"The Bespin Gambit\" mini campaign?",
           "includeCancel": false,
@@ -971,19 +984,6 @@
           "GUID": "6c72cee6-467f-45b4-a59e-54ce8dac41b6",
           "eventActionType": 27,
           "displayName": "Set Next Mission"
-        },
-        {
-          "triggerList": [
-            {
-              "triggerName": "Rebels win",
-              "triggerGUID": "185d5a05-1010-4d6d-b601-465f04c92dc6",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "39ba6ba7-04dc-4ddd-91be-4dfb5693615f",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
         },
         {
           "triggerList": [
@@ -2564,7 +2564,7 @@
       "GUID": "329aef7a-f5e0-4ba8-a4b4-2851c88b5a7b",
       "isGlobal": true,
       "name": "Davith present",
-      "eventText": "",
+      "eventText": "Davith present",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2607,7 +2607,7 @@
       "GUID": "803c2192-4832-42e4-b16e-6d445aedbe77",
       "isGlobal": true,
       "name": "Mission Ends Win Davith Yes",
-      "eventText": "",
+      "eventText": "Davith Elso gains the “Radiant Holocron” Reward card.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2677,7 +2677,7 @@
       "GUID": "d459724c-d790-453e-8622-f00a09287ee8",
       "isGlobal": true,
       "name": "Mission Ends Win Davith No",
-      "eventText": "",
+      "eventText": "The heroes receive 150 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",

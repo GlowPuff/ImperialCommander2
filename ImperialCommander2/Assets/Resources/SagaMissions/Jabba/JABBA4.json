@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA4.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481842644029730,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485526859677317,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "From All Sides",
@@ -631,6 +631,42 @@
       "useReset": false,
       "maxValue": 5,
       "initialValue": 5,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Win",
+      "GUID": "f0d0a120-7d07-49cf-a5c0-593fca898097",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Terro Defeated",
+      "GUID": "f43eae73-3e02-48b9-9fdf-958b9d2dd175",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Luke Defeated",
+      "GUID": "dad0136b-ef01-4a88-92fd-c69cf153c391",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Lose",
+      "GUID": "1102abba-ffc2-473f-ac12-fe8f5192a897",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
@@ -1483,6 +1519,16 @@
           "displayName": "Text Box"
         },
         {
+          "countdownTimerName": "Victory Timer",
+          "countdownTimer": 4,
+          "triggerGUID": "00000000-0000-0000-0000-000000000000",
+          "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "f8830e7f-dde4-408c-933c-16639885736c",
+          "eventActionType": 29
+        },
+        {
           "theText": "Survive. Rounds left: &Countdown&",
           "longText": null,
           "GUID": "63398ac8-fb36-4380-b984-7ae265780dfb",
@@ -1501,7 +1547,7 @@
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "isGlobal": true,
       "name": "End of Mission - Rebels win",
-      "eventText": "Though the lines of enemies continue to press in, you hold your ground and keep the Rebel convoy safe from their onslaught. Amidst the sound of battle, you finally hear the deep rumble of the convoy's ships blasting off into space. \"They're clear!\" Luke shouts. \"Let's get out of here!\" You fall back together, Luke continuing to provide cover by deflecting blaster bolts back into oncoming assailants.\r\n\r\nAfter you find safe space and recover, you contact the convoy and are able to speak to your family. \"Thank you,\" they say to you. \"We know we'll be safe now. Please get here soon, and we can be all together again.\"\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If <color=\"red\">Captain Terro</color> was not defeated, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Place Story Mission card \"Almost Home\" into play.",
+      "eventText": "Though the lines of enemies continue to press in, you hold your ground and keep the Rebel convoy safe from their onslaught. Amidst the sound of battle, you finally hear the deep rumble of the convoy's ships blasting off into space. \"They're clear!\" Luke shouts. \"Let's get out of here!\" You fall back together, Luke continuing to provide cover by deflecting blaster bolts back into oncoming assailants.\r\n\r\nAfter you find safe space and recover, you contact the convoy and are able to speak to your family. \"Thank you,\" they say to you. \"We know we'll be safe now. Please get here soon, and we can be all together again.\"\r\n\r\n{-} The Rebels win the mission!\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card \"Almost Home\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1509,7 +1555,7 @@
       "startOfRound": 1,
       "endOfRound": 5,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -1546,15 +1592,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Rebels Win",
+              "triggerGUID": "f0d0a120-7d07-49cf-a5c0-593fca898097",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "7e4bfdee-3af7-48f1-9051-29d7fcee210c",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1562,7 +1610,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Your endurance finally gives out, and the horde of enemies breaks your defensive line. On the other side of the battlefield, you see Luke forced into retreat under a barrage of stormtrooper fire. Your comlink crackles with calls for help. You sprint back into the hangar trying to defend as best as you can, Eventually, the convoy is able to take off, and you make a hasty retreat.\r\n\r\nOnce safe, you contact the convoy and speak to the captain. “We're away” he says, “but we suffered some heavy losses, both soldiers and civilians. You be happy to know your families are safe. We need to finish this mission soon; we can't take more losses.\"\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} If <color=\"red\">Luke Skywalker</color> was not defeated, heroes receive 25 credits per hero.\r\n{-} Place Story Mission card \"Almost Home\" into play.",
+      "eventText": "Your endurance finally gives out, and the horde of enemies breaks your defensive line. On the other side of the battlefield, you see Luke forced into retreat under a barrage of stormtrooper fire. Your comlink crackles with calls for help. You sprint back into the hangar trying to defend as best as you can, Eventually, the convoy is able to take off, and you make a hasty retreat.\r\n\r\nOnce safe, you contact the convoy and speak to the captain. “We're away” he says, “but we suffered some heavy losses, both soldiers and civilians. You be happy to know your families are safe. We need to finish this mission soon; we can't take more losses.\"\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card \"Almost Home\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1607,15 +1655,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "Rebels Lose",
+              "triggerGUID": "1102abba-ffc2-473f-ac12-fe8f5192a897",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "d3d1d5be-27da-4160-9780-1afababe6344",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -3464,7 +3514,7 @@
               "incVehicle": true,
               "useDefaultPriority": true
             },
-            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedTrigger": "f43eae73-3e02-48b9-9fdf-958b9d2dd175",
             "defeatedEvent": "00000000-0000-0000-0000-000000000000",
             "useGenericMugshot": false,
             "useInitialGroupCustomName": false
@@ -3542,7 +3592,7 @@
         {
           "allyName": null,
           "allyID": "A011",
-          "setTrigger": "00000000-0000-0000-0000-000000000000",
+          "setTrigger": "dad0136b-ef01-4a88-92fd-c69cf153c391",
           "setEvent": "00000000-0000-0000-0000-000000000000",
           "deploymentPoint": 1,
           "specificDeploymentPoint": "268eedfc-506a-4a4b-9780-99abadf5b15a",
@@ -3644,6 +3694,232 @@
           "GUID": "e16db113-abbe-47d1-9b87-6c67ba765186",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "2883b9b9-0b35-476e-a4e8-dce125a318e3",
+      "isGlobal": true,
+      "name": "Rebels Win Terro Defeated",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Rebels Win",
+          "triggerGUID": "f0d0a120-7d07-49cf-a5c0-593fca898097",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Terro Defeated",
+          "triggerGUID": "f43eae73-3e02-48b9-9fdf-958b9d2dd175",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "7712124e-511c-43ae-8972-978b10e3eca7",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "ead7e223-d7b9-4271-bfb8-067b1f16a355",
+      "isGlobal": true,
+      "name": "Rebels Win Terro Not Defeated",
+      "eventText": "Because <color=\"red\">Captain Terro</color> was not defeated, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Rebels Win",
+          "triggerGUID": "f0d0a120-7d07-49cf-a5c0-593fca898097",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Terro Defeated",
+          "triggerGUID": "f43eae73-3e02-48b9-9fdf-958b9d2dd175",
+          "triggerValue": 0
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "d3bded28-72c8-4425-8b7c-5a0e8649908f",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "764af5c6-2f1e-461d-9e8b-113ccbbfb7ec",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "b22f264d-0aca-4806-9b43-e5aeebaa7e27",
+      "isGlobal": true,
+      "name": "Rebels Lose Luke Defeated",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Luke Defeated",
+          "triggerGUID": "dad0136b-ef01-4a88-92fd-c69cf153c391",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "1102abba-ffc2-473f-ac12-fe8f5192a897",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "415426f8-5484-43b4-adb1-f8b5399d4f09",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "8d62bdde-58db-4e5f-a47b-81eb07e101a8",
+      "isGlobal": true,
+      "name": "Rebels Lose Luke Not Defeated",
+      "eventText": "Because <color=\"red\">Luke Skywalker</color> was not defeated, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Luke Defeated",
+          "triggerGUID": "dad0136b-ef01-4a88-92fd-c69cf153c391",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "1102abba-ffc2-473f-ac12-fe8f5192a897",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "50ac363a-3f54-4998-a7f7-9a13e597b5c9",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "52af8fd9-e188-4401-a810-b64c65bfd92d",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

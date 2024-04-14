@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE10.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638482999203209238,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485130421380182,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "On the Run",
@@ -1050,15 +1050,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "a62c08a0-13da-4e9b-b645-edaa4c426b91",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "fee3359a-bf43-4c76-8ee5-54603496a2bb"
+            },
+            {
+              "GUID": "0574098a-0bbc-48c5-8db1-89cd1bdd1249",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "2ec4c528-54e5-4207-90e4-ed1d7dd64192"
+            }
+          ],
+          "GUID": "60713ccd-8c7b-4790-a463-5fe25a50e728",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1066,7 +1076,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "“You are beaten,\" Maul shouts at you as his forces overtake you. He gives a signal and the Imperial officer Zaaryn emerges with a small squad. “Here’s my end of the  bargain, Zaaryn,” Maul says, gesturing to you and your team, “Now give my agents clearance to leave Coruscant.”\r\n\r\nZaaryn turns to Maul. “You may consider my end of the bargain... altered,” he says. His troops immediately turn on Maul, forcing him into an enraged retreat as Zaaryn’s team loads you onto a shuttle. \"A Rebel strike force and the Bardottan shard; the Emperor might just make me the head of the ISB,’ Zaaryn says to himself before firing a stun blast, knocking you out.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} If the Trandoshan Hunters were defeated, the heroes receive 25 credits per hero.\r\n{-} Place Story Mission card “The Realm of the Dark Side” into play.",
+      "eventText": "“You are beaten,\" Maul shouts at you as his forces overtake you. He gives a signal and the Imperial officer Zaaryn emerges with a small squad. “Here’s my end of the  bargain, Zaaryn,” Maul says, gesturing to you and your team, “Now give my agents clearance to leave Coruscant.”\r\n\r\nZaaryn turns to Maul. “You may consider my end of the bargain... altered,” he says. His troops immediately turn on Maul, forcing him into an enraged retreat as Zaaryn’s team loads you onto a shuttle. \"A Rebel strike force and the Bardottan shard; the Emperor might just make me the head of the ISB,’ Zaaryn says to himself before firing a stun blast, knocking you out.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 2 XP. Heroes receive 100 credits per hero.\r\n{-} Place Story Mission card “The Realm of the Dark Side” into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -1247,15 +1257,6 @@
       ],
       "eventActions": [
         {
-          "mapTile": "00000000-0000-0000-0000-000000000000",
-          "mapTileRemove": "00000000-0000-0000-0000-000000000000",
-          "mapSection": "9e3fc991-bf92-476e-ba20-d3ac8eac1a5b",
-          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
-          "GUID": "0af7f949-5f0a-4b40-a90b-e646da4ebcb2",
-          "eventActionType": 14,
-          "displayName": "Map Management"
-        },
-        {
           "theText": "Disable the security systems (&Terminals&/3).",
           "longText": null,
           "GUID": "56764d0f-a9e5-4a19-93ef-20bd1f37e224",
@@ -1353,6 +1354,15 @@
         }
       ],
       "eventActions": [
+        {
+          "mapTile": "00000000-0000-0000-0000-000000000000",
+          "mapTileRemove": "00000000-0000-0000-0000-000000000000",
+          "mapSection": "9e3fc991-bf92-476e-ba20-d3ac8eac1a5b",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
+          "GUID": "03de178c-f564-41ea-9203-46340bce9b13",
+          "eventActionType": 14,
+          "displayName": "Map Management"
+        },
         {
           "enemyName": null,
           "deploymentGroup": "DG052",
@@ -1461,6 +1471,15 @@
         }
       ],
       "eventActions": [
+        {
+          "mapTile": "00000000-0000-0000-0000-000000000000",
+          "mapTileRemove": "00000000-0000-0000-0000-000000000000",
+          "mapSection": "9e3fc991-bf92-476e-ba20-d3ac8eac1a5b",
+          "mapSectionRemove": "00000000-0000-0000-0000-000000000000",
+          "GUID": "a02659fe-a265-4af6-811a-ff8ae60a33b8",
+          "eventActionType": 14,
+          "displayName": "Map Management"
+        },
         {
           "eventGroupGUID": "e56625bb-9d26-4a36-832e-5c8c3e7bc44c",
           "GUID": "a5f9c847-b4f1-4df2-8c7a-75b476fe4261",
@@ -2847,7 +2866,7 @@
       "GUID": "38aaf530-69a7-4e5b-8947-60b8edf2f2cf",
       "isGlobal": true,
       "name": "End Mission Trando Yes",
-      "eventText": "",
+      "eventText": "Because the Trandoshan Hunters were defeated, the heroes receive 25 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2949,6 +2968,99 @@
           "unpauseThreat": false,
           "endMission": true,
           "GUID": "c4cb0d03-3717-4a56-9de0-bb99400515c3",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "fee3359a-bf43-4c76-8ee5-54603496a2bb",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "21e93989-66d6-4cdd-83a5-99e6fe58898b",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "0fc2a15f-0e04-4425-ad46-7620fd4e0ee6",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "2ec4c528-54e5-4207-90e4-ed1d7dd64192",
+      "isGlobal": true,
+      "name": "Healthy Hero No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "36adfce2-6996-45eb-a009-d4da08fe8b17",
           "eventActionType": 0,
           "displayName": "Mission Management"
         }

@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "JABBA6.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481978592260855,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485495640549176,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Moment of Fate",
@@ -19,7 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 6,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 0,
     "changeRepositionOverride": {
       "theText": "Block access to the doors.",
@@ -355,15 +355,6 @@
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "name": "Countdown",
-      "GUID": "141c35f7-e029-449e-a380-c96907bac144",
-      "isGlobal": true,
-      "useReset": false,
-      "maxValue": 3,
-      "initialValue": 3,
-      "eventGUID": "00000000-0000-0000-0000-000000000000"
-    },
-    {
       "name": "Weak Points",
       "GUID": "15fc5aff-9b50-4b37-8cd3-194196ed7c7a",
       "isGlobal": true,
@@ -378,15 +369,6 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": 3,
-      "initialValue": 0,
-      "eventGUID": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "name": "Round Limit Off",
-      "GUID": "953311d8-5029-4482-b92e-7136d1cecde5",
-      "isGlobal": true,
-      "useReset": false,
-      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     },
@@ -2543,6 +2525,16 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "roundLimitModifier": 0,
+          "setLimitTo": 0,
+          "eventGUID": "00000000-0000-0000-0000-000000000000",
+          "disableRoundLimit": true,
+          "setRoundLimit": false,
+          "GUID": "829572e1-a3a8-4ab2-a044-2214a8c95d8a",
+          "eventActionType": 28,
+          "displayName": "Modify Round Limit"
+        },
+        {
           "theText": "Imperial soldiers rush in to stop you from destroying the exterior defenses. \"Blast them!\", an officer shouts.",
           "GUID": "f7c42d5f-451f-4507-a0de-8e8e199c155e",
           "eventActionType": 16,
@@ -2660,12 +2652,6 @@
         {
           "triggerList": [
             {
-              "triggerName": "Round Limit Off",
-              "triggerGUID": "953311d8-5029-4482-b92e-7136d1cecde5",
-              "setValue": 1,
-              "modifyValue": 0
-            },
-            {
               "triggerName": "Bonus Threat Off",
               "triggerGUID": "07e55739-9816-459b-807f-404da73b7efc",
               "setValue": 1,
@@ -2701,6 +2687,16 @@
           "GUID": "60845ec0-957e-4201-a811-046f414a6bbd",
           "eventActionType": 16,
           "displayName": "Text Box"
+        },
+        {
+          "countdownTimerName": "Timer Codes",
+          "countdownTimer": 3,
+          "triggerGUID": "c2f8bcbd-80ee-4baf-bfb8-aff1cbfe0bf4",
+          "eventGUID": "00000000-0000-0000-0000-000000000000",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "780f60ac-4300-40c6-98cb-20b91786228f",
+          "eventActionType": 29
         },
         {
           "entitiesToModify": [
@@ -2770,7 +2766,7 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "Destroy the defense stations (&Defense Stations&/3). Rounds left: &Countdown&",
+          "theText": "Destroy the defense stations (&Defense Stations&/3).",
           "longText": null,
           "GUID": "dcea161e-29f9-4173-8113-015e44c09f8b",
           "eventActionType": 2,
@@ -2812,6 +2808,16 @@
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": [
+        {
+          "roundLimitModifier": 0,
+          "setLimitTo": 0,
+          "eventGUID": "00000000-0000-0000-0000-000000000000",
+          "disableRoundLimit": true,
+          "setRoundLimit": false,
+          "GUID": "173e72e3-852a-443b-9a98-172899229aca",
+          "eventActionType": 28,
+          "displayName": "Modify Round Limit"
+        },
         {
           "entitiesToModify": [
             {
@@ -3041,12 +3047,6 @@
               "modifyValue": 0
             },
             {
-              "triggerName": "Round Limit Off",
-              "triggerGUID": "953311d8-5029-4482-b92e-7136d1cecde5",
-              "setValue": 1,
-              "modifyValue": 0
-            },
-            {
               "triggerName": "Epilogue 1",
               "triggerGUID": "b0e658a2-8608-4046-931b-2839be0a0f31",
               "setValue": 1,
@@ -3263,6 +3263,16 @@
           "displayName": "Text Box"
         },
         {
+          "countdownTimerName": "Defense Timer",
+          "countdownTimer": 3,
+          "triggerGUID": "3f2105a7-b4b3-4773-8c0b-078a0a6411f8",
+          "eventGUID": "00000000-0000-0000-0000-000000000000",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "11811734-8e36-4bdd-8510-bc439e030225",
+          "eventActionType": 29
+        },
+        {
           "targetType": 3,
           "groupType": 0,
           "otherTarget": "the closest weak point",
@@ -3291,7 +3301,7 @@
           "displayName": "Change Priority Target"
         },
         {
-          "theText": "Defend the base. Weak points destroyed: &Weak Points&/4. Rounds left: &Countdown&",
+          "theText": "Defend the base. Weak points destroyed: &Weak Points&/4.",
           "longText": null,
           "GUID": "1957ce84-03ad-49e2-a62d-187f143577a8",
           "eventActionType": 2,
@@ -3302,304 +3312,6 @@
           "GUID": "c5e8988c-1d94-4137-8d77-e8487abec6b5",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
-        }
-      ]
-    },
-    {
-      "GUID": "d79ce480-98ed-41e9-abd6-3b90bac97ad8",
-      "isGlobal": true,
-      "name": "Countdown Codes 3",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": true,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Codes Stolen",
-          "triggerGUID": "26d6d594-2c0b-43e6-b5a6-990b6a8cb02d",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 3
-        },
-        {
-          "triggerName": "Countdown On",
-          "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Countdown",
-              "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-              "setValue": -1,
-              "modifyValue": -1
-            },
-            {
-              "triggerName": "Countdown On",
-              "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-              "setValue": 0,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "59ec7b5e-b0d9-49f8-8c95-4c3fc366a462",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "1f466581-01a1-4d45-9e52-2eb8ac24552c",
-      "isGlobal": true,
-      "name": "Countdown Codes 2",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": true,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Codes Stolen",
-          "triggerGUID": "26d6d594-2c0b-43e6-b5a6-990b6a8cb02d",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 2
-        },
-        {
-          "triggerName": "Countdown On",
-          "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Countdown",
-              "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-              "setValue": -1,
-              "modifyValue": -1
-            },
-            {
-              "triggerName": "Countdown On",
-              "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-              "setValue": 0,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "9a31e42d-8f23-495f-aa50-4f04df488f02",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "a4519042-7196-4d69-8efa-1c2c5c7f8fe8",
-      "isGlobal": true,
-      "name": "Countdown Codes 1",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": true,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Codes Stolen",
-          "triggerGUID": "26d6d594-2c0b-43e6-b5a6-990b6a8cb02d",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Countdown On",
-          "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Countdown",
-              "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-              "setValue": -1,
-              "modifyValue": -1
-            },
-            {
-              "triggerName": "Countdown On",
-              "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-              "setValue": 0,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "df3a85d5-811e-4b84-a11d-ca8a5d3df82b",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "a262b3d0-51fb-42cc-9520-fa153df67969",
-      "isGlobal": true,
-      "name": "Rebels Lose Codes",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": true,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Codes Stolen",
-          "triggerGUID": "26d6d594-2c0b-43e6-b5a6-990b6a8cb02d",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 0
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Rebels lose",
-              "triggerGUID": "c2f8bcbd-80ee-4baf-bfb8-aff1cbfe0bf4",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "a6541769-ccd8-41ef-9ec8-c86ea03d2a90",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "c27c5ae0-95e7-4769-9aa5-efa5f62b2174",
-      "isGlobal": true,
-      "name": "EoR Countdown",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": true,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": true,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Countdown On",
-          "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-          "triggerValue": 0
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Countdown On",
-              "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "46e9ec4a-8a9f-46c2-9b49-f84945acd2b4",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -3751,310 +3463,6 @@
             }
           ],
           "GUID": "7be28d21-c674-40dc-8169-b775e1afbf94",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "cead5586-08bc-42d9-af89-b4d1ebdef903",
-      "isGlobal": true,
-      "name": "Countdown Defense 3",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": true,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 3
-        },
-        {
-          "triggerName": "Countdown On",
-          "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Defense",
-          "triggerGUID": "d36cdee3-d049-4859-8317-c945d0ea3924",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Countdown",
-              "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-              "setValue": -1,
-              "modifyValue": -1
-            },
-            {
-              "triggerName": "Countdown On",
-              "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-              "setValue": 0,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "4b8f1c64-333e-44b7-8a9a-4fa05b712faf",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "29bfe176-3c00-42d6-a039-be5370c10abc",
-      "isGlobal": true,
-      "name": "Countdown Defense 2",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": true,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 2
-        },
-        {
-          "triggerName": "Countdown On",
-          "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Defense",
-          "triggerGUID": "d36cdee3-d049-4859-8317-c945d0ea3924",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Countdown",
-              "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-              "setValue": -1,
-              "modifyValue": -1
-            },
-            {
-              "triggerName": "Countdown On",
-              "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-              "setValue": 0,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "26523258-67be-4e02-ac9d-5f64f9896a83",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "36c78fbf-0e0f-423e-873c-f983d992b2a2",
-      "isGlobal": true,
-      "name": "Countdown Defense 1",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": true,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Countdown On",
-          "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Defense",
-          "triggerGUID": "d36cdee3-d049-4859-8317-c945d0ea3924",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Countdown",
-              "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-              "setValue": -1,
-              "modifyValue": -1
-            },
-            {
-              "triggerName": "Countdown On",
-              "triggerGUID": "ee12dd69-d2c0-4e69-88ec-b079682dbb78",
-              "setValue": 0,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "f0e6bb73-3ba8-4a04-9897-a37bd3172ea6",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "0e6f95ea-fdb3-4bff-9f70-1b0b4ffce5cd",
-      "isGlobal": true,
-      "name": "Rebels Win Defense",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": true,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Defense",
-          "triggerGUID": "d36cdee3-d049-4859-8317-c945d0ea3924",
-          "triggerValue": 1
-        },
-        {
-          "triggerName": "Countdown",
-          "triggerGUID": "141c35f7-e029-449e-a380-c96907bac144",
-          "triggerValue": 0
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Rebels Win",
-              "triggerGUID": "3f2105a7-b4b3-4773-8c0b-078a0a6411f8",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "ac467016-41f2-49b1-b8d1-e668ac8f2262",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "7f942967-ce9b-4474-a8e7-9b3846c95f1f",
-      "isGlobal": true,
-      "name": "Rebels Lose Round 6",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 6,
-      "useStartOfRound": false,
-      "useEndOfRound": true,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Round Limit Off",
-          "triggerGUID": "953311d8-5029-4482-b92e-7136d1cecde5",
-          "triggerValue": 0
-        }
-      ],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Rebels lose",
-              "triggerGUID": "c2f8bcbd-80ee-4baf-bfb8-aff1cbfe0bf4",
-              "setValue": 1,
-              "modifyValue": 0
-            },
-            {
-              "triggerName": "Epilogue 2",
-              "triggerGUID": "8a3698a2-576c-4340-8c56-9ec4604304d9",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "7cbaca84-f316-4be8-aa86-15e66c111f9b",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
         }

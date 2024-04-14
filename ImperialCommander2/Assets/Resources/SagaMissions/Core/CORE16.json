@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE16.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638482798375734388,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485228866588101,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Generous Donations",
@@ -19,7 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
-    "roundLimit": -1,
+    "roundLimit": 8,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
     "customInstructionType": 2,
@@ -28,7 +28,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "00000000-0000-0000-0000-000000000000",
+    "roundLimitEvent": "9e960fce-d271-468c-8d6c-233bc752aa52",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Block access to the terminals.",
@@ -367,6 +367,15 @@
       "maxValue": -1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels win",
+      "GUID": "1d23d2ae-3289-4eaf-b577-2402547e4e32",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "globalEvents": [
@@ -638,126 +647,6 @@
       "behaviorAll": true,
       "additionalTriggers": [],
       "eventActions": []
-    },
-    {
-      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "isGlobal": true,
-      "name": "End of Mission - Rebels win",
-      "eventText": "With the continuing intensity of  response, you deem it best to make your departure and secure your new finances.\r\n\r\nYour partner never shows up to the rendezvous, and when you examine the account, you understand why. It seems the proportions were a little different than you were promised. There is very little remaining in the account, the rest of it drawn away.\r\n\r\n{-} The heroes receive 100 credits per hero for every 3 mission tokens they have claimed (maximum 12 tokens).\r\n{-} For every 3 unclaimed mission token, the Empire begins the next mission with an additional 2 {D}.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Tokens claimed",
-          "triggerGUID": "840efeab-a24c-43d4-81ed-e04c7357b0e7",
-          "triggerValue": 12
-        }
-      ],
-      "eventActions": [
-        {
-          "xpToAdd": 1,
-          "GUID": "255f136e-14f9-4124-bae5-d058e532fd16",
-          "eventActionType": 24,
-          "displayName": "Modify XP"
-        },
-        {
-          "creditsToModify": 100,
-          "multiplyByHeroCount": true,
-          "GUID": "729bab8c-e39e-4de3-812d-54f3979a60e4",
-          "eventActionType": 25,
-          "displayName": "Modify Credits"
-        },
-        {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
-        }
-      ]
-    },
-    {
-      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "isGlobal": true,
-      "name": "End of Mission - Rebels lose",
-      "eventText": "With the continuing intensity of  response, you deem it best to make your departure and secure your new finances.\r\n\r\nYour partner never shows up to the rendezvous, and when you examine the account, you understand why. It seems the proportions were a little different than you were promised. There is very little remaining in the account, the rest of it drawn away.\r\n\r\n{-} The heroes receive 100 credits per hero for every 3 mission tokens they have claimed (maximum 12 tokens).\r\n{-} For every 3 unclaimed mission token, the Empire begins the next mission with an additional 2 {D}.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 9,
-      "endOfRound": 8,
-      "useStartOfRound": true,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": true,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": false,
-      "additionalTriggers": [
-        {
-          "triggerName": "Terminals disabled",
-          "triggerGUID": "f43c948e-19c5-4234-b57b-b097135d3183",
-          "triggerValue": 3
-        }
-      ],
-      "eventActions": [
-        {
-          "xpToAdd": 0,
-          "GUID": "6076f5b6-f3c4-49dd-892b-54d72c2f68ca",
-          "eventActionType": 24,
-          "displayName": "Modify XP"
-        },
-        {
-          "creditsToModify": 100,
-          "multiplyByHeroCount": true,
-          "GUID": "dafc9482-48bb-4328-a0bd-6f34530a904c",
-          "eventActionType": 25,
-          "displayName": "Modify Credits"
-        },
-        {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
-        }
-      ]
     },
     {
       "GUID": "80d4cb75-faf6-4df8-8c90-22ca5f9e593e",
@@ -1976,6 +1865,311 @@
           "GUID": "d5a3ee86-b950-4605-806a-4ca31654cd43",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "84b2e09c-8445-4e8d-9c97-0af05e39502c",
+      "isGlobal": true,
+      "name": "3 Tokens Claimed",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Tokens claimed",
+          "triggerGUID": "840efeab-a24c-43d4-81ed-e04c7357b0e7",
+          "triggerValue": 3
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "f69029bd-3ea2-44cc-9bd3-d25bf13d7b62",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        }
+      ]
+    },
+    {
+      "GUID": "c0ab3861-460f-4112-a8d5-714138cfa680",
+      "isGlobal": true,
+      "name": "6 Tokens Claimed",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Tokens claimed",
+          "triggerGUID": "840efeab-a24c-43d4-81ed-e04c7357b0e7",
+          "triggerValue": 6
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "347f7d09-e9da-4316-b99a-472e2200d9cb",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        }
+      ]
+    },
+    {
+      "GUID": "38a99e03-5d55-4a0f-8e3b-0e0ad90f746c",
+      "isGlobal": true,
+      "name": "9 Tokens Claimed",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Tokens claimed",
+          "triggerGUID": "840efeab-a24c-43d4-81ed-e04c7357b0e7",
+          "triggerValue": 9
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "9906541c-f627-4302-ac1b-1fdd1634dbfb",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        }
+      ]
+    },
+    {
+      "GUID": "d00e21ce-58af-4d32-84f7-9157c0880c37",
+      "isGlobal": true,
+      "name": "12 Tokens Claimed",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Tokens claimed",
+          "triggerGUID": "840efeab-a24c-43d4-81ed-e04c7357b0e7",
+          "triggerValue": 12
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "44e6f9e5-b2c8-4d80-be8d-91c118db03f0",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Rebels win",
+              "triggerGUID": "1d23d2ae-3289-4eaf-b577-2402547e4e32",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "921346bd-8758-415a-a504-fbf572d16550",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "isGlobal": true,
+      "name": "End of Mission - Rebels win",
+      "eventText": "With the continuing intensity of  response, you deem it best to make your departure and secure your new finances.\r\n\r\nYour partner never shows up to the rendezvous, and when you examine the account, you understand why. It seems the proportions were a little different than you were promised. There is very little remaining in the account, the rest of it drawn away.\r\n\r\n{-} The heroes receive 100 credits per hero for every 3 mission tokens they have claimed (maximum 12 tokens).\r\n{-} For every 3 unclaimed mission token, the Empire begins the next mission with an additional 2 {D}.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Rebels win",
+          "triggerGUID": "1d23d2ae-3289-4eaf-b577-2402547e4e32",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "xpToAdd": 1,
+          "GUID": "255f136e-14f9-4124-bae5-d058e532fd16",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "729bab8c-e39e-4de3-812d-54f3979a60e4",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "isGlobal": true,
+      "name": "End of Mission - Rebels lose",
+      "eventText": "With the continuing intensity of  response, you deem it best to make your departure and secure your new finances.\r\n\r\nYour partner never shows up to the rendezvous, and when you examine the account, you understand why. It seems the proportions were a little different than you were promised. There is very little remaining in the account, the rest of it drawn away.\r\n\r\n{-} The heroes receive 100 credits per hero for every 3 mission tokens they have claimed (maximum 12 tokens).\r\n{-} For every 3 unclaimed mission token, the Empire begins the next mission with an additional 2 {D}.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 9,
+      "endOfRound": 8,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": true,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": false,
+      "additionalTriggers": [
+        {
+          "triggerName": "Terminals disabled",
+          "triggerGUID": "f43c948e-19c5-4234-b57b-b097135d3183",
+          "triggerValue": 3
+        }
+      ],
+      "eventActions": [
+        {
+          "xpToAdd": 0,
+          "GUID": "6076f5b6-f3c4-49dd-892b-54d72c2f68ca",
+          "eventActionType": 24,
+          "displayName": "Modify XP"
+        },
+        {
+          "creditsToModify": 100,
+          "multiplyByHeroCount": true,
+          "GUID": "dafc9482-48bb-4328-a0bd-6f34530a904c",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

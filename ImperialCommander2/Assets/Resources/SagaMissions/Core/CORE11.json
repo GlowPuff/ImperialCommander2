@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE11.json",
   "fileVersion": "22",
-  "saveDate": "4/9/2024",
-  "timeTicks": 638482796999967400,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485522989123465,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Under Siege",
@@ -772,6 +772,16 @@
       "additionalTriggers": [],
       "eventActions": [
         {
+          "countdownTimerName": "Victory Timer",
+          "countdownTimer": 7,
+          "triggerGUID": "00000000-0000-0000-0000-000000000000",
+          "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "9f3c62e4-e972-4a01-9ef9-e12a31373c4d",
+          "eventActionType": 29
+        },
+        {
           "groupsToAdd": [
             {
               "expansion": "Core",
@@ -910,7 +920,7 @@
       "startOfRound": 1,
       "endOfRound": 8,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -963,7 +973,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Imperial forces charge into the compound, and you're unable to hold them back any longer. Hoping the time you bought the other strike team will be enough, you quickly disengage.\r\n\r\nLuck is on your side; after you're extracted, a transmission arrives from your commander. She makes no mention of your efforts and instead focuses entirely on the findings of the other team. \"Weiss is developing a weapon,\" she tells you, ''and High Command is very nervous about it. They're already clamoring for more information, so don't be surprised if you're called on soon.\" \r\n\r\n{-} The Rebels lose the mission.\r\n{-} If 4 capture points were secured before the end of Round 6, Place Story Mission card \"Fly Solo\" into play.\r\n{-} Otherwise, place Story Mission card \"Imperial Hospitality\" into play and each hero receives 1 XP.\r\n{-} Each hero receives 1 XP in addition to any that he has already received. Heroes receive 100 credits per hero.",
+      "eventText": "Imperial forces charge into the compound, and you're unable to hold them back any longer. Hoping the time you bought the other strike team will be enough, you quickly disengage.\r\n\r\nLuck is on your side; after you're extracted, a transmission arrives from your commander. She makes no mention of your efforts and instead focuses entirely on the findings of the other team. \"Weiss is developing a weapon,\" she tells you, ''and High Command is very nervous about it. They're already clamoring for more information, so don't be surprised if you're called on soon.\" \r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 XP in addition to any that he has already received. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2119,7 +2129,7 @@
       "GUID": "f611e2f4-0c47-445e-9beb-70444601f4fd",
       "isGlobal": true,
       "name": "Check Early Defeat",
-      "eventText": "",
+      "eventText": "Check Early Defeat",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2162,7 +2172,7 @@
       "GUID": "c50c6aaf-484d-4d57-916b-9a88481941e5",
       "isGlobal": true,
       "name": "End Mission Early Defeat",
-      "eventText": "",
+      "eventText": "Because 4 capture points were secured before the end of Round 6, Place Story Mission card \"Fly Solo\" into play.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2221,7 +2231,7 @@
       "GUID": "bc91a667-9a7f-4669-9dc5-89f1505fdca8",
       "isGlobal": true,
       "name": "End Mission Normal",
-      "eventText": "",
+      "eventText": "Because 4 capture points were secured after the end of Round 6, place Story Mission card \"Imperial Hospitality\" into play and each hero receives 1 XP.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",

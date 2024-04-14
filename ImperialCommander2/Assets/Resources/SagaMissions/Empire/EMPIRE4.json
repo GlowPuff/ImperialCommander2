@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "EMPIRE4.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481866381589761,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485525523053551,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Double Agent",
@@ -624,6 +624,33 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": -1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Round 7 started",
+      "GUID": "8a64c461-717f-42f7-8574-341cd1e53c86",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Rebels Lose",
+      "GUID": "f9ae9f54-0f7c-4b29-a1d5-22b6bbfd0f13",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "35336467-5d3b-4e77-9d94-01f7a0ff859e",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
@@ -1431,6 +1458,16 @@
           "GUID": "b22d0e98-6e38-40c8-8ab7-0368a1fc5cd2",
           "eventActionType": 2,
           "displayName": "Change Objective"
+        },
+        {
+          "countdownTimerName": "Victory Timer",
+          "countdownTimer": 6,
+          "triggerGUID": "00000000-0000-0000-0000-000000000000",
+          "eventGUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+          "showPlayerCountdown": true,
+          "displayName": "Set Countdown",
+          "GUID": "749487d6-7158-45d5-82de-f6e1fb65314f",
+          "eventActionType": 29
         }
       ]
     },
@@ -1446,7 +1483,7 @@
       "startOfRound": 1,
       "endOfRound": 7,
       "useStartOfRound": false,
-      "useEndOfRound": true,
+      "useEndOfRound": false,
       "useStartOfEachRound": false,
       "useEndOfEachRound": false,
       "useAllGroupsDefeated": false,
@@ -1496,15 +1533,25 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "theText": "Is there only 1 healthy hero?",
+          "includeCancel": false,
+          "buttonList": [
+            {
+              "GUID": "8d8778d6-9b04-48bd-a46c-b627f517758d",
+              "buttonText": "Yes",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "92cb039a-9d87-412e-8afd-a01f525208f5"
+            },
+            {
+              "GUID": "ee0dfae9-26c0-481d-9450-e685e59cf4d9",
+              "buttonText": "No",
+              "triggerGUID": "00000000-0000-0000-0000-000000000000",
+              "eventGUID": "64a222fd-16e5-4545-9d2b-2a8fe10f7261"
+            }
+          ],
+          "GUID": "9d3c24ba-360f-4934-ade8-5deb209c4add",
+          "eventActionType": 5,
+          "displayName": "Question Prompt"
         }
       ]
     },
@@ -1565,6 +1612,19 @@
           "GUID": "99520761-9fd3-46fc-92e6-1c549e444e70",
           "eventActionType": 30,
           "displayName": "Add Campaign Reward"
+        },
+        {
+          "triggerList": [
+            {
+              "triggerName": "Rebels Lose",
+              "triggerGUID": "f9ae9f54-0f7c-4b29-a1d5-22b6bbfd0f13",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "84391d18-c502-411e-a8bf-58871b95cb92",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1604,15 +1664,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "7a597420-c6c9-4a24-8ade-6b65cf529db8",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "35336467-5d3b-4e77-9d94-01f7a0ff859e",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "71aed75a-0ec8-4b0c-bfbd-8b8a5682e7a7",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1652,15 +1714,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "6162adaa-bc92-45a2-81f8-923e8b2e8fcc",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "35336467-5d3b-4e77-9d94-01f7a0ff859e",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "5007692b-5df8-49d2-a740-107e468ac1e8",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2314,6 +2378,270 @@
           "GUID": "5fa22de3-af5b-4f96-b6f5-10f0839bdcf7",
           "eventActionType": 4,
           "displayName": "Modify Threat"
+        }
+      ]
+    },
+    {
+      "GUID": "f2beeb78-c18d-4fa7-9971-fd6ae5e3fa2c",
+      "isGlobal": true,
+      "name": "Round 7 starts",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 7,
+      "endOfRound": 1,
+      "useStartOfRound": true,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Round 7 started",
+              "triggerGUID": "8a64c461-717f-42f7-8574-341cd1e53c86",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "ddbe75b0-852e-4170-9379-f6a7e4fc6d22",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
+        }
+      ]
+    },
+    {
+      "GUID": "1e764237-0372-404c-826a-5fcaf978fefd",
+      "isGlobal": true,
+      "name": "Rebels Lose Bonus Credits",
+      "eventText": "Because Lorn was not arrested until round 7, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Round 7 started",
+          "triggerGUID": "8a64c461-717f-42f7-8574-341cd1e53c86",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "f9ae9f54-0f7c-4b29-a1d5-22b6bbfd0f13",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "35336467-5d3b-4e77-9d94-01f7a0ff859e",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "b0694ee0-7225-48bf-bcf0-6f7a8030b61d",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "addeb774-5908-423a-afec-4eced769deb2",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "6381b60d-b612-4eb5-be22-6befded031e0",
+      "isGlobal": true,
+      "name": "Rebels Lose No Bonus Credits",
+      "eventText": "Because this is round 7, the heroes receive 25 credits per hero.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Round 7 started",
+          "triggerGUID": "8a64c461-717f-42f7-8574-341cd1e53c86",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "Rebels Lose",
+          "triggerGUID": "f9ae9f54-0f7c-4b29-a1d5-22b6bbfd0f13",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "35336467-5d3b-4e77-9d94-01f7a0ff859e",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "creditsToModify": 25,
+          "multiplyByHeroCount": true,
+          "GUID": "a488d879-7ff8-4ee0-9b2e-df69cf9cac99",
+          "eventActionType": 25,
+          "displayName": "Modify Credits"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "23d885c3-2629-48e9-80a3-5f3b53014055",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "92cb039a-9d87-412e-8afd-a01f525208f5",
+      "isGlobal": true,
+      "name": "Healthy Hero Yes",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "ef6c6ba4-3882-49db-b0fc-757e57c6c181",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "2bf5b7ab-7013-47d0-8f39-03728db3dcb3",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "64a222fd-16e5-4545-9d2b-2a8fe10f7261",
+      "isGlobal": true,
+      "name": "Healthy Hero No",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "d8c26f88-c488-46ff-ab09-fc4130b02e27",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }

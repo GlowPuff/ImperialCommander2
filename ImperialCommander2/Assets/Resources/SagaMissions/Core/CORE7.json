@@ -2,8 +2,8 @@
   "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
   "fileName": "CORE7.json",
   "fileVersion": "22",
-  "saveDate": "4/5/2024",
-  "timeTicks": 638479139936894447,
+  "saveDate": "4/12/2024",
+  "timeTicks": 638485304494473713,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Imperial Hospitality",
@@ -381,6 +381,24 @@
     {
       "name": "Data Center open",
       "GUID": "2783ec5c-6e66-46b4-8fe4-6e083c3ef5ae",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Terminal destroyed",
+      "GUID": "0bf59491-d513-42fa-9ed3-96aae546ca50",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "End Mission",
+      "GUID": "ed489cf7-16de-492b-b10e-5882c3d98589",
       "isGlobal": true,
       "useReset": false,
       "maxValue": 1,
@@ -782,15 +800,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "8f61b2cd-ca95-434a-879a-577f2d1eee79",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "ed489cf7-16de-492b-b10e-5882c3d98589",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "9ee2c0b3-c79b-428e-8865-5b7b6a68e202",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -843,15 +863,17 @@
           "displayName": "Set Next Mission"
         },
         {
-          "incRoundCounter": false,
-          "pauseDeployment": false,
-          "unpauseDeployment": false,
-          "pauseThreat": false,
-          "unpauseThreat": false,
-          "endMission": true,
-          "GUID": "1673523b-d9d7-4e19-b1d9-c911adb69220",
-          "eventActionType": 0,
-          "displayName": "Mission Management"
+          "triggerList": [
+            {
+              "triggerName": "End Mission",
+              "triggerGUID": "ed489cf7-16de-492b-b10e-5882c3d98589",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "0c53d4b6-6667-4348-88a8-914ed0100435",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -2029,7 +2051,7 @@
       "GUID": "e3d51192-fe61-45c2-b2d3-bed95e7dbf2f",
       "isGlobal": true,
       "name": "The Data",
-      "eventText": "You smash the data center, scattering the sensitive electronics across the room in several ruined pieces. When you're finished, nothing is left in the room but smoldering wreckage.\r\n\r\nWhatever secrets were stolen, they're safe from the Empire now. All that remains is to escape with the operative.\r\n\r\n{-} Heroes receive 100 credits per hero.",
+      "eventText": "You smash the data center, scattering the sensitive electronics across the room in several ruined pieces. When you're finished, nothing is left in the room but smoldering wreckage.\r\n\r\nWhatever secrets were stolen, they're safe from the Empire now. All that remains is to escape with the operative.\r\n\r\n{-} The heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -2058,6 +2080,12 @@
             {
               "triggerName": "Terminal discarded",
               "triggerGUID": "7452ebc9-3c3d-4636-a112-c91ae7262e8a",
+              "setValue": 1,
+              "modifyValue": 0
+            },
+            {
+              "triggerName": "Terminal destroyed",
+              "triggerGUID": "0bf59491-d513-42fa-9ed3-96aae546ca50",
               "setValue": 1,
               "modifyValue": 0
             }
@@ -2105,6 +2133,121 @@
           "GUID": "7d14d40a-241a-42b3-b5ac-1367553b0519",
           "eventActionType": 25,
           "displayName": "Modify Credits"
+        }
+      ]
+    },
+    {
+      "GUID": "370370bb-9d64-4fe3-8b82-b0fa80b66e38",
+      "isGlobal": true,
+      "name": "End Mission Terminal Destroyed",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Terminal destroyed",
+          "triggerGUID": "0bf59491-d513-42fa-9ed3-96aae546ca50",
+          "triggerValue": 1
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "ed489cf7-16de-492b-b10e-5882c3d98589",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "c74c5642-7d50-4ae1-9b35-c538d7905a7a",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
+        }
+      ]
+    },
+    {
+      "GUID": "c009dccb-8cc8-45bc-8bb0-35e6c706a3a3",
+      "isGlobal": true,
+      "name": "End Mission Terminal Not Destroyed",
+      "eventText": "Because the heroes did not destroy the terminal in the Data Center, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Terminal destroyed",
+          "triggerGUID": "0bf59491-d513-42fa-9ed3-96aae546ca50",
+          "triggerValue": 0
+        },
+        {
+          "triggerName": "End Mission",
+          "triggerGUID": "ed489cf7-16de-492b-b10e-5882c3d98589",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "campaignItems": [],
+          "campaignRewards": [],
+          "earnedVillains": [],
+          "earnedAllies": [],
+          "medpacsToModify": 0,
+          "threatToModify": 1,
+          "GUID": "50b9072e-d9c6-4930-914c-81aabb3d69af",
+          "eventActionType": 30,
+          "displayName": "Add Campaign Reward"
+        },
+        {
+          "incRoundCounter": false,
+          "pauseDeployment": false,
+          "unpauseDeployment": false,
+          "pauseThreat": false,
+          "unpauseThreat": false,
+          "endMission": true,
+          "GUID": "a0a51312-5c2a-477e-829d-f706c3af58db",
+          "eventActionType": 0,
+          "displayName": "Mission Management"
         }
       ]
     }
