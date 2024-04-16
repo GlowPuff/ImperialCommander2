@@ -178,7 +178,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "{-} Die Tür ist verriegelt.\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren, um es abzulegen. Wenn das Terminal abgelegt wird, wird die Tür entriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "tbText": "{-} Die Tür ist verriegelt.\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren, um es abzulegen. Wenn das Terminal abgelegt wird, wird die Tür entriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "f63484c0-6356-43e6-b7a2-8cf5b46f50ac",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -191,7 +191,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Die Tür ist verriegelt.\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren, um es abzulegen. Wenn das Terminal abgelegt wird, wird die Tür entriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Die Tür ist verriegelt.\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren, um es abzulegen. Wenn das Terminal abgelegt wird, wird die Tür entriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "35d98e9b-a09c-4fee-b39b-e8bf35fa8895",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -202,13 +202,47 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "\"Woher habt ihr diese Koordinaten?\" fragt Captain Terro, geschlagen und gegen seinen Taurücken gelehnt. Ihr werft ihm den Peilsender vor die Füße. Der Captain lacht leise. \"Wir wurden reingelegt. Das ist eines von Jabbas Geräten. Er scheint es satt zu haben, dass wir ihn überwachen. Und wo ihr schon mal hier seid ... wer verteidigt eigentlich gerade eure Flotte, Rebellen?\"\n\nKaum ist Terros sprödes Lachen verklungen, als ihr eine Nachricht vom Oberkommando erhaltet. Nachdem er seine Feinde gegeneinander aufgehetzt hatte, hat Jabba einen Vorstoß befohlen, um die wehrlose Rebellenflotte zu kapern. Ihr schaltet die imperiale Station aus, bevor ihr euch für einen Frontalangriff auf Jabbas Palast rüstet.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn es nur 1 unversehrten Helden gibt, erhöht sich der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Bringe die Haupteinsatzkarte \"Sturm auf den Palast\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Is there only 1 healthy hero?",
+          "buttonList": [
+            {
+              "GUID": "857431e2-8ca3-47b8-8b25-37d6b1f5bc4b",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "c8541902-17b3-4028-978c-e3ed15fe3cf2",
+              "theText": "No"
+            }
+          ],
+          "GUID": "d4297dad-00d6-4d4f-8cbf-ec09e417fa79",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "eventText": "\"Jabba, wir haben sie\", meldet Captain Terro dem Huttenfürsten. Nachdem er die Übertragung beendet hat, wendet er sich an euch. \"Als Jabba mir sagte, dass ihr kommen würdet, habe ich ihm nicht geglaubt. Das Imperium will euch tot sehen, und die Hutten auch. Ich werde für dieselbe Arbeit doppelt bezahlt.\"\n\nGefesselt werdet ihr zurück zu Jabbas Palast gebracht, wo Captain Terro von Bib Fortuna einen schweren Beutel erhält, bevor er euch zu den Segelbarken eskortiert.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Meuterei\" ins Spiel.\n{-} Wenn <color=\"red\" >Captain Terro</color> {H} erlitten hat, erhalten die Helden 25 Credits pro Held.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Has <color=\"red\">Captain Terro</color> suffered any {H}?",
+          "buttonList": [
+            {
+              "GUID": "75b4c3c0-544f-4e40-bd0a-b5beff4c23b4",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "6149fe00-f7f1-4fc7-bebe-6b5fc7452ab8",
+              "theText": "No"
+            }
+          ],
+          "GUID": "24843d2f-1ad9-427e-8650-5dc9fa882b15",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Terminal Discarded 1",
@@ -258,7 +292,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "01068f47-d83e-4a05-9d97-120178d63290",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -327,6 +361,18 @@
           "GUID": "11b6b1f3-53b6-4bf5-8f24-baa4d320eac7",
           "eventActionType": 16,
           "eaName": "Text Box"
+        },
+        {
+          "GUID": "560d29b4-d93c-40da-9de8-c6b168ff986e",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Terro (Stormtrooper)",
+          "repositionInstructions": "",
+          "surges": "{B}: +2 Zielsicherheit\n{B} +2 {H}\n{B}: Fokussieren",
+          "bonuses": "TRUPPEN INSPIRIEREN: Zu Beginn dieser Aktivierung legt jede imperiale Figur innerhalb von 3 Feldern um diese Figur 1 schädlichen Zustand ab. Jede dieser Figuren, die keinen Zustand abgelegt hat, regeneriert 1 {H}.\nAN DER SEITE DES CAPTAINS: Zu Beginn dieser Aktivierung regeneriert diese Figur 1 {H} für jede imperiale Figur innerhalb von 3 Feldern um sie herum.",
+          "keywords": "+1 {F}",
+          "abilities": "",
+          "customText": "{-} TRUPPENKOMMANDO: Die nächste andere imperiale Figur, die nicht <color=\"red\">Fokussiert</color> ist, wird <color=\"red\">Fokussiert</color>.\n{A} FEUER FREI: Die nächstgelegene andere imperiale Figur, die einen Angriff durchführen kann, greift {rebel} an.\n{Q} Bewegung 4, um {rebel} anzugreifen.\n{A} Bewegung 2, um in Position 5 zu gelangen.\n{A} Bewegung 6, um in Position 5 zu gelangen.",
+          "cardName": "Terro (Sturmtruppler)"
         },
         {
           "tbText": "{-} Die Tür ist verriegelt.\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren, um es abzulegen. Wenn das Terminal abgelegt und Terro besiegt wurde, wird die Tür entriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.",
@@ -531,7 +577,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Imperiale Einsatzmarker stellen Signaltürme dar. Eine Rebellenfigur kann einen Signalturm angreifen (Gesundheit: 8, Verteidigung: 3 {G}). Figuren versperren nicht die Sichtlinie zu Signaltürmen.\r\n{-} Die Rebellen gewinnen, wenn beide Signaltürme zerstört sind und <color=\"red\">Captain Terro</color> besiegt ist.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Imperiale Einsatzmarker stellen Signaltürme dar. Eine Rebellenfigur kann einen Signalturm angreifen (Gesundheit: 8, Verteidigung: 3 {G}). Figuren versperren nicht die Sichtlinie zu Signaltürmen.\r\n{-} Die Rebellen gewinnen, wenn beide Signaltürme zerstört sind und <color=\"red\">Captain Terro</color> besiegt ist.\r\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "7f7ce697-8a16-4729-bcfe-7afee97bafeb",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -551,7 +597,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Die Tür ist verriegelt.\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren, um es abzulegen. Wenn das Terminal abgelegt und Terro besiegt wird, entriegelt sich die Tür.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Die Tür ist verriegelt.\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren, um es abzulegen. Wenn das Terminal abgelegt und Terro besiegt wird, entriegelt sich die Tür.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "6823f820-02d2-4fac-a7d3-f9566f5b7b73",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -571,7 +617,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} The door is locked.\r\n{-} A Rebel figure can interact with the terminal to discard it. When the terminal is discarded, the door unlocks.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose when all heroes are wounded.",
+          "theText": "{-} The door is locked.\r\n{-} A Rebel figure can interact with the terminal to discard it. When the terminal is discarded, the door unlocks.\r\n{-} The mission will progress when the door opens.\r\n{-} The Rebels lose at the end of Round 7, or when all heroes are wounded.",
           "GUID": "734c3868-46c1-4edb-8d9a-26d9e12005be",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -591,7 +637,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Die Tür ist verriegelt.\n{-} Wenn Terro besiegt wird, wird die Tür entriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Die Tür ist verriegelt.\n{-} Wenn Terro besiegt wird, wird die Tür entriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "7b1a3134-891e-414c-8b01-0e91ec9fc391",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -611,7 +657,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Der Einsatz schreitet voran, wenn sich die Tür öffnet.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "f22fd095-33a5-4caf-ac27-956830233b9d",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -631,7 +677,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Die Rebellen gewinnen, wenn beide Signaltürme zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Die Rebellen gewinnen, wenn beide Signaltürme zerstört sind.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "f92bb7a8-4b07-4e0d-8e4a-3d780b5f3f0e",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -707,12 +753,30 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Die Rebellen gewinnen, wenn <color=\"red\">Captain Terro</color> besiegt wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Die Rebellen gewinnen, wenn <color=\"red\">Captain Terro</color> besiegt wird.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
           "GUID": "2925251f-9f87-450f-8439-bf5079fc17f5",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
         }
       ]
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "66acda57-a18e-4eff-ad94-ef6439608f9a",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "49836982-7081-4a73-92eb-a1ae6c672577",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Captain Terro Query Yes",
+      "GUID": "f65118fa-32db-403a-bb5f-22100278c22e",
+      "eventText": "Because <color=\"red\">Captain Terro</color> has suffered {H}, heroes receive 25 credits per hero.",
+      "eventActions": []
     }
   ],
   "mapEntities": [

@@ -633,7 +633,20 @@
       "eventName": "The General",
       "GUID": "cce142e4-d999-4fb6-9cb5-78a1aa3a783f",
       "eventText": "Dröhnen und Krachen erschüttern die Luft, während die Gebäude unter dem Ansturm der imperialen Streitkräfte in Schutt und Asche gelegt werden. Zu dem Lärm gesellen sich dumpfe Schläge, die den Boden erbeben lassen, als sich eine gewaltige Kriegsmaschine auf euer Scharmützel zubewegt.\n\nIhr hört die verstärkte Stimme von General Sorin aus dem AT-ST, der seinen Truppen mit furchterregender Vehemenz Befehle entgegenbrüllt. Flammen und Zerstörung folgen ihm, und er schwenkt die großen Blaster seines Fahrzeugs in eure Richtung.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "GUID": "6b70c8ad-8edb-43b6-90e2-501a0b7ef5f5",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Sorins AT-ST",
+          "repositionInstructions": "",
+          "surges": "{B}: Explosion 2 {H}\r\n{B} Betäuben\r\n{B} Fokussieren\n{B}: Durchschlagen 2",
+          "bonuses": "MÖRSER: Zu Beginn dieser Aktivierung darf jeder Held eine Probe auf {K} ablegen. Wenn sich ein Held in einem Außenfeld befindet, darf er stattdessen eine Probe auf {J} ablegen. Jeder Held, der diese Probe nicht besteht, wird <color=\"red\">Geschwächt</color>.\nFOKUS: Zu Beginn dieser Aktivierung wird diese Figur <color=\"red\">Fokussiert</color>.\nGRANATENWERFER: Nachdem diese Figur einen Angriff durchgeführt hat, wirf 1 gelben Würfel. Jeder Rebell innerhalb von X Feldern um das Ziel erleidet 1 {H} für jeden Aktivierungsmarker. X ist das Zielsicherheit-Ergebnis.",
+          "keywords": "Gewaltig\n+5 Zielsicherheit\n+1 {H}",
+          "abilities": "UNGELENK: Sorins AT-ST darf keine benachbarten Figuren angreifen.",
+          "customText": "{-} BOMBARDIEREN: Für die Angriffe dieser Figur sind weder Sichtlinie noch Zielsicherheit erforderlich, und jeder Angriff erhält Explosion 1 {H}.\n{Q} Angriff auf {rebel}.\n{A} Bewegung 5, um in Position 2 zu gelangen.\n{Q} Angriff auf {rebel}.\n{A} Regeneriere 2 {H}.\n{-} VERBESSERTE FEUERKRAFT: Jede benachbarte imperiale Figur wird <color=\"red\">Fokussiert</color>.",
+          "cardName": "Sorins AT-ST"
+        }
+      ]
     },
     {
       "eventName": "Target change",
@@ -809,6 +822,18 @@
       "eventName": "Imperial Reinforcements",
       "GUID": "b00841c2-381b-445b-88d5-91c043293034",
       "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Sorin Yes",
+      "GUID": "fb5085a5-2147-4b2a-b818-cb48b78563de",
+      "eventText": "Because Sorin's AT-ST was defeated, the heroes receive 100 credits per hero. Otherwise, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Sorin No",
+      "GUID": "37edf974-55f2-41a7-8189-3d900a4fa823",
+      "eventText": "Because Sorin's AT-ST was not defeated, increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "eventActions": []
     }
   ],

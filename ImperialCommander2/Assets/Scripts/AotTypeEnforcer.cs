@@ -59,5 +59,13 @@ public class AotTypeEnforcer : MonoBehaviour
 		AotHelper.EnsureList<CampaignStructure>();
 		AotHelper.EnsureList<CampaignTranslationItem>();
 
+		//TranslatedMission
+		AotHelper.EnsureList<TranslatedGUIDText>();
+		AotHelper.EnsureList<TranslatedEvent>();
+		AotHelper.EnsureList<TranslatedMapEntity>();
+		AotHelper.EnsureList<TranslatedInitialGroup>();
+		AotHelper.EnsureList<TranslatedEntityProperties>();
+		AotHelper.EnsureList<ITranslatedEventAction>();
+
 	}
 }

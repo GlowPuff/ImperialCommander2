@@ -202,13 +202,47 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "\"¿¡Quién os dio estas coordenadas!?\" Os pregunta el capitán Terro mientras, derrotado, yace sobre su dewback. Tiráis a sus pies la baliza de rastreo. El capitán hace un esfuerzo para reírse débilmente. \"Nos la han jugado a ambos. Este dispositivo es de Jabba; parece ser que se ha cansado de que le tengamos en se­guimiento. Y con vosotros aquí... Bien, ¿quién está defendiendo vuestra flota, rebeldes?\" La frágil risa de Terro apenas se ha apagado cuando recibís un mensaje del alto mando: después de enfrentar entre sí a sus enemigos, Jabba procedió a capturar la indefensa flota rebelde. Termináis de desmantelar el puesto Imperial antes de armaros de valor para realizar un asalto frontal al palacio de Jabba.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por héroe.\r\n{-} Si sólo ha quedado 1 Héroe sano, aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente misión) en 1. Durante la fase de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Poner en juego la carta de Misión de Historia \"Ataque al Palacio\".",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Is there only 1 healthy hero?",
+          "buttonList": [
+            {
+              "GUID": "857431e2-8ca3-47b8-8b25-37d6b1f5bc4b",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "c8541902-17b3-4028-978c-e3ed15fe3cf2",
+              "theText": "No"
+            }
+          ],
+          "GUID": "d4297dad-00d6-4d4f-8cbf-ec09e417fa79",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "eventText": "\"Jabba, los tenemos,\" informa el capitán Terro al señor Hutt. Tras cortar la transmisión, se gira hacia vosotros. \"Cuando Jabba me dijo que vendríais, no le creí. El Imperio os quiere muertos y el Hutt también; me van a pagar dos veces por el mismo trabajo.\" Os transportan completamente inmovilizados de vuelta al palacio de Jabba, donde el capitán Terro recibe una pesada bolsa de Bib Fortuna antes de escoltaros hasta los esquifes.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.\r\n{-} Poner en juego la carta de Misión de Historia \"Motín\".\r\n{-} Si el <color=\"red\">Capitán Terro</color> ha sufrido {H}, los Héroes reciben 25 creditos per Héroe.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Has <color=\"red\">Captain Terro</color> suffered any {H}?",
+          "buttonList": [
+            {
+              "GUID": "75b4c3c0-544f-4e40-bd0a-b5beff4c23b4",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "6149fe00-f7f1-4fc7-bebe-6b5fc7452ab8",
+              "theText": "No"
+            }
+          ],
+          "GUID": "24843d2f-1ad9-427e-8650-5dc9fa882b15",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Terminal Discarded 1",
@@ -327,6 +361,18 @@
           "GUID": "11b6b1f3-53b6-4bf5-8f24-baa4d320eac7",
           "eventActionType": 16,
           "eaName": "Text Box"
+        },
+        {
+          "GUID": "560d29b4-d93c-40da-9de8-c6b168ff986e",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Terro (Stormtrooper)",
+          "repositionInstructions": "",
+          "surges": "{B}: +2 Precisión\r\n{B} +2 {H}\n{B}: Concentración",
+          "bonuses": "INSPIRAR A LAS TROPAS: Al inicio de esta activación, cada figura Imperial en un radio de 3 casillas de esta figura descarta 1 condición perjudicial. Cada una de esas figuras que no descartó una condición recupera 1 {H}.\r\nAPOYO AL CAPITÁN: Al inicio de esta activación, esta figura recupera 1 {H} por cada figura Imperial en un radio de 3 casillas.",
+          "keywords": "+1 {F}",
+          "abilities": "",
+          "customText": "{-} ORDENES DE PELOTON: La otra figura Imperial más cercana que no tenga <color=\"red\">Concentración</color> adquiere <color=\"red\">Concentración</color>.\r\n{A} DISPARO A VOLUNTAD: La otra figura Imperial más cercana que pueda realizar un ataque ataca {rebel}.\r\n{Q} Mueve 4 para atacar {rebel}.\r\n{A} Mueve 2 para reposicionar a 5.\r\n{A} Mueve 6 para reposicionar a 5.",
+          "cardName": "Terro (Soldado de Asalto)"
         },
         {
           "tbText": "{-} La puerta está sellada.\r\n{-} Una figura Rebelde puede interactuar con un terminal para descartar ese terminal. La puerta se abre cuando el terminal es descartado y Terro es derrotado.\r\n{-} La misión avanza cuando la puerta se abre.",
@@ -713,6 +759,24 @@
           "eaName": "Change Mission Info"
         }
       ]
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "66acda57-a18e-4eff-ad94-ef6439608f9a",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "49836982-7081-4a73-92eb-a1ae6c672577",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Captain Terro Query Yes",
+      "GUID": "f65118fa-32db-403a-bb5f-22100278c22e",
+      "eventText": "Because <color=\"red\">Captain Terro</color> has suffered {H}, heroes receive 25 credits per hero.",
+      "eventActions": []
     }
   ],
   "mapEntities": [

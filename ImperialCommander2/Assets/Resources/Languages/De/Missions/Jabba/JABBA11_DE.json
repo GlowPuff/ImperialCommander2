@@ -161,7 +161,7 @@
           "eaName": "Deploy: DG003/Stormtrooper (Elite)"
         },
         {
-          "tbText": "{-} Wenn die <color=\"red\">Sturmtruppen</color> besiegt wurden, kann ein Held mit dem Terminal interagieren, um den Generator abzuschalten.\n{-} Der Einsatz schreitet voran, wenn die <color=\"red\">Sturmtruppen</color> besiegt sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "tbText": "{-} Wenn die <color=\"red\">Sturmtruppen</color> besiegt wurden, kann ein Held mit dem Terminal interagieren, um den Generator abzuschalten.\n{-} Der Einsatz schreitet voran, wenn die <color=\"red\">Sturmtruppen</color> besiegt sind.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
           "GUID": "a05601e1-16ff-4b10-8947-e42dac7197aa",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -174,7 +174,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Wenn die <color=\"red\">Sturmtruppen</color> besiegt wurden, kann ein Held mit dem Terminal interagieren, um den Generator abzuschalten.\n{-} Der Einsatz schreitet voran, wenn die <color=\"red\">Sturmtruppen</color> besiegt sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Wenn die <color=\"red\">Sturmtruppen</color> besiegt wurden, kann ein Held mit dem Terminal interagieren, um den Generator abzuschalten.\n{-} Der Einsatz schreitet voran, wenn die <color=\"red\">Sturmtruppen</color> besiegt sind.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
           "GUID": "898167fd-5a57-48d3-a069-3c8eda2b6e7e",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -191,6 +191,22 @@
           "GUID": "8064c516-aa15-4c33-9499-ba8a8db24779",
           "eventActionType": 16,
           "eaName": "Text Box"
+        },
+        {
+          "mainText": "Is there only 1 healthy hero?",
+          "buttonList": [
+            {
+              "GUID": "368bd8fd-a28e-4c31-8b36-09df234ef973",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "f4ca1714-be3d-440f-8125-c2da621cf834",
+              "theText": "No"
+            }
+          ],
+          "GUID": "4f81c548-e099-40bc-9d5f-80a4905eb331",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
         }
       ]
     },
@@ -309,7 +325,7 @@
           "eaName": "Text Box"
         },
         {
-          "tbText": "Ihr atmet tief durch und macht euch bereit für die neue Herausforderung.\r\n\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "tbText": "Ihr atmet tief durch und macht euch bereit für die neue Herausforderung.\r\n\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
           "GUID": "1741c2d7-d92d-42f1-ae41-1f44b2c9f6a3",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -322,7 +338,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Kallenn führt bei jeder Aktivierung eine zusätzliche Aktion durch und kann bei jeder Aktivierung mehrere Angriffe durchführen.\r\n{-} Wenn der <color=\"red\">Rancor</color> seine Aktivierung innerhalb von 2 Feldern von Kallenn beginnt oder beendet, wird Kallenn besiegt.\r\n{-} Imperiale Einsatzmarker stellen Energiezellen dar. Eine Rebellenfigur kann eine Energiezelle angreifen (Gesundheit: 6, Verteidigung: 1 {G}). Eine Rebellenfigur kann mit einer Energiezelle interagieren ({J} oder {K}), um sie zu zerstören. Figuren versperren nicht die Sichtlinie zu Energiezellen.\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Kallenn führt bei jeder Aktivierung eine zusätzliche Aktion durch und kann bei jeder Aktivierung mehrere Angriffe durchführen.\r\n{-} Wenn der <color=\"red\">Rancor</color> seine Aktivierung innerhalb von 2 Feldern von Kallenn beginnt oder beendet, wird Kallenn besiegt.\r\n{-} Imperiale Einsatzmarker stellen Energiezellen dar. Eine Rebellenfigur kann eine Energiezelle angreifen (Gesundheit: 6, Verteidigung: 1 {G}). Eine Rebellenfigur kann mit einer Energiezelle interagieren ({J} oder {K}), um sie zu zerstören. Figuren versperren nicht die Sichtlinie zu Energiezellen.\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
           "GUID": "01f6e30d-2466-41f3-8e66-fa9eaf00a26a",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -376,6 +392,18 @@
           "GUID": "752c27ae-ae37-4542-ac03-39ba0195851a",
           "eventActionType": 15,
           "eaName": "Modify Map Entity"
+        },
+        {
+          "GUID": "35471e8f-a424-4283-82bf-919a1d28a263",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: IG-88 (Assassin Droid)",
+          "repositionInstructions": "",
+          "surges": "{B}: Regenerieren 2 {H}\n{B}: +2 {H}",
+          "bonuses": "",
+          "keywords": "+1 {G}\n+2 Zielsicherheit",
+          "abilities": "Arsenal: Dein Angriffspool besteht aus 2 Angriffswürfeln beliebiger Farben.\nErbarmungslos: Sobald du einen Angriff auf eine Zielfigur innerhalb von 3 Feldern deklarierst, erleidet diese Figur 1 {C}.\nSturm: Du kannst in jeder Aktivierung mehrere Angriffe durchführen.",
+          "customText": "",
+          "cardName": "IG-88 (Attentäterdroide)"
         },
         {
           "translatedEntityProperties": [
@@ -471,6 +499,18 @@
           "eaName": "Modify Map Entity"
         },
         {
+          "GUID": "9dcc73bc-3d98-4496-8a39-ef827ebe56ff",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Boba Fett (Infamous Bounty Hunter)",
+          "repositionInstructions": "",
+          "surges": "{B}: Schwächen\n{B}: Durchschlagen 1",
+          "bonuses": "",
+          "keywords": "+1 {G}\n+1 {F}\nBeweglich",
+          "abilities": "Kampfpräsenz: Nachdem eine feindliche Figur eines deiner Nachbarfelder verlassen hat, erleidet die Figur 1 {C}. Nur einmal pro Figur und Runde.\nKampfdisziplin: Sobald du einen Angriff deklarierst, wähle eine der folgenden Fähigkeiten, die auf den Angriff angewendet wird. +2 Ziels. | {B} +2 {H} | {B} Regenerieren 2 {H}",
+          "customText": "",
+          "cardName": "Boba Fett (Berüchtigter Kopfgeldjäger)"
+        },
+        {
           "translatedEntityProperties": [
             {
               "entityName": "DP Green 1",
@@ -562,6 +602,18 @@
           "GUID": "e4372210-44a1-4628-815b-fb632ca66220",
           "eventActionType": 15,
           "eaName": "Modify Map Entity"
+        },
+        {
+          "GUID": "b1b5e89d-2849-4f9b-a43f-f991be9d3169",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Dengar (Ruthless Killer)",
+          "repositionInstructions": "",
+          "surges": "{B}: +2 {H}",
+          "bonuses": "",
+          "keywords": "+2 Zielsicherheit",
+          "abilities": "Verachtung: Beim Angreifen wendest du +1 {B} auf den Angriffswurf an, wenn das Ziel keinen SCHÄDLICHEN Zustand hat.\n{B} Brutalität: Nachdem der Angriff ausgeführt worden ist und das Ziel 1 oder mehr {H} erlitten hat, wähle 1 SCHÄDLICHEN Zustand. Das Ziel erhält den gewählten Zustand. Diese Fähigkeit kann mehrmals pro Angriff ausgelöst werden.",
+          "customText": "",
+          "cardName": "Dengar (Skrupelloser Killer)"
         },
         {
           "translatedEntityProperties": [
@@ -657,6 +709,18 @@
           "eaName": "Modify Map Entity"
         },
         {
+          "GUID": "b2aff9fc-3877-45cb-89b8-c512d92c369b",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Bossk (Born Hunter)",
+          "repositionInstructions": "",
+          "surges": "{B}: Durchschlagen 2",
+          "bonuses": "",
+          "keywords": "+1 {G}\n+2 {H}\n+2 Zielsicherheit",
+          "abilities": "{A} Wahlloser Beschuss: Wähle ein Feld innerhalb von 3 Feldern und in deiner Sichtlinie. Wirf dann 1 grünen Würfel. Jede Figur auf dem gewählten Feld oder einem benachbarten Feld erleidet {H} in Höhe der {H}-Ergebnisse und {C} in Höhe der {B}-Ergebnisse.\nRegeneration: Am Ende jeder Runde regenerierst du 2 {H} und legst alle SCHÄDLICHEN Zustände ab.",
+          "customText": "",
+          "cardName": "Bossk (Geborener Jäger)"
+        },
+        {
           "translatedEntityProperties": [
             {
               "entityName": "DP Green 1",
@@ -748,6 +812,18 @@
           "GUID": "3b2b9ea2-bbe0-4c69-a171-96a5de0b9802",
           "eventActionType": 15,
           "eaName": "Modify Map Entity"
+        },
+        {
+          "GUID": "ea107e7b-85a1-4211-9cc4-c72da5caf574",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Greedo (Ambitious Mercenary)",
+          "repositionInstructions": "",
+          "surges": "{B}: Bluten\n{B}: +2 {H}\n{B}: +3 Zielsicherheit",
+          "bonuses": "",
+          "keywords": "+1 Zielsicherheit\n+1 {H}",
+          "abilities": "Langsam ziehen: Sobald du einen Angriff deklarierst, darf das Ziel unterbrechen, um einen Angriff durchzuführen, der auf dich zielt.\nGlorreicher Abgang: Sobald du {H} in Höhe deiner Gesundheit erlitten hast, darfst du, bevor du besiegt wirst, unterbrechen, um einen Angriff durchzuführen. Dann wirst du besiegt.",
+          "customText": "",
+          "cardName": "Greedo (Ambitionierter Söldner)"
         },
         {
           "translatedEntityProperties": [
@@ -855,7 +931,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Imperiale Einsatzmarker stellen Energiezellen dar. Eine Rebellenfigur kann eine Energiezelle angreifen (Gesundheit: 6, Verteidigung: 1 {G}). Eine Rebellenfigur kann mit einer Energiezelle interagieren ({J} oder {K}), um sie zu zerstören. Figuren versperren nicht die Sichtlinie zu Energiezellen.\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Imperiale Einsatzmarker stellen Energiezellen dar. Eine Rebellenfigur kann eine Energiezelle angreifen (Gesundheit: 6, Verteidigung: 1 {G}). Eine Rebellenfigur kann mit einer Energiezelle interagieren ({J} oder {K}), um sie zu zerstören. Figuren versperren nicht die Sichtlinie zu Energiezellen.\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
           "GUID": "73c2e88d-6040-491e-9823-04064d5896b3",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -887,7 +963,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Kallenn führt bei jeder Aktivierung eine zusätzliche Aktion durch und kann bei jeder Aktivierung mehrere Angriffe durchführen.\r\n{-} Wenn der <color=\"red\">Rancor</color> seine Aktivierung innerhalb von 2 Feldern von Kallenn beginnt oder beendet, wird Kallenn besiegt.\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Kallenn führt bei jeder Aktivierung eine zusätzliche Aktion durch und kann bei jeder Aktivierung mehrere Angriffe durchführen.\r\n{-} Wenn der <color=\"red\">Rancor</color> seine Aktivierung innerhalb von 2 Feldern von Kallenn beginnt oder beendet, wird Kallenn besiegt.\r\n{-} Die Rebellen gewinnen, wenn Kallenn besiegt ist und beide Energiezellen zerstört sind.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
           "GUID": "64802ec2-7862-4ad4-a2fa-a530b377ed27",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -975,12 +1051,36 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Ein Held kann mit dem Terminal interagieren, um den Generator auszuschalten.\n{-} Der Einsatz schreitet voran, wenn der Generator ausgeschaltet ist.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "theText": "{-} Ein Held kann mit dem Terminal interagieren, um den Generator auszuschalten.\n{-} Der Einsatz schreitet voran, wenn der Generator ausgeschaltet ist.\n{-} Die Rebellen verlieren am Ende von Runde 6, oder wenn alle Helden verwundet sind.",
           "GUID": "d489febb-475a-41f7-a280-d65647a3a18d",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
         }
       ]
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "ca92a052-602b-46f9-8404-5fd9791fb7b1",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "2fd01282-14c6-48fb-b46f-122cfd011f62",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Kallenn Defeated",
+      "GUID": "77e1f342-851f-4b24-a57a-70b65a6d858f",
+      "eventText": "Because Kallenn was defeated, the heroes receive 25 credits per hero.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Kallenn Not Defeated",
+      "GUID": "4d6af4c9-d5a2-4689-96f5-398c838c35ba",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

@@ -21,6 +21,6 @@ namespace Saga
 		public string customMissionIdentifier = Guid.Empty.ToString();
 		public int roundLimit = -1;
 		public Guid roundLimitEvent = Guid.Empty;
-		public bool useAlternateEventSystem;
+		public bool useAlternateEventSystem = false;
 	}
 }

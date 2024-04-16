@@ -106,6 +106,18 @@
       "eventText": "El convoy de Jabba llega con un pelotón de Gamorreanos y Weequay. Los civiles observan con miedo la llegada del abigarrado e intimidatorio surtido de mercenarios, pero les aseguráis que están ahí para ayudar. Finalmente, Bib Fortuna sale de la lanzadera y empieza a preparar un plan con vosotros.\r\n\r\n-Tenemos las coordenadas de una pequeña base no muy lejos de aquí donde creemos que Terro está preparando su emboscada -os informa-. Por protección, dejaremos una pequeña guarnición aquí en vuestra ausencia y, entonces, podréis asaltar su base y pillarlos por sorpresa. Si podéis piratear su sistema, deberíais ser capaces de pasar a modo manual sus controles de energía y activar la autodestrucción de la base.\r\n\r\nPreparáis el equipo y os despedís de vuestros familiares antes de iniciar el arduo camino a través del bosque con un par de Gamorreanos que Bib Fortuna ha identificado como los capitanes.",
       "eventActions": [
         {
+          "GUID": "3d9f4367-3ac4-4ba0-8324-96dd66ac5b1a",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Gamorrean Guards",
+          "repositionInstructions": "",
+          "surges": "{B}: Tajo 2 {H}",
+          "bonuses": "",
+          "keywords": "Gran Alcance",
+          "abilities": "Guardia Gamorreano de Honor: Al defenderte de un ataque {O}, aplica +1 {G} a los resultados de defensa.\nProfesional: Al atacar, puedes volver a tirar uno de los dados de ataque.",
+          "customText": "",
+          "cardName": "Guardias Gamorreanos"
+        },
+        {
           "tbText": "{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} La puerta está sellada. \r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.",
           "GUID": "1181a458-600d-4a86-9e12-786009ec3f77",
           "eventActionType": 16,
@@ -230,13 +242,47 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Huís en tropel del recinto de la base mientras empieza a arder y a derrumbarse. El capitán Terro, que yace en el suelo, se burla de vosotros por última vez entre estertores: \r\n\r\n-Sois idiotas. Nos han utilizado a todos. El propio Jabba me envió aquí para que os atacara. Ahora nos ha quitado a todos de en medio. Además, le habéis entregado en mano una nueva remesa de esclavos para vender. Rebeldes idiotas...\r\n\r\nCorréis tan rápido como podéis de vuelta al nuevo asentamiento de los civiles, pero al regresar os encontráis con que está saqueado y vacío. No hay más indicios de combate que unos pocos edificios chamuscados y algunas armas desperdigadas; el equipo y la lanzadera de Jabba no están en ningún lado.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “Ataque al palacio”.\r\n{-} Si solo ha quedado un Héroe sano, incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Is there only 1 healthy hero?",
+          "buttonList": [
+            {
+              "GUID": "37a22089-c87f-45a7-b5fd-2d96e6d00e4b",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "8e41cac8-9680-454e-a027-6214654ca227",
+              "theText": "No"
+            }
+          ],
+          "GUID": "930af99d-e218-422a-a36a-d6465a077ef5",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "eventText": "-¡Tirad las armas y rendíos! -os grita Terro, y os veis obligados a hacer lo que ordena-. Rebeldes idiotas -dice-. Os han utilizado; Jabba me envió aquí para frustrar toda esta operación. Su protección solo ampara a vuestros amigos civiles mientras estén en Tatooine; y ahora voy a tener que llevaros de vuelta con él -los gamorreanos se ríen por lo bajo maliciosamente.\r\n\r\n-Sin embargo, estoy seguro de que estará muy agradecido por el nuevo lote de esclavos que le vais a servir en bandeja. \r\n\r\nOs muestra una imagen holográfica de Weequay y Gamorreanos cargando a vuestros familiares y amigos en un carguero del Hutt y quemando el asentamiento antes de irse.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “Motín”.\r\n{-} Si el <color=\"red\">Capitán Terro</color> ha sufrido {H}, los Héroes reciben 25 créditos adicionales por Héroe.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Has <color=\"red\">Captain Terro</color> suffered any {H}?",
+          "buttonList": [
+            {
+              "GUID": "40815cf3-d584-4685-9af5-40a208c6f447",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "b459ca21-c4e3-4f30-8ed4-1e43a862b2c2",
+              "theText": "No"
+            }
+          ],
+          "GUID": "ce656c7c-c947-4997-8808-0100e624f117",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Reinforcements",
@@ -787,6 +833,24 @@
           "eaName": "Modify Map Entity"
         }
       ]
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "164b95ad-353f-42ef-8f9b-55976d3bb0c4",
+      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "d32ad1d1-ac6f-47cb-bb6b-f37577bab0c9",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Captain Terro Yes",
+      "GUID": "c0301eac-b64c-4693-b9f2-ca54a83a062a",
+      "eventText": "Because <color=\"red\">Captain Terro</color> has suffered {H}, heroes receive 25 credits per hero.",
+      "eventActions": []
     }
   ],
   "mapEntities": [
