@@ -179,6 +179,9 @@ public class TranslatedEvent
 				case EventActionType.GM4:
 					eventActions.Add( new TranslatedChangeRepositionInstructions( item ) );
 					break;
+				case EventActionType.D6:
+					eventActions.Add( new TranslatedCustomEnemyDeployment( item ) );
+					break;
 			}
 		}
 	}
@@ -621,6 +624,46 @@ public class TranslatedChangeRepositionInstructions : ITranslatedEventAction//GM
 		var problems = new List<string>();
 
 		repositionText = (loadedEA as TranslatedChangeRepositionInstructions).repositionText;
+
+		return problems;
+	}
+}
+
+public class TranslatedCustomEnemyDeployment : ITranslatedEventAction//D6
+{
+	public Guid GUID { get; set; }
+	public EventActionType eventActionType { get; set; }
+	public string eaName { get; set; }
+
+	//customText is custom instructions
+	public string repositionInstructions { get; set; }
+	public string surges { get; set; }
+	public string bonuses { get; set; }
+	public string keywords { get; set; }
+	public string abilities { get; set; }
+	public string customText { get; set; }
+	public string cardName { get; set; }
+
+	public TranslatedCustomEnemyDeployment()
+	{
+
+	}
+	public TranslatedCustomEnemyDeployment( IEventAction ea )
+	{
+
+	}
+
+	public List<string> Validate( ITranslatedEventAction loadedEA, bool useLooseValidation = false )
+	{
+		var problems = new List<string>();
+
+		var props = typeof( TranslatedEnemyDeployment ).GetProperties();
+		foreach ( var prop in props )
+		{
+			var transProp = typeof( TranslatedEnemyDeployment ).GetProperty( prop.Name ).GetValue( loadedEA );
+			if ( transProp is string )
+				typeof( TranslatedEnemyDeployment ).GetProperty( prop.Name ).SetValue( this, transProp );
+		}
 
 		return problems;
 	}

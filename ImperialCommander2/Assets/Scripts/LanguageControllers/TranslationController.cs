@@ -207,6 +207,19 @@ namespace Saga
 
 											changeReposition.theText = translatedChangeRepositionInstructions.repositionText;
 											break;
+
+										case EventActionType.D6:
+											CustomEnemyDeployment customEnemyDeployment = missionEA as CustomEnemyDeployment;
+											TranslatedCustomEnemyDeployment translatedCustomEnemyDeployment = translatedEA as TranslatedCustomEnemyDeployment;
+
+											customEnemyDeployment.repositionInstructions = translatedCustomEnemyDeployment.repositionInstructions;
+											customEnemyDeployment.surges = translatedCustomEnemyDeployment.surges;
+											customEnemyDeployment.bonuses = translatedCustomEnemyDeployment.bonuses;
+											customEnemyDeployment.keywords = translatedCustomEnemyDeployment.keywords;
+											customEnemyDeployment.abilities = translatedCustomEnemyDeployment.abilities;
+											customEnemyDeployment.enemyGroupData.customText = translatedCustomEnemyDeployment.customText;
+											customEnemyDeployment.enemyGroupData.cardName = translatedCustomEnemyDeployment.cardName;
+											break;
 									}
 								}
 							}
