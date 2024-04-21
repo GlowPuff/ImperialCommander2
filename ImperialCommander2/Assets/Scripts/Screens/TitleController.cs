@@ -61,13 +61,15 @@ public class TitleController : MonoBehaviour
 #if !UNITY_ANDROID
 		Application.runInBackground = true;
 #endif
-		Screen.fullScreen = true;
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 		fader.UnFade( 2 );
 
 		//set default PlayerPrefs
 		DataStore.SetDefaultPlayerPrefs();
+
+		//set fullscreen status
+		Screen.fullScreen = PlayerPrefs.GetInt( "useFullScreen" ) == 1 ? true : false;
 
 		//play menu ambient and music
 		soundController.PlayMusicAndMenuAmbient();
@@ -696,5 +698,10 @@ public class TitleController : MonoBehaviour
 	public void OnHelpClick()
 	{
 		helpPanel.Show();
+	}
+
+	public void OnExitAppButton()
+	{
+		Application.Quit();
 	}
 }

@@ -265,6 +265,9 @@ namespace Saga
 		public void SetNextStoryMission( string customMissionID, MissionSource source )
 		{
 			Debug.Log( $"SetNextStoryMission()::{customMissionID}" );
+
+			//'source' is determined by whether the "next mission" is Custom or Official
+
 			try
 			{
 				if ( GUID == Guid.Empty )
@@ -276,10 +279,11 @@ namespace Saga
 				int idx = campaignStructure.FindIndex( x => x.missionID.ToLower() == DataStore.sagaSessionData.setupOptions.projectItem.missionID.ToLower() );
 				if ( idx != -1 )
 				{
-					//find the next Story mission AFTER the current Mission in the structure list
+					//find the next Story/Finale mission AFTER the current Mission in the structure list
 					for ( int index = idx + 1; index < campaignStructure.Count; index++ )
 					{
-						if ( campaignStructure[index].missionType == MissionType.Story )
+						if ( campaignStructure[index].missionType == MissionType.Story
+							|| campaignStructure[index].missionType == MissionType.Finale )
 						{
 							if ( source == MissionSource.Embedded )
 							{
@@ -294,7 +298,7 @@ namespace Saga
 									break;
 								}
 								else
-									Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find Mission with customMissionIdentifier={customMissionID}" );
+									Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find [Embedded] Mission with customMissionIdentifier={customMissionID}" );
 							}
 							else//official Mission
 							{
@@ -307,6 +311,8 @@ namespace Saga
 									campaignStructure[index].missionID = customMissionID;
 									break;
 								}
+								else
+									Debug.Log( $"WARNING::SetNextStoryMission()::Couldn't find [Official] Mission with customMissionIdentifier={customMissionID}" );
 							}
 						}
 						else

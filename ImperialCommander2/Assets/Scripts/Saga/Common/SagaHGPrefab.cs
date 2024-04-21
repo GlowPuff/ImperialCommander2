@@ -134,8 +134,8 @@ namespace Saga
 					cardDescriptor.name,
 					cardDescriptor.characterType == CharacterType.Hero,
 					cardDescriptor.heroState.isWounded,
-					OnDefeat,
-					OnWound );
+					OnDefeatCheck,
+					OnDefeatCheck );
 			}
 			else
 			{
@@ -212,6 +212,23 @@ namespace Saga
 				activationToggle2.isOn = false;
 				cardDescriptor.heroState.hasActivated[1] = false;
 				activationToggle2.gameObject.SetActive( true );
+			}
+		}
+
+		/// <summary>
+		/// When a player clicks DEFEAT, this method decides if it's an initial WOUND or a second DEFEAT
+		/// </summary>
+		public void OnDefeatCheck()
+		{
+			//initial wound
+			if ( !cardDescriptor.heroState.isWounded
+				&& !cardDescriptor.heroState.isDefeated )
+			{
+				OnWound();
+			}
+			else if ( cardDescriptor.heroState.isWounded )
+			{
+				OnDefeat();
 			}
 		}
 

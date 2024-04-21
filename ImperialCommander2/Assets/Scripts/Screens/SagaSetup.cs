@@ -249,6 +249,7 @@ namespace Saga
 			//ignore "Other" expansion enemy groups by default, except owned packs
 			var ignored = new HashSet<DeploymentCard>();
 			DataStore.deploymentCards.Where( x => x.expansion == "Other" && !DataStore.ownedFigurePacks.ContainsCard( x ) ).ToList().ForEach( x => ignored.Add( x ) );
+
 			if ( structure.missionSource == MissionSource.Embedded )
 			{
 				//get ignored groups from the embedded mission
@@ -284,6 +285,9 @@ namespace Saga
 					//add ignored from preset
 					disabledIgnoredGroups.AddRange( ign );
 					SetMissionIgnored( ignored );
+
+					var card = DataStore.GetMissionCard( structure.projectItem.missionID );
+					structure.projectItem.Description = card.descriptionText;
 				}
 
 				//FileManager.LoadMissionFromAddressable( setupOptions.projectItem.fullPathWithFilename, ( m, s ) =>
@@ -344,7 +348,7 @@ namespace Saga
 			{
 				setupOptions.projectItem.pickerMode = PickerMode.Embedded;
 				missionPicker.pickerMode = PickerMode.Embedded;
-				descriptionTextBox.gameObject.SetActive( false );
+				descriptionTextBox.gameObject.SetActive( true );
 				viewMissionCardButton.gameObject.SetActive( false );
 			}
 		}
@@ -644,7 +648,7 @@ namespace Saga
 				string mID = missionPicker.selectedMission.missionID.Replace( " ", "" );
 				foreach ( var key in DataStore.missionCards.Keys )
 				{
-					mc = DataStore.missionCards[key].Where( x => x.id == mID ).FirstOr( null );
+					mc = DataStore.missionCards[key].Where( x => x.id.ToLower() == mID.ToLower() ).FirstOr( null );
 					if ( mc != null )
 					{
 						missionCardZoom.Show( mc );

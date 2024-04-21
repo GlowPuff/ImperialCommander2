@@ -61,8 +61,8 @@ namespace Saga
 			transform.DOMoveX( sx + os, .25f );
 			cg.DOFade( 1, .2f );
 
-			woundButton.gameObject.SetActive( isHero );
-			woundButton.interactable = !isWounded;
+			//woundButton.gameObject.SetActive( isHero );
+			//woundButton.interactable = !isWounded;
 		}
 
 		public void Hide( Action cb = null )

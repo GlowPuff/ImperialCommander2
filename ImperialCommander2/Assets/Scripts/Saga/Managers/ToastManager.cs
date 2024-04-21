@@ -35,6 +35,7 @@ public class ToastManager : MonoBehaviour
 						{
 							toastTransform.gameObject.SetActive( false );
 							messageList.Clear();
+							isActivated = false;
 						}
 					);
 			} );

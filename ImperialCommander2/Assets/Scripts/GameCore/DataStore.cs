@@ -1137,5 +1137,9 @@ public static class DataStore
 			PlayerPrefs.SetInt( "soundVolume", 7 );
 		if ( !PlayerPrefs.HasKey( "roundLimitToggle" ) )
 			PlayerPrefs.SetInt( "roundLimitToggle", 1 );
+		if ( !PlayerPrefs.HasKey( "useFullScreen" ) )
+			PlayerPrefs.SetInt( "useFullScreen", 1 );//1=true, 0=false
+		if ( !PlayerPrefs.HasKey( "skipWarpIntro" ) )
+			PlayerPrefs.SetInt( "skipWarpIntro", 0 );//1=true, 0=false
 	}
 }

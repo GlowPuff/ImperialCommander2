@@ -95,6 +95,12 @@ namespace Saga
 				&& Guid.Parse( cs.missionID ) != Guid.Empty )
 			{
 				missionName.text = cs.projectItem.Title + "\n<color=orange>" + campaign.campaignImportedName + "</color>";
+				var eMission = FileManager.LoadEmbeddedMission( campaign.campaignPackage.GUID.ToString(), cs.projectItem.missionGUID, out string stringified );
+				if ( eMission != null )
+				{
+					campaignStructure.projectItem.Description = eMission.missionProperties.missionDescription;
+					campaignStructure.projectItem.AdditionalInfo = eMission.missionProperties.additionalMissionInfo;
+				}
 			}
 			else//empty slot, player selection
 				missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
@@ -132,9 +138,8 @@ namespace Saga
 				removeForcedButton.SetActive( true );
 			}
 
-			if ( cs.missionSource == MissionSource.Official //!cs.isCustomMission
-				&& !string.IsNullOrEmpty( cs.missionID )
-				/*&& cs.missionID != "Custom" */)
+			if ( cs.missionSource == MissionSource.Official
+				&& !string.IsNullOrEmpty( cs.missionID ) )
 			{
 				var card = DataStore.GetMissionCard( cs.missionID );
 				if ( card != null )
