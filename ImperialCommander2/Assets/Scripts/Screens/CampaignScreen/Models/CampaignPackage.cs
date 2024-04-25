@@ -28,7 +28,12 @@ namespace Saga
 		public TranslatedMission GetTranslatedMission( Guid missionGUID )
 		{
 			var item = campaignTranslationItems.Where( x => x.assignedMissionGUID == missionGUID ).FirstOr( null );
-			return item.translatedMission;
+			if ( item != null )
+			{
+				var translation = FileManager.LoadEmbeddedMissionTranslation( GUID, missionGUID.ToString() );
+				return translation;
+			}
+			return null;
 		}
 	}
 

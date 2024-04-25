@@ -118,7 +118,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			cardColor.color = new Color( 0, 164 / 255f, 1 );
 			//mugshotOutline.color = new Color( 0, 164f / 255f, 1 );
 		}
-		mugshotOutline.color = Utils.String2UnityColor( card.deploymentOutlineColor );
+		mugshotOutline.color = Utils.String2UnityColor( card.deploymentOutlineColor ?? "LightBlue" );
 		//expansion.color = Utils.String2UnityColor( card.deploymentOutlineColor );//mugshotOutline.color;
 
 		///IS COST THE SAME AS THREAT COST FROM OVERRIDE?

@@ -12,7 +12,7 @@ public class HeroDashboard : MonoBehaviour
 	public Toggle missionInfoToggle;
 	public TextMeshProUGUI missionInfoText, logText;
 	public ScrollRect logScrollRect, infoScrollRect;
-	public Text fameText, awardText, continueButton, roundText;
+	public Text fameText, awardText, continueButton, roundText, threatText;
 	//logger UI
 	public Text roundValueText, logTitleText;
 	int roundValue;
@@ -32,6 +32,7 @@ public class HeroDashboard : MonoBehaviour
 		continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 		infoTitleText.text = DataStore.uiLanguage.uiMainApp.tooltipInfoUC.ToUpper();
 		logTitleText.text = DataStore.uiLanguage.sagaMainApp.missionLogTitle;
+		threatText.text = DataStore.uiLanguage.uiSetup.threatLevelHeading + ": " + $"<color=red>{DataStore.sagaSessionData.setupOptions.threatLevel}</color>";
 
 		misionInfoPanel.SetActive( true );
 		famePanel.SetActive( false );

@@ -42,7 +42,7 @@ public class TitleController : MonoBehaviour
 
 	//UI objects using language translations
 	public TextMeshProUGUI donateText, docsText, panelDescriptionText, campaignPanelDescriptionText, campaignNamePlaceholderText;
-	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp, figurePacksExp, newCampaignTitle, customCampaignText, campaignStartText, campaignCancelText, confirmDeleteText, deleteText, uiCampaigns, uiSaga, uiClassic;
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignNewBtn, uiCampaignLoadBtn, uiCampaignContinueBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp, figurePacksExp, newCampaignTitle, customCampaignText, campaignStartText, campaignCancelText, confirmDeleteText, deleteText, uiCampaigns, uiSaga, uiClassic, uiImportBtn;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -409,6 +409,7 @@ public class TitleController : MonoBehaviour
 		uiMenuHeader.text = ui.menuHeading;
 		uiNewGameBtn.text = ui.newGameBtn;
 		uiCampaignNewBtn.text = ui.newCampaign;
+		uiImportBtn.text = DataStore.uiLanguage.sagaUISetup.importBtn;
 
 		uiContinueBtn.text = ui.continueBtn;
 		uiCampaignContinueBtn.text = ui.continueBtn;

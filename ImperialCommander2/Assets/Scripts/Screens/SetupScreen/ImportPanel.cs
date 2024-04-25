@@ -107,9 +107,12 @@ public class ImportPanel : MonoBehaviour
 		}
 
 		if ( imports.Count > 0 )
+		{
+			cardPrefab.gameObject.SetActive( true );
 			cardPrefab.InitCard( imports[0].deploymentCard, true );
+		}
 		else
-			cardPrefab.InitCard( new DeploymentCard() { name = DataStore.uiLanguage.uiSetup.choose, expansion = "Core" }, true );
+			cardPrefab.gameObject.SetActive( false );
 	}
 
 	/// <summary>
