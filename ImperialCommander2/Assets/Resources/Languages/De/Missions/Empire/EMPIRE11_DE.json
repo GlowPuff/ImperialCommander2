@@ -145,12 +145,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "\"Halt, wartet!\", keucht der Clawdite, als ihr euch nähert. \"Ich bin nicht Zaaryn, ich bin nur sein Double!\", ruft er verzweifelt. \"Er konnte seinen Vorgesetzten nicht sagen, was er vorhat, also hat er mich angeheuert. Ich sollte nur den Kontakt herstellen und Bericht erstatten. Das eigentliche Treffen zwischen Zaaryn und Maul wird in ein paar Tagen auf einem anderen Planeten stattfinden. Das ist alles, was ich weiß!\"\n\nIhr teilt diese Information euren Anführern mit, die interessiert sind und der Spur nachgehen wollen. Aber sie setzen euch auch über eine lokale Gruppe von Sympathisanten der Allianz in Kenntnis, die sich gemeldet hat und sich nun zum Informationsaustausch treffen will. Sie überlassen es euch, Prioritäten für die Operation zu setzen.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten die Belohnungskarte \"Abgefangene Pläne\". (Diese Belohnungskarte funktioniert anders, wenn man mit <b>Imperial Commander</b> spielt. Siehe den Abschnitt <b>Rules Change</b> in der Wiki-Dokumentation für Details).\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Die Helden müssen sich entscheiden, ob sie Zaaryn verfolgen oder sich mit den Sympathisanten treffen wollen. Wenn die Helden Zaaryn verfolgen, bringe die Haupteinsatzkarte \"Störfaktoren\" ins Spiel. Wenn sie sich mit den Sympathisanten treffen, bringe die Haupteinsatzkarte \"In die Enge getrieben\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
+          "buttonList": [
+            {
+              "GUID": "1f68e251-f26f-4f96-b95d-c176f711d377",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "dee20b04-be8b-47b4-b921-0b7aa0d8408b",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "ee1af1b4-23ca-413e-b1e7-b9119207f661",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Eine Salve von Blasterbolzen treibt euch zurück, ohne dass ihr einen Blick auf eure Ziele und ihre Geschäfte werfen konntet. Es bleiben euch mehr Fragen als Antworten.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Spieler der Rebellen beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn Zaaryn besiegt wurde, erhalten die Helden 25 Credits pro Held.",
+      "eventText": "Eine Salve von Blasterbolzen treibt euch zurück, ohne dass ihr einen Blick auf eure Ziele und ihre Geschäfte werfen konntet. Es bleiben euch mehr Fragen als Antworten.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Spieler der Rebellen beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
       "eventActions": []
     },
     {
@@ -548,7 +565,7 @@
       "eventText": "Mit einem Schrei taumelt Zaaryn nach hinten und seine Haut beginnt sich seltsam zu falten und zu verfärben. Vor deinen Augen enthüllt die einst menschliche Gestalt ihre wahre Clawditen-Form.\n\n{-} Ersetze Zaaryn durch einen <color=\"red\">Clawdite-Gestaltwandler</color>.\n{-} Wende +3 Gesundheit auf den <color=\"red\">Clawdite-Gestaltwandler</color> an.\n{-} Die Rebellen gewinnen, wenn der <color=\"red\">Clawdite-Gestaltwandler</color> besiegt wird.",
       "eventActions": [
         {
-          "enemyName": "Zaaryn's True Form",
+          "enemyName": "Zaaryns wahre Gestalt",
           "customText": "",
           "modification": "+3 H",
           "repositionInstructions": "",
@@ -593,6 +610,30 @@
           "eaName": "Question Prompt"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Zaaryn Defeated",
+      "GUID": "d741721b-4898-4ce1-8023-70c15f8a42a3",
+      "eventText": "Weil Zaaryn besiegt wurde, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Zaaryn Not Defeated",
+      "GUID": "e64a2624-c104-4e73-a400-69e46f6fa13e",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "bfa2fea0-4e45-4728-9387-c764d4a12de6",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "b2047ba4-08cd-4e6a-bcf2-b2ff8996923e",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

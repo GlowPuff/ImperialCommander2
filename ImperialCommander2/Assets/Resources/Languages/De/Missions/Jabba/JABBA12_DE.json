@@ -225,20 +225,36 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Als ihr endlich fertig seid, sind von Jabbas Feinden nur noch Splitter und Trümmer übrig. Ihr kehrt zum Shuttle zurück, wo die Pilotin euch für eure Arbeit lobt. Der Huttenfürst lacht herzhaft, als ihr ihm die Neuigkeiten erzählt, und sein Hofstaat bricht in Beifall aus.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.\n{-} Wenn es nur 1 unversehrten Helden gibt, erhöht sich der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.",
+      "eventText": "Als ihr endlich fertig seid, sind von Jabbas Feinden nur noch Splitter und Trümmer übrig. Ihr kehrt zum Shuttle zurück, wo die Pilotin euch für eure Arbeit lobt. Der Huttenfürst lacht herzhaft, als ihr ihm die Neuigkeiten erzählt, und sein Hofstaat bricht in Beifall aus.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.",
       "eventActions": [
         {
           "tbText": "Am nächsten Morgen werdet ihr in Jabbas Thronsaal gerufen, wo er durch einen Dolmetscherdroiden zu euch spricht: \"Der mächtige Jabba ist erfreut über eure Loyalität. Er kennt den Zweck eurer Mission und ist bereit zu helfen, wenn ihr einen weiteren Auftrag für ihn erledigt. Das störrische Imperium hat eine orbitale Verteidigungs- und Logistikbasis in der Nähe der Großen Grube von Carkoon errichtet. Jabba befiehlt euch, die Sicherheitscodes aus dieser Basis zu stehlen, damit er die Herrschaft über Tatooine zurückerlangen kann. Wenn ihr das tut, wird Jabba eure Zivilisten in einen sicheren Hafen bringen.\"\n\n{-} Lege alle verbleibenden aktiven Haupteinsatzkarten ab. Bringe die Haupteinsatzkarte \"Schicksalsstunde\" ins Spiel.",
           "GUID": "a7bf1be2-edb8-4cab-871d-79c0ee984844",
           "eventActionType": 16,
           "eaName": "Text Box"
+        },
+        {
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
+          "buttonList": [
+            {
+              "GUID": "f878ea0c-6036-4621-8ec8-ccd936098074",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "9adc6898-c27b-48b3-a7bd-d37ffd1a5a46",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "72b213fd-2cf4-4d9f-b1fe-54d9f943752c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
         }
       ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Whoever these rivals are, they've spared no credits on their defenses. You've dealt a blow to their infrastructure, but in the end, you're the ones who must retreat. Jabba is dissatisfied with your failure. His court falls deathly silent as the Hutt lord contemplates your future. Bib Fortuna translates his master’s warning, “You have one last chance.\"\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 EP. Heroes receive 100 credits per hero.\r\n{-} If 4 structural supports were destroyed, heroes receive 25 credits per hero.",
+      "eventText": "Whoever these rivals are, they've spared no credits on their defenses. You've dealt a blow to their infrastructure, but in the end, you're the ones who must retreat. Jabba is dissatisfied with your failure. His court falls deathly silent as the Hutt lord contemplates your future. Bib Fortuna translates his master’s warning, “You have one last chance.\"\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Each hero receives 1 EP. Heroes receive 100 credits per hero.",
       "eventActions": [
         {
           "tbText": "Am nächsten Morgen werdet ihr in Jabbas Thronsaal gerufen, wo er durch einen Dolmetscherdroiden zu euch spricht: \"Der mächtige Jabba ist erfreut über eure Loyalität. Er kennt den Zweck eurer Mission und ist bereit zu helfen, wenn ihr einen weiteren Auftrag für ihn erledigt. Das störrische Imperium hat eine orbitale Verteidigungs- und Logistikbasis in der Nähe der Großen Grube von Carkoon errichtet. Jabba befiehlt euch, die Sicherheitscodes aus dieser Basis zu stehlen, damit er die Herrschaft über Tatooine zurückerlangen kann. Wenn ihr das tut, wird Jabba eure Zivilisten in einen sicheren Hafen bringen.\"\n\n{-} Lege alle verbleibenden aktiven Haupteinsatzkarten ab. Bringe die Haupteinsatzkarte \"Schicksalsstunde\" ins Spiel.",
@@ -555,6 +571,36 @@
       "eventName": "Rancor free",
       "GUID": "6320f0f4-9b2e-469c-ab4d-86745cfe5141",
       "eventText": "Der Rancor brüllt vor Wut, packt die Kette mit beiden Klauen und zieht mit aller Kraft daran. Der Baum zittert und bricht, als der Rancor die Kette durch ihn hindurch reißt.\n\n{-} Der <color=\"red\">Rancor</color> kann jetzt den Sumpf verlassen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "92f69c84-54e3-4fc4-a915-cca652f30e60",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "af3cc853-b46b-466e-b5da-cfeaff00d5f5",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Trigger Bonus Credits",
+      "GUID": "d7e3b2ff-b9e1-40b7-8bd4-6db74a632d09",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defeat Bonus Credits",
+      "GUID": "688d8834-5000-4c90-b5a7-a4eaef8e8034",
+      "eventText": "Weil 4 tragende Wände zerstört wurden, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defeat No Bonus Credits",
+      "GUID": "ab5d424b-c046-4115-b1d4-8b8131b3174d",
+      "eventText": "",
       "eventActions": []
     }
   ],

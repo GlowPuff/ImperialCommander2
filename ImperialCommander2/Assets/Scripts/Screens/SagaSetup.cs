@@ -664,6 +664,15 @@ namespace Saga
 			sound.PlaySound( 3 );
 			sound.FadeOutMusic();
 
+			if ( PlayerPrefs.GetInt( "skipWarpIntro" ) == 1 )
+			{
+				faderCG.DOFade( 0, 2.5f ).OnComplete( () =>
+				{
+					SceneManager.LoadScene( "Saga" );
+				} );
+				return;
+			}
+
 			thrusterRoot.DOMoveZ( -30, 2 );
 			warpTitleText.text = setupOptions.projectItem.Title;
 

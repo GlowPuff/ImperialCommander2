@@ -255,14 +255,48 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Die Frachttür ist noch nicht einmal geschlossen, als das Shuttle schon abhebt. Ihr lasst Dosha hinter euch zurück, verarztet eure Wunden und kehrt nach Tatooine zurück.\n\nJabba verwöhnt euch bei eurer Rückkehr mit einem üppigen Festmahl. Für den Augenblick habt ihr sein Wohlwollen verdient. Der Hutte weiß, dass Spice zwar wertvoll ist, Loyalität aber unbezahlbar.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.\n{-} Wenn sich drei oder mehr Gewürz-Fässer auf dem Vorrat des Gewürzdealers befinden, erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Spieler der Rebellen beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Lege alle verbleibenden aktiven Haupteinsatzkarten ab. Bringe die Haupteinsatzkarten \"Trophäenjagd\" und \"Bandenkrieg\" ins Spiel.",
-      "eventActions": []
+      "eventText": "Die Frachttür ist noch nicht einmal geschlossen, als das Shuttle schon abhebt. Ihr lasst Dosha hinter euch zurück, verarztet eure Wunden und kehrt nach Tatooine zurück.\n\nJabba verwöhnt euch bei eurer Rückkehr mit einem üppigen Festmahl. Für den Augenblick habt ihr sein Wohlwollen verdient. Der Hutte weiß, dass Spice zwar wertvoll ist, Loyalität aber unbezahlbar.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.\n{-} Lege alle verbleibenden aktiven Haupteinsatzkarten ab. Bringe die Haupteinsatzkarten \"Trophäenjagd\" und \"Bandenkrieg\" ins Spiel.",
+      "eventActions": [
+        {
+          "mainText": "Befinden sich drei oder mehr Gewürz-Fässer auf dem Vorrat der Gewürzdealer?",
+          "buttonList": [
+            {
+              "GUID": "8000d8eb-f4d3-4c5f-b7df-974b309b352f",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "a1943c2f-8bf7-4596-bdb2-05012758e4f9",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "281c5e9a-a0fb-45c9-829b-da7e829de60c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Immer mehr Söldner rücken aus dem Dschungel an, und ihr seid gezwungen, Jabbas Fracht zurückzulassen. Nachdem es euch nicht gelungen ist, den Großteil der Beute zu sichern, müsst ihr euch mit eurem Leben zufriedengeben und euch der Enttäuschung des Hutten stellen.\n\nJabba ist unzufrieden, aber vernünftig. Ihr habt den Hinterhalt überlebt und durch eure Fähigkeiten eine zweite Chance verdient. Da ihr wisst, dass die Gunst des Hutten-Lords alles ist, was eure Familien schützt, bereitet ihr euch auf die nächste Aufgabe vor.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn sich drei oder mehr Gewürz-Fässer im Rebellenlager befinden, erhalten die Helden 25 Credits pro Held.\n{-} Lege alle verbleibenden aktiven Haupteinsatzkarten ab. Bringe die Haupteinsatzkarten \"Trophäenjagd\" und \"Bandenkrieg\" ins Spiel.",
-      "eventActions": []
+      "eventText": "Immer mehr Söldner rücken aus dem Dschungel an, und ihr seid gezwungen, Jabbas Fracht zurückzulassen. Nachdem es euch nicht gelungen ist, den Großteil der Beute zu sichern, müsst ihr euch mit eurem Leben zufriedengeben und euch der Enttäuschung des Hutten stellen.\n\nJabba ist unzufrieden, aber vernünftig. Ihr habt den Hinterhalt überlebt und durch eure Fähigkeiten eine zweite Chance verdient. Da ihr wisst, dass die Gunst des Hutten-Lords alles ist, was eure Familien schützt, bereitet ihr euch auf die nächste Aufgabe vor.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Lege alle verbleibenden aktiven Haupteinsatzkarten ab. Bringe die Haupteinsatzkarten \"Trophäenjagd\" und \"Bandenkrieg\" ins Spiel.",
+      "eventActions": [
+        {
+          "mainText": "Befinden sich drei oder mehr Gewürz-Fässer auf dem Vorrat der Rebellen?",
+          "buttonList": [
+            {
+              "GUID": "c32f688f-7162-4881-aed6-89d8caf70592",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "0b47f870-ed75-42bc-aa69-011e970e16d0",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "191caa58-aa1f-4759-a451-6cfb828e49d9",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Open Door North",
@@ -465,6 +499,24 @@
       "eventName": "Start of Each Round",
       "GUID": "304eaaba-f74d-44e8-8a26-d9956203ad24",
       "eventText": "Weitere Kuriere eilen herbei, um sich mit eurem Gewürz davonzumachen.\n\n{-} Platziere 1 Gewürzkurier, dessen Figur beiseite gestellt ist, auf oder benachbart zu jedem nicht aufgehobenem Gewürz-Fass (maximal 2). \n{-} Jeder der soeben platzierten Gewürzkuriere unterbricht, um ein Gewürz-Fass aufzuheben.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Win Query Yes",
+      "GUID": "cfc44763-bcf9-4f75-84fb-9039c4f449ba",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defeat Query Yes",
+      "GUID": "f52f1333-0512-4734-a164-c1942b75b4bd",
+      "eventText": "Da sich drei oder mehr Gewürz-Fässer auf dem Vorrat der Rebellen befinden, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Query No",
+      "GUID": "5c05d4c2-12d1-476e-a7a1-699068368d44",
+      "eventText": "",
       "eventActions": []
     }
   ],

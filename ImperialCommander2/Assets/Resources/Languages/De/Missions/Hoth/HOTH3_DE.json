@@ -267,20 +267,36 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Ihr seid euch einigermaßen sicher, dass ihr alle Daten habt, die in der Einrichtung zu finden waren, und Alarmsirenen ertönen. Ihr flüchtet aus der Anlage, und nachdem ihr eine halbe Meile weit gerannt seid, um dem Beschuss zu entgehen, ruft ihr eure Pilotin zur Extraktion.\n\nZusätzlich zu den Dateien, die ihr bereits entschlüsselt habt, konntet ihr auch eine große Menge an imperialen Codes finden. Hoffentlich verraten sie nach ihrer Analyse den endgültigen Plan des Imperiums.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn mindestens die Hälfte der Helden verwundet wurde, erhöht sich der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventText": "Ihr seid euch einigermaßen sicher, dass ihr alle Daten habt, die in der Einrichtung zu finden waren, und Alarmsirenen ertönen. Ihr flüchtet aus der Anlage, und nachdem ihr eine halbe Meile weit gerannt seid, um dem Beschuss zu entgehen, ruft ihr eure Pilotin zur Extraktion.\n\nZusätzlich zu den Dateien, die ihr bereits entschlüsselt habt, konntet ihr auch eine große Menge an imperialen Codes finden. Hoffentlich verraten sie nach ihrer Analyse den endgültigen Plan des Imperiums.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
       "eventActions": [
         {
           "tbText": "Als ihr schließlich von eurem Einsatz zurückkehrt, schickt ihr die kodierten imperialen Informationen zur Analyse weiter. Mit etwas Glück kann die Allianz den nächsten Schritt des Imperiums rechtzeitig erkennen und darauf reagieren.\n\n{-} Bringe die Haupteinsatzkarte \"Die letzte Verteidigungslinie\" verdeckt ins Spiel. Der Text auf einer verdeckten Haupteinsatzkarte ist eine geheime Information für die Rebellenspieler. Wenn die Rebellenspieler einen Haupteinsatz durchführen müssen und die aktive Haupteinsatzkarte verdeckt liegt, wird die Karte aufgedeckt und ist keine geheime Information mehr.",
           "GUID": "1a7e650e-f86a-424f-a64e-eb136c8cdf4e",
           "eventActionType": 16,
           "eaName": "Text Box"
+        },
+        {
+          "mainText": "Ist mindestens die Hälfte der Helden verwundet?",
+          "buttonList": [
+            {
+              "GUID": "7b4a580f-0342-4f60-9fe3-801b533d35d9",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "653f89a3-3bc1-479c-bc67-3c7f680b3915",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "a4665a32-77e2-46db-9b9c-a52ca30b7db1",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
         }
       ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Obwohl die Informationen nicht vollständig sind, habt ihr keine andere Wahl als zu fliehen und zu hoffen, dass ihr nichts Wichtiges übersehen habt.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn die Helden 3 Terminals beansprucht haben, erhalten die Helden 100 Credits pro Held.",
+      "eventText": "Obwohl die Informationen nicht vollständig sind, habt ihr keine andere Wahl als zu fliehen und zu hoffen, dass ihr nichts Wichtiges übersehen habt.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
       "eventActions": [
         {
           "tbText": "Als ihr schließlich von eurem Einsatz zurückkehrt, schickt ihr die kodierten imperialen Informationen zur Analyse weiter. Mit etwas Glück kann die Allianz den nächsten Schritt des Imperiums rechtzeitig erkennen und darauf reagieren.\n\n{-} Bringe die Haupteinsatzkarte \"Die letzte Verteidigungslinie\" verdeckt ins Spiel. Der Text auf einer verdeckten Haupteinsatzkarte ist eine geheime Information für die Rebellenspieler. Wenn die Rebellenspieler einen Haupteinsatz durchführen müssen und die aktive Haupteinsatzkarte verdeckt liegt, wird die Karte aufgedeckt und ist keine geheime Information mehr.",
@@ -636,6 +652,36 @@
           "eaName": "Modify Map Entity"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Credits Yes",
+      "GUID": "f60cba29-4637-419f-b359-f42d3ce1dbd1",
+      "eventText": "Da die Rebellen 3 Terminals beansprucht haben, erhalten die Helden 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Credits No",
+      "GUID": "2b3c4226-bceb-4c6e-9a74-60508a4eee63",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bonus Credits",
+      "GUID": "09f5e4c0-0a9c-44a6-bc7a-8144f499fe8a",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Heroes Wounded Yes",
+      "GUID": "e44c8058-b65e-4364-a8fc-1454099bd2a5",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Heroes Wounded No",
+      "GUID": "3f12b90d-dd85-44a3-ab11-2a732043f3b9",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

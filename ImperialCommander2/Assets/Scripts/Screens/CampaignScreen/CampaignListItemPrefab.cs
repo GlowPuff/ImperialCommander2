@@ -11,6 +11,7 @@ public class CampaignListItemPrefab : MonoBehaviour, IPointerClickHandler, IPoin
 	public Image bgImage;
 
 	Color normalColor;
+	string lastText;
 
 	public void InitItem( string n, Action<string> onClick )
 	{
@@ -63,11 +64,14 @@ public class CampaignListItemPrefab : MonoBehaviour, IPointerClickHandler, IPoin
 
 	public void OnPointerEnter( PointerEventData eventData )
 	{
+		lastText = nameText.text;
+		nameText.text = "X";
 		bgImage.color = new Vector3( 1f, 0.1568628f, 0 ).ToColor();
 	}
 
 	public void OnPointerExit( PointerEventData eventData )
 	{
+		nameText.text = lastText;
 		bgImage.color = normalColor;
 	}
 }

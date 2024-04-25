@@ -218,7 +218,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "Ihr erwidert das Feuer, während ihr euch den Terminals nähert.\n\n{-} Eine Rebellenfigur kann einen Terminal angreifen (Gesundheit: 6, Verteidigung: 2 {G}).\n{-} Wenn alle Terminals zerstört sind, wird die Tür für die Rebellenfiguren entriegelt.\n{-} Der Einsatz schreitet voran, wenn beide Terminals zerstört sind.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "tbText": "Ihr erwidert das Feuer, während ihr euch den Terminals nähert.\n\n{-} Eine Rebellenfigur kann einen Terminal angreifen (Gesundheit: 6, Verteidigung: 2 {G}).\n{-} Wenn alle Terminals zerstört sind, wird die Tür für die Rebellenfiguren entriegelt.\n{-} Der Einsatz schreitet voran, wenn beide Terminals zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "1ee9c0da-0ba6-4424-91d4-0eaeb5a787ee",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -231,7 +231,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Die Tür ist verriegelt.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Eine Rebellenfigur kann einen Terminal angreifen (Gesundheit: 6, Verteidigung: 2 {G}).\n{-} Wenn alle Terminals zerstört sind, wird die Tür für die Rebellenfiguren entriegelt.\n{-} Der Einsatz schreitet voran, wenn beide Terminals zerstört sind.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Die Tür ist verriegelt.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Eine Rebellenfigur kann einen Terminal angreifen (Gesundheit: 6, Verteidigung: 2 {G}).\n{-} Wenn alle Terminals zerstört sind, wird die Tür für die Rebellenfiguren entriegelt.\n{-} Der Einsatz schreitet voran, wenn beide Terminals zerstört sind.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "22dfffdc-6fc7-4297-a04b-dc85af51d54b",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -241,18 +241,18 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Ihr hastet vom Stützpunkt fort, als er anfängt einzustürzen und zu brennen. Captain Terro, der auf dem Boden liegt, hustet euch einen letzten Hohn hinterher: \"Ihr Dummköpfe. Wir waren alle nur Handlanger. Jabba selbst hat mich hierher geschickt, um euch anzugreifen. Jetzt hat er uns alle aus dem Weg geräumt. Außerdem habt ihr ihm gerade einen neuen Nachschub an Sklaven für seinen Handel geliefert. Ihr... Rebellen... Dummköpfe...\"\n\nIhr eilt so schnell ihr könnt zurück zur neuen Siedlung der Zivilisten, aber bei eurer Rückkehr findet ihr sie geplündert und leer vor. Ein paar verkohlte Gebäude und verstreute Waffen sind die einzigen Anzeichen eines Kampfes, und Jabbas Team und sein Shuttle sind nirgends zu sehen.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Platziere die Haupteinsatzkarte \"Sturm auf den Palast\" im Spiel.\n{-} Wenn es nur 1 unversehrten Helden gibt, erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.",
+      "eventText": "Ihr hastet vom Stützpunkt fort, als er anfängt einzustürzen und zu brennen. Captain Terro, der auf dem Boden liegt, hustet euch einen letzten Hohn hinterher: \"Ihr Dummköpfe. Wir waren alle nur Handlanger. Jabba selbst hat mich hierher geschickt, um euch anzugreifen. Jetzt hat er uns alle aus dem Weg geräumt. Außerdem habt ihr ihm gerade einen neuen Nachschub an Sklaven für seinen Handel geliefert. Ihr... Rebellen... Dummköpfe...\"\n\nIhr eilt so schnell ihr könnt zurück zur neuen Siedlung der Zivilisten, aber bei eurer Rückkehr findet ihr sie geplündert und leer vor. Ein paar verkohlte Gebäude und verstreute Waffen sind die einzigen Anzeichen eines Kampfes, und Jabbas Team und sein Shuttle sind nirgends zu sehen.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Platziere die Haupteinsatzkarte \"Sturm auf den Palast\" im Spiel.",
       "eventActions": [
         {
-          "mainText": "Is there only 1 healthy hero?",
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
           "buttonList": [
             {
               "GUID": "37a22089-c87f-45a7-b5fd-2d96e6d00e4b",
-              "theText": "Yes"
+              "theText": "Ja"
             },
             {
               "GUID": "8e41cac8-9680-454e-a027-6214654ca227",
-              "theText": "No"
+              "theText": "Nein"
             }
           ],
           "GUID": "930af99d-e218-422a-a36a-d6465a077ef5",
@@ -264,18 +264,18 @@
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "\"Lasst eure Waffen fallen und ergebt euch\", knurrt Terro, und ihr seid gezwungen, nachzugeben. \"Ihr Rebellen seid Dummköpfe\", sagt er. \"Ihr wart nur Spielfiguren. Ich wurde von Jabba hierher geschickt, um die ganze Operation zu stören. Sein Schutz für eure zivilen Freunde galt nur auf Tatooine. Und jetzt werde ich euch zu ihm zurückbringen.\" Jabbas Söldner lachen hämisch. \n\n\"Ich bin mir sicher, dass er sich über die neuen Sklaven freuen wird, die ihr ihm persönlich übergeben habt.\" Er zeigt ein holografisches Bild von Weequay und Gamorreanern, die eure Freunde und Familie auf einen Hutten-Frachter verladen und die Siedlung hinter ihnen niederbrennen.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Meuterei\" ins Spiel.\n{-} Wenn <color=\"red\">Captain Terro</color> {H} erlitten hat, erhalten die Helden 25 Credits pro Held.",
+      "eventText": "\"Lasst eure Waffen fallen und ergebt euch\", knurrt Terro, und ihr seid gezwungen, nachzugeben. \"Ihr Rebellen seid Dummköpfe\", sagt er. \"Ihr wart nur Spielfiguren. Ich wurde von Jabba hierher geschickt, um die ganze Operation zu stören. Sein Schutz für eure zivilen Freunde galt nur auf Tatooine. Und jetzt werde ich euch zu ihm zurückbringen.\" Jabbas Söldner lachen hämisch. \n\n\"Ich bin mir sicher, dass er sich über die neuen Sklaven freuen wird, die ihr ihm persönlich übergeben habt.\" Er zeigt ein holografisches Bild von Weequay und Gamorreanern, die eure Freunde und Familie auf einen Hutten-Frachter verladen und die Siedlung hinter ihnen niederbrennen.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Meuterei\" ins Spiel.",
       "eventActions": [
         {
-          "mainText": "Has <color=\"red\">Captain Terro</color> suffered any {H}?",
+          "mainText": "Hat <color=\"red\">Captain Terro</color> {H} erlitten?",
           "buttonList": [
             {
               "GUID": "40815cf3-d584-4685-9af5-40a208c6f447",
-              "theText": "Yes"
+              "theText": "Ja"
             },
             {
               "GUID": "b459ca21-c4e3-4f30-8ed4-1e43a862b2c2",
-              "theText": "No"
+              "theText": "Nein"
             }
           ],
           "GUID": "ce656c7c-c947-4997-8808-0100e624f117",
@@ -356,7 +356,7 @@
       "eventText": "Als die letzte Sicherheitsstation explodiert, hört ihr, wie die schweren Schlösser von der Tür zur Basis zurückgleiten.\n\n{-} Die Tür ist jetzt entriegelt.\n{-} Der Einsatz schreitet voran, wenn die Tür zum Stützpunkt geöffnet wird.",
       "eventActions": [
         {
-          "repositionText": "Block access to the door.",
+          "repositionText": "Versperre den Zugang zur Tür.",
           "GUID": "9e12a8fe-1dba-4cc5-b259-395cf6888b98",
           "eventActionType": 17,
           "eaName": "Change Reposition Instructions"
@@ -387,7 +387,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese Aktion nur dazu verwenden, eine Bewegung durchzuführen.\n{-} Der Einsatz schreitet voran, wenn die Tür zur Basis geöffnet wird.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese Aktion nur dazu verwenden, eine Bewegung durchzuführen.\n{-} Der Einsatz schreitet voran, wenn die Tür zur Basis geöffnet wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "b9ce9669-1219-405a-9c9b-9203a40ed38d",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -486,7 +486,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese Aktion nur dazu verwenden, eine Bewegung durchzuführen.\r\n{-} Der imperiale Einsatzmarker stellt den Energiekern dar. Ein Held kann mit dem Energiekern interagieren ({K} oder {I}), um zu versuchen, die Selbstzerstörung auszulösen. Der Held darf 2 {C} erleiden, bevor er die Probe ablegt, um +1 {B} auf das Ergebnis anzuwenden.\n{-} Der Einsatz schreitet voran, wenn die Selbstzerstörung eingeleitet wird.\r\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese Aktion nur dazu verwenden, eine Bewegung durchzuführen.\r\n{-} Der imperiale Einsatzmarker stellt den Energiekern dar. Ein Held kann mit dem Energiekern interagieren ({K} oder {I}), um zu versuchen, die Selbstzerstörung auszulösen. Der Held darf 2 {C} erleiden, bevor er die Probe ablegt, um +1 {B} auf das Ergebnis anzuwenden.\n{-} Der Einsatz schreitet voran, wenn die Selbstzerstörung eingeleitet wird.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "e9f62629-2b1b-4952-add4-4ec0e6603dc7",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -590,7 +590,7 @@
           "eaName": "Change Reposition Instructions"
         },
         {
-          "tbText": "Die Hitze des überlasteten Energiekerns wird immer schlimmer. Ihr müsst verschwinden. Schnell.\n\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "tbText": "Die Hitze des überlasteten Energiekerns wird immer schlimmer. Ihr müsst verschwinden. Schnell.\n\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "b9fd84d8-5cc7-4704-a3c6-897f6d4e80bf",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -643,7 +643,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Wenn sich ein Held zurückzieht, ist er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese nur nutzen, um eine Bewegung durchzuführen.\r\n{-} Die Tür versperrt weder Bewegung, Nachbarschaft, Zählen von Feldern noch Sichtlinie für imperiale Figuren.\r\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Wenn sich ein Held zurückzieht, ist er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese nur nutzen, um eine Bewegung durchzuführen.\r\n{-} Die Tür versperrt weder Bewegung, Nachbarschaft, Zählen von Feldern noch Sichtlinie für imperiale Figuren.\r\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "b56e7f5d-e002-4c18-94b1-94a1e285f671",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -698,7 +698,7 @@
           "eaName": "Deploy: DG044/Weequay Pirate (Elite)"
         },
         {
-          "tbText": "Behind them, the door slams shut again.\r\n\r\n{-} The door does not block movement, adjacency, counting spaces, or line of sight for Imperial figures.",
+          "tbText": "Hinter ihnen knallt die Tür wieder zu.\n\n{-} Die Tür versperrt weder Bewegung, Nachbarschaft, Zählen von Feldern noch Sichtlinie für imperiale Figuren.",
           "GUID": "e3f26bef-eb3e-4bdc-9233-b7b9e538d2a2",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -743,7 +743,7 @@
           "eaName": "Change Reposition Instructions"
         },
         {
-          "tbText": "Die Hitze des überlasteten Energiekerns wird immer schlimmer. Ihr müsst verschwinden. Schnell.\n\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "tbText": "Die Hitze des überlasteten Energiekerns wird immer schlimmer. Ihr müsst verschwinden. Schnell.\n\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "52f2af32-99c1-4d25-804a-4849a0fc3643",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -796,7 +796,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Wenn sich ein Held zurückzieht, ist er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese nur nutzen, um eine Bewegung durchzuführen.\r\n{-} Die Tür versperrt weder Bewegung, Nachbarschaft, Zählen von Feldern noch Sichtlinie für imperiale Figuren.\r\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren am Ende von Runde 7, oder wenn alle Helden verwundet sind.",
+          "theText": "{-} Wenn sich ein Held zurückzieht, ist er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann diese nur nutzen, um eine Bewegung durchzuführen.\r\n{-} Die Tür versperrt weder Bewegung, Nachbarschaft, Zählen von Feldern noch Sichtlinie für imperiale Figuren.\r\n{-} Am Ende jeder Runde erleidet jede Rebellenfigur auf einem Innenfeld 2 {H}.\n{-} Wenn alle Helden auf der Extraktionszone sind und <color=\"red\">Captain Terro</color> nicht, klicke auf die grüne Markierung und wähle \"Helden brechen auf\".\n{-} Die Rebellen gewinnen, wenn die Helden aufbrechen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "d1759c77-c2f3-43eb-b129-ace93590c518",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -812,18 +812,18 @@
     {
       "eventName": "Destroy Terminal 3",
       "GUID": "16a231bb-ee7f-4b55-b2c5-127e1ca34a46",
-      "eventText": "The security station collapses in a shower of sparks.",
+      "eventText": "Die Sicherheitsstation bricht in einem Funkenregen zusammen.",
       "eventActions": [
         {
           "translatedEntityProperties": [
             {
               "entityName": "Terminal 3",
               "GUID": "9954d08d-3907-4c98-a4f1-74fb16fbe07d",
-              "theText": "A security station has been erected in the corner.\r\n\r\n{-} A Rebel figure can attack a terminal (Health: 6, Defense: 2 {G}).\r\n{-} When all terminals are destroyed, the door unlocks to Rebel figures.",
+              "theText": "Am oberen Ende der Treppe wurde eine Sicherheitsstation errichtet.\n\n{-} Eine Rebellenfigur kann ein Terminal angreifen (Gesundheit: 6, Verteidigung: 2 {G}).\n{-} Wenn alle Terminals zerstört sind, wird die Tür für Rebellenfiguren entriegelt.",
               "buttonList": [
                 {
                   "GUID": "c22874ad-5b97-4af6-ab0d-061a6c5a89d2",
-                  "theText": "Destroy"
+                  "theText": "Zerstören"
                 }
               ]
             }
@@ -837,7 +837,7 @@
     {
       "eventName": "Healthy Hero Yes",
       "GUID": "164b95ad-353f-42ef-8f9b-55976d3bb0c4",
-      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.",
       "eventActions": []
     },
     {
@@ -849,7 +849,7 @@
     {
       "eventName": "Captain Terro Yes",
       "GUID": "c0301eac-b64c-4693-b9f2-ca54a83a062a",
-      "eventText": "Because <color=\"red\">Captain Terro</color> has suffered {H}, heroes receive 25 credits per hero.",
+      "eventText": "Weil <color=\"red\">Captain Terro</color> {H} erlitten hat, erhalten die Helden 25 Credits pro Held.",
       "eventActions": []
     }
   ],
@@ -1093,11 +1093,11 @@
     {
       "entityName": "Terminal 3",
       "GUID": "3e429cf7-998a-400e-8866-1dcac38ff45f",
-      "mainText": "A security station has been erected in the corner.\r\n\r\n{-} A Rebel figure can attack a terminal (Health: 6, Defense: 2 {G}).\r\n{-} When all terminals are destroyed, the door unlocks to Rebel figures.",
+      "mainText": "Am oberen Ende der Treppe wurde eine Sicherheitsstation errichtet.\n\n{-} Eine Rebellenfigur kann ein Terminal angreifen (Gesundheit: 6, Verteidigung: 2 {G}).\n{-} Wenn alle Terminals zerstört sind, wird die Tür für Rebellenfiguren entriegelt.",
       "buttonList": [
         {
           "GUID": "1b0165b1-e31e-4c35-9ba8-1d70fbb518e0",
-          "theText": "Destroy"
+          "theText": "Zerstören"
         }
       ]
     }

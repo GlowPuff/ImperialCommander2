@@ -283,13 +283,47 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Ihr entreißt dem Verräter Lorn das Fragment der Kugel von Bardotta und flieht vor dem tobenden Imperator Palpatine, so schnell ihr könnt. Als ihr endlich einen Ort erreicht, an dem ihr euch wieder sammeln könnt, blickt ihr auf das Fragment herab, vor Anstrengung keuchend.\n\nIhr spürt die Macht, die von dem leuchtenden Fragment ausgeht und ein Kribbeln in euren Händen verursacht. Auch wenn ihr das Fragment nur in der Hand haltet, überkommt euch ein Gefühl von Überlegenheit und Schrecken.\n\nIhr müsst das Fragment vom Planeten und aus der Reichweite des Imperators bringen.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten die Belohnungskarte \"Das Fragment von Bardotta\". (Diese Belohnungskarte funktioniert anders, wenn man mit <b>Imperial Commander</b> spielt. Siehe den Abschnitt <b>Rules Change</b> in der Wiki-Dokumentation für Details).\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Flucht aus dem Herzen\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
+          "buttonList": [
+            {
+              "GUID": "d91ae34a-10dd-4629-99d1-8976c7f41f7c",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "b1edfc07-cf30-4fe9-8a67-91fc6116a5db",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "9457dccf-83a3-4395-a91c-2a7e765f58d5",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Ihr wehrt euch tapfer, aber schließlich brecht ihr vor dem Imperator in die Knie. Er lacht hämisch, als Lorn ihm das Fragment von Bardotta überreicht. Sturmtruppen fesseln eure Arme, während der Imperator seine Trophäe bewundert.\n\n\"Mit dieser Macht werde ich eure erbärmliche Rebellion zerschlagen\", sagt er genüsslich. \"Eure öffentlichen Hinrichtungen werden der ganzen Galaxie zeigen, dass meine Macht allumfassend ist!\"\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn Lorn 1 oder mehr Erschöpfungsmarker auf sich hat, erhalten die Helden 25 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Im Reich der Dunklen Seite\" ins Spiel.",
-      "eventActions": []
+      "eventText": "Ihr wehrt euch tapfer, aber schließlich brecht ihr vor dem Imperator in die Knie. Er lacht hämisch, als Lorn ihm das Fragment von Bardotta überreicht. Sturmtruppen fesseln eure Arme, während der Imperator seine Trophäe bewundert.\n\n\"Mit dieser Macht werde ich eure erbärmliche Rebellion zerschlagen\", sagt er genüsslich. \"Eure öffentlichen Hinrichtungen werden der ganzen Galaxie zeigen, dass meine Macht allumfassend ist!\"\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Im Reich der Dunklen Seite\" ins Spiel.",
+      "eventActions": [
+        {
+          "mainText": "Hat Lorn 1 oder mehr Erschöpfungsmarker auf sich?",
+          "buttonList": [
+            {
+              "GUID": "b54c3a07-6dbe-4e28-9153-4061bff37530",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "cd532c65-2c9d-41c7-b3c2-072db92bd499",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "31f6c8ad-6ab4-4e35-b348-7a1be1debd53",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Terminal 1 claimed",
@@ -692,6 +726,30 @@
           "eaName": "Input Prompt"
         }
       ]
+    },
+    {
+      "eventName": "Lorn Strain Yes",
+      "GUID": "14f7a01b-dfc1-4c30-8a5d-3365c705ccd7",
+      "eventText": "Da sich mindestens 1 Erschöpfungsmarker auf Lorn befindet, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Lorn Strain No",
+      "GUID": "a923238f-5c28-42cc-b442-0275a4dbdd07",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "cf3b2e8f-cd7e-43d7-b0a3-702717b020cb",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "75d926c0-6db0-4a12-be84-60c4dce204f0",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [
@@ -870,7 +928,7 @@
     {
       "entityName": "Lorn",
       "GUID": "cd1153e2-8bef-4fea-a78f-fe5bbef80ae9",
-      "mainText": "Location Lorn",
+      "mainText": "Standort Lorn",
       "buttonList": []
     },
     {

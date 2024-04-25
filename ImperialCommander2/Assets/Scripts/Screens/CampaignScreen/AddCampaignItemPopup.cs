@@ -391,7 +391,7 @@ namespace Saga
 				foreach ( var item in items )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( item, false );
 				}
 			}
 			else//showing general items list
@@ -402,7 +402,7 @@ namespace Saga
 				foreach ( var item in items )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( item, true );
 				}
 			}
 

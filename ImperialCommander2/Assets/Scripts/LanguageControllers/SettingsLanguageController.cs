@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SettingsLanguageController : MonoBehaviour
 {
-	public Text settingsHeading, music, sound, bloom, vignette, ambient, quitBtn, returnBtn, okBtn, quickClose, zoomButtons, topdownView, roundLimitOn, roundLimitOff, roundLimitDangerous, roundLimitLabel;
+	public Text settingsHeading, music, sound, bloom, vignette, ambient, quitBtn, returnBtn, okBtn, quickClose, zoomButtons, topdownView, roundLimitOn, roundLimitOff, roundLimitDangerous, roundLimitLabel, skipWarpIntroLabel;
 
 	/// <summary>
 	/// Sets the UI with the current language
@@ -28,5 +28,6 @@ public class SettingsLanguageController : MonoBehaviour
 		roundLimitOff.text = ui.roundLimitOff;
 		roundLimitDangerous.text = ui.roundLimitDangerous;
 		roundLimitLabel.text = ui.roundLimitLabel;
+		skipWarpIntroLabel.text = ui.skipWarpIntroLabel;
 	}
 }

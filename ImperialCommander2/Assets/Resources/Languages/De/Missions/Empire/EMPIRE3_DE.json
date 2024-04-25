@@ -275,12 +275,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Ihr sprengt den geheimen Eingang zum Versteck auf. Weder Zaaryn noch Maul befinden sich darin, aber ihr findet Aufzeichnungen über ihre Verhandlungen und Transaktionen. Außerdem entdeckt ihr einige Informationen über das Fragment der Kugel von Bardotta, das Zaaryn Maul gegeben hat, um zu beweisen, dass er etwas Wertvolles besitzt. Mit einem Experten, der sie übersetzt, könnte diese Stichprobe ausreichen, um euch zum Versteck des Fragments zu führen. Oder ihr könntet Maul und Zaaryn ausfindig machen, um Zaaryns restliche Informationen zu erhalten.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 175 Credits pro Held.\n{-} Die Helden müssen sich entscheiden, ob sie sich an Lorn (den Jedi-Historiker) wenden oder Maul und Zaaryn verfolgen wollen. Wenn die Helden Lorn aufsuchen, bringt die Haupteinsatzkarte \"Die Geschichte wiederholt sich\" ins Spiel. Wenn die Helden Maul und Zaaryn verfolgen, bringt die Haupteinsatzkarte \"Auf der Flucht\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
+          "buttonList": [
+            {
+              "GUID": "f1cc53c7-387b-43bf-b89b-77b2ffbcd99f",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "3d4a2892-971f-4fc5-af3f-780bdb9cbe2f",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "a743329c-8819-474a-af23-fd1fef735caa",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Ihr habt euch verirrt, seid durcheinander und von verschiedenen imperialen und söldnerischen Hilfstruppen niedergerungen worden. Über euer Comlink fordert ihr eure Teammitglieder auf, sich zu einem Treffpunkt zurückzuziehen. Ihr habt euch damit abgefunden, dass ihr das Artefakt finden müsst, bevor Maul und Zaaryn ihre Pläne verwirklichen können.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der imperiale Spieler erhält <color=\"red\">Maul den Rachsüchtigen</color> als Schurken.\n{-} Wenn das Versteck aufgedeckt wurde, erhalten die Helden 25 Credits pro Held.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventText": "Ihr habt euch verirrt, seid durcheinander und von verschiedenen imperialen und söldnerischen Hilfstruppen niedergerungen worden. Über euer Comlink fordert ihr eure Teammitglieder auf, sich zu einem Treffpunkt zurückzuziehen. Ihr habt euch damit abgefunden, dass ihr das Artefakt finden müsst, bevor Maul und Zaaryn ihre Pläne verwirklichen können.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der imperiale Spieler erhält <color=\"red\">Maul den Rachsüchtigen</color> als Schurken.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
       "eventActions": []
     },
     {
@@ -2081,6 +2098,30 @@
           "eaName": "Modify Map Entity"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Hideaway Revealed",
+      "GUID": "2c054b7b-a7f4-42a0-a091-26ee2185c6f1",
+      "eventText": "Weil das Versteck aufgedeckt wurde, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Hideaway Not Revealed",
+      "GUID": "e058a75b-f347-4fed-a43f-d6c9b60447aa",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "28304d37-d19e-4764-b887-a3d16194c2e2",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "139d8003-97d6-419c-90d4-8ab86239a009",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [
@@ -2742,7 +2783,7 @@
         },
         {
           "GUID": "794de63e-0b8d-4175-a16d-ea9c0dca79e3",
-          "theText": "Claim for Empire"
+          "theText": "Für Imperium beanspruchen"
         }
       ]
     },

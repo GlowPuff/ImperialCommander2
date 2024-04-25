@@ -1,6 +1,5 @@
 ﻿public class MissionCard
 {
-	//public List<Card> story, side;
 	public string name, id, hero, descriptionText, bonusText, heroText, allyText, villainText, expansionText, rebelRewardText, imperialRewardText;
 	public MissionType[] missionType;
 	public string[] ally, villain, tags, tagsText;

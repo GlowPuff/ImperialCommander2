@@ -11,7 +11,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle, roundLimitToggleOn, roundLimitToggleOff, roundLimitToggleDangerous;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle, roundLimitToggleOn, roundLimitToggleOff, roundLimitToggleDangerous, skipWarpIntroToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -72,6 +72,7 @@ public class SettingsScreen : MonoBehaviour
 		roundLimitToggleOn.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 1;//0=off, 1=on, 2=dangerous
 		roundLimitToggleOff.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 0;//0=off, 1=on, 2=dangerous
 		roundLimitToggleDangerous.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 2;//0=off, 1=on, 2=dangerous
+		skipWarpIntroToggle.isOn = PlayerPrefs.GetInt( "skipWarpIntro" ) == 1;
 		toggleBusy = false;
 
 		//set the translated UI strings
@@ -97,6 +98,7 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "musicVolume", musicWheelHandler.wheelValue );
 		PlayerPrefs.SetInt( "ambientVolume", ambientWheelHandler.wheelValue );
 		PlayerPrefs.SetInt( "soundVolume", soundWheelHandler.wheelValue );
+		PlayerPrefs.SetInt( "skipWarpIntro", skipWarpIntroToggle.isOn ? 1 : 0 );
 
 		PlayerPrefs.Save();
 
@@ -179,6 +181,10 @@ public class SettingsScreen : MonoBehaviour
 		else if ( t.name.ToLower() == "round limit dangerous" )
 		{
 			PlayerPrefs.SetInt( "roundLimitToggle", 2 );
+		}
+		else if ( t.name.ToLower() == "" )
+		{
+			PlayerPrefs.SetInt( "skipWarpIntro", t.isOn ? 1 : 0 );
 		}
 	}
 

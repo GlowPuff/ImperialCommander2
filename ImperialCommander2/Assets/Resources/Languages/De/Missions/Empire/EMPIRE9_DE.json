@@ -210,7 +210,7 @@
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Es sind einfach zu viele imperiale Soldaten und ihr merkt schließlich, dass ihr keine Chance habt, euren Speeder zu erreichen. Ihr seid gezwungen, euch in das Labyrinth der Unterwelt zurückzuziehen, um euch neu zu organisieren.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Spieler der Rebellen beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn alle Helden auf der Landestelle sind, erhalten die Helden 25 Credits pro Held.",
+      "eventText": "Es sind einfach zu viele imperiale Soldaten und ihr merkt schließlich, dass ihr keine Chance habt, euren Speeder zu erreichen. Ihr seid gezwungen, euch in das Labyrinth der Unterwelt zurückzuziehen, um euch neu zu organisieren.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Spieler der Rebellen beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
       "eventActions": []
     },
     {
@@ -2995,12 +2995,58 @@
       "eventName": "Story 1",
       "GUID": "372fe814-1eb9-4744-a5ba-0459a00fa03a",
       "eventText": "Um mehr über ihre Pläne herauszufinden, beschließt das Imperium, die Rebellen zu verfolgen.\n\n{-} Bringe die Haupteinsatzkarte \"Die Geschichte wiederholt sich\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Befinden sich alle Helden auf der Landestelle?",
+          "buttonList": [
+            {
+              "GUID": "3896f033-0ab5-41ba-892c-a0f9f26cfb44",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "23a1b026-37d4-429e-95c0-6872cf7d171f",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "8ace3e56-c9b8-4881-bc14-3121d2cfd3dd",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Story 2",
       "GUID": "9de77376-cd4a-4a1e-8ea2-80c2b5b718bc",
       "eventText": "Das Imperium beschließt, eine Hinhaltetaktik gegen die Rebellen anzuwenden.\n\n{-} Bringe die Haupteinsatzkarte \"Auf der Flucht\" ins Spiel.",
+      "eventActions": [
+        {
+          "mainText": "Befinden sich alle Helden auf der Landestelle?",
+          "buttonList": [
+            {
+              "GUID": "fe9343dc-5214-4bf1-bb30-1728d26ab164",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "d2c2ee6f-e2cd-40c8-8fd7-e1ddd363783a",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "569d76ed-d5f4-4340-92ed-cea2e5f55c22",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Landing Yes",
+      "GUID": "10090be3-a159-4830-ae43-ea76e6308ef8",
+      "eventText": "Da sich alle Helden auf der Landestelle befinden, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Landing No",
+      "GUID": "fb9219e8-650c-4db5-af2f-632efa677076",
+      "eventText": "",
       "eventActions": []
     }
   ],

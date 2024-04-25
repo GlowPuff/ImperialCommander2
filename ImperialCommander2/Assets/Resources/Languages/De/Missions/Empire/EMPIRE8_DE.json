@@ -110,12 +110,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Ihr speichert die Dateien auf der Speicherkarte und verstaut sie sicher. \"Sie haben, was Sie wollten, jetzt lassen Sie mich gehen!\" Lorn schreit so laut, dass man ihn trotz des Kampfgetümmels hören kann. Er formt mit seinen Lippen die Worte \"Schlagen Sie mich\", also schlägst du ihm widerwillig gegen das Kinn und er bricht zusammen.\n\nNachdem ihr in euren Unterschlupf zurückgekehrt seid, fangt ihr an, die historischen Aufzeichnungen zu studieren, die Lorn euch gegeben hat, aber es fällt euch schwer, das Puzzle zusammenzufügen. Ihr überlegt, ob ihr Lorn noch einmal um Hilfe bitten solltet, aber ihr würdet riskieren, seine Tarnung auffliegen zu lassen.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten die Belohnungskarte \"Die Lehren der Geschichte\". (Diese Belohnungskarte funktioniert anders, wenn man mit <b>Imperial Commander</b> spielt. Siehe den Abschnitt <b>Rules Change</b> in der Wiki-Dokumentation für Details).\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Die Helden müssen sich entscheiden, ob sie Lorn weiterhin um Hilfe bitten oder andere Spuren verfolgen wollen. Wenn die Helden Lorn weiterhin um Hilfe bitten, bringe die Haupteinsatzkarte \"Der Doppelagent\" ins Spiel. Wenn sie anderen Hinweisen nachgehen, bringe die Haupteinsatzkarte \"In die Enge getrieben\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
+          "buttonList": [
+            {
+              "GUID": "77ae27ff-e203-49d4-b884-8deecad99a56",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "4bf5bf46-e3cc-4476-bd6e-631cb9b38738",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "3799661a-7225-4383-954c-3d83112553b7",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Als der Alarm losgeht und Sicherheitskräfte ausschwärmen, seid ihr gezwungen, aus dem Gebäude zu fliehen, bevor ihr Zugang zu den historischen Aufzeichnungen erhalten konntet. Während ihr euch zurückzieht, hört ihr, wie Lorn den Sicherheitsleuten dafür dankt, dass sie ihn vor diesen \"Terroristen\" gerettet haben.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn ein Held Lorn beansprucht hat, erhalten die Helden 25 Credits pro Held.",
+      "eventText": "Als der Alarm losgeht und Sicherheitskräfte ausschwärmen, seid ihr gezwungen, aus dem Gebäude zu fliehen, bevor ihr Zugang zu den historischen Aufzeichnungen erhalten konntet. Während ihr euch zurückzieht, hört ihr, wie Lorn den Sicherheitsleuten dafür dankt, dass sie ihn vor diesen \"Terroristen\" gerettet haben.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
       "eventActions": []
     },
     {
@@ -465,6 +482,30 @@
       "eventName": "Story 2",
       "GUID": "1d5aec5b-b45c-4002-8c63-6347620c89f6",
       "eventText": "Obwohl die Rebellen keinen Erfolg hatten, sieht das Imperium sie als Bedrohung an und beschließt, sie zu verfolgen.\n\n{-} Bringe die Haupteinsatzkarte \"In die Enge getrieben\" ins Spiel.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Lorn Claimed",
+      "GUID": "3a3a21ee-d176-4a4c-8d9d-c8ae50f8d05a",
+      "eventText": "Weil ein Held Lorn beansprucht hat, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Lorn Not Claimed",
+      "GUID": "4a8145db-c4c5-4108-995b-0276f01214e0",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "362d4530-7b4e-456a-91d5-fcb2ba8998eb",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "16922952-689c-47d9-bd9d-c775e0557f1e",
+      "eventText": "",
       "eventActions": []
     }
   ],

@@ -110,12 +110,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Ihr gebt den Gefangenen Feuerschutz, während sie in euren Fluchtspeeder steigen, und springt dann selbst an Bord. \"Danke für die Rettung\", sagt einer der Rebellen. \"Wir müssen unsere Mission fortsetzen, um dieses Fragment der Kugel von Bardotta zu finden - mit eurer Hilfe, wenn ihr dazu bereit seid.\"\n\nDie Teamleiterin informiert euch über die Spuren, auf die das Team gestoßen war, bevor es gefangen genommen wurde, darunter einen Jedi-Historiker namens Lorn, der sich mit Machtartefakten befasst, und einen imperialen Offizier namens Zaaryn, der Informationen über das Fragment auf dem Schwarzmarkt verkaufen will.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Die Helden erhalten 1 nicht-einzigartigen Verbündeten ihrer Wahl.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Die Helden müssen sich entscheiden, entweder Lorn zu verfolgen oder Zaaryn zu verfolgen. Wenn die Helden Lorn verfolgen, bringe die Haupteinsatzkarte \"Der Doppelagent\" ins Spiel. Wenn sie Zaaryn verfolgen, bringe die Haupteinsatzkarte \"Störfaktoren\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
+          "buttonList": [
+            {
+              "GUID": "1b0f8e2b-9275-4c20-95d5-6253336be817",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "dcdf5053-b89e-475b-b9e1-1ed329d510ef",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "bc66a730-22bf-423b-ba2c-d2ef7d076c59",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Ihr flieht aus der Anlage, verfolgt von einem Hagel aus Blasterfeuer. Eine hartnäckige Verfolgungsjagd durch die Straßen von Coruscant zwingt euch dazu, euch aufzuteilen und euch später in eurem Unterschlupf neu zu formieren. Ihr riskiert mehrere Anrufe zum Versteck des anderen Rebellenteams, in der Hoffnung, dass es wenigstens einer von ihnen zurückgeschafft hat, aber ihr erhaltet keine Antwort.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn die Helden alle Gefangenen beansprucht haben, erhalten die Helden 25 Credits pro Held.",
+      "eventText": "Ihr flieht aus der Anlage, verfolgt von einem Hagel aus Blasterfeuer. Eine hartnäckige Verfolgungsjagd durch die Straßen von Coruscant zwingt euch dazu, euch aufzuteilen und euch später in eurem Unterschlupf neu zu formieren. Ihr riskiert mehrere Anrufe zum Versteck des anderen Rebellenteams, in der Hoffnung, dass es wenigstens einer von ihnen zurückgeschafft hat, aber ihr erhaltet keine Antwort.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.",
       "eventActions": []
     },
     {
@@ -157,7 +174,7 @@
     {
       "eventName": "Reveal R2",
       "GUID": "46756035-678c-4e4e-940b-822806bada87",
-      "eventText": "The Command Center is empty except for a lone Probe Droid.",
+      "eventText": "Die Kommandozentrale ist bis auf einen einzelnen Suchdroiden verlassen.",
       "eventActions": [
         {
           "translatedEntityProperties": [
@@ -360,7 +377,7 @@
     {
       "eventName": "Reveal M1-Corridor",
       "GUID": "763e3ec2-ed32-4f84-9b22-d963c88279f9",
-      "eventText": "A large corridor connects different parts of the facility.",
+      "eventText": "Ein großer Korridor verbindet die verschiedenen Bereiche der Einrichtung.",
       "eventActions": [
         {
           "translatedEntityProperties": [
@@ -403,7 +420,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "The corridor is guarded by firce-looking sentry droids.",
+          "tbText": "Der Korridor wird von grimmig aussehenden Wächterdroiden bewacht.",
           "GUID": "2ab75335-494e-49d8-8ffd-f59183a144a9",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -569,18 +586,18 @@
     {
       "eventName": "Reveal M7-Cell",
       "GUID": "ab6d910d-19e4-47c6-9c8e-84d6d2d6dc13",
-      "eventText": "When the cell door slides open, the lights kick back on and alarms begin to blare as main power is restored to the facility.\r\n\r\n“We weren't sure youd find us!” one of the Rebels exclaims as your eyes adjust to the bright light. Each of the Rebels has their arms and legs shackled. They're going to need your help escaping.\r\n\r\n{-} A hero can interact with a captive to claim it. Each hero can claim only 2 captives. Once during his activation, a hero can test {K}. If he succeeds, he may interact with 1 captive without using an action.",
+      "eventText": "Als sich die Zellentür öffnet, gehen die Lichter wieder an und die Alarme ertönen, da die Anlage wieder mit Strom versorgt wird.\n\n\"Wir waren nicht sicher, ob ihr uns finden würdet!\", ruft einer der Rebellen, als sich eure Augen an das helle Licht gewöhnen. Jedem der Rebellen sind Arme und Beine gefesselt. Sie werden eure Hilfe brauchen, um zu entkommen.\n\n{-} Ein Held kann mit einem Gefangenen interagieren, um ihn zu beanspruchen. Jeder Held kann nur 2 Gefangene beanspruchen. Einmal während seiner Aktivierung kann ein Held eine Probe auf {K} ablegen. Bei Erfolg darf er mit 1 Gefangenen interagieren, ohne eine Aktion zu benutzen.",
       "eventActions": [
         {
           "translatedEntityProperties": [
             {
               "entityName": "Cell Door",
               "GUID": "7f92807a-eea1-4eb5-b2f8-3de20fb829ce",
-              "theText": "Door to the Cell",
+              "theText": "Tür zur Zelle",
               "buttonList": [
                 {
                   "GUID": "7f51bbce-ea54-4d7d-9af2-1a35861c5954",
-                  "theText": "Open"
+                  "theText": "Öffnen"
                 }
               ]
             }
@@ -590,13 +607,13 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "repositionText": "Block access to exterior spaces.",
+          "repositionText": "Versperre den Zugang zu Außenbereichen.",
           "GUID": "195fc695-3cad-459c-8375-89949c18aa23",
           "eventActionType": 17,
           "eaName": "Change Reposition Instructions"
         },
         {
-          "tbText": "The Imperial soldiers hastily erect a huge blaster cannon outside the facility.",
+          "tbText": "Die imperialen Soldaten stellen eilig eine riesige Blasterkanone vor der Anlage auf.",
           "GUID": "93ff5d67-451a-497e-8ced-86178e7f6ecb",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -611,7 +628,7 @@
           "eaName": "Deploy: DG007/E-Web Engineer"
         },
         {
-          "tbText": "Now that you have found your companions, you need to escape the facility.",
+          "tbText": "Jetzt, da ihr eure Gefährten gefunden habt, müsst ihr aus der Einrichtung entkommen.",
           "GUID": "434469f9-0c8d-4ff9-8b54-6ae6577a83f2",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -621,7 +638,7 @@
             {
               "entityName": "Escape Route",
               "GUID": "fa61f539-e29a-4eaa-a89d-bf3a81cd2028",
-              "theText": "{-} When 4 captives have been claimed and all heroes are on exterior spaces, click \"Extract\".",
+              "theText": "{-} Wenn 4 Gefangene beansprucht wurden und alle Helden auf äußeren Feldern stehen, klicke auf \"Extrahieren\".",
               "buttonList": []
             }
           ],
@@ -630,26 +647,26 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "{-} The Rebel mission token represents the escape route.\r\n{-} When 4 captives have been claimed and all heroes are on exterior spaces, click the escape route and select \"Extract\".\r\n{-} The Rebels win when they are extracted.",
+          "tbText": "{-} Der Rebellen-Einsatzmarker stellt den Fluchtweg dar.\n{-} Wenn 4 Gefangene beansprucht wurden und alle Helden auf äußeren Feldern stehen, klicke auf den Fluchtweg und wähle \"Extrahieren\".\n{-} Die Rebellen gewinnen, wenn sie extrahiert werden.",
           "GUID": "6b0a56ab-8494-4c4c-90c8-6330b608700e",
           "eventActionType": 16,
           "eaName": "Text Box"
         },
         {
-          "shortText": "Claim the captives (&Captives Claimed&/4).",
+          "shortText": "Beansprucht die Gefangenen (&Captives Claimed&/4).",
           "longText": null,
           "GUID": "8253a5ad-139c-4e4b-a88f-cf6747ea54f2",
           "eventActionType": 2,
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} A hero can interact with a captive to claim it. Each hero can claim only 2 captives. Once during his activation, a hero can test {K}. If he succeeds, he may interact with 1 captive without using an action.\r\n{-} When a hero withdraws, he is incapacitated instead. When activating, he receives only 1 action and can only use that action to perform a move.\r\n{-} The Rebel mission token represents the escape route.\r\n{-} When 4 captives have been claimed and all heroes are on exterior spaces, click the escape route and select \"Extract\".\r\n{-} The Rebels win when they are extracted.\r\n{-} The Rebels lose when all heroes are wounded.",
+          "theText": "{-} Ein Held kann mit einem Gefangenen interagieren, um ihn zu beanspruchen. Jeder Held kann nur 2 Gefangene beanspruchen. Einmal während seiner Aktivierung kann ein Held eine Probe auf {K} ablegen. Bei Erfolg darf er mit 1 Gefangenen interagieren, ohne eine Aktion zu benutzen.\r\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Der Rebellen-Einsatzmarker stellt den Fluchtweg dar.\n{-} Wenn 4 Gefangene beansprucht wurden und alle Helden auf äußeren Feldern stehen, klicke auf den Fluchtweg und wähle \"Extrahieren\".\n{-} Die Rebellen gewinnen, wenn sie extrahiert werden.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
           "GUID": "a6c5768c-b0a0-49ff-ac2c-b871889945a3",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
         },
         {
-          "tbText": "As the power returns and the facility is flooded with bright lights, at least it's now easier to find your way around.\r\n\r\n{-} Reveal all remaining obscured tiles.",
+          "tbText": "Nachdem der Strom wieder da ist und die Anlage von hellen Lichtern durchflutet wird, ist es zumindest einfacher, sich zurechtzufinden.\n\n{-} Decke alle verbliebenen verdeckten Spielplanteile auf.",
           "GUID": "9d2e6108-bf5c-4927-9c1e-d5163a3285c0",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -695,7 +712,7 @@
     {
       "eventName": "Reveal L2-Interrogation Chamber",
       "GUID": "630609ca-80bc-4fa8-81b8-2bf5331ac6dd",
-      "eventText": "You enter an interrogation chamber, with cruel instruments still partially caked by their victim's blood.",
+      "eventText": "Ihr betretet einen Verhörraum, in dem die grausamen Instrumente noch teilweise mit dem Blut ihrer Opfer bedeckt sind.",
       "eventActions": [
         {
           "translatedEntityProperties": [
@@ -727,7 +744,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "Troopers raise their protective shields and advance towards you.",
+          "tbText": "Soldaten heben ihre Schutzschilde und kommen auf euch zu.",
           "GUID": "b4830b22-aec8-4afa-a437-68dcfac1efbf",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -1161,6 +1178,30 @@
       "eventName": "Story 2",
       "GUID": "bcaf53cc-0126-4ce3-8f78-b8cb245c7712",
       "eventText": "Obwohl ihr gescheitert seid, habt ihr es geschafft, die Pläne des Imperiums so zu durchkreuzen, dass es beschließt, euch zu verfolgen.\r\n\r\n{-} Bringe die Haupteinsatzkarte \"In die Enge getrieben\" ins Spiel.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Captives Yes",
+      "GUID": "99a1700f-0f25-4336-bd1e-70f4d654cbcb",
+      "eventText": "Da die Helden alle Gefangenen beansprucht haben, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Captives No",
+      "GUID": "5519fad2-93f5-4400-baa1-50c8cb4499df",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "3be0066d-be4b-4ab2-9bca-d85dbeb287e4",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "286b7a52-13be-45c0-9c46-cc0c27fbc632",
+      "eventText": "",
       "eventActions": []
     }
   ],

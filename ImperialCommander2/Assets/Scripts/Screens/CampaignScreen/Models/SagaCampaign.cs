@@ -255,6 +255,10 @@ namespace Saga
 				else
 					return campaignPackage.campaignInstructions;
 			}
+			else if ( campaignType == CampaignType.Custom )
+			{
+				return "";
+			}
 			else
 			{
 				string text = Resources.Load<TextAsset>( $"Languages/{DataStore.Language}/CampaignData/CampaignInfo/{campaignExpansionCode}Info" ).text;

@@ -38,12 +38,14 @@ namespace Saga
 		public HelpPanel helpPanel;
 		public GameObject campaignHelpMockup;
 		public ErrorPanel errorPanel;
+		public Button campaignInfoButton;
 		//translatable UI
 		public CampaignLanguageController languageController;
 
 		public bool isDebugMode = false;
 
-		Sound sound;
+		[HideInInspector]
+		public Sound sound;
 		int view = 1;//0=left, 1=right
 		float aspect;
 
@@ -140,6 +142,9 @@ namespace Saga
 		/// </summary>
 		private void InitUI()
 		{
+			if ( sagaCampaign.campaignType == CampaignType.Custom )
+				campaignInfoButton.gameObject.SetActive( false );
+
 			campaignNameInputField.text = sagaCampaign.campaignName;
 			//use translated expansion name
 			if ( sagaCampaign.campaignType == CampaignType.Official )
@@ -255,11 +260,16 @@ namespace Saga
 			} );
 		}
 
-		void AddItemToUI( CampaignItem item )
+		void AddItemToUI( CampaignItem item, bool showCoinIcon = false )
 		{
 			var go = Instantiate( listItemPrefab, itemContainer );
 			go.GetComponent<CampaignListItemPrefab>().InitGeneralItem( item.name, ( n ) =>
 			{
+				//add item cost back to credits
+				var sc = FindObjectOfType<CampaignManager>();
+				sc.UpdateCreditsUI( RunningCampaign.sagaCampaign.credits + item.cost );
+				sc.sound.PlaySound( 1 );
+
 				sagaCampaign.campaignItems.Remove( item.id );
 				Destroy( go );
 			} );
@@ -328,8 +338,6 @@ namespace Saga
 				if ( !sagaCampaign.campaignItems.Contains( item.id ) )
 				{
 					sagaCampaign.campaignItems.Add( item.id );
-					sagaCampaign.credits = Math.Max( 0, sagaCampaign.credits - item.cost );
-					creditsWheel.ResetWheeler( sagaCampaign.credits );
 					AddItemToUI( item );
 				}
 			}, false );
@@ -554,6 +562,12 @@ namespace Saga
 		public void OnHelpClick()
 		{
 			helpPanel.Show();
+		}
+
+		public void UpdateCreditsUI( int newValue )
+		{
+			sagaCampaign.credits = newValue;
+			creditsWheel.ResetWheeler( sagaCampaign.credits );
 		}
 	}
 }

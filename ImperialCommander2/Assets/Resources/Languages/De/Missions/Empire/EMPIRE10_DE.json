@@ -118,12 +118,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Maul faucht euch an, als ihr ihn zu Boden drückt und eure Waffen auf ihn richtet. \"Herzlichen Glückwunsch\", knurrt er, \"dieses Ding ist jetzt euer Problem.\" Ihr durchsucht ihn und findet ein Datapad mit den Koordinaten eines Verstecks auf Coruscant, wo seine Agenten das Artefakt für ihn deponiert haben. Ihr beschließt, dass es mehr Ärger macht, als es wert ist, ihn festzunehmen, lasst Maul frei und brecht sofort nach Coruscant auf, um das Artefakt zu finden.\r\n\r\n{-} Die Rebellen gewinnen den Einsatz!\r\n{-} Die Helden erhalten die Belohnungskarte \"Das Fragment von Bardotta\". (Diese Belohnungskarte funktioniert anders, wenn man mit <b>Imperial Commander</b> spielt. Siehe den Abschnitt <b>Rules Change</b> in der Wiki-Dokumentation für Details).\r\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\r\n{-} Bringe die Haupteinsatzkarte \"Flucht aus dem Herzen\" ins Spiel.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "Gibt es nur 1 unversehrten Helden?",
+          "buttonList": [
+            {
+              "GUID": "a62c08a0-13da-4e9b-b645-edaa4c426b91",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "0574098a-0bbc-48c5-8db1-89cd1bdd1249",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "60713ccd-8c7b-4790-a463-5fe25a50e728",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "\"Ihr habt verloren\", ruft Maul euch zu, als seine Truppen euch überwältigen. Er gibt ein Zeichen und der imperiale Offizier Zaaryn taucht mit einem kleinen Trupp auf. \"Hier ist mein Teil der Abmachung, Zaaryn\", sagt Maul und deutet auf euch und euer Team, \"Gib meinen Agenten die Genehmigung, Coruscant zu verlassen.\"\n\nZaaryn wendet sich an Maul. \"Du kannst meinen Teil der Abmachung als... geändert betrachten\", sagt er. Seine Truppen wenden sich sofort gegen Maul und zwingen ihn zu einem wütenden Rückzug, während Zaaryns Team euch in ein Shuttle verfrachtet. \"Ein Rebellentrupp und das Fragment von Bardotta: Der Imperator könnte mich zum Leiter des ISB machen\", sagt Zaaryn zu sich selbst, bevor er euch mit einem Betäubungsschuss außer Gefecht setzt.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Erhöhe den Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Wenn die Trandoshanischen Jäger besiegt wurden, erhalten die Helden 25 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Im Reich der Dunklen Seite\" ins Spiel.",
+      "eventText": "\"Ihr habt verloren\", ruft Maul euch zu, als seine Truppen euch überwältigen. Er gibt ein Zeichen und der imperiale Offizier Zaaryn taucht mit einem kleinen Trupp auf. \"Hier ist mein Teil der Abmachung, Zaaryn\", sagt Maul und deutet auf euch und euer Team, \"Gib meinen Agenten die Genehmigung, Coruscant zu verlassen.\"\n\nZaaryn wendet sich an Maul. \"Du kannst meinen Teil der Abmachung als... geändert betrachten\", sagt er. Seine Truppen wenden sich sofort gegen Maul und zwingen ihn zu einem wütenden Rückzug, während Zaaryns Team euch in ein Shuttle verfrachtet. \"Ein Rebellentrupp und das Fragment von Bardotta: Der Imperator könnte mich zum Leiter des ISB machen\", sagt Zaaryn zu sich selbst, bevor er euch mit einem Betäubungsschuss außer Gefecht setzt.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 2 EP. Die Helden erhalten 100 Credits pro Held.\n{-} Bringe die Haupteinsatzkarte \"Im Reich der Dunklen Seite\" ins Spiel.",
       "eventActions": []
     },
     {
@@ -667,6 +684,30 @@
           "eaName": "Change Reposition Instructions"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Trando Yes",
+      "GUID": "38aaf530-69a7-4e5b-8947-60b8edf2f2cf",
+      "eventText": "Weil die Trandoshanischen Jäger besiegt wurden, erhalten die Helden 25 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Trando No",
+      "GUID": "637d2a93-5e19-4c75-a41a-0f53861a5db7",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "fee3359a-bf43-4c76-8ee5-54603496a2bb",
+      "eventText": "Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "2ec4c528-54e5-4207-90e4-ed1d7dd64192",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [
