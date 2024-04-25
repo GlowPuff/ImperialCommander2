@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,13 +35,17 @@ namespace Saga
 				addButton.interactable = false;
 		}
 
-		public void Init( CampaignSkill item )
+		public void Init( CampaignSkill item, string heroID )
 		{
 			itemType = 1;
 			campaignSkill = item;
 			typeText.text = "A";
 			nameText.text = $"{item.name}";
 			costText.text = $"{DataStore.uiLanguage.uiCampaign.costUC}: {item.cost}";
+
+			var hero = FindObjectOfType<CampaignManager>().sagaCampaign.campaignHeroes.Where( x => x.heroID == heroID ).FirstOr( null );
+			if ( hero != null && item.cost > hero.xpAmount )
+				addButton.interactable = false;
 		}
 
 		public void Init( MissionCard card, string filename = "" )

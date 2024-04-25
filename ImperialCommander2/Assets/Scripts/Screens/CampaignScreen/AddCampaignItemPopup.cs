@@ -120,7 +120,7 @@ namespace Saga
 			foreach ( var item in skills.Where( x => x.owner == heroID ) )
 			{
 				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-				go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
+				go.GetComponent<ItemSkillSelectorPrefab>().Init( item, heroID );
 			}
 
 			addSkillCallback = callback;

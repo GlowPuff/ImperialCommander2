@@ -77,6 +77,8 @@ namespace Saga
 		{
 			if ( !campaignHero.campaignSkills.Contains( skill ) )
 			{
+				campaignHero.xpAmount = Mathf.Max( 0, campaignHero.xpAmount - skill.cost );
+				mWheelHandler.ResetWheeler( campaignHero.xpAmount );
 				campaignHero.campaignSkills.Add( skill );
 				AddHeroToUI( campaignHero );
 			}
@@ -119,6 +121,8 @@ namespace Saga
 				string s = skills.Where( x => x.id == skill.id ).First().name;
 				go.GetComponent<CampaignListItemPrefab>().InitSkill( s, ( n ) =>
 				{
+					campaignHero.xpAmount += skill.cost;
+					mWheelHandler.ResetWheeler( hero.xpAmount );
 					campaignHero.campaignSkills.Remove( skill );
 					Destroy( go );
 				} );
