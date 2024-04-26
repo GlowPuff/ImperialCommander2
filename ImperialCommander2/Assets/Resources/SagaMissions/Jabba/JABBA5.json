@@ -1,9 +1,9 @@
 {
-  "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "missionGUID": "82476cab-79f4-4db2-80dc-fa8f90535b47",
   "fileName": "JABBA5.json",
   "fileVersion": "22",
-  "saveDate": "4/12/2024",
-  "timeTicks": 638485133799106011,
+  "saveDate": "4/26/2024",
+  "timeTicks": 638497441733918847,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Hostile Negotiations",
@@ -19,6 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
+    "useAlternateEventSystem": false,
     "roundLimit": -1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
@@ -1155,7 +1156,7 @@
           "displayName": "Modify Map Entity"
         },
         {
-          "theText": "{-} The Rebel mission token represents the Rebel stockpile.\r\n{-} When a Rebel figure carrying a spice barrel moves on or adjacent to the Rebel stockpile, the Rebels claim that spice barrel.\r\n{-} The mission ends at the end of Round 6. At that point, when the Rebels have claimed more spice barrels than the Empire, they win the mission.",
+          "theText": "{-} The Rebel mission token represents the Rebel stockpile.\r\n{-} When a Rebel figure carrying a spice barrel moves on or adjacent to the Rebel stockpile, the Rebels claim that spice barrel.\r\n{-} The mission ends at the end of Round 6. At that point, if the Rebels have claimed more spice barrels than the Empire, they win the mission.",
           "GUID": "27d2a1d9-9757-4cdb-bdbd-388d1c0ec702",
           "eventActionType": 16,
           "displayName": "Text Box"
@@ -1168,7 +1169,7 @@
           "displayName": "Change Objective"
         },
         {
-          "theText": "{-} Neutral mission tokens represent spice barrels.\r\n{-} A figure can spend 2 movement points to retrieve a spice barrel without using an action. A figure can carry only 1 spice barrel.\r\n{-} When a figure carrying a spice barrel suffers 3 or more {H}, that figure drops that spice barrel in his space.\r\n{-} Spice Runners cannot be defeated. When a Spice Runner would be defeated, remove the figure from the map and set it aside.\r\n{-} The Imperial mission token represents the Spicer's stockpile.\r\n{-} When a Spice Runner carrying a spice barrel moves on or adjacent to the spicer's stockpile, the Empire claims that spice barrel. Then that Spice Runner is removed from the map and set aside.\r\n{-} The Rebel mission token represents the Rebel stockpile.\r\n{-} When a Rebel figure carrying a spice barrel moves on or adjacent to the Rebel stockpile, the Rebels claim that spice barrel.\r\n{-} The mission ends at the end of Round 6. At that point, when the Rebels have claimed more spice barrels than the Empire, they win the mission.",
+          "theText": "{-} Neutral mission tokens represent spice barrels.\r\n{-} A figure can spend 2 movement points to retrieve a spice barrel without using an action. A figure can carry only 1 spice barrel.\r\n{-} When a figure carrying a spice barrel suffers 3 or more {H}, that figure drops that spice barrel in his space.\r\n{-} Spice Runners cannot be defeated. When a Spice Runner would be defeated, remove the figure from the map and set it aside.\r\n{-} The Imperial mission token represents the Spicer's stockpile.\r\n{-} When a Spice Runner carrying a spice barrel moves on or adjacent to the spicer's stockpile, the Empire claims that spice barrel. Then that Spice Runner is removed from the map and set aside.\r\n{-} The Rebel mission token represents the Rebel stockpile.\r\n{-} When a Rebel figure carrying a spice barrel moves on or adjacent to the Rebel stockpile, the Rebels claim that spice barrel.\r\n{-} The mission ends at the end of Round 6. At that point, if the Rebels have claimed more spice barrels than the Empire, they win the mission.",
           "GUID": "ca3ceb57-3bf6-48b8-851f-97f1fb2e46fc",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
@@ -1295,7 +1296,7 @@
           "displayName": "Set Next Mission"
         },
         {
-          "theText": "Are there three or more spice barrels on the Spicer's stockpile?",
+          "theText": "Are there three or more spice barrels on the Rebel stockpile?",
           "includeCancel": false,
           "buttonList": [
             {
@@ -1979,7 +1980,7 @@
       "GUID": "cfc44763-bcf9-4f75-84fb-9039c4f449ba",
       "isGlobal": true,
       "name": "Win Query Yes",
-      "eventText": "Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventText": "The threat level of the next mission (and only the next mission) increases by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",

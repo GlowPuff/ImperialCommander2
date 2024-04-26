@@ -1,9 +1,9 @@
 {
-  "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "missionGUID": "4d9b606c-3d82-493c-9d5b-d13721a96def",
   "fileName": "OTHER31.json",
   "fileVersion": "22",
-  "saveDate": "4/12/2024",
-  "timeTicks": 638485528209503533,
+  "saveDate": "4/26/2024",
+  "timeTicks": 638497442210819521,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Predator and Prey",
@@ -19,6 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
+    "useAlternateEventSystem": false,
     "roundLimit": -1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
@@ -743,14 +744,13 @@
           "displayName": "Text Box"
         },
         {
-          "countdownTimerName": "Victory Timer",
           "countdownTimer": 5,
-          "triggerGUID": "00000000-0000-0000-0000-000000000000",
           "eventGUID": "00000000-0000-0000-0000-000000000000",
+          "triggerGUID": "00000000-0000-0000-0000-000000000000",
           "showPlayerCountdown": true,
-          "displayName": "Set Countdown",
           "GUID": "608005cb-f49c-4bd3-8ce6-0e805f2e9887",
-          "eventActionType": 29
+          "eventActionType": 29,
+          "displayName": "Set Countdown"
         },
         {
           "theText": "Stop the cargo from entering the extraction point.",
@@ -764,6 +764,49 @@
           "GUID": "50edcecd-a7e2-4668-94e8-982cae8261b5",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "GUID": "f33ef806-e6e9-4592-8a94-067ed405e045",
+      "isGlobal": true,
+      "name": "Rebels Win",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 7,
+      "endOfRound": 6,
+      "useStartOfRound": false,
+      "useEndOfRound": true,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Rebels Win",
+              "triggerGUID": "ded5e0e2-4253-46fd-b17a-909086fa8d94",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "42f336b8-e5db-41f9-99c3-ef7d855297b6",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     },
@@ -1380,49 +1423,6 @@
             }
           ],
           "GUID": "82be939d-89e9-443f-93fc-95aceb5a4e6d",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        }
-      ]
-    },
-    {
-      "GUID": "f33ef806-e6e9-4592-8a94-067ed405e045",
-      "isGlobal": true,
-      "name": "Rebels Win",
-      "eventText": "",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 7,
-      "endOfRound": 1,
-      "useStartOfRound": true,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [],
-      "eventActions": [
-        {
-          "triggerList": [
-            {
-              "triggerName": "Rebels Win",
-              "triggerGUID": "ded5e0e2-4253-46fd-b17a-909086fa8d94",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "42f336b8-e5db-41f9-99c3-ef7d855297b6",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
         }

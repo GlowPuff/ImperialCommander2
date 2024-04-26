@@ -142,7 +142,7 @@
           "eaName": "Deploy: DG011/Probe Droid"
         },
         {
-          "tbText": "-Un envío de raciones para el depósito, señor.\r\n\r\n-Justo a tiempo. Solo tengo que inspeccionarlo...\r\n\r\nEmergéis de las cajas disparando vuestras armas mientras los imperiales se desbandan en busca de cobertura.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando la puerta del puesto avanzado se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+          "tbText": "-Un envío de raciones para el depósito, señor.\r\n\r\n-Justo a tiempo. Solo tengo que inspeccionarlo...\r\n\r\nEmergéis de las cajas disparando vuestras armas mientras los imperiales se desbandan en busca de cobertura.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando la puerta del puesto avanzado se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "058e76a3-001a-4caa-b5cf-5338fb386363",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -155,7 +155,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando la puerta del puesto avanzado se abre.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando la puerta del puesto avanzado se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "1497c03f-968d-4315-9d75-5057305cfa5f",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -165,13 +165,30 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Los disparos silban peligrosamente cerca de vuestras mochilas recién cargadas de explosivos mientras subís de un brinco al Saltador Maestro de escape. Abajo, los imperiales hacen recuento de su expoliado depósito frenéticamente.\r\n\r\nA vuestro regreso, los gamorreanos llevan las armas a un edificio anexo de adobe antes de escoltaros a la sala del trono.\r\n\r\nJabba exhala una nube de humo al reírse mientras le relatáis la incursión y Salacious B. Crumb os interrumpe constantemente, lo que también parece complacer al Hutt. De momento, el trato se mantiene.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por Héroe.\r\n{-} Si solo queda un Héroe sano, incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en X. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.\r\n{-} Descarta todas las cartas de Misión de historia activas que queden. Pon en juego las cartas de Misión de historia “Cazar trofeos” y “Disputa territorial\".",
-      "eventActions": []
+      "eventText": "Los disparos silban peligrosamente cerca de vuestras mochilas recién cargadas de explosivos mientras subís de un brinco al Saltador Maestro de escape. Abajo, los imperiales hacen recuento de su expoliado depósito frenéticamente.\r\n\r\nA vuestro regreso, los gamorreanos llevan las armas a un edificio anexo de adobe antes de escoltaros a la sala del trono.\r\n\r\nJabba exhala una nube de humo al reírse mientras le relatáis la incursión y Salacious B. Crumb os interrumpe constantemente, lo que también parece complacer al Hutt. De momento, el trato se mantiene.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por Héroe.\r\n{-} Descarta todas las cartas de Misión de historia activas que queden. Pon en juego las cartas de Misión de historia “Cazar trofeos” y “Disputa territorial\".",
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "a3c70fef-fa5c-4f33-a9fc-9fb7395e49c3",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "0aa180cd-ce1a-49aa-90e7-f7bc4dcc4973",
+              "theText": "No"
+            }
+          ],
+          "GUID": "78dc6ca4-1062-44bb-bd4c-edbda593986b",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Al pillaros desprevenidos los refuerzos Imperiales, abandonáis los explosivos. Os arriesgáis a la ira de Jabba; pero, de todas formas, no podréis ayudar a vuestros amigos si estáis encerrados en una celda Imperial.\r\n\r\nSalacious B. Crumb se burla de vosotros mientras explicáis vuestro fracaso. Eso hace que Jabba se ría por lo bajo, cosa que parece atemperarle el enfado. Tendréis otra oportunidad de probar vuestra valía.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Si entre todos los Héroes lograron reclamar 6 explosivos, reciben 25 créditos adicionales por Héroe.\r\n{-} Descarta todas las cartas de Misión de historia activas que queden. Pon en juego las cartas de Misión de historia “Cazar trofeos” y “Disputa territorial\".",
+      "eventText": "Al pillaros desprevenidos los refuerzos Imperiales, abandonáis los explosivos. Os arriesgáis a la ira de Jabba; pero, de todas formas, no podréis ayudar a vuestros amigos si estáis encerrados en una celda Imperial.\r\n\r\nSalacious B. Crumb se burla de vosotros mientras explicáis vuestro fracaso. Eso hace que Jabba se ría por lo bajo, cosa que parece atemperarle el enfado. Tendréis otra oportunidad de probar vuestra valía.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Descarta todas las cartas de Misión de historia activas que queden. Pon en juego las cartas de Misión de historia “Cazar trofeos” y “Disputa territorial\".",
       "eventActions": []
     },
     {
@@ -552,7 +569,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Las fichas de Misión neutrales representan explosivos. Un Héroe que esté sobre un explosivo o adyacente a él puede gastar 2 puntos de movimiento para reclamar ese explosivo. Después de hacerlo, ese Héroe puede realizar una prueba de {J} para ganar 1 punto de movimiento.\r\n{-} Una vez por activación, un Héroe puede sufrir 1 {C} y descartar un explosivo que haya reclamado para elegir una casilla a 3 o menos casillas de él y tirar 1 dado rojo. Todas las figuras en la casilla elegida o adyacentes a ella sufren tanto {H} como resultados {H}. El explosivo descartado deja de considerarse reclamado.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento. Los Héroes incapacitados no pueden reclamar explosivos.\r\n{-} Cuando entre todos los Héroes hayan reclamado 6 explosivos, y todos los Héroes estén en la zona de extracción (casillas resaltadas en verde), pulsa sobre la zona de extracción y seleccion \"Los Héroes se marchan\" para finalizar la misión.\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Las fichas de Misión neutrales representan explosivos. Un Héroe que esté sobre un explosivo o adyacente a él puede gastar 2 puntos de movimiento para reclamar ese explosivo. Después de hacerlo, ese Héroe puede realizar una prueba de {J} para ganar 1 punto de movimiento.\r\n{-} Una vez por activación, un Héroe puede sufrir 1 {C} y descartar un explosivo que haya reclamado para elegir una casilla a 3 o menos casillas de él y tirar 1 dado rojo. Todas las figuras en la casilla elegida o adyacentes a ella sufren tanto {H} como resultados {H}. El explosivo descartado deja de considerarse reclamado.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento. Los Héroes incapacitados no pueden reclamar explosivos.\r\n{-} Cuando entre todos los Héroes hayan reclamado 6 explosivos, y todos los Héroes estén en la zona de extracción (casillas resaltadas en verde), pulsa sobre la zona de extracción y seleccion \"Los Héroes se marchan\" para finalizar la misión.\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "9ffcbeac-f03e-4212-8407-7d04a1d665f7",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -598,7 +615,7 @@
           "eaName": "Deploy: DG002/Stormtrooper"
         },
         {
-          "theText": "{-} Las fichas de Misión neutrales representan explosivos. Un Héroe que esté sobre un explosivo o adyacente a él puede gastar 2 puntos de movimiento para reclamar ese explosivo. Después de hacerlo, ese Héroe puede realizar una prueba de {J} para ganar 1 punto de movimiento.\r\n{-} Una vez por activación, un Héroe puede sufrir 1 {C} y descartar un explosivo que haya reclamado para elegir una casilla a 3 o menos casillas de él y tirar 1 dado rojo. Todas las figuras en la casilla elegida o adyacentes a ella sufren tanto {H} como resultados {H}. El explosivo descartado deja de considerarse reclamado.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento. Los Héroes incapacitados no pueden reclamar explosivos.\r\n{-} Cuando entre todos los Héroes hayan reclamado 6 explosivos, y todos los Héroes estén en la zona de extracción (casillas resaltadas en verde), pulsa sobre la zona de extracción y seleccion \"Los Héroes se marchan\" para finalizar la misión.\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Las fichas de Misión neutrales representan explosivos. Un Héroe que esté sobre un explosivo o adyacente a él puede gastar 2 puntos de movimiento para reclamar ese explosivo. Después de hacerlo, ese Héroe puede realizar una prueba de {J} para ganar 1 punto de movimiento.\r\n{-} Una vez por activación, un Héroe puede sufrir 1 {C} y descartar un explosivo que haya reclamado para elegir una casilla a 3 o menos casillas de él y tirar 1 dado rojo. Todas las figuras en la casilla elegida o adyacentes a ella sufren tanto {H} como resultados {H}. El explosivo descartado deja de considerarse reclamado.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento. Los Héroes incapacitados no pueden reclamar explosivos.\r\n{-} Cuando entre todos los Héroes hayan reclamado 6 explosivos, y todos los Héroes estén en la zona de extracción (casillas resaltadas en verde), pulsa sobre la zona de extracción y seleccion \"Los Héroes se marchan\" para finalizar la misión.\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "1f1e7d65-e16c-4d7e-83f3-4eb7bdb08428",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -626,6 +643,36 @@
           "eaName": "Deploy: DG003/Stormtrooper (Elite)"
         }
       ]
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "3259108d-87f8-4269-98e8-56b3b95bcb66",
+      "eventText": "Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en X. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "e3662ae6-172a-4269-bd3d-fef34261cd5a",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "6 Explosives Claimed",
+      "GUID": "e07e195a-9b7b-46bd-a821-ce34b92c8a93",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Bonus Credits Yes",
+      "GUID": "e11d0307-3cd6-4b70-939a-7b6666b83bec",
+      "eventText": "Puesto que entre todos los Héroes lograron reclamar 6 explosivos, reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Bonus Credits No",
+      "GUID": "f7bb74c7-af59-4ad1-b046-e19319f9de45",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

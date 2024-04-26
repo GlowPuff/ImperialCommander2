@@ -169,7 +169,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} La primera vez que una figura del bando Rebelde entra en el pantano, pulsa sobre las casillas resaltadas en verde y selecciona \"Entrar en el Pantano\".\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes están heridos.",
+          "tbText": "{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} La primera vez que una figura del bando Rebelde entra en el pantano, pulsa sobre las casillas resaltadas en verde y selecciona \"Entrar en el Pantano\".\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "1e60ef05-d448-4f8c-be7c-c0750ceeebcc",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -215,7 +215,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida 4, Defensa 1 {G}).\r\n{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} La primera vez que una figura del bando Rebelde entra en el pantano, pulsa sobre las casillas resaltadas en verde y selecciona \"Entrar en el Pantano\".\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida 4, Defensa 1 {G}).\r\n{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} La primera vez que una figura del bando Rebelde entra en el pantano, pulsa sobre las casillas resaltadas en verde y selecciona \"Entrar en el Pantano\".\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "c0ce3267-6beb-4d43-b39d-389fa8c9fb22",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -225,20 +225,36 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Para cuando habéis terminado, todo lo que queda de los enemigos de Jabba son astillas y escombros. Volvéis a la lanzadera, donde la piloto os felicita por vuestro trabajo. El señor Hutt ríe a carcajadas mientras le dáis la noticia, y luego su corte estalla en aplausos.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por héroe.\r\n{-} Si solo ha quedado 1 Héroe sano, incrementa el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.",
+      "eventText": "Para cuando habéis terminado, todo lo que queda de los enemigos de Jabba son astillas y escombros. Volvéis a la lanzadera, donde la piloto os felicita por vuestro trabajo. El señor Hutt ríe a carcajadas mientras le dáis la noticia, y luego su corte estalla en aplausos.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por héroe.",
       "eventActions": [
         {
           "tbText": "A la mañana siguiente se os convoca a la corte de Jabba, donde os habla mediante un droide intérprete: “Al poderoso Jabba le complace vuestra lealtad. Está al corriente del propósito de vuestra misión y está dispuesto a ayudar si hacéis un trabajo más para él. Este Imperio metomentodo ha establecido una base logística y de defensa orbital cerca de la Gran Fosa de Carkoon. Jabba os ordena que robéis los códigos de seguridad de esa base, lo que le permitirá mantener el dominio sobre Tatooine. Haced esto y Jabba llevará a vuestros civiles a un refugio seguro\".\r\n\r\n{-} Descarta todas las cartas de Misión de Historia activas que queden. Pon en juego la carta de Misión de Historia \"Momento del destino\".",
           "GUID": "a7bf1be2-edb8-4cab-871d-79c0ee984844",
           "eventActionType": 16,
           "eaName": "Text Box"
+        },
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "f878ea0c-6036-4621-8ec8-ccd936098074",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "9adc6898-c27b-48b3-a7bd-d37ffd1a5a46",
+              "theText": "No"
+            }
+          ],
+          "GUID": "72b213fd-2cf4-4d9f-b1fe-54d9f943752c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
         }
       ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Quienesquiera que sean esos rivales, no han escatimado créditos en sus defensas. Habéis dañado su infraestructura, pero vosotros sois quienes tenéis que retiraros al final. Jabba está disgustado con vuestro fracaso. Su corte calla como un muerto mientras el señor Hutt reflexiona sobre vuestro futuro. Bib Fortuna traduce la advertencia de su señor: “Tenéis una última oportunidad\".\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.\r\n{-} Si han sido destruidos 4 soportes estructurales, los Héroes reciben 25 créditos adicionales por héroe.",
+      "eventText": "Quienesquiera que sean esos rivales, no han escatimado créditos en sus defensas. Habéis dañado su infraestructura, pero vosotros sois quienes tenéis que retiraros al final. Jabba está disgustado con vuestro fracaso. Su corte calla como un muerto mientras el señor Hutt reflexiona sobre vuestro futuro. Bib Fortuna traduce la advertencia de su señor: “Tenéis una última oportunidad\".\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
       "eventActions": [
         {
           "tbText": "A la mañana siguiente se os convoca a la corte de Jabba, donde os habla mediante un droide intérprete: “Al poderoso Jabba le complace vuestra lealtad. Está al corriente del propósito de vuestra misión y está dispuesto a ayudar si hacéis un trabajo más para él. Este Imperio metomentodo ha establecido una base logística y de defensa orbital cerca de la Gran Fosa de Carkoon. Jabba os ordena que robéis los códigos de seguridad de esa base, lo que le permitirá mantener el dominio sobre Tatooine. Haced esto y Jabba llevará a vuestros civiles a un refugio seguro\".\r\n\r\n{-} Descarta todas las cartas de Misión de Historia activas que queden. Pon en juego la carta de Misión de Historia \"Momento del destino\".",
@@ -334,7 +350,7 @@
               "buttonList": [
                 {
                   "GUID": "656cae83-390e-423a-bb4b-789a5fbbefb5",
-                  "theText": "Destroy"
+                  "theText": "Destruir"
                 }
               ]
             }
@@ -505,7 +521,7 @@
       "eventText": "",
       "eventActions": [
         {
-          "theText": "{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida 4, Defensa 1 {G}).\r\n{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} El <color=\"red\">Rancor</color> no puede salir del Pantano (loseta JABBA 01A).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida 4, Defensa 1 {G}).\r\n{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} El <color=\"red\">Rancor</color> no puede salir del Pantano (loseta JABBA 01A).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "955f63c1-0481-4500-82a7-7113f8dc2b14",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -518,7 +534,7 @@
       "eventText": "",
       "eventActions": [
         {
-          "theText": "{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} El <color=\"red\">Rancor</color> no puede salir del Pantano (loseta JABBA 01A).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} El <color=\"red\">Rancor</color> no puede salir del Pantano (loseta JABBA 01A).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "cef03720-8db0-4236-b728-a402589f237f",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -531,7 +547,7 @@
       "eventText": "",
       "eventActions": [
         {
-          "theText": "{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida 4, Defensa 1 {G}).\r\n{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida 4, Defensa 1 {G}).\r\n{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "48f3a59c-a6bc-4d97-966b-94f4eaa6fe86",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -544,7 +560,7 @@
       "eventText": "",
       "eventActions": [
         {
-          "theText": "{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Las fichas de Misión neutrales representan soportes estructurales. Una figura del bando Rebelde puede atacar un soporte estructural (Vida: 6, Defensa: 2 {G}).\r\n{-} Los Rebeldes ganan cuando todos los soportes estructurales son destruidos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "842bcb74-05c4-4895-a670-3210c9c246ed",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -555,6 +571,36 @@
       "eventName": "Rancor free",
       "GUID": "6320f0f4-9b2e-469c-ab4d-86745cfe5141",
       "eventText": "El rancor ruge con furia, agarra la cadena con ambas garras y tira con todas sus ganas. El árbol tiembla, entonces se rompe cuando el rancor lo desgarra con la cadena.\r\n\r\n{-} El <color=\"red\">Rancor</color> ya puede salir del pantano.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "92f69c84-54e3-4fc4-a915-cca652f30e60",
+      "eventText": "Incrementa el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "af3cc853-b46b-466e-b5da-cfeaff00d5f5",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Trigger Bonus Credits",
+      "GUID": "d7e3b2ff-b9e1-40b7-8bd4-6db74a632d09",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defeat Bonus Credits",
+      "GUID": "688d8834-5000-4c90-b5a7-a4eaef8e8034",
+      "eventText": "Puesto que han sido destruidos 4 soportes estructurales, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defeat No Bonus Credits",
+      "GUID": "ab5d424b-c046-4115-b1d4-8b8131b3174d",
+      "eventText": "",
       "eventActions": []
     }
   ],

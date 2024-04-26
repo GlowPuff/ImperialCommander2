@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "Perturbación",
     "missionDescription": "",
-    "missionInfo": "{-} Las fichas de Misión neutrales representan manifestantes. Un Héroe puede interactuar con un manifestante para reclamarlo y, a continuación, ese Héroe puede realizar una prueba de {J}. Si supera la prueba, gana 2 puntos de movimiento.\r\n{-} Una figura puede atacar a un manifestante (Vida: 5, Defensa: Ninguna). Si un manifestante es derrotado, el jugador Imperial lo reclama. \r\n{-} Cuando la misión avanza, la amenaza aumenta en la cantidad de manifestantes que el jugador Imperial ha reclamado.\r\n{-} Al inicio de cada fase de Estatus, si el jugador Rebelde o el jugador Imperial controlan a algún manifestante, lo reclaman.\r\n{-} La misión avanza al inicio de la fase de Estatus si tanto <color=\"red\">Maul</color> como Zaaryn han sido derrotados.\r\n{-} Los Rebeldes pierden al final de la Ronda 8 o cuando todos los Héroes están heridos.",
+    "missionInfo": "{-} Las fichas de Misión neutrales representan manifestantes. Un Héroe puede interactuar con un manifestante para reclamarlo y, a continuación, ese Héroe puede realizar una prueba de {J}. Si supera la prueba, gana 2 puntos de movimiento.\r\n{-} Una figura puede atacar a un manifestante (Vida: 5, Defensa: Ninguna). Si un manifestante es derrotado, el jugador Imperial lo reclama. \r\n{-} Cuando la misión avanza, la amenaza aumenta en la cantidad de manifestantes que el jugador Imperial ha reclamado.\r\n{-} Al inicio de cada fase de Estatus, si el jugador Rebelde o el jugador Imperial controlan a algún manifestante, lo reclaman.\r\n{-} La misión avanza al inicio de la fase de Estatus si tanto <color=\"red\">Maul</color> como Zaaryn han sido derrotados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
     "campaignName": "El Corazón del Imperio",
     "startingObjective": "",
     "repositionOverride": null,
@@ -275,12 +275,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Voláis Ia entrada secreta del escondrijo. No encontráis ni a Zaaryn ni a Maul dentro, pero sí que encontráis archivos sobre sus tratos y operaciones. También encontráis una breve muestra de información sobre el fragmento de la esfera de Bardottan que Zaaryn le dio a Maul para demostrar que poseía algo de valor. Mediante un experto que la tradujera, esta muestra podría ser suficiente para llevaros a la ubicación del fragmento. Sin embargo, localizar a Maul y a Zaaryn podría proporcionaros el resto de la información que posee Zaaryn.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 175 créditos por Héroe.\r\n{-} Los Héroes deben elegir entre recurrir a Lorn (el historiador de los Jedi) o seguir la pista a Maul y Zaaryn. Si los Héroes recurren a Lorn, pon en juego la carta de Misión de historia “La historia se repite”. Si los Héroes les siguen la pista a Maul y a Zaaryn, pon en juego la carta de Misión de historia “A la fuga”.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "f1cc53c7-387b-43bf-b89b-77b2ffbcd99f",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "3d4a2892-971f-4fc5-af3f-780bdb9cbe2f",
+              "theText": "No"
+            }
+          ],
+          "GUID": "a743329c-8819-474a-af23-fd1fef735caa",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "El aumento de tropas de apoyo imperiales y mercenarias hace que os sintáis perdidos, confundidos y doblegados. Resignados a la idea de tener que encontrar el artefacto por vosotros mismos antes de que Maul y Zaaryn ejecuten sus planes, contactáis con los miembros de vuestro equipo a través del comunicador y les decís que se retiren a un punto de encuentro.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} El jugador Imperial recibe a <color=\"red\">Maul</color> (Sediento de venganza) como Villano.\r\n{-} Si el escondrijo fue revelado, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventText": "El aumento de tropas de apoyo imperiales y mercenarias hace que os sintáis perdidos, confundidos y doblegados. Resignados a la idea de tener que encontrar el artefacto por vosotros mismos antes de que Maul y Zaaryn ejecuten sus planes, contactáis con los miembros de vuestro equipo a través del comunicador y les decís que se retiren a un punto de encuentro.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} El jugador Imperial recibe a <color=\"red\">Maul</color> (Sediento de venganza) como Villano.",
       "eventActions": []
     },
     {
@@ -329,7 +346,7 @@
           "eaName": "Text Box"
         },
         {
-          "theText": "{-} Si los <color=\\\"red\\\">Soldados Antidisturbios</color> son derrotados, un Héroe sano puede interactuar con el terminal para sabotear el Escondrijo.\r\n{-} Los Rebeldes ganan cuando el terminal es saboteado.\r\n{-} Los Rebeldes pierden al final de la Ronda 8 o cuando todos los Héroes están heridos.",
+          "theText": "{-} Si los <color=\\\"red\\\">Soldados Antidisturbios</color> son derrotados, un Héroe sano puede interactuar con el terminal para sabotear el Escondrijo.\r\n{-} Los Rebeldes ganan cuando el terminal es saboteado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "f1a6d388-c30b-4f82-bd27-7388ba1f81d0",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -1789,13 +1806,13 @@
           "eaName": "Text Box"
         },
         {
-          "tbText": "Echáis un vistazo a vuestro alrededor y no sabéis decir qué dirección han tomado, de manera que empezáis la caza al instante.\r\n\r\n{-} Coloca a los Héroes tan cerca como sea posible de la casilla resaltada en azul.\r\n{-} Las losetas que aún no están en el tablero son losetas ocultas.\r\n{-} Cuando una figura del bando Rebelde entra en una casilla adyacente a una loseta oculta, pulsa sobre la casilla resaltada y selecciona \"Revelar\".\r\n{-} Las fichas de Misión del bando Rebelde representan pistas. Un Héroe puede gastar 1 punto de movimiento para reclamar una pista que esté adyacente a él.\r\n{-} Las puertas están selladas. Cuando una figura del bando Rebelde entra en una casilla adyacente a una puerta, si los Héroes en conjunto han reclamado 5 o más pistas, abre esa puerta.\r\n{-} La misión avanza cunado se revela el Escondrijo.\r\n{-} Los Rebeldes pierden al final de la Ronda 8 o cuando todos los Héroes están heridos.",
+          "tbText": "Echáis un vistazo a vuestro alrededor y no sabéis decir qué dirección han tomado, de manera que empezáis la caza al instante.\r\n\r\n{-} Coloca a los Héroes tan cerca como sea posible de la casilla resaltada en azul.\r\n{-} Las losetas que aún no están en el tablero son losetas ocultas.\r\n{-} Cuando una figura del bando Rebelde entra en una casilla adyacente a una loseta oculta, pulsa sobre la casilla resaltada y selecciona \"Revelar\".\r\n{-} Las fichas de Misión del bando Rebelde representan pistas. Un Héroe puede gastar 1 punto de movimiento para reclamar una pista que esté adyacente a él.\r\n{-} Las puertas están selladas. Cuando una figura del bando Rebelde entra en una casilla adyacente a una puerta, si los Héroes en conjunto han reclamado 5 o más pistas, abre esa puerta.\r\n{-} La misión avanza cunado se revela el Escondrijo.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "8fbb0e5e-da63-420c-99da-8f770a19e82a",
           "eventActionType": 16,
           "eaName": "Text Box"
         },
         {
-          "theText": "{-} Coloca a los Héroes tan cerca como sea posible de la casilla resaltada en azul.\r\n{-} Las losetas que aún no están en el tablero son losetas ocultas.\r\n{-} Cuando una figura del bando Rebelde entra en una casilla adyacente a una loseta oculta, pulsa sobre la casilla resaltada y selecciona \"Revelar\".\r\n{-} Las fichas de Misión del bando Rebelde representan pistas. Un Héroe puede gastar 1 punto de movimiento para reclamar una pista que esté adyacente a él.\r\n{-} Las puertas están selladas. Cuando una figura del bando Rebelde entra en una casilla adyacente a una puerta, si los Héroes en conjunto han reclamado 5 o más pistas, abre esa puerta.\r\n{-} La misión avanza cunado se revela el Escondrijo.\r\n{-} Los Rebeldes pierden al final de la Ronda 8 o cuando todos los Héroes están heridos.",
+          "theText": "{-} Coloca a los Héroes tan cerca como sea posible de la casilla resaltada en azul.\r\n{-} Las losetas que aún no están en el tablero son losetas ocultas.\r\n{-} Cuando una figura del bando Rebelde entra en una casilla adyacente a una loseta oculta, pulsa sobre la casilla resaltada y selecciona \"Revelar\".\r\n{-} Las fichas de Misión del bando Rebelde representan pistas. Un Héroe puede gastar 1 punto de movimiento para reclamar una pista que esté adyacente a él.\r\n{-} Las puertas están selladas. Cuando una figura del bando Rebelde entra en una casilla adyacente a una puerta, si los Héroes en conjunto han reclamado 5 o más pistas, abre esa puerta.\r\n{-} La misión avanza cunado se revela el Escondrijo.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "06de7e46-8baa-4c2e-aa8f-0f9eca076644",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -2081,6 +2098,30 @@
           "eaName": "Modify Map Entity"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Hideaway Revealed",
+      "GUID": "2c054b7b-a7f4-42a0-a091-26ee2185c6f1",
+      "eventText": "Puesto que el escondrijo fue revelado, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Hideaway Not Revealed",
+      "GUID": "e058a75b-f347-4fed-a43f-d6c9b60447aa",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "28304d37-d19e-4764-b887-a3d16194c2e2",
+      "eventText": "Aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "139d8003-97d6-419c-90d4-8ab86239a009",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

@@ -1,9 +1,9 @@
 {
-  "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "missionGUID": "53bec90c-eb6e-4298-80a3-62e10ca1f6f9",
   "fileName": "OTHER25.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481962288455338,
+  "saveDate": "4/26/2024",
+  "timeTicks": 638497442210360355,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Into the Wastes",
@@ -19,6 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
+    "useAlternateEventSystem": false,
     "roundLimit": -1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
@@ -692,7 +693,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "The banthas and snipers bear down on you. The other Tuskens take advantage of your predicament and grab the operative, taking him deeper into the Wastes. As you retreat, you hear him calling for help that won't come.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
+      "eventText": "The banthas and snipers bear down on you. The other Tuskens take advantage of your predicament and grab the operative, taking him deeper into the Wastes. As you retreat, you hear him calling for help that won't come.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} The threat level of the next mission (and only the next mission) increases by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -981,6 +982,33 @@
           "GUID": "e50d51d9-2064-431b-9bc3-4cc21dff4cd9",
           "eventActionType": 17,
           "displayName": "Change Reposition Instructions"
+        },
+        {
+          "entitiesToModify": [
+            {
+              "GUID": "e575e699-1991-4c4d-877d-106773d8710f",
+              "sourceGUID": "25aaa587-9325-470e-a4c9-2a26a3fbb134",
+              "hasColor": true,
+              "hasProperties": true,
+              "entityProperties": {
+                "name": "Captive",
+                "isActive": false,
+                "theText": "Bask Hon'qira, the Bothan operative, lies unconscious, his body battered by gaffi sticks.\r\n\r\n{-} A Rebel figure can interact with the captive to claim his token. If there is an Imperial figure on or adjacent to the captive, that Rebel figure tests {K}. If he fails, he does not claim the captive.",
+                "entityColor": "Red",
+                "buttonActions": [
+                  {
+                    "GUID": "5989092e-43c3-4673-b809-aefd4b25e0d4",
+                    "buttonText": "{A} Rescue Captive",
+                    "triggerGUID": "00000000-0000-0000-0000-000000000000",
+                    "eventGUID": "efed629e-a322-4a48-8e93-027c9b5ae0ea"
+                  }
+                ]
+              }
+            }
+          ],
+          "GUID": "95cd31bb-ef2e-4ec9-bd91-575e08357d4b",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
         },
         {
           "theText": "{-} The Rebels win when the <color=\"red\">Imperial Officer</color> is defeated.",

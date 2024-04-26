@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "A la fuga",
     "missionDescription": "",
-    "missionInfo": "{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: 9, Defensa: 2 {G}).\r\n{-} La misión avanza cuando se abre una puerta.\r\n{-} La misión termina al final de la Ronda 7 o cuando todos los Héroes están heridos.",
+    "missionInfo": "{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: 9, Defensa: 2 {G}).\r\n{-} La misión avanza cuando se abre una puerta.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
     "campaignName": "El Corazón del Imperio",
     "startingObjective": "",
     "repositionOverride": "Bloquear el acceso a las puertas.",
@@ -103,7 +103,7 @@
     {
       "eventName": "Mission Briefing",
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-      "eventText": "Maul y Zaaryn se refugian en un pequeño centro de comunicaciones Imperial ubicado en la linde de un parque urbano. El lugar está infestado de tropas Imperiales, ya que el contingente de Zaaryn refuerza la dotación estándar del centro. No sois suficientes para cubrir tanto la entrada principal como la trasera, así que decidís atacar frontalmente para evitar que Maul o Zaaryn lleguen a un vehículo de escape.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul..\r\n{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: 9, Defensa: 2 {G}).\r\n{-} La misión avanza cuando se abre una puerta.\r\n{-} La misión termina al final de la Ronda 7 o cuando todos los Héroes están heridos.",
+      "eventText": "Maul y Zaaryn se refugian en un pequeño centro de comunicaciones Imperial ubicado en la linde de un parque urbano. El lugar está infestado de tropas Imperiales, ya que el contingente de Zaaryn refuerza la dotación estándar del centro. No sois suficientes para cubrir tanto la entrada principal como la trasera, así que decidís atacar frontalmente para evitar que Maul o Zaaryn lleguen a un vehículo de escape.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul..\r\n{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: 9, Defensa: 2 {G}).\r\n{-} La misión avanza cuando se abre una puerta.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
       "eventActions": [
         {
           "shortText": "Destruir las puertas.",
@@ -118,12 +118,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Maul os gruñe cuando lo acorraláis y apuntáis vuestras armas hacia él.\r\n\r\n-Enhorabuena -murmura con descontento-. Ahora esa baratija es problema vuestro.\r\n\r\nLe registráis y encontráis un módulo de datos que contiene las coordenadas de Coruscant donde sus agentes ocultaron el fragmento de esfera en espera de que él lo recogiera. Dado que consideráis que no vale la pena tenerlo cerca por los muchos problemas que os daría, soltáis a Maul y partís inmediatamente hacia Coruscant para recuperar el artefacto.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa “Fragmento de Bardottan”. (Esta Carta de Recopensa funciona de manera diferente cuando se juega con <b>Imperial Commander</b>. Revisa la sección de <b>Cambios a las Reglas</b> de la wiki de documentación.)\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de Historia “Huida de la capital\".",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "a62c08a0-13da-4e9b-b645-edaa4c426b91",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "0574098a-0bbc-48c5-8db1-89cd1bdd1249",
+              "theText": "No"
+            }
+          ],
+          "GUID": "60713ccd-8c7b-4790-a463-5fe25a50e728",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "-Estáis vencidos -os grita Maul a medida que sus fuerzas os dan caza. Hace una señal y el oficial imperial Zaaryn aparece con un pequeño pelotón-. Aquí está mi parte del trato, Zaaryn -dice Maul señalándoos a vosotros y a vuestro equipo-. Ahora, da la autorización para que mis agentes salgan de Coruscant.\r\n\r\nZaaryn se gira hacia Maul: -Puedes dar mi parte del trato por... cambiada -dice. Sus tropas se vuelven inmediatamente contra Maul y lo obligan a una encolerizada retirada mientras el equipo de Zaaryn os mete en una lanzadera-. Un equipo de asalto rebelde y el fragmento de Bardottan; lo más seguro es que el Emperador me ponga al cargo de la OSI por esto -dice para sí Zaaryn antes de hacer un disparo aturdidor que os deja sin sentido.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Si los Cazadores Trandoshanos fueron derrotados, los Héroes reciben 25 créditos adicionales por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “El reino del Lado Oscuro”.",
+      "eventText": "-Estáis vencidos -os grita Maul a medida que sus fuerzas os dan caza. Hace una señal y el oficial imperial Zaaryn aparece con un pequeño pelotón-. Aquí está mi parte del trato, Zaaryn -dice Maul señalándoos a vosotros y a vuestro equipo-. Ahora, da la autorización para que mis agentes salgan de Coruscant.\r\n\r\nZaaryn se gira hacia Maul: -Puedes dar mi parte del trato por... cambiada -dice. Sus tropas se vuelven inmediatamente contra Maul y lo obligan a una encolerizada retirada mientras el equipo de Zaaryn os mete en una lanzadera-. Un equipo de asalto rebelde y el fragmento de Bardottan; lo más seguro es que el Emperador me ponga al cargo de la OSI por esto -dice para sí Zaaryn antes de hacer un disparo aturdidor que os deja sin sentido.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “El reino del Lado Oscuro”.",
       "eventActions": []
     },
     {
@@ -164,7 +181,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} La misión termina al final de la Ronda 7 o cuando todos los Héroes están heridos.",
+          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "eefb1c91-ce12-40c0-9c46-85ae6c92df70",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -335,7 +352,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} Mientras un Héroe que ha reclamado un terminal ataca, aplica +1 {B} a los resultados de ataque. \r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} La misión termina al final de la Ronda 7 o cuando todos los Héroes están heridos.",
+          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} Mientras un Héroe que ha reclamado un terminal ataca, aplica +1 {B} a los resultados de ataque. \r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "aa570788-c1d9-4949-88fc-b9f13b5066b5",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -411,7 +428,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} Mientras un Héroe que ha reclamado un terminal ataca, aplica +1 {B} a los resultados de ataque. \r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} La misión termina al final de la Ronda 7 o cuando todos los Héroes están heridos.",
+          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} Mientras un Héroe que ha reclamado un terminal ataca, aplica +1 {B} a los resultados de ataque. \r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "5dd0b979-3fa4-4e0d-84e3-455d85000415",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -487,7 +504,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} Mientras un Héroe que ha reclamado un terminal ataca, aplica +1 {B} a los resultados de ataque. \r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} La misión termina al final de la Ronda 7 o cuando todos los Héroes están heridos.",
+          "theText": "{-} La puerta trasera está sellada. Cuando no queden terminales en el tablero, esa puerta se abre.\r\n{-} Un Héroe puede interactuar con un terminal para descartarlo. Cuando lo hace, puede realizar una prueba de {I} o {J} para intentar reclamarlo en lugar de descartarlo.\r\n{-} Mientras un Héroe que ha reclamado un terminal ataca, aplica +1 {B} a los resultados de ataque. \r\n{-} La misión avanza cuando la puerta trasera se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "a6587c8f-e5ac-4992-b4a9-2911ce712eab",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -655,7 +672,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Los Rebeldes ganan cuando <color=\"red\">Maul</color> y los Cazadores Trandoshanos son derrotados.\r\n{-} La misión termina al final de la Ronda 7 o cuando todos los Héroes están heridos.",
+          "theText": "{-} Los Rebeldes ganan cuando <color=\"red\">Maul</color> y los Cazadores Trandoshanos son derrotados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "374bcb23-abc6-4333-82cc-b7c2a824f366",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -667,6 +684,30 @@
           "eaName": "Change Reposition Instructions"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Trando Yes",
+      "GUID": "38aaf530-69a7-4e5b-8947-60b8edf2f2cf",
+      "eventText": "Puesto que los Cazadores Trandoshanos fueron derrotados, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Trando No",
+      "GUID": "637d2a93-5e19-4c75-a41a-0f53861a5db7",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "fee3359a-bf43-4c76-8ee5-54603496a2bb",
+      "eventText": "Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "2ec4c528-54e5-4207-90e4-ed1d7dd64192",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

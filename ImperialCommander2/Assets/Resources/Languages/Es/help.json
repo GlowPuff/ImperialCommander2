@@ -1,515 +1,531 @@
 [
-	{
-		"panelHelpID": "EnemyActivation",
-		"helpItems": [
-			{
-				"id": "bonus",
-				"helpText": "Efecto de Bonificación: En cada ronda, el grupo Imperial gana un efecto de bonificación aleatorio que le beneficia. El efecto de bonifiación se muestra en la parte superior de la ventana de activación."
-			},
-			{
-				"id": "card",
-				"helpText": "Carta de Despliegue: La ventana de activación siempre muestra la carta de despliegue del grupo. Fuera de la activación, se puede hacer click derecho en la imagen del grupo enemigo para consultar su carta de activación."
-			},
-			{
-				"id": "tracker",
-				"helpText": "Contador de daño: Puedes usarlo para llevar el recuento del daño que ha sufrido cada figura de un grupo de despliegue. Pulsa sobre los números del contador (ID de una figura o la cantidad de daño recibido) para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor deseado."
-			},
-			{
-				"id": "instructions",
-				"helpText": "Instrucciones: Cuando se activa un grupo de despliegue, se muestran sus instrucciones. Cada figura del grupo, de una en una, comenzando por la figura más cercana a una figura del bando Rebelde, resuelve las instrucciones de arriba abajo. Cualquier instrucción que no se pueda resolver, se salta (ver las instrucciones detalladas en la wiki). Una vez que la figura resuelve o se salta la última instrucción, su activación termina y se activa la siguiente figura del grupo.\nUna figura del bando Imperial no puede realizar más de 2 acciones durante su activación. Una instrucción cuesta una acción por cada icono {A} (acción) o {Q} (ataque) que precede a la instrucción. Si una figura no tiene acciones restantes suficientes para completar una instrucción, se la salta. A menos que se indice lo contrario, una figura del bando Imperial no puede realizar más de una acción de ataque {Q} por activación."
-			},
-			{
-				"id": "hide",
-				"helpText": "Pulsa en el icono del Ojo para mostrar temporalmente la vista del mapa. Vuelve a pulsarlo para volver a la ventana."
-			},
-			{
-				"id": "deploymentCost",
-				"helpText": "Coste de despliegue: Indica el coste de despliegue del grupo. El número más pequeño (si lo hay) es el coste de una sola figura."
-			},
-			{
-				"id": "mods",
-				"helpText": "Modificaciones: Si se aplica alguna modificación al grupo (como daño adicional), se muestra aquí."
-			},
-			{
-				"id": "size",
-				"helpText": "Tamaño del grupo: Número de figuras que componen el grupo."
-			},
-			{
-				"id": "surges",
-				"helpText": "Capacidades de incremento: si se obtiene algún resultado {B} durante el ataque de una figura del bando Imperial, la figura gasta los incrementos siguiendo esta lista. La figura se salta una capacidad de incremento si alguna de las siguientes condiciones se cumple:\n\n{-}Ya ha utilizado esa capacidad durante este ataque.\n{-} La capacidad requiere más resultados {B} de los disponibles.\n{-}La capacidad no tendría ningún efecto (por ejemplo, incrementar la precisión cuando la tirada ya tiene precisión suficiente, o infligir un Estado cuando el ataque no produce daño en ese momento).\n\nDespués, si a la figura la queda algún resultado {B} por gastar, repite el proceso, comenzando desde el principio de la lista. Si la figura no puede resolver ninguna capacidad de incremento, los resultados {B} restantes no tienen efecto. \n\nLas capacidades de incremento que se obtienen como efectos de bonificación (en la parte superior de la ventana de activación) siempre tienen prioridad 1."
-			},
-			{
-				"id": "abilities",
-				"helpText": "Capacidades del grupo: Las capacidades del grupo de despliegue se listan aquí. Esta sección también indica qué capacidades de las cartas de despliegue impresas deben ignorarse al jugar con la app."
-			},
-			{
-				"id": "health",
-				"helpText": "Vida: La vida de cada figura en el grupo."
-			},
-			{
-				"id": "speed",
-				"helpText": "Velocidad: La velocidad del grupo. Normalmente no se necesita este valor, las instrucciones de activación indicarán cómo de lejos debe moverse una figura."
-			},
-			{
-				"id": "defense",
-				"helpText": "Defensa: Pulsa sobre el icono de defensa para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
-			},
-			{
-				"id": "attack",
-				"helpText": "Ataque: Pulsa sobre el icono de ataque para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
-			},
-			{
-				"id": "colorBlip",
-				"helpText": "El círculo coloreado muestra el color asingnado al grupo de despliegue."
-			},
-		]
-	},
-	{
-		"panelHelpID": "DiceRoller",
-		"helpItems": [
-			{
-				"id": "dicePanel",
-				"helpText": "Estas son las tiradas obtenidas. Pulsa sobre un dado para eliminarlo."
-			},
-			{
-				"id": "dicePool",
-				"helpText": "Pulsa para añadir un dado."
-			},
-			{
-				"id": "mods",
-				"helpText": "Si se aplica alguna modificación al grupo (como daño adicional), se muestra aquí."
-			},
-			{
-				"id": "card",
-				"helpText": "La carta de despliegue del grupo se muestra aquí."
-			},
-			{
-				"id": "hideRoller",
-				"helpText": "Pulsa para mostrar u ocultar la ventana de tiradas de dados y poder ver las instrucciones de activación."
-			}
-		]
-	},
-	{
-		"panelHelpID": "MainGame",
-		"helpItems": [
-			{
-				"id": "heroPanel",
-				"helpText": "Aquí se muestran los Héroes Rebeldes así como cualquier Aliado que se haya desplegado. Los Héroes o Aliados que se hayan retirado aparecen atenuados. Puedes usar los iconos de activación para llevar la cuenta de las activaciones. \n\nPulsa sobre un Héroe o grupo de despliegue para mostar las opciones de Herir (sólo Héroes) o Derrotar. El círculo coloreado muestra si el Héroe está sano (verde) o herido (rojo)."
-			},
-			{
-				"id": "objective",
-				"helpText": "El objetivo establecido actualmente."
-			},
-			{
-				"id": "enemyPanel",
-				"helpText": "Lista de despliegues enemigos, que muestra los grupos desplegados actualmente. Los grupos agotados se muestran en gris. Pulsa sobre el círculo coloreado en la parte superior izquierda de cada grupo enemigo para asignar un color a ese grupo. Pulsa sobre un grupo para mostrar las opciones de Agotar o Derrotar al grupo. El estado Agotado se puede desactivar si se quiere para volver a activar un grupo. Con clic derecho o dobple pulsación se muestra la carta de despliegue.\n\nLos círculos verdes indican el número de figuras que componen el grupo. Pulsa sobre esos círculos para eliminarlas de una en una. Cuando se elmina la última, el grupo al completo es derrotado."
-			},
-			{
-				"id": "map",
-				"helpText": "Ventana principal del mapa donde interactúas con la misión y las entidades del mapa. En cualquier momento en que haya una ventana abierta, puedes pulsar sobre el icono de Ojo en la esquina inferior izquierda para mostrar temporalmente el mapa."
-			},
-			{
-				"id": "imperialActivation",
-				"helpText": "Lanza la siguiente activación Imperial."
-			},
-			{
-				"id": "medpacs",
-				"helpText": "Recuento de medpacs. Pulsando se abre una ventana que permite llevar el registo de medpacs e indica los cambios de reglas relativos a los medpacs."
-			},
-			{
-				"id": "missionDashboard",
-				"helpText": "Abrir el Panel de Control de Misión.\n\nEl panel de control tiene varias funciones. En primer lugar, muestra el Resumen de la Misión, que contiene actualizaciones de información e instrucciones especiales.\n\nAdemás, muestra la Fama y las Bonificaciones que has obtenido hasta el momento en el transcurso de la misión (relevantes solo cuando se juega con Dificultad Adaptativa).\n\nFinalmente, contiene un registro que recoge todos los mensajes de la misión. Puedes usarlo para volver a revisar mensajes que ya se han cerrado."
-			},
-			{
-				"id": "imperialMenu",
-				"helpText": "Abre el Menú Imperial."
-			},
-			{
-				"id": "settings",
-				"helpText": "Abre la ventana para ajutar la configuración y salir de la misión o de la app."
-			},
-			{
-				"id": "round",
-				"helpText": "Número actual de ronda."
-			},
-			{
-				"id": "endRound",
-				"helpText": "Finaliza la ronda actual y comienza la Fase de Estatus. Sólo es posible si todos los gurpos Imperiales han sido activados."
-			},
-		]
-	},
-	{
-		"panelHelpID": "Setup",
-		"helpItems": [
-			{
-				"id": "missionCard",
-				"helpText": "Muestra la descripción y detalles de la Misión."
-			},
-			{
-				"id": "difficulty",
-				"helpText": "Pulsa para modificar la dificultad de la Misión."
-			},
-			{
-				"id": "adaptiveDifficulty",
-				"helpText": "Elige si se usa la Dificultad Adaptativa. En ese modo, parte de la amenaza se devuelve al jugador Imperial cuando derrotas a un grupo enemigo, haciendo que el juego suponga un reto mayor."
-			},
-			{
-				"id": "threat",
-				"helpText": "Establece el Nivel de Amenaza.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
-			},
-			{
-				"id": "additionalThreat",
-				"helpText": "Si quieres empezar la Misión con Amenaza adicional, establécela aquí.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
-			},
-			{
-				"id": "ignored",
-				"helpText": "Selecciona los grupos ignorados. Los grupos ignorados nunca se añaden a la mano de despliegue al comienzo de la misión. Usa esto para evitar que, por ejemplo, se puedan desplegar bandidos Tusken en un escenario de nieve (preconfigurado en la mayoría de Misiones). Las figuras con reborde verde se encuentran seleccionadas, es decir, añadidas a la lista de grupos ignorados."
-			},
-			{
-				"id": "villains",
-				"helpText": "Si el Imperio ha obtenido algun Villano durante la campaña, selecciónalo aquí."
-			},
-			{
-				"id": "allies",
-				"helpText": "Selecciona el Aliado para que te acompañe. Algunos Aliados pueden estar prohibidos para una Misión concreta. Esos se muestran con un reborde rojo, pero se pueden seleccionar de manera manual. Se añade amenaza automáticamente a la Misión cuando se selecciona un Aliado."
-			},
-			{
-				"id": "heroes",
-				"helpText": "Selecciona los Héroes que participarán en la Misión."
-			},
-			{
-				"id": "folder",
-				"helpText": "Pulsa el icono de la carpeta para volver a la carpeta anterior."
-			},
-			{
-				"id": "missionPanel",
-				"helpText": "Selecciona la Misión que se va a jugar."
-			},
-			{
-				"id": "tiles",
-				"helpText": "Esto abre un listado de las losetas que se usarán en la Misión, de forma que se puedan preparar por adelantado."
-			},
-			{
-				"id": "mode",
-				"helpText": "Cambia entre las Misiones Oficiales (adaptadas por el equipo de Imperial Commander e incorporadas en la app) y las Misiones Personalizadas."
-			},
-			{
-				"id": "start",
-				"helpText": "Cuando estés listo, pulsa para comenzar la Misión."
-			},
-		]
-	},
-	{
-		"panelHelpID": "Campaign",
-		"helpItems": [
-			{
-				"id": "campaignName",
-				"helpText": "Pulsa para cambiar el nombre de la Campaña."
-			},
-			{
-				"id": "currentCampaign",
-				"helpText": "La campaña que se ha elegido."
-			},
-			{
-				"id": "info",
-				"helpText": "Muestra la información de la Campaña, como reglas especiales para la Campaña o la preparación de la misma."
-			},
-			{
-				"id": "log",
-				"helpText": "Abre el diario de Campaña. Un lugar para tomar notas sobre la campaña."
-			},
-			{
-				"id": "exit",
-				"helpText": "Vuelve a la pantalla de inicio."
-			},
-			{
-				"id": "missionLayout",
-				"helpText": "Esta es la estructura de Misiones de la Campaña. A la izquierda puedes ver qué tipo de Misión jugar a continuación."
-			},
-			{
-				"id": "missionName",
-				"helpText": "Nombre de la Misión. Si no hay una Misión preseleccionada, pulsa sobre este botón para seleccionar una."
-			},
-			{
-				"id": "threat",
-				"helpText": "Nivel de amenaza de la Misión. Nota: se puede modificar el nivel de amenaza en la pantalla de configuración de la Misión."
-			},
-			{
-				"id": "setup",
-				"helpText": "Pulsa sobre este botón para abrir la pantalla de configuración de Misión."
-			},
-			{
-				"id": "tier",
-				"helpText": "Esto indica de qué mazo de objetos hay que robar cartas durante la Etapa de Mejora Rebelde. Pulsa cuando se haya completado la Etapa de Mejora Rebelde, lo que se indica mediante el cambio de color del botón."
-			},
-			{
-				"id": "imperialMission",
-				"helpText": "Icono de Misión Imperial. Cuando se haya resuelto la Etapa de Mejora Rebelde de esta Misión, pulsa sobre el icono de Misión Imperial. La app te indicará si hay que robar una Misión Imperial (símbolo Imperial) o no hay que hacerlo (símbolo Rebelde)."
-			},
-			{
-				"id": "tracking",
-				"helpText": "Aquí puedes llevar el recuento de Créditos y puntos de Fama y Bonificaciones obtenidos (relevantes solo cuando se juega con Dificultad Adaptativa).\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
-			},
-			{
-				"id": "heroAdd",
-				"helpText": "Pulsa para añadir un Héroe a la Misión."
-			},
-			{
-				"id": "heroIcon",
-				"helpText": "Pulsa sobre la imagen de un Héroe para eliminarlo."
-			},
-			{
-				"id": "xp",
-				"helpText": "Usa el espacio de PE para llevar el recuento de Puntos de Experiencia de cada Héroe.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
-			},
-			{
-				"id": "stats",
-				"helpText": "Cartas de Clase de Héroe y Objeto asignadas al Héroe. Pulsa sobre un elemento para eliminarlo."
-			},
-			{
-				"id": "addItem",
-				"helpText": "Pulsa para asignar un artículo a un Héroe. Solo los elementos disponibles en el inventario se pueden asignar."
-			},
-			{
-				"id": "addSkill",
-				"helpText": "Pulsa para añadir una carta de Clase de Héroe al Héroe."
-			},
-			{
-				"id": "inventory",
-				"helpText": "El inventario de campaña muestra los objetos, recompensas, Aliados y Villanos obtenidos durante la Campaña. Pulsa sobre el símbolo + para añadir un elemento. En la parte inferior izquierda de la ventana emergente puedes seleccionar entre varios tipos de objetos y recompensas. Pulsa sobre un elemento del inventario para eliminarlo."
-			},
-		]
-	},
-	{
-		"panelHelpID": "Title",
-		"helpItems": [
-			{
-				"id": "tutorials",
-				"helpText": "<b>Imperial Commander</b> incluye tres tutoriales diseñados para los jugadores que no han jugado antes a Imperial Assault. Estos tutoriales enseñan a jugar al juego y a usar la app.\n\nSelecciona el tutorial en el menú desplegable."
-			},
-			{
-				"id": "tutorialStart",
-				"helpText": "Pulsa para abrir una ventana que muestra la información del tutorial seleccionado, junto con un botón para comenzar la misión de dicho tutorial."
-			},
-			{
-				"id": "language",
-				"helpText": "Selecciona el idioma deseado para la app."
-			},
-			{
-				"id": "expansions",
-				"helpText": "Pulsa este botón para mostrar u ocultar el menú de Expansiones, donde puedes elegir qué Expansiones tienes en tu colección y deseas usar para jugar. También puedes importar grupos personalizados en este menú."
-			},
-			{
-				"id": "options",
-				"helpText": "Abre el menú de opciones o cierra la app."
-			},
-			{
-				"id": "mode",
-				"helpText": "Pulsa sobre Campaña o Saga para elegir el modo de juego.\n\nEl <color=yellow>modo Saga</color> permite a los jugadores experimentar las misiones oficiales, publicadas en formato físico, de forma muy similar a las de la app oficial. La app toma el papel de <i>Maestro de Juego</i>, proporcionando mapas interactivos, gestionando los eventos, la narración y el comportamiento de los grupos Imperiales.\n\nEl <color=yellow>modo Campaña</color> usa las misiones de Saga para guiarte a través de una campaña completa usando la expansión que elijas (o incluso una campaña completamente personalizada). Configura la lista de misiones adecuada, y permite la personalización de misiones cuando sea requerido, incluyendo la inclusión o eliminación de misiones Obligatorias. El modo Campaña actúa como un registro de campaña virtual."
-			},
-			{
-				"id": "menu",
-				"helpText": "Este es el menú principal. Aquí puedes comenzar una nueva Campaña o Misión, cargar una Campaña existente, o continuar una misión guardada.\n\n<b>Imperial Commander</b> guarda automáticamente el estado del juego después de cada ronda, una vez que se han resuelto todos los despliegues. Pulsa sobre Continuar para cargar el estado de juego guardado."
-			},
-			{
-				"id": "wiki",
-				"helpText": "Pulsa aquí para acceder a la wiki de documentación (en inglés) en tu navegador."
-			},
-			{
-				"id": "donate",
-				"helpText": "Si quieres apoyar la app, pulsa aquí para abrir el sitio de Paypal en tu navegador."
-			},
-			{
-				"id": "version",
-				"helpText": "La app comprueba si estás ejecutando la última versión, de forma que no tengas que comprobar el repositorio para buscar actualizaciones.\n\n<color=yellow>Amarillo girando</color> = comprobando actualizaciones\n<color=yellow>Amarillo pulsante</color> = actualización disponible\n<color=red>Rojo pulsante</color> = error de red\n<color=green>Verde</color> = actualizado.\n\nPulsando este botón se muestra una ventana con la lista de cambios de la última versión, junto con un botón que permite acceder al repositorio del proyecto en GitHub para descargar la última versión."
-			}
-		]
-	},
-	{
-		"panelHelpID": "Settings",
-		"helpItems": [
-			{
-				"id": "audio",
-				"helpText": "Ajustes de Música, Efectos de Sonido y Sonido de Ambiente."
-			},
-			{
-				"id": "visuals",
-				"helpText": "Ajustes de Efectos Visuales y vista de la cámara."
-			},
-			{
-				"id": "interface",
-				"helpText": "Ajustes de la interfaz."
-			},
-			{
-				"id": "music",
-				"helpText": "Activa o desactiva la Música. También puedes ajustar su volumen.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el volumen."
-			},
-			{
-				"id": "soundEffects",
-				"helpText": "Activa o desactiva los Efectos de Sonido. También puedes ajustar su volumen.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el volumen."
-			},
-			{
-				"id": "ambient",
-				"helpText": "Activa o desactiva el Sonido de Ambiente. También puedes ajustar su volumen.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el volumen."
-			},
-			{
-				"id": "quickClose",
-				"helpText": "Con esta opción activada, puedes cerrar la mayoría de ventanas simplemente pulsando fuera de ellas, sin tener que pulsar sobre el propio botón de Cerrar, Continuar u OK."
-			},
-			{
-				"id": "zoom",
-				"helpText": "Con esta opción activada, se muestran los botones de zoom durante el juego."
-			},
-			{
-				"id": "bloom",
-				"helpText": "Activa o desactiva el efecto bloom en la interfaz."
-			},
-			{
-				"id": "vignette",
-				"helpText": "Activa o desactiva el efecto de viñeteo en la interfaz."
-			},
-			{
-				"id": "view",
-				"helpText": "Con esta opción activada, la cámara está fija en una vista cenital durante el juego, en lugar de la vista isométrica."
-			}
-		]
-	},
-	{
-		"panelHelpID": "DeploymentCard",
-		"helpItems": [
-			{
-				"id": "deploymentCost",
-				"helpText": "Coste de despliegue: Indica el coste de despliegue del grupo. El número más pequeño (si lo hay) es el coste de una sola figura."
-			},
-			{
-				"id": "mods",
-				"helpText": "Modificaciones: Si se aplica alguna modificación al grupo (como daño adicional), se muestra aquí."
-			},
-			{
-				"id": "size",
-				"helpText": "Tamaño del grupo: Número de figuras que componen el grupo."
-			},
-			{
-				"id": "surges",
-				"helpText": "Capacidades de incremento: si se obtiene algún resultado {B} durante el ataque de una figura del bando Imperial, la figura gasta los incrementos siguiendo esta lista. La figura se salta una capacidad de incremento si alguna de las siguientes condiciones se cumple:\n\n{-}Ya ha utilizado esa capacidad durante este ataque.\n{-} La capacidad requiere más resultados {B} de los disponibles.\n{-}La capacidad no tendría ningún efecto (por ejemplo, incrementar la precisión cuando la tirada ya tiene precisión suficiente, o infligir un Estado cuando el ataque no produce daño en ese momento).\n\nDespués, si a la figura la queda algún resultado {B} por gastar, repite el proceso, comenzando desde el principio de la lista. Si la figura no puede resolver ninguna capacidad de incremento, los resultados {B} restantes no tienen efecto. \n\nLas capacidades de incremento que se obtienen como efectos de bonificación (en la parte superior de la ventana de activación) siempre tienen prioridad 1."
-			},
-			{
-				"id": "abilities",
-				"helpText": "Capacidades del grupo: Las capacidades del grupo de despliegue se listan aquí. Esta sección también indica qué capacidades de las cartas de despliegue impresas deben ignorarse al jugar con la app."
-			},
-			{
-				"id": "health",
-				"helpText": "Vida: La vida de cada figura en el grupo."
-			},
-			{
-				"id": "speed",
-				"helpText": "Velocidad: La velocidad del grupo. Normalmente no se necesita este valor, las instrucciones de activación indicarán cómo de lejos debe moverse una figura."
-			},
-			{
-				"id": "defense",
-				"helpText": "Defensa: Pulsa sobre el icono de defensa para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
-			},
-			{
-				"id": "attack",
-				"helpText": "Ataque: Pulsa sobre el icono de ataque para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
-			},
-			{
-				"id": "tracker",
-				"helpText": "Contador de daño: Puedes usarlo para llevar el recuento del daño que ha sufrido cada figura de un grupo de despliegue. Pulsa sobre los números del contador (ID de una figura o la cantidad de daño recibido) para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor deseado."
-			}
-		]
-	},
-	{
-		"panelHelpID": "EnemyVillainSelection",
-		"helpItems": [
-			{
-				"id": "enemyExpansion",
-				"helpText": "Pulsa aquí para mostrar los grupos que pertenecen a la expansión correspondiente. Los grupos de los packs de Villano se muestran bajo el logotipo Imperial."
-			},
-			{
-				"id": "enemyCustom",
-				"helpText": "Pulsa aquí para mostrar los grupos personalizados (importados)."
-			},
-			{
-				"id": "enemySelection",
-				"helpText": "Pulsa sobre un grupo para seleccionarlo o deseleccionarlo. Los grupos seleccionados tienen un reborde verde. Los grupos de élite están sombreados en rojo."
-			}
-		]
-	},
-	{
-		"panelHelpID": "HeroAllySelection",
-		"helpItems": [
-			{
-				"id": "heroCustom",
-				"helpText": "Pulsa aquí para mostrar los Héroes personalizados (importados)."
-			},
-			{
-				"id": "heroSelection",
-				"helpText": "Pulsa sobre una miniatura para seleccionarla o deseleccionarla."
-			}
-		]
-	},
-	{
-		"panelHelpID": "FigurePack",
-		"helpItems": [
-			{
-				"id": "figurePackInfo",
-				"helpText": "Pulsa sobre un pack de figuras para seleccionarlo o deseleccionarlo. Los packs seleccionados están sombreados en verde. \n\n<b>Nota:</b> Solo los packs de figuras que añaden personajes no únicos se listan aquí. Los Aliados y Villanos pueden seleccionarse durante la configuración de la misión."
-			}
-		]
-	},
-	{
-		"panelHelpID": "ImportGroups",
-		"helpItems": [
-			{
-				"id": "activateGroups",
-				"helpText": "Pulsa sobre un grupo para seleccionarlo o deseleccionarlo.\n\nTodos los grupos activados aquí están disponibles para ser añadidos como grupos abiertos, al igual que los grupos oficiales. Siguen las mismas reglas que los grupos oficiales y se pueden añadir a la lista de grupos ignorados si no quieres que aparezcan en una misión en concreto."
-			},
-			{
-				"id": "selectAll",
-				"helpText": "Pulsa para seleccionar todos los grupos."
-			},
-			{
-				"id": "selectNone",
-				"helpText": "Pulsa para deseleccionar todos los grupos"
-			},
-			{
-				"id": "ToggleFaction",
-				"helpText": "Pulsa para cambiar entre grupos Imperiales/Mercenarios y Rebeldes."
-			}
-		]
-	},
-	{
-		"panelHelpID": "ImperialMenu",
-		"helpItems": [
-			{
-				"id": "showGroups",
-				"helpText": "Pulsa el panel para revelar las cartas que están actualmente en la mano de despliegue."
-			},
-			{
-				"id": "modifyThreat",
-				"helpText": "Pulsa para incrementar o disminuir la amenaza actual."
-			},
-			{
-				"id": "pauseDeployment",
-				"helpText": "Pulsa para pausar o reanudar el despliegue."
-			},
-			{
-				"id": "pauseThreat",
-				"helpText": "Pulsa para pausar o reanudar el incremento de amenaza."
-			},
-			{
-				"id": "optionalDeployment",
-				"helpText": "Pulsa para que la app realice inmediatamente un despliegue opcional."
-			},
-			{
-				"id": "currentThreat",
-				"helpText": "Este es el valor actual de la amenaza."
-			},
-			{
-				"id": "deploymentModifier",
-				"helpText": "Este es el modificador de despliegue. Cuanto mayor sea el modificador, mayor probabilidad de un despliegue más peligroso. Cambia cada ronda en función de los eventos de despliegue."
-			}
-		]
-	},
+  {
+    "panelHelpID": "EnemyActivation",
+    "helpItems": [
+      {
+        "id": "bonus",
+        "helpText": "Efecto de Bonificación: En cada ronda, el grupo Imperial gana un efecto de bonificación aleatorio que le beneficia. El efecto de bonifiación se muestra en la parte superior de la ventana de activación."
+      },
+      {
+        "id": "card",
+        "helpText": "Carta de Despliegue: La ventana de activación siempre muestra la carta de despliegue del grupo. Fuera de la activación, se puede hacer click derecho en la imagen del grupo enemigo para consultar su carta de activación."
+      },
+      {
+        "id": "tracker",
+        "helpText": "Contador de daño: Puedes usarlo para llevar el recuento del daño que ha sufrido cada figura de un grupo de despliegue. Pulsa sobre los números del contador (ID de una figura o la cantidad de daño recibido) para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor deseado."
+      },
+      {
+        "id": "instructions",
+        "helpText": "Instrucciones: Cuando se activa un grupo de despliegue, se muestran sus instrucciones. Cada figura del grupo, de una en una, comenzando por la figura más cercana a una figura del bando Rebelde, resuelve las instrucciones de arriba abajo. Cualquier instrucción que no se pueda resolver, se salta (ver las instrucciones detalladas en la wiki). Una vez que la figura resuelve o se salta la última instrucción, su activación termina y se activa la siguiente figura del grupo.\nUna figura del bando Imperial no puede realizar más de 2 acciones durante su activación. Una instrucción cuesta una acción por cada icono {A} (acción) o {Q} (ataque) que precede a la instrucción. Si una figura no tiene acciones restantes suficientes para completar una instrucción, se la salta. A menos que se indice lo contrario, una figura del bando Imperial no puede realizar más de una acción de ataque {Q} por activación."
+      },
+      {
+        "id": "hide",
+        "helpText": "Pulsa en el icono del Ojo para mostrar temporalmente la vista del mapa. Vuelve a pulsarlo para volver a la ventana."
+      },
+      {
+        "id": "deploymentCost",
+        "helpText": "Coste de despliegue: Indica el coste de despliegue del grupo. El número más pequeño (si lo hay) es el coste de una sola figura."
+      },
+      {
+        "id": "mods",
+        "helpText": "Modificaciones: Si se aplica alguna modificación al grupo (como daño adicional), se muestra aquí."
+      },
+      {
+        "id": "size",
+        "helpText": "Tamaño del grupo: Número de figuras que componen el grupo."
+      },
+      {
+        "id": "surges",
+        "helpText": "Capacidades de incremento: si se obtiene algún resultado {B} durante el ataque de una figura del bando Imperial, la figura gasta los incrementos siguiendo esta lista. La figura se salta una capacidad de incremento si alguna de las siguientes condiciones se cumple:\n\n{-}Ya ha utilizado esa capacidad durante este ataque.\n{-} La capacidad requiere más resultados {B} de los disponibles.\n{-}La capacidad no tendría ningún efecto (por ejemplo, incrementar la precisión cuando la tirada ya tiene precisión suficiente, o infligir un Estado cuando el ataque no produce daño en ese momento).\n\nDespués, si a la figura la queda algún resultado {B} por gastar, repite el proceso, comenzando desde el principio de la lista. Si la figura no puede resolver ninguna capacidad de incremento, los resultados {B} restantes no tienen efecto. \n\nLas capacidades de incremento que se obtienen como efectos de bonificación (en la parte superior de la ventana de activación) siempre tienen prioridad 1."
+      },
+      {
+        "id": "abilities",
+        "helpText": "Capacidades del grupo: Las capacidades del grupo de despliegue se listan aquí. Esta sección también indica qué capacidades de las cartas de despliegue impresas deben ignorarse al jugar con la app."
+      },
+      {
+        "id": "health",
+        "helpText": "Vida: La vida de cada figura en el grupo."
+      },
+      {
+        "id": "speed",
+        "helpText": "Velocidad: La velocidad del grupo. Normalmente no se necesita este valor, las instrucciones de activación indicarán cómo de lejos debe moverse una figura."
+      },
+      {
+        "id": "defense",
+        "helpText": "Defensa: Pulsa sobre el icono de defensa para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
+      },
+      {
+        "id": "attack",
+        "helpText": "Ataque: Pulsa sobre el icono de ataque para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
+      },
+      {
+        "id": "colorBlip",
+        "helpText": "El círculo coloreado muestra el color asingnado al grupo de despliegue."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "DiceRoller",
+    "helpItems": [
+      {
+        "id": "dicePanel",
+        "helpText": "Estas son las tiradas obtenidas. Pulsa sobre un dado para eliminarlo."
+      },
+      {
+        "id": "dicePool",
+        "helpText": "Pulsa para añadir un dado."
+      },
+      {
+        "id": "mods",
+        "helpText": "Si se aplica alguna modificación al grupo (como daño adicional), se muestra aquí."
+      },
+      {
+        "id": "card",
+        "helpText": "La carta de despliegue del grupo se muestra aquí."
+      },
+      {
+        "id": "hideRoller",
+        "helpText": "Pulsa para mostrar u ocultar la ventana de tiradas de dados y poder ver las instrucciones de activación."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "MainGame",
+    "helpItems": [
+      {
+        "id": "heroPanel",
+        "helpText": "Aquí se muestran los Héroes Rebeldes así como cualquier Aliado que se haya desplegado. Los Héroes o Aliados que se hayan retirado aparecen atenuados. Puedes usar los iconos de activación para llevar la cuenta de las activaciones. \n\nPulsa sobre un Héroe o grupo de despliegue para mostar las opciones de Herir (sólo Héroes) o Derrotar. El círculo coloreado muestra si el Héroe está sano (verde) o herido (rojo)."
+      },
+      {
+        "id": "objective",
+        "helpText": "El objetivo establecido actualmente."
+      },
+      {
+        "id": "enemyPanel",
+        "helpText": "Lista de despliegues enemigos, que muestra los grupos desplegados actualmente. Los grupos agotados se muestran en gris. Pulsa sobre el círculo coloreado en la parte superior izquierda de cada grupo enemigo para asignar un color a ese grupo. Pulsa sobre un grupo para mostrar las opciones de Agotar o Derrotar al grupo. El estado Agotado se puede desactivar si se quiere para volver a activar un grupo. Con clic derecho o dobple pulsación se muestra la carta de despliegue.\n\nLos círculos verdes indican el número de figuras que componen el grupo. Pulsa sobre esos círculos para eliminarlas de una en una. Cuando se elmina la última, el grupo al completo es derrotado."
+      },
+      {
+        "id": "map",
+        "helpText": "Ventana principal del mapa donde interactúas con la misión y las entidades del mapa. En cualquier momento en que haya una ventana abierta, puedes pulsar sobre el icono de Ojo en la esquina inferior izquierda para mostrar temporalmente el mapa."
+      },
+      {
+        "id": "imperialActivation",
+        "helpText": "Lanza la siguiente activación Imperial."
+      },
+      {
+        "id": "medpacs",
+        "helpText": "Recuento de medpacs. Pulsando se abre una ventana que permite llevar el registo de medpacs e indica los cambios de reglas relativos a los medpacs."
+      },
+      {
+        "id": "missionDashboard",
+        "helpText": "Abrir el Panel de Control de Misión.\n\nEl panel de control tiene varias funciones. En primer lugar, muestra el Resumen de la Misión, que contiene actualizaciones de información e instrucciones especiales.\n\nAdemás, muestra la Fama y las Bonificaciones que has obtenido hasta el momento en el transcurso de la misión (relevantes solo cuando se juega con Dificultad Adaptativa).\n\nFinalmente, contiene un registro que recoge todos los mensajes de la misión. Puedes usarlo para volver a revisar mensajes que ya se han cerrado."
+      },
+      {
+        "id": "imperialMenu",
+        "helpText": "Abre el Menú Imperial."
+      },
+      {
+        "id": "settings",
+        "helpText": "Abre la ventana para ajutar la configuración y salir de la misión o de la app."
+      },
+      {
+        "id": "round",
+        "helpText": "Número actual de ronda."
+      },
+      {
+        "id": "endRound",
+        "helpText": "Finaliza la ronda actual y comienza la Fase de Estatus. Sólo es posible si todos los gurpos Imperiales han sido activados."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Setup",
+    "helpItems": [
+      {
+        "id": "missionCard",
+        "helpText": "Muestra la descripción y detalles de la Misión."
+      },
+      {
+        "id": "difficulty",
+        "helpText": "Pulsa para modificar la dificultad de la Misión."
+      },
+      {
+        "id": "adaptiveDifficulty",
+        "helpText": "Elige si se usa la Dificultad Adaptativa. En ese modo, parte de la amenaza se devuelve al jugador Imperial cuando derrotas a un grupo enemigo, haciendo que el juego suponga un reto mayor."
+      },
+      {
+        "id": "threat",
+        "helpText": "Establece el Nivel de Amenaza.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
+      },
+      {
+        "id": "additionalThreat",
+        "helpText": "Si quieres empezar la Misión con Amenaza adicional, establécela aquí.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
+      },
+      {
+        "id": "ignored",
+        "helpText": "Selecciona los grupos ignorados. Los grupos ignorados nunca se añaden a la mano de despliegue al comienzo de la misión. Usa esto para evitar que, por ejemplo, se puedan desplegar bandidos Tusken en un escenario de nieve (preconfigurado en la mayoría de Misiones). Las figuras con reborde verde se encuentran seleccionadas, es decir, añadidas a la lista de grupos ignorados."
+      },
+      {
+        "id": "villains",
+        "helpText": "Si el Imperio ha obtenido algun Villano durante la campaña, selecciónalo aquí."
+      },
+      {
+        "id": "allies",
+        "helpText": "Selecciona el Aliado para que te acompañe. Algunos Aliados pueden estar prohibidos para una Misión concreta. Esos se muestran con un reborde rojo, pero se pueden seleccionar de manera manual. Se añade amenaza automáticamente a la Misión cuando se selecciona un Aliado."
+      },
+      {
+        "id": "heroes",
+        "helpText": "Selecciona los Héroes que participarán en la Misión."
+      },
+      {
+        "id": "folder",
+        "helpText": "Pulsa el icono de la carpeta para volver a la carpeta anterior."
+      },
+      {
+        "id": "missionPanel",
+        "helpText": "Selecciona la Misión que se va a jugar."
+      },
+      {
+        "id": "tiles",
+        "helpText": "Esto abre un listado de las losetas que se usarán en la Misión, de forma que se puedan preparar por adelantado."
+      },
+      {
+        "id": "mode",
+        "helpText": "Cambia entre las Misiones Oficiales (adaptadas por el equipo de Imperial Commander e incorporadas en la app) y las Misiones Personalizadas."
+      },
+      {
+        "id": "start",
+        "helpText": "Cuando estés listo, pulsa para comenzar la Misión."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Campaign",
+    "helpItems": [
+      {
+        "id": "campaignName",
+        "helpText": "Pulsa para cambiar el nombre de la Campaña."
+      },
+      {
+        "id": "currentCampaign",
+        "helpText": "La campaña que se ha elegido."
+      },
+      {
+        "id": "info",
+        "helpText": "Muestra la información de la Campaña, como reglas especiales para la Campaña o la preparación de la misma."
+      },
+      {
+        "id": "log",
+        "helpText": "Abre el diario de Campaña. Un lugar para tomar notas sobre la campaña."
+      },
+      {
+        "id": "exit",
+        "helpText": "Vuelve a la pantalla de inicio."
+      },
+      {
+        "id": "missionLayout",
+        "helpText": "Esta es la estructura de Misiones de la Campaña. A la izquierda puedes ver qué tipo de Misión jugar a continuación."
+      },
+      {
+        "id": "missionName",
+        "helpText": "Nombre de la Misión. Si no hay una Misión preseleccionada, pulsa sobre este botón para seleccionar una."
+      },
+      {
+        "id": "threat",
+        "helpText": "Nivel de amenaza de la Misión. Nota: se puede modificar el nivel de amenaza en la pantalla de configuración de la Misión."
+      },
+      {
+        "id": "setup",
+        "helpText": "Pulsa sobre este botón para abrir la pantalla de configuración de Misión."
+      },
+      {
+        "id": "tier",
+        "helpText": "Esto indica de qué mazo de objetos hay que robar cartas durante la Etapa de Mejora Rebelde. Pulsa cuando se haya completado la Etapa de Mejora Rebelde, lo que se indica mediante el cambio de color del botón."
+      },
+      {
+        "id": "imperialMission",
+        "helpText": "Icono de Misión Imperial. Cuando se haya resuelto la Etapa de Mejora Rebelde de esta Misión, pulsa sobre el icono de Misión Imperial. La app te indicará si hay que robar una Misión Imperial (símbolo Imperial) o no hay que hacerlo (símbolo Rebelde)."
+      },
+      {
+        "id": "tracking",
+        "helpText": "Aquí puedes llevar el recuento de Créditos y puntos de Fama y Bonificaciones obtenidos (relevantes solo cuando se juega con Dificultad Adaptativa).\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
+      },
+      {
+        "id": "heroAdd",
+        "helpText": "Pulsa para añadir un Héroe a la Misión."
+      },
+      {
+        "id": "heroIcon",
+        "helpText": "Pulsa sobre la imagen de un Héroe para eliminarlo."
+      },
+      {
+        "id": "xp",
+        "helpText": "Usa el espacio de PE para llevar el recuento de Puntos de Experiencia de cada Héroe.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor."
+      },
+      {
+        "id": "stats",
+        "helpText": "Cartas de Clase de Héroe y Objeto asignadas al Héroe. Pulsa sobre un elemento para eliminarlo."
+      },
+      {
+        "id": "addItem",
+        "helpText": "Pulsa para asignar un artículo a un Héroe. Solo los elementos disponibles en el inventario se pueden asignar."
+      },
+      {
+        "id": "addSkill",
+        "helpText": "Pulsa para añadir una carta de Clase de Héroe al Héroe."
+      },
+      {
+        "id": "inventory",
+        "helpText": "El inventario de campaña muestra los objetos, recompensas, Aliados y Villanos obtenidos durante la Campaña. Pulsa sobre el símbolo + para añadir un elemento. En la parte inferior izquierda de la ventana emergente puedes seleccionar entre varios tipos de objetos y recompensas. Pulsa sobre un elemento del inventario para eliminarlo."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Title",
+    "helpItems": [
+      {
+        "id": "tutorials",
+        "helpText": "<b>Imperial Commander</b> incluye tres tutoriales diseñados para los jugadores que no han jugado antes a Imperial Assault. Estos tutoriales enseñan a jugar al juego y a usar la app.\n\nSelecciona el tutorial en el menú desplegable."
+      },
+      {
+        "id": "tutorialStart",
+        "helpText": "Pulsa para abrir una ventana que muestra la información del tutorial seleccionado, junto con un botón para comenzar la misión de dicho tutorial."
+      },
+      {
+        "id": "language",
+        "helpText": "Selecciona el idioma deseado para la app."
+      },
+      {
+        "id": "expansions",
+        "helpText": "Pulsa este botón para mostrar u ocultar el menú de Expansiones, donde puedes elegir qué Expansiones tienes en tu colección y deseas usar para jugar. También puedes importar grupos personalizados en este menú."
+      },
+      {
+        "id": "options",
+        "helpText": "Abre el menú de opciones o cierra la app."
+      },
+      {
+        "id": "mode",
+        "helpText": "Pulsa sobre Campaña o Saga para elegir el modo de juego.\n\nEl <color=yellow>modo Saga</color> permite a los jugadores experimentar las misiones oficiales, publicadas en formato físico, de forma muy similar a las de la app oficial. La app toma el papel de <i>Maestro de Juego</i>, proporcionando mapas interactivos, gestionando los eventos, la narración y el comportamiento de los grupos Imperiales.\n\nEl <color=yellow>modo Campaña</color> usa las misiones de Saga para guiarte a través de una campaña completa usando la expansión que elijas (o incluso una campaña completamente personalizada). Configura la lista de misiones adecuada, y permite la personalización de misiones cuando sea requerido, incluyendo la inclusión o eliminación de misiones Obligatorias. El modo Campaña actúa como un registro de campaña virtual."
+      },
+      {
+        "id": "menu",
+        "helpText": "Este es el menú principal. Aquí puedes comenzar una nueva Campaña o Misión, cargar una Campaña existente, o continuar una misión guardada.\n\n<b>Imperial Commander</b> guarda automáticamente el estado del juego después de cada ronda, una vez que se han resuelto todos los despliegues. Pulsa sobre Continuar para cargar el estado de juego guardado."
+      },
+      {
+        "id": "wiki",
+        "helpText": "Pulsa aquí para acceder a la wiki de documentación (en inglés) en tu navegador."
+      },
+      {
+        "id": "donate",
+        "helpText": "Si quieres apoyar la app, pulsa aquí para abrir el sitio de Paypal en tu navegador."
+      },
+      {
+        "id": "version",
+        "helpText": "La app comprueba si estás ejecutando la última versión, de forma que no tengas que comprobar el repositorio para buscar actualizaciones.\n\n<color=yellow>Amarillo girando</color> = comprobando actualizaciones\n<color=yellow>Amarillo pulsante</color> = actualización disponible\n<color=red>Rojo pulsante</color> = error de red\n<color=green>Verde</color> = actualizado.\n\nPulsando este botón se muestra una ventana con la lista de cambios de la última versión, junto con un botón que permite acceder al repositorio del proyecto en GitHub para descargar la última versión."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "Settings",
+    "helpItems": [
+      {
+        "id": "audio",
+        "helpText": "Ajustes de Música, Efectos de Sonido y Sonido de Ambiente."
+      },
+      {
+        "id": "visuals",
+        "helpText": "Ajustes de Efectos Visuales y vista de la cámara."
+      },
+      {
+        "id": "interface",
+        "helpText": "Ajustes de la interfaz."
+      },
+      {
+        "id": "music",
+        "helpText": "Activa o desactiva la Música. También puedes ajustar su volumen.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el volumen."
+      },
+      {
+        "id": "soundEffects",
+        "helpText": "Activa o desactiva los Efectos de Sonido. También puedes ajustar su volumen.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el volumen."
+      },
+      {
+        "id": "ambient",
+        "helpText": "Activa o desactiva el Sonido de Ambiente. También puedes ajustar su volumen.\n\nPulsa sobre el número para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el volumen."
+      },
+      {
+        "id": "quickClose",
+        "helpText": "Con esta opción activada, puedes cerrar la mayoría de ventanas simplemente pulsando fuera de ellas, sin tener que pulsar sobre el propio botón de Cerrar, Continuar u OK."
+      },
+      {
+        "id": "zoom",
+        "helpText": "Con esta opción activada, se muestran los botones de zoom durante el juego."
+      },
+      {
+        "id": "bloom",
+        "helpText": "Activa o desactiva el efecto bloom en la interfaz."
+      },
+      {
+        "id": "vignette",
+        "helpText": "Activa o desactiva el efecto de viñeteo en la interfaz."
+      },
+      {
+        "id": "view",
+        "helpText": "Con esta opción activada, la cámara está fija en una vista cenital durante el juego, en lugar de la vista isométrica."
+      },
+      {
+        "id": "roundLimitOn",
+        "helpText": "Comportamiento normal, donde algunas misiones terminan si tardas demasiado. Las misiones con un limite de rondas muestran el limite junto al marcador de la ronda actual.\n\nEjemplo: 2 / <color=red>4</color>"
+      },
+      {
+        "id": "roundLimitOff",
+        "helpText": "El limite de rondas esta desactivado y puedes jugar durante tantas rondas como quieras."
+      },
+      {
+        "id": "roundLimitDangerous",
+        "helpText": "Una vez que se alcanza el limite de rondas, la mision se vuelve mas dificil en lugar de terminar. El incremento de amenaza al final de cada ronda se duplica y el modificador de despliegue se incrementa adicionalemente en 2 en cada ronda. El limite de rondas se puestra en color naranja..\n\nEjemplo: 2 / <color=orange>4</color>"
+      },
+      {
+        "id": "skipWarp",
+        "helpText": "Saltar la introduccion del hiperespacio al empezar o continuar una misión."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "DeploymentCard",
+    "helpItems": [
+      {
+        "id": "deploymentCost",
+        "helpText": "Coste de despliegue: Indica el coste de despliegue del grupo. El número más pequeño (si lo hay) es el coste de una sola figura."
+      },
+      {
+        "id": "mods",
+        "helpText": "Modificaciones: Si se aplica alguna modificación al grupo (como daño adicional), se muestra aquí."
+      },
+      {
+        "id": "size",
+        "helpText": "Tamaño del grupo: Número de figuras que componen el grupo."
+      },
+      {
+        "id": "surges",
+        "helpText": "Capacidades de incremento: si se obtiene algún resultado {B} durante el ataque de una figura del bando Imperial, la figura gasta los incrementos siguiendo esta lista. La figura se salta una capacidad de incremento si alguna de las siguientes condiciones se cumple:\n\n{-}Ya ha utilizado esa capacidad durante este ataque.\n{-} La capacidad requiere más resultados {B} de los disponibles.\n{-}La capacidad no tendría ningún efecto (por ejemplo, incrementar la precisión cuando la tirada ya tiene precisión suficiente, o infligir un Estado cuando el ataque no produce daño en ese momento).\n\nDespués, si a la figura la queda algún resultado {B} por gastar, repite el proceso, comenzando desde el principio de la lista. Si la figura no puede resolver ninguna capacidad de incremento, los resultados {B} restantes no tienen efecto. \n\nLas capacidades de incremento que se obtienen como efectos de bonificación (en la parte superior de la ventana de activación) siempre tienen prioridad 1."
+      },
+      {
+        "id": "abilities",
+        "helpText": "Capacidades del grupo: Las capacidades del grupo de despliegue se listan aquí. Esta sección también indica qué capacidades de las cartas de despliegue impresas deben ignorarse al jugar con la app."
+      },
+      {
+        "id": "health",
+        "helpText": "Vida: La vida de cada figura en el grupo."
+      },
+      {
+        "id": "speed",
+        "helpText": "Velocidad: La velocidad del grupo. Normalmente no se necesita este valor, las instrucciones de activación indicarán cómo de lejos debe moverse una figura."
+      },
+      {
+        "id": "defense",
+        "helpText": "Defensa: Pulsa sobre el icono de defensa para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
+      },
+      {
+        "id": "attack",
+        "helpText": "Ataque: Pulsa sobre el icono de ataque para abrir la ventana de tiradas de dado y tirar los dados asignados de forma automática."
+      },
+      {
+        "id": "tracker",
+        "helpText": "Contador de daño: Puedes usarlo para llevar el recuento del daño que ha sufrido cada figura de un grupo de despliegue. Pulsa sobre los números del contador (ID de una figura o la cantidad de daño recibido) para abrir la ventana de ajuste, o coloca el cursor del ratón sobre el valor y mueve la rueda para ajustar el valor deseado."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "EnemyVillainSelection",
+    "helpItems": [
+      {
+        "id": "enemyExpansion",
+        "helpText": "Pulsa aquí para mostrar los grupos que pertenecen a la expansión correspondiente. Los grupos de los packs de Villano se muestran bajo el logotipo Imperial."
+      },
+      {
+        "id": "enemyCustom",
+        "helpText": "Pulsa aquí para mostrar los grupos personalizados (importados)."
+      },
+      {
+        "id": "enemySelection",
+        "helpText": "Pulsa sobre un grupo para seleccionarlo o deseleccionarlo. Los grupos seleccionados tienen un reborde verde. Los grupos de élite están sombreados en rojo."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "HeroAllySelection",
+    "helpItems": [
+      {
+        "id": "heroCustom",
+        "helpText": "Pulsa aquí para mostrar los Héroes personalizados (importados)."
+      },
+      {
+        "id": "heroSelection",
+        "helpText": "Pulsa sobre una miniatura para seleccionarla o deseleccionarla."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "FigurePack",
+    "helpItems": [
+      {
+        "id": "figurePackInfo",
+        "helpText": "Pulsa sobre un pack de figuras para seleccionarlo o deseleccionarlo. Los packs seleccionados están sombreados en verde. \n\n<b>Nota:</b> Solo los packs de figuras que añaden personajes no únicos se listan aquí. Los Aliados y Villanos pueden seleccionarse durante la configuración de la misión."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "ImportGroups",
+    "helpItems": [
+      {
+        "id": "activateGroups",
+        "helpText": "Pulsa sobre un grupo para seleccionarlo o deseleccionarlo.\n\nTodos los grupos activados aquí están disponibles para ser añadidos como grupos abiertos, al igual que los grupos oficiales. Siguen las mismas reglas que los grupos oficiales y se pueden añadir a la lista de grupos ignorados si no quieres que aparezcan en una misión en concreto."
+      },
+      {
+        "id": "selectAll",
+        "helpText": "Pulsa para seleccionar todos los grupos."
+      },
+      {
+        "id": "selectNone",
+        "helpText": "Pulsa para deseleccionar todos los grupos"
+      },
+      {
+        "id": "ToggleFaction",
+        "helpText": "Pulsa para cambiar entre grupos Imperiales/Mercenarios y Rebeldes."
+      }
+    ]
+  },
+  {
+    "panelHelpID": "ImperialMenu",
+    "helpItems": [
+      {
+        "id": "showGroups",
+        "helpText": "Pulsa el panel para revelar las cartas que están actualmente en la mano de despliegue."
+      },
+      {
+        "id": "modifyThreat",
+        "helpText": "Pulsa para incrementar o disminuir la amenaza actual."
+      },
+      {
+        "id": "pauseDeployment",
+        "helpText": "Pulsa para pausar o reanudar el despliegue."
+      },
+      {
+        "id": "pauseThreat",
+        "helpText": "Pulsa para pausar o reanudar el incremento de amenaza."
+      },
+      {
+        "id": "optionalDeployment",
+        "helpText": "Pulsa para que la app realice inmediatamente un despliegue opcional."
+      },
+      {
+        "id": "currentThreat",
+        "helpText": "Este es el valor actual de la amenaza."
+      },
+      {
+        "id": "deploymentModifier",
+        "helpText": "Este es el modificador de despliegue. Cuanto mayor sea el modificador, mayor probabilidad de un despliegue más peligroso. Cambia cada ronda en función de los eventos de despliegue."
+      }
+    ]
+  }
 ]

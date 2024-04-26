@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "Negocios turbios",
     "missionDescription": "",
-    "missionInfo": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} La misión avanza cuando una puerta a la Cantina o a la Chatarrería se abre.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
+    "missionInfo": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} La misión avanza cuando una puerta a la Cantina o a la Chatarrería se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
     "campaignName": "Sombras Gemelas",
     "startingObjective": "Entrar en la Cantina. Entrar en la Chatarrería.",
     "repositionOverride": "Bloquear el acceso a las puertas.",
@@ -78,30 +78,13 @@
     {
       "eventName": "Mission Briefing",
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-      "eventText": "Si bien la zona de los callejones de Mos Eisley es peligrosa, contiene algunos de los contactos mejor informados de todo el sistema, además de viejas consolas utilizadas por los contrabandistas para transferir información sin reunirse en persona. En otras palabras, el riesgo merece la pena.\r\n\r\nAun así, merodeáis por este callejón con cierto cuidado, conscientes de que no sólo tenéis que preocuparos de los despreciables lugareños. Vuestra preocupación se ve confirmada al poco tiempo.\r\n\r\n-¡Alto! -grita un soldado de asalto mientras un disparo de bláster pasa zumbando junto a vuestras cabezas.\r\n\r\nParece que no sois los únicos que habéis descubierto el valor de la información de este callejón.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Despliega a <color=\"red\">R2-D2</color> (Astromecánico leal) en la casilla resaltada en rojo. Los Héroes lo controlan como Aliado.\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} La misión avanza cuando una puerta a la Cantina o a la Chatarrería se abre.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
-      "eventActions": [
-        {
-          "mainText": "¿Es Saska Teft uno de los Héroes?",
-          "buttonList": [
-            {
-              "GUID": "677657e3-a9cf-4a7a-9e26-7463ea584cba",
-              "theText": "Sí"
-            },
-            {
-              "GUID": "0e69a35b-0826-4dd6-8fa4-60eccc1d1a38",
-              "theText": "No"
-            }
-          ],
-          "GUID": "47c0ffb9-3267-4e9d-83f7-613739d4ba94",
-          "eventActionType": 5,
-          "eaName": "Question Prompt"
-        }
-      ]
+      "eventText": "Si bien la zona de los callejones de Mos Eisley es peligrosa, contiene algunos de los contactos mejor informados de todo el sistema, además de viejas consolas utilizadas por los contrabandistas para transferir información sin reunirse en persona. En otras palabras, el riesgo merece la pena.\r\n\r\nAun así, merodeáis por este callejón con cierto cuidado, conscientes de que no sólo tenéis que preocuparos de los despreciables lugareños. Vuestra preocupación se ve confirmada al poco tiempo.\r\n\r\n-¡Alto! -grita un soldado de asalto mientras un disparo de bláster pasa zumbando junto a vuestras cabezas.\r\n\r\nParece que no sois los únicos que habéis descubierto el valor de la información de este callejón.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Despliega a <color=\"red\">R2-D2</color> (Astromecánico leal) en la casilla resaltada en rojo. Los Héroes lo controlan como Aliado.\r\n{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} La misión avanza cuando una puerta a la Cantina o a la Chatarrería se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
+      "eventActions": []
     },
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Gracias a una astuta combinación de pericia en combate, habilidad técnica y conocimiento de las calles, habéis asegurado una información muy valiosa sobre las tropas locales del Imperio. Escapáis de la batalla deseosos de contactar con el Alto Mando con esta nueva e importante información.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Si uno de los Héroes es Saska Teft, recibe la carta de Recompensa \"Gafas tecnológicas\". De lo contrario, los Héroes reciben 150 créditos por Héroe.",
+      "eventText": "Gracias a una astuta combinación de pericia en combate, habilidad técnica y conocimiento de las calles, habéis asegurado una información muy valiosa sobre las tropas locales del Imperio. Escapáis de la batalla deseosos de contactar con el Alto Mando con esta nueva e importante información.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!",
       "eventActions": [
         {
           "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
@@ -175,7 +158,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} Las fichas de Misión representan informadores. Un Héroe puede interactuar con un informador ({J} o {K}) para conseguir su información.\r\n{-} Los Héroes no pueden interactuar con un informador si hay una figura Imperial a 3 o menos casillas de ese informador.\r\n{-} Los Rebeldes ganan cuando consiguen toda la información.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
+          "theText": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} Las fichas de Misión representan informadores. Un Héroe puede interactuar con un informador ({J} o {K}) para conseguir su información.\r\n{-} Los Héroes no pueden interactuar con un informador si hay una figura Imperial a 3 o menos casillas de ese informador.\r\n{-} Los Rebeldes ganan cuando consiguen toda la información.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
           "GUID": "0179afee-e306-4277-802a-adbe4a853d12",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -201,7 +184,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} Un Héroe puede interactuar con un terminal ({J} o {I}) para conseguir su información.\r\n{-} Los Héroes no pueden interactuar con un terminal si hay una figura Imperial a 3 o menos casillas de ese terminal.\r\n{-} Los Rebeldes ganan cuando consiguen toda la información.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
+          "theText": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} Un Héroe puede interactuar con un terminal ({J} o {I}) para conseguir su información.\r\n{-} Los Héroes no pueden interactuar con un terminal si hay una figura Imperial a 3 o menos casillas de ese terminal.\r\n{-} Los Rebeldes ganan cuando consiguen toda la información.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
           "GUID": "a4b83317-d5f3-4ab5-9833-e84728f16718",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -227,7 +210,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} Las fichas de Misión representan informadores. Un Héroe puede interactuar con un informador ({J} o {K}) para conseguir su información.\r\n{-} Un Héroe puede interactuar con un terminal ({J} o {I}) para conseguir su información.\r\n{-} Los Héroes no pueden interactuar con un terminal o informador si hay una figura Imperial a 3 o menos casillas de ese terminal o informador.\r\n{-} Los Rebeldes ganan cuando consiguen toda la información.\r\n{-} Los Rebeldes pierden al final de la Ronda 7, o cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
+          "theText": "{-} Las puertas están selladas. Un Héroe puede interactuar con una puerta ({K} o {I}) para abrirla. Una figura del bando Rebelde puede atacar una puerta (Vida: 5, Defensa: Ninguna).\r\n{-} Las fichas de Misión representan informadores. Un Héroe puede interactuar con un informador ({J} o {K}) para conseguir su información.\r\n{-} Un Héroe puede interactuar con un terminal ({J} o {I}) para conseguir su información.\r\n{-} Los Héroes no pueden interactuar con un terminal o informador si hay una figura Imperial a 3 o menos casillas de ese terminal o informador.\r\n{-} Los Rebeldes ganan cuando consiguen toda la información.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> es derrotado.",
           "GUID": "aa26621d-8cab-4c7f-9f90-22cca8c5e67a",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -672,6 +655,24 @@
           "eaName": "Deploy: DG021/Tusken Raider"
         }
       ]
+    },
+    {
+      "eventName": "Mission End Win Saska Yes",
+      "GUID": "68171728-b28c-46d4-99df-5386557d4e39",
+      "eventText": "Saska Teft recibe la carta de Recompensa \"Gafas tecnológicas\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission End Win Saska No",
+      "GUID": "0b51f88a-8c97-4646-b2b2-e8895d961e2d",
+      "eventText": "Los Héroes reciben 150 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission End Defeat",
+      "GUID": "bd83201c-d0f2-489e-8dcd-8f9f60d53324",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

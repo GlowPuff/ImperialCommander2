@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "Una Nueva Amenaza",
     "missionDescription": "Las fuerzas Rebeldes han descubierto que la baliza era una distracción orquestada por el General Weiss, un valor en alza dentro del ejército Imperial.\r\n\r\nSus esfuerzos le han convertido en una persona de interés para el Alto Mando Rebelde. Los operativos están recorriendo la galaxia en busca de información sobre los planes de este General...",
-    "missionInfo": "{-} Las puertas están selladas para las figuras del bando Rebelde, aunque éstas pueden atacarlas (Vida: 5, Defensa: 1 {G}).\r\n{-} Un Héroe puede interactuar con un terminal para darle la vuelta a su ficha, poniendo boca arriba el lado de color, y realizar una prueba de atributo en función de ese color. Si la supera, ese terminal es investigado.\r\n{-} Los Rebeldes ganan cuando todos los terminales hayan sido investigados. \r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes estén heridos.",
+    "missionInfo": "{-} Las puertas están selladas para las figuras del bando Rebelde, aunque éstas pueden atacarlas (Vida: 5, Defensa: 1 {G}).\r\n{-} Un Héroe puede interactuar con un terminal para darle la vuelta a su ficha, poniendo boca arriba el lado de color, y realizar una prueba de atributo en función de ese color. Si la supera, ese terminal es investigado.\r\n{-} Los Rebeldes ganan cuando todos los terminales hayan sido investigados. \r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
     "campaignName": "Juego Base",
     "startingObjective": "Encuentra e investiga los tres terminales (&Terminals investigated&/3)",
     "repositionOverride": null,
@@ -98,7 +98,7 @@
     {
       "eventName": "Mission Briefing",
       "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-      "eventText": "Habéis sido enviados a investigar unas instalaciones supervisadas por el general Weiss. La presencia imperial en el sector es intensa, pero una oportuna distracción realizada por otro equipo os brinda la oportunidad de infiltraros sigilosamente. Os parece un lugar extraño que carece de la rígida organización típica del Imperio.\r\n\r\nIncluso con la distracción del otro equipo, no tardaréis mucho en llamar la atención. Os han recomendado que vuestra visita sea lo más rápida y eficiente posible.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas para las figuras del bando Rebelde, aunque éstas pueden atacarlas (Vida: 5, Defensa: 1 {G}).\r\n{-} Un Héroe puede interactuar con un terminal para darle la vuelta a su ficha, poniendo boca arriba el lado de color, y realizar una prueba de atributo en función de ese color. Si la supera, ese terminal es investigado.\r\n{-} Los Rebeldes ganan cuando todos los terminales hayan sido investigados. \r\n{-} Los Rebeldes pierden al final de la ronda 7, o cuando todos los Héroes estén heridos.",
+      "eventText": "Habéis sido enviados a investigar unas instalaciones supervisadas por el general Weiss. La presencia imperial en el sector es intensa, pero una oportuna distracción realizada por otro equipo os brinda la oportunidad de infiltraros sigilosamente. Os parece un lugar extraño que carece de la rígida organización típica del Imperio.\r\n\r\nIncluso con la distracción del otro equipo, no tardaréis mucho en llamar la atención. Os han recomendado que vuestra visita sea lo más rápida y eficiente posible.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas para las figuras del bando Rebelde, aunque éstas pueden atacarlas (Vida: 5, Defensa: 1 {G}).\r\n{-} Un Héroe puede interactuar con un terminal para darle la vuelta a su ficha, poniendo boca arriba el lado de color, y realizar una prueba de atributo en función de ese color. Si la supera, ese terminal es investigado.\r\n{-} Los Rebeldes ganan cuando todos los terminales hayan sido investigados. \r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
       "eventActions": []
     },
     {
@@ -370,6 +370,24 @@
       "eventName": "End of Mission - Rebels lose",
       "GUID": "58d91632-7258-43d3-943e-d9751a023be8",
       "eventText": "Aunque no habéis completado la misión, no veis ninguna forma de superar a las fuerzas imperiales que siguen disparando contra vuestra posición. Sólo gracias a una arriesgada y temeraria maniobra de rescate de vuestro piloto lográis escapar de allí.\r\n\r\nA partir de la poca información que habéis podido encontrar, el alto mando de la Alianza ha descubierto indicios sobre una nueva arma que está siendo desarrollada bajo la supervisión del general Weiss. Por ahora no se sabe nada más, pero al menos la misión no ha sido un completo fracaso.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Pon en juego la carta de Misión de historia “Volando Solo”. \r\n{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Check Early Win",
+      "GUID": "e3a486b7-68c8-4165-a875-74a3b79fed2b",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Early Win",
+      "GUID": "c9e988e6-2624-4ef5-98e0-04343353b19b",
+      "eventText": "Because the heroes have investigated all terminals before the end of Round 5, they receive 100 credits per hero.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No Early Win",
+      "GUID": "2d24ba83-f2e2-4ec1-b0d1-8956e2f578e3",
+      "eventText": "",
       "eventActions": []
     }
   ],

@@ -1,9 +1,9 @@
 {
-  "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "missionGUID": "062b0313-978d-4786-9e55-57670c4fa352",
   "fileName": "OTHER32.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481967893432124,
+  "saveDate": "4/26/2024",
+  "timeTicks": 638497442210906655,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Salvage Operatives",
@@ -19,6 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
+    "useAlternateEventSystem": false,
     "roundLimit": 6,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
@@ -1038,7 +1039,7 @@
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
       "isGlobal": true,
       "name": "End of Mission - Rebels lose",
-      "eventText": "Unable to penetrate the junkyard army and Jawas pulled together by local Imperial forces, you retreat to the safety of a transport ship. As you leave the planet, you can see stormtroopers paying off the Jawas in exchange for their service, receiving not only the valuable Alliance data, but also scraps, salvage, and repurposed droids to augment their mechanical forces.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} Increase the threat level of the next mission (and only the next mission) by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
+      "eventText": "Unable to penetrate the junkyard army and Jawas pulled together by local Imperial forces, you retreat to the safety of a transport ship. As you leave the planet, you can see stormtroopers paying off the Jawas in exchange for their service, receiving not only the valuable Alliance data, but also scraps, salvage, and repurposed droids to augment their mechanical forces.\r\n\r\n{-} The Rebels lose the mission.\r\n{-} The threat level of the next mission (and only the next mission) increases by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.\r\n{-} Each hero receives 1 XP. Heroes receive 100 credits per hero.",
       "allyDefeated": "A001",
       "heroWounded": "H1",
       "heroWithdraws": "H1",
@@ -3156,11 +3157,29 @@
               "triggerGUID": "ab24a42c-349e-4bc6-a7a0-78db58086edb",
               "setValue": -1,
               "modifyValue": 1
+            },
+            {
+              "triggerName": "Jawa Defeated",
+              "triggerGUID": "4ee7e21d-e4ce-47de-86f0-2fca53db836b",
+              "setValue": 1,
+              "modifyValue": 0
             }
           ],
           "GUID": "f562efa3-e1c0-4a92-b591-adffeb6a94bf",
           "eventActionType": 3,
           "displayName": "Modify Variable(s)"
+        },
+        {
+          "groupsToRemove": [
+            {
+              "name": "Jawa Scavenger (Elite)",
+              "id": "DG067"
+            }
+          ],
+          "allyGroupsToRemove": [],
+          "GUID": "4f1f1d45-6d4a-4b8b-ac47-fca87a4e5ef9",
+          "eventActionType": 22,
+          "displayName": "Remove Group"
         }
       ]
     },

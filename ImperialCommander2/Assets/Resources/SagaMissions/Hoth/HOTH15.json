@@ -1,9 +1,9 @@
 {
-  "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "missionGUID": "277136ea-f991-49be-8322-870903797a3a",
   "fileName": "HOTH15.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481836960127712,
+  "saveDate": "4/26/2024",
+  "timeTicks": 638497441265604878,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Survival of the Fittest",
@@ -19,6 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
+    "useAlternateEventSystem": false,
     "roundLimit": 4,
     "useFixedAlly": 0,
     "useBannedAlly": 1,
@@ -406,15 +407,6 @@
       "isGlobal": true,
       "useReset": false,
       "maxValue": -1,
-      "initialValue": 0,
-      "eventGUID": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "name": "Round Limit Gone",
-      "GUID": "6f433419-3c4f-42a1-98dc-598bfbc9803c",
-      "isGlobal": true,
-      "useReset": false,
-      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     },
@@ -1509,19 +1501,6 @@
           "displayName": "Map Management"
         },
         {
-          "triggerList": [
-            {
-              "triggerName": "Round Limit Gone",
-              "triggerGUID": "6f433419-3c4f-42a1-98dc-598bfbc9803c",
-              "setValue": 1,
-              "modifyValue": 0
-            }
-          ],
-          "GUID": "c7c2e006-2373-461d-8df4-ff2932470f79",
-          "eventActionType": 3,
-          "displayName": "Modify Variable(s)"
-        },
-        {
           "theText": "A gap leads from the cavern into another cave.\r\n\r\n{-} The wall adjacent to the difficult terrain in the Cave or the Cavern does not block movement, line of sight, adjacency, or counting spaces.",
           "GUID": "52f19052-a954-4333-ae5d-83e4e23dd03e",
           "eventActionType": 16,
@@ -1691,20 +1670,16 @@
           "displayName": "Deploy: DG012/Probe Droid"
         },
         {
-          "theText": "{-} The mission no longer ends at the end of Round 4.\r\n{-} The mission will progress when the <color=\"red\">Wampa</color> is defeated.",
+          "theText": "{-} The mission will progress when the <color=\"red\">Wampa</color> is defeated.",
           "GUID": "d92ff694-89eb-49d3-a878-3cc717fa3d32",
           "eventActionType": 16,
           "displayName": "Text Box"
         },
         {
           "roundLimitModifier": 0,
-          "setRoundLimit": false,
-          "setLimitTo": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000",
-          "disableRoundLimit": true,
-          "displayName": "Modify Round Limit",
           "GUID": "0d386cab-b93b-4d99-a8f1-ccf7491dc5c9",
-          "eventActionType": 28
+          "eventActionType": 28,
+          "displayName": "Modify Round Limit"
         }
       ]
     },
@@ -1982,13 +1957,7 @@
       "isRepeatable": false,
       "isEndOfCurrentRound": false,
       "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Round Limit Gone",
-          "triggerGUID": "6f433419-3c4f-42a1-98dc-598bfbc9803c",
-          "triggerValue": 0
-        }
-      ],
+      "additionalTriggers": [],
       "eventActions": [
         {
           "triggerList": [

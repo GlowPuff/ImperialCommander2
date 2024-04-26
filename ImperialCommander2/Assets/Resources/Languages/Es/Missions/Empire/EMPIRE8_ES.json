@@ -110,12 +110,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Los archivos se guardan en la tarjeta de datos y la ponéis a buen recaudo.\r\n\r\n\"¡Ya tenéis lo que queríais, ahora soltadme!\" grita con estridencia Lorn para que se le escuche por encima del jaleo del combate. Susurra la palabra \"golpeadme\", así que le dais un puñetazo en la mejilla de mala gana y él se desploma hecho un ovillo.\r\n\r\nVolvéis sanos y salvos a vuestro escondite y empezáis a estudiar los documentos históricos que Lorn os proporcionó, pero encontráis difícil encajar las piezas. Os planteáis volver a pedir ayuda a Lorn, pero os arriesgaríais a acabar con su tapadera.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa \"Lecciones de historia\". Esta carta de Recompensa funciona de manera diferente al jugar con <b>Imperial Commander</b>. Revisa la sección de <b>Cambios a las Reglas</b> de la wiki de documentación para más detalles.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Los Héroes deben elegir entre volver a pedir ayuda a Lorn o seguir otras pistas. Si los Héroes vuelven a pedir ayuda a Lorn, pon en juego la carta de Misión de Historia “Agente doble”. Si siguen otras pistas, pon en juego la carta de Misión de historia “En un rincón”.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "77ae27ff-e203-49d4-b884-8deecad99a56",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "4bf5bf46-e3cc-4476-bd6e-631cb9b38738",
+              "theText": "No"
+            }
+          ],
+          "GUID": "3799661a-7225-4383-954c-3d83112553b7",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Entre el estrépito de las alarmas y la llegada incesante de guardias de seguridad, os veis obligados a huir del edificio antes de poder tener acceso a los documentos históricos. Mientras os retiráis, oís a Lorn agradecer a las fuerzas de seguridad que lo salvaran de esos \"terroristas\".\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Si un Héroe reclamó a Lorn, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventText": "Entre el estrépito de las alarmas y la llegada incesante de guardias de seguridad, os veis obligados a huir del edificio antes de poder tener acceso a los documentos históricos. Mientras os retiráis, oís a Lorn agradecer a las fuerzas de seguridad que lo salvaran de esos \"terroristas\".\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.",
       "eventActions": []
     },
     {
@@ -465,6 +482,30 @@
       "eventName": "Story 2",
       "GUID": "1d5aec5b-b45c-4002-8c63-6347620c89f6",
       "eventText": "Aunque los Rebeldes no hayan tenido éxito, el Imperio los considera una amenaza y decide seguirles la pista.\r\n\r\n{-} Pon en juego la carta de Misión de historia “En un rincón”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Lorn Claimed",
+      "GUID": "3a3a21ee-d176-4a4c-8d9d-c8ae50f8d05a",
+      "eventText": "Puesto que un Héroe reclamó a Lorn, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Lorn Not Claimed",
+      "GUID": "4a8145db-c4c5-4108-995b-0276f01214e0",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "362d4530-7b4e-456a-91d5-fcb2ba8998eb",
+      "eventText": "Aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden decidir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "16922952-689c-47d9-bd9d-c775e0557f1e",
+      "eventText": "",
       "eventActions": []
     }
   ],

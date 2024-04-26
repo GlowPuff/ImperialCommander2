@@ -255,14 +255,48 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "La rampa de carga todavía no se ha cerrado cuando la lanzadera despega. Dejáis atrás Dosha y os curáis las heridas mientras regresáis a Tatooine.\r\n\r\nA vuestro regreso, Jabba os brinda un generoso banquete. De momento, le habéis caído en gracia: el Hutt sabe que, aunque la especia es valiosa, la lealtad no tiene precio.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por héroe.\r\n{-} Si hay tres o más barriles de especia en el alijo de los tratantes, aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente misión) en 1. Durante la fase de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Descarta todas las cartas de Misión de Historia activas que queden. Pon en juego las cartas de Misión de Historia “Cazar trofeos” y “Disputa territorial”.",
-      "eventActions": []
+      "eventText": "La rampa de carga todavía no se ha cerrado cuando la lanzadera despega. Dejáis atrás Dosha y os curáis las heridas mientras regresáis a Tatooine.\r\n\r\nA vuestro regreso, Jabba os brinda un generoso banquete. De momento, le habéis caído en gracia: el Hutt sabe que, aunque la especia es valiosa, la lealtad no tiene precio.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por héroe.\r\n{-} Descarta todas las cartas de Misión de Historia activas que queden. Pon en juego las cartas de Misión de Historia “Cazar trofeos” y “Disputa territorial”.",
+      "eventActions": [
+        {
+          "mainText": "Hay tres o más barriles de especia en el alijo de los tratantes?",
+          "buttonList": [
+            {
+              "GUID": "8000d8eb-f4d3-4c5f-b7df-974b309b352f",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "a1943c2f-8bf7-4596-bdb2-05012758e4f9",
+              "theText": "No"
+            }
+          ],
+          "GUID": "281c5e9a-a0fb-45c9-829b-da7e829de60c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "No cesan de salir mercenarios de la jungla, así que os véis forzados a dejar atrás el cargamento de Jabba. Incapaces de haceros con la mayor parte del botín, os retiráis para salvar la vida y afrontar la decepción del Hutt.\r\n\r\nJabba está descontento, pero se muestra razonable. Habéis sobrevivido a la emboscada y vuestra habilidad os ha hecho ganar una segunda oportunidad. A sabiendas de que el favor del señor Hutt es todo lo que protege a vuestras familias, os preparáis para la siguiente tarea.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.\r\n{-} Si hay tres o más barriles de especia en el alijo del bando Rebelde, los Héroes reciben 25 créditos adicionales por Héroe.\r\n{-} Descarta todas las cartas de Misión de historia activas que queden. Pon en juego las cartas de Misión de historia “Cazar trofeos” y “Disputa territorial”.",
-      "eventActions": []
+      "eventText": "No cesan de salir mercenarios de la jungla, así que os véis forzados a dejar atrás el cargamento de Jabba. Incapaces de haceros con la mayor parte del botín, os retiráis para salvar la vida y afrontar la decepción del Hutt.\r\n\r\nJabba está descontento, pero se muestra razonable. Habéis sobrevivido a la emboscada y vuestra habilidad os ha hecho ganar una segunda oportunidad. A sabiendas de que el favor del señor Hutt es todo lo que protege a vuestras familias, os preparáis para la siguiente tarea.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.\r\n{-} Descarta todas las cartas de Misión de historia activas que queden. Pon en juego las cartas de Misión de historia “Cazar trofeos” y “Disputa territorial”.",
+      "eventActions": [
+        {
+          "mainText": "Hay tres o más barriles de especia en el alijo de los Rebeldes?",
+          "buttonList": [
+            {
+              "GUID": "c32f688f-7162-4881-aed6-89d8caf70592",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "0b47f870-ed75-42bc-aa69-011e970e16d0",
+              "theText": "No"
+            }
+          ],
+          "GUID": "191caa58-aa1f-4759-a451-6cfb828e49d9",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Open Door North",
@@ -465,6 +499,24 @@
       "eventName": "Start of Each Round",
       "GUID": "304eaaba-f74d-44e8-8a26-d9956203ad24",
       "eventText": "Más tratantes se apresuran a hacerse con vuestra especia.\r\n\r\n{-} Coloca 1 Tratante de Especia cuya figura esté apartada sobre o junto a cada barril de especia no recuperado (máximo 2). \r\n{-} Cada uno de los Tratantes de Especia que acabáis de colocar interrumpe para recuperar un barril de especia.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Win Query Yes",
+      "GUID": "cfc44763-bcf9-4f75-84fb-9039c4f449ba",
+      "eventText": "Aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defeat Query Yes",
+      "GUID": "f52f1333-0512-4734-a164-c1942b75b4bd",
+      "eventText": "Puesto que hay 3 o más barriles de especia en el alijo Rebelde, los Héroes obtienen 25 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Query No",
+      "GUID": "5c05d4c2-12d1-476e-a7a1-699068368d44",
+      "eventText": "",
       "eventActions": []
     }
   ],

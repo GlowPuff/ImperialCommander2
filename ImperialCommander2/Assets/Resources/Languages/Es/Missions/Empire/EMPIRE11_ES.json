@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "Por buen camino",
     "missionDescription": "",
-    "missionInfo": "{-} Coloca una ficha de Misión Imperial roja en la casilla resaltada en rojo.\r\n{-} La ficha de Misión Imperial roja representa a Zaaryn. Zaaryn es una figura neutral.\r\n{-} Zaaryn se mueve hasta 5 casillas al comienzo de cada Fase de Estatus. Después, si no está dentro de la línea de visión de ningún Héroe, la {D} aumenta.\r\n{-} La ficha de Misión Imperial azul representa al informante. El informante es una figura neutral. Cuando Zaaryin esté adjacente al informante, establece contacto.\r\n{-} Los Héroes que pueden trazar línea de visión hasta el informante pueden interactuar con él para tratar de identificarlo. No necesitan estar adyacentes, tan solo tener línea de visión.\r\n{-} La misión avanza cuando el informante es identificado.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+    "missionInfo": "{-} Coloca una ficha de Misión Imperial roja en la casilla resaltada en rojo.\r\n{-} La ficha de Misión Imperial roja representa a Zaaryn. Zaaryn es una figura neutral.\r\n{-} Zaaryn se mueve hasta 5 casillas al comienzo de cada Fase de Estatus. Después, si no está dentro de la línea de visión de ningún Héroe, la {D} aumenta.\r\n{-} La ficha de Misión Imperial azul representa al informante. El informante es una figura neutral. Cuando Zaaryin esté adjacente al informante, establece contacto.\r\n{-} Los Héroes que pueden trazar línea de visión hasta el informante pueden interactuar con él para tratar de identificarlo. No necesitan estar adyacentes, tan solo tener línea de visión.\r\n{-} La misión avanza cuando el informante es identificado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
     "campaignName": "El Corazón del Imperio",
     "startingObjective": "Identificar al informante antes de que Zaaryn establezca contacto.",
     "repositionOverride": "Bloquear la línea de visión al informante.",
@@ -134,7 +134,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "El informante de Zaaryn acecha en algún lugar de las abarrotadas calles.\r\n\r\n{-} La ficha de Misión Imperial azul representa al informante. El informante es una figura neutral. Cuando Zaaryin esté adjacente al informante, establece contacto.\r\n{-} Los Héroes que pueden trazar línea de visión hasta el informante pueden interactuar con él para tratar de identificarlo. No necesitan estar adyacentes, tan solo tener línea de visión.\r\n{-} La misión avanza cuando el informante es identificado.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+          "tbText": "El informante de Zaaryn acecha en algún lugar de las abarrotadas calles.\r\n\r\n{-} La ficha de Misión Imperial azul representa al informante. El informante es una figura neutral. Cuando Zaaryin esté adjacente al informante, establece contacto.\r\n{-} Los Héroes que pueden trazar línea de visión hasta el informante pueden interactuar con él para tratar de identificarlo. No necesitan estar adyacentes, tan solo tener línea de visión.\r\n{-} La misión avanza cuando el informante es identificado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "7af4ec77-79e9-4093-8f9e-4010d320ee33",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -145,12 +145,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "-¡Esperad, esperad! -jadea el clawdita mientras avanzáis-. ¡No soy Zaaryn, solo soy su doble! -grita desesperadamente-. No podía dejar que sus superiores se enterasen de lo que estaba tramando, así que me contrató a mí. Se supone que solo tenía que tomar contacto e informarle. El encuentro real entre Zaaryn y Maul tendrá lugar fuera de este planeta en unos pocos días. ¡Eso es todo lo que sé!\r\n\r\nCompartís esta información con vuestros superiores, quienes se muestran intrigados y tentados de seguir la pista. Sin embargo, también os informan de un grupo local de simpatizantes de la Alianza con el que han contactado y ahora quieren encontrarse con ellos para intercambiar información. Dejan a vuestra discreción cómo priorizar las operaciones.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la Carta de Recompensa “Planes Interceptados”. (Esta carta de Recompensa funciona de manera distinta cuando se juega con <b>Imperial Commander</b>. Revisa la sección <b>Cambios a las Reglas</b> de la wiki de documentación para más detalles.)\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Los Héroes deben elegir entre seguir la pista a Zaaryn o encontrarse con los simpatizantes. Si los Héroes siguen la pista a Zaaryn, pon en juego la carta de Misión de historia “Perturbación”. Si se encuentran con los simpatizantes, pon en juego la carta de Misión de historia “En un rincón”.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "1f68e251-f26f-4f96-b95d-c176f711d377",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "dee20b04-be8b-47b4-b921-0b7aa0d8408b",
+              "theText": "No"
+            }
+          ],
+          "GUID": "ee1af1b4-23ca-413e-b1e7-b9119207f661",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Un aluvión de disparos os ahuyenta evitando que logréis más que echar un vistazo a vuestros objetivos y los asuntos que se traen entre manos. Os quedáis con más preguntas que respuestas.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-}  Incrementa el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la fase de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por héroe para prevenir este incremento.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Si Zaaryn fue derrotado, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventText": "Un aluvión de disparos os ahuyenta evitando que logréis más que echar un vistazo a vuestros objetivos y los asuntos que se traen entre manos. Os quedáis con más preguntas que respuestas.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-}  Incrementa el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.",
       "eventActions": []
     },
     {
@@ -283,7 +300,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Los Héroes que pueden trazar línea de visión hasta el informante pueden interactuar con él para tratar de identificarlo. No necesitan estar adyacentes, tan solo tener línea de visión.\r\n{-} La misión avanza cuando el informante es identificado.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Los Héroes que pueden trazar línea de visión hasta el informante pueden interactuar con él para tratar de identificarlo. No necesitan estar adyacentes, tan solo tener línea de visión.\r\n{-} La misión avanza cuando el informante es identificado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "f5fd7ea7-2db6-4a42-aee3-97ea491a267e",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -346,7 +363,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La misión avanza cuando Zaaryn es derrotado.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La misión avanza cuando Zaaryn es derrotado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "43c30771-5711-4e34-b998-6fa1b5ab55e8",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -564,7 +581,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Los Rebeldes ganan cuando la verdadera forma de Zaaryn es derrotada.\r\n{-} Los Rebeldes pierden al final de la ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Los Rebeldes ganan cuando la verdadera forma de Zaaryn es derrotada.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "d017e974-9358-4365-88b9-e9659e3818a3",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -593,6 +610,30 @@
           "eaName": "Question Prompt"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Zaaryn Defeated",
+      "GUID": "d741721b-4898-4ce1-8023-70c15f8a42a3",
+      "eventText": "Puesto que Zaaryn fue derrotado, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Zaaryn Not Defeated",
+      "GUID": "e64a2624-c104-4e73-a400-69e46f6fa13e",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "bfa2fea0-4e45-4728-9387-c764d4a12de6",
+      "eventText": "Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "b2047ba4-08cd-4e6a-bcf2-b2ff8996923e",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

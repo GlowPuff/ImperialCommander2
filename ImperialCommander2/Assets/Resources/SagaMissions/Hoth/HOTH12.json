@@ -1,9 +1,9 @@
 {
-  "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "missionGUID": "71636ae6-e11b-4f44-ae04-f4a32b36cc14",
   "fileName": "HOTH12.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481835846904093,
+  "saveDate": "4/26/2024",
+  "timeTicks": 638497441265346038,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Preventative Measures",
@@ -19,6 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
+    "useAlternateEventSystem": false,
     "roundLimit": 3,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
@@ -28,7 +29,7 @@
     "specificHero": "H1",
     "priorityOther": "",
     "startingEvent": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
-    "roundLimitEvent": "2af32c1f-e279-4bc5-9155-96266a2fb9e0",
+    "roundLimitEvent": "ce77e8e2-d1ad-4a71-97fe-dd70ffd563e4",
     "missionType": 1,
     "changeRepositionOverride": {
       "theText": "Block access to the door.",
@@ -278,7 +279,16 @@
       "GUID": "657b6748-3d8d-4e1a-a3ef-d8d074a9ff4b",
       "isGlobal": true,
       "useReset": false,
-      "maxValue": -1,
+      "maxValue": 1,
+      "initialValue": 0,
+      "eventGUID": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "name": "Round Limit Trigger",
+      "GUID": "8a7db193-f98b-47f7-99e6-987dfa6e27f2",
+      "isGlobal": true,
+      "useReset": false,
+      "maxValue": 1,
       "initialValue": 0,
       "eventGUID": "00000000-0000-0000-0000-000000000000"
     }
@@ -725,6 +735,11 @@
           "triggerName": "Containment open",
           "triggerGUID": "79d70dab-40da-4fc4-8b19-fe0297b26e34",
           "triggerValue": 0
+        },
+        {
+          "triggerName": "Round Limit Trigger",
+          "triggerGUID": "8a7db193-f98b-47f7-99e6-987dfa6e27f2",
+          "triggerValue": 1
         }
       ],
       "eventActions": [
@@ -1154,13 +1169,9 @@
         },
         {
           "roundLimitModifier": 0,
-          "setRoundLimit": false,
-          "setLimitTo": 0,
-          "eventGUID": "00000000-0000-0000-0000-000000000000",
-          "disableRoundLimit": true,
-          "displayName": "Modify Round Limit",
           "GUID": "b2ed5428-c52d-4692-a646-63a3eb1f2d77",
-          "eventActionType": 28
+          "eventActionType": 28,
+          "displayName": "Modify Round Limit"
         },
         {
           "theText": "Help Draylen escape.",
@@ -1174,6 +1185,49 @@
           "GUID": "7753dc06-8b68-4761-821a-d2949b65a0c1",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "GUID": "ce77e8e2-d1ad-4a71-97fe-dd70ffd563e4",
+      "isGlobal": true,
+      "name": "Trigger Round Limit",
+      "eventText": "",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [],
+      "eventActions": [
+        {
+          "triggerList": [
+            {
+              "triggerName": "Round Limit Trigger",
+              "triggerGUID": "8a7db193-f98b-47f7-99e6-987dfa6e27f2",
+              "setValue": 1,
+              "modifyValue": 0
+            }
+          ],
+          "GUID": "a3f800fd-b0dd-4dc8-8485-63287dc3d5b9",
+          "eventActionType": 3,
+          "displayName": "Modify Variable(s)"
         }
       ]
     }

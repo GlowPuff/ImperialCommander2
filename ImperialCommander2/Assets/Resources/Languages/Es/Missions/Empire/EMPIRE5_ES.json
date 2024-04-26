@@ -3,7 +3,7 @@
   "missionProperties": {
     "missionName": "Los enemigos se acercan",
     "missionDescription": "",
-    "missionInfo": "{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Las fichas de Misión neutrales representan escondites. Un Héroe puede interactuar con un escondite para investigarlo, lo que lo descarta. Después de hacerlo, puede realizar una prueba de {J}. Si la supera, gana 2 puntos de movimiento.\r\n{-} La misión avanza cuando todos los escondites han sido investigados.\r\n{-} La misión termina al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+    "missionInfo": "{-} Las puertas están selladas para las figuras del bando Imperial.\r\n{-} Las fichas de Misión neutrales representan escondites. Un Héroe puede interactuar con un escondite para investigarlo, lo que lo descarta. Después de hacerlo, puede realizar una prueba de {J}. Si la supera, gana 2 puntos de movimiento.\r\n{-} La misión avanza cuando todos los escondites han sido investigados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
     "campaignName": "",
     "startingObjective": "",
     "repositionOverride": "Bloquear el acceso a los escondites.",
@@ -191,7 +191,7 @@
           "eaName": "Deploy: DG009/Royal Guard"
         },
         {
-          "tbText": "Preparáis vuestras armas para enfrentaros a los Imperiales. Si Vader sabía que estaríais aquí, tenéis que encontrar el fragmento y salir corriendo lo antes posible.\r\n\r\n{-} La misión avanza cuando todos los escondites han sido investigados.\r\n{-} La misión termina al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "tbText": "Preparáis vuestras armas para enfrentaros a los Imperiales. Si Vader sabía que estaríais aquí, tenéis que encontrar el fragmento y salir corriendo lo antes posible.\r\n\r\n{-} La misión avanza cuando todos los escondites han sido investigados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "3f8a9c19-3d13-45ca-a768-9ec5fc6e24a2",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -209,12 +209,29 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Hacéis retroceder al Señor de los Sith, Vader, lo que os permite escapar del templo con el fragmento. Luego, corréis a toda velocidad hasta un lugar oculto donde os podéis reagrupar. Sentís que la energía de la Fuerza emana del resplandeciente fragmento y hace que os hormigueen los brazos. Una sensación de poder y terror os abruma con solo sostenerlo.\r\n\r\nDebéis sacar el fragmento fuera del planeta y llevarlo lejos del alcance del Emperador.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa “Fragmento de Bardottan” (Esta recompensa funciona de forma diferente al jugar con <b>Imperial Commander</b>. Revisa la sección de Cambios de Reglas de la wiki, \"<b>Rules Changes</b>\", para conocer más detalles).\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “Huida de la capital”.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "59507f2c-aa1f-405c-b8e6-dad87d1df208",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "359f4d42-3ab2-44fd-8a7b-643e7d91e1b7",
+              "theText": "No"
+            }
+          ],
+          "GUID": "66fee1da-6226-4914-8d54-037b7de580ea",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose Wounded",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Con el fragmento en su poder, Vader hace un gesto con la mano en vuestra dirección. Sentís que la garganta se os empieza a cerrar y que ya no podéis respirar. Usando la Fuerza, os levanta en el aire y estrella vuestros cuerpos contra el muro mientras seguís luchando por recuperar el aliento.\r\n\r\nVader avanza a zancadas hacia vosotros: \r\n\r\n-Este es el verdadero poder de la Fuerza, y os destruirá.\r\n\r\nOs libera y os desplomáis en el suelo. Antes de quedar inconscientes, miráis hacia arriba y veis al imponente sith de pie ante vosotros mientras, en su mano, el fragmento palpita de energía de la Fuerza.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Si Darth Vader ha sufrido 9 o más {H}, los Héores ganan 25 créditos adicionales por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “El reino del Lado Oscuro”.",
+      "eventText": "Con el fragmento en su poder, Vader hace un gesto con la mano en vuestra dirección. Sentís que la garganta se os empieza a cerrar y que ya no podéis respirar. Usando la Fuerza, os levanta en el aire y estrella vuestros cuerpos contra el muro mientras seguís luchando por recuperar el aliento.\r\n\r\nVader avanza a zancadas hacia vosotros: \r\n\r\n-Este es el verdadero poder de la Fuerza, y os destruirá.\r\n\r\nOs libera y os desplomáis en el suelo. Antes de quedar inconscientes, miráis hacia arriba y veis al imponente sith de pie ante vosotros mientras, en su mano, el fragmento palpita de energía de la Fuerza.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “El reino del Lado Oscuro”.",
       "eventActions": []
     },
     {
@@ -505,7 +522,7 @@
           "eaName": "Deploy: DG072/Darth Vader"
         },
         {
-          "tbText": "{-} Aplica +1 {G} a <color=\"red\">Darth Vader</color>.\r\n{-} <color=\"red\">Darth Vader</color> no puede adquirir Estados, no puede ser empujado y no puede ganar puntos de movimiento fuera de su activación.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente a una puerta, esa puerta es destruida.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente al Fragmento, interrumpe para recuperarlo.\r\n{-} La misión ya no termina al final de la Ronda 6.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Darth Vader</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando <color=\"red\">Darth Vader</color> escapa, o cuando todos los Héroes están heridos.",
+          "tbText": "{-} Aplica +1 {G} a <color=\"red\">Darth Vader</color>.\r\n{-} <color=\"red\">Darth Vader</color> no puede adquirir Estados, no puede ser empujado y no puede ganar puntos de movimiento fuera de su activación.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente a una puerta, esa puerta es destruida.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente al Fragmento, interrumpe para recuperarlo.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Darth Vader</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando <color=\"red\">Darth Vader</color> escapa, o cuando todos los Héroes están heridos.",
           "GUID": "1ce96392-73fd-48f2-8010-37728a4b48f3",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -518,12 +535,65 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} Aplica +1 {G} a <color=\"red\">Darth Vader</color>.\r\n{-} <color=\"red\">Darth Vader</color> no puede adquirir Estados, no puede ser empujado y no puede ganar puntos de movimiento fuera de su activación.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente a una puerta, esa puerta es destruida.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente al Fragmento, interrumpe para recuperarlo.\r\n{-} La misión ya no termina al final de la Ronda 6.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Darth Vader</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando <color=\"red\">Darth Vader</color> escapa, o cuando todos los Héroes están heridos.",
+          "theText": "{-} Aplica +1 {G} a <color=\"red\">Darth Vader</color>.\r\n{-} <color=\"red\">Darth Vader</color> no puede adquirir Estados, no puede ser empujado y no puede ganar puntos de movimiento fuera de su activación.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente a una puerta, esa puerta es destruida.\r\n{-} Cuando <color=\"red\">Darth Vader</color> entra en una casilla adyacente al Fragmento, interrumpe para recuperarlo.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Darth Vader</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando <color=\"red\">Darth Vader</color> escapa, o cuando todos los Héroes están heridos.",
           "GUID": "586e9d07-9df2-471a-851f-7a30f05653c0",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
         }
       ]
+    },
+    {
+      "eventName": "Vader Check Query",
+      "GUID": "22d1e40f-4546-465d-8351-a6ccdde03f35",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "¿Ha sufrido <color=\"red\">Darth Vader</color> 9 o más {H}?",
+          "buttonList": [
+            {
+              "GUID": "0bacb1c1-3951-45da-919b-eee1eb4afdce",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "721bbcff-7beb-4d16-bc35-bb3fc3059338",
+              "theText": "No"
+            }
+          ],
+          "GUID": "3e772a4d-e005-4a69-b553-9c59a051a188",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Vader Check Yes",
+      "GUID": "6b773eb8-e98a-4eaa-a7e4-9023df1855ed",
+      "eventText": "Puesto que <color=\"red\">Darth Vader</color> ha sufrido 9 o más {H}, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Vader Check No",
+      "GUID": "83995958-e60c-414f-bffe-c1b41c81e7b9",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Vader Not Deployed",
+      "GUID": "c93e5bc2-0961-4d4d-bb51-3dc881fb2072",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "6a33976f-0ec9-4fd3-9ba3-56b01f50035b",
+      "eventText": "The threat level of the next mission (and only the next mission) increases by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "81afe5d0-78ce-4569-a8a8-165f0721b80b",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

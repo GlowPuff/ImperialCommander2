@@ -1,9 +1,9 @@
 {
-  "missionGUID": "3d339a2a-3737-4ed5-bc53-0ddaadee0592",
+  "missionGUID": "b1bc06e8-f38d-4784-b18b-2294263e7b01",
   "fileName": "OTHER17.json",
   "fileVersion": "22",
-  "saveDate": "4/8/2024",
-  "timeTicks": 638481954872605764,
+  "saveDate": "4/26/2024",
+  "timeTicks": 638497442209716588,
   "languageID": "English (EN)",
   "missionProperties": {
     "missionName": "Fully Charged",
@@ -19,6 +19,7 @@
     "optionalDeployment": false,
     "factionImperial": true,
     "factionMercenary": true,
+    "useAlternateEventSystem": false,
     "roundLimit": -1,
     "useFixedAlly": 1,
     "useBannedAlly": 1,
@@ -1333,6 +1334,201 @@
       ]
     },
     {
+      "GUID": "38670dc2-0706-49ae-bb4d-93ad54b1519c",
+      "isGlobal": true,
+      "name": "Showdown",
+      "eventText": "Behind the barricade waits none other than General Sorin himself. \"Kill them!\" he shrieks, ducking for cover.",
+      "allyDefeated": "A001",
+      "heroWounded": "H1",
+      "heroWithdraws": "H1",
+      "activationOf": "DG001",
+      "startOfRound": 1,
+      "endOfRound": 1,
+      "useStartOfRound": false,
+      "useEndOfRound": false,
+      "useStartOfEachRound": false,
+      "useEndOfEachRound": false,
+      "useAllGroupsDefeated": false,
+      "useAllHeroesWounded": false,
+      "useAllyDefeated": false,
+      "useHeroWounded": false,
+      "useHeroWithdraws": false,
+      "useAnyHeroWounded": false,
+      "useAnyHeroDefeated": false,
+      "useActivation": false,
+      "isRepeatable": false,
+      "isEndOfCurrentRound": false,
+      "behaviorAll": true,
+      "additionalTriggers": [
+        {
+          "triggerName": "Trigger Showdown",
+          "triggerGUID": "ec8aa3e2-aa77-4d6c-afb9-5982e4519472",
+          "triggerValue": 1
+        }
+      ],
+      "eventActions": [
+        {
+          "entitiesToModify": [
+            {
+              "GUID": "718994a2-6886-4fa7-89bd-d70588df6730",
+              "sourceGUID": "0b708290-82f6-43ee-a73e-22b42e31814b",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Blue 1",
+                "isActive": true,
+                "theText": null,
+                "entityColor": "Blue",
+                "buttonActions": []
+              }
+            },
+            {
+              "GUID": "6c6a6354-fc87-4438-831a-bcd9ff0751cf",
+              "sourceGUID": "f5a5738f-32ee-4c82-9c78-5249ae3bad90",
+              "hasColor": true,
+              "hasProperties": false,
+              "entityProperties": {
+                "name": "DP Blue 2",
+                "isActive": true,
+                "theText": null,
+                "entityColor": "Blue",
+                "buttonActions": []
+              }
+            }
+          ],
+          "GUID": "2fb9f455-0587-438b-8d7d-62923d8d8f80",
+          "eventActionType": 15,
+          "displayName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "deploymentGroup": "DG078",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": "+*2* Health",
+          "canReinforce": true,
+          "canRedeploy": true,
+          "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": true,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "0b708290-82f6-43ee-a73e-22b42e31814b",
+          "deploymentPoint": 1,
+          "enemyGroupData": {
+            "GUID": "699817d7-ec47-4751-be47-3489b6d2adf1",
+            "cardName": "General Sorin",
+            "cardID": "DG078",
+            "customInstructionType": 2,
+            "customText": "",
+            "pointList": [
+              {
+                "GUID": "0b708290-82f6-43ee-a73e-22b42e31814b"
+              }
+            ],
+            "groupPriorityTraits": {
+              "incBrawler": true,
+              "incCreature": true,
+              "incDroid": true,
+              "incForceUser": true,
+              "incGuardian": true,
+              "incHeavyWeapon": true,
+              "incHunter": true,
+              "incLeader": true,
+              "incSmuggler": true,
+              "incSpy": true,
+              "incTrooper": true,
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
+            },
+            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
+          },
+          "thumbnail": null,
+          "GUID": "55ba362d-e73b-4f1c-b904-55cf3a2311a3",
+          "eventActionType": 6,
+          "displayName": "Deploy: DG078/General Sorin"
+        },
+        {
+          "enemyName": null,
+          "deploymentGroup": "DG013",
+          "repositionInstructions": "",
+          "threatCost": 0,
+          "modification": null,
+          "canReinforce": true,
+          "canRedeploy": true,
+          "canBeDefeated": true,
+          "useThreat": false,
+          "useCustomInstructions": false,
+          "useGenericMugshot": false,
+          "showMod": false,
+          "useResetOnRedeployment": false,
+          "specificDeploymentPoint": "0b708290-82f6-43ee-a73e-22b42e31814b",
+          "deploymentPoint": 1,
+          "enemyGroupData": {
+            "GUID": "f7f1bfcc-eedf-40de-a587-614995e6829d",
+            "cardName": "Probe Droid (Elite)",
+            "cardID": "DG013",
+            "customInstructionType": 2,
+            "customText": "",
+            "pointList": [
+              {
+                "GUID": "0b708290-82f6-43ee-a73e-22b42e31814b"
+              }
+            ],
+            "groupPriorityTraits": {
+              "incBrawler": true,
+              "incCreature": true,
+              "incDroid": true,
+              "incForceUser": true,
+              "incGuardian": true,
+              "incHeavyWeapon": true,
+              "incHunter": true,
+              "incLeader": true,
+              "incSmuggler": true,
+              "incSpy": true,
+              "incTrooper": true,
+              "incWookiee": true,
+              "incVehicle": true,
+              "useDefaultPriority": true
+            },
+            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
+            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
+            "useGenericMugshot": false,
+            "useInitialGroupCustomName": false
+          },
+          "thumbnail": null,
+          "GUID": "87c6d1fd-f1b4-4b72-883a-9476aeafd081",
+          "eventActionType": 6,
+          "displayName": "Deploy: DG013/Probe Droid (Elite)"
+        },
+        {
+          "theText": "Block access to the energy field.",
+          "useSpecific": false,
+          "repoGroups": [],
+          "GUID": "7b60ecdd-b37b-49a6-a442-f75abd33c58a",
+          "eventActionType": 17,
+          "displayName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} While <color=\"red\">General Sorin</color> is defending, if he is adjacent to a friendly figure, add 1 white die to his defense pool.",
+          "GUID": "92f4589d-3e36-4d35-b44c-8b0c839c4031",
+          "eventActionType": 16,
+          "displayName": "Text Box"
+        },
+        {
+          "theText": "{-} The Imperial mission tokens represent an energy field. Rebel figures treat the energy field as blocking terrain. Imperial figures treat the energy field as normal terrain.\r\n{-} Rebel figure can interact with the energy field {J} or {I}) to try and deactivate it.\r\n{-} While <color=\"red\">General Sorin</color> is defending, if he is adjacent to a friendly figure, add 1 white die to his defense pool.\r\n{-} The Rebels win when the <color=\"red\">AT-ST</color> is destroyed.\r\n{-} The Rebels lose when all heroes are wounded.",
+          "GUID": "b3b61a06-2528-4e88-bc95-155c800d99e6",
+          "eventActionType": 1,
+          "displayName": "Change Mission Info"
+        }
+      ]
+    },
+    {
       "GUID": "3ac8f6ce-ea2d-4f9a-bfec-47810c0823ae",
       "isGlobal": true,
       "name": "Reveal S2",
@@ -1541,201 +1737,6 @@
         {
           "theText": "{-} The neutral mission tokens form a barricade. The barricade is blocking terrain.\r\n{-} A Rebel figure can attack the barricade (Health: *2*, Defense: None). A hero can interact with the barricade ({K}) to try and discard all of its tokens.\r\n{-} The Imperial mission tokens represent an energy field. Rebel figures treat the energy field as blocking terrain. Imperial figures treat the energy field as normal terrain.\r\n{-} Rebel figure can interact with the energy field {J} or {I}) to try and deactivate it.\r\n{-} The Rebels win when the <color=\"red\">AT-ST</color> is destroyed.\r\n{-} The Rebels lose when all heroes are wounded.",
           "GUID": "aa2fd6f6-06ab-484b-b356-4270735cbf16",
-          "eventActionType": 1,
-          "displayName": "Change Mission Info"
-        }
-      ]
-    },
-    {
-      "GUID": "38670dc2-0706-49ae-bb4d-93ad54b1519c",
-      "isGlobal": true,
-      "name": "Showdown",
-      "eventText": "Behind the barricade waits none other than General Sorin himself. \"Kill them!\" he shrieks, ducking for cover.",
-      "allyDefeated": "A001",
-      "heroWounded": "H1",
-      "heroWithdraws": "H1",
-      "activationOf": "DG001",
-      "startOfRound": 1,
-      "endOfRound": 1,
-      "useStartOfRound": false,
-      "useEndOfRound": false,
-      "useStartOfEachRound": false,
-      "useEndOfEachRound": false,
-      "useAllGroupsDefeated": false,
-      "useAllHeroesWounded": false,
-      "useAllyDefeated": false,
-      "useHeroWounded": false,
-      "useHeroWithdraws": false,
-      "useAnyHeroWounded": false,
-      "useAnyHeroDefeated": false,
-      "useActivation": false,
-      "isRepeatable": false,
-      "isEndOfCurrentRound": false,
-      "behaviorAll": true,
-      "additionalTriggers": [
-        {
-          "triggerName": "Trigger Showdown",
-          "triggerGUID": "ec8aa3e2-aa77-4d6c-afb9-5982e4519472",
-          "triggerValue": 1
-        }
-      ],
-      "eventActions": [
-        {
-          "entitiesToModify": [
-            {
-              "GUID": "718994a2-6886-4fa7-89bd-d70588df6730",
-              "sourceGUID": "0b708290-82f6-43ee-a73e-22b42e31814b",
-              "hasColor": true,
-              "hasProperties": false,
-              "entityProperties": {
-                "name": "DP Blue 1",
-                "isActive": true,
-                "theText": null,
-                "entityColor": "Blue",
-                "buttonActions": []
-              }
-            },
-            {
-              "GUID": "6c6a6354-fc87-4438-831a-bcd9ff0751cf",
-              "sourceGUID": "f5a5738f-32ee-4c82-9c78-5249ae3bad90",
-              "hasColor": true,
-              "hasProperties": false,
-              "entityProperties": {
-                "name": "DP Blue 2",
-                "isActive": true,
-                "theText": null,
-                "entityColor": "Blue",
-                "buttonActions": []
-              }
-            }
-          ],
-          "GUID": "2fb9f455-0587-438b-8d7d-62923d8d8f80",
-          "eventActionType": 15,
-          "displayName": "Modify Map Entity"
-        },
-        {
-          "enemyName": null,
-          "deploymentGroup": "DG078",
-          "repositionInstructions": "",
-          "threatCost": 0,
-          "modification": "+*2* Health",
-          "canReinforce": true,
-          "canRedeploy": true,
-          "canBeDefeated": true,
-          "useThreat": false,
-          "useCustomInstructions": false,
-          "useGenericMugshot": false,
-          "showMod": true,
-          "useResetOnRedeployment": false,
-          "specificDeploymentPoint": "0b708290-82f6-43ee-a73e-22b42e31814b",
-          "deploymentPoint": 1,
-          "enemyGroupData": {
-            "GUID": "699817d7-ec47-4751-be47-3489b6d2adf1",
-            "cardName": "General Sorin",
-            "cardID": "DG078",
-            "customInstructionType": 2,
-            "customText": "",
-            "pointList": [
-              {
-                "GUID": "0b708290-82f6-43ee-a73e-22b42e31814b"
-              }
-            ],
-            "groupPriorityTraits": {
-              "incBrawler": true,
-              "incCreature": true,
-              "incDroid": true,
-              "incForceUser": true,
-              "incGuardian": true,
-              "incHeavyWeapon": true,
-              "incHunter": true,
-              "incLeader": true,
-              "incSmuggler": true,
-              "incSpy": true,
-              "incTrooper": true,
-              "incWookiee": true,
-              "incVehicle": true,
-              "useDefaultPriority": true
-            },
-            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
-            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false,
-            "useInitialGroupCustomName": false
-          },
-          "thumbnail": null,
-          "GUID": "55ba362d-e73b-4f1c-b904-55cf3a2311a3",
-          "eventActionType": 6,
-          "displayName": "Deploy: DG078/General Sorin"
-        },
-        {
-          "enemyName": null,
-          "deploymentGroup": "DG013",
-          "repositionInstructions": "",
-          "threatCost": 0,
-          "modification": null,
-          "canReinforce": true,
-          "canRedeploy": true,
-          "canBeDefeated": true,
-          "useThreat": false,
-          "useCustomInstructions": false,
-          "useGenericMugshot": false,
-          "showMod": false,
-          "useResetOnRedeployment": false,
-          "specificDeploymentPoint": "0b708290-82f6-43ee-a73e-22b42e31814b",
-          "deploymentPoint": 1,
-          "enemyGroupData": {
-            "GUID": "f7f1bfcc-eedf-40de-a587-614995e6829d",
-            "cardName": "Probe Droid (Elite)",
-            "cardID": "DG013",
-            "customInstructionType": 2,
-            "customText": "",
-            "pointList": [
-              {
-                "GUID": "0b708290-82f6-43ee-a73e-22b42e31814b"
-              }
-            ],
-            "groupPriorityTraits": {
-              "incBrawler": true,
-              "incCreature": true,
-              "incDroid": true,
-              "incForceUser": true,
-              "incGuardian": true,
-              "incHeavyWeapon": true,
-              "incHunter": true,
-              "incLeader": true,
-              "incSmuggler": true,
-              "incSpy": true,
-              "incTrooper": true,
-              "incWookiee": true,
-              "incVehicle": true,
-              "useDefaultPriority": true
-            },
-            "defeatedTrigger": "00000000-0000-0000-0000-000000000000",
-            "defeatedEvent": "00000000-0000-0000-0000-000000000000",
-            "useGenericMugshot": false,
-            "useInitialGroupCustomName": false
-          },
-          "thumbnail": null,
-          "GUID": "87c6d1fd-f1b4-4b72-883a-9476aeafd081",
-          "eventActionType": 6,
-          "displayName": "Deploy: DG013/Probe Droid (Elite)"
-        },
-        {
-          "theText": "Block access to the energy field.",
-          "useSpecific": false,
-          "repoGroups": [],
-          "GUID": "7b60ecdd-b37b-49a6-a442-f75abd33c58a",
-          "eventActionType": 17,
-          "displayName": "Change Reposition Instructions"
-        },
-        {
-          "theText": "{-} While <color=\"red\">General Sorin</color> is defending, if he is adjacent to a friendly figure, add 1 white die to his defense pool.",
-          "GUID": "92f4589d-3e36-4d35-b44c-8b0c839c4031",
-          "eventActionType": 16,
-          "displayName": "Text Box"
-        },
-        {
-          "theText": "{-} The Imperial mission tokens represent an energy field. Rebel figures treat the energy field as blocking terrain. Imperial figures treat the energy field as normal terrain.\r\n{-} Rebel figure can interact with the energy field {J} or {I}) to try and deactivate it.\r\n{-} While <color=\"red\">General Sorin</color> is defending, if he is adjacent to a friendly figure, add 1 white die to his defense pool.\r\n{-} The Rebels win when the <color=\"red\">AT-ST</color> is destroyed.\r\n{-} The Rebels lose when all heroes are wounded.",
-          "GUID": "b3b61a06-2528-4e88-bc95-155c800d99e6",
           "eventActionType": 1,
           "displayName": "Change Mission Info"
         }

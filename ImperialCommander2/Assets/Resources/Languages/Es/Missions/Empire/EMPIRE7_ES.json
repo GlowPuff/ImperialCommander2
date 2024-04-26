@@ -226,7 +226,7 @@
           "eaName": "Modify Map Entity"
         },
         {
-          "tbText": "\"Esperemos que haya datos en los terminales que se encuentren por aquí \" añade Lorn.\r\n\r\n{-} Cuando Lorn entra en una casilla en la que hay un terminal, los Héroes reclaman ese terminal.\r\n{-} La misión avanza cuando todos los terminales han sido reclamados.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "tbText": "\"Esperemos que haya datos en los terminales que se encuentren por aquí \" añade Lorn.\r\n\r\n{-} Cuando Lorn entra en una casilla en la que hay un terminal, los Héroes reclaman ese terminal.\r\n{-} La misión avanza cuando todos los terminales han sido reclamados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "81c6ab1b-02f9-4bcd-b5c8-83b4459b8dbb",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -272,7 +272,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn entra en una casilla en la que hay un terminal, los Héroes reclaman ese terminal.\r\n{-} La misión avanza cuando todos los terminales han sido reclamados.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn entra en una casilla en la que hay un terminal, los Héroes reclaman ese terminal.\r\n{-} La misión avanza cuando todos los terminales han sido reclamados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "ca05eadf-8eca-45ea-a78c-1cba020932a6",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -283,13 +283,47 @@
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
       "eventText": "Arrancáis de las manos del traidor de Lorn el fragmento de la esfera de Badottan y huís tan rápido como podéis del furibundo Emperador Palpatine. Cuando, jadeando por el esfuerzo, al final llegáis a un lugar donde poder reagruparos, miráis el fragmento que tenéis en vuestras manos: sentís que la energía de la Fuerza emana del resplandeciente fragmento y hace que os hormigueen los brazos. Una sensación de poder y terror os abruma con solo sostenerlo.\r\n\r\nDebéis sacar el fragmento fuera del planeta y llevarlo lejos del alcance del Emperador.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa “Fragmento de Bardottan”. Esta carta de Recompensa funciona de forma diferente cuando se juega con <b>Imperial Commander</b>. Revisa la sección de <b>Cambios a las Reglas</b> de la wiki de documentación, para más detalles).\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “Huida de la capital”.",
-      "eventActions": []
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "d91ae34a-10dd-4629-99d1-8976c7f41f7c",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "b1edfc07-cf30-4fe9-8a67-91fc6116a5db",
+              "theText": "No"
+            }
+          ],
+          "GUID": "9457dccf-83a3-4395-a91c-2a7e765f58d5",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "El brutal ataque resulta ser demasiado para vosotros y sois puestos de rodillas ante el Emperador. Su rostro dibuja una sonrisa maligna cuando Lorn le hace entrega del fragmento de la esfera de Bardottan. Los soldados de asalto os atan los brazos a la espalda mientras el Emperador admira su premio.\r\n\r\n\"Con este poder, aplastaré vuestra lamentable rebelión\" dice con deleite en la voz. \"¡Vuestras ejecuciones públicas enviarán a toda la galaxia el mensaje de que mi poder es absoluto!\"\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Si Lorn tiene 1 o más fichas de Tensión sobre él, los Héroes reciben 25 créditos adicionales por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “El reino del Lado Oscuro”.",
-      "eventActions": []
+      "eventText": "El brutal ataque resulta ser demasiado para vosotros y sois puestos de rodillas ante el Emperador. Su rostro dibuja una sonrisa maligna cuando Lorn le hace entrega del fragmento de la esfera de Bardottan. Los soldados de asalto os atan los brazos a la espalda mientras el Emperador admira su premio.\r\n\r\n\"Con este poder, aplastaré vuestra lamentable rebelión\" dice con deleite en la voz. \"¡Vuestras ejecuciones públicas enviarán a toda la galaxia el mensaje de que mi poder es absoluto!\"\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de historia “El reino del Lado Oscuro”.",
+      "eventActions": [
+        {
+          "mainText": "¿Tiene Lorn al menos 1 ficha de Tensión sobre él?",
+          "buttonList": [
+            {
+              "GUID": "b54c3a07-6dbe-4e28-9153-4061bff37530",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "cd532c65-2c9d-41c7-b3c2-072db92bd499",
+              "theText": "No"
+            }
+          ],
+          "GUID": "31f6c8ad-6ab4-4e35-b348-7a1be1debd53",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
     },
     {
       "eventName": "Terminal 1 claimed",
@@ -457,7 +491,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn esté en la casilla de una ficha de Misión Rebelde, recupera el fragmento.\r\n{-} La misión avanza cuando Lorn recupera el fragmento.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn esté en la casilla de una ficha de Misión Rebelde, recupera el fragmento.\r\n{-} La misión avanza cuando Lorn recupera el fragmento.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "fda66d98-ab26-4e02-9158-92d486c73d6a",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -574,7 +608,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Un Héroe puede interactuar con Lorn ({K}) para intentar reclamar el fragmento. Aplica +1 {B} a los resultados si hay otro Héroe adyacente a Lorn. Aplica -2 {B} a los resultados si el <color=\"red\">Emperador Palpatine</color> está adyacente a Lorn.\r\n{-} Los Rebeldes ganan cuando reclaman el fragmento.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Un Héroe puede interactuar con Lorn ({K}) para intentar reclamar el fragmento. Aplica +1 {B} a los resultados si hay otro Héroe adyacente a Lorn. Aplica -2 {B} a los resultados si el <color=\"red\">Emperador Palpatine</color> está adyacente a Lorn.\r\n{-} Los Rebeldes ganan cuando reclaman el fragmento.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "3f35da96-76c5-447f-ad78-057efb4da457",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -618,7 +652,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn esté en la casilla de una ficha de Misión Rebelde, recupera el fragmento.\r\n{-} La misión avanza cuando Lorn recupera el fragmento.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn esté en la casilla de una ficha de Misión Rebelde, recupera el fragmento.\r\n{-} La misión avanza cuando Lorn recupera el fragmento.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "09b7e47a-89d8-43f1-8ea4-0c6fc32ffaa5",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -662,7 +696,7 @@
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn esté en la casilla de una ficha de Misión Rebelde, recupera el fragmento.\r\n{-} La misión avanza cuando Lorn recupera el fragmento.\r\n{-} Los Rebeldes pierden al final de la Ronda 6, o cuando todos los Héroes están heridos.",
+          "theText": "{-} La ficha de Misión Imperial representa a Lorn. Lorn es una figura neutral. Un Héroe adyacente a Lorn puede gastar 1 punto de movimiento para empujar a Lorn hasta 2 casillas.\r\n{-} Las fichas de Misión neutrales que están boca abajo representan pasadizos secretos.\r\n{-} Una figura del bando Rebelde que esté en un pasadizo secreto puede gastar 3 puntos de movimiento para colocar su figura tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Si Lorn está en un pasadizo secreto, un Héroe adyacente a él puede gastar 2 puntos de movimiento para colocarlo tan cerca como sea posible de otra casilla en la que haya un pasadizo secreto.\r\n{-} Cuando Lorn esté en la casilla de una ficha de Misión Rebelde, recupera el fragmento.\r\n{-} La misión avanza cuando Lorn recupera el fragmento.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
           "GUID": "d826d0b3-3d87-455a-aeca-424f48e90bd0",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
@@ -692,6 +726,30 @@
           "eaName": "Input Prompt"
         }
       ]
+    },
+    {
+      "eventName": "Lorn Strain Yes",
+      "GUID": "14f7a01b-dfc1-4c30-8a5d-3365c705ccd7",
+      "eventText": "Puesto que Lorn tiene 1 o más fichas de Tensión sobre él, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Lorn Strain No",
+      "GUID": "a923238f-5c28-42cc-b442-0275a4dbdd07",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "cf3b2e8f-cd7e-43d7-b0a3-702717b020cb",
+      "eventText": "Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "75d926c0-6db0-4a12-be84-60c4dce204f0",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [

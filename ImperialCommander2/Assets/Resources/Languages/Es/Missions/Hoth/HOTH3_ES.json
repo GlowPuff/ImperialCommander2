@@ -267,20 +267,36 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "Estáis razonablemente seguros de que tenéis toda la información que esta instalación puede ofrecer, y las sirenas de alerta no paran de retumbar. Escapáis de la instalación y, tras huir de los disparos de blaster durante casi un kilómetro, encontráis a vuestro piloto esperando para la extracción.\r\n\r\nAdemás de los archivos que ya habéis descifrado, también habéis podido encontrar una cantidad considerable de código Imperial. Con suerte, tras ser analizado, revelará el plan final del Imperio.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por héroe.\r\n{-} Si al menos la mitad de los Héroes han sido heridos, aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente) en 1. Durante la fase de Mejora Rebelde, los jugadores Rebeldes pueden decidir gastar 50 créditos por Héroe para evitarlo.",
+      "eventText": "Estáis razonablemente seguros de que tenéis toda la información que esta instalación puede ofrecer, y las sirenas de alerta no paran de retumbar. Escapáis de la instalación y, tras huir de los disparos de blaster durante casi un kilómetro, encontráis a vuestro piloto esperando para la extracción.\r\n\r\nAdemás de los archivos que ya habéis descifrado, también habéis podido encontrar una cantidad considerable de código Imperial. Con suerte, tras ser analizado, revelará el plan final del Imperio.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por héroe.",
       "eventActions": [
         {
           "tbText": "Cuando finalmente regresáis de vuestra misión, enviáis la información imperial codificada que habéis recuperado para que sea analizada. Con suerte, la Alianza, podrá descubrir el próximo movimiento del Imperio con el tiempo suficiente para responder.\r\n\r\n{-} Pon en juego la carta de Misión de historia \"La última línea\" boca abajo. El texto de una carta de Misión de Historia boca abajo es información oculta para los jugadores Rebeldes. Cuando los jugadores Rebeldes necesitan resolver una misión de historia, y la carta de Misión de Historia activa está boca abajo, esa carta se pone boca arriba y deja de ser información oculta.",
           "GUID": "1a7e650e-f86a-424f-a64e-eb136c8cdf4e",
           "eventActionType": 16,
           "eaName": "Text Box"
+        },
+        {
+          "mainText": "Are at least half of the heroes wounded?",
+          "buttonList": [
+            {
+              "GUID": "7b4a580f-0342-4f60-9fe3-801b533d35d9",
+              "theText": "Yes"
+            },
+            {
+              "GUID": "653f89a3-3bc1-479c-bc67-3c7f680b3915",
+              "theText": "No"
+            }
+          ],
+          "GUID": "a4665a32-77e2-46db-9b9c-a52ca30b7db1",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
         }
       ]
     },
     {
       "eventName": "End of Mission - Rebels lose",
       "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
-      "eventText": "Aunque la información está incompleta, no tenéis más remedio que huir y confiar en no haber dejado atrás ningún dato vital.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.\r\n{-} Si los Héroes reclamaron 3 terminales, los Héroes reciben 100 créditos adicionales por Héroe.",
+      "eventText": "Aunque la información está incompleta, no tenéis más remedio que huir y confiar en no haber dejado atrás ningún dato vital.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.",
       "eventActions": [
         {
           "tbText": "Cuando finalmente regresáis de vuestra misión, enviáis la información Imperial codificada que habéis recuperado para que sea analizada. Con suerte, la Alianza, podrá descubrir el próximo movimiento del Imperio con el tiempo suficiente para responder.\r\n\r\n{-} Pon en juego la carta de Misión de historia \"Desastre\" boca abajo. El texto de una carta de Misión de Historia boca abajo es información oculta para los jugadores Rebeldes. Cuando los jugadores Rebeldes necesitan resolver una misión de historia, y la carta de Misión de Historia activa está boca abajo, esa carta se pone boca arriba y deja de ser información oculta.",
@@ -636,6 +652,36 @@
           "eaName": "Modify Map Entity"
         }
       ]
+    },
+    {
+      "eventName": "End Mission Credits Yes",
+      "GUID": "f60cba29-4637-419f-b359-f42d3ce1dbd1",
+      "eventText": "Puesto que los Héroes reclamaron 3 terminales, los Héroes reciben 100 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Credits No",
+      "GUID": "2b3c4226-bceb-4c6e-9a74-60508a4eee63",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bonus Credits",
+      "GUID": "09f5e4c0-0a9c-44a6-bc7a-8144f499fe8a",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Heroes Wounded Yes",
+      "GUID": "e44c8058-b65e-4364-a8fc-1454099bd2a5",
+      "eventText": "Aumenta el nivel de amenaza de la siguiente misión (y sólo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Heroes Wounded No",
+      "GUID": "3f12b90d-dd85-44a3-ab11-2a732043f3b9",
+      "eventText": "",
+      "eventActions": []
     }
   ],
   "mapEntities": [
