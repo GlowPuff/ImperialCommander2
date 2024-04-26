@@ -434,6 +434,7 @@ namespace Saga
 		{
 			sound.PlaySound( FX.Click );
 			EventSystem.current.SetSelectedGameObject( null );
+
 			if ( DataStore.sagaSessionData.selectedAlly == null )
 			{
 				addHeroPanel.Show( CharacterType.Ally, () =>

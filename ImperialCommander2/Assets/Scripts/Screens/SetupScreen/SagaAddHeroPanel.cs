@@ -94,6 +94,27 @@ namespace Saga
 				if ( !showCustom )
 					allyCards = allyCards.Concat( DataStore.allyCards.MinusElite() ).ToList();
 
+				//get the fixed ally in the selected mission, if any, so it can be omitted from the pool
+				var selectedMission = FindObjectOfType<SagaSetup>().missionPicker.selectedMission;
+				if ( selectedMission != null )
+				{
+					DataStore.missionCards.TryGetValue( selectedMission.expansion, out var cards );
+					if ( cards != null )
+					{
+						var mCard = cards.Where( x => x.id == selectedMission.missionID.Replace( " ", "" ) ).FirstOr( null );
+						if ( mCard != null )
+						{
+							List<string> fixedAllies = mCard.ally.Select( x => DataStore.allyCards.GetDeploymentCard( x ).id ).ToList();
+							if ( fixedAllies.Count > 0 )
+							{
+								Debug.Log( $"Ommitting Ally [{fixedAllies.Aggregate( ( acc, cur ) => acc + ", " + cur )}] from the pool" );
+								//remove it from the list so it can't be chosen
+								allyCards = allyCards.Where( x => !fixedAllies.Contains( x.id ) ).ToList();
+							}
+						}
+					}
+				}
+
 				int i = 0;
 				foreach ( var item in allyCards )
 				{
