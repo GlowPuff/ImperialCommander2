@@ -98,8 +98,7 @@ namespace Saga
 				var selectedMission = FindObjectOfType<SagaSetup>().missionPicker.selectedMission;
 				if ( selectedMission != null )
 				{
-					DataStore.missionCards.TryGetValue( selectedMission.expansion, out var cards );
-					if ( cards != null )
+					if ( DataStore.missionCards.TryGetValue( selectedMission.expansion, out var cards ) )
 					{
 						var mCard = cards.Where( x => x.id == selectedMission.missionID.Replace( " ", "" ) ).FirstOr( null );
 						if ( mCard != null )

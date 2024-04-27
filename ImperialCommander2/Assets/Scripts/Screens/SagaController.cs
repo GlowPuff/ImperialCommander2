@@ -51,6 +51,7 @@ namespace Saga
 		public int debugThreatLevel = 3;
 		public bool debugAdaptiveDifficulty = false;
 		public Difficulty debugDifficulty = Difficulty.Medium;
+		public bool debugUseAlly = false;
 
 		[HideInInspector]
 		public Sound sound;
@@ -273,7 +274,8 @@ namespace Saga
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[0] );
 			DataStore.sagaSessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 			//DataStore.sagaSessionData.EarnedVillains.Add( DataStore.villainCards.GetDeploymentCard( "DG072" ) );
-			//DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
+			if ( debugUseAlly )
+				DataStore.sagaSessionData.selectedAlly = DataStore.allyCards[0];
 		}
 
 		public void ShowError( string m )

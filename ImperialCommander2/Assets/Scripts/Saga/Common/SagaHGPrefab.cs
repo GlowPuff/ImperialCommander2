@@ -221,12 +221,13 @@ namespace Saga
 		public void OnDefeatCheck()
 		{
 			//initial wound
-			if ( !cardDescriptor.heroState.isWounded
+			if ( cardDescriptor.characterType != CharacterType.Ally
+				&& !cardDescriptor.heroState.isWounded
 				&& !cardDescriptor.heroState.isDefeated )
 			{
 				OnWound();
 			}
-			else if ( cardDescriptor.heroState.isWounded )
+			else if ( cardDescriptor.characterType == CharacterType.Ally || cardDescriptor.heroState.isWounded )
 			{
 				OnDefeat();
 			}
