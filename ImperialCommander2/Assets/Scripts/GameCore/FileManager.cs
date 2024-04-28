@@ -556,7 +556,11 @@ namespace Saga
 			return null;
 		}
 
-		public static TranslatedMission LoadEmbeddedMissionTranslation( Guid packageGUID, string missionGUID )
+		/// <summary>
+		/// languageID is the 2 letter language code
+		/// </summary>
+		/// <returns></returns>
+		public static TranslatedMission LoadEmbeddedMissionTranslation( Guid packageGUID, string missionGUID, string languageID )
 		{
 			if ( packageGUID == Guid.Empty || string.IsNullOrEmpty( missionGUID ) )
 				return null;
@@ -565,7 +569,8 @@ namespace Saga
 			var p = packages.Where( x => x.GUID.ToString() == packageGUID.ToString() ).FirstOr( null );
 			if ( p != null )
 			{
-				return p.campaignTranslationItems.Where( x => x.assignedMissionGUID == Guid.Parse( missionGUID ) ).FirstOr( null )?.translatedMission;
+				return p.campaignTranslationItems.Where( x => x.assignedMissionGUID == Guid.Parse( missionGUID )
+				&& x.fileName.ToLower().EndsWith( $"_{languageID.ToLower()}.json" ) ).FirstOr( null )?.translatedMission;
 			}
 			return null;
 		}

@@ -20,21 +20,26 @@ namespace Saga
 
 		public CampaignPackage() { }
 
-		public CampaignTranslationItem GetTranslation( Guid missionGUID )
+		/// <summary>
+		/// languageID is the two letter ID, such as "De" or "Es"
+		/// </summary>
+		/// <returns></returns>
+		public CampaignTranslationItem GetTranslation( Guid missionGUID, string languageID )
 		{
-			return campaignTranslationItems.Where( x => x.assignedMissionGUID == missionGUID ).FirstOr( null );
+			return campaignTranslationItems.Where( x => x.assignedMissionGUID == missionGUID
+				&& x.fileName.ToLower().EndsWith( $"_{languageID.ToLower()}.json" ) ).FirstOr( null );
 		}
 
-		public TranslatedMission GetTranslatedMission( Guid missionGUID )
-		{
-			var item = campaignTranslationItems.Where( x => x.assignedMissionGUID == missionGUID ).FirstOr( null );
-			if ( item != null )
-			{
-				var translation = FileManager.LoadEmbeddedMissionTranslation( GUID, missionGUID.ToString() );
-				return translation;
-			}
-			return null;
-		}
+		//public TranslatedMission GetTranslatedMission( Guid missionGUID, string languageID )
+		//{
+		//	var item = campaignTranslationItems.Where( x => x.assignedMissionGUID == missionGUID ).FirstOr( null );
+		//	if ( item != null )
+		//	{
+		//		var translation = FileManager.LoadEmbeddedMissionTranslation( GUID, missionGUID.ToString(), languageID );
+		//		return translation;
+		//	}
+		//	return null;
+		//}
 	}
 
 	public class CampaignMissionItem

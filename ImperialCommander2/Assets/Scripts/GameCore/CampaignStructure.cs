@@ -42,21 +42,24 @@ namespace Saga
 			return JsonConvert.DeserializeObject<CampaignStructure>( json );
 		}
 
-		public TranslatedMission GetTranslatedMission()
+		/// <summary>
+		/// languageID is the 2 letter language code
+		/// </summary>
+		public TranslatedMission GetTranslatedMission( string languageID )
 		{
 			if ( Guid.TryParse( missionID, out Guid guid ) )
 			{
 				var package = FileManager.GetPackageByGUID( packageGUID );
-				var translationItem = package.GetTranslation( guid );
+				var translationItem = package.GetTranslation( guid, languageID );
 
 				if ( translationItem != null )
 				{
 					if ( package != null )
 					{
-						var translation = FileManager.LoadEmbeddedMissionTranslation( package.GUID, missionID );
+						var translation = FileManager.LoadEmbeddedMissionTranslation( package.GUID, missionID, languageID );
 						if ( translation != null )
 						{
-							if ( Utils.LanguageID2Code( translation.languageID ).ToLower() == DataStore.Language.ToLower() )
+							if ( Utils.LanguageID2Code( translation.languageID ).ToLower() == languageID.ToLower() )
 							{
 								Debug.Log( "GetTranslatedMission()::Found an embedded Mission translation" );
 								return translation;

@@ -1050,7 +1050,7 @@ namespace Saga
 			//if it's a campaign game
 			else if ( DataStore.sagaSessionData.setupOptions.projectItem.pickerMode == PickerMode.Embedded )
 			{
-				translation = RunningCampaign.campaignStructure.GetTranslatedMission();
+				translation = RunningCampaign.campaignStructure.GetTranslatedMission( DataStore.Language );
 				TranslationController.Instance.SetMissionTranslation( translation, DataStore.mission );
 			}
 			//custom mission
