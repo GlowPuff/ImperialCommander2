@@ -1,0 +1,664 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Fallo de seguridad",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Villano Agente Blaise (Interrogador de la OSI)",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso al prototipo.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "822533b6-214e-46bb-957c-db4b4c208edc",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "481d348e-7712-48c6-8ba8-20af793ac524",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d33ea8a7-6404-4955-900a-0dd2b3db73b3",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Colarse en unas instalaciones de la Oficina de Seguridad lmperial no es fácil. Para no levantar sospechas, vuestro piloto os deja a una hora de camino del complejo.\r\n\r\nVuestros uniformes y distintivos de seguridad falsos os abren más puertas de lo que esperabais. Sin embargo, al llegar a la puerta del laboratorio de investigación, un droide sonda os detiene para emitir una mecánica bienvenida, antes de seguir su camino: \"Bienvenido, general Weiss.\"\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} La puerta está sellada.",
+      "eventActions": [
+        {
+          "tbText": "El droide vuelve flotando a su estación de recarga y se desactiva.",
+          "GUID": "803fabd4-bdd7-4b9e-8fc6-088b63a21e35",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prototype",
+              "GUID": "13afd735-4c0b-4b2f-b329-3ab1e20b2264",
+              "theText": "El prototipo de droide de vigilancia está inactivo.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el prototipo para recuperarlo.",
+              "buttonList": [
+                {
+                  "GUID": "99aebfd2-444b-4695-9d2d-064d5562c95c",
+                  "theText": "{A} Recuperar"
+                }
+              ]
+            }
+          ],
+          "GUID": "089d4aec-da44-4b3b-a9b7-18051d8437b7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} La ficha de misión Imperial representa el prototipo. Una figura del bando Rebelde puede recuperar el prototipo.\r\n{-} La misión avanza cuando una figura del bando Rebelde recupera el prototipo.",
+          "GUID": "ccc4963c-45c9-463e-b9ee-edfd031b672a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "\"Perdone,\" se disculpa un oficial. \"El prototipo sigue teniendo problemas de identificación. Un momento...\" Esa atención adicional ha bastado para revelaros como miembros de la Rebelión, declarados en búsqueda y captura. Sin apartar la mirada del droide, os preparáis para el combate.\r\n\r\n{-} Al final de cada ronda, se incrementa la {D}.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "c1c86cec-1ed7-4bb2-a33d-5c86a859f590",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Recuperar el prototipo.",
+          "longText": null,
+          "GUID": "ad683dd6-08c1-407b-9be3-7130c27ca89d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La puerta está sellada.\r\n{-} La ficha de misión Imperial representa el prototipo. Una figura del bando Rebelde puede recuperar el prototipo.\r\n{-} Al final de cada ronda, se incrementa la {D}.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} La misión avanza cuando una figura del bando Rebelde recupera el prototipo.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "fe78ec9f-b709-44c2-b9e2-002cf3482a6c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Es una buena caída, pero habéis venido preparados para la ocasión. Mediante enganches y cuerdas, descendéis por el conducto de mantenimiento y escapáis con el prototipo en un saco. Sigue soltando nombres y datos al azar hasta que llegáis a la nave. No hay duda de que este droide sabe cosas útiles, aunque ahora os resulten ininteligibles.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Con el prototipo ya perdido, bajáis por un conducto secundario. El descenso es difícil, pero sobrevivís. \"¡Adiós, nuevos amigos!\" dice el droide, que flota sobre el conducto. Blaise tiene ahora grabaciones de vuestro equipo en acción. Tendréis suerte sí conseguís evitar a la OSI en el futuro.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} El bando Imperial <color=\"red\">Agente Blaise</color> (Interrogador de la OSI) como villano.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Flip Terminal Red",
+      "GUID": "a7168f79-3dbe-47b2-a575-a7f9e2fd367e",
+      "eventText": "Desactiváis uno de los bloqueos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "a61214e1-812b-48b7-bfc7-6b0ab9e5170d",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento. La cerradura está desactivada.\r\n\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a611bcd4-d6e4-4073-b2dc-7033b3220f6d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Flip Terminal Blue",
+      "GUID": "976448cf-f7ab-4089-b375-2dafdaf6244a",
+      "eventText": "Desactiváis uno de los bloqueos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "da421ebb-3dc4-4261-964a-2f4910d6c93b",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento. La cerradura está desactivada.\r\n\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "929285c7-088f-4a1e-aa6d-027ed12c0145",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Flip Terminals Back",
+      "GUID": "1b863158-3379-4acd-a773-bcbc0830af8a",
+      "eventText": "Los bloqueos de las puertas vuelven a activarse.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "02fa71f5-11cd-4881-9c53-fe98f36a1419",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": [
+                {
+                  "GUID": "bd391bf4-6d5f-4d8c-b9c4-b335d28943e4",
+                  "theText": "{A} Desactivar bloqueo"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "c3b0793e-b78a-4643-985f-20d124bb235e",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": [
+                {
+                  "GUID": "49357cd1-b567-4bec-87a0-581f83698b21",
+                  "theText": "{A} Desactivar bloqueo"
+                }
+              ]
+            }
+          ],
+          "GUID": "f474fbae-4f4a-4f70-bc33-60749b7bd340",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Maintenance Shaft Opens",
+      "GUID": "27241b15-e657-48c4-a8e2-128a1783ad1e",
+      "eventText": "La puerta del conducto de mantenimiento se abre. Inmediatamente, el viento entra por los pasillos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "7f83eb30-6fb2-4f4c-acb9-1e1c2bbb8b11",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": [
+                {
+                  "GUID": "b88fece8-449a-4ddf-a263-61eed4f5913f",
+                  "theText": "{A} Desactivar bloqueo"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "b97a0cce-dac1-450d-bd67-2a179e6a96ea",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": [
+                {
+                  "GUID": "a8bf3b75-f4e7-4691-afe0-2001bace54e7",
+                  "theText": "{A} Desactivar bloqueo"
+                }
+              ]
+            },
+            {
+              "entityName": "Maintenance Door",
+              "GUID": "305e7622-4bee-47e6-8c15-fd714a8a99e7",
+              "theText": "Una vieja y oxidada puerta conduce al conducto de mantenimiento.\r\n\r\n{-} La puerta está sellada. Cuando ambos terminales están en su ladode color, la puerta del pozo de mantenimiento se abre.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "dd8b90d2-6d70-4677-bfb4-76760bbf5e58",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 3",
+              "GUID": "42b7f7eb-93b2-4ae9-b716-7549495a2a43",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 4",
+              "GUID": "99955792-38dc-4da4-98da-3cef9922d26f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "8221b5b2-6d2f-49f2-b7a5-8286899899e4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso al conducto de mantenimiento.",
+          "GUID": "bac2f743-3bd4-4b51-a2e1-54dfcbc67708",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "{-} Cuando cada Héroe esté en una casilla resaltada en azul y una figura lleva el prototipo, selecciona la casilla resaltada en azul y haz clic en \"Los Héroes se marchan\".\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.",
+          "GUID": "bbd49000-14a1-4a43-8960-590f1f2f7283",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Escapar por el conducto de mantenimiento.",
+          "longText": null,
+          "GUID": "18c0cde1-3807-42fb-9eaf-393529c9a736",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando cada Héroe esté en una casilla resaltada en azul y una figura lleva el prototipo, selecciona la casilla resaltada en azul y haz clic en \"Los Héroes se marchan\".\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} Al final de cada ronda, se incrementa la {D}.\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "e6a379e5-3e59-458b-a054-0ea1730af085",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Hallway Door Opens",
+      "GUID": "fcd8d263-bc9d-41b8-b68f-e7b791a04e2a",
+      "eventText": "La puerta se abre a unos mugrientos pasillos llenos de tuberías y cables. No muy lejos, se ve otra puerta que conduce al enorme conducto central de mantenimiento. Esta es vuestra salida.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hallway Door",
+              "GUID": "67a2a2e5-f8bd-4c5e-8cbb-f86eeb2ad648",
+              "theText": "Una puerta de seguridad conduce a la sección de mantenimiento de la Ciudad de las Nubes.\r\n\r\n{-} La puerta está sellada.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "abcf451a-6c68-487d-a9de-0113003c8bc6",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ff4b7f69-dd15-4755-95b2-a47ccbf1ef01",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso a los terminales.",
+          "GUID": "cc99c271-63ef-4be4-a1d1-7801e0e66b6c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "Al parecer, vuestra ruta de escape no era tan desconocida como esperabais. Un alto agente de la OSI os espera en el pasillo. \"Si os rendís, os mostraremos clemencia\", dice. No reaccionáis inmediatamente y desenfunda su blaster.",
+          "GUID": "78bd812a-05bb-49e7-99e6-3726a8d5b169",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "41f54ba7-5ec7-4067-9e0e-8ff8178ccdee",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG079/Agent Blaise"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "c59597ef-ccd1-43d8-8748-bb48001a10ce",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "89529515-b6ef-4c86-81cf-e35799553947",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "La puerta del conducto de mantenimiento está bloqueada por dos cerraduras gemelas, cada una de ellas controlada por una consola computerizada.",
+          "GUID": "915f4425-b5f1-41eb-a436-ac4b426f158e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "d41f3b24-ba76-42ea-8b11-29e723c3a878",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": [
+                {
+                  "GUID": "67aecc8c-d83c-437a-bbc5-3bbaac26c715",
+                  "theText": "{A} Desactivar bloqueo"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "81e9ea7c-83b3-4ba1-847f-fe755a056ca9",
+              "theText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+              "buttonList": [
+                {
+                  "GUID": "55e2d46a-c5ff-4512-b9cf-440d61dfe2ef",
+                  "theText": "{A} Desactivar bloqueo"
+                }
+              ]
+            }
+          ],
+          "GUID": "cb2a3e6f-61d1-4ecf-876f-68eab5c89535",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Tenéis que conseguir abrir esa puerta.\r\n\r\n{-} La puerta está sellada.\r\n{-} Una figura del bando Rebelde puede interactuar con un terminal (2 {I} o {J}). Disminuye los éxitos necesarios en 1 por cada terminal en su lado de color. Si tiene éxito, voltea ese terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.\r\n{-} La misión avanza cuando la puerta se abre.",
+          "GUID": "53ee55b6-a34d-4425-a673-4cecaeb2558d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Abrir la puerta del conducto de mantenimiento.",
+          "longText": null,
+          "GUID": "12515779-3fc6-4cc8-a561-1c041fff4adb",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La puerta está sellada.\r\n{-} Una figura del bando Rebelde puede interactuar con un terminal (2 {I} o {J}). Disminuye los éxitos necesarios en 1 por cada terminal en su lado de color. Si tiene éxito, voltea ese terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.\r\n{-} Al final de cada ronda, se incrementa la {D}.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} La misión avanza cuando la puerta se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "f8e67bd1-03c5-496f-bd94-3ff1726b7f95",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Threat EoR 1",
+      "GUID": "a30790ea-e182-4d9c-a6ad-c086b800c917",
+      "eventText": "Las alarmas suenan por toda la instalación, solicitando más y más refuerzos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 2",
+      "GUID": "ebb48db3-b8ad-49a1-8559-f674acab82d7",
+      "eventText": "Las alarmas suenan por toda la instalación, solicitando más y más refuerzos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 3",
+      "GUID": "25e90ff7-93bc-4193-b096-557ac0e3fef8",
+      "eventText": "Las alarmas suenan por toda la instalación, solicitando más y más refuerzos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 4",
+      "GUID": "ed500a52-476e-41b8-b566-e23c3aacd6c7",
+      "eventText": "Las alarmas suenan por toda la instalación, solicitando más y más refuerzos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 5",
+      "GUID": "56915dd2-86f8-4d45-9250-9823e6f21f2c",
+      "eventText": "Las alarmas suenan por toda la instalación, solicitando más y más refuerzos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Retrieve Prototype",
+      "GUID": "786f8e6c-c50e-497d-9f0a-585a43b25496",
+      "eventText": "\"Buenos días, interrogador. Oh, déjeme que le abra la puerta, señor.\"\r\n\r\n{-} La puerta está ahora desbloqueada para las figura del bando Rebelde.\r\n{-} La misión avanza cuando la puerta se abre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prototype",
+              "GUID": "b2b9aa86-d79a-4ba0-8173-fbeccc8a9685",
+              "theText": "El prototipo de droide de vigilancia está inactivo.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el prototipo para recuperarlo.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Hallway Door",
+              "GUID": "adb3fd94-91b4-414f-a579-24a6c8e7e57b",
+              "theText": "Una puerta de seguridad conduce a la sección de mantenimiento de la Ciudad de las Nubes.\r\n\r\n{-} La puerta está cerrada para las figuras del bando Imperial.",
+              "buttonList": [
+                {
+                  "GUID": "6abf4e5d-7bdd-4bd7-8ba2-f54e40edf1c8",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "976f3298-a9e9-41d8-8ca2-cb67ed7a57d8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso a la puerta.",
+          "GUID": "0a013fed-103b-48b5-8787-71b3395383d1",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Abrir la puerta.",
+          "longText": null,
+          "GUID": "18fe9c23-0973-47aa-b17a-a70af8efc2ca",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La puerta está sellada para las figuras del bando Imperial.\r\n{-} Al final de cada ronda, se incrementa la {D}.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse sólo recibe 1 acción que sólo se puede usar para realizar 1 movimiento.\r\n{-} La misión avanza cuando la puerta se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "97cb7b52-1cad-4717-8d8f-5474cca83e35",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "2dd2222e-4655-43a3-83fb-15bde0b3befe",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "111b6592-9a31-4370-9f07-dfe71339affb",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega aquí a los Héroes",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "61878f23-9d4b-4f1f-b033-9911fd6224cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "65397aa9-0760-4192-9b34-dfce09d1fe1f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "aa7a5eeb-7470-494f-9136-6eea3d499f40",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "099762e6-b82e-4121-9795-01a7f60b956d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "a63cc7fd-07e5-46c7-9781-ddb412bd0e4c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "1be7eabf-530e-44dd-b1d6-bfdcedde0f1d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 3",
+      "GUID": "28a70da5-feac-4fa0-a1ea-8c683aba98f2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 4",
+      "GUID": "35ee83a5-30ce-48b4-907b-ccc47e77e3ad",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal Red",
+      "GUID": "d6b0db53-14b5-46cc-92a3-2905cf05a33a",
+      "mainText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+      "buttonList": [
+        {
+          "GUID": "5a5c4999-b732-435b-b3e5-b0eea3610b8a",
+          "theText": "{A} Desactivar bloqueo"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Blue",
+      "GUID": "84cdb404-c4de-472d-96db-00ae122039c1",
+      "mainText": "El mecanismo de bloqueo está conectado al otro terminal. Ambos controlan el acceso al conducto de mantenimiento.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal (2 {I} o {J}) para desactivar el bloqueo. Disminuye los éxitos necesarios en 1 si el otro terminal está en su lado de color. Si tiene éxito, voltea este terminal a su lado de color.\r\n{-} Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.\r\n{-} Al final de cada ronda, el bloqueo se reactiva, volteando cada terminal de su lado de color a su lado gris.",
+      "buttonList": [
+        {
+          "GUID": "be09171c-81e7-4ec6-87ce-f8737e9f2275",
+          "theText": "{A} Desactivar bloqueo"
+        }
+      ]
+    },
+    {
+      "entityName": "Hallway Door",
+      "GUID": "fbd99f81-939f-4dc8-a924-08e31def9588",
+      "mainText": "Una puerta de seguridad conduce a la sección de mantenimiento de la Ciudad de las Nubes.\r\n\r\n{-} La puerta está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Maintenance Door",
+      "GUID": "ec825a64-2be6-4400-926a-8d9b0fa1fddf",
+      "mainText": "Una vieja y oxidada puerta conduce al conducto de mantenimiento.\r\n\r\n{-} La puerta está sellada. Cuando ambos terminales están en su lado de color, la puerta del conducto de mantenimiento se abre.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Prototype",
+      "GUID": "f2fdda37-1e7b-4e13-95bf-4f3ae079f4c7",
+      "mainText": "El prototipo de droide de vigilancia está inactivo.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el prototipo para recuperarlo.",
+      "buttonList": [
+        {
+          "GUID": "14672a87-70eb-444c-b682-92a6efb59390",
+          "theText": "{A} Recuperar"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit 1",
+      "GUID": "2b43e105-a7c2-4175-92b6-1bd26902c9c0",
+      "mainText": "El conducto de mantenimiento lleva a profundidades insondables. En algún lugar ahí abajo está vuestro punto de extracción.\r\n\r\n{-} Cuando todos los Héroes estén en una casilla resaltada en azul y una de las figuras lleve el prototipo, haz clic en \" Los Héroes se marchan \" para terminar la misión.",
+      "buttonList": [
+        {
+          "GUID": "fc36fa79-0523-4e97-808a-7a23deae1c5f",
+          "theText": "Los héroes se marchan (Fin de la misión)"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit 2",
+      "GUID": "67f118e8-0d01-484e-b981-e4533b218fa6",
+      "mainText": "El conducto de mantenimiento lleva a profundidades insondables. En algún lugar ahí abajo está vuestro punto de extracción.\r\n\r\n{-} Cuando todos los Héroes estén en una casilla resaltada en azul y una de las figuras lleve el prototipo, haz clic en \" Los Héroes se marchan \" para terminar la misión.",
+      "buttonList": [
+        {
+          "GUID": "ce080685-c244-4635-bc61-79b453ac33b1",
+          "theText": "Los héroes se marchan (Fin de la misión)"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit 3",
+      "GUID": "77781875-946c-493f-b821-a3f9ca6c35d1",
+      "mainText": "El conducto de mantenimiento lleva a profundidades insondables. En algún lugar ahí abajo está vuestro punto de extracción.\r\n\r\n{-} Cuando todos los Héroes estén en una casilla resaltada en azul y una de las figuras lleve el prototipo, haz clic en \" Los Héroes se marchan \" para terminar la misión.",
+      "buttonList": [
+        {
+          "GUID": "080c8287-a43b-43fc-82c2-053738a37b45",
+          "theText": "Los héroes se marchan (Fin de la misión)"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

@@ -1,0 +1,467 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Means of Production",
+    "missionDescription": "",
+    "missionInfo": "{-} Drzwi są zabezpieczone. Figurka Rebelii może atakować drzwi (żywotność: *2*, obrona: 1 {G}).\r\n{-} Misja pójdzie naprzód kiedy bohaterowie włamią się do placówki.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni.",
+    "campaignName": "Core Game",
+    "startingObjective": "Włam się do placówki, aby znaleźć rdzeń danych.",
+    "repositionOverride": "Blokuj dostęp do rdzenia danych.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "83aba702-5662-403c-b849-d4d6467726cf",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "eff38c9d-cb91-4204-8979-0bf4b0c0bbca",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "bb3fd9b1-ab77-472a-8131-6343755dce18",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Przybywacie do małej, spokojnej placówki badawczo-rozwojowej. Dostaliście cynk, że jeśli budowa tego obiektu zostanie ukończona, w znacznym stopniu przyczyni się on do zwiększenia skuteczności imperialnych operacji.\r\n\r\nPrzed wami jej sabotażu próbowały dokonać już trzy inne zespoły - i żadnemu się nie powiodło. Z raportów wynika, że obiekt wyposażono w protokoły obronne szybkiego reagowania.\r\n\r\n{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.\r\n{-} Drzwi są zabezpieczone. Figurka Rebelii może atakować drzwi (żywotność: *2*, obrona: 1 {G}).\r\n{-} Misja pójdzie naprzód kiedy bohaterowie włamią się do placówki.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Po zniszczeniu rdzenia, protokoły obrony zostają dezaktywowane. Alarmy milkną, a światła gasną.\r\n\r\nJeśli Imperium zechce jeszcze kiedyś wykorzystać tę placówkę do jakichś celów, minie trochę czasu, nim zdoła ją ponownie uruchomić.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 200 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Obejście systemów obronnych placówki okazuje się zbyt trudne. Kiedy wreszcie udaje się wam sforsować drzwi prowadzące do pomieszczenia z rdzeniem danych, na waszych oczach wsuwa się on w podłogę, znikając w ukrytym pomieszczeniu. Jest poza waszym zasięgiem.\r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 100 kredytów za każdego bohatera w grze.\r\n{-} Należy zwiększyć poziom zagrożenia następnej misji (i tylko następnej misji) o 1. Podczas etapu ulepszeń Rebelii gracze Rebelii mogą zdecydować, że wydają 50 kredytów za każdego bohatera w grze, aby temu zapobiec.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Guarded",
+      "GUID": "083a7730-cf91-48fa-8da2-9eb073783dc6",
+      "eventText": "Gdy przechodzicie przez pierwsze drzwi, zaskakuje was ogłuszający metaliczny zgrzyt. Drzwi przed wami powoli przesłania gruba pancerna płyta...",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Facility Entrance",
+              "GUID": "bd17cfa8-4317-4bf3-9474-b4cce6a006d7",
+              "theText": "Te drzwi są oznaczone jako \"Wejście do placówki\".\r\n\r\nDrzwi są zabezpieczone. Figurka Rebelii może je atakować (żywotność: *2*, obrona: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "34193acb-3156-4562-8d67-f0b48406522f",
+                  "theText": "Zniszcz"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "89d2e7e4-8ca0-4d85-80cb-449e5e4ea950",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "697ed242-b03b-4b83-a223-8d333c41a2fb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "5318fbd2-9dbd-4d10-9179-632ba3285bd9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "face85e4-58a4-4f79-bf36-ee64ff866c0e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka Rebelii może atakować drzwi (żywotność: *2*, obrona: 1 {G}).\r\n{-} Misja pójdzie naprzód kiedy bohaterowie znajdą rdzeń danych.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "fc6cdf7c-481e-44ae-ad5d-c402473bfa72",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Znajdź rdzeń danych.",
+          "longText": null,
+          "GUID": "d7697245-90d6-468a-bb74-e6370d7e120d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Side Door",
+      "GUID": "83050119-9254-485c-8652-3b183ef90d40",
+      "eventText": "Boczne drzwi zapadają się na skutek waszych ataków.\r\n\r\nJeśli obok drzwi, które właśnie otworzyłeś, znajdował się neutralny żeton misji, kliknij na żeton w tym samym kolorze na pomieszczeniu kontrolnym i kliknij \"Aktywuj\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Side Door",
+              "GUID": "5da78a7e-ea32-4dc7-a18f-4d2fbb4d255d",
+              "theText": "Te drzwi są oznaczone jako \"Drzwi boczne\".\r\n\r\nDrzwi są zabezpieczone. Figurka Rebelii może je atakować (żywotność: *2*, obrona: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "9514ea48-00eb-4211-9339-4121edb9679c",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "d0cff48f-e915-4efa-a576-5eca03364b51",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Core Room",
+      "GUID": "b2f9a62d-c723-4dd4-a050-12097bb27d2b",
+      "eventText": "Otwieracie małe pomieszczenie, w którym szumi rdzeń danych, otoczony czerwonym światłem. Zniszczenie rdzenia danych poważnie pokrzyżowałoby szyki Imperium.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Core Room Door",
+              "GUID": "caaf0ec0-5aee-43e1-b95e-b9c3d8dcdf45",
+              "theText": "Te drzwi są oznaczone jako \"Pokój z danymi\".\r\n\r\nDrzwi są zabezpieczone. Figurka Rebelii może je atakować (żywotność: *2*, obrona: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "4e800c00-db98-48ba-ae3c-a96c9e2d9473",
+                  "theText": "Zniszcz"
+                }
+              ]
+            }
+          ],
+          "GUID": "37a6bf2f-6e75-4f23-a6c0-6e0a0dd5a6a0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Figurka Rebelii może skorzystać z rdzenia danych, aby go zniszczyć, tym samym kończąc misję.",
+          "GUID": "50902ae7-2827-4777-a4d0-5a136fb09b1e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka Rebelii może atakować drzwi (żywotność: *2*, obrona: 1 {G}).\r\n{-} Bohaterowie wygrają kiedy rdzeń danych zostanie zniszczony.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "d4629309-20e0-4670-95a8-4a35c72b1d4e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Zniszcz rdzeń danych.",
+          "longText": null,
+          "GUID": "e4b9966a-4d24-4608-9b05-3c1fdc83feb6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "Jeśli obok drzwi, które właśnie otworzyłeś, znajdował się neutralny żeton misji, kliknij na żeton w tym samym kolorze na pomieszczeniu kontrolnym i kliknij \"Aktywuj\".",
+          "GUID": "98e07dc0-2a1b-4506-98d7-09560b669502",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal CA",
+      "GUID": "784267a1-85cb-4e00-8cfd-0f139c46b8c5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "Pola oddzielone od mapy to pomieszczenie kontrolne. Za każdym razem, gdy otworzysz drzwi, obok których znajduje się niebieski, czerwony lub żółty neutralny żeton misji, kliknij na żetonie w tym samym kolorze na pomieszczeniu kontrolnym i wybierz \"Aktywuj\".\r\n\r\nZa każdym razem, gdy figurka Rebelii atakuje drzwi z zielonym neutralnym żetonem misji obok nich, atakujący otrzymuje 2 {H} za każdy zielony neutralny żeton misji obok drzwi.",
+          "GUID": "756d77fb-154b-4b65-8d16-adab0a3abc28",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Defenses Blue 1",
+      "GUID": "6293949e-90bb-451c-8a5c-a8a58dcf1772",
+      "eventText": "Należy umieścić NIEBIESKI neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Blue 2",
+      "GUID": "639fb135-eb67-49da-8644-1273aee2030e",
+      "eventText": "Należy umieścić NIEBIESKI neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 1",
+      "GUID": "5755bcd0-c5cd-4f38-8f56-2b0b7de00b91",
+      "eventText": "Należy umieścić CZERWONY neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 2",
+      "GUID": "faed7616-833b-48d3-b0eb-8fbcf2ecddff",
+      "eventText": "Należy umieścić CZERWONY neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 1",
+      "GUID": "8b4d07e6-e180-4909-82b3-ef99abf77fad",
+      "eventText": "Należy umieścić ZIELONY neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 2",
+      "GUID": "f742d3bc-7b8c-4fd3-8b8b-47310817c113",
+      "eventText": "Należy umieścić ZIELONY neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 1",
+      "GUID": "3cbd986b-6fc0-43fc-8b70-eac5bfea0caf",
+      "eventText": "Należy umieścić ŻÓŁTY neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 2",
+      "GUID": "cfc116c5-66bd-4642-b1a6-89595bd4eb94",
+      "eventText": "Należy umieścić ŻÓŁTY neutralny żeton misji obok zamkniętych drzwi w poniższej kolejności. Można kliknąć na drzwi, aby przeczytać ich etykietę.\r\n\r\n1. Jeśli wejście do placówki jest zamknięte, należy umieścić go obok.\r\n2. Jeśli wejście do placówki jest otwarte, ale żaden bohater nie wszedł jeszcze na kafelek 28A, należy umieścić go obok drzwi bocznych.\r\n3. Jeśli bohaterowie weszli już na kafelek 28A, należy go umieścić obok drzwi do pokoju z danymi.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses End of Round",
+      "GUID": "43574d4c-926f-46dd-b9bb-014f026a4fd2",
+      "eventText": "Protokoły bezpieczeństwa Imperium zamykają obiekt.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Red",
+      "GUID": "c4f3fd42-dba3-4dc7-bca2-c3e64c727246",
+      "eventText": "Alarmy rozbrzmiewają w całym obiekcie.\r\n\r\nJeśli obok tych drzwi znajdują się dwa czerwone żetony, kliknij ponownie \"Aktywuj czerwony\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Yellow",
+      "GUID": "7562643c-39d9-4b7b-aec9-37ab559b6b0a",
+      "eventText": "Drzwi wybuchają oślepiającym błyskiem.\r\n\r\nKażdy bohater w promieniu 5 pól wykonuje test {K}. Każdy bohater, którego test jest nieudany, zostaje <color=\"red\">Ogłuszony</color>.\r\n\r\nJeśli obok drzwi znajdują się dwa żółte żetony misji, wykonaj dwa razy rzut i wybierz gorszy wynik.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal CA Event",
+      "GUID": "d560a1a1-1894-4ab4-94c3-116c2e2669e0",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "77ad1dc6-c81c-4471-8159-48b28f85a518",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "e641bf49-a61b-4f08-91eb-4bdd670fca5a",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Należy rozstawić bohaterów na tym punkcie.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "23e2172c-3435-49c4-8a8e-96718f9286fe",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "df14b7ba-feb7-4d24-bb3b-6d086610804c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "1320db38-7dd3-4bd1-913f-fd1fd58e7416",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Facility Entrance",
+      "GUID": "5af07f73-e1fe-4be2-ab15-0a1a6defa440",
+      "mainText": "Te drzwi są oznaczone jako \"Wejście do placówki\".\r\n\r\nDrzwi są zabezpieczone. Figurka Rebelii może je atakować (żywotność: *2*, obrona: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "7a4fec7a-8f33-4178-a08d-581a54f8dea8",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Side Door",
+      "GUID": "7ff79fd5-4054-4181-a72e-b6303d94d6e5",
+      "mainText": "Te drzwi są oznaczone jako \"Drzwi boczne\".\r\n\r\nDrzwi są zabezpieczone. Figurka Rebelii może je atakować (żywotność: *2*, obrona: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "9c73df61-4d01-4f57-8078-5e6438af73ce",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Core Room Door",
+      "GUID": "d89ff5b0-bb55-43a2-9cc8-6c7fc5ee71f5",
+      "mainText": "Te drzwi są oznaczone jako \"Pokój z danymi\".\r\n\r\nDrzwi są zabezpieczone. Figurka Rebelii może je atakować (żywotność: *2*, obrona: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "e7a58490-da37-4250-9913-cc3a6a3e8384",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "99a88f52-7505-41db-9244-37962f9132f8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "95a8dd62-0360-40cb-8815-d305b2120585",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "ff0e06f2-f4ef-41dc-bd5e-f2f30f816371",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Blue Token",
+      "GUID": "a3dbc1b4-2eaf-45b1-a4d7-e6e116abe04e",
+      "mainText": "Należy zwiększyć żywotność drzwi z niebieskim żetonem obok nich o *2*. Jeśli obok nich znajdują się dwa niebieskie żetony, zamiast tego należy zwiększyć ich żywotność o *4*.",
+      "buttonList": [
+        {
+          "GUID": "c0641759-c7c0-41c1-a849-5740efaf5c6e",
+          "theText": "Aktywuj niebieski"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Token",
+      "GUID": "bed6feb3-bba2-4b88-8e48-9357d99b7265",
+      "mainText": "Za każdym razem, kiedy drzwi obok których znajduje się czerwony neutralny żeton misji otwierają się, kliknij \"Aktywuj czerwony\" raz za każdy czerwony żeton obok tych drzwi.",
+      "buttonList": [
+        {
+          "GUID": "20e7822f-67f8-4bee-a352-7d04e645a508",
+          "theText": "Aktywuj czerwony"
+        }
+      ]
+    },
+    {
+      "entityName": "Green Token",
+      "GUID": "66d11f99-f4c4-4505-a373-7b02e037f156",
+      "mainText": "Za każdym razem, gdy figurka Rebelii atakuje drzwi z zielonym neutralnym żetonem misji obok nich, atakujący otrzymuje 2 {H} za każdy zielony neutralny żeton misji obok drzwi.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Token",
+      "GUID": "2b36c803-c5bf-4fb8-9cca-b5ad0263e43d",
+      "mainText": "Za każdym razem, kiedy drzwi obok których znajduje się żółty neutralny żeton misji otwierają się, kliknij \"Aktywuj żółty\" raz za każdy żółty żeton obok tych drzwi.",
+      "buttonList": [
+        {
+          "GUID": "3e05515a-2aff-4c95-b968-6a77f1964ffb",
+          "theText": "Aktywuj żółty"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Core",
+      "GUID": "8b48b9c7-d86d-4d8c-a637-c3eb3c120e3e",
+      "mainText": "Rdzeń danych placówki jest oświetlony łagodnym czerwonym światłem.\r\n\r\nFigurka Rebelii może skorzystać z rdzenia danych, aby go zniszczyć, tym samym kończąc misję.",
+      "buttonList": [
+        {
+          "GUID": "c19885d8-2295-4b4a-bd7e-dec1f7af0c1b",
+          "theText": "{A} Zniszcz"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

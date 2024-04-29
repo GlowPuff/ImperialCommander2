@@ -27,7 +27,7 @@ namespace Saga
 		/// </summary>
 		public void InstantiateEntities( List<IMapEntity> entities, bool restoring )
 		{
-			foreach ( IMapEntity e in entities )//DataStore.mission.mapEntities )
+			foreach ( IMapEntity e in entities )
 			{
 				if ( e.entityType == EntityType.DeploymentPoint )
 				{
@@ -317,7 +317,7 @@ namespace Saga
 			{
 				LayerMask mask = LayerMask.GetMask( "MapEntities" );
 				RaycastHit hit;
-				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( mousePosition );// Input.mousePosition );
+				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( mousePosition );
 				if ( Physics.Raycast( ray, out hit, 1000, mask ) )
 				{
 					Transform objectHit = hit.transform;

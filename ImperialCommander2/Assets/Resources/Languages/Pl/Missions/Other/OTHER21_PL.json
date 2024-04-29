@@ -1,0 +1,516 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Infection",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Royal Guard Champion Villain Pack",
+    "startingObjective": "",
+    "repositionOverride": "Blokuj dostęp do drzwi.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "f0bddfb2-bb29-4abd-936f-168e4ee51e48",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "2c76857c-4808-43c3-80d2-a2b345396daf",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "6282c757-8b79-48fb-adf4-99393ae5420e",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Wasz prom ląduje w pobliżu niewielkiego imperialnego ośrodka danych.\r\n\r\n{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.",
+      "eventActions": [
+        {
+          "tbText": "Chociaż wywiad Sojuszu zapewniał was, że jeśli zjawicie się w porę, ominiecie patrole, wkrótce okazuje się, że jest to nie do końca prawdą.\r\n\r\n- Stać! Naruszyliście granice obiektu imperialnego! Jesteście aresztowani!\r\n\r\nNatychmiast rozpoznajecie surowy głos przetwarzany przez systemy filtrów hełmu szturmowca, a gdy się odwracacie, widzicie oddział imperialnych żołnierzy, celujących do was z blasterów.\r\n\r\nTo utrudni sprawę, ale wasz główny cel się nie zmienił. Musicie dostać się do serwerowni.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.\r\n{-} Misja pójdzie naprzód, kiedy bohaterowie znajdą serwerownię.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "d579c49b-d09d-44cc-a990-28bc6451420a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Znajdź serwerownię.",
+          "longText": null,
+          "GUID": "902fd5dd-6704-42e5-8bd7-4669a61ea69b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.\r\n{-} Misja pójdzie naprzód, kiedy bohaterowie znajdą serwerownię.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "8ce947d6-6309-419e-825c-6a5ba0e741d5",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Gdy strumień imperialnych danych zostaje zaatakowany przez wirusa, odczyty na monitorach zmieniają się w trudny do rozszyfrowania bełkot. Niebawem moc zasilania spada i zanika, dzięki czemu zyskujecie szansę na potajemną ucieczkę.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 200 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Otoczeni i przyparci do muru, walczycie mężnie - i tylko cudem uchodzicie z życiem.\r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} Imperium dostaje <color=\"red\">Doborowego gwardzistę</color> jako przeciwnika.\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Door Attempt 1",
+      "GUID": "496fcdea-461f-4f67-a771-303a3aa1b7a7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Zaczynasz pracować nad zamkiem w drzwiach.\r\n\r\n{-} Wykonaj test {I}. Dodaj +1 {B} za każdy żeton zmęczenia na tych drzwiach, następnie odrzuć wszystkie żetony zmęczenia z tych drzwi. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "09250ee1-1ab8-49e4-9920-084461fbc2e9",
+              "theText": "Robisz pewne postępy, ale drzwi są nadal zamknięte. Musisz próbować jeszcze raz.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na drzwiach."
+            },
+            {
+              "GUID": "ac0086e6-6565-4c72-9aa2-fbc2285fa7fe",
+              "theText": null
+            }
+          ],
+          "GUID": "91b40cb7-937c-41f5-9b52-06fece63a56b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Security Breach",
+      "GUID": "a48ab5a1-3d79-42f4-a915-0f75933d44ba",
+      "eventText": "Za drzwiami znajduje się mały hol prowadzący do centrum danych.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "eaa59e92-6a29-4386-873b-58e40059f7b6",
+              "theText": "Drzwi chronią przed nieautoryzowanym wejściem do obiektu.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.",
+              "buttonList": [
+                {
+                  "GUID": "ae2a6905-05d1-4ffd-ad1c-ebe3d97feb05",
+                  "theText": "Zniszcz"
+                },
+                {
+                  "GUID": "d62fc917-6dbb-471a-a38c-e4e627b93064",
+                  "theText": "{I} Spróbuj otworzyć"
+                }
+              ]
+            }
+          ],
+          "GUID": "d3ba6572-f612-4007-9005-a65d800b7aba",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Natychmiast pojawiają się kolejni strażnicy.",
+          "GUID": "5df23157-4f7b-437b-99e6-1dbd4816a528",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Door Attempt 2",
+      "GUID": "0cb8af7a-86c4-4e47-9f8c-9f5cf75a4ff7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Zaczynasz pracować nad zamkiem w drzwiach.\r\n\r\n{-} Wykonaj test {I}. Dodaj +1 {B} za każdy żeton zmęczenia na tych drzwiach, następnie odrzuć wszystkie żetony zmęczenia z tych drzwi. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "2ee26eb7-424d-4975-9c2c-3d5c2f8f3033",
+              "theText": "Robisz pewne postępy, ale drzwi są nadal zamknięte. Musisz próbować jeszcze raz.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na drzwiach."
+            },
+            {
+              "GUID": "38c30928-df5d-4d6a-81a2-c9eafdf8a274",
+              "theText": null
+            }
+          ],
+          "GUID": "5108e86f-9dc3-4411-a947-2ab620d6a388",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Guarded",
+      "GUID": "48c52498-249c-4577-9ee6-e22716efd3fd",
+      "eventText": "Pomieszczenie kontrolne centrum danych jest pełne terminali i stacji roboczych.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "1ce58f6e-2eb3-4551-8970-9587184beada",
+              "theText": "Do pomieszczenia kontrolnego obiektu prowadzą solidne drzwi.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.",
+              "buttonList": [
+                {
+                  "GUID": "6932406c-1c88-4693-9a55-cbea8155b697",
+                  "theText": "Zniszcz"
+                },
+                {
+                  "GUID": "2517a49f-8504-4ec1-babd-a045a73896e4",
+                  "theText": "{I} Spróbuj otworzyć"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "6aeb85e3-a40c-4471-b2f6-f1cec54ed56a",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ea27c17f-906d-4078-86ca-311ac04f5608",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Dwóch ubranych na czerwono strażników podnosi broń, gdy tylko wkraczacie do pomieszczenia.",
+          "GUID": "e22d9f34-1e31-4253-996f-ee8210827366",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "03512b56-aff5-4a59-8494-8be38e489282",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Door Attempt 3",
+      "GUID": "5b87511e-f7a2-4bd5-af84-6c44b4b3b7b2",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Zaczynasz pracować nad zamkiem w drzwiach.\r\n\r\n{-} Wykonaj test {I}. Dodaj +1 {B} za każdy żeton zmęczenia na tych drzwiach, następnie odrzuć wszystkie żetony zmęczenia z tych drzwi. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e6cb8f38-a9ac-4e9e-b2e6-98dab787c336",
+              "theText": "Robisz pewne postępy, ale drzwi są nadal zamknięte. Musisz próbować jeszcze raz.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na drzwiach."
+            },
+            {
+              "GUID": "3226ba64-e6f3-4510-b9b0-15da7524badf",
+              "theText": null
+            }
+          ],
+          "GUID": "31fac12e-7c53-4d3b-8d5a-704f96ca02b5",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Server Room Opens",
+      "GUID": "d6986848-a349-47dc-9f47-e74499ccdf86",
+      "eventText": "W końcu docieracie do serwerowni. Wchodząc do środka uderza was zimne powietrze.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "e8cf5a11-19c2-459d-9bfc-00a34beda7b7",
+              "theText": "Do serwerowni obiektu prowadzą solidne drzwi.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.",
+              "buttonList": [
+                {
+                  "GUID": "7593ee23-74c7-4193-9454-794aa252d216",
+                  "theText": "Zniszcz"
+                },
+                {
+                  "GUID": "ddfa58ec-0441-4659-83b0-a4b823d2e426",
+                  "theText": "{I} Spróbuj otworzyć"
+                }
+              ]
+            }
+          ],
+          "GUID": "63b7ae04-1658-4292-8cb8-1cee076a08d1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Główny serwer w centrum danych intensywnie przetwarza dane. To jest wasz cel.",
+          "GUID": "7af5ba6e-8f96-499d-a20f-76c299fd4d2f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "a952978c-a288-46fc-b8ac-d8173c5f7527",
+              "theText": "Główny serwer centrum danych szumi cicho.\r\n\r\n{-} Bohater może skorzystać z terminala ({I} lub {J}), aby spróbować załadować wirus.",
+              "buttonList": [
+                {
+                  "GUID": "0ed413c0-a34b-46a8-a032-9dfcf1d8ec5b",
+                  "theText": "{A} Spróbuj załadować wirus"
+                }
+              ]
+            }
+          ],
+          "GUID": "35f659f1-1b76-4f42-9943-0afbc957152e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Bohater może skorzystać z terminala ({I} lub {J}), aby spróbować załadować wirus.\r\n{-} Bohaterowie wygrają kiedy wirus zostanie załadowany.",
+          "GUID": "75986e33-7495-4d25-a829-3d47f1261216",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Załaduj wirus.",
+          "longText": null,
+          "GUID": "cd9ec673-6a9f-422a-96ed-255e93a0b76b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Bohater może skorzystać z terminala ({I} lub {J}), aby spróbować załadować wirus.\r\n{-} Bohaterowie wygrają kiedy wirus zostanie załadowany.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "91adcba4-3e3d-45cf-b412-27094af13427",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Upload Attempt",
+      "GUID": "093adb3e-0bb3-440c-9e1c-3cb76b3f0bc6",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Zaczynasz włamywać się do głownego serwera.\r\n\r\n{-} Wykonaj test {I} lub {J}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na terminalu, następnie odrzuć wszystkie żetony zmęczenia z terminala. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e1cbfa78-4497-40fe-a9e8-cbb5c6bbd539",
+              "theText": "Robisz pewne postępy, ale imperialne systemy bezpieczeństwa wciąż stawiają opór. Musisz spróbować ponownie.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na terminalu."
+            },
+            {
+              "GUID": "c6e5787c-9b14-4d99-9431-cff3804b6b48",
+              "theText": null
+            }
+          ],
+          "GUID": "06fbc19e-3899-4473-bcca-85f0bd6298d4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Nemesis",
+      "GUID": "331946cc-027a-4d19-9417-5a4120aada4d",
+      "eventText": "Za plecami słyszycie niski, ociekający jadem głos: - Durni rebelianci! Cieszę się, że złapaliście naszą przynętę - i nie mogę się doczekać porządnej walki!",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1* żywotności",
+          "repositionInstructions": "",
+          "GUID": "151de79d-2b4a-4be7-9ef4-8bb90da444b9",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG074/Royal Guard Champion"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "0933eafb-652c-40bb-ab6c-a7da8f83c753",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "86703859-f3f0-4053-a260-4f8b4a1d5707",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Należy rozstawić bohaterów na tym punkcie.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "ef03edd6-be51-4485-b08e-65631adf8d28",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "1ec3fb88-afd8-4858-b9a9-f61400d3db2a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "79b3ea4c-3b26-416a-b9df-356b584f87de",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "a23558e4-eaeb-4ade-9d6e-f416b2214729",
+      "mainText": "Drzwi chronią przed nieautoryzowanym wejściem do obiektu.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.",
+      "buttonList": [
+        {
+          "GUID": "a880dafc-d0a9-472c-a9ee-dd7538bb7e6c",
+          "theText": "Zniszcz"
+        },
+        {
+          "GUID": "cd11c875-144a-40fc-a11b-2550dfd7cfc8",
+          "theText": "{I} Spróbuj otworzyć"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "d47765c7-792b-44c8-9a94-2a29928e5449",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "2c80523c-0fcb-4d95-947f-08909912bede",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "9eaa4095-4f88-4a22-b409-c113f8e3e93c",
+      "mainText": "Główny serwer centrum danych szumi cicho.\r\n\r\n{-} Bohater może skorzystać z terminala ({I} lub {J}), aby spróbować załadować wirus.",
+      "buttonList": [
+        {
+          "GUID": "5dbc71ed-4bf1-453a-87f7-3fe96707647e",
+          "theText": "{A} Spróbuj załadować wirus"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "08a90865-c83a-4bf2-b08f-9352fec7c94f",
+      "mainText": "Do pomieszczenia kontrolnego obiektu prowadzą solidne drzwi.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.",
+      "buttonList": [
+        {
+          "GUID": "f17d6216-ff42-4c04-872c-ed21e9b8d42f",
+          "theText": "Zniszcz"
+        },
+        {
+          "GUID": "0561090f-21e7-4e9b-a931-bfe5dfc99e88",
+          "theText": "{I} Spróbuj otworzyć"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "7a21649b-8180-4734-994c-7f482cb1ce23",
+      "mainText": "Do serwerowni obiektu prowadzą solidne drzwi.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować drzwi (żywotność: 5, obrona: 1 {G}), aby je zniszczyć lub skorzystać z drzwi ({I}), aby spróbować je otworzyć.",
+      "buttonList": [
+        {
+          "GUID": "97914790-69ed-4e4c-af3a-5beb7578e711",
+          "theText": "Zniszcz"
+        },
+        {
+          "GUID": "1e998cf0-3b2f-48da-af3f-cf65d73edee8",
+          "theText": "{I} Spróbuj otworzyć"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "6e7c7730-6862-471d-a866-fb42e991759e",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

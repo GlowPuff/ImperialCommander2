@@ -154,8 +154,16 @@ namespace Saga
 			No deployment
 			DM +2
 			*/
-			DataStore.sagaSessionData.ModifyThreat( DataStore.sagaSessionData.setupOptions.threatLevel );
-			DataStore.sagaSessionData.UpdateDeploymentModifier( 2 );
+			int threatGain = DataStore.sagaSessionData.setupOptions.threatLevel;
+			int depMod = 2;
+			if ( Utils.IsRoundLimitReachedWithSetting( 2 ) )
+			{
+				Debug.Log( "HandleCalm()::Danger Mode, Threat Gain*2 and Modifier+2" );
+				threatGain *= 2;
+				depMod += 2;
+			}
+			DataStore.sagaSessionData.ModifyThreat( threatGain );
+			DataStore.sagaSessionData.UpdateDeploymentModifier( depMod );
 		}
 
 		void HandleReinforcements()
@@ -165,8 +173,16 @@ namespace Saga
 			Reinforce up to 2 groups
 			DM +1
 			*/
-			DataStore.sagaSessionData.ModifyThreat( DataStore.sagaSessionData.setupOptions.threatLevel );
-			DataStore.sagaSessionData.UpdateDeploymentModifier( 1 );
+			int threatGain = DataStore.sagaSessionData.setupOptions.threatLevel;
+			int depMod = 1;
+			if ( Utils.IsRoundLimitReachedWithSetting( 2 ) )
+			{
+				threatGain *= 2;
+				depMod += 2;
+			}
+
+			DataStore.sagaSessionData.ModifyThreat( threatGain );
+			DataStore.sagaSessionData.UpdateDeploymentModifier( depMod );
 
 			DeploymentCard r1 = DataStore.GetReinforcement( DataStore.sagaSessionData.gameVars.currentThreat );
 			if ( r1 != null )
@@ -211,8 +227,17 @@ namespace Saga
 				landingMessage.SetActive( false );
 			else// if ( !skipThreatIncrease )
 			{
-				DataStore.sagaSessionData.ModifyThreat( DataStore.sagaSessionData.setupOptions.threatLevel + 1 );
-				DataStore.sagaSessionData.UpdateDeploymentModifier( 1 );
+				int threatGain = DataStore.sagaSessionData.setupOptions.threatLevel + 1;
+				int depMod = 1;
+				if ( Utils.IsRoundLimitReachedWithSetting( 2 ) )
+				{
+					Debug.Log( "HandleLanding()::Danger Mode, Threat Gain*2 and Modifier+2" );
+					threatGain *= 2;
+					depMod += 2;
+				}
+
+				DataStore.sagaSessionData.ModifyThreat( threatGain );
+				DataStore.sagaSessionData.UpdateDeploymentModifier( depMod );
 				landingMessage.SetActive( true );
 			}
 
@@ -283,7 +308,14 @@ namespace Saga
 				onslaughtMessage.SetActive( false );
 			else
 			{
-				DataStore.sagaSessionData.ModifyThreat( DataStore.sagaSessionData.setupOptions.threatLevel + 2 );
+				int threatGain = DataStore.sagaSessionData.setupOptions.threatLevel + 2;
+				if ( Utils.IsRoundLimitReachedWithSetting( 2 ) )
+				{
+					Debug.Log( "HandleOnslaught()::Danger Mode, Threat Gain*2" );
+					threatGain *= 2;
+				}
+
+				DataStore.sagaSessionData.ModifyThreat( threatGain );
 				onslaughtMessage.SetActive( true );
 			}
 

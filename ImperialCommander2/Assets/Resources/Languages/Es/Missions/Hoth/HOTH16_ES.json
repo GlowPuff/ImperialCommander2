@@ -1,0 +1,475 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Por las malas",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Regreso a Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a la puerta.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "db4cb2be-530f-4101-8e2f-69cea18c4fd9",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "4505fcad-cb58-4009-bbf0-d54e7b2c5122",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "3ec8fef1-81f3-49bc-b65f-7a15c90d32d2",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "1067a6e0-62f3-4136-b40f-ff0aae7bd97b",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Llegáis al escondite de los hermanos Krandt, deseosos de obtener información sobre el capitán Solo y listos para negociar.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.",
+      "eventActions": [
+        {
+          "tbText": "{-} Las puertas están selladas para las figuras del bando Imperial\r\n{-} La misión avanza cuando se encuentra a los hermanos Krandt.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "95b09676-a368-4950-ad7f-328a8b8e1469",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Sin dudarlo un momento, Chewbacca grita mientras inicia una carga. Se acabaron las negociaciones. \"¡GRWAAAAAAAAAA!\"",
+          "GUID": "3797ba92-8bfe-4d57-b45b-ab75e547f301",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "customName": null,
+          "GUID": "8181b95c-fa56-4c11-b33c-cfd83079b473",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "shortText": "Encontrar a los hermanos Krandt.",
+          "longText": null,
+          "GUID": "f12574bb-799a-480e-af81-65b440552290",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas para el bando Imperial\r\n{-} La misión avanza cuando se encuentra a los hermanos Krandt.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "6e46a310-d7da-445b-aeac-c68a0081a93a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Gracias a vuestra astuta combinación de técnicas de interrogación tradicionales y “mejoradas con un wookie”, los cobardes Hermanos Krandt os revelan todo lo que saben sobre Jabba y Solo.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa \"Estrategia ejecutada\".\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} El Imperio descarta la carta de Recompensa \"Distracciones\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "El par de transdoshanos se escabulle detrás de una oleada de refuerzos avanzados. Os retiráis con las manos vacías, perseguidos por una potente lluvia de disparos de bláster.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} El Imperio descarta la carta de Recompensa \"Distracciones\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Assault",
+      "GUID": "c3ec24d3-0f4b-4da4-866c-0d5c5183d7c4",
+      "eventText": "Irrumpís en la base y encontráis a los guardias acompañados de Oficiales Imperiales. Parece que el Imperio está interesado en mantener esta información oculta.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door Hallway",
+              "GUID": "d531dfbc-8113-4bb2-9957-05052c0dc0ff",
+              "theText": "Una vieja puerta de acero transparente conduce al piso franco de los hermanos Krandt.",
+              "buttonList": [
+                {
+                  "GUID": "900ee9fd-117d-43df-9691-464a71f6f25a",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "f8c50037-eee2-46e1-926a-5ceaff13c4ce",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "023047ad-53f3-4fa2-909b-e42ecb8043e7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7c9d2ec3-2833-4d3d-8000-edc0c666476f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        }
+      ]
+    },
+    {
+      "eventName": "Bodyguards",
+      "GUID": "2cfb55ab-a5d9-444d-a114-fcecb1ec88d1",
+      "eventText": "Detrás de la segunda puerta se esconde una gran forja automatizada. Droides de construcción martillean piezas metálicas con enormes bloques.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door Forge",
+              "GUID": "50547e8c-fb32-4a7f-a6ee-248a4caa4b0a",
+              "theText": "Esta puerta conduce al interior del piso franco. El zumbido de la maquinaria y los estruendos metálicos se oyen por detrás.",
+              "buttonList": [
+                {
+                  "GUID": "75414cf2-596f-4b38-817f-4fba7685c396",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "f8753fc7-b318-4f01-9d88-285f89545ad1",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "148b2f09-b9bd-487d-b96c-7ad490a99df0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Los hermanos Krandt han apostado a sus guardaespaldas aquí. Debéis estar acercándoos.",
+          "GUID": "00d13ecf-b9e7-4688-b0f4-fdf228877a77",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Negotiations",
+      "GUID": "6b7ee7e5-5fb8-4f16-b412-ad0ccb4690bc",
+      "eventText": "Abrís la puerta que da a una parte de la antigua fábrica convertida en búnker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door Bunker",
+              "GUID": "16f37aa1-785e-463a-8944-fdf11f9e93d6",
+              "theText": "Una robusta puerta conduce a lo que parece un búnker.",
+              "buttonList": [
+                {
+                  "GUID": "c2797684-3bd4-45a3-bd09-45e56372b643",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "96d1d0fb-cd10-4436-8837-e74873197a3b",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "016a5c75-14b9-49ea-a358-955570a71be2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Los hermanos Krandt, dos enormes trandoshanos, interrumpen su discusión con un hombre de uniforme Imperial. Gruñen y desenfundan sus armas.",
+          "GUID": "e17b371e-1c94-419d-bb0c-0343abce2280",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Los hermanos Krandt (<color=\"red\">Cazador Trandoshano</color>)",
+          "customText": "",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "3098df87-4a78-46e2-954e-2bff9e0b5564",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG016/Trandoshan Hunter (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "047b03e5-8afe-48e9-a0ce-497b137d3888",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "{-} Cuando un hermano Krandt es derrotado, en vez de eso queda incapacitado. No puede atacar ni abandonar su casilla voluntariamente.\r\n{-} Una figura del bando Rebelde puede interactuar con un Hermano Krandt incapacitado ({K} o {J}). Coloca 1 ficha de tensión en ese hermano Krandt por cada éxito. Cuando ambos Hermanos Krandt tienen 2 o más fichas de tensión, ceden ante el interrogatorio. Si eso ocurre, haz clic en el resalte verde y selecciona \"Los Krandts se rinden\".\r\n{-} Los Rebeldes ganan cuando los hermanos Krandt ceden al interrogatorio.",
+          "GUID": "096936bf-8008-4b86-aaba-81612e9ce702",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Krandt Brother Highlight",
+              "GUID": "6d37ebf1-14da-44da-b802-fe875c45f5c2",
+              "theText": "{-} Una figura del bando Rebelde puede interactuar con un Hermano Krandt incapacitado ({K} o {J}). Coloca 1 ficha de tensión en ese hermano Krandt por cada éxito. Cuando ambos Hermanos Krandt tienen 2 o más fichas de tensión, ceden ante el interrogatorio. Si eso ocurre, haz clic en el resalte verde y selecciona \"Los Krandts se rinden\".",
+              "buttonList": [
+                {
+                  "GUID": "d2a5b90b-b8b4-4856-a10f-bf98120cc6ea",
+                  "theText": "Los Krandts se rinden"
+                }
+              ]
+            }
+          ],
+          "GUID": "bb77b296-b52a-4883-93d8-5f0febecd0c7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": null,
+          "GUID": "7dae00da-bf4f-431b-a3c5-5db7c5e9afc4",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Haz que los hermanos Krandt se rindan al interrogatorio.",
+          "longText": null,
+          "GUID": "50aee805-386d-4533-b9f1-72f1cb1f7a91",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un hermano Krandt es derrotado, en vez de eso queda incapacitado. No puede atacar ni abandonar su casilla voluntariamente.\r\n{-} Una figura del bando Rebelde puede interactuar con un Hermano Krandt incapacitado ({K} o {J}). Coloca 1 ficha de tensión en ese hermano Krandt por cada éxito. Cuando ambos Hermanos Krandt tienen 2 o más fichas de tensión, ceden ante el interrogatorio. Si eso ocurre, haz clic en el resalte verde y selecciona \" Los Krandts se rinden\".\r\n{-} Los Rebeldes ganan cuando los hermanos Krandt ceden al interrogatorio.\r\n{-} Los Rebeldes pierden uando todos los Héroes están heridos.",
+          "GUID": "7557045a-7f52-4a27-87ee-4c832dd341a2",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "1e771af5-48db-4cbd-99a7-58b1ae708c01",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "b7a760cb-b15d-4f05-9af0-51b8738295a8",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "cf40a852-77fb-410b-bbf3-999c91e8ab55",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega aquí a los Héroes",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "7c27479c-04af-4932-8e8f-6590ccf7596c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHK 1",
+      "GUID": "6db3e972-9ff6-4c93-bd04-a6d52ea7ef9b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHK 2",
+      "GUID": "287caf51-3f09-4446-b801-b1b1915dd450",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "8b70590f-a258-4390-86a8-c5acc816fc8f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "2dae8c5c-67af-4fef-8f1e-ffd777e75162",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Krandt 1",
+      "GUID": "b86f1848-5fae-48bd-8940-24a9b7b89d16",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Krandt 2",
+      "GUID": "60408052-7d94-4237-ac47-e9720d2f8e98",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "1997f4df-383d-4780-89e3-e29f584ae6dd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door Hallway",
+      "GUID": "05124bc6-efc1-47bb-92da-965b887e8003",
+      "mainText": "Una vieja puerta de acero transparente conduce al piso franco de los hermanos Krandt.",
+      "buttonList": [
+        {
+          "GUID": "adeef8a7-d0df-4065-a0e8-f384237518b1",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door Forge",
+      "GUID": "c9ffabf9-7cae-4625-8e42-ceee83cd8c4d",
+      "mainText": "Esta puerta conduce al interior del piso franco. El zumbido de la maquinaria y los estruendos metálicos se oyen por detrás.",
+      "buttonList": [
+        {
+          "GUID": "42cf1bf8-266b-4a79-8578-e5c3123ea13b",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door Bunker",
+      "GUID": "0fabdfd5-8ce6-4920-9e97-ecfd1bc31b4f",
+      "mainText": "Una robusta puerta conduce a lo que parece un búnker.",
+      "buttonList": [
+        {
+          "GUID": "cfac2e04-a0c7-4d64-bcd4-62d7e529cb23",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Krandt Brother Highlight",
+      "GUID": "5bed9624-1fe7-427c-a823-32f7dc7112eb",
+      "mainText": "{-} Una figura del bando Rebelde puede interactuar con un Hermano Krandt incapacitado ({K} o {J}). Coloca 1 ficha de tensión en ese hermano Krandt por cada éxito. Cuando ambos Hermanos Krandt tienen 2 o más fichas de tensión, ceden ante el interrogatorio. Si eso ocurre, haz clic en el resalte verde y selecciona \" Los Krandts se rinden\".",
+      "buttonList": [
+        {
+          "GUID": "b5aefeef-4817-4c72-8313-3fb392521332",
+          "theText": "Los Krandts se rinden"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Chewie",
+      "GUID": "1f75c42d-7c19-4ebd-9d89-ab5217a63f43",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "HK Assassin Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Nexu",
+      "customInstructions": ""
+    }
+  ]
+}

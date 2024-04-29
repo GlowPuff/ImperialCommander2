@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class DeploymentGroupManager : MonoBehaviour
 {
 	public Transform gridContainer, heroContainer;
@@ -37,17 +41,17 @@ public class DeploymentGroupManager : MonoBehaviour
 
 	public void DeployStartingGroups()
 	{
-		foreach ( var cd in DataStore.sessionData.MissionStarting )
-		{
-			cd.currentSize = cd.size;
-			cd.hasActivated = false;
-			var go = Instantiate( dgPrefab, gridContainer );
-			go.GetComponent<DGPrefab>().Init( cd );
-			DataStore.deployedEnemies.Add( cd );
-		}
-		var rt = gridContainer.GetComponent<RectTransform>();
-		rt.localPosition = new Vector3( 20, -3000, 0 );
-		sound.PlaySound( FX.Deploy );
+		//foreach ( var cd in DataStore.sessionData.MissionStarting )
+		//{
+		//	cd.currentSize = cd.size;
+		//	cd.hasActivated = false;
+		//	var go = Instantiate( dgPrefab, gridContainer );
+		//	go.GetComponent<DGPrefab>().Init( cd );
+		//	DataStore.deployedEnemies.Add( cd );
+		//}
+		//var rt = gridContainer.GetComponent<RectTransform>();
+		//rt.localPosition = new Vector3( 20, -3000, 0 );
+		//sound.PlaySound( FX.Deploy );
 	}
 
 	public void RestoreState()
@@ -77,38 +81,38 @@ public class DeploymentGroupManager : MonoBehaviour
 	{
 		cardDescriptor.hasActivated = false;
 		// EASY: Any time an Elite group is deployed, it has a 15% chance to be downgraded to a normal group without refunding of threat. ( If the respective normal group is still available.)
-		if ( DataStore.sessionData.difficulty == Difficulty.Easy &&
-			!skipEliteModify &&
-			cardDescriptor.isElite &&
-			GlowEngine.RandomBool( 15 ) )
-		{
-			//see if normal version exists, include dep hand
-			var nonE = DataStore.GetNonEliteVersion( cardDescriptor );
-			if ( nonE != null )
-			{
-				Debug.Log( "DeployGroup EASY mode Elite downgrade: " + nonE.name );
-				cardDescriptor = nonE;
-				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngradeMsgUC );
-			}
-		}
+		//if ( DataStore.sessionData.difficulty == Difficulty.Easy &&
+		//	!skipEliteModify &&
+		//	cardDescriptor.isElite &&
+		//	GlowEngine.RandomBool( 15 ) )
+		//{
+		//	//see if normal version exists, include dep hand
+		//	var nonE = DataStore.GetNonEliteVersion( cardDescriptor );
+		//	if ( nonE != null )
+		//	{
+		//		Debug.Log( "DeployGroup EASY mode Elite downgrade: " + nonE.name );
+		//		cardDescriptor = nonE;
+		//		GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngradeMsgUC );
+		//	}
+		//}
 
 		//Hard: Threat increase x1.3 Any time a normal group is deployed, it has a 15 % chance to be upgraded to an Elite group at no additional threat cost. ( If the respective normal group is still available.) Deployment Modifier starts at 2 instead of 0.
-		if ( DataStore.sessionData.difficulty == Difficulty.Hard &&
-			!skipEliteModify &&
-			!cardDescriptor.isElite &&
-			GlowEngine.RandomBool( 15 ) )
-		{
-			//see if elite version exists, include dep hand
-			var elite = DataStore.GetEliteVersion( cardDescriptor );
-			if ( elite != null )
-			{
-				Debug.Log( "DeployGroup HARD mode Elite upgrade: " + elite.name );
-				cardDescriptor = elite;
-				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgradeMsgUC );
-			}
-			else
-				Debug.Log( "SKIPPED: " + cardDescriptor.name );
-		}
+		//if ( DataStore.sessionData.difficulty == Difficulty.Hard &&
+		//	!skipEliteModify &&
+		//	!cardDescriptor.isElite &&
+		//	GlowEngine.RandomBool( 15 ) )
+		//{
+		//	//see if elite version exists, include dep hand
+		//	var elite = DataStore.GetEliteVersion( cardDescriptor );
+		//	if ( elite != null )
+		//	{
+		//		Debug.Log( "DeployGroup HARD mode Elite upgrade: " + elite.name );
+		//		cardDescriptor = elite;
+		//		GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgradeMsgUC );
+		//	}
+		//	else
+		//		Debug.Log( "SKIPPED: " + cardDescriptor.name );
+		//}
 
 		if ( DataStore.deployedEnemies.ContainsCard( cardDescriptor ) )
 		{

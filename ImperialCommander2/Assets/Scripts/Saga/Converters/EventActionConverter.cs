@@ -105,6 +105,27 @@ namespace Saga
 					case 23:
 						eventActionAction = item.ToObject<QueryGroup>();
 						break;
+					case 24:
+						eventActionAction = item.ToObject<CampaignModifyXP>();
+						break;
+					case 25:
+						eventActionAction = item.ToObject<CampaignModifyCredits>();
+						break;
+					case 26:
+						eventActionAction = item.ToObject<CampaignModifyFameAwards>();
+						break;
+					case 27:
+						eventActionAction = item.ToObject<CampaignSetNextMission>();
+						break;
+					case 28:
+						eventActionAction = item.ToObject<ModifyRoundLimit>();
+						break;
+					case 29:
+						eventActionAction = item.ToObject<SetCountdown>();
+						break;
+					case 30:
+						eventActionAction = item.ToObject<AddCampaignReward>();
+						break;
 				}
 				eObserver.Add( eventActionAction );
 			}

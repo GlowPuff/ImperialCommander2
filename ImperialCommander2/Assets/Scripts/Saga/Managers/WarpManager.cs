@@ -17,6 +17,13 @@ public class WarpManager : MonoBehaviour
 
 	void Awake()
 	{
+		//if skipping warp intro, just load into the mission
+		if ( PlayerPrefs.GetInt( "skipWarpIntro" ) == 1 )
+		{
+			SceneManager.LoadScene( "Saga" );
+			return;
+		}
+
 		sound = FindObjectOfType<Sound>();
 		sound.PlayMusicAndMenuAmbient();
 

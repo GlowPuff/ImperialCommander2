@@ -1,0 +1,387 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Disturbios civiles",
+    "missionDescription": "",
+    "missionInfo": "{-} El <color=\"red\">AT-DP</color> no puede sufrir {H}.\r\n{-} Las fichas de Misión neutrales representan civiles. Los civiles son figuras neutrales. Las figuras del bando Imperial pueden atacar a los civiles (Vida: 4).\r\n{-} La ficha de Misión Rebelde representa una ruta de escape. Cuando un civil entra en la casilla de la ruta de escape o en una adyacente, haz clic en la ruta de escape y selecciona \"Civil escapa\".\r\n{-} Cuando un civil es derrotado, haz clic en la ruta de escape y selecciona \"Civil derrotado\".\r\n{-} Al final de la activación de un Héroe, ese Héroe puede mover hasta 2 casillas a un civil que esté a 2 o menos casillas de él.\r\n{-} Un Héroe puede gastar 1 punto de movimiento para colocar 1 Escudo de energía de su zona de juego en una casilla adyacente.\r\n{-} Un Héroe puede gastar 1 punto de movimiento para reclamar 1 Escudo de energía adyacente.\r\n{-] La misión avanza cuando no queden civiles en el tablero o al final de la ronda 4.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+    "campaignName": "",
+    "startingObjective": "Proteger a los civiles. Civiles escapados o derrotados: &Civilians&/9",
+    "repositionOverride": null,
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "ab093815-8db6-493c-a4fd-08e70cacc5a7",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "2c4ed049-ca85-449d-853d-d5be3cd7c526",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "9f70865a-5404-4aad-bfc7-2edbe4b51cb8",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9917c48a-121a-4904-8a68-d8122d438c52",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Para cuando llegáis al lugar, las calles ya están sumidas en el caos. Los civiles se agazapan con miedo detrás de cuanta cobertura pueden encontrar, desesperados por escapar de las imponentes máquinas de guerra del Imperio.\r\n\r\n{-} Despliega los Héroes en la ficha de misión Rebelde.",
+      "eventActions": [
+        {
+          "tbText": "Los manifestantes se acobardan o corren a refugiarse.\r\n\r\n{-} Coloca 1 ficha de Misión neutral en cada casilla marcada en rojo.\r\n{-} Las fichas de Misión neutrales representan civiles. Los civiles son figuras neutrales. Las figuras del bando imperial pueden atacar a los civiles (Vida: 4).\r\n{-} La ficha de Misión Rebelde representa una ruta de escape. Cuando un civil entra en la casilla de la ruta de escape o en una adyacente, haz clic en la ruta de escape y selecciona \"Civil escapa\".\r\n{-} Cuando un civil es derrotado, haz clic en la ruta de escape y selecciona \"Civil derrotado\".\r\n{-} Al final de la activación de un Héroe, ese Héroe puede mover hasta 2 casillas a un civil que esté a 2 o menos casillas de él.",
+          "GUID": "561387f9-553b-46ec-a660-6061017be9d0",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Un enorme andador de combate recorre las calles de Taris. Su estructura metálica está envuelta por un brillante escudo de energía.\r\n\r\n{-} El <color=\"red\">AT-DP</color> no puede sufrir {H}.",
+          "GUID": "b8b5546d-2fe9-48e2-8171-7863e3295c4b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "{-} GENERADORES DE POTENCIA: Si esta figura ha sufrido menos de 9 {H}, gana +2 {H}.\r\n{Q} Mueve 2 para atacar a {rebel}.\r\n{Q} Mueve 2 para atacar a {rebel}.\r\n{Q}{A} Mueve 5 para atacar a {rebel}.\r\n{A}{A} Mueve 8 hacia {rebel}.\r\n{A} Mueve 3 hacia el Rebelde más cercano.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0b17956e-45fb-44be-b43c-daa860b4484f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG046/AT-DP"
+        },
+        {
+          "tbText": "Os alegráis de que el Alto Mando haya pensado en equiparos con generadores de escudos portátiles. Los sacáis de vuestras mochilas.\r\n\r\n{-} Reparte 4 fichas de Escudo de Energía entre las zonas de juego de los Héroes.\r\n{-} Un Héroe puede gastar 1 punto de movimiento para colocar 1 Escudo de energía de su zona de juego en una casilla adyacente.\r\n{-} Un Héroe puede gastar 1 punto de movimiento para reclamar 1 Escudo de energía adyacente.",
+          "GUID": "08d99eaa-d73c-450f-a76f-9cbf0620dd0b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Preparáis vuestras armas. Esta va a ser una difícil batalla.\r\n\r\n{-} La misión avanza cuando no hay civiles en el tablero o al final de la Ronda 4.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "aae392af-b09a-4c1a-a99e-a3f1e586e032",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "El andador se estrella contra el suelo envuelto en llamas. Algunos de los manifestantes más valientes salen de su cobertura para subirse a los restos y alzar sus voces en desafío una vez más. Os marcháis con la seguridad de que el espíritu de la Rebelión se ha fortalecido aquí hoy.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa \"Apoyo popular\". Esta carta de recompensa fuciona de manera diferente jugando con <b>Imperial Commander</b>. Visita la sección <b>Rules Change</b> de la documentación de la wiki para obtener más detalles.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "El gigante de metal parece imparable, así que os veis forzados a uniros a la multitud que huye, abandonando a los ciudadanos inocentes a su suerte. Pasará algún tiempo antes de que los ciudadanos de Taris recobren la valentía suficiente para presentar más resistencia.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Civilian defeated",
+      "GUID": "58e40a61-4aaa-4aa8-80dc-91073f9b838b",
+      "eventText": "Los disparos del Imperio alcanzan a otro manifestante que se desploma en el suelo.\r\n\r\n{-} Retira al civil derrotado.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Civilian escapes",
+      "GUID": "16c86d5f-75fb-4367-841c-ef999722d18e",
+      "eventText": "Otro manifestante logra alcanzar la ruta de escape, finalmente a salvo del Imperio.\r\n\r\n{-} Retira al civil escapado.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Heating Up",
+      "GUID": "1a3613c4-127c-404f-98a0-1fc1b154d8c9",
+      "eventText": "Más y más fuerzas Imperiales invaden las calles.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Take it Down!",
+      "GUID": "0bb9fb9f-d9a4-489f-a1c7-0ea302f87cfe",
+      "eventText": "Mientras los refuerzos se acercan, los manifestantes que quedan intentan refugiarse. Tu piloto sobrevuela la zona y lanza una descarga de pulso electromagnético contra los generadores de escudo del AT-DP.\r\n\r\nUna vez descubierta su debilidad, apuntáis vuestras armas y os preparáis para derribar al andador, ahora menos intimidatorio.\r\n\r\n{-} El <color=\"red\">AT-DP</color> ahora puede sufrir {H}.\r\n{-} Los Rebeldes ganan cuando el <color=\"red\">AT-DP</color> es derrotado.",
+      "eventActions": [
+        {
+          "shortText": "Derriba el <color=\"red\">AT-DP</color>.",
+          "longText": null,
+          "GUID": "e5a15a54-2d26-43ea-92b3-c8641bf3dc0f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Al final de la activación de un Héroe, ese Héroe puede mover hasta 2 casillas a un civil que esté a 2 o menos casillas de él.\r\n{-} Un Héroe puede gastar 1 punto de movimiento para colocar 1 Escudo de energía de su zona de juego en una casilla adyacente.\r\n{-} Un Héroe puede gastar 1 Punto de movimiento para reclamar un Escudo de energía adyacente. \r\n{-} Los Rebeldes ganan cuando el <color=\"red\">AT-DP</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "22cff33b-02ff-48b7-a9f3-74133a80c17c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Escape Route",
+              "GUID": "751be06f-102c-4cfd-b6a3-d7e46ead9da9",
+              "theText": "Estrechas callejuelas se adentran en los niveles inferiores de Taris, arrebatando al Imperio la posibilidad de continuar.\r\n\r\n{-} Despliega a los Héroes aquí.\r\n{-} Cuando un civil entra en la casilla de la ruta de escape o en una adyacente, haz clic en la ruta de escape y selecciona \"Civil escapa\".\r\n{-} Cuando un civil es derrotado, haz clic en la ruta de escape y selecciona \"Civil derrotado\".",
+              "buttonList": [
+                {
+                  "GUID": "3cd60078-1086-4878-86ea-4b6a802d7f34",
+                  "theText": "Civil escapa"
+                },
+                {
+                  "GUID": "6fef5a45-1ef6-4c01-b8be-193017fc511c",
+                  "theText": "Civil derrotado"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "23764870-6a54-400f-a2c2-a8b531db0f51",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "eb55c00a-0a2f-44b2-91de-76eff63cf156",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "9ddd4ed2-0edb-4bfd-bd04-206966731496",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "3fd5a087-331c-4e50-b595-174f355b46e4",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "befff3de-2756-4d8e-a7fb-e1e19038eabe",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "9183fb28-5787-4648-b078-1298d184217f",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Escape Route",
+      "GUID": "ee1ec8a2-4825-447d-9f0a-49664ed84091",
+      "mainText": "Estrechas callejuelas se adentran en los niveles inferiores de Taris, arrebatando al Imperio la posibilidad de continuar.\r\n\r\n{-} Despliega a los Héroes aquí.\r\n{-} Cuando un civil entra en la casilla de la ruta de escape o en una adyacente, haz clic en la ruta de escape y selecciona \"Civil escapa\".\r\n{-} Cuando un civil es derrotado, haz clic en la ruta de escape y selecciona \"Civil derrotado\".",
+      "buttonList": [
+        {
+          "GUID": "3fb56b57-3f57-4eab-a12f-b2fb00c45ea3",
+          "theText": "Civil escapa"
+        },
+        {
+          "GUID": "398d40ee-5bae-49fa-ae68-5fb311c10fc8",
+          "theText": "Civil derrotado"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "bd0b25fa-7742-42d1-b89a-c652ac4b6add",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "9aafd505-a163-4845-8870-58ab8c76d5d0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "c4d5c970-92d4-474e-8a6e-6ee10c47d58c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "e4e544a0-bb2f-45bb-8fd1-d9e28a17e6fb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP AT-DP",
+      "GUID": "a8142ab6-52dc-43a9-8ed5-872cdf85a9a2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "9e570400-6000-44e8-8d33-4db79de3b7a3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "0c460771-18cb-43cd-8b34-0799f7d780c8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 1",
+      "GUID": "f5159dd1-a62b-4385-b436-8358b30426e8",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 2",
+      "GUID": "2f382096-e498-4edd-a093-ba5db92d65a4",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 3",
+      "GUID": "8fe5a957-7a17-4d6a-9c2d-28f3e35b4fba",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 4",
+      "GUID": "b04b35f0-40b4-4b95-8ccc-d5b2373e90a9",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 5",
+      "GUID": "e610676b-6778-4037-8ccb-d6b0c7f3bc48",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 6",
+      "GUID": "b21d981a-e87c-4b43-bc6b-76b63f2966f7",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 7",
+      "GUID": "e1b0f97b-00e0-4c60-9f11-92be28ec2330",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 8",
+      "GUID": "1bd9659f-6cd4-4605-a56c-9ffe25171e0d",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Civilian 9",
+      "GUID": "c87315a0-931b-4385-a10e-59196ea59158",
+      "mainText": "Coloca aquí 1 ficha de misión neutral.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

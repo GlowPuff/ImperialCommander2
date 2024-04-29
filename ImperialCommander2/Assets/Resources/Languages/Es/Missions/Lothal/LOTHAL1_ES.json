@@ -1,0 +1,843 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Llamada a la acción",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Tiranos de Lothal",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso al envío y al punto de extracción.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "378fe5d7-8a8e-49e2-93cc-d055de90bad2",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "f31466a9-6cf8-4a35-b3b1-bbca25d6f2b7",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ff97f117-4293-4bc5-8fc9-99c8faad157c",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Interceptáis el envío de armamento imperial mientras lo trasladan por los laberínticos mercados de Lothal. La infor­mación de vuestro contacto era correcta. Con la adrenalina recorriendo vuestras venas, rezáis porque llegue al punto de extracción a tiempo.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de 1 acción y sólo puede usar esa acción para realizar un movimiento.",
+      "eventActions": [
+        {
+          "tbText": "El envío es pesado, pero el remolque repulsor hace que sea posible moverlo.",
+          "GUID": "61789c71-c004-42fd-bd1c-d8bee072fedd",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shipment",
+              "GUID": "5368912a-0247-457c-a6a7-53eb986ff2f5",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "1b8e1dde-3178-4b37-ab2f-b3525174ce8f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} La ficha de Misión del bando Imperial representa el envío. Una vez por activación, un Héroe en la casilla del envío o adyacente a él puede empujarlo una casilla.",
+          "GUID": "5175e5bf-9801-4f56-9e2c-8e8265bb7f9f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Vuestro contacto os dio unas coordenadas muy concretas a las que debéis llevar el envío.",
+          "GUID": "3ee188f9-43d6-4bcd-855f-b17c32c94af4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shipment",
+              "GUID": "1f8f0b73-beaf-4486-869c-4f5304ca2197",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Extraction Point",
+              "GUID": "36bb4ce6-72c9-4248-9681-7c9386c6ece5",
+              "theText": "La nave de vuestro contacto está esperando aquí.\r\n\r\n{-} Cuando el envío entre en esta casilla, pulsa \"Envío extraído\".",
+              "buttonList": [
+                {
+                  "GUID": "19f99a4a-07f4-44a0-804b-0300e95a7e7a",
+                  "theText": "Envío extraído"
+                }
+              ]
+            }
+          ],
+          "GUID": "93878fae-0733-4dec-b799-ac870d2b3024",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} La ficha de misión del bando rebelde representa el punto de extracción. Cuando el envío llegue al punto de extracción, haz clic en la ficha y selecciona \"Envío extraído\".\r\n{-} La misión avanza cuando se extrae el envío.\r\n{-} La misión termina al final de la Ronda 4 si el envío no ha sido extraído, al final de la Ronda 6, o cuando todo los Héroes están heridos.",
+          "GUID": "049ac23d-9fe8-497a-9d28-dfc5bc7d7778",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Llevar el envío al punto de extracción.",
+          "longText": null,
+          "GUID": "d6db4f3a-3883-4f20-ac31-9d9151a54b3c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de 1 acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La ficha de Misión del bando imperial representa el envío. Una vez por activación, un Héroe en la casilla del envío o adyacente a él puede empujarlo una casilla.\r\n{-} La ficha de misión del bando rebelde representa el punto de extracción. Cuando el envío llegue al punto de extracción, haz clic en la ficha y selecciona \"Envío extraído\".\r\n{-} La misión avanza cuando se extrae el envío.\r\n{-} Si el límite de rondas está activado, la misión termina al final de la Ronda 4 si el envío no ha sido extraído, al final de la Ronda 6, o cuando todo los Héroes están heridos.",
+          "GUID": "a5de9754-b29b-4604-99fb-0cd8e527f0e3",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Aparece flotando sobre vosotros una lanzadera. Un hombre con la parte superior del rostro tapada con una máscara verde os ayuda a subir por la escotilla trasera. \r\n\r\n-Bienvenidos a bordo del Fantasma.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los jugadores Rebeldes eligen 1 Héroe para que reciba la carta de Recompensa “Líder de célula Nova”.",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "0d3e12e7-35ea-432e-878f-f6abd45b6040",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "09e4d0ff-835d-4a68-a917-3f46d381f47a",
+              "theText": "No"
+            }
+          ],
+          "GUID": "fa160c96-ff1c-4306-ad5f-f40d51ef9331",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Varias explosiones, que no os aciertan por los pelos, detonan entre la hierba. Una figura ataviada con armadura mandaloriana arroja más granadas desde una lanzadera antes de tender una cuerda.\r\n\r\n{-} Los Rebeldes pierden la misión",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "ac7d367e-25a1-4f92-b311-81681fb5926e",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "f4416ff4-b2cc-4d0a-a7c5-16f1a4826315",
+              "theText": "No"
+            }
+          ],
+          "GUID": "922d0b18-3b9c-4426-b8b1-9d79afd7d873",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Win",
+      "GUID": "1fb0c0b1-7388-42f6-9c4c-801de27f03a5",
+      "eventText": "-Ezra, llévanos de vuelta al Espíritu -dice el hombre de la máscara al joven a los mandos de la lanzadera-. Me llamo Kanan Jarrus. No sabía que aún quedasen rebeldes en Lothal.\r\n\r\nLe respondéis que hace poco que habéis empezado vuestra lucha contra el Imperio. -El camino que habéis emprendido está lleno de penurias -replica al fin-, pero los Espectros siempre serán vuestros aliados. Os enseñaremos lo que necesitáis saber.\r\n\r\n-Haceos a la idea de que no va a ser sencillo -añade Ezra-. Cuando Kanan es tu maestro, lo sencillo no existe.\r\n\r\n{-} Cada Héroe recibe 2 PE.\r\n{-} Los Héroes reciben 300 créditos por Héroe.\r\n{-} Los Héroes reciben como aliados a <color=\"red\">Kanan Jarrus</color> (Espectro-1), <color=\"red\">Zeb Orrelios</color> (Espectro-4), <color=\"red\">Sabine Wren</color> (Espectro-5), y <color=\"red\">Ezra Bridger</color> (Espectro-6). Los héroes también reciben a <color=\"red\">Hera Syndulla</color> (Espectro-2) y <color=\"red\">C1-10P</color> (\"Chopper\") como aliados si tienen el pack de aliados de Hera Syndulla y C1-10P.",
+      "eventActions": [
+        {
+          "mainText": "Selecciona la opción correcta a continuación.\r\n\r\n{-} Campaña ampliada: Juego la mini campaña ampliada con el pack de Villano de Hondo Ohnaka.\r\n{-} Minicampaña: Estoy jugando la mini campaña normal \"Tiranos de Lothal\" sin el pack de Villano.",
+          "buttonList": [
+            {
+              "GUID": "581b61ab-b1cf-4cfc-b5e8-d57b5ee59671",
+              "theText": "Campaña ampliada"
+            },
+            {
+              "GUID": "83251f70-a773-4fae-9b92-a4e91d494b5f",
+              "theText": "Mini campaña"
+            }
+          ],
+          "GUID": "d93f8f65-094a-440f-bd2c-2849d9099137",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Defeat",
+      "GUID": "ee9e6f21-9b9f-47ca-b982-44b59453a837",
+      "eventText": "-No sois muy amigos de la sutileza, ¿verdad? -dice la chica-. Me llamo Sabine. Este es Zeb -hace un gesto al corpulento Lasat encajado en el asiento del piloto-. ¡Vámonos!\r\n\r\nZeb le lanza una mirada severa. -No estarás sugiriendo que nos los llevemos al Espíritu -gruñe rechinando los dientes-. Seguro que no saben ni lo que están haciendo.\r\n\r\nSabine se deja caer en el asiento del copiloto. -¡Pues de alguna manera tendrán que aprender! ¿Y quién mejor para enseñarles que nosotros?\r\n\r\n{-} Cada Héroe recibe 2 PE.\r\n{-} Los Héroes reciben 300 créditos por Héroe.\r\n{-} Los Héroes reciben como aliados a <color=\"red\">Kanan Jarrus</color> (Espectro-1), <color=\"red\">Zeb Orrelios</color> (Espectro-4), <color=\"red\">Sabine Wren</color> (Espectro-5), y <color=\"red\">Ezra Bridger</color> (Espectro-6). Los héroes también reciben a <color=\"red\">Hera Syndulla</color> (Espectro-2) y <color=\"red\">C1-10P</color> (\"Chopper\") como aliados si tienen el pack de aliados de Hera Syndulla y C1-10P.",
+      "eventActions": [
+        {
+          "mainText": "Selecciona la opción correcta a continuación.\r\n\r\n{-} Campaña ampliada: Juego la mini campaña ampliada con el pack de Villano de Hondo Ohnaka.\r\n{-} Minicampaña: Estoy jugando la mini campaña normal \"Tiranos de Lothal\" sin el pack de Villano.",
+          "buttonList": [
+            {
+              "GUID": "93d71bef-afed-4d05-9469-8942ae8aad6b",
+              "theText": "Campaña ampliada"
+            },
+            {
+              "GUID": "4497ea51-871e-4c2d-85fa-b8a6b180d291",
+              "theText": "Mini campaña"
+            }
+          ],
+          "GUID": "c47a75a7-d9d7-4f27-ab49-39ee814934b8",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "No campaign",
+      "GUID": "8fe1b24a-487b-46a0-9e81-94329508e0dc",
+      "eventText": "{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Extended campaign 1",
+      "GUID": "2f95d44b-fe49-4580-aed5-8b4db04f67d8",
+      "eventText": "Mientras el Fantasma os traslada a vuestra propia nave, vuestro comunicador emite un pitido. Escucháis la voz relajada de vuestro contacto local, N-4M:\r\n\r\n-Debería haber examinado el historial del Sr. Ohnaka con más detenimiento -admite. El vocabulador del droide chirría y tartamudea-. Por suerte, mis informadores han visto al Sr. Ohnaka abordar una nave para escapar. Puedo transmitiros su destino probable.\r\n\r\nLes decís a vuestros rescatadores que tenéis que hacer una parada en otro sitio antes de reuniros con el resto de su grupo, y ofrecen enviar a alguien con vosotros para que os ayude. Tenéis asuntos pendientes con Hondo Ohnaka...\r\n\r\n{-} La siguiente misión activa es \"La estratagema del pirata\" (pack de Villano de Hondo Ohnaka).",
+      "eventActions": []
+    },
+    {
+      "eventName": "Regular mini campaign",
+      "GUID": "5912594d-6f76-449a-8572-5004d336bdd9",
+      "eventText": "Atracáis en un carguero VCX-100. Una vez a bordo, os presentan al resto de la tripulación, incluida la capitana Hera Syndulla. -A todos nos vendrá bien toda la ayuda que podamos conseguir -afirma-, y, si mi gente confía en vosotros, yo también. Tengo más trabajo pendiente que manos para ocuparse de él.\r\n\r\n-¿Habéis oído hablar del Gran Almirante Thrawn? Ha puesto al sector entero en alerta máxima. Apenas podemos movernos -dice apoyándose sobre la mesita del medio de la habitación-. Tenemos unos aliados en Seelos, Wolffe y Gregor, que han recuperado los códigos imperiales de un andador robado, pero necesitan que les echen una mano para escapar del Imperio. También estamos sobre la pista de la vieja guarida de un contrabandista en Devaron, que podría contener cartas de navegación con las mejores rutas de contrabando de todo el sector. Si nos hacemos con ellas, podremos evitar las patrullas imperiales y no necesitaremos códigos en absoluto -se gira hacia vosotros-. Si podéis ayudarnos, mandaré a alguien de nuestro equipo con vosotros.\r\n\r\n{-} Los Héroes deciden de forma colectiva si ayudan a Wolffe y Gregor o investigan el paradero de la guarida del contrabandista.\r\n{-} Si los Héroes eligen ayudar a Wolffe y Gregor, la siguiente misión activa es \"Arenas de Seelos\".\r\n{-} Si los Héroes eligen seguir la pista de la guarida del contrabandista, la siguiente misión activa es \"Duelo en Devaron\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Just Business",
+      "GUID": "b0060326-f45b-4228-b15f-23ce78756a6a",
+      "eventText": "Vuestro contacto, Hondo Ohnaka, sonríe de oreja a oreja mientras sube el envío a su nave. \r\n\r\n-¡Excelente trabajo, amigos! -la nave empieza a remontar el vuelo antes de que os dé tiempo a subir-. Por desgracia, alguien me hizo una oferta mejor.\r\n\r\nHondo os apunta con su bláster mientras la zona empieza a llenarse de tropas imperiales.\r\n\r\n{-} Descarta el envío.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "ff06cb3b-b18f-4033-bdf6-1e5c642b6248",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG086/Hondo Ohnaka"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "55f717fa-8c0a-4318-a57c-82e3ad8e01bd",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG057/Death Trooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f0eecc17-35eb-44f0-8377-00969e7dd3d6",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Extraction Point",
+              "GUID": "1b390272-f828-4ce5-abf6-522a18519eab",
+              "theText": "La nave de vuestro contacto está esperando aquí.\r\n\r\n{-} Cuando el envío entre en esta casilla, pulsa \"Envío extraído\".",
+              "buttonList": [
+                {
+                  "GUID": "b14be948-cfc3-4b12-bba7-fd73358145ed",
+                  "theText": "Envío extraido"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "0c05fbb3-6d10-4dc2-afb7-5f2bfbbf3c4e",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "dd8bdb66-66e7-43f0-a770-c2da320463e3",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "83777b67-baeb-40f4-8aed-6b42dfcb54aa",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "33dda837-3a41-4976-bf43-2d45a2013fa0",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "ebb911a2-d6f3-49ea-9854-58d4ec5bba85",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "a1594c7e-6493-4280-a37d-5786bf5e4443",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Entre crujidos, escucháis una voz en vuestro comunicador.\r\n\r\n-Los enemigos del Imperio son nuestros amigos. Aguantad, ¡vamos a por vosotros!\r\n\r\nA lo lejos, podéis ver una nave que desciende a través de la atmósfera de Lothal hacia los campos sembrados de las colinas circundantes.",
+          "GUID": "23956a87-99c9-4c58-89d4-3399a3f20942",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "-No podemos obtener una lectura de su posición -dice la voz a través del comunicador-. Debe de haber algunas viejas bengalas de señalización ahí abajo. Encontrad y encended una, ¡sólo tendréis que aguantar hasta que estemos con vosotros!",
+          "GUID": "42a00ded-0412-4aed-9ec5-60831a2ea12e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 1",
+              "GUID": "f27755d0-fa37-4167-ba6c-7da35b60ff14",
+              "theText": "Una vieja bengala de señalización está escondida en la hierba alta.\r\n\r\n{-} Un Héroe sano puede interactuar con una bengala para encenderla.",
+              "buttonList": [
+                {
+                  "GUID": "6e729cd1-5a06-4969-be44-499291a063a3",
+                  "theText": "{A} Encender bengala"
+                }
+              ]
+            },
+            {
+              "entityName": "Flare 2",
+              "GUID": "72eac405-89f9-423c-93f0-2c7919a54ec8",
+              "theText": "Una vieja bengala de señalización está escondida en la hierba alta.\r\n\r\n{-} Un Héroe sano puede interactuar con una bengala para encenderla.",
+              "buttonList": [
+                {
+                  "GUID": "062b6d8e-a8a5-4926-90fe-b04cfd4799b6",
+                  "theText": "{A} Encender bengala"
+                }
+              ]
+            }
+          ],
+          "GUID": "dffe2be3-c998-479d-88da-4c0e6c5543ef",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las fichas de misión neutrales representan bengalas. Un Héroe sano puede interactuar con una bengala para encenderla.\r\n{-} Durante la Ronda 6, al comienzo de la Fase de Estatus, si todos los Héroes están en los Campos (loseta Lothal 1B + extremos) y se ha encendido una bengala, los Héroes se marchan. (Si el límite de rondas está desactivado, los Héroes se pueden marchar en una ronda posterior).\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.",
+          "GUID": "3fcbc2af-f689-4078-9e2d-77346a297fc2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquear el acceso a los campos y a las bengalas.",
+          "GUID": "8fd5ec26-893e-4d07-8693-0c7a6b0a43cd",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Ir a los Campos y encender una bengala.",
+          "longText": null,
+          "GUID": "d692bd06-79b5-4093-816c-9b461bcd332a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de 1 acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} Las fichas de misión neutrales representan bengalas. Un Héroe sano puede interactuar con una bengala para encenderla. Durante la Ronda 6, al comienzo de la Fase de Estatus, si todos los Héroes están en los Campos (loseta Lothal 1B + extremos) y se ha encendido una bengala, los Héroes se marchan. (Si el límite de rondas está desactivado, los Héroes se pueden marchar en una ronda posterior).\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.",
+          "GUID": "3355f52c-c2fe-49b4-89e8-921293ea2274",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Through the Grasses",
+      "GUID": "8e4e3e0c-636a-44bd-be5a-06cad04c466a",
+      "eventText": "Con un siseo y garras extendidas, unas pequeñas pero feroces criaturas se abren paso entre las hierbas.",
+      "eventActions": []
+    },
+    {
+      "eventName": "TtG 1",
+      "GUID": "6fbb5727-232f-4c90-9047-77337ae9ff72",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a0fd6641-f4c6-4c06-9973-328e2525a9cc",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "TtG 2",
+      "GUID": "b115132b-4e81-4714-8a75-31524f9baadb",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f0579950-6dab-401e-b0b9-a2f9e9adc14c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "TtG 3",
+      "GUID": "0e11190b-c9fb-49af-9fd8-ebd5048611c1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5fa42b6a-3841-4359-a311-25bc7735bcf8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG060/Loth-cat"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose EoR 4",
+      "GUID": "aeed9077-9ae2-4d8d-8491-bd05c5418602",
+      "eventText": "Varias explosiones, que no os aciertan por los pelos, detonan entre la hierba. Una figura ataviada con armadura mandaloriana arroja más granadas desde una lanzadera antes de tender una cuerda.\r\n\r\n{-} Los Rebeldes pierden la misión",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "4f1c74f2-ebb7-4fbf-985d-cb259422cc82",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "e207aa67-4ea8-4359-bfaa-7c78f4545c8c",
+              "theText": "No"
+            }
+          ],
+          "GUID": "0ba34e01-d216-4e1d-a6e5-084b819b8751",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Light Flare 1",
+      "GUID": "e7c87a79-948c-43d2-84ce-bb6c436b710c",
+      "eventText": "La bengala se enciende.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 1",
+              "GUID": "978e86c8-1bf5-4969-a82e-1337fc5e5946",
+              "theText": "La bengala está encendida, señalando vuestro punto de extracción.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Flare 2",
+              "GUID": "ccc9ddb7-1597-4068-9695-77aa0ce2e2bb",
+              "theText": "Una vieja bengala de señalización está escondida en la hierba alta.\r\n\r\n{-} Un Héroe sano puede interactuar con una bengala para encenderla.",
+              "buttonList": [
+                {
+                  "GUID": "74e2f2b8-9df1-4407-8ee0-633530aa8e70",
+                  "theText": "{A} Encender bengala"
+                }
+              ]
+            }
+          ],
+          "GUID": "8a546068-968d-47a3-99d3-f85608bb31c6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Light Flare 2",
+      "GUID": "6691f4dc-526d-4957-ab5c-6f41e1e1ce02",
+      "eventText": "La bengala se enciende.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Flare 2",
+              "GUID": "f486d0f5-2018-4ae6-9844-faacdeb7b706",
+              "theText": "La bengala está encendida, señalando vuestro punto de extracción.",
+              "buttonList": [
+                {
+                  "GUID": "ab2a6644-716d-4a90-8640-ddbf618d8f4e",
+                  "theText": "{A} Encender bengala"
+                }
+              ]
+            },
+            {
+              "entityName": "Flare 1",
+              "GUID": "d08ac51e-6d8c-4000-80de-39775d884809",
+              "theText": "Una vieja bengala de señalización está escondida en la hierba alta.\r\n\r\n{-} Un Héroe sano puede interactuar con una bengala para encenderla.",
+              "buttonList": [
+                {
+                  "GUID": "ecb42195-2b64-4185-ab34-b9b83986af82",
+                  "theText": "{A} Encender bengala"
+                }
+              ]
+            }
+          ],
+          "GUID": "b95e4db9-2699-4f40-ae98-9ad2634375d7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose EoR 6",
+      "GUID": "98caa46e-9c66-420d-acf4-f1bb611f589c",
+      "eventText": "Varias explosiones, que no os aciertan por los pelos, detonan entre la hierba. Una figura ataviada con armadura mandaloriana arroja más granadas desde una lanzadera antes de tender una cuerda.\r\n\r\n{-} Los Rebeldes pierden la misión",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "fa2af160-9420-468e-b5e6-510bffd7ea14",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "e477ac22-62ae-4bc1-8c88-c645aafe861f",
+              "theText": "No"
+            }
+          ],
+          "GUID": "b1310a82-a6a2-4c3c-94b5-293dbc83de58",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Extraction",
+      "GUID": "5eaf63ee-16f4-4acf-b56d-4325802d6adf",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "¿Están todos los Héroes en los Campos (losetas Lothal 1B + Extremos)?",
+          "buttonList": [
+            {
+              "GUID": "7e9a9323-8b98-4896-a980-9be34634924c",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "2234c0c8-7daf-471b-bb00-62b978c6e5ae",
+              "theText": "No"
+            }
+          ],
+          "GUID": "a860318a-30e3-41f3-997a-eb7fe75745ea",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Deadly Reinforcements",
+      "GUID": "49eecdc6-74bd-4c09-adfd-e737caa39cb8",
+      "eventText": "Cuando el misterioso carguero se acerca para extraeros, veis una figura alta y con armadura negra que os acecha entre la hierba.",
+      "eventActions": []
+    },
+    {
+      "eventName": "DR Red 1",
+      "GUID": "eb8a5e8e-54eb-4bcc-a716-c1d682db5059",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0b44fbdb-01b6-4e0c-bb48-13a9c383c06c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "DR Red 2",
+      "GUID": "da3db78c-0222-41fe-83ad-d55227fa81a7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "d1408fb0-631a-4fc1-973e-8b58cff8b388",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Flare lit",
+      "GUID": "9946a3cb-eaca-4308-a83d-2e59c6929d00",
+      "eventText": "Ya está hecho. La bengala de señalización está encendida. Todo lo que tenéis que hacer ahora es aguantar hasta la extracción.\r\n\r\n{-} Durante la Ronda 6, al comienzo de la Fase de Estatus, si todos las Héroes están en los Campos (loseta Lothal 1B + extremos), los Héroes se marchan.",
+      "eventActions": [
+        {
+          "shortText": "Ir a los Campos y aguantar hasta el final de la Ronda 6.",
+          "longText": null,
+          "GUID": "934de7db-bb04-4e4f-beeb-c87dfda44ac9",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Durante la Ronda 6, al comienzo de la Fase de Estatus, si todos los Héroes están en los Campos (loseta Lothal 1B + extremos) y se ha encendido una bengala, los Héroes se marchan. (Si el límite de rondas está desactivado, los Héroes se pueden marchar en una ronda posterior).\r\n{-} Los Rebeldes ganan cuando los Héroes se marchan.",
+          "GUID": "63eb5410-e28a-4074-aa84-a92a5948c1c6",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Bloquear el acceso a los Campos.",
+          "GUID": "a738fc39-a402-4dfa-9bfc-e239876cda7f",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Round 6 has come",
+      "GUID": "7270b22d-c64b-4ce4-9466-de383dfaba6a",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "e34c3439-87e3-4f2e-bf3e-74de40cebb38",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "35ce8ca5-b55d-4deb-adb6-6f3b402b1109",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega aquí a los Héroes",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "e4a239be-46e9-4900-8bde-7b22addd6076",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "c8076ba2-7821-4a91-a270-17f63c43b8a1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP DTrooper",
+      "GUID": "c0582188-b644-417a-84d6-ce48cec37d5d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "f4ffe43c-5aa5-42c6-9e0e-49ae207f02e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Shipment",
+      "GUID": "809ffe1c-f923-4dfb-a405-857eb3da9bc8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Extraction Point",
+      "GUID": "5623f69a-1069-4eaa-a0f9-149868929344",
+      "mainText": "La nave de vuestro contacto está esperando aquí.\r\n\r\n{-} Cuando el envío entre en esta casilla, pulsa \"Envío extraído\".",
+      "buttonList": [
+        {
+          "GUID": "68abc7e8-d2e8-4208-a93a-0409a9dd21d5",
+          "theText": "Envío extraído"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "97874263-64e3-4d2e-a6de-e70812d70ca2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "023eb255-f92b-4d04-b9e1-c3fd8594bb96",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "c6afcb04-34c4-4bdc-86a5-a579dd780c2c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "f0b362ab-ed1f-4b50-84fb-63b6c6389f8a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "567b4688-4d18-4d5f-ba35-b076b643c91b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Extraction Point",
+      "GUID": "d1bc238a-30f2-4090-b981-7a772daee38b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 1",
+      "GUID": "a92e178c-0773-4db0-bef7-1fc6211f0544",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 2",
+      "GUID": "43de767d-41cc-4c6a-87bc-4c6ae20bb83a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Loth 3",
+      "GUID": "f042d66b-ebf2-4988-85e7-df9ac4b13939",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Flare 1",
+      "GUID": "068d38fd-3572-4214-9dcf-3d9381f7e5dd",
+      "mainText": "Una vieja bengala de señalización está escondida en la hierba alta.\r\n\r\n{-} Un Héroe sano puede interactuar con una bengala para encenderla.",
+      "buttonList": [
+        {
+          "GUID": "7fdf9b90-7eb4-47e7-b4a0-2e9749034984",
+          "theText": "{A} Encender bengala"
+        }
+      ]
+    },
+    {
+      "entityName": "Flare 2",
+      "GUID": "52404f4c-cce7-4d88-8450-00bec3c2c091",
+      "mainText": "Una vieja bengala de señalización está escondida en la hierba alta.\r\n\r\n{-} Un Héroe sano puede interactuar con una bengala para encenderla.",
+      "buttonList": [
+        {
+          "GUID": "8db9b2e0-0085-4d0f-8986-d499030d86f2",
+          "theText": "{A} Encender bengala"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Death Trooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

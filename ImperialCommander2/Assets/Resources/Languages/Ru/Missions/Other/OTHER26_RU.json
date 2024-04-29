@@ -1,0 +1,433 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Жирный слизняк",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Набор \"Джабба Хатт (Мерзкий гангстер)\"",
+    "startingObjective": "",
+    "repositionOverride": "Заблокировать поле зрения до <color=\"red\">Джаббы Хатта</color>.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "c797fb23-3ab2-4636-a0cd-de237368cb94",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "64fceb32-fa30-4f72-bf46-d9f51f33653e",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "43d6283e-4051-45b6-b798-7aee24eb5fde",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Позволив себя \"захватить\", вы попадаете в логово Джаббы, чтобы удовлетворить его аппетиты. Когда вы приближаетесь, из похожего на пещеру жилища доносится громкий смех. После входа, влажность обволакивает вас, как теплая грязь.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.\r\n{-} Двери заперты.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Jabba Highlight",
+              "GUID": "0e7f1463-d652-4334-98e9-b5b7e852da7e",
+              "theText": "{-} После завершения атаки нацеленной на <color=\"red\">Джаббу Хатта</color>, нажмите \"О-ХО-ХО\".",
+              "buttonList": [
+                {
+                  "GUID": "6ce05f81-0517-4524-b66b-d6f8fc719841",
+                  "theText": "О-ХО-ХО"
+                }
+              ]
+            }
+          ],
+          "GUID": "c76a8a4d-ac7e-4546-a936-5b05cd7f5f74",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "— Добро пожаловать, новые рабы — говорит смеющийся. — Джабба очень хочет встретиться с вами.\r\n\r\n{-} Разместите <color=\"red\">Джаббу Хатта</color> на выделенные красным клетки.\r\n{-} <color=\"red\">Джабба Хатт</color> не может быть побеждён. Когда <color=\"red\">Джабба Хатт</color> получает {H} в количестве равном его здоровью, вместо того, чтобы быть побеждённым, он восстанавливает 1{H}.",
+          "GUID": "b3239c3f-ba04-41de-b31c-27caf368503d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a0f673e4-458f-4a76-9195-3e7c1cee1c37",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG081/Jabba the Hutt"
+        },
+        {
+          "tbText": "Приготовив бластеры и клинки, стремясь заявить о себе как о свободных — не рабах человека или Хатта — вы продвигаетесь вперёд, в дом Джаббы.\r\n\r\n{-} Задание продолжится после завершения атаки нацеленной на <color=\"red\">Джаббу Хатта</color>. Когда это произойдёт, нажмите на клетку выделенную красным и выберите \"О-ХО-ХО\".\r\n{-} Повстанцы проиграют когда все герои будут ранены.",
+          "GUID": "ed615c73-9cae-48f2-89b9-0f263700e3a3",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Атакуйте <color=\"red\">Джаббу Хатта</color>.",
+          "longText": null,
+          "GUID": "5f140bf0-dd68-4c06-866d-0b6954411afb",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Двери заперты.\r\n{-} <color=\"red\">Джабба Хатт</color> не может быть побеждён. Когда <color=\"red\">Джабба Хатт</color> получает {H} в количестве равном его здоровью, вместо того, чтобы быть побеждённым, он восстанавливает 1{H}.\r\n{-} Задание продолжится после завершения атаки нацеленной на <color=\"red\">Джаббу Хатта</color>. Когда это произойдёт, нажмите на клетку выделенную красным и выберите \"О-ХО-ХО\".\r\n{-} Повстанцы проиграют когда все герои будут ранены.",
+          "GUID": "be60648c-db16-48d3-9f5e-c9506eec0ee7",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Толстый хаттский слизняк кричит громче, чем вы могли бы представить, убегая из своего логова. Ясно, что он сотрудничал с имперцами, но, возможно, это поражение удержит его от дальнейшего союза.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Каждый герой получает 1 ОО. Герои получают по 200 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Избитые головорезами Хатта, вы вынуждены бежать. Охранники и пираты идут за вами, в то время как громкий смех доносится до ваших ушей. После того, как вы достигли безопасности, вы не можете отделаться от мысли, что Джабба и Империя — очень опасная пара.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Империя получает <color=\"red\">Джаббу Хатта</color> (Мерзкий гангстер) в качестве злодея.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "No Longer Amused",
+      "GUID": "66424f13-81aa-4af2-bbfc-1787f47cb7f4",
+      "eventText": "Джабба выкрикивает ещё больше приказов, теперь его голос звучит злее, чем прежде.\r\n\r\n{-} Империя получает дополнительную {D} в конце каждлго раунда.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "6ffc7e62-96f6-4a23-9273-51cfacf6920e",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "d91df819-c409-4500-8c74-3f716a8032b4",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "dd1f1c52-3902-4dc9-8785-34565e72c430",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "No Longer Amused Repeat",
+      "GUID": "5f722de3-43d0-468a-97a1-2d79902eb858",
+      "eventText": "Крики Джаббы продолжают подстрекать его приспешников.",
+      "eventActions": []
+    },
+    {
+      "eventName": "OH HO HO",
+      "GUID": "12911ec1-0f70-4c87-8379-b007c76815fa",
+      "eventText": "Джабба смеется, когда вы переходите к нападению. Он скользит обратно за дверь. А в это время, безумно хихикая, Салациус Б. Крамб прыгает на вас с потолка.\r\n\r\n{-} Прибавьте +*2* к здоровью <color=\"red\">Джаббы Хатта</color>. <color=\"red\">Джабба Хатт</color> восстанавливает *2* {H}.\r\n{-} Уберите фигурку <color=\"red\">Джаббы Хатта</color> с поля. Он все ещё считается дислоцированным.\r\n{-} Теперь <color=\"red\">Джабба Хатт</color> может быть побеждён.\r\n{-} Разместите жетон компаньона Салациуса Б. Крамба на клетку с {rebel}.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "3b97d68e-403f-45c7-8e9b-710980767a50",
+              "theText": "Прочная дверь ведёт в коридор.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+              "buttonList": [
+                {
+                  "GUID": "efe7ff19-86d4-4856-9f92-5af8b0df7901",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            },
+            {
+              "entityName": "Salacious Highlight",
+              "GUID": "b8913892-9337-4f04-800c-3bd080b070c3",
+              "theText": "Если Салациус Б. Крамб появляется в игре, разместите его жетон на этой клетке.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Jabba Highlight",
+              "GUID": "48579e77-8591-46a8-ab6f-383ad255a686",
+              "theText": "{-} После завершения атаки нацеленной на <color=\"red\">Джаббу Хатта</color>, нажмите \"О-ХО-ХО\".",
+              "buttonList": [
+                {
+                  "GUID": "1fd202af-d0da-4783-bef7-41e84ff53286",
+                  "theText": "О-ХО-ХО"
+                }
+              ]
+            }
+          ],
+          "GUID": "53245a08-9787-4ce4-9404-3198aa65d8cf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "{-} Когда Салациус Б. Крамб появляется в игре через эффект НАЕМНЫЙ ШУТ, разместите его на клетке выделенной зелёным.\r\n{-} О-ХО-ХО: {rebel} получает 1{C} и <color=\"red\">Слабость</color>.\r\n{A} ПОЧЁТНЫЙ КАРАУЛ: Две другие имперские фигурки с наибольшей стоимостью получают 1{g}.\r\n{A} ПРИКАЗ НА УНИЧТОЖЕНИЕ: Другая имперская фигурка с наибольшей стоимостью, которая может атаковать, атакует {rebel}.\r\n{-} Если Салациус Б. Крамб в игре, он двигается через 4 клетки содержащие наибольшее число повстанцев (минимум — 1). Если он не может войти на клетку с повстанцем, вместо этого, он двигается на 4 клетки к {rebel}.",
+          "modification": "+*2* к здоровью",
+          "repositionInstructions": "",
+          "GUID": "9faf90c4-5990-4e83-8c59-e9cda5c865bd",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG081/Jabba the Hutt"
+        },
+        {
+          "repositionText": "Заблокировать доступ к двери.",
+          "GUID": "350345d2-94bd-4001-9010-c998681573b0",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "Охранники Джаббы выбегают, чтобы прикрыть его отступление.",
+          "GUID": "fcb9c692-270a-472f-98c8-3a859ba36286",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "128ae296-d062-4e52-8bcf-c1e99550d1e7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG041/Gamorrean Guard (Elite)"
+        },
+        {
+          "tbText": "{-} Дверь в коридор разблокирована для повстанческих фигурок.\r\n{-} Повстанцы победят, когда <color=\"red\">Джабба Хатт</color> будет побеждён.",
+          "GUID": "22cf4e6d-5456-4b73-95c3-9a8c570495b6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Найдите и победите <color=\"red\">Джаббу Хатта</color>.",
+          "longText": null,
+          "GUID": "cd772ec8-c1e3-472e-84c0-fbabc69f0ab1",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Дверь позади помоста Джаббы заперта.\r\n{-} Дверь в коридор заперта для имперских фигурок.\r\n{-} Повстанцы победят, когда <color=\"red\">Джабба Хатт</color> будет побеждён.\r\n{-} Повстанцы проиграют когда все герои будут ранены.",
+          "GUID": "42b96268-c3d6-46fb-b1b8-6918ff1b706b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Deeper",
+      "GUID": "d4a5fb7a-17a1-4b7d-b7c4-ce74c07fee21",
+      "eventText": "Вы врываетесь в дверь и оказываетесь в заднем коридоре.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "91d2ee26-3526-4822-a87e-138b9add0f48",
+              "theText": "Прочная дверь ведёт вглубь дворца Джаббы.\r\n\r\n{-} Дверь заперта.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "164e8b56-969d-4392-a1ac-022780d4a483",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "В дальнем конце вы можете видеть Джаббу, прячущегося за спинами своих охранников.\r\n\r\n{-} Поместите <color=\"red\">Джаббу Хатта</color> на выделенные красным клетки.",
+          "GUID": "6cd8d5be-2eb6-4b35-a3d4-4cddbf9366b2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Jabba Highlight 2",
+              "GUID": "2534f9f5-28a8-4689-a2d3-650d138aa48a",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "7315c1b6-e54d-4b50-b4ba-57fe85b478cf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Заблокировать поле зрения до <color=\"red\">Джаббы Хатта</color>.",
+          "GUID": "b6216981-0124-4894-9b9f-b84d8849188d",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "newInstructions": "{-} ХУЛИГАН: Повстанец в пределах 3 клеток получает 3{C}.\r\n{A} ПРИКАЗ НА УНИЧТОЖЕНИЕ: Другая имперская фигурка с наибольшей стоимостью, которая может атаковать, атакует {R1}.\r\n{Q} Атаковать {R1}.\r\n{A} Если в пределах 3 клеток от этой фигурки есть повстанец, передвиньтесь на 2 клетки для репозиции 5.\r\n{-} Если Салациус Б. Крамб в игре, он двигается через 4 клетки содержащие наибольшее число повстанцев (минимум — 1). Если он не может войти на клетку с повстанцем, вместо этого он передвигается на 4 клетки к {R1}.",
+          "GUID": "506e4986-be37-4c62-a1c0-cb18d0abb726",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "436fedc7-5853-464c-96b9-9cb934dc9362",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "f6732689-5661-4f42-a14b-b4ac7a9fb709",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Gammo 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Gammo 2",
+      "GUID": "6f1b1dfd-43b2-4291-b72f-c67c166a4062",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Weequay 1",
+      "GUID": "a6778d39-a27f-423d-846b-3107ae4b26af",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Weequay 2",
+      "GUID": "5810a641-7b06-4308-b992-61db34b4506a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "114be456-88e4-4bb8-81b4-c3ca3186bd90",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "6b9d154a-2290-49bd-9b04-d7dc67df25ad",
+      "mainText": "Прочная дверь ведёт вглубь дворца Джаббы.\r\n\r\n{-} Дверь заперта.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "f5cb4852-1ab0-4b20-a1fe-b8ce2e83d6ed",
+      "mainText": "Прочная дверь ведёт в коридор.\r\n\r\n{-} Дверь заперта.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Salacious Highlight",
+      "GUID": "cf640a52-a747-4825-ab77-b2589c6e001f",
+      "mainText": "Если Салациус Б. Крамб появляется в игре, разместите его жетон на этой клетке.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Jabba Highlight",
+      "GUID": "93d6e532-dda5-4b1a-94d1-6b7d1b1cd1d6",
+      "mainText": "{-} После завершения атаки нацеленной на <color=\"red\">Джаббу Хатта</color>, нажмите \"О-ХО-ХО\".",
+      "buttonList": [
+        {
+          "GUID": "2138f338-5bf6-44e1-a73d-d352c7626502",
+          "theText": "О-ХО-ХО"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "fe0c8fd5-a5a2-4cb7-a189-5742bcda79ba",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "e860c1bf-09ed-437e-ac3d-626a804dfc08",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Jabba Highlight 2",
+      "GUID": "5b2d42f0-9dbc-4e0a-9022-c8dd4f149e06",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Gamorrean Guard",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Weequay Pirate",
+      "customInstructions": ""
+    }
+  ]
+}

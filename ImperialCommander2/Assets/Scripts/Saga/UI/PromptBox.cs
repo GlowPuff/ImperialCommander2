@@ -94,7 +94,7 @@ namespace Saga
 
 			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.PlayerSelection, questionPrompt.buttonList[index].buttonText );
 
-			Debug.Log( $"CHOICE: {questionPrompt.buttonList[index].buttonText}, {questionPrompt.buttonList[index].triggerGUID}" );
+			Debug.Log( $"CHOICE: {questionPrompt.buttonList[index].buttonText}, Trigger: [{questionPrompt.buttonList[index].triggerGUID}], Event: [{questionPrompt.buttonList[index].eventGUID}]" );
 			FindObjectOfType<TriggerManager>().FireTrigger( questionPrompt.buttonList[index].triggerGUID );
 			FindObjectOfType<SagaEventManager>().DoEvent( questionPrompt.buttonList[index].eventGUID );
 			OnClose();

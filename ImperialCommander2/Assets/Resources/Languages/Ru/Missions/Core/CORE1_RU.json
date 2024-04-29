@@ -1,0 +1,578 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Новая угроза",
+    "missionDescription": "Силы Альянса обнаружили, что сигнальный маяк был лишь отвлекающим манёвром, который устроил генерал Вайсс, восходящая звезда в имперских вооружённых силах.\r\n\r\nКомандование Альянса явно заинтересовалось им. Оперативники прочёсывают Галактику в поисках какой-либо информации о планах генерала...",
+    "missionInfo": "{-} Двери заперты для повстанческих фигурок. Повстанческая фигурка может атаковать дверь (здоровье: 5, защита: 1 {G}).\r\n{-} Герой может взаимодействовать с терминалом, чтобы перевернуть его цветной стороной вверх и проверить характеристику, соответствующую его цвету. При успехе терминал считается исследованным.\r\n{-} Повстанцы победят, когда все терминалы исследованы. \r\n{-} Повстанцы проиграют в конце раунда 7 или когда все герои будут ранены.",
+    "campaignName": "Базовая игра",
+    "startingObjective": "Найдите и исследуйте все три терминала (&Terminals investigated&/3)",
+    "repositionOverride": null,
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "9f225146-8114-4d60-9bb4-98859821ba75",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "26fdfdc2-fa3a-4de8-9c6f-7d33824f21ce",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "7464c716-644d-4252-b3af-12956cab7ab9",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "801fec8e-e5ee-46c2-b73c-0ac44a328ea1",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "ef45cbe4-e33c-4b07-b281-150edc1ba568",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Вас послали исследовать комплекс, находящийся под командованием генерала Вайсса. Имперцев здесь много, но другой отряд своевременно отвлёк их внимание, и вам удаётся прокрасться внутрь. Странное местечко: обычно от имперцев ждёшь большей организованности.\r\n\r\nНо вряд ли у вас получится долго оставаться незамеченными. Вам советуют провести время на имперской базе с пользой.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.\r\n{-} Двери заперты для повстанческих фигурок. Повстанческая фигурка может атаковать дверь (здоровье: 5, защита: 1 {G}).\r\n{-} Герой может взаимодействовать с терминалом, чтобы перевернуть его цветной стороной вверх и проверить характеристику, соответствующую его цвету. При успехе терминал считается исследованным.\r\n{-} Повстанцы победят, когда все терминалы исследованы. \r\n{-} Повстанцы проиграют когда все герои будут ранены.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Arrival",
+      "GUID": "1d149f68-c9f2-4ac8-a0bd-8ed9146d6cb8",
+      "eventText": "Сквозь листву продирается необычный\r\nимперский разведывательный шагоход —\r\nтакого вы раньше точно не видели. Жут-\r\nкая машина щетинится оружием.\r\n\r\n— Повстанцы! — звучит голос из ди-\r\nнамиков шагохода. — Говорит генерал\r\nимперской армии Витсан Вайсс. Вы окру-\r\nжены, у нас больше людей и оружия. Сда-\r\nвайтесь, и я клянусь, что вас пощадят!",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cf1867b3-3b7e-4133-ac54-9afc397a458b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG073/General Weiss"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal North",
+      "GUID": "e283030c-382e-4051-996b-bbbb27da4d71",
+      "eventText": "Вы открываете дверь и входите в тускло освещенную комнату инструктажа, которая находится в аварийном состоянии.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door North",
+              "GUID": "6e4fce7e-1494-444b-9000-8cd65e605ef5",
+              "theText": "Эта дверь ведет в большую комнату инструктажа.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "44c7eefc-79d2-4c5e-a223-0aa78dcff2bb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal East",
+      "GUID": "0ec46ea2-1ec6-46c9-b446-521891d056d2",
+      "eventText": "За дверью находится крошечный сарай с терминалом.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door East",
+              "GUID": "f509fc1c-e0df-4e19-b09a-0222dbc30379",
+              "theText": "Эта дверь ведет в небольшой сарай.",
+              "buttonList": [
+                {
+                  "GUID": "e1a6a881-38a8-46f4-87f8-1d4628675ae0",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "d4897255-4a9e-4e4a-bc78-88dde7c6cce7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal South",
+      "GUID": "67fd011a-09f7-4885-bf95-9330a71a5cf4",
+      "eventText": "Вы открываете дверь и видите складское помещение с разбросаным повсюду мусором.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door South",
+              "GUID": "ca3911d9-5ec0-442d-bd6f-0fe5c948da5a",
+              "theText": "Эта дверь ведет в складское помещение.",
+              "buttonList": [
+                {
+                  "GUID": "e6bb7f3f-c55e-4461-bf66-6c41d1de76a7",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "b8d29c86-914c-4dca-ac61-3d1dac20c32a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Defense Protocol 1",
+      "GUID": "a23542c8-dca5-41c9-9bd9-d2b8a0fb38a3",
+      "eventText": "Когда дверь открывается, скрытый заряд взрывается с оглушительным звуком.\n\nКаждый герой в пределах 3 клеток от двери проверяет {J}. Каждый герой, проваливший проверку, <color=\"red\">оглушён</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defense Protocol 2",
+      "GUID": "6137459f-7412-4d99-896e-8c4633d37b78",
+      "eventText": "Когда дверь открывается, вас охватывает чувство страха.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defense Protocol 3",
+      "GUID": "85559af7-c245-4195-b199-b143337dc279",
+      "eventText": "Когда дверь открывается, оставшиеся дроиды-разведчики вступают в действие.\n\nКаждый дроид-разведчик выполняет следующую инструкцию:\r\n\r\n{-} Передвинуться на 3 клетки, чтобы атаковать {rebel}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defense Protocol 4",
+      "GUID": "765c284f-1d70-4fea-96b8-5344d61108ce",
+      "eventText": "Когда дверь открывается, затаившийся зверь рычит и готовится к атаке.\n\nРазместите нексу внутрь здания в пределах 3 клеток от открытой двери.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "8d903642-7405-4064-b10c-189fe0104d00",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG017/Nexu"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Red Success",
+      "GUID": "366b9ee1-b953-443b-bea4-3bbcb889eb90",
+      "eventText": "Потолок здесь обрушился, засыпав всё булыжниками. Приложив немало усилий, вы сумели расчистить завал и добраться до терминала. Каким-то чудом он всё ешё работает и даже содержит важную информацию.\r\n\r\nПохоже, что это исследовательский аванпост, поскольку большая часть данных — это инженерные исследования, схемы прототипов штурмовых машин, брони и оружия. Сообщения от генерала Вайсса можно найти повсюду, и вам ясно, что он приложил руку ко многим из этих проектов.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "93a69951-54e6-4169-9226-560b46ea75c3",
+              "theText": "Здесь обрушился потолок, погребя терминал под обломками. Вам нужно откопать его.",
+              "buttonList": [
+                {
+                  "GUID": "cff47a9c-4959-419f-b332-ffc242b19ccf",
+                  "theText": "{A} Начать копать"
+                }
+              ]
+            }
+          ],
+          "GUID": "54a4d008-b735-4910-8211-b75e9f6fdddf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Red Interact",
+      "GUID": "297a2fcf-b9ed-49e1-8704-6e78c01425a0",
+      "eventText": "Вы начинаете копаться в обломках.",
+      "eventActions": [
+        {
+          "mainText": "Проверьте {K} и введите число успехов.\r\n\r\nПримените +1{B} к проверке за каждый жетон усталости на терминале.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "04c3205d-c4cd-4df3-aaa9-a810e347a666",
+              "theText": "Вы делаете успехи, но вы еще не закончили.\r\n\r\nЗа каждый выброшенный {B}, поместите 1 жетон усталости на терминал."
+            }
+          ],
+          "GUID": "f8e3cc3b-3460-4ca7-8fef-7adf62e1d9df",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Blue Interact",
+      "GUID": "e46816a8-666a-4f66-87be-b63a4b28c8e0",
+      "eventText": "Вы начинаете восстанавливать данные.",
+      "eventActions": [
+        {
+          "mainText": "Проверьте {J} и введите число успехов.\r\n\r\nПримените +1{B} к проверке за каждый жетон усталости на терминале.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "2d017143-515a-4859-bf4c-01900421cda9",
+              "theText": "Вы делаете успехи, но вы еще не закончили.\r\n\r\nЗа каждый выброшенный {B}, поместите 1 жетон усталости на терминал."
+            }
+          ],
+          "GUID": "3a702c1b-e535-4b67-8e4e-1e8596d7e2d3",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Blue Success",
+      "GUID": "863dfc37-e540-4884-a0e8-7d074ce24860",
+      "eventText": "Данные разбросаны по всему старому архиву — это обширный журнал с различными техническими данными. Проведя какое-то время за исследованием, вы замечаете несколько упоминаний о поставках в этот комплекс. Сюда свозили металлолом, батареи, оружие, но ваше внимание привлекает то, как всё это работает вместе.\r\n\r\nВы приходите к заключению, что в этой части комплекса строили или модифицировали какой-то транспорт. И он сильно отличается от стандартных имперских разработок.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "7c91c48b-0327-4c06-bf6d-e4843d013c51",
+              "theText": "Данные на этом терминале повреждены. Потребуются некоторые усилия, чтобы восстановить их.",
+              "buttonList": [
+                {
+                  "GUID": "8f281675-8e67-4557-be01-6c53497d0062",
+                  "theText": "{A} Восстановить данные"
+                }
+              ]
+            }
+          ],
+          "GUID": "3d1a1a99-82a8-4a67-bd95-5014b6e3998e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Green Success",
+      "GUID": "c70508ca-0df5-43ec-91ef-8d93cc5cd916",
+      "eventText": "Компьютер в этой комнате не в лучшем состоянии, но через какое-то время вам удаётся его включить. На нём вы находите много сведений о прототипах, но один из проектов по разработке оружия явно важнее остальных.\r\n\r\nДетали специально размыты, но эту тему много обсуждали. У вас также есть некоторое предчувствие по поводу важности этого проекта, так что проигнорировать информацию тяжело.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Green",
+              "GUID": "e9b8ff2b-0bd6-4a20-8359-c211353fdfb5",
+              "theText": "Этот терминал находится в аварийном состоянии. Потребуется немного поработать, чтобы снова запустить его.",
+              "buttonList": [
+                {
+                  "GUID": "b5bb03e2-095e-445c-95b3-1e91fabeec60",
+                  "theText": "{A} Починить"
+                },
+                {
+                  "GUID": "243e82a1-d9f4-4269-b89e-4bb5e09932e8",
+                  "theText": "{A} Починить"
+                }
+              ]
+            }
+          ],
+          "GUID": "e9cd03ac-f67d-4a48-86c9-eded5f5c9af9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Green Interact",
+      "GUID": "9897ecc3-1fde-4502-8fbc-cc382755e86b",
+      "eventText": "Вы начинаете чинить терминал.",
+      "eventActions": [
+        {
+          "mainText": "Проверьте {I} и введите число успехов.\r\n\r\nПримените +1{B} к проверке за каждый жетон усталости на терминале.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "205ba7d1-5ef9-4141-8c34-2daacb323694",
+              "theText": "Вы делаете успехи, но вы еще не закончили.\r\n\r\nЗа каждый выброшенный {B}, поместите 1 жетон усталости на терминал."
+            }
+          ],
+          "GUID": "74cf2484-20ca-444f-a1b8-250bab6ccb72",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "f8166aac-359c-4023-9592-51fecec969c1",
+      "eventText": "Закончив работу, вы поспешно отступаете в лес и подаёте сигнал об эвакуации. Улетаете вы вовремя — сверху видно, что к комплексу приближается большой контингент имперских войск.\r\n\r\n— Отлично сработано! — хвалит вас командир по возвращении. — Техники уже изучают данные, которые вы привезли. Они ещё не завершили анализ, но этот новый проект по разработке оружия меня тревожит. Будьте готовы к очередному заданию — мы постараемся потянуть за все возможные ниточки.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Выложите карту сюжетного задания \"Имперское гостеприимство\". \r\n{-} Каждый герой получает 2 ОО.\r\n{-} Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "58d91632-7258-43d3-943e-d9751a023be8",
+      "eventText": "Несмотря на то, что вы не выполнили задание, вы понимаете, что прорваться через заслон имперцев не выйдет. Лишь благодаря рискованному и глупому манёвру вашего пилота вам удаётся сбежать.\r\n\r\nИз тех крох информации, что вам удалось получить, Верховное командование узнаёт о разработке нового оружия под руководством генерала Вайсса. Больше ничего не известно, но задание хотя бы не оказалось полностью провальным.\r\n\r\n{-} Повстанцы проигрывают в задании.\r\n{-} Выложите карту сюжетного задания \"Сольный вылет\". \r\n{-} Каждый герой получает 1 ОО.\r\n{-} Герои получают по 100 кредитов.\r\n{-} Увеличьте уровень угрозы следующего задания (и только следующего) на 1. Во время стадии улучшения повстанцев, игроки за повстанцев могут потратить по 50 кредитов за героя, чтобы предотвратить это.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Check Early Win",
+      "GUID": "e3a486b7-68c8-4165-a875-74a3b79fed2b",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Early Win",
+      "GUID": "c9e988e6-2624-4ef5-98e0-04343353b19b",
+      "eventText": "Поскольку герои исследовали все терминалы до конца пятого раунда, они получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No Early Win",
+      "GUID": "2d24ba83-f2e2-4ec1-b0d1-8956e2f578e3",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "28973c92-bc3c-45a6-bb70-42b97bae545a",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "b48176f0-4990-4643-8df5-622841ae316c",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "843dd02e-a742-4e99-9e7c-bdfb815ae305",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "f6e18112-9399-4da4-b28c-268849ee7b28",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "baed2157-14c2-44b8-be6d-74ff858942b1",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "d20550ac-ae14-4a6e-b558-0a07eecc53e5",
+      "mainText": "Дислоцируйте повстанцев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Elite",
+      "GUID": "32c71483-fc5e-4de5-aecc-d484c0909b5e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe 1",
+      "GUID": "9fca2c6c-597f-4377-81a4-56b4d3922422",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe 2",
+      "GUID": "ea1de4a1-5762-4a49-9b4c-ebcc14db5c07",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "ca801794-9cb7-40d6-b6eb-ef03bac35b22",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "24c2e935-1e0a-42e7-b744-b2235a14bb2b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "48a5cba8-9a4c-490e-ab34-6b7ecd599681",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "58afa5a8-f437-4b79-96a1-07f3c48da075",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal Red",
+      "GUID": "20661d7f-0da5-418c-85b4-f5f7d27c1ac0",
+      "mainText": "Здесь обрушился потолок, погребя терминал под обломками. Вам нужно откопать его.",
+      "buttonList": [
+        {
+          "GUID": "9aebb290-6d28-4a3a-8e70-3a6535ae4d3b",
+          "theText": "{A} Начать копать"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Blue",
+      "GUID": "bf3e6580-c9db-4605-bd0a-a703fc7bf2d6",
+      "mainText": "Данные на этом терминале повреждены. Потребуются некоторые усилия, чтобы восстановить их.",
+      "buttonList": [
+        {
+          "GUID": "e6c48b71-3dc3-4457-833c-a3ff131228fa",
+          "theText": "{A} Восстановить данные"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Green",
+      "GUID": "26c125bf-1337-44ce-945e-8a84362726f6",
+      "mainText": "Этот терминал находится в аварийном состоянии. Потребуется немного поработать, чтобы снова запустить его.",
+      "buttonList": [
+        {
+          "GUID": "38e8f64d-6fe5-41d5-9778-a46f537cee15",
+          "theText": "{A} Починить"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Weiss",
+      "GUID": "2252d135-34c0-437b-b7fc-4c850c6c3f24",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door North",
+      "GUID": "98907d92-58b8-42fe-9fd8-23ae74f4ab98",
+      "mainText": "Эта дверь ведёт в большую комнату инструктажа.",
+      "buttonList": [
+        {
+          "GUID": "c141b44e-84ea-42bf-9c13-dc8dc26a7b15",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Door East",
+      "GUID": "628f5a4b-173e-44d6-ba37-a4d357b350ec",
+      "mainText": "Эта дверь ведёт в небольшой сарай.",
+      "buttonList": [
+        {
+          "GUID": "74cb455c-1177-43b0-8a18-893435a0dcdd",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Door South",
+      "GUID": "7965c8a5-b117-48af-8f9c-2e02ba495178",
+      "mainText": "Эта дверь ведёт в складское помещение.",
+      "buttonList": [
+        {
+          "GUID": "0a474ea3-8b05-4f82-9449-503ed76df2e6",
+          "theText": "Уничтожить"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Nexu (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

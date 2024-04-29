@@ -1,0 +1,575 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Feindliche Übernahme",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Riskantes Spiel auf Bespin",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zur Zelle.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "f49504ed-b538-457d-97b7-858b80a08db0",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "56c71cb9-3240-4e2a-bfe2-424635f5b45d",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "9d0e48d5-b717-4653-8fa3-f114e1adb9f8",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "33c8c41e-ae0f-48ad-902c-08724f4b26bb",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "fb693e22-eda5-46de-98de-74df63c4e2df",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Sogar das ISB hat blinde Flecken. Hilfsbereite Ugnaught-Arbeiter zeigen euch, wie ihr unbemerkt in die Karbonitkammer gelangt.\n\nIhr sprengt das Gitter von der Wand und sammelt euch. Der Weg mag sicher gewesen sein, aber die Kammer ist es nicht.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.",
+      "eventActions": [
+        {
+          "tbText": "{-} Die Türen sind verriegelt.\n{-} Eine Rebellenfigur kann mit der Tür zur Zelle ({I}) interagieren und versuchen, sie zu öffnen.\n{-} Der Einsatz schreitet voran, wenn die Tür zur Zelle geöffnet wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "b5251b68-e8cc-40b4-bbed-6a802487af13",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Öffnet die Tür zur Zelle.",
+          "longText": null,
+          "GUID": "91952d74-89c6-4932-8646-1879becf7a5f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Die Türen sind verriegelt.\n{-} Eine Rebellenfigur kann mit der Tür zur Zelle ({I}) interagieren und versuchen, sie zu öffnen.\n{-} Der Einsatz schreitet voran, wenn die Tür zur Zelle geöffnet wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "0b5d8b6c-16f6-479f-bf1b-af9582494b0b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Für die imperialen Truppen hat der Schutz des eingefrorenen Agenten Blaise Vorrang, obwohl ihr in einer verzweifelten Situation seid. Lando scheint den Moment ein bisschen zu sehr zu genießen.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Wenn du diesen Einsatz als Nebenmission spielst, erhalten die Helden die Belohnungskarte \"Nothilfe\".",
+      "eventActions": [
+        {
+          "mainText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Riskantes Spiel auf Bespin\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "a6ce9472-2690-4d59-ace4-f16ff2831191",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "c0914855-28b9-4ac5-8ef6-2d37f2997e69",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Blaises Verteidigung war letztendlich wirksam und hat euren Gegenangriff vereitelt. Ihr habt keine andere Wahl, als euch zurückzuziehen.\n\n{-} Die Rebellen verlieren den Einsatz.",
+      "eventActions": [
+        {
+          "mainText": "Habt ihr diesen Einsatz als Teil der Minikampagne \"Riskantes Spiel auf Bespin\" gespielt?",
+          "buttonList": [
+            {
+              "GUID": "4e24233e-40a9-4ed6-8ca9-eca1b50db05d",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "cfe65d16-2324-41d2-a8ef-19335febab33",
+              "theText": "Nein"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "\"Wo meine 'Rebellenfreunde' sind, Verhörmeister? Genau hier, du Sohn eines Bantha!\" Die ISB-Verhörmethoden sind streng geheim, aber was auch immer passiert ist, Lando hat es sehr persönlich genommen. \"Deine Eimerköpfe konnten dich nicht retten, was? Und jetzt bist du eingefroren. Du! Nicht ich, du dummer Wookieetreiber!\"\n\nIhr zieht den aufgebrachten Lando von der Steuerung weg. Das ISB ist zwar in erster Linie auf Geheimhaltung bedacht, aber die unzähligen imperialen Truppen, die sicherlich auf dem Weg sind, werden viel weniger subtil sein. Ihr brecht sofort zum Hauptquartier auf.\n\nAls ihr mit euren Guerillas zurück seid, verrät Lando, dass er auf dem Weg nach draußen ein paar Überwachungscodes von Blaise gestohlen hat. Er wendet sich an die Soldaten: \"Das ist zwar nicht unser eigentliches Ziel gewesen, aber diese Codes verschaffen dem Widerstand eine Chance. Es ist an der Zeit, den imperialen Besatzern einen Strich durch die Rechnung zu machen!\" Die Anführer des Widerstands fangen sofort damit an, einen offensichtlich lang gehegten Plan in die Tat umzusetzen.\n\nLando wendet sich wieder an euch. \"Ich danke euch, Freunde. Ihr habt genug getan. Von hier an übernehmen wir. Meldet euch beim Oberkommando. Wir werden vielleicht nie erfahren, was diese imperialen Codes enthielten, aber wir stehen hier nicht mit leeren Händen da.\"\n\n{-} Die Rebellen gewinnen die Kampagne!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Ihr seid nicht in der Lage, das ISB zu bezwingen, und müsst euch unter schwerem Beschuss der Blaster zurückziehen. euch nicht. Lando klettert zurück in die Versorgungstunnel und hetzt los, um die Guerillas zu warnen. Als ihr in die Knie geht, um ihm zu folgen, spürt ihr den ersten Blasterschuss.\n\nNach einem kurzen, aber heftigen Feuergefecht werdet ihr überwältigt und zusammengeschlagen. \"Nein, nein, nein. Noch dürft ihr nicht sterben. Es gibt noch so viel in Erfahrung zu bringen.\" Blaise gibt ein paar Befehle, und ihr beobachtet verschwommen, wie Sanitäter eure Wunden versorgen, bevor ihr schließlich das Bewusstsein verliert.\n\nNach wochenlangen Verhören ist Blaise überzeugt, dass die Rebellen gebrochen sind. ISB-Infiltratoren überfallen die Stützpunkte der Guerillas und beseitigen den Widerstand. Frieden und Stabilität kehren in die Wolkenstadt zurück.\n\nLang lebe der Imperator!\n\n{-} Die Rebellen verlieren die Kampagne.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Jeder Held erhält 1 EP.\n{-} Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Cell Door Attempt",
+      "GUID": "43162076-510d-4770-ae85-76bfc27fb14b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du fängst an, das Schloss zu knacken.\n\n{-} Lege eine Probe auf {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf der Tür an, dann lege alle Erschöpfungsmarker auf der Tür ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "b34aa8c5-edea-44f8-88cf-a85851bc6275",
+              "theText": "Du machst keine Fortschritte."
+            },
+            {
+              "GUID": "ff84ec7a-3511-4e55-a050-70fb33240a21",
+              "theText": null
+            }
+          ],
+          "GUID": "e6e99c20-3773-4192-9ba4-53cdddf3aa28",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "A Familiar Face",
+      "GUID": "39145145-213a-4a97-8aca-b807b6490e0a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "29e99fdf-b5a0-44ba-b3e0-04a9b52efaf3",
+              "theText": "Die Tür der improvisierten Arrestzelle ist fest verriegelt.\n\n{-} Eine Rebellenfigur kann mit der Zellentür interagieren ({I}) und versuchen, sie zu öffnen.",
+              "buttonList": [
+                {
+                  "GUID": "a84f22fc-6cfa-4dd4-a9e3-0396dbf86aaf",
+                  "theText": "{A} Schloss knacken"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "88bb3582-e997-42a3-ad66-1d31e85cd41f",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "a0bc8948-2ef4-4ec0-b768-907c98a987b7",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "9bc0335d-2e66-48ab-a4c5-b1a3a4b6f847",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Command Center Door Right",
+              "GUID": "1926693f-7bd5-4d44-a118-0cdeb0e04602",
+              "theText": "Diese Tür trennt die Kommandozentrale und den Korridor.",
+              "buttonList": [
+                {
+                  "GUID": "3829fa31-09af-4279-9de2-17de3d98c462",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "04f40adf-75d5-41d0-95c5-9f2e42c06bf9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Lando blickt mit frischen blauen Flecken zu euch auf und murmelt: \"Wir werden sehen, wer am Ende eingefroren wird. Dieser ISB-Drecksk...\"",
+          "GUID": "d9fa8045-ca8f-4181-ab79-5088f06bb333",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "customName": null,
+          "GUID": "73165d65-a241-414f-a37a-2e9cfbd23870",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "\"Komm schon\", stöhnt Lando und steht auf. \"Ich weiß, dass Blaise irgendwo in der Kommandozentrale ist. Zum Glück habe ich noch die Codes dafür.\"\n\n{-} Die Rebellen kontrollieren <color=\"red\">Lando Calrissian</color> als Verbündeten.\n{-} Die Tür zwischen Kommandozentrale und Korridor ist für Rebellenfiguren entriegelt.\n{-} Der Einsatz schreitet voran, wenn die Tür zur Kommandozentrale geöffnet wird.",
+          "GUID": "10ddd084-c8bf-47c6-b956-977420442233",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Gerade als ihr die Zelle verlasst, stürzt ein großer Trandoshaner brüllend durch eine Tür und schwingt eine riesige Waffe. Ihm folgen schnell weitere Truppen.",
+          "GUID": "8e4042a8-092c-4682-8584-cde2624b2110",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dcf65c52-77ed-438b-8999-92e4d855c314",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG080/Bossk"
+        },
+        {
+          "shortText": "Öffnet die Tür zwischen Korridor und Kommandozentrale.",
+          "longText": null,
+          "GUID": "e8d65c9e-c973-468c-80ab-eeb99b611a24",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Die Tür zwischen der Karbonitkammer und der Kommandozentrale ist verriegelt.\n{-} Die Tür zwischen Kommandozentrale und Korridor ist für imperiale Figuren verriegelt.\n{-} Der Einsatz schreitet voran, wenn die Tür zur Kommandozentrale geöffnet wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "3b81f647-bbf7-4eca-8327-a3d32d9ae7fc",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Versperre den Zugang zur Kommandozentrale.",
+          "GUID": "e4d34cac-dd5e-4f74-b954-126b59d03715",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Hostage Situation",
+      "GUID": "5a6df01a-8d45-4fa2-a250-d1f6962ba22b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Center Door Right",
+              "GUID": "9a940fa1-d106-4da9-b7d7-b466faa869ea",
+              "theText": "Die Tür zwischen Kommandozentrale und Korridor ist fest verriegelt.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Carbonite Chamber",
+              "GUID": "0b3f6ca9-369f-4edc-a22f-bf2db6cab599",
+              "theText": "Dampf steigt aus der Karbonitgrube auf. Sie ist einsatzbereit.\n\n{-} Wenn während der Aktivierung einer Rebellenfigur <color=\"red\">Agent Blaise</color> benachbart zur Karbonitgrube ist, kann diese Rebellenfigur mit Agent Blaise interagieren ({K}), um ihn in Karbonit einzufrieren und den Einsatz zu beenden.",
+              "buttonList": [
+                {
+                  "GUID": "9bc9146a-86fa-446f-9e5f-f18b7636a3a6",
+                  "theText": "Blaise einfrieren (Einsatz beenden)"
+                }
+              ]
+            },
+            {
+              "entityName": "Command Center Door Left",
+              "GUID": "e5e7878f-6efa-4419-b798-020b3fcf25d9",
+              "theText": "Diese Tür trennt die Karbonitkammer und die Kommandozentrale.",
+              "buttonList": [
+                {
+                  "GUID": "835cf19f-2f66-4c68-b0f9-89ad39aac1c3",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "fd367eb7-fc6b-4376-976f-ad4f44daab7f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Versperre den Zugang zur Karbonitgrube.",
+          "GUID": "c07bf4e3-0112-4183-8531-40447972b53d",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "Agent Blaise, der damit beschäftigt war, Daten an einem Terminal zu überprüfen, blickt überrascht auf, als ihr in die Kommandozentrale stürmt. Er zieht seine Waffe, und sein Adjutant tut es ihm gleich. ",
+          "GUID": "4e0945ac-4637-4d06-8259-c0343b70833b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "Wenn er benachbart zu einer Rebellenfigur ist, kann <color=\"red\">Agent Blaise</color> sein Feld nicht freiwillig verlassen.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "fb7f8734-3b36-4598-9207-3c475e6edd96",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG079/Agent Blaise"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5c205672-3dca-472f-a13c-9a5504cf640a",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Ihr könnt das ein für alle Mal beenden. Jetzt, da ihr Blaise unter eure Kontrolle gebracht habt, könnt ihr versuchen, ihn das erleben zu lassen, was er so vielen anderen angetan hat: Die kühle Stille der Karbonitgrube.\n\n{-} Die Tür zur Karbonitkammer ist für die Rebellenfiguren entriegelt.\n{-} <color=\"red\">Agent Blaise</color> kann keinen {H} erleiden und nicht besiegt werden. Wenn er benachbart zu einer Rebellenfigur ist, kann <color=\"red\">Agent Blaise</color> sein Feld nicht freiwillig verlassen.\n{-} Während seiner Aktivierung kann eine Rebellenfigur, die benachbart zu <color=\"red\">Agent Blaise</color> ist, eine Probe auf {K} ablegen. Wenn er erfolgreich ist, stößt dieser Held <color=\"red\">Agent Blaise</color> bis zu 2 Felder weit. Andernfalls stößt dieser Held <color=\"red\">Agent Blaise</color> bis zu 1 Feld weit. Maximal einmal pro Aktivierung.\n{-} Wenn <color=\"red\">Agent Blaise</color> während der Aktivierung einer Rebellenfigur benachbart zur Karbonitgrube (rot hervorgehoben) ist, kann diese Rebellenfigur mit Agent Blaise interagieren ({K}), um ihn in Karbonit einzufrieren.\n{-} Die Rebellen gewinnen, wenn <color=\"red\">Agent Blaise</color> in Karbonit eingefroren wird.",
+          "GUID": "0b610221-4a2a-4039-8630-5ad46406b485",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Friere <color=\"red\">Agent Blaise</color> in Karbonit ein.",
+          "longText": null,
+          "GUID": "6bca99b5-203f-4d82-8a05-385849a5ff54",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Die Türen sind für imperiale Figuren verriegelt.\r\n{-} <color=\"red\">Agent Blaise</color> kann keinen {H} erleiden und nicht besiegt werden. Wenn er benachbart zu einer Rebellenfigur ist, kann <color=\"red\">Agent Blaise</color> sein Feld nicht freiwillig verlassen.\n{-} Während seiner Aktivierung kann eine Rebellenfigur, die benachbart zu <color=\"red\">Agent Blaise</color> ist, eine Probe auf {K} ablegen. Wenn er erfolgreich ist, stößt dieser Held <color=\"red\">Agent Blaise</color> bis zu 2 Felder weit. Andernfalls stößt dieser Held <color=\"red\">Agent Blaise</color> bis zu 1 Feld weit. Maximal einmal pro Aktivierung.\n{-} Wenn <color=\"red\">Agent Blaise</color> während der Aktivierung einer Rebellenfigur benachbart zur Karbonitgrube (rot hervorgehoben) ist, kann diese Rebellenfigur mit Agent Blaise interagieren ({K}), um ihn in Karbonit einzufrieren.\n{-} Die Rebellen gewinnen, wenn <color=\"red\">Agent Blaise</color> in Karbonit eingefroren wird.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "d16e6ea6-5610-4e52-9985-0a7a7adf4c05",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Open CC Door Left",
+      "GUID": "2582d6fc-6f95-4533-ad37-d35933d6fdd0",
+      "eventText": "Die Tür gleitet auf. Aufgeschreckt durch die Rufe von Agent Blaise stürmen Sturmtruppen herein.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Center Door Left",
+              "GUID": "00f83e0d-1acd-435b-a27c-7b8bae02ffd9",
+              "theText": "Die Tür zwischen Karbonitkammer und Kommandozentrale ist fest verriegelt.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "b92eda8d-fcad-403b-88c0-a594ec3a3c16",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "015b54ff-cfbf-478b-b935-d730dadae8e5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "03751d04-e60f-4353-a566-f54628dab1d4",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "20e61345-83ac-4410-9e02-b9728f3b25cc",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "fe729197-bdcb-4746-bf21-dc1ddbeb9625",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "56cebf5a-1c42-45b6-b5d7-a7a710d2842d",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "ce28cf20-2624-430a-8e5f-78f842ea8500",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "1109fbc8-1835-4e92-8d41-a069c8bfbc04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "17d7de92-95e0-4d46-b39c-0cc55524b252",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 1",
+      "GUID": "f25e6e73-5e26-4d00-aa1d-fd0d85e2b1d1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 2",
+      "GUID": "1772f4dc-f2b5-40db-8bef-92c0e3e0d9af",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 3",
+      "GUID": "e3d82a43-e46d-42d7-b859-8ef51fdb5a7b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "1ebccf52-2047-44c4-8a10-017951b63124",
+      "mainText": "Die Tür der improvisierten Arrestzelle ist fest verriegelt.\n\n{-} Eine Rebellenfigur kann mit der Zellentür interagieren ({I}) und versuchen, sie zu öffnen.",
+      "buttonList": [
+        {
+          "GUID": "67118e41-5e5f-4896-bddf-e3a7e7ba8baa",
+          "theText": "{A} Schloss knacken"
+        }
+      ]
+    },
+    {
+      "entityName": "Command Center Door Left",
+      "GUID": "c3fdd431-884b-43e5-9740-171b85b4321d",
+      "mainText": "Die Tür zwischen Karbonitkammer und Kommandozentrale ist fest verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Command Center Door Right",
+      "GUID": "90e59ed2-d289-4d88-af4a-ed48a5313d56",
+      "mainText": "Die Tür zwischen Kommandozentrale und Korridor ist fest verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "7517db83-c6af-4fcd-a9ab-0274ab9679f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "d40f0588-3761-4977-91f6-5d8dbe09b59c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "f4b49e42-189f-4d55-ad1b-3cfe3ddfbf21",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "5c1d90d4-9521-4074-8b53-94eb737d2860",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Carbonite Chamber",
+      "GUID": "ee2df8ea-85ad-4155-a243-b3a1b180c1cc",
+      "mainText": "Dampf steigt aus der Karbonitgrube auf. Sie ist einsatzbereit.\n\n{-} Wenn während der Aktivierung einer Rebellenfigur <color=\"red\">Agent Blaise</color> benachbart zur Karbonitgrube ist, kann diese Rebellenfigur mit Agent Blaise interagieren ({K}), um ihn in Karbonit einzufrieren und den Einsatz zu beenden.",
+      "buttonList": [
+        {
+          "GUID": "c7e44115-732d-4edb-b971-7a3f5a8cc14e",
+          "theText": "Blaise einfrieren (Einsatz beenden)"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Wing Guard",
+      "customInstructions": ""
+    }
+  ]
+}

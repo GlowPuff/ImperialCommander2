@@ -1,0 +1,544 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Fire in the Sky",
+    "missionDescription": "",
+    "missionInfo": "{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Drzwi są zabezpieczone. Bohater może skorzystać z zielonego terminala ({I}), aby otworzyć drzwi prowadzące wgłąb statku.\r\n{-} Misja pójdzie naprzód, kiedy drzwi prowadzące wgłąb statku zostaną otwarte.\r\n{-} Bohaterowie przegrają na końcu rundy 9 lub kiedy wszyscy bohaterowie będą ranni.",
+    "campaignName": "Twin Shadows",
+    "startingObjective": "Otwórz drzwi.",
+    "repositionOverride": "Blokuj dostęp do terminalu.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "4a7bd81f-cc8d-457a-8dcc-54dfd186b615",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "a1e5975e-bdc8-42bb-b091-8a946ac43630",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "dc42ba6c-3af5-4a6a-8c89-20d7958b7fb1",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Cień gwiezdnego niszczyciela kładzie się na tej jałowej planecie już stanowczo zbyt długo. Najwyższy czas coś z tym zrobić. Zostaliście wysłani z misją abordażu okrętu, rozbrojenia go i zniszczenia – za wszelką cenę.\r\n\r\nLecicie w jego kierunku, przesyłając skradzione imperialne kody. Macie szczerą nadzieję, że dzięki nim, uda się obejść system ochrony i wasz plan zadziała. Nie spuszczacie wzroku z turbolaserów – podświadomie spodziewacie się, że lada chwila wypalą, ale tak się nie dzieje; wygląda na to, że ten etap operacji udało się zrealizować zgodnie z planem.\r\n\r\nWasz pilot przesyła kody otwierające hangar, a potem wprowadza wasz prom do środka i ląduje. Tak jak się spodziewaliście, pojawiają się problemy. Jeden z oficerów aktywuje alarm i już za chwilę wokół roi się od żołnierzy Imperium. Nie jesteście zaskoczeni. Spokojnie sięgacie po broń i zaczynacie się ostrzeliwać, zdeterminowani wypełnić misję.\r\n\r\n{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Drzwi są zabezpieczone. Bohater może skorzystać z zielonego terminala ({I}), aby otworzyć drzwi prowadzące wgłąb statku.\r\n{-} Misja pójdzie naprzód, kiedy drzwi prowadzące wgłąb statku zostaną otwarte.\r\n{-} Bohaterowie przegrają na końcu rundy 9 lub kiedy wszyscy bohaterowie będą ranni.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Wpadacie na pokład waszego promu, ostrzeliwani przez szturmowców. Wasz pilot odpala silniki i już wkrótce bezpiecznie opuszczacie hangar. Obserwujecie przez iluminator, jak turbolasery gwiezdnego niszczyciela, kontrolowane przez podpięte do konsoli uzbrojenia urządzenie, obracają się ku sobie i plują ogniem. Seria początkowo małych, a później większych eksplozji wstrząsa okrętem, dopóki ostatni wybuch nie przełamuje go w pół. Odlatujecie, ścigani przez chmurę ognistych szczątków i płomieni.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Bliźniacze cienie\"?",
+          "buttonList": [
+            {
+              "GUID": "14800255-708a-4ee4-9ed1-828ca7bc16d6",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "92fff5d7-837e-4965-8ae8-958e8924ffd1",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Byliście naiwni sądząc, że uda wam się sabotować tak dobrze chroniony imperialny statek. Imperialne patrole i wojsko mają nad wami przewagę liczebną. Jesteście zmuszeni do ucieczki w głąb statku. Teraz możecie tylko liczyć na to, że uda wam się znaleźć jakieś bezpieczne miejsce, w który będziecie mogli się ukryć, aby później wymknąć się stąd po kryjomu.\r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} Należy zwiększyć poziom zagrożenia następnej misji (i tylko następnej misji) o 1. Podczas etapu ulepszeń Rebelii gracze Rebelii mogą zdecydować, że wydają 50 kredytów za każdego bohatera w grze, aby temu zapobiec.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Bliźniacze cienie\"?",
+          "buttonList": [
+            {
+              "GUID": "ee6ebbab-cf82-4690-bc65-18ca1bf67e9b",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "e7807218-5db3-4cf5-bb4b-6e13fb36d153",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "Zwycięstwo! Zniszczenie gwiezdnego niszczyciela to dla Sojuszu zawsze powód do świętowania, a fakt, że ten konkretny okręt stanowił bazę operacyjną wymierzonej w Rebelię działalności Imperium czyni wygraną jeszcze słodszą. Chociaż odbieracie wiele sygnałów od statków czmychających ukradkiem z okolicy, włącznie z niesławnym „Slave’em I”, wiecie, że odnieśliście wielki sukces.\r\n\r\nPoświęcanie nieco czasu na namierzenie rebelianckich agentów na planecie i informujecie ich o sytuacji oraz kolejnych planowanych krokach, z uwzględnieniem odpowiedniej ilości czasu na świętowanie zwycięstwa.\r\n\r\nJednak najlepsze w tym wszystkim jest to, że teraz, kiedy usunęliście już przeszkodę w komunikacji w postaci gwiezdnego niszczyciela, możecie bez przeszkód skontaktować się z dowództwem i przekazać mu, że nie tylko odkryliście nowe zagrożenie, ale zajęliście się już jego wyeliminowaniem. Po otrzymaniu tej wspaniałej wiadomości dowództwo natychmiast wzywa was do siedziby Sojuszu, aby przyznać wam pochwałę za odwagę i zmyślność.\r\n\r\n{-} Bohaterowie zwyciężyli w minikampanii!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Rozpaczliwie szukacie na pokładzie gwiezdnego niszczyciela kryjówki, starając się ujść z życiem i w miarę możliwości wypełnić misję. Nagle stajecie twarzą w twarz z uzbrojonym w blaster potężnym dowódcą szturmowców Kaynem Somosem. Zrozpaczeni i bezsilni, słyszycie dobiegający z komunikatora ponury głos waszego pilota:\r\n\r\n“To był zaszczyt, służyć z wami słusznej sprawie, ale wygląda na to, że to już koniec. Jestem w pomieszczeniu kontrolnym uzbrojenia. Misja ponad wszystko. Niech żyje Republika!”\r\n\r\nz tymi słowy rozłącza się. Słyszycie jeszcze kilka mechanicznych szczęknięć, gdy systemy turbolaserów statku uruchamiają się, zwracając się przeciwko sobie nawzajem. Rozdzieranym stopniowo eksplozjami statkiem targają coraz silniejsze wstrząsy. Misja zostaje wypełniona – niewyobrażalnym kosztem. Macie tylko nadzieję, że wasze poświęcenie nie pójdzie na marne i nie zostanie zapomniane.\r\n\r\nNiech żyje Republika!\r\n\r\n{-} Imperium zwyciężyło w minikampanii!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Każdy bohater dostaje 1 PD.\r\n{-} Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Heavy Security",
+      "GUID": "1d1405ca-441a-4bdf-a5b7-5a912fa455d7",
+      "eventText": "Podczas gdy drzwi otwierają się, by ukazać mostek Gwiezdnego Niszczyciela, słychać głos dochodzący przez interkom: \"Statek przybył.\" Gdy żołnierze imperialni odwracają się, by stanąć przed wami i chronić terminal bezpieczeństwa, widzicie jak Boba Fett pojawia się w pomieszczeniu za nimi.\r\n\r\n{-} Drzwi są zabezpieczone. Można zniszczyć niebieski terminal (żywotność: *2*, obrona: 2 {G}). Kiedy to się stanie, drzwi do konsolety bojowej otworzą się.\r\n{-} Misja pójdzie naprzód, kiedy drzwi prowadzące do konsolety bojowej otworzą się.",
+      "eventActions": [
+        {
+          "shortText": "Zniszcz niebieski terminal.",
+          "longText": null,
+          "GUID": "b4987cd3-72a8-473f-b21e-5b2c0a1041f2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Drzwi są zabezpieczone. Można zniszczyć niebieski terminal (żywotność: *2*, obrona: 2 {G}). Kiedy to się stanie, drzwi do konsolety bojowej otworzą się.\r\n{-} Misja pójdzie naprzód, kiedy drzwi prowadzące do konsolety bojowej otworzą się.\r\n{-} Bohaterowie przegrają na końcu rundy 9 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "bc0c3004-4114-4730-877e-47392e84d188",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bridge Door 1",
+              "GUID": "7592261b-80d8-4d01-a3d9-435f58886662",
+              "theText": "Te drzwi prowadzą w głąb Gwiezdnego Niszczyciela.\r\n\r\n{-} Drzwi są zabezpieczone. Bohater może skorzystać z zielonego terminala ({I}), aby otworzyć drzwi prowadzące wgłąb statku.\r\n",
+              "buttonList": []
+            },
+            {
+              "entityName": "Bridge Door 2",
+              "GUID": "75f3e0f0-1a75-4d88-849a-7802968426da",
+              "theText": "Te drzwi prowadzą w głąb Gwiezdnego Niszczyciela.\r\n\r\n{-} Drzwi są zabezpieczone. Bohater może skorzystać z zielonego terminala ({I}), aby otworzyć drzwi prowadzące wgłąb statku.\r\n",
+              "buttonList": []
+            },
+            {
+              "entityName": "Green Terminal",
+              "GUID": "3378f333-7f5d-4ab1-a78a-580608ff0182",
+              "theText": "Terminal naścienny w rogu steruje blokadą drzwi.\r\n\r\n{-} Bohater może skorzystać z zielonego terminala ({I}), aby spróbować otworzyć drzwi prowadzące wgłąb statku.",
+              "buttonList": [
+                {
+                  "GUID": "5c3828d9-d72c-4d5f-97f5-d4ff17f00dbf",
+                  "theText": "{A} Spróbuj otworzyć"
+                }
+              ]
+            }
+          ],
+          "GUID": "c33ccbb4-dc8b-4be7-a258-4801f2f0b7a2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "c3553617-4f6d-440b-9c0b-1417e7443469",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a71c6899-c9c8-4d22-a37e-f9ac3ee173b1",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG076/Boba Fett"
+        }
+      ]
+    },
+    {
+      "eventName": "Blow this Thing and Go Home",
+      "GUID": "71750480-de81-4152-b0da-f1f0033e0b5a",
+      "eventText": "Terminal bezpieczeństwa rozpada się tworząc deszcz iskier, jednocześnie otwierają się drzwi chroniące konsoletę bojową. Za pomocą konsoli można skierować turbolasery statku przeciwko sobie.\r\n\r\n{-} Czerwony żeton Imperium reprezentuje konsoletę bojową. Bohater może skorzystać z konsolety bojowej ({I} lub {J}), aby ją zhakować.\r\n{-} Niebieski żeton misji Rebelii reprezentuje wyjście.\r\n{-} Po zhakowaniu konsolety bojowej, jeśli wszyscy bohaterowie znajdują się na wyjściu lub na polach sąsiadujących z nim, bohaterowie odchodzą.\r\n{-} Bohaterowie wygrają, kiedy bohaterowie odejdą.",
+      "eventActions": [
+        {
+          "shortText": "Zhakuj konsoletę bojową.",
+          "longText": null,
+          "GUID": "f867205c-6a5a-478b-aaf1-3be6fde80bf7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Czerwony żeton Imperium reprezentuje konsoletę bojową. Bohater może skorzystać z konsolety bojowej ({I} lub {J}), aby ją zhakować.\r\n{-} Niebieski żeton misji Rebelii reprezentuje wyjście.\r\n{-} Po zhakowaniu konsolety bojowej, jeśli wszyscy bohaterowie znajdują się na wyjściu lub na polach sąsiadujących z nim, bohaterowie odchodzą.\r\n{-} Bohaterowie wygrają, kiedy bohaterowie odejdą.\r\n{-} Bohaterowie przegrają na końcu rundy 9 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "57714259-4d93-4af2-ab10-e0327211555b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Weapons Door",
+              "GUID": "eb303811-30a0-414d-9eb1-e7eb83164e3f",
+              "theText": "Drzwi do konsolety bojowej są kontrolowane przez terminal bezpieczeństwa na mostku.\r\n\r\n{-} Kiedy niebieski terminal zostanie zniszczony, drzwi do konsolety bojowej otworzą się.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Exit",
+              "GUID": "d6652de1-0f86-4d16-8f34-d1c467204ff9",
+              "theText": "Wasz wahadłowiec czeka na skraju hangaru.\r\n\r\n{-} Po tym, jak konsoleta bojowa zostanie zhakowana, jeśli wszyscy bohaterowie są na polu wyjścia lub na polach sąsiadujących, kliknij \"Odejdź\", kończąc misję.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Blue Terminal",
+              "GUID": "25e68136-61d2-4336-90fc-9f48f8fafc65",
+              "theText": "Terminal bezpieczeństwa na mostku blokuje dostęp do konsolety bojowej.\r\n\r\n{-} Można zniszczyć niebieski terminal (żywotność: *2*, obrona: 2 {G}). Kiedy to się stanie, drzwi do konsolety bojowej otworzą się.",
+              "buttonList": [
+                {
+                  "GUID": "baaf0335-2a4c-4074-8eb2-445d09c209a2",
+                  "theText": "Zniszcz"
+                }
+              ]
+            },
+            {
+              "entityName": "Weapons Console",
+              "GUID": "befd0dcb-28aa-46ee-8749-472ce0248f35",
+              "theText": "Konsoleta bojowa steruje turbolaserami Gwiezdnego Niszczyciela.\r\n\r\n{-} Bohater może skorzystać z konsolety bojowej ({I} lub {J}), aby ją zhakować.",
+              "buttonList": [
+                {
+                  "GUID": "5d61efc7-9e1b-4d87-b982-582726499e9a",
+                  "theText": "{A} Zhakuj"
+                }
+              ]
+            }
+          ],
+          "GUID": "2c3e4a44-d445-45b7-92ac-ed53a82b5fa9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blokuj dostęp do konsolety bojowej.",
+          "GUID": "a6157ca4-d990-414d-8f8b-c2a3a7951e2c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7ac4e89c-e7b4-460b-88a8-2eb63730537e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "e0860f92-8aac-41c0-99ba-fd8ee91ac32e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "Weapons Console Sliced",
+      "GUID": "d8b0d789-16d7-47d1-b76c-31c1b0eee922",
+      "eventText": "Słychać mechaniczny warkot, a alarmy rozbrzmiewają głośniej niż kiedykolwiek wcześniej. \"Ewakuacja\", automatyczny głos wzywa przez interkom. \"Katastrofalna awaria kadłuba nieuchronna. Natychmiast ewakuować statek. Natychmiast ewakuować statek.\" Lepiej posłuchać tej rady.\r\n\r\n{-} Niebieski żeton misji Rebelii reprezentuje wyjście. Jeśli wszyscy bohaterowie są na polu wyjścia lub na polach sąsiadujących, bohaterowie odchodzą.\r\n{-} Bohaterowie wygrają, kiedy bohaterowie odejdą.",
+      "eventActions": [
+        {
+          "shortText": "Odejdź",
+          "longText": null,
+          "GUID": "8dc7fb62-f6df-40b0-9a95-90834c3d0338",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Niebieski żeton misji Rebelii reprezentuje wyjście. Jeśli wszyscy bohaterowie są na polu wyjścia lub na polach sąsiadujących, bohaterowie odchodzą.\r\n{-} Bohaterowie wygrają, kiedy bohaterowie odejdą.\r\n{-} Bohaterowie przegrają na końcu rundy 9 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "6a7996c0-29d9-4b73-bf2d-670328f06a32",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "834fc02b-d959-49f5-bb39-5e6fb562f886",
+              "theText": "Wasz wahadłowiec czeka na skraju hangaru.\r\n\r\n{-} Jeśli wszyscy bohaterowie są na polu wyjścia lub na polach sąsiadujących, kliknij \"Odejdź\", kończąc misję.",
+              "buttonList": [
+                {
+                  "GUID": "3577c95d-b5f4-4fcd-b8f4-67ce921605de",
+                  "theText": "Odejdź"
+                }
+              ]
+            },
+            {
+              "entityName": "Weapons Console",
+              "GUID": "3ff76d7d-d508-44e2-b916-016ba31fe856",
+              "theText": "Konsoleta bojowa steruje turbolaserami Gwiezdnego Niszczyciela.\r\n\r\n{-} Bohater może skorzystać z konsolety bojowej ({I} lub {J}), aby ją zhakować.",
+              "buttonList": [
+                {
+                  "GUID": "ba41b752-2b4f-41ee-a155-df7a2c20b84c",
+                  "theText": "{A} Zhakuj"
+                }
+              ]
+            }
+          ],
+          "GUID": "f6353b60-a1a4-41f9-b7f8-9e5577ed9fc3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blokuj dostęp do wyjścia.",
+          "GUID": "32f32849-60d5-4e73-9aec-539720c2ab31",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Slice Attempt",
+      "GUID": "a58aaa0b-889c-4f0d-a670-47c07812a51e",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Próbujesz złamać kody, by otworzyć drzwi.\r\n\r\n{-} Wykonaj test {I}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na terminalu, następnie odrzuć wszystkie żetony zmęczenia z tego terminala. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e79238ff-2f65-4071-86ff-5758bce66371",
+              "theText": "Robisz pewne postępy, ale jeszcze nie udało ci się złamać kodu. Musisz spróbować jeszcze raz.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na tym terminalu."
+            }
+          ],
+          "GUID": "19731c6f-05e2-4a38-9587-53b019bb31f4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Weapon Slice Attempt",
+      "GUID": "629570dc-6490-4e5e-aafc-f7ff11077940",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Szybko podłączasz przewody i zaczynasz wpisywać komendy, aby przejąć kontrolę nad konsoletą bojową.\r\n\r\n{-} Wykonaj test {J} lub {I}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na konsolecie bojowej, następnie odrzuć wszystkie żetony zmęczenia z konsolety bojowej. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "4da88fa5-4429-4e94-a0db-50a9a8a0890b",
+              "theText": "Robisz pewne postępy, ale konsoleta bojowa wciąż stawia opór. Musisz spróbować ponownie.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na konsolecie bojowej."
+            }
+          ],
+          "GUID": "8a2ab172-b834-4606-be1b-796b23f8fc91",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "6cb590f1-0142-4577-b79a-589e2959367e",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "a1dc2995-229e-4555-85e1-a4fc1675b99e",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Należy rozstawić bohaterów na tym punkcie.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHTrooper 1",
+      "GUID": "563c9200-70f7-455f-833e-037b6805229f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHTrooper 2",
+      "GUID": "a5e819d7-914b-4d7f-83ca-e226ed21b987",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "05247326-52e0-4317-94d3-0461d53c46dd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Bridge Door 1",
+      "GUID": "6dab0c48-22dd-48a8-be4d-5c3242e3bbff",
+      "mainText": "Te drzwi prowadzą w głąb Gwiezdnego Niszczyciela.\r\n\r\n{-} Drzwi są zabezpieczone. Bohater może skorzystać z zielonego terminala ({I}), aby otworzyć drzwi prowadzące wgłąb statku.\r\n",
+      "buttonList": []
+    },
+    {
+      "entityName": "Bridge Door 2",
+      "GUID": "4165f0fd-4530-473d-88ac-f861a0bee4a0",
+      "mainText": "Te drzwi prowadzą w głąb Gwiezdnego Niszczyciela.\r\n\r\n{-} Drzwi są zabezpieczone. Bohater może skorzystać z zielonego terminala ({I}), aby otworzyć drzwi prowadzące wgłąb statku.\r\n",
+      "buttonList": []
+    },
+    {
+      "entityName": "Green Terminal",
+      "GUID": "fb96923a-22d2-43d3-b3c1-2632fcaaf6c3",
+      "mainText": "Terminal naścienny w rogu steruje blokadą drzwi.\r\n\r\n{-} Bohater może skorzystać z zielonego terminala ({I}), aby spróbować otworzyć drzwi prowadzące wgłąb statku.",
+      "buttonList": [
+        {
+          "GUID": "06b2634a-a7bc-4c73-90ab-9ea2e1b17526",
+          "theText": "{A} Spróbuj otworzyć"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "d99f4dd1-0f1c-4eb5-abdf-2c21a12daea2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Boba",
+      "GUID": "2addc31d-6c65-45f8-9477-6e47bad72807",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Blue Terminal",
+      "GUID": "81f210c2-4012-4c05-b224-3aabf3d023b0",
+      "mainText": "Terminal bezpieczeństwa na mostku blokuje dostęp do konsolety bojowej.\r\n\r\n{-} Można zniszczyć niebieski terminal (żywotność: *2*, obrona: 2 {G}). Kiedy to się stanie, drzwi do konsolety bojowej otworzą się.",
+      "buttonList": [
+        {
+          "GUID": "1a713766-b0a0-49fa-a94b-d7f41010d709",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Weapons Door",
+      "GUID": "8da12f6f-093f-47db-9d73-0e4e968ead40",
+      "mainText": "Drzwi do konsolety bojowej są kontrolowane przez terminal bezpieczeństwa na mostku.\r\n\r\n{-} Kiedy niebieski terminal zostanie zniszczony, drzwi do konsolety bojowej otworzą się.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Entrance",
+      "GUID": "26db3570-c014-40d4-8538-848857bb80cd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "699d2b0c-270d-450e-a121-3bccb218e97e",
+      "mainText": "Wasz wahadłowiec czeka na skraju hangaru.\r\n\r\n{-} Po tym, jak konsoleta bojowa zostanie zhakowana, jeśli wszyscy bohaterowie są na polu wyjścia lub na polach sąsiadujących, kliknij \"Odejdź\", kończąc misję.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Weapons Console",
+      "GUID": "5b09665f-6279-47a0-98f5-20b88630f713",
+      "mainText": "Konsoleta bojowa steruje turbolaserami Gwiezdnego Niszczyciela.\r\n\r\n{-} Bohater może skorzystać z konsolety bojowej ({I} lub {J}), aby ją zhakować.",
+      "buttonList": [
+        {
+          "GUID": "e8b3483e-f1bf-4642-888a-e3f7fa4bd883",
+          "theText": "{A} Zhakuj"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

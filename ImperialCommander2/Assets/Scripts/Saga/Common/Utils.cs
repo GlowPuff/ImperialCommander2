@@ -9,11 +9,13 @@ namespace Saga
 {
 	public static class Utils
 	{
-		public const string formatVersion = "21";//the EXPECTED mission format
+		public const string formatVersion = "22";//the EXPECTED mission format
 		public const int expectedCampaignFormatVersion = 2;
+		public static int vaderSound = 0;//increase each time the vader "defeat" sound is played to mix up which voice clip is used
+		public static int defeatsWithoutSpecialSound = 10;//make sure special sound plays after 1st defeat
 
 		/// <summary>
-		/// Logs error to console and to log file, optionally showing the Error Panel
+		/// Logs error to console and to log file, optionally showing the Error Panel (if one exists in the Scene)
 		/// </summary>
 		public static void LogError( string message )
 		{
@@ -31,7 +33,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Same as LogError, but doesn't trigger the Error panel to show
+		/// Logs error to console and to log file, but doesn't trigger the Error panel to show
 		/// </summary>
 		public static void LogWarning( string message )
 		{
@@ -44,6 +46,20 @@ namespace Saga
 			catch ( Exception e )
 			{
 				Debug.Log( "LogWarning::" + e.Message );
+			}
+		}
+
+		public static void LogTranslationError( string message )
+		{
+			Debug.Log( "***TRANSLATION ERROR***:\n" + message );
+
+			try
+			{
+				File.AppendAllText( Path.Combine( FileManager.baseDocumentFolder, "IC2_translation_error_log.txt" ), $"{DateTime.Now} :: ERROR TRACE:\n" + message + "\n\n" );
+			}
+			catch ( Exception e )
+			{
+				Debug.Log( "LogTranslationError::" + e.Message );
 			}
 		}
 
@@ -185,6 +201,60 @@ namespace Saga
 			}
 
 			return diceColors.ToArray();
+		}
+
+		/// <summary>
+		/// Parse the expansion out of a Mission ID, ie: Core6 would return Core
+		/// </summary>
+		public static string ParseExpansionName( string missionID )
+		{
+			string exp = "";
+			foreach ( char c in missionID )
+			{
+				if ( !int.TryParse( c.ToString(), out int n ) )
+					exp += c;
+			}
+			return exp[0].ToString().ToUpper() + exp.Substring( 1 );
+		}
+
+		/// <summary>
+		/// Adds a space to a mission ID, ie: Core6 would return Core6
+		/// </summary>
+		public static string AddSpaceToMissionID( string missionID )
+		{
+			string character = "";
+			string num = "";
+			foreach ( char c in missionID )
+			{
+				if ( !int.TryParse( c.ToString(), out int n ) )
+					character += c;
+				else
+					num += c;
+			}
+			return character[0].ToString().ToUpper() + character.Substring( 1 ) + " " + num;
+		}
+
+		/// <summary>
+		/// Returns the 2-letter language code from a language ID, ie: "Spanish (ES)" returns ES
+		/// </summary>
+		public static string LanguageID2Code( string languageID )
+		{
+			return languageID.Replace( "(", "" ).Replace( ")", "" ).Split( ' ' )[1];
+		}
+
+		/// <summary>
+		/// Takes user round limit setting [OFF] and whether the Mission has a limit [NO] into consideration, returning false in those cases. Otherwise, returns true if round>=limit and 'setting' matches.
+		/// </summary>
+		public static bool IsRoundLimitReachedWithSetting( int setting )
+		{
+			int limitSetting = PlayerPrefs.GetInt( "roundLimitToggle" );//0=off, 1=on, 2=dangerous
+			if ( limitSetting == setting && DataStore.sagaSessionData.gameVars.roundLimit != -1 )//-1=no limit in Mission
+			{
+				if ( DataStore.sagaSessionData.gameVars.round >= DataStore.sagaSessionData.gameVars.roundLimit )
+					return true;
+			}
+
+			return false;
 		}
 
 		/// <summary>

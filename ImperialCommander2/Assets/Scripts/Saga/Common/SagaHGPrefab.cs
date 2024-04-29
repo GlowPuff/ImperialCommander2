@@ -24,7 +24,10 @@ namespace Saga
 			tf.localScale = Vector3.zero;
 		}
 
-		public void Init( DeploymentCard cd )
+		/// <summary>
+		/// When restoring state, set the hero health (hState) so the state object can keep tracking it
+		/// </summary>
+		public void Init( DeploymentCard cd, HeroState hState = null )
 		{
 			Debug.Log( $"DEPLOYED: {cd.name}, {cd.characterType}" );
 			cardDescriptor = cd;
@@ -45,6 +48,8 @@ namespace Saga
 				woundToggle.gameObject.SetActive( false );
 				outline.color = Utils.String2UnityColor( "Black" );
 			}
+
+			cd.heroState = hState;
 
 			if ( cd.heroState == null )
 			{
@@ -129,8 +134,8 @@ namespace Saga
 					cardDescriptor.name,
 					cardDescriptor.characterType == CharacterType.Hero,
 					cardDescriptor.heroState.isWounded,
-					OnDefeat,
-					OnWound );
+					OnDefeatCheck,
+					OnDefeatCheck );
 			}
 			else
 			{
@@ -207,6 +212,24 @@ namespace Saga
 				activationToggle2.isOn = false;
 				cardDescriptor.heroState.hasActivated[1] = false;
 				activationToggle2.gameObject.SetActive( true );
+			}
+		}
+
+		/// <summary>
+		/// When a player clicks DEFEAT, this method decides if it's an initial WOUND or a second DEFEAT
+		/// </summary>
+		public void OnDefeatCheck()
+		{
+			//initial wound
+			if ( cardDescriptor.characterType != CharacterType.Ally
+				&& !cardDescriptor.heroState.isWounded
+				&& !cardDescriptor.heroState.isDefeated )
+			{
+				OnWound();
+			}
+			else if ( cardDescriptor.characterType == CharacterType.Ally || cardDescriptor.heroState.isWounded )
+			{
+				OnDefeat();
 			}
 		}
 

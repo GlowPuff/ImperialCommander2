@@ -40,33 +40,39 @@ namespace Saga
 
 			if ( mm.incRoundCounter )
 			{
+				Debug.Log( "MissionManagement()::Increase Round Counter" );
 				sc.IncreaseRound();
 				CheckIfEventsTriggered();
 				GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.sagaMainApp.roundIncreasedUC );
 			}
 			if ( mm.pauseDeployment )
 			{
+				Debug.Log( "MissionManagement()::Pause Deployment" );
 				DataStore.sagaSessionData.gameVars.pauseDeployment = true;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseDepMsgUC );
 			}
 			if ( mm.unpauseDeployment )
 			{
+				Debug.Log( "MissionManagement()::Unpause Deployment" );
 				DataStore.sagaSessionData.gameVars.pauseDeployment = false;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC );
 			}
 			if ( mm.pauseThreat )
 			{
+				Debug.Log( "MissionManagement()::Pause Threat" );
 				DataStore.sagaSessionData.gameVars.pauseThreatIncrease = true;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC );
 			}
 			if ( mm.unpauseThreat )
 			{
+				Debug.Log( "MissionManagement()::Unpause Threat" );
 				DataStore.sagaSessionData.gameVars.pauseThreatIncrease = false;
 				//GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC );
 			}
 			if ( mm.endMission )
 			{
 				//don't process any more events or event actions after this one
+				Debug.Log( "MissionManagement()::End Mission:Clearing Event queue / Event Action queue / endProcessingCallback" );
 				endProcessingCallback = null;
 				eventQueue.Clear();
 				eventActionQueue.Clear();
@@ -165,6 +171,77 @@ namespace Saga
 			var go = Instantiate( inputBoxPrefab, transform );
 			var tb = go.transform.Find( "InputBox" ).GetComponent<InputBox>();
 			tb.Show( ip, NextEventAction );
+		}
+
+		void ModifyRndLimit( ModifyRoundLimit mrl )
+		{
+			Debug.Log( "SagaEventManager()::PROCESSING ModifyRndLimit" );
+			int old = DataStore.sagaSessionData.gameVars.roundLimit;
+
+			if ( mrl.disableRoundLimit )
+			{
+				Debug.Log( $"Round Limit [{DataStore.sagaSessionData.gameVars.roundLimit}] was DISABLED" );
+				DataStore.sagaSessionData.gameVars.roundLimit = -1;
+				DataStore.sagaSessionData.gameVars.roundLimitEvent = Guid.Empty;
+			}
+			else if ( !mrl.setRoundLimit )
+			{
+				//modify the limit
+				DataStore.sagaSessionData.gameVars.roundLimit += mrl.roundLimitModifier;
+				//set the new event, if any
+				if ( mrl.eventGUID != Guid.Empty )
+					DataStore.sagaSessionData.gameVars.roundLimitEvent = mrl.eventGUID;
+
+				Debug.Log( $"Round limit [{old}] MODIFIED by [{mrl.roundLimitModifier}] to [{DataStore.sagaSessionData.gameVars.roundLimit}]" );
+			}
+			else if ( mrl.setRoundLimit )
+			{
+				//set the limit
+				DataStore.sagaSessionData.gameVars.roundLimit = mrl.setLimitTo;
+				//set the new event, if any
+				if ( mrl.eventGUID != Guid.Empty )
+					DataStore.sagaSessionData.gameVars.roundLimitEvent = mrl.eventGUID;
+
+				Debug.Log( $"Round limit [{old}] SET to [{DataStore.sagaSessionData.gameVars.roundLimit}]" );
+			}
+
+			var sc = FindObjectOfType<SagaController>();
+			sc.UpdateRoundNumberUI();
+
+			NextEventAction();
+		}
+
+		void SetCountdown( SetCountdown scd )
+		{
+			Debug.Log( "SagaEventManager()::PROCESSING SetCountdown" );
+			//check if this is a disable command
+			if ( scd.countdownTimer == -1 )
+			{
+				Debug.Log( $"Countdown Timer with name {scd.countdownTimerName} is now DISABLED" );
+				DataStore.sagaSessionData.gameVars.countdownTimers.Remove( scd.countdownTimerName );
+				//remove it from the UI
+				var sc = FindObjectOfType<SagaController>();
+				sc.OnSetCountdownTimer();
+			}
+			else
+			{
+				Debug.Log( $"Created Countdown Timer [{scd.countdownTimerName}] with value of [{scd.countdownTimer}] rounds" );
+				//set the ending round based on the timer value and the current round
+				int ending = DataStore.sagaSessionData.gameVars.round + scd.countdownTimer;
+				scd.endRound = ending;
+				//add the timer with the name trimmed and lowercase
+				DataStore.sagaSessionData.gameVars.countdownTimers.Add( scd.countdownTimerName.Trim().ToLower(), scd );
+				//if it's visible, notify to show it
+				if ( scd.showPlayerCountdown )
+				{
+					var sc = FindObjectOfType<SagaController>();
+					sc.OnSetCountdownTimer();
+				}
+
+				Debug.Log( $"Countdown [{scd.countdownTimerName}] will expire at the end of round [{ending}]" );
+			}
+
+			NextEventAction();
 		}
 
 		//DEPLOYMENTS
@@ -572,20 +649,20 @@ namespace Saga
 
 				//sort and group tiles by number, i.e. "Core 2A", "Core 11A", "Empire 2B"
 				var orderedAndGrouped = tiles.Item1
-					.OrderBy(str => str.Split(' ')[0])  // Order alphabetically
-					.ThenBy(str => int.Parse(str.Split(' ')[1].TrimEnd('A', 'B'))) // Then order by entire numerical values
-					.ThenBy(str => str.EndsWith("A") ? 0 : 1) // Finally, order by A/B values
-					.GroupBy(str => str) // Group the strings
-					.Select(group => new
+					.OrderBy( str => str.Split( ' ' )[0] )  // Order alphabetically
+					.ThenBy( str => int.Parse( str.Split( ' ' )[1].TrimEnd( 'A', 'B' ) ) ) // Then order by entire numerical values
+					.ThenBy( str => str.EndsWith( "A" ) ? 0 : 1 ) // Finally, order by A/B values
+					.GroupBy( str => str ) // Group the strings
+					.Select( group => new
 					{
 						Tile = group.Key,
 						Count = group.Count()
-					});
+					} );
 				var tilesWithCount = new List<string>();
-				
-				foreach ( var item in orderedAndGrouped)
+
+				foreach ( var item in orderedAndGrouped )
 				{
-					if (item.Count > 1 )
+					if ( item.Count > 1 )
 					{
 						tilesWithCount.Add( $"{item.Tile} x {item.Count}" );
 					}
@@ -675,8 +752,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// this is a special case because it can be called directly WITHOUT an event to fire it
-		/// does NOT call NextEventAction(), parses text for glyphs
+		/// MUST BE PUBLIC, this is a special case because it can be called directly WITHOUT an event to fire it, it does NOT call NextEventAction(), does parse text for glyphs
 		/// </summary>
 		public void ShowPromptBox( QuestionPrompt prompt, Action callback = null )
 		{
@@ -693,6 +769,151 @@ namespace Saga
 			tb.Show( prompt, callback );
 
 			DataStore.sagaSessionData.missionLogger.LogEvent( MissionLogType.PromptBox, prompt.theText );
+		}
+
+		//CAMPAIGN MANAGEMENT
+		void ModifyXP( CampaignModifyXP mxp )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING ModifyXP: {mxp.xpToAdd}" );
+				RunningCampaign.sagaCampaign.campaignHeroes.ForEach( x => x.xpAmount += mxp.xpToAdd );
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+			}
+			else
+				Debug.Log( $"SagaEventManager()::ModifyXP({mxp.xpToAdd})::Campaign isn't active" );
+
+			NextEventAction();
+		}
+
+		void ModifyCredits( CampaignModifyCredits mcredits )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING ModifyCredits: {mcredits.creditsToModify}" );
+				Debug.Log( $"SagaEventManager()::ModifyCredits: Multiply by hero count: {mcredits.multiplyByHeroCount}" );
+				if ( mcredits.multiplyByHeroCount )
+					RunningCampaign.sagaCampaign.credits += mcredits.creditsToModify * RunningCampaign.sagaCampaign.campaignHeroes.Count;
+				else
+					RunningCampaign.sagaCampaign.credits += mcredits.creditsToModify;
+
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+				Debug.Log( $"ModifyCredits()::New Credits: {RunningCampaign.sagaCampaign.credits}" );
+			}
+			else
+				Debug.Log( $"SagaEventManager({mcredits.creditsToModify})::ModifyCredits()::Campaign isn't active" );
+
+			NextEventAction();
+		}
+
+		void ModifyFameAwards( CampaignModifyFameAwards mfa )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING ModifyFameAwards: Fame: {mfa.fameToAdd}, Awards: {mfa.awardsToAdd}" );
+				RunningCampaign.sagaCampaign.fame += mfa.fameToAdd;
+				RunningCampaign.sagaCampaign.awards += mfa.awardsToAdd;
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+				Debug.Log( $"ModifyFameAwards()::New Fame: {RunningCampaign.sagaCampaign.fame}" );
+				Debug.Log( $"ModifyFameAwards()::New Awards: {RunningCampaign.sagaCampaign.awards}" );
+			}
+			else
+				Debug.Log( $"SagaEventManager(Fame: {mfa.fameToAdd}, Awards: {mfa.awardsToAdd})::ModifyFameAwards()::Campaign isn't active" );
+
+			NextEventAction();
+		}
+
+		void SetNextMission( CampaignSetNextMission snm )
+		{
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING SetNextMission: Mission ID: [{snm.missionID}], Custom Mission ID: [{snm.customMissionID}]" );
+				if ( snm.missionID == "Custom" )
+					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.customMissionID, MissionSource.Embedded );
+				else
+					RunningCampaign.sagaCampaign.SetNextStoryMission( snm.missionID, MissionSource.Official );
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+			}
+			else
+				Debug.Log( $"SagaEventManager(CUSTOMID:[{snm.customMissionID}] / ID:[{snm.missionID}])::SetNextMission()::Campaign isn't active" );
+
+			NextEventAction();
+		}
+
+		void AddCampaignRewards( AddCampaignReward acr )
+		{
+			var sagaController = FindObjectOfType<SagaController>();
+
+			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
+			{
+				Debug.Log( $"SagaEventManager()::PROCESSING AddCampaignRewards" );
+
+				foreach ( var item in acr.campaignItems )
+				{
+					if ( !RunningCampaign.sagaCampaign.campaignItems.Contains( item ) )
+					{
+						RunningCampaign.sagaCampaign.campaignItems.Add( item );
+						var reward = DataStore.campaignDataItems.Where( x => x.id == item ).FirstOr( null );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.itemsUC}: + {reward.name}" );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Item: {reward} / {item}" );
+					}
+				}
+				foreach ( var item in acr.campaignRewards )
+				{
+					if ( !RunningCampaign.sagaCampaign.campaignRewards.Contains( item ) )
+					{
+						RunningCampaign.sagaCampaign.campaignRewards.Add( item );
+						var reward = DataStore.campaignDataRewards.Where( x => x.id == item ).FirstOr( null );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.rewardsUC}: {reward.name}" );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Reward: {reward} / {item}" );
+					}
+				}
+				foreach ( var item in acr.earnedVillains )
+				{
+					DeploymentCard card = DataStore.villainCards.GetDeploymentCard( item );
+					if ( RunningCampaign.sagaCampaign.campaignVillains.GetDeploymentCard( item ) == null )
+					{
+						RunningCampaign.sagaCampaign.campaignVillains.Add( card );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.villainsUC}: {card.name}" );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Villain: {card.name} / {card.id}" );
+					}
+				}
+				foreach ( var item in acr.earnedAllies )
+				{
+					DeploymentCard card = DataStore.allyCards.GetDeploymentCard( item );
+					if ( RunningCampaign.sagaCampaign.campaignAllies.GetDeploymentCard( item ) == null )
+					{
+						RunningCampaign.sagaCampaign.campaignAllies.Add( card );
+						sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiCampaign.alliesUC}: {card.name}" );
+						Debug.Log( $"SagaEventManager()::AddCampaignRewards:Added Ally: {card.name} / {card.id}" );
+					}
+				}
+
+				//next mission threat level
+				if ( acr.threatToModify != 0 )
+				{
+					string mod = acr.threatToModify > 0 ? "+" : "-";
+					RunningCampaign.sagaCampaign.ModifyNextMissionThreatLevel( acr.threatToModify );
+					sagaController.toastManager.ShowToast( $"{DataStore.uiLanguage.uiMainApp.modThreatHeading.ToUpper()} {mod}{acr.threatToModify}" );
+					Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify Threat: {acr.threatToModify}" );
+				}
+
+				RunningCampaign.sagaCampaign.SaveCampaignState();
+			}
+			else
+				Debug.Log( $"SagaEventManager(ITEMS:{acr.campaignItems.Count} / REWARDS:{acr.campaignRewards.Count} / VILLAINS:{acr.earnedVillains.Count} / ALLIES:{acr.earnedAllies.Count} / THREAT:{acr.threatToModify})::AddCampaignRewards()::Campaign isn't active" );
+
+			//medpacks
+			if ( acr.medpacsToModify != 0 )
+			{
+				string mod = acr.medpacsToModify > 0 ? "+" : "-";
+				DataStore.sagaSessionData.gameVars.medPacCount = Math.Max( 0, DataStore.sagaSessionData.gameVars.medPacCount + acr.medpacsToModify );
+				FindObjectOfType<SagaController>().UpdateMedPacCountUI();
+				sagaController.toastManager.ShowToast( $"Medpac: {mod}{acr.medpacsToModify}" );
+				Debug.Log( $"SagaEventManager()::AddCampaignRewards::Modify MedPacs: {acr.medpacsToModify}, new MedPac count: {DataStore.sagaSessionData.gameVars.medPacCount}" );
+			}
+
+			NextEventAction();
 		}
 	}
 }

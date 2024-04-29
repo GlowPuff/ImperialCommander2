@@ -1,0 +1,1089 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Flucht aus dem Herzen",
+    "missionDescription": "",
+    "missionInfo": "{-} Eine Rebellenfigur kann mit einem Terminal interagieren ({I}) und versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.\r\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Der Einsatz schreitet zu Beginn einer Statusphase voran, wenn beide Terminals abgelegt wurden und alle Helden benachbart zu dem Shuttle sind. Ignoriere versperrtes Gelände für diese Nachbarschaft. Wenn der Einsatz voranschreitet, entferne <color=\"red\">Ahsoka Tano</color> vom Spielplan.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+    "campaignName": "Im Herzen des Imperiums",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zu den Terminals.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "099768fb-bafd-45a4-be2d-6ea482436b99",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "3d208d23-6189-4991-9d8e-3f0e98f8fdb1",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d5d0d50c-77df-4780-b783-9609aec40012",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "0d32ecc0-b9a8-4be8-8268-eb1e0c44a462",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr stürmt auf die Straße zu eurem Shuttle, als sich euch zahlreiche Truppen in den Weg stellen. Das Fragment von Bardotta in euren Händen verleiht euch eine Verbindung zur Macht, wie ihr sie noch nie zuvor gespürt habt. Ahsoka zündet beide Lichtschwerter und nickt nur, um zu signalisieren, dass sie bereit ist.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Stelle <color=\"red\">Ahsoka Tano</color> (Rebellenführerin) auf dem rot hervorgehobenen Feld auf. Die Helden kontrollieren sie als Verbündete.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.",
+      "eventActions": [
+        {
+          "tbText": "Euer Speeder wartet auf der anderen Seite des Platzes. Er sieht intakt aus, aber die imperialen Streitkräfte haben mobile Andockklammern an ihm befestigt und halten ihn so am Boden. Die Klammern scheinen von zwei Sicherheitsstationen kontrolliert zu werden.\n\n{-} Eine Rebellenfigur kann mit einem Terminal interagieren ({I}) und versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+          "GUID": "46c90350-38d0-49f7-9559-43242e9e1f58",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Clamps 1",
+              "GUID": "3bdcb021-2a19-4de4-ab2c-f803fa3ad985",
+              "theText": "Das Terminal steuert die Backbord-Andockklammern, die den Speeder am Boden halten.\n\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren ({I}), um zu versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+              "buttonList": [
+                {
+                  "GUID": "8d99fb09-8b2a-43d5-9a66-352d9adae730",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Clamps 2",
+              "GUID": "334c9db7-5bce-423e-975a-0b5769cf378f",
+              "theText": "Das Terminal steuert die Steuerbord-Andockklammern, die den Speeder am Boden halten.\n\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren ({I}), um zu versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+              "buttonList": [
+                {
+                  "GUID": "18c2459f-b5a0-497e-9221-b89362a8c073",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Speeder Highlight",
+              "GUID": "835e0833-1c71-4568-b837-3d186da3767f",
+              "theText": "Euer Fluchtshuttle wartet hier.\n\n{-} Der Einsatz schreitet zu Beginn einer Statusphase voran, wenn beide Terminals abgelegt sind und alle Helden benachbart zu dem Shuttle sind. Ignoriere versperrtes Gelände für diese Nachbarschaft.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "e5ebf6ce-f15c-41fd-af32-9d9594825008",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Mit dem Fragment in der Hand macht ihr eure Waffen bereit, entschlossen, euch von den imperialen Soldaten nicht aufhalten zu lassen.\n\n{-} Der Einsatz schreitet zu Beginn einer Statusphase voran, wenn beide Terminals abgelegt wurden und alle Helden benachbart zu dem Shuttle sind. Ignoriere versperrtes Gelände für diese Nachbarschaft. Wenn der Einsatz voranschreitet, entferne <color=\"red\">Ahsoka Tano</color> vom Spielplan.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "105d5364-16a0-432c-a3ef-7e4fb377a943",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Löst die Andockklammern (&Clamps released&/2).",
+          "longText": null,
+          "GUID": "00743e06-1712-4ade-8323-d41a5a65347c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Die Triebwerke von Ahsokas Shuttle zünden und katapultieren euch von Coruscant fort, weg vom wutentbrannten Imperator. Ihr springt in den Hyperraum und atmet erleichtert auf.\n\nZurück im Hauptquartier der Allianz wird euch zu Ehren ein Fest veranstaltet. Ahsoka und andere Anführer der Rebellion treffen sich, um das Fragment von Bardotta zu untersuchen und über sein Schicksal zu entscheiden. Am Ende wird beschlossen, dass es zu gefährlich ist, um es zu benutzen, aber Ahsoka überzeugt die anderen, es nicht zu zerstören.\n\nEin Sonderkommando wird zusammengestellt und das Artefakt wird in eine abgelegene Ecke der Galaxis gebracht - selbst ihr kennt das endgültige Versteck nicht. Vor euch liegt noch ein langer Krieg, aber ihr könnt beruhigt sein: Ihr habt dafür gesorgt, dass das Fragment nicht für das Böse verwendet werden kann, und habt damit einen wichtigen Sieg für die Rebellion errungen.\n\n{-} Die Rebellen gewinnen die Kampagne!",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Der siegreiche Imperator gackert ein freudloses Lachen, während ihr bewegungsunfähig vor ihm kniet. \"Ihr bedauernswerten, törichten Rebellen\", spottet er und hält das letzte Fragment der Sphäre von Bardotta in seiner Hand. \"Ihr wart nützliche Spielfiguren in meinen Plänen und ich muss euch dafür danken, dass ihr es mir ermöglicht habt, dieses mächtige Artefakt zu erlangen.\" Am Himmel seht ihr Ahsokas Shuttle, das von einer Staffel TIE-Jäger zum Rückzug gezwungen wird und euch zurücklassen muss.\n\n\"Ich fürchte jedoch, dass ihr für eure Verbrechen bezahlen müsst\", sagt der Imperator. Seine Soldaten nähern sich und fesseln eure Hände. \"Bringt sie fort\", krächzt der Imperator zu seinen Truppen. \"Sie sollen die Konsequenzen für Verrat und Aufruhr spüren.\" Während sie euch zu einem wartenden Gefängnisschiff schleppen, seht ihr Palpatine, der das Fragment bereits untersucht und sich in seiner Macht suhlt.\n\n{-} Die Rebellen verlieren die Kampagne.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Clamps Attempt 1",
+      "GUID": "9c453d23-5464-4a01-94ec-918965f62889",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du fängst an, das Andocksystem zu hacken.\n\n{-} Lege eine Probe auf {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Terminal an. Während der Probe darfst du 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "dfeb71c8-2fb9-4971-8cb7-343424b90371",
+              "theText": "Die Sicherheitsmaßnahmen sind zu stark. Du musst es weiter versuchen."
+            }
+          ],
+          "GUID": "87976edd-8b3b-43d5-9bd4-17d250a4caf7",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Clamps Success 1",
+      "GUID": "06f5692a-7bd6-4571-bd18-57cdab76b3d8",
+      "eventText": "Du schaffst es, dich in das System zu hacken. Mit einem Surren lösen sich die Andockklammern vom Backbordteil des Speeders.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Clamps 1",
+              "GUID": "f64ffc2d-9651-45c7-816d-26addd77c708",
+              "theText": "Das Terminal steuert die Backbord-Andockklammern, die den Speeder am Boden halten.\n\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren ({I}), um zu versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+              "buttonList": [
+                {
+                  "GUID": "96bf76ac-dd2c-4996-b8c1-712476da70a7",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            }
+          ],
+          "GUID": "b421902b-5206-4dcc-beec-27a56b7f56d4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Clamps Attempt 2",
+      "GUID": "bd9e4133-36a1-4bbd-8ddd-84576c6f1598",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du fängst an, das Andocksystem zu hacken.\n\n{-} Lege eine Probe auf {I} ab. Wende +1 {B} für jeden Erschöpfungsmarker auf dem Terminal an. Während der Probe darfst du 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1d5b46a3-e003-4cff-8115-32f117bb72c6",
+              "theText": "Die Sicherheitsmaßnahmen sind zu stark. Du musst es weiter versuchen."
+            }
+          ],
+          "GUID": "68f38a55-6b9f-405f-a6d2-953dc50ec15c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Clamps Success 2",
+      "GUID": "c3a4b1b4-2092-42f9-9201-907f14f29241",
+      "eventText": "Du schaffst es, dich in das System zu hacken. Mit einem Surren lösen sich die Andockklammern vom Steuerbordteil des Speeders.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Clamps 2",
+              "GUID": "20a513fc-9b81-45ec-bf3c-3077b838419b",
+              "theText": "Das Terminal steuert die Steuerbord-Andockklammern, die den Speeder am Boden halten.\n\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren ({I}), um zu versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+              "buttonList": [
+                {
+                  "GUID": "17bc5f27-29cd-4da9-b4e4-4cdd87d13ebc",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            }
+          ],
+          "GUID": "d38c4b60-3f11-4627-ac04-18d48f3221e4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Speeder free",
+      "GUID": "57f6ed4d-cfc2-4f2d-a36f-fba6a0626787",
+      "eventText": "Jetzt, da die Klammern gelöst sind und der Läufer keine Gefahr mehr für euer Shuttle darstellt, könnt ihr endlich entkommen.\n\n{-} Wenn zu Beginn einer Statusphase alle Helden benachbart zum Shuttle sind, klickt auf das Shuttle und wählt \"Helden benachbart\". Klickt dann auf \"Runde beenden\". Ignoriert versperrtes Gelände für diese Nachbarschaft.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Speeder Highlight",
+              "GUID": "07bdc51c-f0d7-4c2f-828a-e6cceb598264",
+              "theText": "Euer Fluchtshuttle wartet hier.\n\n{-} Der Einsatz schreitet zu Beginn einer Statusphase voran, wenn beide Terminals abgelegt sind und alle Helden benachbart zu dem Shuttle sind. Ignoriere versperrtes Gelände für diese Nachbarschaft.",
+              "buttonList": [
+                {
+                  "GUID": "b1429a71-3c7c-489d-be8f-b53238c9c969",
+                  "theText": "Helden benachbart"
+                }
+              ]
+            }
+          ],
+          "GUID": "6ae26d2d-3ae8-4ee2-939a-720365826f0c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Seid benachbart zu dem Speeder.",
+          "longText": null,
+          "GUID": "584abdc5-030f-41fb-9d45-3f933c615671",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Support Troops",
+      "GUID": "2ae3c04b-3370-484c-bc33-c0ad2714f7f7",
+      "eventText": "Mit lautem mechanischem Getöse kommt ein riesiger Läufer durch die engen Straßen von Coruscant gestapft und feuert. Ein einziger Schuss von diesem Ding könnte locker euren Speeder zum Absturz bringen. Solange dieser Läufer hier ist, ist an Flucht nicht einmal zu denken.\n\n{-} Der Einsatz kann nicht voranschreiten, solange sich der <color=\"red\">AT-DP</color> auf dem Spielplan befindet.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5cd2cae0-1704-49b6-a5e9-580f8514e08d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG046/AT-DP"
+        },
+        {
+          "shortText": "Löst die Andockklammern (&Clamps released&/2). Besiegt den <color=\"red\">AT-DP</color>.",
+          "longText": null,
+          "GUID": "634ddf62-7a40-4a86-9015-2bbcaea7b33f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Ship Down 1",
+      "GUID": "eb510f77-68e0-4115-ba15-a3fd9e8bd583",
+      "eventText": "Als ihr in euer Shuttle steigt, ruft Ahsoka: \"Ich werde versuchen, ihr Feuer auf mich zu lenken\", und läuft zu ihrem eigenen Schiff. \n\n{-} Legt alle Figuren auf dem Spielplan beiseite.",
+      "eventActions": [
+        {
+          "tbText": "Ihr beeilt euch, eure Plätze im Shuttle einzunehmen, bevor ihr startet.\n\n{-} Jeder Held wählt eine andere Rolle für jeden Aktivierungsmarker, den er besitzt: <b>Pilot</b>, <b>Navigator</b>, <b>Bordschütze</b>, oder <b>Artefaktverteidiger</b>.\n{-} Für jede der folgenden Proben gelten alle Rebellenfiguren als benachbart, innerhalb von 1 Feld und in Sichtlinie zueinander.",
+          "GUID": "d6a0aa7d-4630-49f8-8f57-537c89b3bfac",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Euer Schiff hat gerade erst den Landeplatz verlassen, als ein Alarm ertönt und kleine Explosionen in beiden Triebwerken ausbrechen. Ihr verliert an Höhe, und der einzige mögliche Landeplatz ist ein Stützpunkt mit Verteidigungssystemen und Truppen, die sich auf euren Absturz vorbereiten.",
+          "GUID": "8729eb12-6c1a-4979-a5fc-e2e722956206",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ad47da66-24d6-404c-8c59-8dc53b18e5ad",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "mainText": "Ihr zielt mit den Geschützen des Shuttles.\n\n{-} Der Bordschütze legt eine Probe auf {I} oder {J} ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1a5df050-24ce-487a-af02-ab80cf75cd38",
+              "theText": "Der Sinkflug des Shuttles ist zu unkontrolliert, um zu zielen. Deine Schüsse gehen daneben und treffen nur die Betonwände."
+            },
+            {
+              "GUID": "6dc16bcb-a1d3-4623-a79f-d154b0658090",
+              "theText": "Du nimmst die Sturmtruppen mit deinem Geschütz unter Beschuss.\n\n{-} Besiege 1 Sturmtruppler-Figur."
+            },
+            {
+              "GUID": "71a3a6ee-df71-463f-bacd-8649cd8012d9",
+              "theText": "Du nimmst die Sturmtruppen mit deinem Geschütz unter Beschuss.\n\n{-} Besiege 2 Sturmtruppler-Figuren."
+            },
+            {
+              "GUID": "c4c4ba75-af5e-41d8-8f6e-9553a6ef139f",
+              "theText": "Du hältst dein Geschütz auf die Sturmtruppen gerichtet, folgst jeder Bewegung und hörst nicht auf zu feuern, bis sie alle regungslos auf dem Boden liegen.\n\n{-} Besiege 3 Sturmtruppler-Figuren."
+            }
+          ],
+          "GUID": "a2354e90-9e75-4223-9728-f61d2ce1e97e",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        },
+        {
+          "mainText": "Die Triebwerke des Shuttles fallen schließlich aus und der Notfall-Repulsorantrieb schaltet sich ein. Das Shuttle stürzt auf die Anlage zu.\n\n{-} Der Pilot legt eine Probe auf {I} oder {J} ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "9bce0aa5-6bd1-458f-a364-3cfcaf7e661e",
+              "theText": "Das Shuttle kracht hart auf den Boden.\n\n{-} Stelle die Rebellen in dem blau hervorgehobenen Feld auf.\n{-} Jede Rebellenfigur erleidet 2 {H} (4 {H}, wenn sie ein Held mit 2 Aktivierungsmarkern ist)."
+            },
+            {
+              "GUID": "9a7c2e71-b83e-4231-b092-03287a84a008",
+              "theText": "Das Shuttle kracht auf den Boden, aber du schaffst es, den Aufprall ein wenig abzufedern.\n\n{-} Stelle die Rebellen in dem blau hervorgehobenen Feld auf.\n{-} Jede Rebellenfigur erleidet 1 {H} (3 {H}, wenn sie ein Held mit 2 Aktivierungsmarkern ist)."
+            },
+            {
+              "GUID": "55040516-7baf-4379-9c35-ace973f33e6e",
+              "theText": "Das Shuttle kracht auf den Boden, aber du schaffst es, den Aufprall weitgehend abzufedern.\n\n{-} Stelle die Rebellen in dem blau hervorgehobenen Feld auf.\n{-} Jeder Held mit 2 Aktivierungsmarkern erleidet 2 {H}."
+            },
+            {
+              "GUID": "ac87de00-63ec-4c1e-acb8-f6d94aa2d046",
+              "theText": "Das Shuttle kracht auf den Boden, aber du schaffst es, den Aufprall weitgehend abzufedern.\n\n{-} Stelle die Rebellen in dem blau hervorgehobenen Feld auf.\n{-} Jeder Held mit 2 Aktivierungsmarkern erleidet 1 {H}."
+            },
+            {
+              "GUID": "a0082c7a-af53-4050-a2f0-6145a977aba4",
+              "theText": "The shuttle crashes to the ground, but you activate the emergency systems just in time to soften the landing.\r\n\r\n{-} Deploy the Rebels to the blue highlighted space."
+            }
+          ],
+          "GUID": "b96b9f92-509e-47e7-8f88-36df8c86bac3",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        },
+        {
+          "tbText": "Ihr kriecht aus dem Wrack und versucht, euch zu orientieren.\n\n{-} Der Navigator legt eine Probe auf {I} oder {J} ab und wendet +2 {B} auf das Ergebnis an. Dann erhält jeder Held für jedes {B} 1 {e} oder regeneriert 1 {C}.",
+          "GUID": "74ff1c33-e2c9-4154-9969-9d939070d3be",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "mainText": "Als ihr aus den Trümmern klettert, scheint eine dunkle Macht in der Ferne nach dem Fragment zu greifen.\n\n{-} Der Artefaktverteidiger legt eine Probe auf {K} oder {I} ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e069df5c-b85c-48f4-b25e-fa4cb456fd5f",
+              "theText": null
+            },
+            {
+              "GUID": "00386e1f-6651-4bfa-bb95-b4f1129cef1a",
+              "theText": null
+            },
+            {
+              "GUID": "6fea4130-84bd-4456-966b-a1674cf4fa21",
+              "theText": null
+            },
+            {
+              "GUID": "a3ff7953-3c89-4602-9e30-9cea696ed0c4",
+              "theText": null
+            }
+          ],
+          "GUID": "8b5723d4-c65e-4c4c-9fa5-8ab4a29ab708",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "AT-DP defeated",
+      "GUID": "add87686-c652-4d4b-921d-2f1be35b0451",
+      "eventText": "Der Läufer bricht zusammen und zerfällt in einen Haufen glühenden Metalls.",
+      "eventActions": [
+        {
+          "shortText": "Löst die Andockklammern (&Clamps released&/2).",
+          "longText": null,
+          "GUID": "0852bcde-4a57-4595-b059-59d569b96168",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Threat 0",
+      "GUID": "81ca830b-891c-4394-b00f-5d015baad705",
+      "eventText": "Du schaffst es, die Kontrolle über das Fragment zurückzuerlangen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 1",
+      "GUID": "42330ec9-0a5e-4091-9aaf-b16488107160",
+      "eventText": "Du schaffst es, die Kontrolle über das Fragment zurückzuerlangen, aber du wirst das Gefühl nicht los, dass eine dunkle Macht in ihm schlummert.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 2",
+      "GUID": "916f342a-9e80-463a-a408-64833a816f16",
+      "eventText": "Das Fragment vibriert in deiner Hand, aber du hältst deine Finger fest um es geschlossen. Eine dunkle Macht scheint nach ihm zu rufen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 3",
+      "GUID": "31a20683-145d-4cee-839f-d72079e3d020",
+      "eventText": "Das Fragment vibriert und leuchtet in deiner Hand und du spürst, wie ein scharfer Schmerz durch dich schießt.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Ship Down - Continue",
+      "GUID": "6dd93acd-1df4-47d8-9cf3-068fe6b23e0a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shields 1",
+              "GUID": "7695ab29-efd1-421a-a11a-dea3ef797072",
+              "theText": "{-} Platziere 1 Energieschild auf jedem violett hervorgehobenen Feld.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Shields 2",
+              "GUID": "8e08206e-f420-4cdf-8fd8-e9423ed83c79",
+              "theText": "{-} Platziere 1 Energieschild auf jedem violett hervorgehobenen Feld.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "87d941f4-2eff-4732-98d2-fb48e848b199",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Unmittelbar nach eurem Absturz wird die imperiale Einrichtung in höchste Alarmbereitschaft versetzt. Energieschilde werden aktiviert, um den Eingang abzuschirmen.\n\n{-} Platziere 1 Energieschild auf jedem violett hervorgehobenen Feld.",
+          "GUID": "85e05bf2-37f7-431e-813a-8645415d6bbb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "mainText": "Imperiale Truppen versammeln sich, um euch aufzuhalten.\n\n{-} Zähle die Bedrohungskosten aller imperialen Figuren zusammen, die du im ersten Spielplanabschnitt beiseite gestellt hast. Gib das Ergebnis unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "2da0f485-cc3a-40b1-978b-26fcdf51dc5e",
+              "theText": null
+            },
+            {
+              "GUID": "4f5f5798-41df-47c8-b89b-788f444be038",
+              "theText": null
+            },
+            {
+              "GUID": "3b9b5f38-63ab-40b0-b825-35549dc74f9f",
+              "theText": null
+            },
+            {
+              "GUID": "752829eb-e3e5-45e9-ae8d-20860589d522",
+              "theText": null
+            }
+          ],
+          "GUID": "f8c73d52-d823-4d80-a80a-380603de18bd",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Threat 0-5",
+      "GUID": "7903208d-bf33-4a39-9ee8-606aa4145084",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 6-10",
+      "GUID": "d39cc679-34ac-404c-90e0-8bb2ebe4a0b8",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 11-15",
+      "GUID": "9ffbf7ed-3457-4126-8ff7-a38a7380ce75",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 16+",
+      "GUID": "83ac2b44-7ede-4b2c-9a08-2286213413d7",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Ahsoka leaves",
+      "GUID": "62007169-b603-44d4-97c1-04b2b26ac232",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "\"Keine Sorge!\" ruft Ahsoka. \"Ich hole euch da raus. Schaltet die Verteidigungsanlagen der Station aus, damit ich sicher landen und euch abholen kann!\"\n\n{-} Der Einsatz schreitet voran, wenn sich die Tür zur Verteidigungsstation öffnet.",
+          "GUID": "21eb6ff6-a0b2-44a4-b45f-a3093e1e5123",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Betretet die Verteidigungsstation.",
+          "longText": null,
+          "GUID": "73e67339-0cae-4e25-8574-a8fc2c9783bb",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Der Einsatz schreitet voran, wenn sich die Tür zur Verteidigungsstation öffnet.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "4937d94c-e13d-4a48-b41a-b13dfc773423",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Versperre den Zugang zu den Türen.",
+          "GUID": "da93e7fc-3f50-4512-938f-2fdf5506920b",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "622ae17f-98d8-4e69-9038-c9a65b5f9ddd",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Heroes adjacent",
+      "GUID": "3cd08992-3ce2-47d8-a0f7-65c2cb9e4d5d",
+      "eventText": "Ihr versammelt euch um das Fluchtshuttle und macht euch bereit zum Abflug.\n\n{-} Klicke auf \"Runde beenden\", um den Einsatz voranschreiten zu lassen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Speeder Highlight",
+              "GUID": "a595208b-fabd-47c4-b8b8-5d37a7e82c3a",
+              "theText": "Euer Fluchtshuttle wartet hier.\n\n{-} Der Einsatz schreitet zu Beginn einer Statusphase voran, wenn beide Terminals abgelegt sind und alle Helden benachbart zu dem Shuttle sind. Ignoriere versperrtes Gelände für diese Nachbarschaft.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c607344b-c187-469b-befc-d3f49dc43241",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Generator 1 destroyed",
+      "GUID": "ca0d4b0e-3a7c-4181-a537-d05f87df6993",
+      "eventText": "Der Generator stürzt in einem Funkenregen zusammen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shield Generator 1",
+              "GUID": "6fc04e3f-d37c-4f0a-9d8d-03806f3513f7",
+              "theText": "Die Schildgeneratoren schützen die Verteidigungsanlage und halten Ahsoka von der Landung ab.\n\n{-} Eine Rebellenfigur kann einen Schildgenerator angreifen (Gesundheit: 8, Verteidigung: 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "25a15a69-cd5d-45a1-b078-d97a1a2c15f1",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "7480ab33-8f6d-44df-aad8-bac2ee06a1f2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Generator 2 destroyed",
+      "GUID": "4476e348-5dc1-4237-87b8-d4e9833de07a",
+      "eventText": "Der Generator stürzt in einem Funkenregen zusammen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shield Generator 2",
+              "GUID": "b4bf44bc-8d57-4469-bdf3-799bbbd6805b",
+              "theText": "Die Schildgeneratoren schützen die Verteidigungsanlage und halten Ahsoka von der Landung ab.\n\n{-} Eine Rebellenfigur kann einen Schildgenerator angreifen (Gesundheit: 8, Verteidigung: 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "6e475a7b-cb8f-4b95-904b-cc751525136e",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "b938cffb-545e-45aa-bcb8-8503fe5ba69b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Escape Plan",
+      "GUID": "cd327316-ad89-46f1-8539-22d39ad3b48a",
+      "eventText": "Die Tür gleitet auf und gibt den Blick frei auf eine kleine Verteidigungsstation mit zwei Schildgeneratoren, die vor Spannung summen. Kurz nachdem ihr die Tür geöffnet habt, werden automatische Wachen aktiviert.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Defense Station Door",
+              "GUID": "92cc2fcd-3d03-4174-bc66-89c5eef3b2e1",
+              "theText": "Eine schwere Schutztür führt in die Verteidigungsanlage.",
+              "buttonList": [
+                {
+                  "GUID": "a7f7fe0a-be3d-4d7a-9950-585c12a6af85",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "dee954ae-a4aa-4c28-9ec7-9529c1372b2a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "3fa32853-4ce5-4269-bc6d-11511c9cc9ba",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG052/Sentry Droid (Elite)"
+        },
+        {
+          "tbText": "Die Schildgeneratoren sehen robust, aber nicht unzerstörbar aus.\n\n{-} Eine Rebellenfigur kann einen Schildgenerator angreifen (Gesundheit: 8, Verteidigung: 2 {G}).\n{-} Wenn die Schildgeneratoren zerstört sind und sich alle Helden auf Außenfeldern befinden, werden die Helden extrahiert.\n{-} Die Rebellen gewinnen, wenn die Helden extrahiert werden.",
+          "GUID": "d581fb27-5f25-43fd-a1c0-d398fa0c5df7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Zerstört die Schildgeneratoren (&Terminals destroyed&/2).",
+          "longText": null,
+          "GUID": "65154061-6b19-426e-87f5-bc3ed09d9f3b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Eine Rebellenfigur kann einen Schildgenerator angreifen (Gesundheit: 8, Verteidigung: 2 {G}).\n{-} Wenn die Schildgeneratoren zerstört sind und sich alle Helden auf Außenfeldern befinden, werden die Helden extrahiert.\n{-} Die Rebellen gewinnen, wenn die Helden extrahiert werden.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "2ec3d438-a807-4453-868e-77d41406dd11",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "tbText": "Ihr macht euch bereit, die Anlage zu stürmen, als plötzlich Schmerzen durch eure Köpfe jagen. Ein Gefühl völliger Angst überkommt euch. Durch den Schild hindurch senkt sich ein pechschwarzes Shuttle und landet vor der Anlage. Aus ihm steigt eine dunkel gekleidete Gestalt, die von einer Aura der Boshaftigkeit umhüllt ist.",
+          "GUID": "11564662-8a74-435b-8030-092ee352c107",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "1be11246-e8a5-42a3-a5f5-bbe0cecde2f3",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG083/Emperor Palpatine"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Imperator Palpatine</color> kann keinen {H} erleiden.",
+          "GUID": "42218a89-84a8-45e3-8641-9b646173085e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Versperre den Zugang zu den Terminals.",
+          "GUID": "ba4ab234-548b-41c4-8a0f-238aa844679a",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Shields down",
+      "GUID": "3bfdc478-72f8-4d62-a25f-9e2fe32d2164",
+      "eventText": "Die Schildgeneratoren fallen aus, und sofort brechen die Schilde um die Anlage zusammen. \"Jetzt!\", ruft Ahsoka über Funk. \"Raus da, ich hole euch ab!\"\n\n{-} Entfernt alle Energieschilde vom Spielplan.",
+      "eventActions": [
+        {
+          "repositionText": "Versperre den Zugang zu den Außenfeldern.",
+          "GUID": "8f15f7b6-e7de-41a1-8fbb-36713cc2227c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Escape Token",
+              "GUID": "a9c62d42-2295-431f-a872-ec9ec8572980",
+              "theText": "{-} Wenn alle Helden auf Außenfeldern stehen, klicke auf \"Extrahieren\", um aufzubrechen und den Einsatz zu beenden.",
+              "buttonList": [
+                {
+                  "GUID": "bcaa9eb2-cbb0-40ed-832c-4e279fb909d5",
+                  "theText": "Extrahieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "df09b353-d884-4b4a-bfb6-30054863337a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Wenn alle Helden auf Außenfeldern stehen, klickt auf den Rebellen-Einsatzmarker und wählt \"Extrahieren\", um aufzubrechen.",
+          "GUID": "311000e3-b20a-4cbe-a57b-486845463f0c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen.\r\n{-} Wenn alle Helden auf Außenfeldern stehen, klickt auf den Rebellen-Einsatzmarker und wählt \"Extrahieren\", um aufzubrechen.\r\n{-} Die Rebellen gewinnen, wenn die Helden extrahiert werden.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "1c60e6cf-9029-4f18-b4f2-d63fade195d2",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Flieht!",
+          "longText": null,
+          "GUID": "101569bc-2da0-4d25-b904-e32243eca493",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "6a83a570-d030-45d4-9778-e2003a12b163",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "4be84208-1c15-43e8-b747-398212c64f4e",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "db61f6e7-0006-442f-bb95-d4ca5171dc84",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Ahsoka Entrance",
+      "GUID": "70e6ef6f-9dd1-4b9f-85e6-bbc66dbf85da",
+      "mainText": "Stelle <color=\"red\">Ahsoka Tano</color> (Rebellenführerin) hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 5",
+      "GUID": "5c3e51ed-22ac-4df7-ac35-30cb1d0f8609",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 6",
+      "GUID": "462508ff-7def-440e-925d-4ff7efd105ad",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Speeder Highlight",
+      "GUID": "31f2d76d-ff35-46cc-89d4-f9299761a042",
+      "mainText": "Euer Fluchtshuttle wartet hier.\n\n{-} Der Einsatz schreitet zu Beginn einer Statusphase voran, wenn beide Terminals abgelegt sind und alle Helden benachbart zu dem Shuttle sind. Ignoriere versperrtes Gelände für diese Nachbarschaft.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "f51088e8-95fd-45cd-9f01-47b6e53e0c64",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "b5e61f64-b1d5-4303-b5a4-70437afeaca7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "c9147411-6b58-499b-8839-59d3da363ef6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "713fd077-cc17-43e7-933b-b5d06a67704e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "47551a2d-aaf7-4ebf-8ed9-30d925c6f05a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe Droid",
+      "GUID": "33bf0854-65bd-4b8a-9fbd-c2d3e83fed17",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ERTrooper 1",
+      "GUID": "f2b9fa6d-02e6-4590-b5ad-3c1eb1ba3dc2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ERTrooper 2",
+      "GUID": "59d7eac0-a379-4295-81b7-0af3418936da",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal Clamps 1",
+      "GUID": "159fdf87-38b1-44ba-949a-19520e3cf843",
+      "mainText": "Das Terminal steuert die Backbord-Andockklammern, die den Speeder am Boden halten.\n\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren ({I}), um zu versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+      "buttonList": [
+        {
+          "GUID": "3ad8db0e-d0b9-440d-b262-57d378aeccd2",
+          "theText": "{A} Hacken"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Clamps 2",
+      "GUID": "450134f9-870f-4846-9185-85915e596764",
+      "mainText": "Das Terminal steuert die Steuerbord-Andockklammern, die den Speeder am Boden halten.\n\n{-} Eine Rebellenfigur kann mit dem Terminal interagieren ({I}), um zu versuchen, eine Andockklammer zu lösen und das Terminal abzulegen. Während der Probe darf die Figur 1 {C} erleiden, um bis zu 2 Würfel neu zu würfeln.",
+      "buttonList": [
+        {
+          "GUID": "6cc75cf3-a97c-4cc3-ac14-2d202fe3206e",
+          "theText": "{A} Hacken"
+        }
+      ]
+    },
+    {
+      "entityName": "DP AT-DP",
+      "GUID": "03dd838d-6ff6-4f89-a742-d64765178338",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 7",
+      "GUID": "16d4fc00-dcf0-4848-8213-86be26d5c626",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 8",
+      "GUID": "ac10b1ec-64de-4ad8-acf1-6d33eda75e91",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 9",
+      "GUID": "db9b50d6-7cb9-48a0-a78b-be551f1aeeca",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 10",
+      "GUID": "b592abeb-e829-4880-867d-513460d2bf01",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Defense Station Door",
+      "GUID": "009c6993-9a5e-43b9-acff-91ca0d3aadae",
+      "mainText": "Eine schwere Schutztür führt in die Verteidigungsanlage.",
+      "buttonList": [
+        {
+          "GUID": "411f14db-6f85-4cd5-a028-6dcdb1338152",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Shields 1",
+      "GUID": "f91e1cfa-aa72-4315-a2e8-f5ba0c03135b",
+      "mainText": "{-} Platziere 1 Energieschild auf jedem violett hervorgehobenen Feld.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Shields 2",
+      "GUID": "6d83cf9e-b5db-418f-8648-e46c950821e7",
+      "mainText": "{-} Platziere 1 Energieschild auf jedem violett hervorgehobenen Feld.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Palpatine",
+      "GUID": "a48c7257-0824-4110-bd3d-8fb6e4e215d4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "927696d7-29d5-45a3-ae34-1e3f0b933c83",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "a5bcc029-aca3-42a3-8819-98f37dae584a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "fa69bf3e-aa24-4d47-a9cb-49d9be6e346c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "3676372a-1be6-4730-aa49-5e81fc638cff",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "3f0b8cbb-334f-4480-9f48-1209072af5d9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Shield Generator 1",
+      "GUID": "db3f6b8d-2f97-47d5-9eb4-b2c0b2d3f294",
+      "mainText": "Die Schildgeneratoren schützen die Verteidigungsanlage und halten Ahsoka von der Landung ab.\n\n{-} Eine Rebellenfigur kann einen Schildgenerator angreifen (Gesundheit: 8, Verteidigung: 2 {G}).",
+      "buttonList": [
+        {
+          "GUID": "b9e6e0b3-0639-47f8-aee4-fa3f52447fe5",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Shield Generator 2",
+      "GUID": "b2138e00-bd2f-4207-ae27-b44700c47dc0",
+      "mainText": "Die Schildgeneratoren schützen die Verteidigungsanlage und halten Ahsoka von der Landung ab.\n\n{-} Eine Rebellenfigur kann einen Schildgenerator angreifen (Gesundheit: 8, Verteidigung: 2 {G}).",
+      "buttonList": [
+        {
+          "GUID": "73880d26-2a8c-43b5-b33d-c0505e3c32ea",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Escape Token",
+      "GUID": "6860550c-2d6f-4995-abcd-921650519a47",
+      "mainText": "{-} Wenn alle Helden auf Außenfeldern stehen, klicke auf \"Extrahieren\", um aufzubrechen und den Einsatz zu beenden.",
+      "buttonList": [
+        {
+          "GUID": "8c8ba560-8c1e-4f46-9811-bc75c55d6284",
+          "theText": "Extrahieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance Command Centre",
+      "GUID": "6edaaa47-afa5-4179-b7f5-6f07b18b9d39",
+      "mainText": "Platziere die Helden hier.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Riot Trooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

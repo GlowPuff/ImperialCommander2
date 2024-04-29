@@ -1,0 +1,713 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Reconocimiento Siniestro",
+    "missionDescription": "",
+    "missionInfo": "{-} Las puertas están selladas.\r\n{-} Las fichas de Misión neutrales representan informantes. Si no hay figuras del bando Imperial adyacentes a un informante, un Héroe puede interactuar con ese informante ({K} o {J}) para interrogarlo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. \r\n{-} Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a un informante adyacente.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando los Héroes han interrogado a 2 informantes.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+    "campaignName": "El Corazón del Imperio",
+    "startingObjective": "Interrogar a los informantes (&informants&/2).",
+    "repositionOverride": "Estar adyacente a un informante.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "bd581d7c-11e2-4afc-ab35-e52f0bb0f713",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "3facb977-bd46-4932-85d8-a03b24e852c4",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "808c5332-8461-4a40-8406-d25f3f30bf89",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "12461967-8b5e-4e35-877c-3ac5297c1781",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "1cd01727-201f-4564-9205-e61bc6292649",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "96f563c4-5a54-491b-ba41-ffbcadefb439",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Sobrevoláis las ajetreadas calles de Coruscant hacia el lugar donde os encontraréis con un grupo de contactos locales que afirman tener información sobre la misión del equipo Rebelde desaparecido.\r\n\r\nLos altos rascacielos del planeta-ciudad se ciernen sobre vosotros mientras vuestro deslizador desciende hacia vuestro lugar de aterrizaje. Entre los grandes edificios hay una vieja cafetería con las puertas cerradas. Algunas cajas viejas están esparcidas y tus informantes se acurrucan en los rincones oscuros de las calles.\r\n\r\nAl aterrizar, el corazón os da un vuelco al comprender que las comunicaciones con vuestros contactos han debido de ser interceptadas. Un grupo de soldados de asalto aparece a la carrera para recibiros. Preparáis vuestras armas con la esperanza de que todavía podáis obtener información fiable de vuestros informantes\r\n\r\n{-} Despliega los Héroes adyacentes al deslizador (casillas resaltadas en azul).\r\n{-} Las puertas están selladas.\r\n{-} Las fichas de Misión neutrales representan informantes. Si no hay figuras del bando Imperial adyacentes a un informante, un Héroe puede interactuar con ese informante ({K} o {J}) para interrogarlo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. \r\n{-} Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a un informante adyacente.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando los Héroes han interrogado a 2 informantes.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Os miráis unos a otros y después bajáis la vista hacia vuestra lanzadera de escape, que flota justo debajo de vosotros en el hueco del paso elevado. Respiráis hondo y saltáis por encima de la barandilla para caer sobre el vehículo. Cuando estáis todos a bordo, la lanzadera se aleja zumbando con disparos láser del enemigo en su estela\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego las cartas de Misión de Historia \"De las garras de la oscuridad\", \"Por buen camino\" y \"El Topo\".",
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "421a620a-d492-415a-b543-3d89b6b00c39",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "5432ae29-701e-4530-b8bb-080c0fc6e68e",
+              "theText": "No"
+            }
+          ],
+          "GUID": "34e47e8b-b392-4b09-a698-7ee15b1b10c0",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose - Recording Active",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Incapaces de llegar a vuestro vehículo de escape, el fuego de los soldados de asalto os hace retroceder. Renunciáis a seguir con el reconocimiento e intentáis ampararos en los garitos y callejones de los bajos fondos de Coruscant con la esperanza de que los Imperiales saquen a vuestros informantes menos información que la que les sacasteis vosotros.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 125 créditos por Héroe.\r\n{-} Pon en juego las cartas de Misión de Historia \"De las garras de la oscuridad\", \"Por buen camino\" y \"El Topo\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Interrogate Informant 1",
+      "GUID": "359fe99e-3ab1-486c-a38a-da4fed076fd7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "La mujer Twi'lek mira a los soldados Imperiales, obviamente poco dispuesta a compartir lo que sabe.\r\n\r\n{-} Realiza una prueba de {K} o {J}. Aplica +1 {B} a la prueba por cada ficha de Tensión en el informante, y descarta las fichas de Tensión del informante. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "7725ac06-abf6-4714-b7a7-24b6362f45a1",
+              "theText": "La mujer sacude la cabeza y os hace gestos para que os alejéis. Debéis seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de Tensión sobre el informante."
+            }
+          ],
+          "GUID": "6d9581c1-c6fb-4641-8c6b-f69befa75e97",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Informant 1 interrogated",
+      "GUID": "f1f2d5c3-043f-436c-8f19-85edf1598b57",
+      "eventText": "-Sí, he visto a los tipos de los que habláis. Fueron arrestados hace poco, por unos soldados imperiales y un Oficial. Los soldados eran aterradores, con enormes escudos y porras de choque.\n\nDespués de contaros todo lo que sabe, se marcha rápidamente.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Informant 1",
+              "GUID": "b55b0c16-a81c-4d2b-841c-49aa9b3a9da6",
+              "theText": "Una alta mujer Twi’lek mira nerviosa a su alrededor. \r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+              "buttonList": [
+                {
+                  "GUID": "d83c534a-91b5-4929-bf8c-aa6b401d13dd",
+                  "theText": "{A} Interrogar"
+                }
+              ]
+            }
+          ],
+          "GUID": "731855fe-5a4e-4013-8afe-061ef84ff1a6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Interrogate Informant 2",
+      "GUID": "5cbba108-d738-4742-bed6-7edcfad23b17",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "El hombre trata de ocultarse tras unos contenedores para eludir a los soldados Imperiales.\r\n\r\n{-} Realiza una prueba de {K} o {J}. Aplica +1 {B} a la prueba por cada ficha de Tensión en el informante, y descarta las fichas de Tensión del informante. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "8fa98aaf-5466-4fd8-a721-b5598ae19854",
+              "theText": "El hombre se escabulle y vuelve a esconderse. Debéis seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de Tensión sobre el informante."
+            }
+          ],
+          "GUID": "9460d9cb-502d-4eb2-8809-568ff2279558",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Informant 2 interrogated",
+      "GUID": "3377f948-c662-4f6b-9120-3121edbf2e2f",
+      "eventText": "-Tuvieron una reunión. El grupo Rebelde, quiero decir. Estaban discutiendo algo importante en esa cafetería de allí. No tuvieron mucho tiempo antes de que los Imps irrumpieran. Tengo que irme, chicos. Tengo una familia, no puedo arriesgarme a que corran peligro.\n\nEl hombre sale corriendo.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Informant 2",
+              "GUID": "936ad5e6-2606-4ce1-bd06-6ffcdf1cbe18",
+              "theText": "Un hombre humano de baja estatura se acurruca en un rincón.\r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+              "buttonList": [
+                {
+                  "GUID": "50d729cc-dd49-4f10-a071-cf6382b473b6",
+                  "theText": "{A} Interrogar"
+                }
+              ]
+            }
+          ],
+          "GUID": "636a2a1e-a5b9-44fa-8856-1f9f4b585212",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Interrogate Informant 3",
+      "GUID": "16ff280a-e8c0-4817-8a6c-4e3684eb4b4c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "El Zabrak está sin aliento. Parece que ha estado huyendo de los soldados.\r\n\r\n{-} Realiza una prueba de {K} o {J}. Aplica +1 {B} a la prueba por cada ficha de Tensión en el informante, y descarta las fichas de Tensión del informante. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "24062b0f-7e69-437e-b453-12d1c8e4f00d",
+              "theText": "El Zabrak jadea y sacude su cabeza. Debéis seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de Tensión sobre el informante."
+            }
+          ],
+          "GUID": "c10eade8-72e8-478f-97f0-f314caf45c73",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Informant 3 interrogated",
+      "GUID": "de5777e4-cb44-4682-afeb-557056bfdfe6",
+      "eventText": "-B...bien -jadea el Zabrak-. Sólo dadme un minuto.\r\n\r\nTras unas cuantas respiraciones profundas, el Zabrak consigue hablar de nuevo.\r\n\r\n-Los operativos Rebeldes hablaban de algún artefacto. Un fragmento o algo así. Creo que lo que oyeron les asustó. Mucho. Pero tengo que irme.\n\nEl zabrak sale corriendo hacia los callejones laterales de Coruscant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Informant 3",
+              "GUID": "9b14e3a3-63d7-47cc-b69e-593e16dbd85f",
+              "theText": "Un Zabrak trata de recuperar el aliento aquí.\r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+              "buttonList": [
+                {
+                  "GUID": "95ac5904-8064-4c21-ac7e-19b1dde4560e",
+                  "theText": "{A} Interrogar"
+                }
+              ]
+            }
+          ],
+          "GUID": "4df4849f-b1d5-4bba-825d-6f1432184bbd",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Droid Patrol",
+      "GUID": "7c1f0d5e-0556-4902-845c-023c4df03738",
+      "eventText": "Desde los niveles inferiores, asciende un dron Imperial de combate.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "fb5cae4c-86a9-4b8b-8de0-53a8fe7b176f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG012/Probe Droid"
+        }
+      ]
+    },
+    {
+      "eventName": "Trooper Patrol",
+      "GUID": "e0d8a559-4cb6-49df-8f58-2b1b0c2569ca",
+      "eventText": "-¡Allí están; acribilladlos! -escucháis a través del ominoso y chisporroteante filtro del casco de un soldado de asalto mientras aparece una segunda emboscada a vuestra espalda.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5595a003-ef20-470e-ba8e-3ce2b1ac0322",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "Halfway There",
+      "GUID": "0e407909-8f1a-4620-933f-e67757762a0b",
+      "eventText": "Cuando os alejáis del segundo informante, una mujer se os acerca desde las sombras. Con una punzada de alivio reconocéis a la experta en inteligencia del equipo Rebelde, pero está ensangrentada y maltrecha, con una mirada atormentada.\r\n\r\n-¡Menos mal que estáis aquí! -os dice-. El anterior equipo Rebelde fue capturado mientras buscaba un artefacto llamado la esfera de Bardottan. Nos confiaron un par de sus pistas antes de su captura, pero nuestro grupo se dividió cuando vimos a todos esos imperiales merodeando por aquí. Mi compañero, un Duros, está en la cafetería y tiene una tarjeta de datos con todos los detalles. ¡Daos prisa!\r\n\r\n{-} Las puertas ya no están selladas.\r\n{-} La misión avanza cuando los Héroes entran en la cafetería.",
+      "eventActions": [
+        {
+          "shortText": "Buscar al Duros en la cafetería.",
+          "longText": null,
+          "GUID": "1a41963a-a182-442f-b530-4947ef4a656d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} La misión avanza cuando los Héroes entran en la cafetería.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "1a02d84a-b79d-4079-80ab-ebc83de5add1",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Bloquear el acceso a la cafetería.",
+          "GUID": "950ba821-7b47-410e-a00c-2b4ab7dc139f",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "e10fe6fc-8371-450d-b679-f8aea72d9a90",
+              "theText": "Esta puerta conduce a una cafetería cerrada. Se oyen voces desde el interior.",
+              "buttonList": [
+                {
+                  "GUID": "3a996a5f-fa7c-4639-9d62-315ea3a75f4f",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "4d9a189b-8f03-4277-a00e-07490d3282db",
+              "theText": "Esta puerta conduce a una cafetería cerrada. Se oyen voces desde el interior.",
+              "buttonList": [
+                {
+                  "GUID": "98d8be22-409e-4782-a770-c4ba976f77f3",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Informant 1",
+              "GUID": "f2ac2628-28b7-4401-9130-a1fb6a7b4494",
+              "theText": "Una alta mujer Twi’lek mira nerviosa a su alrededor. \r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+              "buttonList": [
+                {
+                  "GUID": "7a49858c-d27b-469d-9a38-6fd8f985f660",
+                  "theText": "{A} Interrogar"
+                }
+              ]
+            },
+            {
+              "entityName": "Informant 2",
+              "GUID": "33121d77-718a-4978-a110-22b2d3e01623",
+              "theText": "Un hombre humano de baja estatura se acurruca en un rincón.\r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+              "buttonList": [
+                {
+                  "GUID": "c5d0dbdc-ccf1-44e6-a206-a8db663e18cf",
+                  "theText": "{A} Interrogar"
+                }
+              ]
+            },
+            {
+              "entityName": "Informant 3",
+              "GUID": "3cc56b05-bdb7-4bee-a973-9fad782259eb",
+              "theText": "Un Zabrak trata de recuperar el aliento aquí.\r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+              "buttonList": [
+                {
+                  "GUID": "3a784e46-7683-414c-acf3-4f62e0250208",
+                  "theText": "{A} Interrogar"
+                }
+              ]
+            }
+          ],
+          "GUID": "9a064bc3-0a18-42be-bf98-9a5bd75ef1b9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Garrison",
+      "GUID": "3d357d76-0c3d-44ea-95e6-72600511f864",
+      "eventText": "Tras la puerta, se encuentra una sencilla cafetería de los bajos fondos. Cerca de una pared, un Duros se acurruca aterrorizado. Dos soldados Imperiales con escudos antidisturbios lo rodean mientras un Oficial le lanza preguntas. Tan pronto como entráis el Oficial mira hacia vosotros y grita:\r\n\r\n-¡Libraos de esa escoria Rebelde!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "0fa327cd-a6cb-4986-8904-ac35e187264d",
+              "theText": "Esta puerta conduce a una cafetería cerrada. Se oyen voces desde el interior.\r\n\r\n{-} La puerta está sellada.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "5c0ed1c3-86bf-4922-9972-4feeb730ea51",
+              "theText": "Esta puerta conduce a una cafetería cerrada. Se oyen voces desde el interior.\r\n\r\n{-} La puerta está sellada.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "212d3704-3a9b-4482-bcde-8995a14ff36f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "fda6b348-d5a3-419a-ad73-0a9e4bcf210e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2357446d-6e26-496c-a792-7aca0b014c3a",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG047/Riot Trooper"
+        },
+        {
+          "tbText": "{-} Cuando el <color=\"red\">Oficial Imperial</color> y los Soldados Antidisturbios son derrotados, la cafetería queda libre.\r\n{-} La misión avanza cuando la cafetería está libre.",
+          "GUID": "1f4a07b5-c077-4ff4-ab29-8bd062714142",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Liberar la cafetería.",
+          "longText": null,
+          "GUID": "42a289b0-b3bb-4330-8997-85f18f2a56e7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} Cuando el <color=\"red\">Oficial Imperial</color> y los Soldados Antidisturbios son derrotados, la cafetería queda libre.\r\n{-} La misión avanza cuando la cafetería está libre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "c10cab8b-2561-49ec-83b5-82ad743dbc90",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "The Recording",
+      "GUID": "7c797f54-c171-418e-962b-c07e110f4906",
+      "eventText": "El duros se os acerca; trae consigo una tarjeta de datos y un proyector de hologramas portátil. Os da la tarjeta y activa el proyector: la holograbación muestra a una mujer en toga que está de pie en la Cámara del Consejo Jedi. En la grabación, cuya gran antigüedad es evidente, la jedi habla sobre un fragmento de un artefacto que tiene el poder de aumentar la conexión con la Fuerza de quienquiera que lo posea. El Consejo Jedi, temeroso de que al fragmento se le diera un mal uso, ordenó que fuese escondido en un lugar secreto y seguro. \r\n\r\n-Si cayera en las manos equivocadas -dice la jedi-, que la Fuerza esté con todos nosotros.\r\n\r\n-Gracias por vuestra ayuda -dice el Duros, aliviado-. Al analizar la tarjeta de datos he recuperado dos pistas diferentes: la primera apunta a un burócrata, un historiador de los Jedi del que se dice que tiene conocimientos sobre sabiduría Jedi y artefactos relacionados con la Fuerza antiguos. La segunda señala a un Oficial Imperial llamado Zaaryn, del que se cree que se ha topado con información sobre el fragmento de la esfera de Bardottan y que intenta comerciar con esa información en el submundo criminal para su beneficio propio. Pero antes tenemos que salir de aquí, ¡deprisa!\r\n\r\n{-} Cuando todos los Héroes estén adyacentes a las casillas resaltadas en azul del Paso Elevado, pulsa sobre el Paso Elevado y selecciona \"Partir\".\r\n{-} Los Rebeldes ganan cuando los Héroes parten.",
+      "eventActions": [
+        {
+          "shortText": "Escapar a través del Paso Elevado.",
+          "longText": null,
+          "GUID": "23b22c4a-d3fb-481b-b87a-8e0e3e9605fa",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan solo dispone de una acción y solo puede usar esa acción para realizar un movimiento.\r\n{-} Cuando todos los Héroes estén adyacentes a las casillas resaltadas en azul del Paso Elevado, pulsa sobre el Paso Elevado y selecciona \"Partir\".\r\n{-} Los Rebeldes ganan cuando los Héroes parten.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "96ddda7f-6801-46bb-9f96-b42906b09a67",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Overpass",
+              "GUID": "d91e1c63-94bc-4532-b21e-89ced8d2d357",
+              "theText": "Vuestra lanzadera de escape flota bajo el Paso Elevado, esperándoos.\r\n\r\n{-} Cuando todos los Héroes estén adyacentes a las casillas resaltadas en azul del Paso Elevado, pulsa sobre \"Partir\".",
+              "buttonList": [
+                {
+                  "GUID": "b08a9e21-8af3-4bb9-85d9-d5a87c1e301e",
+                  "theText": "Partir"
+                }
+              ]
+            }
+          ],
+          "GUID": "7634d1f6-e133-4366-be51-ca591d3c2377",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso al Paso Elevado.",
+          "GUID": "27dbe18a-ceff-4ca0-bb84-79219f91ddbf",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Rebel defeat",
+      "GUID": "0bb7257f-ba07-4576-af8b-caa943907fc2",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose - No Recording",
+      "GUID": "4fe58c6d-6419-4fb6-955c-4611aa8458b5",
+      "eventText": "Incapaces de llegar a vuestro vehículo de escape, el fuego de los soldados de asalto os hace retroceder. Renunciáis a seguir con el reconocimiento e intentáis ampararos en los garitos y callejones de los bajos fondos de Coruscant con la esperanza de que los Imperiales saquen a vuestros informantes menos información que la que les sacasteis vosotros.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Pon en juego la carta de Misión de Historia \"De las garras de la oscuridad\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "8c011e11-f3b2-479b-a1b1-4cdbe2362dfd",
+      "eventText": "Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No",
+      "GUID": "a26f7d52-1a01-4820-8d6d-f666918e8ce7",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "a997c560-f836-4887-8d3c-f0a3402de01c",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "0e935b31-4ccd-41b8-a461-fd547295c82a",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "cc32b3e6-175e-438b-b0e5-56867d87bf18",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Este es el deslizador. Despliega los Héroes adyacentes a una de estas casillas. ",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "99c63ffd-1d1a-48e5-a93d-38d23624959c",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "32ad4cae-3b55-4992-952d-6c4f5b08a07a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "43a075bf-e1d7-4454-8780-e74d26a88ce6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "bf3f9228-87bd-4402-8891-6981665d8179",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "e9b9cf41-2de2-41a5-9014-3f6c2bc576cb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Informant 1",
+      "GUID": "a6b8eddb-1ae1-43bd-9683-d6d1d35d5bdd",
+      "mainText": "Una alta mujer Twi’lek mira nerviosa a su alrededor. \r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+      "buttonList": [
+        {
+          "GUID": "71f32c57-1202-4bb5-89a4-42849cc6cef3",
+          "theText": "{A} Interrogar"
+        }
+      ]
+    },
+    {
+      "entityName": "Informant 2",
+      "GUID": "dc54bf31-861f-48a3-be01-c33865f0f9d9",
+      "mainText": "Un hombre humano de baja estatura se acurruca en un rincón.\r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+      "buttonList": [
+        {
+          "GUID": "566267be-2b44-40fe-bb0e-a3309845980c",
+          "theText": "{A} Interrogar"
+        }
+      ]
+    },
+    {
+      "entityName": "Informant 3",
+      "GUID": "71107775-6aa2-41f2-88a0-dab5f958e92e",
+      "mainText": "Un Zabrak trata de recuperar el aliento aquí.\r\n\r\n{-} Si no hay figuras del bando Imperial adyacentes a esta ficha, un Héroe puede interactuar con ella ({K} o {J}) para interrogar al informante, descartándolo. Durante la prueba, el Héroe puede sufrir 1 {C} para volver a tirar 1 dado. Un Héroe puede gastar 2 puntos de movimiento para empujar 1 casilla a esta ficha. (Mueve la ficha pero déjala en la app).",
+      "buttonList": [
+        {
+          "GUID": "754feb7a-2b65-4997-bb00-ee350c1a9813",
+          "theText": "{A} Interrogar"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "7acd9b82-3d8a-4417-92f0-7822422d5b58",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "e3d904a8-b867-4ae6-8a6b-bb38cbdcc8b6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "8ae6434c-9756-4d70-969e-c93f4011313b",
+      "mainText": "Esta puerta conduce a una cafetería cerrada. Se oyen voces desde el interior.\r\n\r\n{-} La puerta está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "b71e6006-6bd6-4857-8fd1-dd1a3a1c0010",
+      "mainText": "Esta puerta conduce a una cafetería cerrada. Se oyen voces desde el interior.\r\n\r\n{-} La puerta está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "bcda820d-2db2-47b0-936b-6e5ac149b2ad",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Overpass",
+      "GUID": "caf25d2d-a84a-4851-bf58-9c5aaf6d6fe0",
+      "mainText": "Vuestra lanzadera de escape flota bajo el Paso Elevado, esperándoos.\r\n\r\n{-} Cuando todos los Héroes estén adyacentes a las casillas resaltadas en azul del Paso Elevado, pulsa sobre \"Partir\".",
+      "buttonList": [
+        {
+          "GUID": "3c690629-0ace-44c1-8ce5-473efb2eecf9",
+          "theText": "Partir"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

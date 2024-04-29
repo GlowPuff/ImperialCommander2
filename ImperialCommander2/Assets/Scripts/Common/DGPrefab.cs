@@ -2,6 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class DGPrefab : MonoBehaviour
 {
 	public Toggle[] countToggles;
@@ -127,38 +132,38 @@ public class DGPrefab : MonoBehaviour
 
 	public void RemoveSelf()
 	{
-		for ( int i = 0; i < 3; i++ )
-			countToggles[i].gameObject.SetActive( false );
-		selfButton.interactable = false;
+		//for ( int i = 0; i < 3; i++ )
+		//	countToggles[i].gameObject.SetActive( false );
+		//selfButton.interactable = false;
 
-		Transform tf = transform.GetChild( 0 );
-		tf.DOScale( 0, .35f ).SetEase( Ease.InCirc ).OnComplete( () =>
-		 {
-			 //add card back to dep hand ONLY IF IT'S NOT THE CUSTOM GROUP
-			 //AND if it's NOT a villain
-			 if ( cardDescriptor.id != "DG070" && !DataStore.villainCards.ContainsCard( cardDescriptor ) )
-				 DataStore.deploymentHand.Add( cardDescriptor );
-			 //remove it from deployed list
-			 DataStore.deployedEnemies.RemoveCardByID( cardDescriptor );
-			 //if it is an EARNED villain, add it back into manual deploy list
-			 if ( DataStore.sessionData.EarnedVillains.ContainsCard( cardDescriptor ) && !DataStore.manualDeploymentList.ContainsCard( cardDescriptor ) )
-			 {
-				 DataStore.manualDeploymentList.Add( cardDescriptor );
-				 DataStore.SortManualDeployList();
-			 }
+		//Transform tf = transform.GetChild( 0 );
+		//tf.DOScale( 0, .35f ).SetEase( Ease.InCirc ).OnComplete( () =>
+		// {
+		//	 //add card back to dep hand ONLY IF IT'S NOT THE CUSTOM GROUP
+		//	 //AND if it's NOT a villain
+		//	 if ( cardDescriptor.id != "DG070" && !DataStore.villainCards.ContainsCard( cardDescriptor ) )
+		//		 DataStore.deploymentHand.Add( cardDescriptor );
+		//	 //remove it from deployed list
+		//	 DataStore.deployedEnemies.RemoveCardByID( cardDescriptor );
+		//	 //if it is an EARNED villain, add it back into manual deploy list
+		//	 if ( DataStore.sessionData.EarnedVillains.ContainsCard( cardDescriptor ) && !DataStore.manualDeploymentList.ContainsCard( cardDescriptor ) )
+		//	 {
+		//		 DataStore.manualDeploymentList.Add( cardDescriptor );
+		//		 DataStore.SortManualDeployList();
+		//	 }
 
-			 if ( DataStore.sessionData.useAdaptiveDifficulty )
-			 {
-				 //add fame value
-				 DataStore.sessionData.gameVars.fame += cardDescriptor.fame;
-				 //reimburse some Threat
-				 DataStore.sessionData.ModifyThreat( cardDescriptor.reimb );
-				 //show fame popup
-				 GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"green\">{cardDescriptor.fame}</color>" );
-			 }
+		//	 if ( DataStore.sessionData.useAdaptiveDifficulty )
+		//	 {
+		//		 //add fame value
+		//		 DataStore.sessionData.gameVars.fame += cardDescriptor.fame;
+		//		 //reimburse some Threat
+		//		 DataStore.sessionData.ModifyThreat( cardDescriptor.reimb );
+		//		 //show fame popup
+		//		 GlowEngine.FindUnityObject<QuickMessage>().Show( $"{DataStore.uiLanguage.uiMainApp.fameIncreasedUC}: <color=\"green\">{cardDescriptor.fame}</color>" );
+		//	 }
 
-			 Object.Destroy( gameObject );
-		 } );
+		//	 Object.Destroy( gameObject );
+		// } );
 	}
 
 	public void ToggleColor()

@@ -1,0 +1,521 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Последствия",
+    "missionDescription": "ПОБЕДА! Уничтожив Звезду Смерти, Альянс повстанцев подарил надежду Галактике, жившей в страхе. Империя, потеряв своё абсолютное оружие, пытается восстановить силы после сокрушительного поражения.\r\n\r\nПока дождь из обломков боевой станции падает на базу повстанцев на луне Явин-IV, Империя решает отомстить повстанцам, укрывшимся на крохотной луне.\r\n\r\nВскоре небольшая группа оперативников Альянса отправляется к имперскому маяку, который передаёт сигнал неподалёку от базы повстанцев. Задание отряда — любой ценой заглушить сигнал...",
+    "missionInfo": "{-} Повстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.\r\n{-} Двери заперты для имперских фигурок.\r\n{-} Повстанцы победят, когда все терминалы уничтожены .\r\n{-} Повстанцы проиграют в конце раунда 6 или когда все герои ранены.",
+    "campaignName": "Базовая игра",
+    "startingObjective": "Уничтожьте терминалы (&All terminals destroyed&/4).",
+    "repositionOverride": "Клетка рядом с терминалом.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "4ca9290d-b6b6-4314-a347-fbbd19b7b1a1",
+      "eventText": "Прибыв на аванност, вы тут же открываете огонь по солдатам.\r\n\r\nСкорее всего, они знали, что вы скоро явитесь, и это наверняка ловушка. Но сигнал не прерывается, а значит, времени на скрытное продвижение попросту нет.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.\r\n{-} Повстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.\r\n{-} Двери заперты для имперских фигурок.\r\n{-} Повстанцы победят, когда все терминалы уничтожены .\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Fortified",
+      "GUID": "44387bd2-8147-473c-a48b-a3bd08685a96",
+      "eventText": "— Они здесь! — кричат имперцы, поспешно готовясь к обороне. — Держите их подальше от передатчиков!\r\n\r\nВ вашем комлинке слышится потрескивание.\r\n\r\n— Имперцы на подходе! — сообщает вам пилот, наблюдая с высоты. — Скоро их будет много, так что поторопитесь!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "1a7a686f-7397-424a-baf8-d5bfcc8ec1d1",
+              "theText": "Дверь ведёт в имперский аванпост.",
+              "buttonList": [
+                {
+                  "GUID": "06175041-a604-48ed-8319-00fcebf83655",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "04ff4ab0-d23b-4ba9-9bbf-d3233ba6f239",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "88b56268-6a96-42d4-bcf5-4a2e260d4fa7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "tbText": "Наводчик E-Web <color=\"red\">концентрируется</color>.",
+          "GUID": "b29a2e8e-9fd0-45ac-b850-bed92d238e39",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2f434a05-b3db-4f2d-b6a6-2cd31cdb49aa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "282cf3f0-3917-436b-a541-94ff9c06e59d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - Selection",
+      "GUID": "48c1cabd-d027-4d10-af6b-9615f431a0ab",
+      "eventText": "Вскоре после того, как вы проникли на аванпост, активируются имперские протоколы безопасности.",
+      "eventActions": [
+        {
+          "mainText": "За пределами аванпоста находятся две или более фигурок повстанцев ?",
+          "buttonList": [
+            {
+              "GUID": "b26342d6-cd14-43f8-9f76-20f354d1b0a9",
+              "theText": "Да"
+            },
+            {
+              "GUID": "1d2275cb-8062-4895-acdc-00a979af0129",
+              "theText": "Нет"
+            }
+          ],
+          "GUID": "3841a266-35c9-4fc1-9874-471ef92e929d",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - option 1",
+      "GUID": "d02af3cc-d824-40a0-b8fc-068daff410d3",
+      "eventText": "С громким гудением, вокруг оставшихся терминалов активируются энергетические щиты.\n\nЗдоровье каждого терминала теперь равно 7 вместо 4.",
+      "eventActions": [
+        {
+          "theText": "{-} Повстанческая фигурка может атаковать терминал (здоровье: 7, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.\r\n{-} Двери заперты для имперских фигурок.\r\n{-} Повстанцы победят, когда все терминалы уничтожены .\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "ff0c6d17-0ae8-4ecc-b578-0124ced7f71c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - option 2",
+      "GUID": "3ccef7c8-2e48-4f39-8dd7-64b69b5dfcd4",
+      "eventText": "Дверь вновь захлопывается.\r\n\r\n{-} Дверь заперта. Повстанческая фигурка может атаковать дверь  (здоровье: 8, защита: 1 чёрный кубик).",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "c943b08c-5993-44cb-8961-1e424892713f",
+              "theText": "Дверь намертво заперта.\r\n\r\nПовстанческая фигурка может атаковать дверь (здоровье: 8, защита: 1 чёрный кубик).",
+              "buttonList": [
+                {
+                  "GUID": "72fad6c1-f077-4ad6-ac69-708e013cb1ec",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "d2f777a3-7fb1-4579-ab90-a4e1f2392fc6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Повстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). \r\nДобавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.\r\n{-} Дверь заперта. Повстанческая фигурка может атаковать дверь  (здоровье: 8, защита: 1 чёрный кубик).\r\n{-} Повстанцы победят, когда все терминалы уничтожены .\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "26fed357-841d-4dd4-95ca-3e72f33f1882",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of mission - Rebels win",
+      "GUID": "870b7c74-06ff-4e5c-a912-987a840df6d9",
+      "eventText": "Вы помешали планам имперцев, и они поспешно отступают.\r\n\r\n— Хорошая работа! — с улыбкой говорит вам пилот, когда вы забираетесь в транспорт.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Введите в игру карту сюжетного задания \"Новая угроза\".\r\n{-} Каждый игрок получает 1 ОО. Герои получают по 200 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of mission - Rebels lose",
+      "GUID": "7ddd5374-8f96-43a0-8fc7-eda3931adea6",
+      "eventText": "Имперские солдаты высыпают из леса со всех сторон. Маяк сделал своё дело, и вы вынуждены отступить. Учитывая сколько имперцев уцелело, наземным войскам повстанцев есть чем заняться.\r\n\r\n{-} Герои проигрывают в задании.\r\n{-} Введите в игру карту сюжетного задания \"В осаде\".\r\n{-} Каждый игрок получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Terminal 1 destroyed",
+      "GUID": "6d935ef2-418e-434b-9ab4-55df80a4263a",
+      "eventText": "Терминал взрывается дождём искр. Трансляция немедленно прекращается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal1",
+              "GUID": "e48a6569-e35a-43bd-9e2b-6c4c0baaaf85",
+              "theText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+              "buttonList": [
+                {
+                  "GUID": "cff8053c-e16a-458e-92aa-423cbb843bef",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "9efb3d19-8c3d-4b90-b8a7-fa3463850f63",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 2 destroyed",
+      "GUID": "4e6aa656-7f34-4820-b01f-1c2cb040c4c8",
+      "eventText": "Терминал взрывается дождём искр. Трансляция немедленно прекращается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal2",
+              "GUID": "1c793804-1c11-49c3-a09f-350ef53dba85",
+              "theText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+              "buttonList": [
+                {
+                  "GUID": "53d957e9-0bb5-4d24-a86b-9d0967322552",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "2fb52ae4-cef6-404f-a3dc-325a7a0c57dd",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 3 destroyed",
+      "GUID": "b285b2dc-8961-4ebf-85d0-f2be705362d8",
+      "eventText": "Терминал взрывается дождём искр. Трансляция немедленно прекращается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal3",
+              "GUID": "d7f5fcd8-2010-4f41-bb9f-fcb769b30c5b",
+              "theText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+              "buttonList": [
+                {
+                  "GUID": "5e9be623-e80d-4ada-9908-1b438f73742a",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "bd47b359-b647-46b1-ba6c-7894f737f230",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 4 destroyed",
+      "GUID": "d929242e-cff1-4245-95c2-60112d413950",
+      "eventText": "Терминал взрывается дождём искр. Трансляция немедленно прекращается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal4",
+              "GUID": "ac6058e5-d5cd-4db3-a2d2-f795690c5e6d",
+              "theText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+              "buttonList": [
+                {
+                  "GUID": "8daa7102-55b2-43f3-b5af-6b1aaf66b45a",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "a19a20e0-2328-43fb-91d9-2b9731765370",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 1 opened",
+      "GUID": "fae52e20-9575-448c-a8be-a5aa5f7b678f",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "421a7384-99d3-43b8-9b8b-a67c20c73fd1",
+              "theText": "Старый имперский ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "632ce159-ebc5-4fbb-885d-85ca7628d853",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "c843b940-bba5-4459-be63-c9fc32dad32c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 2 opened",
+      "GUID": "c5410e34-c9fd-40d2-b823-515f1e394b73",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "55af3c65-590a-4e0c-b580-2e7c2047c512",
+              "theText": "Старый имперский ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "dc7b530d-d8e8-4dfe-984b-cb3f81739c14",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "94d875b4-f21e-4944-97f3-c8fb45f6c373",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 3 opened",
+      "GUID": "e86b66f8-57b8-401b-af32-320ce10e7ca7",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "d5d989e9-eb57-488e-a089-11688b2065fc",
+              "theText": "Старый имперский ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "aaec1525-1603-49e3-8639-57c6e3e3b4c5",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "b62ede53-88e8-4dcb-8a8a-7f1e22d6e25e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 destroyed",
+      "GUID": "90202d3e-1285-4763-9f1e-17b6c3c845e3",
+      "eventText": "Под натиском ваших атак, дверь вскоре поддается.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "cf57686f-07fc-4e0e-8b7e-2d9e8f67875a",
+              "theText": "Дверь ведущая на имперскай аванпост.",
+              "buttonList": [
+                {
+                  "GUID": "f466ce66-bb36-42ff-97b3-813195a57490",
+                  "theText": "Уничтожить"
+                }
+              ]
+            }
+          ],
+          "GUID": "692704f0-8513-4aef-a30a-f0c277820f8e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "DP Green",
+      "GUID": "32fbea41-c677-469e-bb9e-628e47e221bd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "61c15ba1-45d1-404c-aabc-62e2e4836a23",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "3e206334-2075-4690-8396-c45a3ce8a5be",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "00acfb0d-b9be-47a3-abf3-f1516260886a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "213ef341-ae49-4a1c-88de-ff84c7dd2a76",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "ad8ac2d1-90fb-4d3d-b36d-fdfb4b708d7f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "cfb99e66-b766-4bf3-8ba1-87d070ee0e0b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "ea09f556-2a0b-48fb-b30d-a8be3929b449",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Imperial Officer",
+      "GUID": "c9b21ce9-c10d-43cf-8512-4af8035c9fab",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Outpost Door 1",
+      "GUID": "0b1c0ae9-8fec-46c0-835d-f68031d2c2aa",
+      "mainText": "Дверь ведущая на имперскай аванпост.",
+      "buttonList": [
+        {
+          "GUID": "150b4fd0-0b0b-491e-9607-eb5d4671e299",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "f43f95ed-7316-4f00-b66c-d1f2d6ddf965",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "8029660c-518c-4158-b9a2-0bc5c0aafd37",
+      "mainText": "Старый имперский ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "490b44fc-f56d-4c36-80ba-6a2cd04c15ed",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "f9220f6a-c9d1-4c47-afbd-561a601eb764",
+      "mainText": "Старый имперский ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "615dd7d5-0d42-49d7-8cb3-428318500b77",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1631eed8-357a-43bd-8fa3-9f35fedf7768",
+      "mainText": "Старый имперский ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "91ddce27-0a1a-4203-a083-2eaaada21300",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal1",
+      "GUID": "71710954-71e1-4e6b-8f0f-906d301caba1",
+      "mainText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+      "buttonList": [
+        {
+          "GUID": "a3360f5d-9acd-4c21-9755-d9f89b21d705",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal2",
+      "GUID": "d90b24a6-1181-49f4-b659-ca6e7b5f8714",
+      "mainText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+      "buttonList": [
+        {
+          "GUID": "ee732d47-3f83-4e63-a796-d2282a1a83ae",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal3",
+      "GUID": "739d0d45-3a58-435e-9103-223304a67ca4",
+      "mainText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+      "buttonList": [
+        {
+          "GUID": "260d5068-23f7-48d3-b99a-b9bb1fa2fca7",
+          "theText": "Уничтожить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal4",
+      "GUID": "60441375-9584-486f-a56e-130420fff398",
+      "mainText": "Терминал издаёт электрический гул, передавая сигнал.\r\n\r\nПовстанческая фигурка может атаковать терминал (здоровье: 4, защита: 1{G}). Добавляйте +1{G} к защите терминала, если на клетках рядом с ним есть хотя бы 1 имперская фигурка.",
+      "buttonList": [
+        {
+          "GUID": "fca0a4f0-05eb-4035-a28e-3d014c106683",
+          "theText": "Уничтожить"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

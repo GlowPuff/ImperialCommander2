@@ -1,0 +1,757 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Paso del cañón",
+    "missionDescription": "",
+    "missionInfo": "{-} Cuando <color=\"red\">R2-D2</color> o <color=\"red\">C-3PO</color> se defienden, si no están a 4 o menos casillas de un Héroe, retira 1 dado de sus reservas de defensa.\r\n{-} Las fichas de Misión del bando Imperial representan barricadas y trampas, y son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión del bando imperial como terreno normal. Un Héroe puede interactuar con una ficha para intentar descartarla.\r\n{-} Los Bandidos tusken en el Camino Estrecho (loseta 05B de Sombras Gemelas) son francotiradores que pueden atacar figuras en cualquier parte del mapa cuando se les indica.\r\n{-} La puerta está sellada. Una figura puede atacar la puerta (Vida: *1*, Defensa: 1 {G}).\r\n{-} La misión avanza cuando una figura Rebelde sube al Camino Estrecho (pulsa sobre las casillas marcadas en verde y selecciona \"Subir\").\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> y <color=\"red\">C-3PO</color> son derrotados.",
+    "campaignName": "Sombras Gemelas",
+    "startingObjective": "Subir al Camino Estrecho.",
+    "repositionOverride": "Bloquear el acceso a la puerta y el terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece últil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "324a2829-730b-440e-93d2-274ab7000522",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "1bdcd4b6-33b9-4f4a-9f88-435131a5302b",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece últil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d5cabb83-3ebf-4445-9eaa-c799aab01e63",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece últil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9474dfae-1552-4fd3-a903-d6138d3bd780",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "La piedra bajo vuestros pies es firme y el calor de los dos soles de Tatooine insoportable mientras escaláis por el desierto de Jundland. C-3PO refleja vuestra opinión con voz afligida:\r\n-Este no es lugar para gente civilizada. ¡Sin duda pereceremos en este lugar!\r\n\r\nSu complemento, R2-D2, emite un pitido y avanza rodando. Os veis obligados a ignorar vuestra incomodidad cuando un disparo de bláster impacta cerca, antes de que podáis ver a los soldados de asalto apostados más adelante. Cuando os posicionáis para enfrentaros a ellos, os percatáis de que sobre vosotros hay una banda de tuskens dispuestos a dispararos mientras intentáis subir por el cañón.\r\n\r\n{-} Despliega a los Héroes en la casilla marcada en azul.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "37835dc0-55a3-4171-8531-e13185e04499",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "customName": null,
+          "GUID": "0f981860-b7b5-4963-ac12-35f079ce575e",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "{-} Los Héroes controlan a <color=\"red\">R2-D2</color> y <color=\"red\">C-3PO</color> como aliados.\r\n{-} Cuando <color=\"red\">R2-D2</color> o <color=\"red\">C-3PO</color> se defienden, si no están a 4 o menos casillas de un Héroe, retira 1 dado de sus reservas de defensa.\r\n{-} Las fichas de Misión del bando Imperial representan barricadas y trampas, y son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión del bando Imperial como terreno normal. Una Héroe puede interactuar con una ficha para intentar descartarla.\r\n{-} Los Bandidos tusken en el Camino Estrecho (loseta 05B de Sombras Gemelas) son francotiradores que pueden atacar figuras en cualquier parte del mapa cuando se les indica.\r\n{-} La puerta está sellada. Una figura puede atacar la puerta (Vida: *1*, Defensa: 1 {G}).\r\n{-} La misión avanza cuando una figura Rebelde sube al Camino Estrecho (pulsa sobre las casillas marcadas en verde y selecciona \"Subir\").\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> y <color=\"red\">C-3PO</color> son derrotados.",
+          "GUID": "4ad617c5-a911-4290-be4a-d7a9c79f0eda",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Tras una agotadora escalada y un duro combate, os infiltráis en la base y robáis los planes imperiales de la consola central, lo que con suerte frustrará las intenciones del Imperio.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa \"Complementos''. (Esta carta de Recompensa funciona de manera distinta cuanco se juega con <b>Imperial Commander</b>. Revisa la sección de <b>Cambios a las Reglas</b> de la wiki de documentación para más detalles.)",
+      "eventActions": [
+        {
+          "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
+          "buttonList": [
+            {
+              "GUID": "bd74c6b8-03b5-4b99-b098-7c3857cc2bef",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "8c29e961-bf68-4e72-bbd9-c0139dee8bc4",
+              "theText": "No"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "La escalada y el combate os han llevado al límite y, simplemente, os veis obligados a rendiros y dar media vuelta con la esperanza de que esta base sirva a alguna de las operaciones menos perniciosas del Imperio.\r\n\r\n{-} Los Rebeldes pierden la misión.",
+      "eventActions": [
+        {
+          "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
+          "buttonList": [
+            {
+              "GUID": "1d8e7f1d-959f-4fa5-a174-940952051598",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "ecbe5c7b-cd0d-46d4-a905-131a95911991",
+              "theText": "No"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "Después de que vuestro piloto ejecutase una brillante extracción de vuestra misión de infiltración, os reagrupáis en vuestra lanzadera y planeáis vuestra siguiente estrategia. Los planos que habéis robado indican que Kayn Somos, el comandante de soldados de asalto que os habéis estado encontrando, está dirigiendo una misión de reconocimiento para dar caza al héroe de la Rebelión, Luke Skywalker. El destructor estelar en órbita sirve como centro de operaciones, y parece que se moverá pronto, lo que significa que le han encontrado. Ha llegado el momento de actuar.\r\n\r\nLos planos incluyen los códigos de embarque del destructor estelar. Vuestro piloto os cuenta que deberían bastar para hacer que vuestra lanzadera supere los turboláseres y aterrice en el hangar principal de la nave. Tras eso, será cosa vuestra descubrir la forma de destruir esa cosa y salir con vida.\r\n\r\n{-} Cada Héroe recibe 3 PE.\r\n{-} Los Héroes reciben 300 créditos por Héroe.\r\n{-} Los Héroes reciben a <color=\"red\">R2-D2</color> (Astromecánico leal) y <color=\"red\">C-3PO</color> (Relaciones cibernéticas humanas) como Aliados.\r\n{-} La siguiente misión activa es \"Fuego en el cielo\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "-Sabéis cómo meteros en situaciones peliagudas, ¿verdad? -comenta mordazmente vuestro piloto por el comunicador, mientras ejecuta una audaz extracción para sacaros de la línea de fuego.\r\n\r\n-¿Así que seguimos sin información? Bueno, lo único que yo he conseguido descubrir es que, según algunas de sus lecturas, el destructor estelar volará pronto hacia Sullust. No estoy seguro, pero es posible que estén buscando a Luke; ese fue el lugar de su última misión. Deben haber estado realizando labores de reconocimiento aquí.\r\n\r\nSabiendo que quizá tengáis poco tiempo para salvar al héroe de la Rebelión, trazáis rápidamente un nuevo plan para abordar una lanzadera imperial y colaros en el destructor estelar. No estáis seguros de qué podréis hacer una vez dentro, pero tenéis la esperanza de que se presente alguna oportunidad.\r\n\r\n{-} Cada Héroe recibe 2 PE.\r\n{-} Los Héroes reciben 300 créditos por Héroe.\r\n{-} Los Héroes reciben a <color=\"red\">R2-D2</color> (Astromecánico leal) y <color=\"red\">C-3PO</color> (Relaciones cibernéticas humanas) como Aliados.\r\n{-} La siguiente misión activa es \"Infiltrados\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round Limit",
+      "GUID": "cc82e014-6c01-4e9b-8674-00a575d7a794",
+      "eventText": "La escalada y el combate os han llevado al límite y, simplemente, os veis obligados a rendiros y dar media vuelta con la esperanza de que esta base sirva a alguna de las operaciones menos perniciosas del Imperio.\r\n\r\n{-} Los Rebeldes pierden la misión.",
+      "eventActions": [
+        {
+          "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
+          "buttonList": [
+            {
+              "GUID": "22594630-87d8-4e92-8c1d-a80a693f9174",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "77b8dba2-b3f4-4aef-a5f3-d4d3fc60a585",
+              "theText": "No"
+            }
+          ],
+          "GUID": "161ea904-5b7c-4b3a-b565-b5871da81ae4",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "R2-D2 defeated",
+      "GUID": "fc9ebd58-d346-4f33-b590-597e66ab759b",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "C-3PO defeated",
+      "GUID": "a02f3fe2-13fd-475b-aa4b-a8a654ac6b95",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Door",
+      "GUID": "3daf4a5f-5ca4-40b6-a732-7f7a74903587",
+      "eventText": "El aire frío se escapa rápidamente del complejo climatizado conforme la puerta se abre.\r\n\r\n{-} Un Héroe puede interactuar con el terminal ({I}) para obtener los planos.\r\n{-} Los Rebeldes ganan cuando una figura del bando Rebelde obtiene los planos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "dbaf96f9-fef5-4363-aabb-a31a7572fdb4",
+              "theText": "Esta puerta da acceso al complejo Imperial.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar la puerta (Vida: *1*, Defensa: 1 {G}).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a8b99d52-a80e-4519-8149-f7b9e8134b39",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Obtener los planos del terminal.",
+          "longText": null,
+          "GUID": "be0f5232-96aa-40a8-9586-e8cbdbd6d9f2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando <color=\"red\">R2-D2</color> o <color=\"red\">C-3PO</color> se defienden, si no están a 4 o menos casillas de un Héroe, retira 1 dado de sus reservas de defensa.\r\n{-} Un Héroe puede interactuar con el terminal ({I}) para obtener los planos.\r\n{-} Los Rebeldes ganan cuando una figura del bando Rebelde obtiene los planos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> y <color=\"red\">C-3PO</color> son derrotados.",
+          "GUID": "61cba9b9-6332-4443-bdae-557c1e9d0509",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Narrow Path Entered",
+      "GUID": "6095b3ff-c7aa-4f56-855f-c650b8ea2b3d",
+      "eventText": "Mientras empezáis a subir, los Bandidos tusken cogen sus bastones gaffi y corren para enfrentarse a vosotros.\r\n\r\n{-} La misión avanza cuando la puerta del complejo es destruida.",
+      "eventActions": [
+        {
+          "theText": "{-} Los Héroes controlan a <color=\"red\">R2-D2</color> y <color=\"red\">C-3PO</color> como aliados.\r\n{-} Cuando <color=\"red\">R2-D2</color> o <color=\"red\">C-3PO</color> se defienden, si no están a 4 o menos casillas de un Héroe, retira 1 dado de sus reservas de defensa.\r\n{-} Las fichas de Misión del bando Imperial representan barricadas y trampas, y son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión del bando Imperial como terreno normal. Un Héroe puede interactuar con una ficha para intentar descartarla.\r\n{-} Los Bandidos tusken en el Camino Estrecho (loseta 05B de Sombras Gemelas) son francotiradores que pueden atacar figuras en cualquier parte del mapa cuando se les indica.\r\n{-} La puerta está sellada. Una figura puede atacar la puerta (Vida: *1*, Defensa: 1 {G}).\r\n{-} La misión avanza cuando la puerta del complejo es destruida\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos y <color=\"red\">R2-D2</color> y <color=\"red\">C-3PO</color> son derrotados.",
+          "GUID": "268db73d-8bcc-4841-bbf0-359438006dbf",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Entrar en el complejo.",
+          "longText": null,
+          "GUID": "f4e547b5-28c8-4018-a9a3-8b4e12c1b896",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Narrow Path",
+              "GUID": "184cd330-058f-4fb3-8d0a-ca0be4e2003f",
+              "theText": "Un camino sinuoso y estrecho discurre a un lado del cañón. Será una subida larga y penosa.\r\n\r\n{-} La primera vez que una figura Rebelde entre en el Camino Estrecho, pulsa \"Subir\".",
+              "buttonList": [
+                {
+                  "GUID": "7e4b0da1-e739-4b84-9a47-669ac60f6b35",
+                  "theText": "Subir"
+                }
+              ]
+            }
+          ],
+          "GUID": "4ba0d02d-9246-4e07-b06c-02ac8db71652",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "cd191d59-7dad-4c14-9c47-7e0dd92e7c35",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Comienzas a piratear el terminal.\r\n\r\n{-} Realiza una prueba de {I}. Aplica +1 {B} por cada ficha de tensión sobre el terminal, y descarta todas las fichas de tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "ca752a8c-2b8d-4be0-8b18-fc19102c0244",
+              "theText": "El sistema de seguridad aguanta. Necesitas seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de tensión sobre el terminal."
+            }
+          ],
+          "GUID": "e4c03dbf-00c5-4d1a-8bcb-f5076f424259",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Heat of the Suns",
+      "GUID": "299727e4-b187-4222-8aa9-1dbabeff6a99",
+      "eventText": "El calor de los soles gemelos de Tatooine es agobiante. Sentís cómo acaba con vuestras fuerzas.\r\n\r\n{-} Cada Héroe realiza una prueba de {K}. Los Héroes que fallen la prueba adquieren <color=\"red\">Debilidad</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Yellow Barricade Removed",
+      "GUID": "26dc59a7-333d-4647-8dc2-52cb50c6e229",
+      "eventText": "La puerta cede por fin y se abre. Al mismo tiempo, las alarmas empiezan a sonar en el calor del desierto.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Barricade 1",
+              "GUID": "c55b4777-006c-42a1-b39a-29289b569803",
+              "theText": "El Imperio ha levantado aquí una valla, cuya puerta tiene una complicada cerradura.\r\n\r\n{-} Un Héroe puede interactuar con la valla para intentar forzar la cerradura.",
+              "buttonList": [
+                {
+                  "GUID": "99380c8c-4c08-4cfb-81e8-f4affca71eb6",
+                  "theText": "{A} Forzar cerradura"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Barricade 2",
+              "GUID": "74859529-6b01-44b0-b76d-fb1d541d9a16",
+              "theText": "El Imperio ha levantado aquí una valla, cuya puerta tiene una complicada cerradura.\r\n\r\n{-} Un Héroe puede interactuar con la valla para intentar forzar la cerradura.",
+              "buttonList": [
+                {
+                  "GUID": "1ef4a3cb-dd67-4906-ae0c-cbf3bbc40723",
+                  "theText": "{A} Forzar cerradura"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "18645343-6037-4abd-99b5-80db2d2badca",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "3a8f0b64-437d-41a5-926a-58d91d60fc7e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Yellow Attempt",
+      "GUID": "acd6547b-e222-4702-b92e-b661c92881c1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Intentáis abrir la cerradura de la puerta.\r\n\r\n{-} Realiza una prueba de {I}. Aplica +1 {B} por cada ficha de tensión sobre las fichas de misión amarillas, y descarta todas las fichas de tensión de las fichas de misión amarillas. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "6964be2e-8bd2-4557-86ef-f4810f3d8a81",
+              "theText": "Haces algunos progresos, pero la cerradura aguanta. Has de seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de tensión sobre las fichas de misión amarillas."
+            }
+          ],
+          "GUID": "27424fb1-bd9f-4fc6-8aae-48463fc61560",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Attempt",
+      "GUID": "542c0da1-3d1d-4ac6-89b9-65a0caabcb9c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empiezáis a retirar las rocas.\r\n\r\n{-} Realiza una prueba de {K}. Aplica +1 {B} por cada ficha de tensión sobre la ficha de misión verde, y descarta todas las fichas de tensión de la ficha de misión verde. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "973ea2cf-cda4-4a17-ab62-9a2e78eea4e8",
+              "theText": "Haces algunos progresos, pero aún queda trabajo por hacer. Tienes que seguir intentándolo.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de tensión sobre la ficha de misión verde."
+            }
+          ],
+          "GUID": "96bc9c81-e8ad-46cc-9e7f-baf859c68feb",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Barricade Removed",
+      "GUID": "c209ae7c-8d30-4cc8-9ecb-9b5f5dcd6442",
+      "eventText": "Por fin conseguís despejar el camino.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Green Barricade",
+              "GUID": "49d6124c-d86a-434e-a77a-e58c3f95ec6d",
+              "theText": "Los Bandidos Tusken han provocado un desprendimiento. Hay rocas enormes bloqueando el camino.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con las rocas para intentar retirarlas.",
+              "buttonList": [
+                {
+                  "GUID": "6a104a60-888b-42a4-bd3e-a4d0ac0bb106",
+                  "theText": "{A} Retirar"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "44ef3229-c7e6-4e42-beb6-5822a07871bb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "26b2946d-b711-49a9-be25-53beb72ae812",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Attempt",
+      "GUID": "b0343c2c-d0fa-49f5-9f25-3a7e8b82e059",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Intentáis no tocar los detonadores.\r\n\r\n{-} Realiza una prueba de {J}. Aplica +1 {B} por cada ficha de tensión sobre la ficha de misión roja, y descarta todas las fichas de tensión de la ficha de misión roja. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "f7e382d1-948a-4380-af84-3a39e62cb6ca",
+              "theText": "Una carga detona frente a ti, haciendo que vuelen trozos de afilada metralla.\r\n\r\n{-} Sufres 2 {H} y adquieres <color=\"red\">Hemorragia</color>."
+            },
+            {
+              "GUID": "6ca67ab1-3a1e-4970-8462-4c17a9c1aafa",
+              "theText": "Consigues pasar sin problema y desarmas la trampa."
+            }
+          ],
+          "GUID": "453a52a9-7e27-43ea-904b-1f65a10712df",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Removed",
+      "GUID": "2ff5ef48-9a4a-4b40-88d5-ef684b983dfd",
+      "eventText": "Mientras os acercáis a la base, un comandante de los soldados de asalto sale del interior gritando órdenes a sus tropas.\r\n-¡Seguid luchando, inútiles! ¡No podemos dejar que esta escoria rebelde destruya todo lo que hemos conseguido!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 1",
+              "GUID": "57e3a45a-3a03-4f3c-9553-f52c68a87e6f",
+              "theText": "El Imperio ha llenado el Camino Estrecho de minas y otras trampas.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con la trampa para intentar desactivarla.",
+              "buttonList": [
+                {
+                  "GUID": "aac3d39f-e591-49c4-b5e9-5d22d598d0a3",
+                  "theText": "{A} Desactivar"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "3935f472-c399-4e92-8105-4236d522466c",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "23666b4c-befe-4ff0-9b36-b4cdbb9ab113",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "19605115-2230-451b-8e72-ffe5759c5159",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9970da39-b251-4bd2-be05-f03221c8d114",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Attempt",
+      "GUID": "b27fef3c-8c20-4e01-8c8b-a53cdb404241",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Intentáis no tocar los detonadores.\r\n\r\n{-} Realiza una prueba de {J}. Aplica +1 {B} por cada ficha de tensión sobre la ficha de misión roja, y descarta todas las fichas de tensión de la ficha de misión roja. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1b13b451-d282-4c28-9f92-2801fb06806e",
+              "theText": "Una carga detona frente a ti, haciendo que vuelen trozos de afilada metralla.\r\n\r\n{-} Sufres 2 {H} y adquieres <color=\"red\">Hemorragia</color>."
+            },
+            {
+              "GUID": "fad88174-952b-43be-951c-81e24c393fac",
+              "theText": "Consigues pasar sin problema y desarmas la trampa."
+            }
+          ],
+          "GUID": "43a0d136-2318-46e0-9ff8-4950f16b6092",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Removed",
+      "GUID": "85cebcf8-c072-4deb-9310-3c2fb6905fc7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 2",
+              "GUID": "70d39b82-ca4f-4e94-8795-392d073f99f1",
+              "theText": "El Imperio ha llenado el Camino Estrecho de minas y otras trampas.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con la trampa para intentar desactivarla.",
+              "buttonList": [
+                {
+                  "GUID": "0b00ba43-e951-492c-aad6-a8210c5b63cb",
+                  "theText": "{A} Desactivar"
+                }
+              ]
+            }
+          ],
+          "GUID": "de36bdbd-56eb-4ff4-be87-21fe52d9503b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "27223615-6599-4609-b1cc-2ad8aaa3e691",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "8320b094-a652-488f-a6e6-de3fc02f84de",
+          "theText": "{A} Open"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "fcec21ce-37d1-49da-bc87-c440f2b014bf",
+          "theText": "{A} Open"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP R2-D2",
+      "GUID": "a68aaf34-7548-4f9c-b87b-eb91a95e637b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP 3PO",
+      "GUID": "88ae215d-c925-4758-a66f-a7f5ac77cc76",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 2",
+      "GUID": "92bd617d-f424-4259-9959-860ee748d91d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "f1e88402-ee51-4558-a1c2-d98ce94f2ac8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 1",
+      "GUID": "41d13a0e-35f6-4a44-a5f7-80eaf347c89b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 2",
+      "GUID": "b68a7e88-6ddb-478b-b62c-9d9d41ad51e0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 1",
+      "GUID": "c64deca0-e973-44f4-b85c-8dec42caf319",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 2",
+      "GUID": "0623b2ab-5bd4-411e-93a3-709ae0669b42",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "78ddaab1-3664-4f2b-b0a2-f23332f9c12f",
+      "mainText": "Esta puerta da acceso al complejo Imperial.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar la puerta (Vida: *1*, Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "872b5b98-5374-4247-963e-4d959c64746e",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Narrow Path",
+      "GUID": "d4b69a45-37c8-4848-a698-77d99b609ea6",
+      "mainText": "Un camino sinuoso y estrecho discurre a un lado del cañón. Será una subida larga y penosa.\r\n\r\n{-} La primera vez que una figura del bando Rebelde entre en el Camino Estrecho, pulsa \"Subir\".",
+      "buttonList": [
+        {
+          "GUID": "2ad8ba7e-7ab8-4cf8-bb79-d7e3c8026cad",
+          "theText": "Subir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "c133c9c6-cdb6-4425-8a1c-96a57a8fb816",
+      "mainText": "Un terminal solitario contiene los datos de operaciones.\r\n\r\n{-} Un Héroe puede interactuar con el terminal ({I}) para intentar obtener los planos.",
+      "buttonList": [
+        {
+          "GUID": "0c1161c8-8048-459b-852f-731b530b1628",
+          "theText": "{A} Piratear"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 1",
+      "GUID": "8797db84-fad6-4efd-83bf-ecc769129664",
+      "mainText": "El Imperio ha levantado aquí una valla, cuya puerta tiene una complicada cerradura.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con la valla para intentar forzar la cerradura.",
+      "buttonList": [
+        {
+          "GUID": "7c16c517-1937-4b8b-bf77-19dad67e2270",
+          "theText": "{A} Forzar cerradura"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 2",
+      "GUID": "0aae7804-0de7-4bad-a479-996cd1618ec5",
+      "mainText": "El Imperio ha levantado aquí una valla, cuya puerta tiene una complicada cerradura.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con la valla para intentar forzar la cerradura.",
+      "buttonList": [
+        {
+          "GUID": "57e1da51-c71e-426c-b63a-6a5c4c4c3bab",
+          "theText": "{A} Forzar cerradura"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "17e3c444-37c0-455d-a752-80613721db11",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "f2501918-e1f9-4f32-89aa-0036b110941f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Green Barricade",
+      "GUID": "680b548b-d73f-45df-b8ed-3420a6a6bf21",
+      "mainText": "Los Bandidos Tusken han provocado un desprendimiento. Hay rocas enormes bloqueando el camino.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con las rocas para intentar retirarlas.",
+      "buttonList": [
+        {
+          "GUID": "123edccc-7bea-426b-b184-11b79b69e6d8",
+          "theText": "{A} Retirar"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 1",
+      "GUID": "07575fd7-76b8-4c39-9efc-ecb61c267043",
+      "mainText": "El Imperio ha llenado el Camino Estrecho de minas y otras trampas.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con la trampa para intentar desactivarla.",
+      "buttonList": [
+        {
+          "GUID": "785599b8-04f2-473a-90bb-fe690c02ae5e",
+          "theText": "{A} Desactivar"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 2",
+      "GUID": "3d438bf3-6e55-4faa-b215-fc89351398e1",
+      "mainText": "El Imperio ha llenado el Camino Estrecho de minas y otras trampas.\r\n\r\n{-} Las fichas de Misión Imperiales son terreno infranqueable. Los Bandidos tusken tratan las fichas de Misión como terreno normal.\r\n{-} Un Héroe puede interactuar con la trampa para intentar desactivarla.",
+      "buttonList": [
+        {
+          "GUID": "b6c0c6a5-db87-4954-ac7a-e1e80743fa5e",
+          "theText": "{A} Desactivar"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Tusken Raider",
+      "customInstructions": "{Q}{A} Realiza un ataque distancia usando 2 dados azules sobre {rebel}, que requiere Precisión 8. Durante este ataque tienes línea de visión sobre cualquier figura en una casilla exterior. Este ataque gana {B}: +2 Precisión. No puedes usar otras capacidades durante este ataque."
+    },
+    {
+      "cardName": "Tusken Raider (Elite)",
+      "customInstructions": "{Q}{A} Realiza un ataque distancia usando 2 dados azules sobre {rebel}, que requiere Precisión 8. Durante este ataque tienes línea de visión sobre cualquier figura en una casilla exterior. Este ataque gana {B}: +2 Precisión. No puedes usar otras capacidades durante este ataque."
+    }
+  ]
+}

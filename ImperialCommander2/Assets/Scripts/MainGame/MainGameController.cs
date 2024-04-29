@@ -8,6 +8,10 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class MainGameController : MonoBehaviour
 {
 	public Image faderOverlay;
@@ -53,87 +57,87 @@ public class MainGameController : MonoBehaviour
 		languageController.SetTranslatedUI();
 
 		//see if it's a new game or restoring state
-		if ( DataStore.sessionData.gameVars.isNewGame )
-		{
-			Debug.Log( "STARTING NEW GAME" );
-			DataStore.sessionData.InitGameVars();
-			ResetUI();
-			StartNewGame();
-		}
-		else
-		{
-			Debug.Log( "CONTINUING GAME" );
-			ResetUI();
-			ContinueGame();
-		}
+		//if ( DataStore.sessionData.gameVars.isNewGame )
+		//{
+		//	Debug.Log( "STARTING NEW GAME" );
+		//	DataStore.sessionData.InitGameVars();
+		//	ResetUI();
+		//	StartNewGame();
+		//}
+		//else
+		//{
+		//	Debug.Log( "CONTINUING GAME" );
+		//	ResetUI();
+		//	ContinueGame();
+		//}
 	}
 
-	private void debugBootstrap()
-	{
-		DataStore.InitData();
-		DataStore.StartNewSession();
-		DataStore.sessionData.selectedMissionName = "";
-		DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
-		DataStore.sessionData.selectedMissionID = "core3";
-		//optional dep
-		//DataStore.sessionData.optionalDeployment = YesNo.Yes;
-		//difficulty
-		DataStore.sessionData.difficulty = Difficulty.Medium;
-		//bootstrap threat
-		DataStore.sessionData.threatLevel = 6;
-		//bootstrap a hero
-		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards[0] );
-		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards[1] );
+	//private void debugBootstrap()
+	//{
+	//	DataStore.InitData();
+	//	DataStore.StartNewSession();
+	//	DataStore.sessionData.selectedMissionName = "";
+	//	DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
+	//	DataStore.sessionData.selectedMissionID = "core3";
+	//	//optional dep
+	//	//DataStore.sessionData.optionalDeployment = YesNo.Yes;
+	//	//difficulty
+	//	DataStore.sessionData.difficulty = Difficulty.Medium;
+	//	//bootstrap threat
+	//	DataStore.sessionData.threatLevel = 6;
+	//	//bootstrap a hero
+	//	DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards[0] );
+	//	DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards[1] );
 
-		//bootstrap some starting enemy groups
-		DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.Where( x => x.id == "DG015" ).FirstOrDefault() );
-		DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.Where( x => x.id == "DG002" ).FirstOrDefault() );
+	//	//bootstrap some starting enemy groups
+	//	DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.Where( x => x.id == "DG015" ).FirstOrDefault() );
+	//	DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.Where( x => x.id == "DG002" ).FirstOrDefault() );
 
-		//bootstrap reserved
-		//DataStore.sessionData.MissionReserved.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG003" ).FirstOrDefault() );
-		//DataStore.sessionData.MissionReserved.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG006" ).FirstOrDefault() );
+	//	//bootstrap reserved
+	//	//DataStore.sessionData.MissionReserved.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG003" ).FirstOrDefault() );
+	//	//DataStore.sessionData.MissionReserved.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG006" ).FirstOrDefault() );
 
-		//bootstrap an ally
-		DataStore.sessionData.selectedAlly = DataStore.allyCards.Where( x => x.id == "A005" ).FirstOrDefault();
+	//	//bootstrap an ally
+	//	DataStore.sessionData.selectedAlly = DataStore.allyCards.Where( x => x.id == "A005" ).FirstOrDefault();
 
-		//bootstrap factions
-		//DataStore.sessionData.includeImperials = false;
+	//	//bootstrap factions
+	//	//DataStore.sessionData.includeImperials = false;
 
-		//bootstrap earned villains
-		DataStore.sessionData.EarnedVillains.Add( DataStore.villainCards.Where( x => x.id == "DG072" ).FirstOrDefault() );//darth vader
-	}
+	//	//bootstrap earned villains
+	//	DataStore.sessionData.EarnedVillains.Add( DataStore.villainCards.Where( x => x.id == "DG072" ).FirstOrDefault() );//darth vader
+	//}
 
 	/// <summary>
 	/// build card decks, activate optional deployment
 	/// </summary>
 	void StartNewGame()
 	{
-		fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
-		//create deployment hand and manual deploy list
-		DataStore.CreateDeploymentHand( DataStore.sessionData.EarnedVillains, DataStore.sessionData.threatLevel );
-		//foreach ( var d in dh )
-		//	Debug.Log( "DH: " + d.name );
-		DataStore.CreateManualDeployment();
-		//deploy heroes
-		for ( int i = 0; i < DataStore.sessionData.MissionHeroes.Count; i++ )
-			dgManager.DeployHeroAlly( DataStore.sessionData.MissionHeroes[i] );
-		if ( DataStore.sessionData.MissionHeroes.Count == 3 )
-		{
-			Debug.Log( "Creating dummy hero" );
-			dgManager.DeployHeroAlly( new DeploymentCard() { isDummy = true } );
-		}
-		//deploy ally
-		if ( DataStore.sessionData.selectedAlly != null )
-			dgManager.DeployHeroAlly( DataStore.sessionData.selectedAlly );
-		//lay out starting groups
-		dgManager.DeployStartingGroups();
-		//perform option deployment if it's toggled
-		if ( DataStore.sessionData.optionalDeployment == YesNo.Yes )
-		{
-			//increase threat by twice the threat level and resolve an optional deployment
+		//fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
+		////create deployment hand and manual deploy list
+		//DataStore.CreateDeploymentHand( DataStore.sessionData.EarnedVillains, DataStore.sessionData.threatLevel );
+		////foreach ( var d in dh )
+		////	Debug.Log( "DH: " + d.name );
+		//DataStore.CreateManualDeployment();
+		////deploy heroes
+		//for ( int i = 0; i < DataStore.sessionData.MissionHeroes.Count; i++ )
+		//	dgManager.DeployHeroAlly( DataStore.sessionData.MissionHeroes[i] );
+		//if ( DataStore.sessionData.MissionHeroes.Count == 3 )
+		//{
+		//	Debug.Log( "Creating dummy hero" );
+		//	dgManager.DeployHeroAlly( new DeploymentCard() { isDummy = true } );
+		//}
+		////deploy ally
+		//if ( DataStore.sessionData.selectedAlly != null )
+		//	dgManager.DeployHeroAlly( DataStore.sessionData.selectedAlly );
+		////lay out starting groups
+		//dgManager.DeployStartingGroups();
+		////perform option deployment if it's toggled
+		//if ( DataStore.sessionData.optionalDeployment == YesNo.Yes )
+		//{
+		//	//increase threat by twice the threat level and resolve an optional deployment
 
-			GlowTimer.SetTimer( 1, () => deploymentPopup.Show( DeployMode.Landing, false, true ) );
-		}
+		//	GlowTimer.SetTimer( 1, () => deploymentPopup.Show( DeployMode.Landing, false, true ) );
+		//}
 	}
 
 	void ContinueGame()
@@ -145,14 +149,14 @@ public class MainGameController : MonoBehaviour
 
 			//update UI with loaded state
 			//round #
-			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sessionData.gameVars.round;
+			//roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sessionData.gameVars.round;
 			//toggle pause threat/deployment buttons
-			if ( DataStore.sessionData.gameVars.pauseThreatIncrease )
-				pauseThreatToggle.isOn = true;
-			if ( DataStore.sessionData.gameVars.pauseDeployment )
-				pauseDeploymentToggle.isOn = true;
+			//if ( DataStore.sessionData.gameVars.pauseThreatIncrease )
+			//	pauseThreatToggle.isOn = true;
+			//if ( DataStore.sessionData.gameVars.pauseDeployment )
+			//	pauseDeploymentToggle.isOn = true;
 
-			fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
+			//fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
 
 			GlowEngine.FindUnityObject<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoredMsgUC );
 		}
@@ -173,7 +177,7 @@ public class MainGameController : MonoBehaviour
 	public void OnPauseThreat( Toggle t )
 	{
 		sound.PlaySound( FX.Click );
-		DataStore.sessionData.gameVars.pauseThreatIncrease = t.isOn;
+		//DataStore.sessionData.gameVars.pauseThreatIncrease = t.isOn;
 		string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC : DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC;
 		GlowEngine.FindUnityObject<QuickMessage>().Show( s );
 	}
@@ -181,7 +185,7 @@ public class MainGameController : MonoBehaviour
 	public void OnPauseDeploy( Toggle t )
 	{
 		sound.PlaySound( FX.Click );
-		DataStore.sessionData.gameVars.pauseDeployment = t.isOn;
+		//DataStore.sessionData.gameVars.pauseDeployment = t.isOn;
 		string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseDepMsgUC : DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC;
 		GlowEngine.FindUnityObject<QuickMessage>().Show( s );
 	}
@@ -217,32 +221,32 @@ public class MainGameController : MonoBehaviour
 
 	public void OnMissionRules()
 	{
-		EventSystem.current.SetSelectedGameObject( null );
-		sound.PlaySound( FX.Click );
-		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}rules" );
-		if ( txt != null )
-		{
-			if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
-				GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
-			missionTextBox.Show( txt.text, OnReturn );
-		}
-		else
-			GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
+		//EventSystem.current.SetSelectedGameObject( null );
+		//sound.PlaySound( FX.Click );
+		//string txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}rules" ).text;
+		//if ( txt != null )
+		//{
+		//	if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
+		//		GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
+		//	missionTextBox.Show( txt, OnReturn );
+		//}
+		//else
+		//	GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
 	}
 
 	public void OnMissionInfo()
 	{
-		EventSystem.current.SetSelectedGameObject( null );
-		sound.PlaySound( FX.Click );
-		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" );
-		if ( txt != null )
-		{
-			if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
-				GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
-			missionTextBox.Show( txt.text, OnReturn );
-		}
-		else
-			GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Info: " + DataStore.sessionData.selectedMissionID );
+		//EventSystem.current.SetSelectedGameObject( null );
+		//sound.PlaySound( FX.Click );
+		//string txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" ).text;
+		//if ( txt != null )
+		//{
+		//	if ( GlowEngine.FindUnityObject<EnemyActivationPopup>().gameObject.activeInHierarchy )
+		//		GlowEngine.FindUnityObject<EnemyActivationPopup>().OnReturn( false );
+		//	missionTextBox.Show( txt, OnReturn );
+		//}
+		//else
+		//	GlowEngine.FindUnityObject<QuickMessage>().Show( "Could not find Mission Info: " + DataStore.sessionData.selectedMissionID );
 	}
 
 	private void OnReturn()
@@ -260,33 +264,33 @@ public class MainGameController : MonoBehaviour
 
 	public void OnEndRound()
 	{
-		EventSystem.current.SetSelectedGameObject( null );
-		sound.PlaySound( FX.Vader );
-		//pause dep ON, pause threat OFF = activate with CALM
-		//pause dep ON, pause threat ON = just ready all groups
-		//pause dep OFF, pause threat ON = normal rold 2D6 but no threat gain
+		//EventSystem.current.SetSelectedGameObject( null );
+		//sound.PlaySound( FX.Vader );
+		////pause dep ON, pause threat OFF = activate with CALM
+		////pause dep ON, pause threat ON = just ready all groups
+		////pause dep OFF, pause threat ON = normal rold 2D6 but no threat gain
 
-		if ( DataStore.sessionData.gameVars.pauseDeployment && !DataStore.sessionData.gameVars.pauseThreatIncrease )
-		{
-			//session saved after deployment finishes
-			deploymentPopup.Show( DeployMode.Calm, false, false, DoEvent );
-		}
-		else if ( DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
-		{
-			dgManager.ReadyAllGroups();
-			DoEvent();
-			DataStore.sessionData.SaveSession();//in case no event activates
-		}
-		else if ( !DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
-		{
-			DoDeployment( true );//session saved after deployment finishes
-		}
-		else//normal deployment
-			DoDeployment( false );//session saved after deployment finishes
+		//if ( DataStore.sessionData.gameVars.pauseDeployment && !DataStore.sessionData.gameVars.pauseThreatIncrease )
+		//{
+		//	//session saved after deployment finishes
+		//	deploymentPopup.Show( DeployMode.Calm, false, false, DoEvent );
+		//}
+		//else if ( DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
+		//{
+		//	dgManager.ReadyAllGroups();
+		//	DoEvent();
+		//	DataStore.sessionData.SaveSession();//in case no event activates
+		//}
+		//else if ( !DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
+		//{
+		//	DoDeployment( true );//session saved after deployment finishes
+		//}
+		//else//normal deployment
+		//	DoDeployment( false );//session saved after deployment finishes
 
-		DataStore.sessionData.gameVars.round++;
-		roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sessionData.gameVars.round.ToString();
-		dgManager.ReadyAllGroups();
+		//DataStore.sessionData.gameVars.round++;
+		//roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sessionData.gameVars.round.ToString();
+		//dgManager.ReadyAllGroups();
 
 		//debug stuff
 		//deploymentPopup.Show( DeployMode.Onslaught );
@@ -305,53 +309,53 @@ public class MainGameController : MonoBehaviour
 
 	void DoDeployment( bool skipThreatIncrease )
 	{
-		EventSystem.current.SetSelectedGameObject( null );
-		int[] rnd = GlowEngine.GenerateRandomNumbers( 6 );
-		int roll1 = rnd[0] + 1;
+		//EventSystem.current.SetSelectedGameObject( null );
+		//int[] rnd = GlowEngine.GenerateRandomNumbers( 6 );
+		//int roll1 = rnd[0] + 1;
 
-		rnd = GlowEngine.GenerateRandomNumbers( 6 );
-		int roll2 = rnd[0] + 1;
+		//rnd = GlowEngine.GenerateRandomNumbers( 6 );
+		//int roll2 = rnd[0] + 1;
 
-		Debug.Log( "ROLLED: " + (roll1 + roll2).ToString() );
-		Debug.Log( "DEP MODIFIER: " + DataStore.sessionData.gameVars.deploymentModifier );
+		//Debug.Log( "ROLLED: " + (roll1 + roll2).ToString() );
+		//Debug.Log( "DEP MODIFIER: " + DataStore.sessionData.gameVars.deploymentModifier );
 
-		int total = roll1 + roll2 + DataStore.sessionData.gameVars.deploymentModifier;
-		Debug.Log( "TOTAL ROLLED VALUE: " + total );
+		//int total = roll1 + roll2 + DataStore.sessionData.gameVars.deploymentModifier;
+		//Debug.Log( "TOTAL ROLLED VALUE: " + total );
 
-		if ( total <= 4 )
-			deploymentPopup.Show( DeployMode.Calm, skipThreatIncrease, false );
-		else if ( total > 4 && total <= 7 )
-			deploymentPopup.Show( DeployMode.Reinforcements, skipThreatIncrease, false, DoEvent );
-		else if ( total > 7 && total <= 10 )
-			deploymentPopup.Show( DeployMode.Landing, skipThreatIncrease, false, DoEvent );
-		else if ( total > 10 )
-			deploymentPopup.Show( DeployMode.Onslaught, skipThreatIncrease, false, DoEvent );
+		//if ( total <= 4 )
+		//	deploymentPopup.Show( DeployMode.Calm, skipThreatIncrease, false );
+		//else if ( total > 4 && total <= 7 )
+		//	deploymentPopup.Show( DeployMode.Reinforcements, skipThreatIncrease, false, DoEvent );
+		//else if ( total > 7 && total <= 10 )
+		//	deploymentPopup.Show( DeployMode.Landing, skipThreatIncrease, false, DoEvent );
+		//else if ( total > 10 )
+		//	deploymentPopup.Show( DeployMode.Onslaught, skipThreatIncrease, false, DoEvent );
 	}
 
 	void DoEvent()
 	{
-		EventSystem.current.SetSelectedGameObject( null );
-		//1 in 4 chance to do an event
-		int[] rnd = GlowEngine.GenerateRandomNumbers( 4 );
-		int roll1 = rnd[0] + 1;
+		//EventSystem.current.SetSelectedGameObject( null );
+		////1 in 4 chance to do an event
+		//int[] rnd = GlowEngine.GenerateRandomNumbers( 4 );
+		//int roll1 = rnd[0] + 1;
 
-		if ( roll1 == 1 && DataStore.sessionData.gameVars.eventsTriggered < 3 )
-		{
-			DataStore.sessionData.gameVars.eventsTriggered++;
-			rnd = GlowEngine.GenerateRandomNumbers( DataStore.cardEvents.Count );
-			//get a random event
-			var ev = DataStore.cardEvents[rnd[0]];
-			//remove it from the list of events so it won't activate again
-			DataStore.cardEvents.Remove( ev );
-			//activate it
-			eventPopup.Show( ev, () => DataStore.sessionData.SaveSession() );
-		}
+		//if ( roll1 == 1 && DataStore.sessionData.gameVars.eventsTriggered < 3 )
+		//{
+		//	DataStore.sessionData.gameVars.eventsTriggered++;
+		//	rnd = GlowEngine.GenerateRandomNumbers( DataStore.cardEvents.Count );
+		//	//get a random event
+		//	var ev = DataStore.cardEvents[rnd[0]];
+		//	//remove it from the list of events so it won't activate again
+		//	DataStore.cardEvents.Remove( ev );
+		//	//activate it
+		//	eventPopup.Show( ev, () => DataStore.sessionData.SaveSession() );
+		//}
 	}
 
 	public void OnApplyThreatModifier()
 	{
 		sound.PlaySound( FX.CopyThat );
-		DataStore.sessionData.ModifyThreat( threatWheelHandler.wheelValue, true );
+		//DataStore.sessionData.ModifyThreat( threatWheelHandler.wheelValue, true );
 		threatWheelHandler.ResetWheeler();
 	}
 
@@ -365,7 +369,7 @@ public class MainGameController : MonoBehaviour
 	void OnSettingsClose( SettingsCommand c )
 	{
 		//save the state on exit
-		DataStore.sessionData.SaveSession();
+		//DataStore.sessionData.SaveSession();
 
 		if ( c == SettingsCommand.ReturnTitles )
 		{
@@ -382,13 +386,13 @@ public class MainGameController : MonoBehaviour
 
 	public void OnReserved()
 	{
-		EventSystem.current.SetSelectedGameObject( null );
-		//minus deployed, minus dep hand
-		sound.PlaySound( FX.Click );
-		genericChooser.Show( ChooserMode.DeploymentGroups, DataStore.sessionData
-			.MissionReserved
-			.MinusDeployed()
-			.MinusInDeploymentHand(), AddGroup );
+		//EventSystem.current.SetSelectedGameObject( null );
+		////minus deployed, minus dep hand
+		//sound.PlaySound( FX.Click );
+		//genericChooser.Show( ChooserMode.DeploymentGroups, DataStore.sessionData
+		//	.MissionReserved
+		//	.MinusDeployed()
+		//	.MinusInDeploymentHand(), AddGroup );
 	}
 
 	public void OnAlly()
@@ -447,7 +451,7 @@ public class MainGameController : MonoBehaviour
 			return;
 
 		dgManager.ExhaustGroup( cd.id );
-		enemyActivationPopup.Show( cd, DataStore.sessionData.difficulty );
+		//enemyActivationPopup.Show( cd, DataStore.sessionData.difficulty );
 	}
 
 	public void OnShowDebug()
@@ -459,7 +463,7 @@ public class MainGameController : MonoBehaviour
 	public void OnShowFamePopup()
 	{
 		EventSystem.current.SetSelectedGameObject( null );
-		famePopup.Show( DataStore.sessionData.gameVars.fame, DataStore.sessionData.gameVars.round );
+		//famePopup.Show( DataStore.sessionData.gameVars.fame, DataStore.sessionData.gameVars.round );
 	}
 
 	private void Update()

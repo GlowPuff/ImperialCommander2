@@ -5,6 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class EventPopup : MonoBehaviour
 {
 	public Text eventTitle;
@@ -68,14 +72,14 @@ public class EventPopup : MonoBehaviour
 				FindObjectOfType<DeploymentGroupManager>().DeployHeroAlly( allyToAdd );
 			if ( enemyToAdd != null )
 			{
-				if ( DataStore.sessionData.gameVars.pauseDeployment )
-				{
-					GlowEngine.FindUnityObject<QuickMessage>().Show( $"Imperial Deployment is <color=\"red\">PAUSED</color>.  The requested group [{enemyToAdd.name}] will not be deployed." );
-				}
-				else
-				{
-					FindObjectOfType<DeploymentGroupManager>().DeployGroup( enemyToAdd );
-				}
+				//if ( DataStore.sessionData.gameVars.pauseDeployment )
+				//{
+				//	GlowEngine.FindUnityObject<QuickMessage>().Show( $"Imperial Deployment is <color=\"red\">PAUSED</color>.  The requested group [{enemyToAdd.name}] will not be deployed." );
+				//}
+				//else
+				//{
+				//	FindObjectOfType<DeploymentGroupManager>().DeployGroup( enemyToAdd );
+				//}
 			}
 
 			gameObject.SetActive( false );
@@ -130,7 +134,7 @@ public class EventPopup : MonoBehaviour
 			if ( enemyToAdd != null )
 			{
 				item = item.Replace( "{V}", enemyToAdd.name );
-				DataStore.sessionData.ModifyThreat( -Math.Min( 7, enemyToAdd.cost ) );
+				//DataStore.sessionData.ModifyThreat( -Math.Min( 7, enemyToAdd.cost ) );
 			}
 			else
 				item = item.Replace( "{V}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
@@ -145,28 +149,28 @@ public class EventPopup : MonoBehaviour
 				DataStore.deploymentHand.Where( x => x.id == "DG072" ).First().cost -= 2;
 			}
 		}
-		else if ( cardEvent.eventRule == "R18" && item.Contains( "{CR}" ) )
-		{
-			enemyToAdd = HandleR18();
-			if ( enemyToAdd != null )
-			{
-				item = item.Replace( "{CR}", enemyToAdd.name );
-				DataStore.sessionData.ModifyThreat( -Math.Min( 5, enemyToAdd.cost ) );
-			}
-			else
-				item = item.Replace( "{CR}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
-		}
-		else if ( cardEvent.eventRule == "R23" )
-		{
-			allyToAdd = HandleR23();
-			if ( allyToAdd != null )
-			{
-				item = item.Replace( "{A}", "<color=#00A4FF>" + allyToAdd.name );
-				DataStore.sessionData.ModifyThreat( allyToAdd.cost / 2 );
-			}
-			else
-				item = item.Replace( "{A}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
-		}
+		//else if ( cardEvent.eventRule == "R18" && item.Contains( "{CR}" ) )
+		//{
+		//	enemyToAdd = HandleR18();
+		//	if ( enemyToAdd != null )
+		//	{
+		//		item = item.Replace( "{CR}", enemyToAdd.name );
+		//		DataStore.sessionData.ModifyThreat( -Math.Min( 5, enemyToAdd.cost ) );
+		//	}
+		//	else
+		//		item = item.Replace( "{CR}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
+		//}
+		//else if ( cardEvent.eventRule == "R23" )
+		//{
+		//	allyToAdd = HandleR23();
+		//	if ( allyToAdd != null )
+		//	{
+		//		item = item.Replace( "{A}", "<color=#00A4FF>" + allyToAdd.name );
+		//		DataStore.sessionData.ModifyThreat( allyToAdd.cost / 2 );
+		//	}
+		//	else
+		//		item = item.Replace( "{A}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
+		//}
 
 		nt.text = item;
 		var rt = go.GetComponent<RectTransform>();
@@ -201,43 +205,43 @@ public class EventPopup : MonoBehaviour
 		*/
 
 		//try from deployment hand, minus deployed
-		int[] rnd;
-		var v = DataStore.deploymentHand
-			.GetVillains()
-			.MinusDeployed()//shouldn't be necessary
-			.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
-		if ( v.Count > 0 )
-		{
-			rnd = GlowEngine.GenerateRandomNumbers( v.Count );
-			return v[rnd[0]];
-		}
+		//int[] rnd;
+		//var v = DataStore.deploymentHand
+		//	.GetVillains()
+		//	.MinusDeployed()//shouldn't be necessary
+		//	.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
+		//if ( v.Count > 0 )
+		//{
+		//	rnd = GlowEngine.GenerateRandomNumbers( v.Count );
+		//	return v[rnd[0]];
+		//}
 
-		//try earned villains, minus deployed
-		v = DataStore.sessionData
-			.EarnedVillains
-			.MinusDeployed()
-			.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
-		if ( v.Count > 0 )
-		{
-			rnd = GlowEngine.GenerateRandomNumbers( v.Count );
-			return v[rnd[0]];
-		}
+		////try earned villains, minus deployed
+		//v = DataStore.sessionData
+		//	.EarnedVillains
+		//	.MinusDeployed()
+		//	.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
+		//if ( v.Count > 0 )
+		//{
+		//	rnd = GlowEngine.GenerateRandomNumbers( v.Count );
+		//	return v[rnd[0]];
+		//}
 
-		//else random villain owned+other, minus deployed/ignored/faction
-		v = DataStore.villainCards
-			.OwnedPlusOther()
-			.FilterByFaction()
-			.MinusIgnored()
-			.MinusDeployed()
-			.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
-		if ( v.Count > 0 )
-		{
-			rnd = GlowEngine.GenerateRandomNumbers( v.Count );
-			//add it to earned list, per the rules for this event
-			DataStore.sessionData.EarnedVillains.Add( v[rnd[0]] );
-			return v[rnd[0]];
-		}
-		//bust
+		////else random villain owned+other, minus deployed/ignored/faction
+		//v = DataStore.villainCards
+		//	.OwnedPlusOther()
+		//	.FilterByFaction()
+		//	.MinusIgnored()
+		//	.MinusDeployed()
+		//	.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
+		//if ( v.Count > 0 )
+		//{
+		//	rnd = GlowEngine.GenerateRandomNumbers( v.Count );
+		//	//add it to earned list, per the rules for this event
+		//	DataStore.sessionData.EarnedVillains.Add( v[rnd[0]] );
+		//	return v[rnd[0]];
+		//}
+		////bust
 		return null;
 	}
 

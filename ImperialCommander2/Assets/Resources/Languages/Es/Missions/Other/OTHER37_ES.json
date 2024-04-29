@@ -1,0 +1,929 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "La presa del Almirante",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Villano Thrawn (Gran Almirante)",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a los puestos de seguridad.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "98e0369d-9cee-4c0a-8e0f-c2bd21bb1d48",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "cd0b32bf-2ed7-4221-9815-a9a86a40903c",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "275f6569-a745-41ef-a94f-84de2fd047f1",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Tras infiltraros a bordo del <i>Quimera</i> gracias a unos códigos de atraque robados, os movéis con cautela por los pasillos del enorme destructor estelar. En la puerta del centro de procesamiento de droides infiltradores, un Soldado de la muerte centinela os cierra el paso.\r\n\r\n\"¿Códigos de seguridad?\"\r\n\r\nAl veros dudar más tiempo de lo admisible, el soldado os encañona con su fusil.\r\n\r\n{-} Despliega a los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas.",
+      "eventActions": [
+        {
+          "tbText": "Múltiples puestos de seguridad controlan los cierres de las puertas.",
+          "GUID": "3281a72c-2028-4be2-a3f9-be0515f3684a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Security Station 1",
+              "GUID": "678f3455-b090-4b81-997c-a3067375f5f1",
+              "theText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "7deefc5a-2178-4466-8ac0-d3f25e8fe47d",
+                  "theText": "Destruir"
+                }
+              ]
+            },
+            {
+              "entityName": "Security Station 2",
+              "GUID": "eff0d41e-35c1-49a7-8964-19209a27012f",
+              "theText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "38082311-232e-451e-bbbe-2799a5bc9d97",
+                  "theText": "Destruir"
+                }
+              ]
+            },
+            {
+              "entityName": "Security Station 3",
+              "GUID": "1787d5c5-22f9-4215-85c4-2d612ac1d820",
+              "theText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "88495f0f-0a24-4bdc-a8ba-508e959da31b",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "17fa977f-de40-4678-aefb-b0c3edbceae7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las fichas de Misión imperiales representan puestos de seguridad. Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).\r\n{-} Cuando los 3 puestos de seguridad son destruidos, las puertas dejan de estar selladas.",
+          "GUID": "5f4ac70f-868b-4bce-8880-75cf767d9707",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Destruir los puestos de seguridad (&Stations destroyed&/3).",
+          "longText": null,
+          "GUID": "41cdb341-e423-482f-a452-7ac6bd7ebf1e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas.\r\n{-} Las fichas de Misión Imperial representan puestos de seguridad. Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).\r\n{-} Cuando los 3 puestos de seguridad son destruidos, las puertas dejan de estar selladas.\r\n{-} La misión avanza cuando se abre una puerta.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "5fe5b0d0-fb8f-421a-a1c2-981796ba56da",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Os alejáis como una exhalación, dejando atrás chatarra humeante y al aturdido Thrawn. Transmitís a vuestro piloto las coordenadas de la compuerta más próxima y escapáis de la ira del Imperio.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": [
+        {
+          "mainText": "¿Estáis jugando esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "316a0e10-378b-4518-966d-d067b06b1f9e",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "14604c10-9a02-41f7-855e-a8430725cf8d",
+              "theText": "No"
+            }
+          ],
+          "GUID": "fa160c96-ff1c-4306-ad5f-f40d51ef9331",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Las tropas de Thrawn os rodean y empiezan a estrechar el cerco. Lanzáis una mochila llena de granadas de humo a sus pies y salís corriendo entre toses en dirección a la lanzadera que os aguarda.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Si se está jugando esta misión como una misión secundaria, el Imperio recibe a <color=\"red\">Thrawn</color> (Gran Almirante) como Villano.",
+      "eventActions": [
+        {
+          "mainText": "¿Estáis jugando esta misión como parte de la minicampaña \"Tiranos de Lothal\"?",
+          "buttonList": [
+            {
+              "GUID": "01319e0f-ed6c-4f06-8680-375ca39e0820",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "09e9ccd6-dfbe-47df-9f55-4762611818be",
+              "theText": "No"
+            }
+          ],
+          "GUID": "922d0b18-3b9c-4426-b8b1-9d79afd7d873",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Win",
+      "GUID": "1fb0c0b1-7388-42f6-9c4c-801de27f03a5",
+      "eventText": "Os acomodáis en vuestra nave mientras iniciáis el salto al hiperespacio, con cazas TIE pisándoos los talones. La nave tiembla por los impactos del <i>Quimera</i> antes de poder saltar y poneros a salvo.\n\n\"Ni siquiera Thrawn podrá recuperarse de esto fácilmente. Seguro que tiene copias de seguridad, pero restaurar esos datos le llevará tiempo\" dice Sabine. Ojalá hubiera podido verlo. Ha debido ser todo un espectáculo ver cómo saltaban por los aires esos terminales de procesamiento.\n\n\"Tomaos unos días libres para recuperaros\" sugiere Hera. \"Thrawn os estará buscando. Además, os lo habéis ganado.\"\r\n\r\n{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": [
+        {
+          "tbText": "Escucháis la acalorada discusión que está teniendo lugar en la sala común del <i>Espíritu</i> mucho antes de que podáis verla.\n\n\"Esta podría ser nuestra mejor ocasión para llevar la lucha a Thrawn\" insiste Ezra, señalando un holograma de Lothal con varios destructores estelares en órbita. \"Ya sé que podría ser una trampa pero... ¿y si no lo es? Nos hemos esforzado mucho para buscar la oportunidad de devolvérsela a Thrawn.\"\n\nInterrumpís para preguntar qué ocurre.\n\n\"Un ingeniero imperial nos ha enviado un mensaje\" responde Kanan. \"Quiere desertar, y dice que puede ayudarnos a acceder a la bóveda de datos que contiene toda la información que han reunido los droides infiltradores de Thrawn\" tenéis que imaginaros la expresión inquisitiva de Kanan cuando vuelve su máscara en vuestra dirección. \"Información que le da la ventaja sobre la Rebelión, pero... que alguien nos ayude a infiltrarnos... Suena demasiado bien para ser verdad.\"\r\n\r\n\"No podremos ni pisar el suelo mientras la carne de cañón de Thrawn siga por todas partes\" dice Zeb. \"Seguro que hasta el último agente del sector conoce nuestro aspecto.\"\n\nDais un paso adelante. Los Espectros son indispensables para la Rebelión. No pueden permitirse el riesgo. Pero vosotros sí.\r\n\r\n{-} La siguiente misión activa es \"La última orden\".",
+          "GUID": "e173af91-b4cf-4ec7-9e4f-8087cbee2c8a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Defeat",
+      "GUID": "ee9e6f21-9b9f-47ca-b982-44b59453a837",
+      "eventText": "Encargáis a N-4M que transmita las lamentables noticias de vuestro fracaso a Hera. Los infiltradores de Thrawn podrían tener datos sobre las operaciones rebeldes en todo el sector, de modo que, por seguridad, los agentes deben abandonar sus puestos.\n\nEvitáis llamar la atención durante unos días mientras Thrawn busca al insolente equipo que se atrevió a abordar su nave insignia. Sin embargo, no pasa mucho tiempo hasta que Hera vuelve a convocaros. Los Espectros han encontrado una nueva oportunidad.\r\n\r\n{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": [
+        {
+          "tbText": "Escucháis la acalorada discusión que está teniendo lugar en la sala común del <i>Espíritu</i> mucho antes de que podáis verla.\n\n\"Esta podría ser nuestra mejor ocasión para llevar la lucha a Thrawn\" insiste Ezra, señalando un holograma de Lothal con varios destructores estelares en órbita. \"Ya sé que podría ser una trampa pero... ¿y si no lo es? Nos hemos esforzado mucho para buscar la oportunidad de devolvérsela a Thrawn.\"\n\nInterrumpís para preguntar qué ocurre.\n\n\"Un ingeniero imperial nos ha enviado un mensaje\" responde Kanan. \"Quiere desertar, y dice que puede ayudarnos a acceder a la bóveda de datos que contiene toda la información que han reunido los droides infiltradores de Thrawn\" tenéis que imaginaros la expresión inquisitiva de Kanan cuando vuelve su máscara en vuestra dirección. \"Información que le da la ventaja sobre la Rebelión, pero... que alguien nos ayude a infiltrarnos... Suena demasiado bien para ser verdad.\"\r\n\r\n\"No podremos ni pisar el suelo mientras la carne de cañón de Thrawn siga por todas partes\" dice Zeb. \"Seguro que hasta el último agente del sector conoce nuestro aspecto.\"\n\nDais un paso adelante. Los Espectros son indispensables para la Rebelión. No pueden permitirse el riesgo. Pero vosotros sí.\r\n\r\n{-} La siguiente misión activa es \"La última orden\".",
+          "GUID": "792bd98a-a87c-481e-96f0-c28401ed5e07",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "No campaign",
+      "GUID": "8fe1b24a-487b-46a0-9e81-94329508e0dc",
+      "eventText": "{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Destroy Security Station 1",
+      "GUID": "61503114-385c-48e6-a32f-251e3b6b0b44",
+      "eventText": "El puesto de seguridad explota entre una lluvia de chispas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Security Station 1",
+              "GUID": "5c02f88e-c735-4de1-aea9-747d2acdf553",
+              "theText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "6c0e72ae-19e3-47c0-bec0-0151285c08e7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Security Station 2",
+      "GUID": "28f20364-9407-485b-94d8-577c12edde32",
+      "eventText": "El puesto de seguridad explota entre una lluvia de chispas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Security Station 2",
+              "GUID": "23a6b197-75b9-4bc0-9928-de5fd3133763",
+              "theText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "2f136e8b-6c6c-47ad-8b84-b0078f05a772",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "c43661ff-0b73-4237-9fc5-3af594107fc8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Security Station 3",
+      "GUID": "34e7aa28-168f-41c4-bb94-74fb2932d086",
+      "eventText": "El puesto de seguridad explota entre una lluvia de chispas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Security Station 3",
+              "GUID": "b6a1f694-f355-4cbc-8065-814df68c561c",
+              "theText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "cf7f1e76-3042-468a-8bd8-e911786092e0",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "689580a5-f764-4951-b118-813fe519b02f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Alarm Systems",
+      "GUID": "6924d3df-3788-4be5-80e7-39a6b96c6f63",
+      "eventText": "Cuando el puesto explota, las alarmas empiezan a sonar en el <i>Quimera</i>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Doors unlock",
+      "GUID": "0c957c6d-2b82-4d6f-9ea1-f0a3239983e4",
+      "eventText": "Poco después de la destrucción del  último puesto de seguridad, los pesados cierres se deslizan.\r\n\r\n{-} Las puertas ya no están selladas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "c973deab-593f-419b-9c84-26acae77b8f9",
+              "theText": "La puerta lleva al centro de procesamiento de droides infiltradores.",
+              "buttonList": [
+                {
+                  "GUID": "e32c66b8-ebc7-48bb-a848-8fe817fc4cc5",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "2e06b0c7-b254-4328-a6a2-a7c9f572bb12",
+              "theText": "La puerta lleva al centro de procesamiento de droides infiltradores.",
+              "buttonList": [
+                {
+                  "GUID": "9f38a80d-fcaa-4240-b86f-e652d3b921ba",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "d6e86dc6-0ca7-4a30-8990-5927ccde6a6b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquear el acceso a las puertas.",
+          "GUID": "5886a5c7-627f-494a-9605-362381fed70f",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Entrar en la sala de control.",
+          "longText": null,
+          "GUID": "b911bf69-dd92-4160-a4b8-8a54998b23c3",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La misión avanza cuando se abre una puerta.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "4c817972-f698-49c7-a10c-b2fa1f95af10",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "What you seek",
+      "GUID": "f74d9a83-c808-4bc0-8aaf-b9e35aceea5f",
+      "eventText": "Las puertas se abren para revelar una sala de control está repleta de terminales, cada uno de ellos afanándose por procesar valiosa información sobre los Rebeldes recopilada por los droides infiltradores.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "8b57806b-83d4-4b63-a6f7-9c518423e45a",
+              "theText": "La puerta al centro de procesamiento de droides infiltradores está cerrada a cal y canto.\r\n\r\n{-} Cuando los 3 puestos de seguridad son destruidos, las puertas dejan de estar selladas.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "84becdf3-0ccb-4a9a-93ab-9e83f5a24431",
+              "theText": "La puerta al centro de procesamiento de droides infiltradores está cerrada a cal y canto.\r\n\r\n{-} Cuando los 3 puestos de seguridad son destruidos, las puertas dejan de estar selladas.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "f3913772-4111-40b5-afe1-8704421d52a0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "El gran almirante aparta la vista de su obra para encararse a vosotros.\r\n\r\n-Llegáis tarde. Me decepcionáis.",
+          "GUID": "1929de37-7e93-4b54-9363-59abe7289bf5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "{-} PACIENCIA: Esta figura y la otra figura del bando Imperial con el coste de figura más alto a X o menos casillas ganan 1 {h} y 1 {g}. X es el número de fichas de activación Rebeldes agotadas.\r\n{Q} Mueve 1 para atacar a {rebel}.\r\n{A} Mueve 5 hacia el terminal más cercano.\r\n{A} Mueve 5 hacia el terminal más cercano.\r\n{-} ÓRDENES DEL ALMIRANTE: La otra figura del bando Imperial con el coste de figura más alto que pueda atacar, ataca a {rebel}.\r\n{-} ESTIMULANTES: Esta figura se recupera de 2 {H}.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b3fde91e-8a49-4e66-b90c-311ffee72057",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG085/Thrawn"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Thrawn</color> no puede ser derrotado. Cuando Thrawn haya sufrido *1* o más {H}, Thrawn recupera todo el {H}, los Héroes pueden empujarlo hasta 3 casillas y Thrawn adquiere <color=\"red\">Aturdimiento</color>.\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.\r\n{-} Los Rebeldes ganan cuando todos los terminales son destruidos.",
+          "GUID": "05bf243a-e6a6-408e-a3fb-7fdc35a1fdb6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquear el acceso a los terminales.",
+          "GUID": "6a7ecf49-5421-4bdd-946b-d8c704585f50",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Destruir los terminales (&Terminals destroyed&/6).",
+          "longText": null,
+          "GUID": "2c46e045-b62a-4128-b94b-cb22b697fafe",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} <color=\"red\">Thrawn</color> no puede ser derrotado. Cuando Thrawn haya sufrido *1* o más {H}, Thrawn recupera todo el {H}, los Héroes pueden empujarlo hasta 3 casillas y Thrawn adquiere <color=\"red\">Aturdimiento</color>.\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.\r\n{-} Los Rebeldes ganan cuando todos los terminales son destruidos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "ed202302-e178-4ce9-af3e-408fd73f68ae",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Attempt 1",
+      "GUID": "5991d36e-384a-4bee-9f56-f1e7e986eb30",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a acceder a los sistemas del terminal, tratando de iniciar una sobrecarga.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} por cada ficha de Tensión sobre el terminal, después descarta todas las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "55c8d359-011b-4a25-aff3-f02a7aa7cdf9",
+              "theText": "Los sistemas de seguridad son demasiado complejos. Tenéis que seguir intentándolo."
+            }
+          ],
+          "GUID": "12bd6448-e201-4a59-8845-005cedf7e194",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 1",
+      "GUID": "e8032470-574f-4165-bc0a-ddd617f24342",
+      "eventText": "El procesamiento de datos se interrumpe cuando la sobrecarga satura el terminal.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "d5787194-c664-471f-b2c0-5c430970e1ad",
+              "theText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+              "buttonList": [
+                {
+                  "GUID": "208f6578-1dfe-4ddb-be77-dd07f5a742d8",
+                  "theText": "Intentar destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "fcaee985-62cb-47ed-a266-998de857d075",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Attempt 2",
+      "GUID": "6d40e0fb-35aa-4ea7-bfc9-fea634f827d9",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a acceder a los sistemas del terminal, tratando de iniciar una sobrecarga.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} por cada ficha de Tensión sobre el terminal, después descarta todas las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e4b46946-3320-4ec1-b30e-f332a997ed80",
+              "theText": "Los sistemas de seguridad son demasiado complejos. Tenéis que seguir intentándolo."
+            }
+          ],
+          "GUID": "c2d2d56f-d988-4e2f-b3af-d5c65f399fa2",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 2",
+      "GUID": "e1a3ed26-84f2-4e67-9801-cbca929ee628",
+      "eventText": "El procesamiento de datos se interrumpe cuando la sobrecarga satura el terminal.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "ebf57e82-5834-47b3-97ca-f27bc1b3c8a3",
+              "theText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+              "buttonList": [
+                {
+                  "GUID": "05dfb1a4-8ea3-45ad-a467-af7d9076955c",
+                  "theText": "Intentar destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "37cd826c-494a-4206-8eee-dbe26852d916",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Attempt 3",
+      "GUID": "c9c14439-fd23-48f5-bfef-5e8ec114f332",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a acceder a los sistemas del terminal, tratando de iniciar una sobrecarga.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} por cada ficha de Tensión sobre el terminal, después descarta todas las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "0881982f-7543-4e17-84d2-01f447b2511f",
+              "theText": "Los sistemas de seguridad son demasiado complejos. Tenéis que seguir intentándolo."
+            }
+          ],
+          "GUID": "1d7ace2d-0b9a-43d7-afe0-b4df6a31048c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 3",
+      "GUID": "63d419dc-fa71-4f73-a67a-0105c1ae3b43",
+      "eventText": "El procesamiento de datos se interrumpe cuando la sobrecarga satura el terminal.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 3",
+              "GUID": "aa78be65-11d9-4aa4-b305-c068bd06468d",
+              "theText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+              "buttonList": [
+                {
+                  "GUID": "0bad9db2-198f-4b1f-9955-d6cc2727807a",
+                  "theText": "Intentar destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "da91a6f5-9e56-4ab2-8b0f-dc2245f99a87",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Attempt 4",
+      "GUID": "2a481b73-f8e9-48f1-8e9f-73b775b8b5db",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a acceder a los sistemas del terminal, tratando de iniciar una sobrecarga.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} por cada ficha de Tensión sobre el terminal, después descarta todas las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "fa7d1074-805a-43cc-babb-a428d1ff7564",
+              "theText": "Los sistemas de seguridad son demasiado complejos. Tenéis que seguir intentándolo."
+            }
+          ],
+          "GUID": "ba62c669-82a7-4561-ac59-60a0fa9083cf",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 4",
+      "GUID": "2fb8c495-8240-41a6-98db-fa372b74793c",
+      "eventText": "El procesamiento de datos se interrumpe cuando la sobrecarga satura el terminal.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 4",
+              "GUID": "b67fba2d-e2cd-41fc-ab2b-9a9a3373eb4b",
+              "theText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+              "buttonList": [
+                {
+                  "GUID": "67f1d7c1-6a80-4e65-9c7d-e7c95fae9181",
+                  "theText": "Intentar destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "45412933-31ff-4e69-9ae8-0e4c36bc4895",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Attempt 5",
+      "GUID": "a06ee9f5-2049-4570-b52a-a572dab14028",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a acceder a los sistemas del terminal, tratando de iniciar una sobrecarga.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} por cada ficha de Tensión sobre el terminal, después descarta todas las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "fee7a178-e784-4684-8219-2f05bc1bfa8d",
+              "theText": "Los sistemas de seguridad son demasiado complejos. Tenéis que seguir intentándolo."
+            }
+          ],
+          "GUID": "ae197379-e609-436f-bdb5-279a83686e6a",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 5",
+      "GUID": "c3f1c318-4722-4f5d-8a71-8394047e36dc",
+      "eventText": "El procesamiento de datos se interrumpe cuando la sobrecarga satura el terminal.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 5",
+              "GUID": "1cb7e915-7c9b-472c-880b-2e88944acef0",
+              "theText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+              "buttonList": [
+                {
+                  "GUID": "84df77a7-6d0e-475f-b204-aa54068bc2b5",
+                  "theText": "Intentar destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "847f1fb6-533d-455e-87b7-5e3b5d5d9752",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Attempt 6",
+      "GUID": "5aa40eea-70b4-4172-a68e-ec2236eabf51",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empezáis a acceder a los sistemas del terminal, tratando de iniciar una sobrecarga.\r\n\r\n{-} Realiza una prueba de {J} o {I}. Aplica +1 {B} por cada ficha de Tensión sobre el terminal, después descarta todas las fichas de Tensión del terminal. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "b7c8ea0d-f569-4dd9-8bd4-edf6a58bbdf2",
+              "theText": "Los sistemas de seguridad son demasiado complejos. Tenéis que seguir intentándolo."
+            }
+          ],
+          "GUID": "79503611-c185-4574-a83e-2266584e4c63",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 6",
+      "GUID": "89841375-15c8-4cfe-bc56-5c35e8445549",
+      "eventText": "El procesamiento de datos se interrumpe cuando la sobrecarga satura el terminal.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 6",
+              "GUID": "3b9eda7c-e4d4-44f1-aae4-60637e8735f8",
+              "theText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+              "buttonList": [
+                {
+                  "GUID": "9998e704-6d0e-420e-ac30-7d5f49e07520",
+                  "theText": "Intentar destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "4c138255-41ec-4749-b588-5555c71b3d52",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Personal Guards 1",
+      "GUID": "cafaa112-4ecb-451b-ac64-4903d8aa3193",
+      "eventText": "Un soldado herido se escabulle y avisa por su comunicador:\r\n\r\n-¡Rebeldes! ¡Enviad refuerzos!",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "033a7f7b-b7b7-4793-8110-fca93a1b79c0",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "fa59b998-be93-473f-b705-48528f154a10",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Personal Guards 2",
+      "GUID": "0c926a2e-9c15-4f7d-a5ad-dbdcff695ce5",
+      "eventText": "Un soldado herido se escabulle y avisa por su comunicador:\r\n\r\n-¡Rebeldes! ¡Enviad refuerzos!",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9a3fcc9a-a285-4fe7-b86c-3a5a6c14538b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dc461bff-5211-4201-8c0a-ed207fc1e27f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG058/Death Trooper (Elite)"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "a788caa6-fca0-4ff0-bfcf-bf7869202454",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "5f37616e-9025-4aef-8c02-239c19f1f65f",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP DTrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP DTrooper 2",
+      "GUID": "9fb82f6f-4b68-458f-86b1-c8ab8f9598d4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "f40b0f2b-0630-4e3e-b552-da7f9f284595",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "2a158b11-3bcf-4026-b599-f47759227c01",
+      "mainText": "La puerta al centro de procesamiento de droides infiltradores está cerrada a cal y canto.\r\n\r\n{-} Cuando los 3 puestos de seguridad son destruidos, las puertas dejan de estar selladas.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "494a6400-e85b-46c5-81db-50f522958bef",
+      "mainText": "La puerta al centro de procesamiento de droides infiltradores está cerrada a cal y canto.\r\n\r\n{-} Cuando los 3 puestos de seguridad son destruidos, las puertas dejan de estar selladas.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Security Station 1",
+      "GUID": "f8454455-e420-4398-973b-849a153501c7",
+      "mainText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "6a0b7ac2-91fc-4559-bf14-c0e03ff7f8b9",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Security Station 2",
+      "GUID": "2429899a-3ebc-4fe9-b14c-e2fade7677bd",
+      "mainText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "6ffee191-5bcb-4210-9e0f-7265c81a5b9f",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Security Station 3",
+      "GUID": "8d3cf270-8255-49a6-b996-a9b6fed48de3",
+      "mainText": "El puesto de seguridad que bloquea las puertas está protegido por un recubrimiento pesado.\r\n\r\n{-} Una figura puede atacar un puesto de seguridad (Vida: 2 más *1*; Defensa: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "33492655-8e8b-43f2-a73f-83400d2f2143",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Door",
+      "GUID": "617a328e-b32e-4740-9979-f76d0672a385",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "a7c336f7-48c6-4fd0-b463-6d8ac66e0f34",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "41ef5c05-42b0-4a2f-8dff-a15ae4ae0579",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "f1219e2f-961a-4017-8f45-d0365090dc7b",
+      "mainText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+      "buttonList": [
+        {
+          "GUID": "0e179441-997f-4d74-a266-f9e5189a50c0",
+          "theText": "Intentar destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "5d8ff54b-b721-40d1-8fd6-870b227dc953",
+      "mainText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+      "buttonList": [
+        {
+          "GUID": "e88e4229-d47a-419f-928a-1e90fccaa118",
+          "theText": "Intentar destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 3",
+      "GUID": "b1448b99-3a6a-4aa5-924c-9d7523485557",
+      "mainText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+      "buttonList": [
+        {
+          "GUID": "76719adb-fbc1-428b-aedc-a09384797f9a",
+          "theText": "Intentar destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 4",
+      "GUID": "d19bfe77-6ae1-4f42-827d-a73ea49fdb1f",
+      "mainText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+      "buttonList": [
+        {
+          "GUID": "de26f9f3-fd3d-4014-8a4a-f5cdfb3ea400",
+          "theText": "Intentar destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 5",
+      "GUID": "2fb9e880-7d2b-4486-b1c8-926ac735ef9d",
+      "mainText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+      "buttonList": [
+        {
+          "GUID": "b3881119-d2da-4f15-9df6-273271337ace",
+          "theText": "Intentar destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 6",
+      "GUID": "3ac9a4b8-6e03-4e79-a97f-aa8ec3122037",
+      "mainText": "La pantalla del terminal muestra cómo se procesan los datos que los droides infiltradores han recogido sobre la Alianza Rebelde.\r\n\r\n{-} Una figura del bando Rebelde puede gastar 2 puntos de movimiento cuando esté adyacente a un terminal al que <color=\"red\">Thrawn</color> no esté adyacente para intentar destruirlo ({J} o {I}). Esa figura puede sufrir 1 {C} durante esa prueba para volver a tirar cualquier cantidad de dados.",
+      "buttonList": [
+        {
+          "GUID": "950c5218-b27a-437a-8086-2e2cf1992824",
+          "theText": "Intentar destruir"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Death Trooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Death Trooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

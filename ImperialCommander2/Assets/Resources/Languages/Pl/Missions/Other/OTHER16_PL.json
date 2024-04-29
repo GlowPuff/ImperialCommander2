@@ -1,0 +1,537 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Forest Ambush",
+    "missionDescription": "",
+    "missionInfo": "{-} Neutralne żetony misji tworzą powalone drzewo. Powalone drzewo stanowi blokujący teren. Bohater może skorzystać z powalonego drzewa, aby spróbować odsunąć je z drogi.\r\n{-} Misja pójdzie naprzód, kiedy figurka Rebelii wejdzie do obozu.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni.",
+    "campaignName": "General Weiss (Field Commander) Figure Pack",
+    "startingObjective": "Odsuń drzewo blokujące wejście do obozu.",
+    "repositionOverride": "Blokuj dostęp do ukrytych zapasów.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7e6cf458-548d-464d-b7a1-413802f07437",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "2cd38487-2fb3-4e4e-96ea-54f5d5bb4394",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ac3a1db0-ab0e-457b-97ee-a3d7b9fca316",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Przedzieracie się ostrożnie przez zarośla ku porzuconej rebelianckiej kryjówce. Chociaż wywiad Sojuszu zapewniał was, że po napastnikach nie ma śladu, ostrzegli was także o niebezpieczeństwach, które możecie napotkać w lesie.\r\n\r\n{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.\r\n{-} Neutralne żetony misji tworzą powalone drzewo. Powalone drzewo stanowi blokujący teren. Bohater może skorzystać z powalonego drzewa ({K}), aby spróbować odsunąć je z drogi.\r\n{-} Czerwony żeton misji Rebelii reprezentuje ukryte zapasy. Bohater może skorzystać z ukrytych zapasów ({J}), aby je znaleźć.\r\n{-} Misja pójdzie naprzód, kiedy ukryte zapasy zostaną znalezione.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Gdy nabieracie wysokości, Weiss nadal ostrzeliwuje wasz statek. Wchodzicie na orbitę z kilkoma szramami od strzałów, ale poza tym wam ani ładunkowi nic się nie stało.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 200 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Wytaczacie się z lasu kilka dni później, pokiereszowani i na wpół zagłodzeni. Pościg Weissa był nieubłagany i zaciekły - udało wam się umknąć tylko dzięki wielkiemu szczęściu.\r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} Imperium dostaje <color=\"red\">Generała Weissa</color> (Dowódcę polowego) jako przeciwnika.\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Tree Remove Attempt",
+      "GUID": "ee6d2372-8a36-48ed-82b0-bb3444ccc661",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Próbujesz podnieść drzewo i odciągnąć je na bok.\r\n\r\n{-} Wykonaj test {K}. Dodaj +1 {B} za każdy żeton zmęczenia na drzewie, następnie odrzuć wszystkie żetony zmęczenia z drzewa. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e22177b3-839a-46e6-875f-03f30bf3c1af",
+              "theText": "Robisz pewne postępy, ale drzewo wciąż blokuje drogę. Musisz próbować dalej.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na drzewie."
+            }
+          ],
+          "GUID": "ba6d9cfd-6814-4d95-8137-5189d846ed7c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Tree Remove Success",
+      "GUID": "2972f6be-19a0-405a-a1e3-4fcafc346357",
+      "eventText": "Jęcząc, przeciągasz zwalone drzewo na bok, robiąc przejście. \r\n\r\n{-} Odrzuć wszystkie żetony tworzące drzewo.\r\n{-} Kiedy figurka Rebelii wejdzie na jedno z pól zaznaczonych na zielono, kliknij na jedno z tych pól i wybierz \"Wejdź do obozu\".",
+      "eventActions": [
+        {
+          "shortText": "Wejdź do obozu.",
+          "longText": "",
+          "GUID": "7c943d2e-bc87-4ab3-81d4-c848f4383fcf",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Tree 1",
+              "GUID": "11d826af-8825-4b1b-8579-5d31f6c9edbd",
+              "theText": "Powalone drzewo zagradza drogę. Wygląda na ciężkie.\r\n\r\n{-} Bohater może skorzystać z powalonego drzewa ({K}), aby spróbować odsunąć je z drogi.",
+              "buttonList": [
+                {
+                  "GUID": "c87e8209-0539-4550-a732-9d7b0cfddecf",
+                  "theText": "{A} Spróbuj odsunąć {K}"
+                }
+              ]
+            },
+            {
+              "entityName": "Tree 2",
+              "GUID": "2ad45d9e-8af2-4a0b-b181-11717ccd20a2",
+              "theText": "Powalone drzewo zagradza drogę. Wygląda na ciężkie.\r\n\r\n{-} Bohater może skorzystać z powalonego drzewa ({K}), aby spróbować odsunąć je z drogi.",
+              "buttonList": [
+                {
+                  "GUID": "f91b6e52-c485-494a-964f-a60bf304d609",
+                  "theText": "{A} Spróbuj odsunąć {K}"
+                }
+              ]
+            },
+            {
+              "entityName": "Tree 3",
+              "GUID": "82d9de7f-28e4-46d2-b4fa-3e82697e3a0c",
+              "theText": "Powalone drzewo zagradza drogę. Wygląda na ciężkie.\r\n\r\n{-} Bohater może skorzystać z powalonego drzewa ({K}), aby spróbować odsunąć je z drogi.",
+              "buttonList": [
+                {
+                  "GUID": "3e308a13-1479-49ef-be82-6c9ad23f233a",
+                  "theText": "{A} Spróbuj odsunąć {K}"
+                }
+              ]
+            },
+            {
+              "entityName": "Enter Clearing",
+              "GUID": "9ff69c77-357a-460f-80fa-7498670547c8",
+              "theText": "{-} Kiedy figurka Rebelii wejdzie na jedno z pól zaznaczonych na zielono, kliknij \"Wejdź do obozu\".",
+              "buttonList": [
+                {
+                  "GUID": "e79755c7-a606-40ce-9b7d-9bd0334c14ac",
+                  "theText": "Wejdź do obozu"
+                }
+              ]
+            }
+          ],
+          "GUID": "f0f687e2-ebef-4a91-bf6d-19bbd975a2ff",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Supply Search Attempt",
+      "GUID": "467a7fb3-e453-4dca-bfc9-a4364929516a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "W pośpiechu zaczynasz szukać zapasów.\r\n\r\n{-} Wykonaj test {J}. Dodaj +1 {B} za każdy żeton zmęczenia na ukrytych zapasach, następnie odrzuć wszystkie żetony zmęczenia z ukrytych zapasów. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "58598ae1-544e-430c-87cf-db3705ad47aa",
+              "theText": "Zapasy są dobrze ukryte. Musisz próbować jeszcze raz.\r\n\r\n{-} Za każdy wynik {B}, należy położyć 1 żeton zmęczenia na ukrytych zapasach."
+            }
+          ],
+          "GUID": "52d67f65-7f2c-47ed-b848-954a03b0534b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Strike Team",
+      "GUID": "b9008d93-db6c-4874-bcf7-8f6634530373",
+      "eventText": "Nagle słyszycie wzmocniony głos: - Nie umkniecie, rebelianci! Jeżeli się poddacie, możecie liczyć na łagodne traktowanie. Nie zagwarantuję wam tego jednak, jeśli spróbujecie ucieczki.\r\n\r\n{-} Czerwony żeton misji Rebelii reprezentuje ukryte zapasy. Bohater może skorzystać z ukrytych zapasów ({J}), aby je znaleźć.\r\n{-} Misja pójdzie naprzód, kiedy ukryte zapasy zostaną znalezione.",
+      "eventActions": [
+        {
+          "shortText": "Znajdź ukryte zapasy.",
+          "longText": null,
+          "GUID": "3abf2477-18f6-4c85-a481-825ae9c12195",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Enter Clearing",
+              "GUID": "ad52d7b7-af56-4b62-b9d9-3819a291f4c5",
+              "theText": "{-} Kiedy figurka Rebelii wejdzie na jedno z pól zaznaczonych na zielono, kliknij \"Wejdź do obozu\".",
+              "buttonList": [
+                {
+                  "GUID": "04981d9f-8fdf-4b2a-9001-ffdfeb2ef3f4",
+                  "theText": "Wejdź do obozu"
+                }
+              ]
+            },
+            {
+              "entityName": "Crate1",
+              "GUID": "c3374a82-d473-49d7-8c7c-086bbab33c97",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "dc3e7a3b-b10c-4eb4-87c3-5504e97423f3",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 1",
+              "GUID": "3d602369-10a5-4071-9385-3ce2ccd749a0",
+              "theText": "Na szczycie schodów stoi stara stacja komunikacyjna.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "800a6c23-5955-4355-b139-bb41e4fbfd35",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Supply Cache",
+              "GUID": "25209059-43a4-4940-921f-98669716555e",
+              "theText": "Zapasy powinny być ukryte gdzieś w tej okolicy.\r\n\r\n{-} Bohater może skorzystać z żetonu misji Rebelii ({J}), aby poszukać ukrytych zapasów.",
+              "buttonList": [
+                {
+                  "GUID": "decd9c21-09e4-44ee-afd7-dd3b42164888",
+                  "theText": "{A} Poszukaj ukrytych zapasów"
+                }
+              ]
+            }
+          ],
+          "GUID": "c973a72e-b5f0-4dc5-84a8-9b1d06286a74",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Czerwony żeton misji Rebelii reprezentuje ukryte zapasy. Bohater może skorzystać z ukrytych zapasów ({J}), aby je znaleźć.\r\n{-} Misja pójdzie naprzód, kiedy ukryte zapasy zostaną znalezione.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "b1ea71a8-b07f-4f17-8b01-b654cf3b7b5a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9cd9295b-557f-46c9-a9d1-932a37f2ad5d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG073/General Weiss"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cabe58ef-dee8-42a9-8f87-3bc20aa93561",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ed77ace6-da9b-408d-a036-e05970b37041",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG013/Probe Droid (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Extract",
+      "GUID": "f64c24d1-8f26-4841-ac47-494aeb8bda41",
+      "eventText": "W końcu znajdujecie zapasy i przyjmujecie je.\r\n\r\n{-} Bohater może skorzystać z terminala ({I}), aby poprosić o ewakuację.\r\n{-} Misja pójdzie naprzód, kiedy bohaterowie poproszą o ewakuację.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni lub kiedy bohater z ukrytymi zapasami wycofa się (kliknij na terminal i wybierz \"Bohater wycofuje się\").",
+      "eventActions": [
+        {
+          "shortText": "Poproś o ewakuację.",
+          "longText": "",
+          "GUID": "06ebbb5e-0a0d-4ecf-8b27-3f57f780d5a9",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "65acf8a0-7229-47ef-b739-0f4f37bd39d3",
+              "theText": "Na szczycie schodów stoi stara stacja komunikacyjna.\r\n\r\n{-} Bohater może skorzystać z terminala ({I}), aby poprosić o ewakuację.",
+              "buttonList": [
+                {
+                  "GUID": "c55bb339-c12e-4a66-94ce-38444eb365de",
+                  "theText": "{A} ({I}) Poproś o ewakuację"
+                },
+                {
+                  "GUID": "c893ce76-389d-4666-a56d-df4f807b7375",
+                  "theText": "Bohater wycofuje się"
+                }
+              ]
+            },
+            {
+              "entityName": "Supply Cache",
+              "GUID": "212d3e1f-d159-4f11-8f04-50c003b820c1",
+              "theText": "Zapasy powinny być ukryte gdzieś w tej okolicy.\r\n\r\n{-} Bohater może skorzystać z żetonu misji Rebelii ({J}), aby poszukać ukrytych zapasów.",
+              "buttonList": [
+                {
+                  "GUID": "a8a6ee89-3e67-4d8e-a2d2-74de70d3cabf",
+                  "theText": "{A} Poszukaj ukrytych zapasów"
+                }
+              ]
+            }
+          ],
+          "GUID": "93c6eca1-130d-4cf1-92c3-cc0bc501f212",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blokuj dostęp do terminala i do wyjścia.",
+          "GUID": "2172833a-af08-4a43-842a-4313669537bc",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Bohater może skorzystać z terminala ({I}), aby poprosić o ewakuację.\r\n{-} Misja pójdzie naprzód, kiedy bohaterowie poproszą o ewakuację.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni lub kiedy bohater z ukrytymi zapasami wycofa się (kliknij na terminal i wybierz \"Bohater wycofuje się\").",
+          "GUID": "e8ec291c-cdfb-4be2-8b84-c55213be2d31",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Call for Extraction",
+      "GUID": "10b6b761-3270-4b35-98e0-c827fa6dc850",
+      "eventText": "{-} Zielony żeton misji Rebelii reprezentuje wyjście. Bohater z ukrytymi zapasami może uciec przez wyjście.\r\n{-} Bohaterowie wygrają, kiedy bohater z ukrytymi zapasami ucieknie przez wyjście.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni lub kiedy bohater z ukrytymi zapasami wycofa się (kliknij na terminal i wybierz \"Bohater wycofuje się\").",
+      "eventActions": [
+        {
+          "shortText": "Ucieknij!",
+          "longText": null,
+          "GUID": "deb7eb1b-07da-45d9-a224-1a32cde2ede7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "346db000-7c53-4d04-b7b9-2933e2a4edfb",
+              "theText": "Ścieżka, z której przyszliście, prowadzi z powrotem w zarośla, gdzie łatwo można zgubić siły Imperium.\r\n\r\n{-} Bohater z ukrytymi zapasami może uciec przez wyjście, tym samym kończąc misję.\r\n{-} Bohaterowie przegrają kiedy bohater z ukrytymi zapasami wycofa się. Kiedy to się stanie kliknij na terminal i wybierz \"Bohater wycofuje się\".",
+              "buttonList": [
+                {
+                  "GUID": "d8fba3bd-4532-419d-82a6-95a4d8c0c5a8",
+                  "theText": "Ucieknij (Zakończ misję)"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 1",
+              "GUID": "0ead5ec6-e1d9-4179-9eee-2870b43cd996",
+              "theText": "Na szczycie schodów stoi stara stacja komunikacyjna.",
+              "buttonList": [
+                {
+                  "GUID": "f9767b19-5a57-444c-af14-1ef22efb4f55",
+                  "theText": "Bohater wycofuje się"
+                }
+              ]
+            }
+          ],
+          "GUID": "baa47cff-a984-4459-b38a-22dc76ee73fa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Zielony żeton misji Rebelii reprezentuje wyjście. Bohater z ukrytymi zapasami może uciec przez wyjście.\r\n{-} Bohaterowie wygrają, kiedy bohater z ukrytymi zapasami ucieknie przez wyjście.\r\n{-} Bohaterowie przegrają na końcu rundy 5 lub kiedy wszyscy bohaterowie będą ranni lub kiedy bohater z ukrytymi zapasami wycofa się (kliknij na terminal i wybierz \"Bohater wycofuje się\").",
+          "GUID": "85fb34a2-884b-4abc-a995-dc48212bf482",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "b8372f8e-7eb8-48c3-b7d4-44a91358df39",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "40ed0308-b3ea-4615-b084-677649769f81",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Należy rozstawić bohaterów na tym punkcie.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "d50f80e3-0d1b-4b02-b1ed-271b2e686c3e",
+      "mainText": "Ścieżka, z której przyszliście, prowadzi z powrotem w zarośla, gdzie łatwo można zgubić siły Imperium.\r\n\r\n{-} Bohater z ukrytymi zapasami może uciec przez wyjście, tym samym kończąc misję.\r\n{-} Bohaterowie przegrają kiedy bohater z ukrytymi zapasami wycofa się. Kiedy to się stanie kliknij na terminal i wybierz \"Bohater wycofuje się\".",
+      "buttonList": [
+        {
+          "GUID": "644f2e86-2e61-4b6a-9cda-4601170c5dbb",
+          "theText": "Ucieknij (Zakończ misję)"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "991bebfe-af21-4fbd-b0ba-b11da36c644e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "27f533dc-d5bf-4084-a26b-740a000038a0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Weiss",
+      "GUID": "bde8faad-b2f6-4b5e-81a8-02f44626ac31",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Tree 1",
+      "GUID": "0c426fee-844f-4282-9b6f-219caa5b4e99",
+      "mainText": "Powalone drzewo zagradza drogę. Wygląda na ciężkie.\r\n\r\n{-} Bohater może skorzystać z powalonego drzewa ({K}), aby spróbować odsunąć je z drogi.",
+      "buttonList": [
+        {
+          "GUID": "ce8775aa-13fb-4ad0-b9eb-85d86149631f",
+          "theText": "{A} Spróbuj odsunąć {K}"
+        }
+      ]
+    },
+    {
+      "entityName": "Tree 2",
+      "GUID": "16d60478-dabd-4805-b9ce-36aa7bb8bafd",
+      "mainText": "Powalone drzewo zagradza drogę. Wygląda na ciężkie.\r\n\r\n{-} Bohater może skorzystać z powalonego drzewa ({K}), aby spróbować odsunąć je z drogi.",
+      "buttonList": [
+        {
+          "GUID": "4903d713-83ec-44cb-b863-abfe4126537f",
+          "theText": "{A} Spróbuj odsunąć {K}"
+        }
+      ]
+    },
+    {
+      "entityName": "Tree 3",
+      "GUID": "fa9a648c-0949-4b34-8476-5ed5e433c83b",
+      "mainText": "Powalone drzewo zagradza drogę. Wygląda na ciężkie.\r\n\r\n{-} Bohater może skorzystać z powalonego drzewa ({K}), aby spróbować odsunąć je z drogi.",
+      "buttonList": [
+        {
+          "GUID": "0f7b123f-ab18-494d-bcab-403439b6dc8a",
+          "theText": "{A} Spróbuj odsunąć {K}"
+        }
+      ]
+    },
+    {
+      "entityName": "Enter Clearing",
+      "GUID": "03302d90-3287-4924-ba80-4874c2b24293",
+      "mainText": "{-} Kiedy figurka Rebelii wejdzie na jedno z pól zaznaczonych na zielono, kliknij \"Wejdź do obozu\".",
+      "buttonList": [
+        {
+          "GUID": "f7fe954d-3e50-419a-b204-8d8381712161",
+          "theText": "Wejdź do obozu"
+        }
+      ]
+    },
+    {
+      "entityName": "Supply Cache",
+      "GUID": "4eef3aa4-5ca6-46eb-bbc0-5963ff0875e4",
+      "mainText": "Zapasy powinny być ukryte gdzieś w tej okolicy.\r\n\r\n{-} Bohater może skorzystać z żetonu misji Rebelii ({J}), aby poszukać ukrytych zapasów.",
+      "buttonList": [
+        {
+          "GUID": "8ee8a1a7-8606-4c1f-ba1a-1570384b1773",
+          "theText": "{A} Poszukaj ukrytych zapasów"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "d38a51cc-b55b-42a1-a5b5-52abc9702d23",
+      "mainText": "Na szczycie schodów stoi stara stacja komunikacyjna.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "1593836d-160f-4e01-b84c-81252b6c692b",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Nexu",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

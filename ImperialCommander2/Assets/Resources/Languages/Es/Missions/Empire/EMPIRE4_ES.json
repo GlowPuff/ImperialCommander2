@@ -1,0 +1,694 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Agente Doble",
+    "missionDescription": "",
+    "missionInfo": "{-} Lorn es una figura del bando Rebelde controlada por los Héroes como Aliado. Lorn no puede sufrir {H}.\r\n{-} Lorn no se activa de la forma normal. En su lugar, realiza una acción al inicio de cada Fase de Estatus.\r\n{-} Si no hay ningún Héroe sano a 3 o menos casillas de distancia de Lorn, una figura del bando Imperial puede interactuar con Lorn para arrestarlo cuando se indica. Cuando eso suceda, pulsa sobre la ficha de Misión Imperial y selecciona \"Lorn Arrestado\".\r\n{-} Los muros entre 2 fichas de Escombros no bloquean el movimiento a las figuras que estén sobre una de esas fichas de Escombros.\r\n{-} Cuando sea el turno de los jugadores del bando Rebelde de activar una figura, en su lugar pueden pasar de hacerlo para que le vuelva a tocar el turno al jugador del bando Imperial.\r\n{-} Los Rebeldes ganan al final de la Ronda 7.\r\n{-} Los Rebeldes pierden cuando Lorn es arrestado.",
+    "campaignName": "El Corazón del Imperio",
+    "startingObjective": "",
+    "repositionOverride": "Estar adyacente a Lorn (solo figuras sin \"Descomunal\" o \"Irracional\").",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "f2037eb8-7860-4951-971f-d417208d7076",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "06b72f01-872b-4341-8367-271a0c01312d",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "9b3a2b9e-e148-4c39-8f64-5ea7153a78ed",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "87ca8257-5cc3-485e-a161-97365cdc74df",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "085fb320-a2fb-468c-b997-42f76f03ffa6",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "d2a6d47f-7563-4355-8345-dceef72b8944",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "La pequeña cafetería que Lorn eligió para encontrarse con vosotros está en una parte densamente industrializada del planeta. El aire está saturado de esmog y hollín, lo que hace difícil divisar naves que se aproximen\r\n\r\nPara evitar despertar demasiadas sospechas, la mitad del equipo se queda fuera junto al deslizador mientras que los demás entráis para contactar con Lorn. Os sentáis en un reservado y esperáis a que llegue\r\n\r\nTras algunas consumiciones que la camarera os obligó a pedir, estáis cada vez más preocupados de que Lorn no haya llegado. Empezabais a pensar que no iba a aparecer cuando, de repente, os fijáis en una figura sospechosa con abrigo largo y gafas oscuras. Meneáis la cabeza ante lo obvio del disfraz y os levantáis para establecer contacto; sin embargo, un movimiento captado por el rabillo del ojo atrae vuestra atención y os dais cuenta de que tenéis más compañía\r\n\r\nFuera, un leve zumbido crece en intensidad justo antes de que una bola brillante se estrelle contra vuestro deslizador y lo deje hecho una chatarra llameante. A través del humo, veis la silueta de una lanzadera de bombardeo que da la vuelta para hacer otra pasada. Activáis vuestra baliza de emergencia para solicitar una evacuación con la esperanza de que llegue a tiempo.\r\n\r\n{-} Despliega los Héroes en las dos casillas resaltadas en azul, divididos entre las dos de la manera más equilibrada posible.",
+      "eventActions": [
+        {
+          "tbText": "Lorn se acurruca en un rincón, conmocionado por la explosión, pero recuperando poco a poco el sentido.",
+          "GUID": "5b964cf1-c4ec-419f-8868-89fe26e87fad",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Lorn",
+              "GUID": "9778b553-efb9-4b26-8274-14e5098f8d2d",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "43c6692e-2e24-497a-892e-168bfddab23d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Coloca una ficha de Misión Rebelde como se muestra. Este es Lorn.\r\n{-} Lorn es una figura del bando Rebelde controlada por los Héroes como Aliado. Lorn no puede sufrir {H}.\r\n{-} Lorn no se activa de la forma normal. En su lugar, realiza una acción al inicio de cada Fase de Estatus.\r\n{-} Si no hay ningún Héroe sano a 3 o menos casillas de distancia de Lorn, una figura del bando Imperial puede interactuar con Lorn para arrestarlo cuando se indica. Cuando eso suceda, pulsa sobre la ficha de Misión Imperial y selecciona \"Lorn Arrestado\".",
+          "GUID": "b105c929-e6f1-4d5e-aae0-242334f974c4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Lorn",
+              "GUID": "02412988-576f-47ae-b577-c622a890aadb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "1d180127-e449-4410-a9f1-985197678024",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "De repente, unas explosiones sacuden el edificio y partes del muro se derrumban.",
+          "GUID": "3efe625c-14a1-439c-ae9d-2d6eaa9460ec",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Rubble 1",
+              "GUID": "92b565b4-df7c-4337-979d-6d09ce317b65",
+              "theText": "{-} Coloca una ficha de escombros en cada casilla aquí.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Rubble 2",
+              "GUID": "4c75e93e-c4ce-4d4f-a0e5-2041654c56d9",
+              "theText": "{-} Coloca una ficha de escombros en cada casilla aquí.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c728e70e-f255-4a42-963f-f6495e45b2ae",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Coloca una ficha de escombros en cada casilla resaltada en rojo.\r\n{-} Los muros entre 2 fichas de Escombros no bloquean el movimiento a las figuras que estén sobre una de esas fichas de Escombros.",
+          "GUID": "26fdb11f-00d2-4f23-bd4f-fbb28d5f4b8a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "-Terroristas rebeldes -resuena en la plaza la voz amplificada de un comandante Imperial-. Estáis albergando a un traidor buscado. Entregadlo y rendíos o seréis detenidos por la fuerza.\n\nEn el exterior, un número aterrador de tropas Imperiales avanza hacia su posición, a las que pronto se unen los cazarrecompensas en busca de una presa fácil.",
+          "GUID": "97405af1-5e8c-4650-a4d0-4deb5af90ebd",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4036526b-ca2a-4d6e-9313-e9bfea70834d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG053/Clawdite Shapeshifter"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "bb83c616-c0f4-4c27-9aa8-958f44d423c6",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dc4f5eb9-0e27-4c81-8464-3f1f46c9f197",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG011/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0dc972f2-860c-44f8-91f3-b4a32f5c68ad",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "tbText": "Miráis a vuestro alrededor buscando una salida cuando los primeros soldados irrumpen en la cafetería, portando enormes escudos antidisturbios. Dos clientes Trandoshanos que han seguido todos vuestros movimientos saltan también, y enseñando los dientes, cogen sus armas.",
+          "GUID": "9991c6ea-bb03-4330-8283-b8797980e32b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b0787cce-9950-48e9-bdf6-413c6326fca5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG047/Riot Trooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "c6e6b60f-a723-417d-a8f2-243e8dd69a9b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "newInstructions": "{-} Si está adyacente a Lorn, y no hay ningún Héroe sano a 3 casillas o menos de Lorn: Arrestar a Lorn (solo figuras sin Descomunal o Irracional).",
+          "GUID": "7ba6b65e-37a0-4062-ab97-a70781895197",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "tbText": "Preparáis las armas, con la esperanza de que la extracción llegue pronto.\r\n\r\n{-} Cuando sea el turno de los jugadores del bando Rebelde de activar una figura, en su lugar pueden pasar de hacerlo para que le vuelva a tocar el turno al jugador del bando Imperial.\r\n{-} Los Rebeldes ganan al final de la Ronda 7.\r\n{-} Los Rebeldes pierden cuando Lorn es arrestado.",
+          "GUID": "b9203bd6-64cf-4d5d-afed-f4b51edfc6d1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Proteger a Lorn.",
+          "longText": null,
+          "GUID": "b22d0e98-6e38-40c8-8ab7-0368a1fc5cd2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "-¿Alguien necesita que le lleve? -crepita una voz en vuestro comunicador. Un deslizador surge de la nube de esmog que cubre el cielo y serpentea hacia la superficie mientras evita el fuego del bombardero que vuela en círculos. Se posa solo el tiempo suficiente para que vosotros y Lorn os apiñéis en su interior antes de despegar de nuevo y desaparecer en la espesa niebla.\r\n\r\n-¡Ha estado cerca! -dice Lorn, quiza en exceso animado por acabar de escapar de una zona de guerra-. ¡Gracias por vuestra ayuda! Estaría encantado de devolveros el favor ahora mismo.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa “Fuente interna”. (Esta carta de Recompensa funciona de manera distinta cuanco se juega con <b>Imperial Commander</b>. Revisa la sección de <b>Cambios a las Reglas</b> de la wiki de documentación para más detalles.)\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Los Héroes deben elegir entre ir en busca del artefacto con Lorn o sin él. Si los Héroes van en busca del artefacto con Lorn pon en juego la carta de Misión de Historia “La historia se repite”. Si van en busca de él sin Lorn, pon en juego la carta de Misión de Historia “Los enemigos se acercan”.",
+      "eventActions": [
+        {
+          "mainText": "¿Queda solamente un Héroe sano?",
+          "buttonList": [
+            {
+              "GUID": "8d8778d6-9b04-48bd-a46c-b627f517758d",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "ee0dfae9-26c0-481d-9450-e685e59cf4d9",
+              "theText": "No"
+            }
+          ],
+          "GUID": "9d3c24ba-360f-4934-ade8-5deb209c4add",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Los soldados imperiales cercan a Lorn, lo tiran al suelo y le esposan las manos a la espalda. -¡Ayudadme! -grita Lorn-. ¡No me abandonéis!\r\n\r\nSabiendo que la batalla está perdida, pasáis por alto vuestro sentimiento de culpabilidad y abandonáis al pobre hombre tratando de no pensar en el destino que le aguarda.\r\n\r\n{-} Los Rebeldes pierden la misión\r\n{-} Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.\r\n{-} Cada Héroe recibe 2 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Story 1",
+      "GUID": "fac456cf-6c32-4b32-9708-84538d36ec5d",
+      "eventText": "El Imperio decide ir en busca del artefacto directamente, esperando recuperarlo antes que los Héroes.\r\n\r\n{-} Pon en juego la carta de Misión de Historia “Los enemigos se acercan”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Story 2",
+      "GUID": "24142781-4f57-4d08-aa89-dec53e4c9c27",
+      "eventText": "En lugar de perseguir el artefacto directamente, el Imperio decide intentar sabotear los esfuerzos de los héroes, ralentizándolos.\r\n\r\n{-} Pon en juego la carta de Misión de Historia “A la fuga”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Intrusion",
+      "GUID": "09ddd186-7d41-47bf-85b6-f792b390346c",
+      "eventText": "Los deslizadores militares se acercan y los soldados fuertemente blindados saltan de los transportes.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5832a217-3135-44c0-a80f-478316479a42",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG049/Riot Trooper (Elite)"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "318c85f7-9805-4bcd-a226-7be45b3768d7",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "491ef120-8b43-49a4-8066-890758af8faf",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "72c3d9ca-4db2-4aec-8f05-ad6cb125995d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "On Patrol",
+      "GUID": "bc7c7bb6-4193-4ae2-8b86-56cba06225c3",
+      "eventText": "Al oír la conmoción en torno a la cafetería, una patrulla de soldados de asalto entra corriendo e inmediatamente se une a la refriega.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4b0be648-1bca-4560-9e3c-5a32bc1f30fa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 2",
+              "GUID": "252e0460-93e1-4a69-ab6f-a8cb68ae0def",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "13109eba-3824-43e7-8d4b-a7bc850414fa",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 4",
+              "GUID": "08137dee-1ca3-4006-ab44-86bfd67186d9",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "dd68b9ea-4fc4-4497-9ca5-6ea77b6d8a8a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Walker Support",
+      "GUID": "7ba30888-5045-4e89-b23e-27e3a360142c",
+      "eventText": "-¡No me cogeréis vivo! -grita Lorn a los Imperiales entre carcajadas mientras os deshacéis de otro soldado. Justo entonces, notáis en el suelo un temblor rítmico, que viene acompañado de los retumbantes pasos de un andador que se acerca. Esfumada su autoconfianza, Lorn traga saliva.\r\n\r\n-Pensándolo bien...",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "{-} CARGAR GENERADORES: Si esta figura ha sufrido menos de 9 {H}, gana +2 {H}.\r\n{-} DISPAROS EXPLOSIVOS: Después de cada ataque, coloca 1 ficha de escombros en la casilla del defensor. Después, si el defensor estaba adyacente a una pared, coloca 1 ficha de escompros al otro lado de la pared, si es posible.\r\n{Q} Mueve 1 para atacar a {rebel}.\r\n{Q} Mueve 1 para atacar a {rebel}.\r\n{Q}{A} Mueve 3 para atacar a {rebel}.\r\n{A}{A} Mueve 6 hacia {rebel}.\r\n{A} Mueve 2 hacia el Rebelde más próximo.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "95c8aa6c-a44a-4bce-abb1-e21970d0a3ad",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG046/AT-DP"
+        }
+      ]
+    },
+    {
+      "eventName": "Vile Creatures",
+      "GUID": "e7a1428c-82d4-43ce-858f-4c4a2785cf50",
+      "eventText": "Las paredes traseras de la cafetería se abren de golpe al detonar las cargas ocultas. Mercenarios Trandoshanos gruñen y se abalanzan dentro con sus fusiles de dispersión desenfundados.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "671ba25a-0664-4179-a472-05d57f193e69",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG016/Trandoshan Hunter (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Bombardment Trigger",
+      "GUID": "b9c89a5d-76bd-4b75-a41c-ed5e93ca55db",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 1",
+      "GUID": "a1da5642-7efc-4dfe-872d-9c095d79e9c3",
+      "eventText": "La lanzadera de bombardeo hace otra pasada. Las explosiones sacuden la cafetería.\r\n\r\n{-} Coloca 1 ficha de escombros a cada lado de la pared entre las losetas Core 28B y Corazón del Imperio 18B.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 2",
+      "GUID": "6beddd1a-ab84-4ca7-b0cd-f397fec871c7",
+      "eventText": "La lanzadera de bombardeo hace otra pasada. Las explosiones sacuden la cafetería.\r\n\r\n{-} Coloca 1 ficha de escombros a cada lado de la pared entre las losetas Core 23B y Corazón del Imperio 6B (lo más abajo posible).",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 3",
+      "GUID": "15210d80-ba8f-45c2-9ff9-cc1c851f2c22",
+      "eventText": "La lanzadera de bombardeo hace otra pasada. Las explosiones sacuden la cafetería.\r\n\r\n{-} Coloca 1 ficha de escombros en la casilla de la figura del bando Rebelde adyacente al mayor número de figuras del bando Rebelde. Cada figura del bando Rebelde sobre esa ficha de escombros o adyacente a ella sufre 1 {C}. Cada figura sobre esa ficha de escombros también sufre 1 {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 4",
+      "GUID": "3b229440-a554-407c-aab9-227f78b7a121",
+      "eventText": "La lanzadera de bombardeo hace otra pasada. Las explosiones sacuden la cafetería.\r\n\r\n{-} Coloca 1 ficha de escombros en la casilla de la figura del bando Rebelde adyacente al mayor número de figuras del bando Rebelde. Cada figura del bando Rebelde sobre esa ficha de escombros o adyacente a ella sufre 1 {C}. Cada figura sobre esa ficha de escombros también sufre 1 {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 5",
+      "GUID": "78323a7e-9f9f-4824-8969-c0b746c5ddc4",
+      "eventText": "Las alarmas siguen sonando por las calles de Coruscant, alertando a las fuerzas Imperiales de la escena.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 6",
+      "GUID": "cfac4d25-94d5-439f-bab7-401d86d6165d",
+      "eventText": "Las alarmas siguen sonando por las calles de Coruscant, alertando a las fuerzas Imperiales de la escena.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 7 starts",
+      "GUID": "f2beeb78-c18d-4fa7-9971-fd6ae5e3fa2c",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Rebels Lose Bonus Credits",
+      "GUID": "1e764237-0372-404c-826a-5fcaf978fefd",
+      "eventText": "Puesto que Lorn no fue arrestrado hasta la ronda 7, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Rebels Lose No Bonus Credits",
+      "GUID": "6381b60d-b612-4eb5-be22-6befded031e0",
+      "eventText": "Puesto que esta es la Ronda 7, los Héroes reciben 25 créditos adicionales por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "92cb039a-9d87-412e-8afd-a01f525208f5",
+      "eventText": "{-} Incrementa el invel de amenaza de la siguiente misión (y solo de la siguiente) en 1. Durante la Etapa de Mejora Rebelde, los jugadores pueden escoger gastar 50 créditos por Héroe para evitar esto.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "64a222fd-16e5-4545-9d2b-2a8fe10f7261",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "412e45a2-5009-45e8-aa24-9a37bb3ada93",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "95e52a17-75ad-42b4-8aa2-61eb3faef7a9",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "0f956e2c-894b-4de9-b716-28e346d32723",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance 1",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega a la mitad de los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "13302b9b-01cc-42bc-82df-1140c2b9afcb",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance 2",
+      "GUID": "af39b8f5-dbf6-441c-b5e1-f221ab357918",
+      "mainText": "Despliega a la mitad de los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Rubble 1",
+      "GUID": "4869b0f2-600e-4a8c-8a02-c62fdd1857c3",
+      "mainText": "{-} Coloca una ficha de escombros en cada casilla aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Rubble 2",
+      "GUID": "b42c137c-9598-40be-a8b8-50a7309ebae4",
+      "mainText": "{-} Coloca una ficha de escombros en cada casilla aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Lorn",
+      "GUID": "72d9bc48-2bd4-4243-8a02-d794ecec8439",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 5",
+      "GUID": "683f3140-50cf-44c5-8c1c-b9a5c99ce91b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "96efd903-fa53-4958-870f-0c3a490e0588",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "011fbe90-2374-4817-8867-4bec2c29d3f0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "415fabe1-fdb7-4daf-a409-f4aec0113510",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "49f3a43a-477b-42c8-817a-630f509e032e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Clawdite",
+      "GUID": "111e8b4c-871b-434e-9d54-b4b96ad58de6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "6e8c747c-e13d-431f-8a6e-a6bf8d4d42b7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "59b045e1-66e7-4c76-9f51-d267eb62bfcb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 2",
+      "GUID": "274ebb06-986f-4aed-a2d7-5aaec76c9f05",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 1",
+      "GUID": "e5fc0f24-9e5e-4420-82d5-7583cbb41134",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black 1",
+      "GUID": "cb138c1f-99c3-482e-9a93-794529b2354b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black 2",
+      "GUID": "e61b564c-e072-4a46-acfc-25843760934e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "ab63f242-66aa-49b0-8f3d-64f42d4fec9e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "27a5a1d8-3ccc-41ec-80c4-de777d6e270f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "ded513cc-509e-4eb2-8c4a-2e29c559bcf2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Arrest Token",
+      "GUID": "5ed67f85-cc46-47e9-942a-44147e380ce9",
+      "mainText": "{-} Cuando Lorn es arrestado, pulsa sobre \"Lorn Arrestado\"",
+      "buttonList": [
+        {
+          "GUID": "f7c43e95-93ad-4c8a-aa10-cfdaee1c603c",
+          "theText": "Lorn Arrestado"
+        }
+      ]
+    }
+  ],
+  "initialGroups": []
+}

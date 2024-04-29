@@ -2,6 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED, CLASSIC MODE IS NOW REMOVED
+/// </summary>
+
 public class HGPrefab : MonoBehaviour
 {
 	public Toggle woundToggle, activationToggle1, activationToggle2;
@@ -137,18 +141,18 @@ public class HGPrefab : MonoBehaviour
 		activationToggle1.gameObject.SetActive( false );
 		activationToggle2.gameObject.SetActive( false );
 
-		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType != Saga.CharacterType.Ally )
-		{
-			activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
-			activationToggle2.isOn = cardDescriptor.heroState.hasActivated[1];
-			activationToggle1.gameObject.SetActive( true );
-			activationToggle2.gameObject.SetActive( true );
-		}
-		else
-		{
-			activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
-			activationToggle1.gameObject.SetActive( true );
-		}
+		//if ( DataStore.sessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType != Saga.CharacterType.Ally )
+		//{
+		//	activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
+		//	activationToggle2.isOn = cardDescriptor.heroState.hasActivated[1];
+		//	activationToggle1.gameObject.SetActive( true );
+		//	activationToggle2.gameObject.SetActive( true );
+		//}
+		//else
+		//{
+		//	activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
+		//	activationToggle1.gameObject.SetActive( true );
+		//}
 	}
 
 	public void ResetActivation()
@@ -161,11 +165,11 @@ public class HGPrefab : MonoBehaviour
 		cardDescriptor.heroState.hasActivated[0] = false;
 		activationToggle1.gameObject.SetActive( true );
 
-		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType != Saga.CharacterType.Ally )
-		{
-			activationToggle2.isOn = false;
-			cardDescriptor.heroState.hasActivated[1] = false;
-			activationToggle2.gameObject.SetActive( true );
-		}
+		//if ( DataStore.sessionData.MissionHeroes.Count <= 2 && cardDescriptor.characterType != Saga.CharacterType.Ally )
+		//{
+		//	activationToggle2.isOn = false;
+		//	cardDescriptor.heroState.hasActivated[1] = false;
+		//	activationToggle2.gameObject.SetActive( true );
+		//}
 	}
 }

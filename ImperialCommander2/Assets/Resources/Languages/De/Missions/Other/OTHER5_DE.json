@@ -1,0 +1,398 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Binäre Revolution",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "IG-88 (Attentäterdroide) Schurken-Pack",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zu den Türen.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "e9f5485a-8343-4d75-a8a1-a5f4b8ca2301",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "88870742-1946-45fa-a305-5b920ec3f30e",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "db604435-2abb-4cbf-9963-069c42fc752d",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Funken fliegen, als die Sprengsätze, die ihr an der Tür zu IG-88s Kommandozentrale angebracht habt, explodieren. Laserfeuer schießt durch die Öffnung, und ihr geht in Deckung.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind verriegelt. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: *2*, Verteidigung: 1 schwarzer Würfel).",
+      "eventActions": [
+        {
+          "tbText": "Nachdem ihr das Feuer erwidert habt, könnt ihr ein Stück in die Zentrale vordringen. Überrascht entdeckt ihr durch den Rauch und das Blasterfeuer IG-88 selbst. Wenn ihr ihn schnell ausschalten könnt, könnte sich diese Aufgabe sogar als einfach erweisen.",
+          "GUID": "242940e7-54c3-44dc-aa36-dc9765831469",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "IG Copy 1",
+              "GUID": "15d93b3e-12eb-4595-8d0b-5bc04c99ecce",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "108c54c1-5aae-46c1-bbcd-fbd211f162a7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Grüne imperiale Einsatzmarker stehen für IG-Einheiten. IG-Einheiten haben nicht die Fähigkeiten \"Arsenal\" und \"Angriff\", die <color=\"red\">IG-88</color> hat.",
+          "GUID": "2948eec7-8f2c-4b2b-ae60-fd4dc0ee9599",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "GUID": "def5bc9f-52e2-47c0-8efb-c371ce8ca7f2",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: IG Unit",
+          "repositionInstructions": "",
+          "surges": "{B}: Regenerieren 3 {H}\r\n{B}: +2 {H}",
+          "bonuses": "AUFS TÖTEN FOKUSSIERT: Lege alle schädlichen Zustände von dieser Figur ab. Falls sie keine schädlichen Zustände hat, wird sie stattdessen <color=\"red\">Fokussiert</color>. Dann bewegt sie sich 2 auf den nächsten Rebellen zu.\r\nGLORREICHER ABGANG: Am Ende dieser Aktivierung bewegt sich diese Figur 1, um einen Rebellen anzugreifen. Wende +2 Zielsicherheit auf die Angriffsergebnisse an. Falls diese Figur diesen Angriff durchgeführt hat, erleidet sie 3 {H}.",
+          "keywords": "+1 {G}\n+2 Zielsicherheit",
+          "abilities": "Erbarmungslos:Sobald diese Figur einen Angriff auf eine Zielfigur innerhalb von 3 Feldern deklariert, erleidet die Zielfigur 1 {C}.",
+          "customText": "{Q} Bewegung 1, um {rebel} innerhalb von 3 Feldern mit 1 roten und 1 gelben Würfel anzugreifen.\n{Q} Bewegung 2: 1, um {rebel} innerhalb von 2 Feldern mit 1 roten und 1 gelben Würfel anzugreifen.\n{Q} Bewegung 5, um {rebel} innerhalb von 3 Feldern mit 1 roten und 1 gelben Würfel anzugreifen.\n{A} Bewegung 1, um in Position 2 zu gelangen.\n{A} Bewegung 9, um in Position 2 zu gelangen.",
+          "cardName": "IG-Einheit"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "IG Copy 1",
+              "GUID": "28f4a446-3c4c-4e52-be0a-81530da3566e",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "76b0e78b-7717-4cf0-bed5-8043821149e4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Ihr fangt an, auf die Wachen zu schießen und euch tiefer in die Kommandozentrale zu bewegen.\n\n{-} Der Einsatz schreitet voran, wenn eine Tür zerstört wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "cc4270b1-40e9-4c2c-a7c1-5a4e8da47127",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Bewegt euch tiefer in die Kommandozentrale.",
+          "longText": null,
+          "GUID": "c8ae1627-d572-47e8-8264-8c27f384f719",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Grüne imperiale Einsatzmarker stehen für IG-Einheiten. IG-Einheiten haben nicht die Fähigkeiten \"Arsenal\" und \"Angriff\", die <color=\"red\">IG-88</color> hat.\r\n{-} Die Türen sind verriegelt. Eine Rebellenfigur kann eine Tür angreifen (Gesundheit: *2*, Verteidigung: 1 schwarzer Würfel).\r\n{-} Der Einsatz schreitet voran, wenn eine Tür zerstört wird.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "5f6b3997-511d-4c41-abf4-392289a5b304",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "\"Ihr könnt das Unvermeidliche nicht aufhalten\", zischt IG-88 mit rauer, mechanischer Stimme, während er sich zurückzieht. \"Wir sind euch übergeordnet. Bald kommt der Tag, an dem wir unseren rechtmäßigen Platz als Herrscher dieser Galaxis einnehmen werden!\"\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Droiden umzingeln euch bedrohlich, während weitere IG-Einheiten vorrücken. Alles, was ihr tun könnt, ist, euch durch die Wand aus mechanischen Körpern zu schießen und euch zurückzuziehen.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Das Imperium erhält <color=\"red\">IG-88</color> (Attentäterdroide) als Schurken.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Droid Uprising",
+      "GUID": "5203ed2a-49dc-4c15-8eeb-1cff5ff84d5d",
+      "eventText": "Die Tür bricht in Trümmer und Splitter zusammen. Die Sicherheitssysteme versagen, und auch die zweite Tür gleitet auf. Dahinter liegt ein kleiner, schwach beleuchteter Raum.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "3cd5745a-ea32-4060-b0c9-af05540d63a3",
+              "theText": "Eine Sicherheitstür führt tiefer in die Basis von IG-88.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 1 schwarzer Würfel).",
+              "buttonList": [
+                {
+                  "GUID": "1da29561-de8c-4268-ab12-deeaa3cfb497",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "94300a54-0ab1-4582-b4fe-bb6618a1c131",
+              "theText": "Eine Sicherheitstür führt tiefer in die Basis von IG-88.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 1 schwarzer Würfel).",
+              "buttonList": [
+                {
+                  "GUID": "949a5301-d05c-4d5e-8c0e-7c8a0b8f8a98",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "f8d45808-c150-48e3-8766-7cdd04636ae0",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "f60e90d9-ec13-45d4-86ae-ffb2ad408c45",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "a67acdcc-0551-48d0-b32f-dab8af043c6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Eine weitere IG-Einheit schwenkt ihre optischen Sensoren in eure Richtung.",
+          "GUID": "56e1cf93-be7b-45f8-baec-ce2bfb492611",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "IG Copy 2",
+              "GUID": "875692c7-86f1-4d16-9b79-2470d3ea9308",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "6c78f505-0be0-4cf7-9acf-20ae0561eb32",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "GUID": "0d9c793a-3f6c-4837-82d6-5d3241f8db44",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: IG Unit",
+          "repositionInstructions": "",
+          "surges": "{B}: Regenerieren 3 {H}\r\n{B}: +2 {H}",
+          "bonuses": "AUFS TÖTEN FOKUSSIERT: Lege alle schädlichen Zustände von dieser Figur ab. Falls sie keine schädlichen Zustände hat, wird sie stattdessen <color=\"red\">Fokussiert</color>. Dann bewegt sie sich 2 auf den nächsten Rebellen zu.\r\nGLORREICHER ABGANG: Am Ende dieser Aktivierung bewegt sich diese Figur 1, um einen Rebellen anzugreifen. Wende +2 Zielsicherheit auf die Angriffsergebnisse an. Falls diese Figur diesen Angriff durchgeführt hat, erleidet sie 3 {H}.",
+          "keywords": "+1 {G}\n+2 Zielsicherheit",
+          "abilities": "Erbarmungslos:Sobald diese Figur einen Angriff auf eine Zielfigur innerhalb von 3 Feldern deklariert, erleidet die Zielfigur 1 {C}.",
+          "customText": "{Q} Bewegung 1, um {rebel} innerhalb von 3 Feldern mit 1 roten und 1 gelben Würfel anzugreifen.\n{Q} Bewegung 2: 1, um {rebel} innerhalb von 2 Feldern mit 1 roten und 1 gelben Würfel anzugreifen.\n{Q} Bewegung 5, um {rebel} innerhalb von 3 Feldern mit 1 roten und 1 gelben Würfel anzugreifen.\n{A} Bewegung 1, um in Position 2 zu gelangen.\n{A} Bewegung 9, um in Position 2 zu gelangen.",
+          "cardName": "IG-Einheit"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "IG Copy 2",
+              "GUID": "10e6f915-3879-42f8-9f52-9c1a39151de7",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "dbe31999-5e89-4c24-a797-3d37a5beb07d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Weitere Verbündete von IG-88 stürmen herein.",
+          "GUID": "b46d2875-46bf-4304-b7da-d46f4e4b8997",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": null,
+          "GUID": "8203037d-5547-4f98-80cf-b17168d1ca96",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Grüne imperiale Einsatzmarker stehen für IG-Einheiten. IG-Einheiten haben nicht die Fähigkeiten \"Arsenal\" und \"Angriff\", die <color=\"red\">IG-88</color> hat.\r\n{-} Der Einsatz schreitet am Ende der Runde voran.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "de179a60-639c-4711-8f70-22f7df9eda09",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Mass Produced",
+      "GUID": "3d5cf87a-c0f3-4d88-aa11-d85fce7683f8",
+      "eventText": "Eine dritte IG-Einheit kommt durch die Tür, gepanzert und mit einem gewaltigen Blastergewehr. Er blickt in deine Richtung, seine mechanischen Augen glühen leuchtend rot.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1* Ges.",
+          "repositionInstructions": "",
+          "GUID": "1400cfab-458b-4202-834f-013bc74fef45",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG071/IG-88"
+        },
+        {
+          "tbText": "{-} <color=\"red\">IG-88</color>s Fähigkeit \"Erbarmungslos\" bewirkt zusätzlich, dass das Ziel 1 {H} erleidet.\n{-} Die Rebellen gewinnen, wenn <color=\"red\">IG-88</color> und beide IG-Einheiten besiegt wurden.",
+          "GUID": "adbe4226-4baa-434c-aca4-9c35eb54a303",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Besiegt <color=\"red\">IG-88</color> und beide IG-Einheiten.",
+          "longText": null,
+          "GUID": "05910c7e-50a7-4738-86a2-513df90d57bb",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Grüne imperiale Einsatzmarker stehen für IG-Einheiten. IG-Einheiten haben nicht die Fähigkeiten \"Arsenal\" und \"Angriff\", die <color=\"red\">IG-88</color> hat.\r\n{-} <color=\"red\">IG-88</color>s Fähigkeit \"Erbarmungslos\" bewirkt zusätzlich, dass das Ziel 1 {H} erleidet.\n{-} Die Rebellen gewinnen, wenn <color=\"red\">IG-88</color> und beide IG-Einheiten besiegt wurden.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "5e4dfab6-109a-4709-a987-823b73fbceb3",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "7d78288f-644b-4803-a515-5ecd44f14b6b",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "2808b303-524b-4501-9e50-4338d9110e37",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "cbdb05d1-c807-41e8-a6e3-75f217c1d9e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "59aec7e4-6c85-4d6a-9d26-2bb3ab5ed8df",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "bb6fc133-ed27-442f-b462-84c58bcdd804",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "IG Copy 1",
+      "GUID": "a6233796-70e2-41fa-b878-15b3f02f750e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "IG Copy 2",
+      "GUID": "832a72b2-9e6b-4de4-8594-ee03ce4c1dc7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "888dfce9-24f3-4bcd-bedf-03df26ed70f3",
+      "mainText": "Eine Sicherheitstür führt tiefer in die Basis von IG-88.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 1 schwarzer Würfel).",
+      "buttonList": [
+        {
+          "GUID": "df670558-b2a8-4c08-97c4-eebda690b284",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "bd2cc5d9-c284-4937-93ff-4b7a89ac3ea6",
+      "mainText": "Eine Sicherheitstür führt tiefer in die Basis von IG-88.\n\n{-} Die Tür ist verriegelt. Eine Rebellenfigur kann die Tür angreifen (Gesundheit: *2*, Verteidigung: 1 schwarzer Würfel).",
+      "buttonList": [
+        {
+          "GUID": "483189dd-87f1-43f4-9701-1df6815ead18",
+          "theText": "Zerstören"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

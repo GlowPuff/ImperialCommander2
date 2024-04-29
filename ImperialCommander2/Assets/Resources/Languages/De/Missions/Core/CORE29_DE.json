@@ -1,0 +1,596 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Gefangen",
+    "missionDescription": "",
+    "missionInfo": "{-} Drehe alle Ausrüstungskarten der Helden um. Die Helden können keine umgedrehten Karten verwenden. Der neutrale Einsatzmarker stellt die Ausrüstungskiste dar. Ein Held kann mit der Ausrüstungskiste interagieren, um seine Ausrüstung umzudrehen.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen oder mit der Ausrüstungskiste interagieren.\n{-} Ein Held ohne Waffe kann eine benachbarte feindliche Figur mit 1 grünen und 1 gelben Würfel angreifen. Vor diesem Angriff legt der Held eine Probe auf {K} ab. Wenn er sie besteht, erhält der Angriff {B}: +2 {H}.\n{-} Die Türen zum Lagerraum und zum Korridor sind verriegelt. Eine Tür, die benachbart zu einer imperialen Figur ist, versperrt weder ihre Bewegung noch ihre Sichtlinie.\n{-} Der Einsatz schreitet voran, wenn alle Helden ihre Ausrüstung umdrehen. Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+    "campaignName": "Grundspiel",
+    "startingObjective": "Holt eure Ausrüstung aus der Ausrüstungskiste.",
+    "repositionOverride": "Versperre den Zugang zu Terminals und Einsatzmarkern.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Seit Tagen arbeitet ihr daran, eure Zelle zu öffnen, aber bis auf einen gut versteckten Comlink ist eure gesamte Ausrüstung verloren.\n\nIhr haltet es für ziemlich hoffnungslos, bis die Anlage erzittert und der Comlink knistert.\n\n\"In zehn Sekunden\", meldet sich eine Stimme, \"wird sich die Tür zu eurer Zelle öffnen. Eure Ausrüstung wird am Ende des Flurs aufbewahrt. Lauft dorthin ... jetzt!\"",
+      "eventActions": [
+        {
+          "tbText": "{-} Stelle die Helden auf dem blau hervorgehobenen Feld auf.\r\n{-} Drehe alle Ausrüstungskarten der Helden um. Die Helden können keine umgedrehten Karten verwenden. Der neutrale Einsatzmarker stellt die Ausrüstungskiste dar. Ein Held kann mit der Ausrüstungskiste interagieren, um seine Ausrüstung umzudrehen.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen oder mit der Ausrüstungskiste interagieren.\n{-} Ein Held ohne Waffe kann eine benachbarte feindliche Figur mit 1 grünen und 1 gelben Würfel angreifen. Vor diesem Angriff legt der Held eine Probe auf {K} ab. Wenn er sie besteht, erhält der Angriff {B}: +2 {H}.\n{-} Die Türen zum Lagerraum und zum Korridor sind verriegelt. Eine Tür, die benachbart zu einer imperialen Figur ist, versperrt weder ihre Bewegung noch ihre Sichtlinie.\n{-} Der Einsatz schreitet voran, wenn alle Helden ihre Ausrüstung umdrehen. Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "d5cc48e2-ad5a-4c57-83e6-3d5bd079cc26",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Trash Compactor",
+      "GUID": "dac171c0-ca6b-492c-915e-54632e294337",
+      "eventText": "Die Luken zur Müllpresse gleiten auf.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Imperial Token 1",
+              "GUID": "a73523a1-c650-467e-815c-429c5798e58b",
+              "theText": "Der Zugang zur Müllpresse ist geschlossen.\n\n{-} Ein Held kann mit dem roten Terminal interagieren, um alle Zugänge zur Müllpresse zu öffnen.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Imperial Token 2",
+              "GUID": "fd9d7423-7d02-48e5-8156-00dbbf6021dd",
+              "theText": "Der Zugang zur Müllpresse ist geschlossen.\n\n{-} Ein Held kann mit dem roten Terminal interagieren, um alle Zugänge zur Müllpresse zu öffnen.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "a8c22f13-aa05-4c76-b3e3-1cb1014a6705",
+              "theText": "Der Zugang zur Müllpresse ist offen.\n\n{-} Ein Held kann mit diesem Marker interagieren, um in die Müllpresse hinabzuklettern.",
+              "buttonList": [
+                {
+                  "GUID": "77e78cff-71b2-45b3-8ff4-b07eb62afbe2",
+                  "theText": "{A} Hinabklettern"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "0d66d078-3887-43a0-aec5-ad6b5a73fe52",
+              "theText": "Der Zugang zur Müllpresse ist offen.\n\n{-} Ein Held kann mit diesem Marker interagieren, um in die Müllpresse hinabzuklettern.",
+              "buttonList": [
+                {
+                  "GUID": "5a785ed0-a6ad-4fd5-ae81-7c620b93403a",
+                  "theText": "{A} Hinabklettern"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Terminal",
+              "GUID": "804e7d9d-2284-41b8-afa3-01572c42daff",
+              "theText": "Das Terminal steuert die Zugangsluken zur Müllpresse.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2c28072e-e528-42aa-86f8-54aa5ebd4240",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Trash Compactor",
+      "GUID": "84d326bd-6bf1-4bd2-b7b6-0637d91b6fe5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, dich in das Terminal zu hacken.\n\n{-} Lege eine Probe auf {J} oder {I} ab. Wende für jeden Erschöpfungsmarker auf dem Terminal +1 {B} auf die Probe an und lege dann alle Erschöpfungsmarker auf dem Terminal ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d7bc3bde-9324-49e4-805f-116a03385032",
+              "theText": "Die Sicherheitssysteme des Terminals sind zu stark. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf dem Terminal."
+            }
+          ],
+          "GUID": "db5f75d7-2ef2-4374-818b-009effe0de3b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "TC Door Opens",
+      "GUID": "b19d3b9f-40f4-4ed6-844f-1ff7f586ea5f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "a20189f7-1e96-4376-be30-09203367fbe1",
+              "theText": "Diese rostige Tür ist eindeutig dazu gedacht, den Flur vor dem Gestank aus der Müllpresse zu schützen.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "8767cb64-1d2d-4b6d-85bd-9629c793131f",
+              "theText": "Dieses Terminal steuert den Müllschacht, der aus der Müllpresse herausführt.",
+              "buttonList": [
+                {
+                  "GUID": "70dd6469-abca-4237-b717-5369428ba0a9",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "2932ccdd-a648-4ed3-b9ee-27a677878836",
+              "theText": "Dieses Terminal steuert den Müllschacht, der aus der Müllpresse herausführt.",
+              "buttonList": [
+                {
+                  "GUID": "1104e1a7-ec1c-40c2-9501-9d21aa7d55c2",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            }
+          ],
+          "GUID": "9bf0635e-ea7a-48e4-b29d-65b3220eaef6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cell Door opens",
+      "GUID": "830aa383-6c6f-4ce4-8cf0-c54bd43f28aa",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "0f5df446-d345-4f27-972d-70c1aa998d7e",
+              "theText": "Die Zellentür scheint stabil zu sein, aber sie wurde durch eure Arbeit geschwächt.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bd24e3a6-293d-40cc-a7ae-33f061d4b781",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Ends - Rebel win",
+      "GUID": "719dc69a-6390-40b1-b564-f493ca8d39e4",
+      "eventText": "Als ihr durch den Dreck schlittert, trefft ihr auf andere Rebellen, die erst vor kurzem befreit wurden. Gemeinsam überwältigt ihr die imperialen Truppen, die sich euch in den Weg stellen. Den Anweisungen eures Retters folgend, führt ihr sie hinaus und packt alle in einen Transporter.\n\n{-} Die Rebellen gewinnen den Einsatz!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends - Rebels lose",
+      "GUID": "1c4f99fe-5bd0-4683-afe8-cec815814869",
+      "eventText": "Ihr werdet wieder gefangen genommen und unter hohen Sicherheitsvorkehrungen nach Kessel transportiert. Zum Glück startet das Oberkommando der Rebellen nach ein paar Wochen harter Arbeit eine groß angelegte Operation. Die Renegatenstaffel leistet Großartiges, und ihr werdet zusammen mit einigen hochrangigen Offizieren der Rebellen befreit.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 2. In der Phase \"Aufrüstung der Rebellen\" können die Spieler der Rebellen beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Escape",
+      "GUID": "34fcad06-4144-4a3d-a4dc-00477c794f23",
+      "eventText": "\"Ich habe das Schiff in der Nähe der Müllhalde geparkt\", sagt euer Retter, \"aber ihr müsst euch in ihr System hacken und die Gänge öffnen. Was auch immer ihr tut, beeilt euch! Ich halte sie auf Trab, aber ich weiß nicht, ob ich das noch lange kann.\"\n\n{-} Imperiale Einsatzmarker stehen für geschlossene Durchgänge und Rebellen-Einsatzmarker für offene Durchgänge. Ein Held kann mit einem Terminal interagieren, um alle imperialen Einsatzmarker der Farbe umzudrehen, die diesem Terminal entspricht.\n{-} Eine Figur kann mit einem roten Rebellen-Einsatzmarker interagieren, um ihre Figur auf ein beliebiges leeres Feld auf der Müllpresse zu platzieren.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen oder mit der Ausrüstungskiste interagieren.\n{-} Die Türen des Lagerraums und des Korridors sind verriegelt. Eine Tür, die benachbart zu einer imperialen Figur ist, versperrt weder ihre Bewegung noch ihre Sichtlinie.\n{-}  Wenn alle Helden auf oder neben den gelben Einsatzmarkern stehen, klicke auf \"Aufbrechen\", um den Einsatz zu gewinnen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Terminal",
+              "GUID": "e39142fe-f976-4cc0-8b01-fab676149b3e",
+              "theText": "Das Terminal steuert die Zugangsluken zur Müllpresse.",
+              "buttonList": [
+                {
+                  "GUID": "d07e8b47-9270-42c7-8345-3a390573ac74",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Equipment Cache",
+              "GUID": "e85d7f60-35b1-4d2f-b350-fe50d10efc0b",
+              "theText": "Eure Ausrüstung wird in dieser Kiste aufbewahrt.\n\n{-} Ein Held kann mit dieser Kiste interagieren, um seine Ausrüstungskarten umzudrehen. Wenn alle Helden ihre Karten umgedreht haben, klicke auf \"Ausrüstung wiedererlangt\", um den Einsatz voranschreiten zu lassen.",
+              "buttonList": [
+                {
+                  "GUID": "46189a01-0904-4ebc-a466-8f049306a9f1",
+                  "theText": "Ausrüstung wiedererlangt"
+                }
+              ]
+            }
+          ],
+          "GUID": "d037a863-7eaf-4f34-9ea8-a18575344161",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Imperiale Einsatzmarker stehen für geschlossene Durchgänge und Rebellen-Einsatzmarker für offene Durchgänge. Ein Held kann mit einem Terminal interagieren, um alle imperialen Einsatzmarker der Farbe umzudrehen, die diesem Terminal entspricht.\n{-} Eine Figur kann mit einem roten Rebellen-Einsatzmarker interagieren, um ihre Figur auf ein beliebiges leeres Feld auf der Müllpresse zu platzieren.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen oder mit der Ausrüstungskiste interagieren.\n{-} Die Türen des Lagerraums und des Korridors sind verriegelt. Eine Tür, die benachbart zu einer imperialen Figur ist, versperrt weder ihre Bewegung noch ihre Sichtlinie.\n{-}  Wenn alle Helden auf oder neben den gelben Einsatzmarkern stehen, klicke auf \"Aufbrechen\", um den Einsatz zu gewinnen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "6ea359dc-7a18-447a-82f0-9b519291687a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Findet einen Weg, die Luken der Müllpresse zu öffnen.",
+          "longText": null,
+          "GUID": "f7550b2c-70a0-4626-9abb-dc83a99ec9b7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Garbage Chute",
+      "GUID": "c9a18ce4-ba8b-4b62-83f3-92f94a20c944",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Du versuchst, dich in das Terminal zu hacken.\n\n{-} Lege eine Probe auf {J} oder {I} ab. Wende für jeden Erschöpfungsmarker auf dem Terminal +1 {B} auf die Probe an und lege dann alle Erschöpfungsmarker auf dem Terminal ab. Gib die Anzahl der Erfolge unten ein.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "86a3d9d5-16e5-4d31-8953-f26c41e88b3a",
+              "theText": "Die Sicherheitssysteme zum Schutz des Terminals sind zu stark. Du musst es weiter versuchen.\n\n{-} Platziere für jedes {B}-Ergebnis 1 Erschöpfungsmarker auf dem Terminal."
+            }
+          ],
+          "GUID": "44b7b7ad-e373-421c-86e6-f68037705e87",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Garbage Chute Opens",
+      "GUID": "0d4a3a62-9f44-4bc6-be0b-c26cb015d0fa",
+      "eventText": "Der Müllschacht gleitet auf. Das könnte euer Weg in die Freiheit sein!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Imperial Token 1",
+              "GUID": "f64a3ddc-8299-484e-ad7a-5b321d92f238",
+              "theText": "Der Müllschacht der Müllpresse ist verschlossen. Er kann nur von einem gelben Terminal aus geöffnet werden.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Imperial Token 2",
+              "GUID": "4b484ec0-3e00-415c-b7d7-9541b76d6788",
+              "theText": "Der Müllschacht der Müllpresse ist verschlossen. Er kann nur von einem gelben Terminal aus geöffnet werden.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Rebel Token 1",
+              "GUID": "51512a82-2895-4d99-b15f-55409439aabe",
+              "theText": "Der Müllschacht der Müllpresse ist offen. Das ist dein Weg in die Freiheit!\n\n{-} Wenn alle Helden auf oder neben den gelben Einsatzmarkern sind, klicke auf Aufbrechen, um den Einsatz zu gewinnen.",
+              "buttonList": [
+                {
+                  "GUID": "a3c0c164-f131-4531-bb47-33ddcfb69068",
+                  "theText": "Aufbrechen"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Rebel Token 2",
+              "GUID": "e090a1a6-0740-4569-860a-137f44a410ad",
+              "theText": "Der Müllschacht der Müllpresse ist offen. Das ist dein Weg in die Freiheit!\n\n{-} Wenn alle Helden auf oder neben den gelben Einsatzmarkern sind, klicke auf Aufbrechen, um den Einsatz zu gewinnen.",
+              "buttonList": [
+                {
+                  "GUID": "32ccd7b4-d960-487d-bda1-78374621431f",
+                  "theText": "Aufbrechen"
+                }
+              ]
+            },
+            {
+              "entityName": "Hallway Door",
+              "GUID": "79e4978f-94ff-48cd-a9a2-f17195cf0e22",
+              "theText": "Die Tür ist verriegelt.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Storage Room Door",
+              "GUID": "277565b4-8ce5-47ce-8b45-bb97c91247f8",
+              "theText": "Die Tür ist verriegelt.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "0b777269-cbbe-47fc-b8e3-68e221342ec9",
+              "theText": "Dieses Terminal steuert den Müllschacht, der aus der Müllpresse herausführt.",
+              "buttonList": [
+                {
+                  "GUID": "52174907-05eb-44b1-b6be-03eb2b71cb06",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "a685ee5f-2f84-46e0-ac4a-521f69b5018f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "933d6bd5-b9fb-42b5-b4f2-f2d8b42c460d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Entkommt durch den Müllschacht.",
+          "longText": null,
+          "GUID": "5d87d0fe-7871-4024-ab3f-8d2ee647ae61",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen oder mit der Ausrüstungskiste interagieren.\n{-} Wenn alle Helden auf oder benachbart zu den gelben Einsatzmarkern sind, klicke auf \"Aufbrechen\" auf dem Marker, um den Einsatz zu gewinnen.",
+          "GUID": "866c4cbf-2e35-4de7-adcb-4716d9ac6489",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb down",
+      "GUID": "af2f95f6-b30c-4fe8-8a75-066141a6c200",
+      "eventText": "Du kletterst in das Loch hinunter und findest dich bald inmitten von Müll wieder. Was für einen bezaubernden Geruch du da entdeckt hast!",
+      "eventActions": [
+        {
+          "shortText": "Öffnet den Müllschacht in der Müllpresse.",
+          "longText": null,
+          "GUID": "f52451ad-3c33-40db-ba4f-1d973c12606d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "82a639ca-e6f6-4bfa-abfb-7cfc73002e4c",
+              "theText": "Der Zugang zur Müllpresse ist offen.\n\n{-} Ein Held kann mit diesem Marker interagieren, um in die Müllpresse hinabzuklettern.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "3f89a360-fc83-4409-a9c6-5658dda96af8",
+              "theText": "Der Zugang zur Müllpresse ist offen.\n\n{-} Ein Held kann mit diesem Marker interagieren, um in die Müllpresse hinabzuklettern.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "4e3c96d9-b0c1-497a-9fe7-ec7b1047dc44",
+              "theText": "Diese rostige Tür ist eindeutig dazu gedacht, den Flur vor dem Gestank aus der Müllpresse zu schützen.",
+              "buttonList": [
+                {
+                  "GUID": "b5c48878-24cc-41d9-8434-9ae450c65de5",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "93de1451-40e7-4d18-adcf-92baefb3bbd7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Entrance",
+      "GUID": "9c2b4f3a-c336-4a80-b015-7e27365a5326",
+      "mainText": "Das ist die Zelle der Helden. Stelle sie hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "29cd84c0-58f9-47e9-8ced-432f5515d9e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "e78a0a86-e764-49fd-82f2-77fe019574e4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "d3d0ae17-f9cd-4516-8d5c-01b385b5080d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "0a45fcb1-2c6a-4c21-9877-86be6dfba11e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "82225e76-06ab-4aec-9069-a5bec843b375",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "551def1d-2afe-4ea1-b828-27c9a2b18c0a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3be15fdc-a062-48c8-9d31-794fa22dfb6b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite Officer",
+      "GUID": "644e7104-8a58-4189-84c2-d091fcc1f864",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 3",
+      "GUID": "d992e442-5c6f-46ac-80d4-1b20cdeb4d04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 2",
+      "GUID": "55c48f99-c50a-4219-a4f7-209f6c75e465",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 1",
+      "GUID": "84c3e752-11bb-4ae5-b09d-17513513f2cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Terminal",
+      "GUID": "0f6454f8-bc95-447e-ad51-72f7e4db9f1e",
+      "mainText": "Das Terminal steuert die Zugangsluken zur Müllpresse.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 1",
+      "GUID": "69856693-788f-4357-8b7a-333a7dfdc330",
+      "mainText": "Dieses Terminal steuert den Müllschacht, der aus der Müllpresse herausführt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 2",
+      "GUID": "49632046-382f-4407-9584-39f8c1c2f7fe",
+      "mainText": "Dieses Terminal steuert den Müllschacht, der aus der Müllpresse herausführt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 1",
+      "GUID": "e45723b0-7379-4d17-974e-a1dbd1dc22c5",
+      "mainText": "Der Zugang zur Müllpresse ist geschlossen.\n\n{-} Ein Held kann mit dem roten Terminal interagieren, um alle Zugänge zur Müllpresse zu öffnen.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 2",
+      "GUID": "03cf63aa-bb2f-4427-b9b3-b3c82a0ca20b",
+      "mainText": "Der Zugang zur Müllpresse ist geschlossen.\n\n{-} Ein Held kann mit dem roten Terminal interagieren, um alle Zugänge zur Müllpresse zu öffnen.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Rebel Token 2",
+      "GUID": "5f4f90d0-c524-4cd2-8d92-b7a72348fb1c",
+      "mainText": "Der Zugang zur Müllpresse ist offen.\n\n{-} Ein Held kann mit diesem Marker interagieren, um in die Müllpresse hinabzuklettern.",
+      "buttonList": [
+        {
+          "GUID": "368f0b76-a31c-43e9-b8c2-6b464d8f2233",
+          "theText": "{A} Hinabklettern"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Rebel Token 1",
+      "GUID": "16037a15-1ded-4a0b-b9eb-fd0851e594b0",
+      "mainText": "Der Zugang zur Müllpresse ist offen.\n\n{-} Ein Held kann mit diesem Marker interagieren, um in die Müllpresse hinabzuklettern.",
+      "buttonList": [
+        {
+          "GUID": "258b5ec7-e671-433f-be5d-2bcb0346c928",
+          "theText": "{A} Hinabklettern"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Imperial Token 1",
+      "GUID": "7f6aeb7e-44e0-4e52-8308-fe0ba221ff23",
+      "mainText": "Der Müllschacht der Müllpresse ist verschlossen. Er kann nur von einem gelben Terminal aus geöffnet werden.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Imperial Token 2",
+      "GUID": "889af84e-a26f-43bc-8d52-2ebff893a032",
+      "mainText": "Der Müllschacht der Müllpresse ist verschlossen. Er kann nur von einem gelben Terminal aus geöffnet werden.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "d5879e17-e5cc-4501-867f-4bdbac0cc5b6",
+      "mainText": "Die Zellentür ist aus massivem Plastahl, aber sie wurde von eurem Retter entriegelt.",
+      "buttonList": [
+        {
+          "GUID": "9990c353-00d3-431c-8365-b4c3b074a092",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Hallway Door",
+      "GUID": "719a6aeb-dfa5-4819-8a15-f05c55a23ec5",
+      "mainText": "Die Tür im Korridor ist verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Trash Compactor Door",
+      "GUID": "61c10a4f-dddd-4a68-9081-25c6def3540b",
+      "mainText": "Diese rostige Tür ist eindeutig dazu gedacht, den Flur vor dem Gestank aus der Müllpresse zu schützen.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Storage Room Door",
+      "GUID": "2f12d2ec-1b90-4b91-b043-9207d5d66d81",
+      "mainText": "Die Tür zum Lagerraum ist verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Rebel Token 1",
+      "GUID": "27ce12b5-ea26-4cc4-b0f3-d069df9f0622",
+      "mainText": "Der Müllschacht der Müllpresse ist offen. Das ist dein Weg in die Freiheit!\n\n{-} Wenn alle Helden auf oder neben den gelben Einsatzmarkern sind, klicke auf Aufbrechen, um den Einsatz zu gewinnen.",
+      "buttonList": [
+        {
+          "GUID": "4b9f202c-8cde-4f88-ad54-f88094648ba3",
+          "theText": "Aufbrechen"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Rebel Token 2",
+      "GUID": "04ca1c00-2ec6-4883-bd9c-683acec240a3",
+      "mainText": "Der Müllschacht der Müllpresse ist offen. Das ist dein Weg in die Freiheit!\n\n{-} Wenn alle Helden auf oder neben den gelben Einsatzmarkern sind, klicke auf Aufbrechen, um den Einsatz zu gewinnen.",
+      "buttonList": [
+        {
+          "GUID": "1aa1f395-cdf7-4a60-9fc9-2077ac41f891",
+          "theText": "Aufbrechen"
+        }
+      ]
+    },
+    {
+      "entityName": "Equipment Cache",
+      "GUID": "b66ecce5-eb8d-4ee9-a701-ac60739f926c",
+      "mainText": "Eure Ausrüstung wird in dieser Kiste aufbewahrt.\n\n{-} Ein Held kann mit dieser Kiste interagieren, um seine Ausrüstungskarten umzudrehen. Wenn alle Helden ihre Karten umgedreht haben, klicke auf \"Ausrüstung wiedererlangt\", um den Einsatz voranschreiten zu lassen.",
+      "buttonList": [
+        {
+          "GUID": "2d680aee-d2c5-43ae-b100-444cbf4c1bf6",
+          "theText": "Ausrüstung wiedererlangt"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

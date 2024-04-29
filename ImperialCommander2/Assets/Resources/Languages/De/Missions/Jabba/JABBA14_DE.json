@@ -1,0 +1,737 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Kinder des Todes",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Jabbas Reich",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zu den Türen.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "bcc2d4cc-6e58-4320-a67d-c16de84bbd60",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "bd314526-0fa5-4d6b-873a-925619c3d2a5",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "50fcea16-52d8-4d58-b969-e3badba659af",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9b5909a5-3f87-42d5-94f6-0142ccd5ceff",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr springt außerhalb der Basis aus eurem Shuttle und werdet sofort von Blasterfeuer empfangen. Shyla flucht leise: \"Das war eine Falle. Sie wussten, dass wir kommen.\"\n\nEure Pilotin meldet sich über das Comlink: \"Die Sache scheint heißer zu sein, als wir erwartet haben. Ich sollte in der Lage sein, die Türen zu öffnen und euch reinzubringen, aber ihr müsst noch eine Weile durchhalten. Zeig ihnen was du drauf hast, Shyla.\"\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind verriegelt.\n{-} Der Einsatz schreitet am Ende von Runde 2 voran.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+      "eventActions": [
+        {
+          "shortText": "Wartet, bis sich die Türen öffnen.",
+          "longText": null,
+          "GUID": "b904d07f-9668-4dbc-85e0-c704573382b2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Die Türen sind verriegelt.\n{-} Der Einsatz schreitet am Ende von Runde 2 voran.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "764dc2ee-41de-4218-a40c-8bf56c11b732",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "\"Wir sind bereit; bring uns raus!\" ruft Shyla durch ihr Comlink. Ihr sprintet aus dem Stützpunkt und klettert inmitten von Blasterfeuer in das Shuttle. Als ihr wieder zu Atem kommt, seht ihr, wie Shyla sich in eine Ecke setzt und weiter die geborgenen Datapads liest.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Shyla Varad erhält die Belohnungskarte \"Mandalorianisches Erbe\".\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "\"Shyla, es ist aussichtslos, verschwindet!\", fleht eure Pilotin über das Comlink. Ihr schnappt euch Shyla und zwingt sie, sich zum Shuttle zurückzuziehen. Während ihr wegfliegt, sieht sie, wie die Imperialen die Reste des Stützpunkts bombardieren und damit jede Hoffnung zerstören, die sie noch hatte, ihrer Vergangenheit auf die Spur zu kommen.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Study Data Store Blue 1",
+      "GUID": "0394e510-f2e9-43dc-9781-3f22c89203e0",
+      "eventText": "In den Daten findest du einige Informationen über die Todeswache. Die Todeswache - oder <i>Kyr'tsad</i> auf Mando'a - war eine mandalorianische Splittergruppe, die sich gegen den vom mandalorianischen Anführer Jaster Mereel entwickelten Supercommando-Kodex stellte. Während der Supercommando-Kodex die Mandalorianer zu ehrenhaften Söldnern machen sollte, lag für die Todeswache Ehre nur in der Stärke im Kampf, mit allen Mitteln.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Store Blue 1",
+              "GUID": "cf6d8229-24a3-479f-9e69-cbaba45f36f5",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "c23206ae-ae75-4483-9534-58f4c23aa561",
+                  "theText": "Studieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "406ed07a-f9c0-49c7-98f7-1421416fa10e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Die imperialen Streitkräfte rücken vor und versuchen, die Datenspeicher zu schützen.\n\n{-} Die beiden imperialen Figuren mit den höchsten Kosten, die nicht auf oder benachbart zu einem Datenspeicher sind, bewegen sich 2 in Richtung des nächsten Datenspeichers.\n{-} Die imperiale Figur mit den höchsten Kosten wird <color=\"red\">Fokussiert</color>.",
+          "GUID": "02a08ffc-281a-47f0-8b7a-dcc604d4eac1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Study Data Store Blue 2",
+      "GUID": "4229be8e-2c0b-4a9d-9d75-c800405f3fd2",
+      "eventText": "In den Daten findest du einige Informationen über die Todeswache. Die Todeswache wollte zu den Traditionen der alten Mandalorianer zurückkehren und die Galaxie mit Raubzügen und Kriegen überziehen. Ihre Gegner, angeführt von Jaster Mereel, nannten sich die Wahren Mandalorianer. Zwischen den beiden Gruppen brach ein erbitterter Bürgerkrieg aus.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Store Blue 2",
+              "GUID": "666bb464-05a5-4b5a-affe-f62778e7684c",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "6471a560-61d8-475d-9e6e-4f5feb403d89",
+                  "theText": "Studieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "3c288fcc-5edb-4394-8b24-bbef1894db02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Die imperialen Streitkräfte rücken vor und versuchen, die Datenspeicher zu schützen.\n\n{-} Die beiden imperialen Figuren mit den höchsten Kosten, die nicht auf oder benachbart zu einem Datenspeicher sind, bewegen sich 2 in Richtung des nächsten Datenspeichers.\n{-} Die imperiale Figur mit den höchsten Kosten wird <color=\"red\">Fokussiert</color>.",
+          "GUID": "26345b35-a2c1-4317-8758-9a42913350e7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Study Data Store Blue 3",
+      "GUID": "78c4a534-be77-412c-b157-142563c59dee",
+      "eventText": "In den Daten findest du einige Informationen über die Todeswache. Die Todeswache verlor den Bürgerkrieg gegen die Wahren Mandalorianer und galt lange Zeit als aufgelöst. In Wahrheit tauchten sie unter und operierten nach dem Prinzip des <i>ba'slan shev'la</i>, des \"strategischen Verschwindens\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Store Blue 3",
+              "GUID": "2359616f-cd4f-4c79-a1bb-53a23ea07e56",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "a117d787-80f0-43d2-9ba2-921d08ec79c6",
+                  "theText": "Studieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "9c5ec333-20e3-434d-83f2-cf4a818e59ad",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Die imperialen Streitkräfte rücken vor und versuchen, die Datenspeicher zu schützen.\n\n{-} Die beiden imperialen Figuren mit den höchsten Kosten, die nicht auf oder benachbart zu einem Datenspeicher sind, bewegen sich 2 in Richtung des nächsten Datenspeichers.\n{-} Die imperiale Figur mit den höchsten Kosten wird <color=\"red\">Fokussiert</color>.",
+          "GUID": "ff88a3c3-8d34-4b35-b4bc-9af238b7e1a9",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Study Data Store Red 1",
+      "GUID": "ed1c21c4-e7d1-4e5c-9400-97a70572161f",
+      "eventText": "In den Daten findest du einige Informationen zu Shylas Hintergrund. Während der Klonkriege war ein Krieger namens Oryus Varad, der - seinem Alter nach zu urteilen - Shylas Vater sein könnte, einer der Ausbilder der Großen Armee der Republik und bildete die Klontruppen in Strategie und Kampf aus.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Store Red 1",
+              "GUID": "6ed10d2c-9df3-4668-be03-0df2b6e37850",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "66e4d1c4-0bdd-436d-90b8-4f446386a228",
+                  "theText": "Studieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "e1959a43-3329-4846-b40b-b855b8f9bbed",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Alarmsignale ertönen und weitere Soldaten stürmen herein, um euch aufzuhalten.",
+          "GUID": "529541ac-fbbd-4fce-b837-bc05ec62eb8d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Study Data Store Red 2",
+      "GUID": "faa140ad-5065-486f-9f20-02db647d545a",
+      "eventText": "In den Daten findest du einige Informationen über Shylas Hintergrund. Der Krieger Oryus Varad kam offenbar gegen Ende der Klonkriege ums Leben. Die Daten legen nahe, dass er gegen seine eigene Frau Ashala kämpfte.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Store Red 2",
+              "GUID": "e164ee01-2fc4-45c7-954a-0ce49de677be",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "2f535e56-0d50-4e03-b9c5-9de3bba09ca1",
+                  "theText": "Studieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "f95cf9cc-5194-456b-b04c-2fb0b85106db",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Alarmsignale ertönen und weitere Soldaten stürmen herein, um euch aufzuhalten.",
+          "GUID": "4f6d156d-cc3f-4d88-a742-3429f30510a0",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Study Data Store Green",
+      "GUID": "fd36376c-2507-4f12-b62c-c6b157875e55",
+      "eventText": "Beim Durchsuchen der Daten und Aufzeichnungen findet Shyla endlich, wonach sie gesucht hat: Der Name ihrer Mutter, Ashala Varad, ist in den Aufzeichnungen der Mitglieder der Todeswache aufgeführt. Das, von dem Shyla immer gehofft hat, dass es ihr Geburtsrecht sei, ist nun bestätigt.\n\n{-} Shyla Varad wird <color=\"red\">Fokussiert</color>.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Store Green",
+              "GUID": "89278ef8-4792-4ea8-b2d0-dd25091564f5",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "9d5176e6-97c0-4d5d-8412-589fd6bc796c",
+                  "theText": "Studieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "fa167900-b513-4bbd-9dd3-9297273fadb0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Facility Breach",
+      "GUID": "dff25fbb-e49e-42e8-b658-23c46b1aa1f7",
+      "eventText": "\"Ich hab's!\", ruft eure Pilotin über das Comlink. \"Die Türen sollten sich öffnen in 3... 2... 1...\"\n\nDie Türen gleiten auf und geben den Blick auf das Innere der Basis frei.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "838a2127-dd0d-4002-8c58-3861f4a16262",
+              "theText": "Die Tür zur imperialen Basis ist fest verriegelt.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "163ac2d6-db81-4201-a3c0-81a85ced36a6",
+              "theText": "Die Tür zur imperialen Basis ist fest verriegelt.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Door 3",
+              "GUID": "c7824d6a-4f19-4b44-adac-279af5d2579c",
+              "theText": "Die Tür zur imperialen Basis ist fest verriegelt.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "e7cfbe91-0ae9-47d4-bb87-f13c0dcec119",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "522e6045-e34e-49e9-a2fd-04930c2d05f6",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "97c29e63-a93e-4ad8-9855-f62b30057043",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Sei auf oder benachbart zu dem nächsten Datenspeicher, auf dem oder benachbart zu dem keine imperialen Figuren stehen.",
+          "GUID": "971dcb7b-7e4a-415b-93a8-9c8626c220b9",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "Als sich die Tür öffnet, seht ihr euch einem furchterregenden Blastergeschütz gegenüber.\n\n{-} Stelle einen E-Web-Schützen auf den gelb hervorgehobenen Feldern auf.",
+          "GUID": "72320d31-a8a6-4582-97de-e6f134261d7d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "02cdc6ab-834e-4233-b8f2-3d9654705ad2",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Highlight E-Web",
+              "GUID": "008ff50a-d2f2-4105-9ada-ba754723e154",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "23425ce1-4076-4eb7-922c-68a975f249ba",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "In der Nähe heben Sturmtruppen und andere Soldaten ihre Waffen, bereit, den Stützpunkt zu verteidigen.",
+          "GUID": "16ae2a59-288a-4d83-b995-c6190b4be632",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b2590004-0558-4930-8ecb-748370814c41",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "tbText": "Datenspeicher befinden sich überall in der Basis.",
+          "GUID": "afe93aeb-ac53-4d64-b771-f7eafe70d874",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Store Blue 3",
+              "GUID": "cfbb73f1-f2fe-40ab-b54a-59518bd84932",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "b97f8283-b159-4a5d-b65f-c44da1297e17",
+                  "theText": "Studieren"
+                }
+              ]
+            },
+            {
+              "entityName": "Data Store Red 2",
+              "GUID": "6b2d15e6-7429-4746-a4c6-bc2486cf2f8a",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "acb5f2ee-a260-4cec-8d31-d69ebf642a84",
+                  "theText": "Studieren"
+                }
+              ]
+            },
+            {
+              "entityName": "Data Store Blue 1",
+              "GUID": "d23882c0-e958-4b8a-a45f-227289d112bd",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "63ea7937-8e12-4c07-88f5-6f64d95dfaf9",
+                  "theText": "Studieren"
+                }
+              ]
+            },
+            {
+              "entityName": "Data Store Green",
+              "GUID": "ce3fabe0-bda9-4186-a640-6b5cf7c6f879",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "b188d2d8-cdca-4c4c-bbf9-73877ec3edd8",
+                  "theText": "Studieren"
+                }
+              ]
+            },
+            {
+              "entityName": "Data Store Red 1",
+              "GUID": "b13c9cf2-2a81-4fc3-ad3a-8d0971c499fc",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "9a756177-e2e0-42f8-ac13-48889dd474a4",
+                  "theText": "Studieren"
+                }
+              ]
+            },
+            {
+              "entityName": "Data Store Blue 2",
+              "GUID": "0a98ef40-e73c-4f9d-8b47-1b4fbb6aba12",
+              "theText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+              "buttonList": [
+                {
+                  "GUID": "b10477ff-7147-498a-bf26-ec48b69f5e14",
+                  "theText": "Studieren"
+                }
+              ]
+            }
+          ],
+          "GUID": "b359b7d5-7b24-4ddf-a33c-24e6caf3801b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Neutrale Einsatzmarker stellen Datenspeicher dar.\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, während er auf oder benachbart zu diesem Datenspeicher ist, um ihn zu untersuchen.\n{-} Die Rebellen gewinnen zu Beginn der Statusphase, nachdem alle Datenspeicher untersucht wurden.",
+          "GUID": "2be94dc3-cb2e-4340-871d-844a600b9a80",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Untersucht die Datenspeicher (&Data stores studied&/6).",
+          "longText": null,
+          "GUID": "4ff16b1c-e93e-4e43-92c3-a12916859af6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Neutrale Einsatzmarker stellen Datenspeicher dar.\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, während er auf oder benachbart zu diesem Datenspeicher ist, um ihn zu untersuchen.\n{-} Die Rebellen gewinnen zu Beginn der Statusphase, nachdem alle Datenspeicher untersucht wurden.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "9566b120-55b4-4652-95a3-bb447dea9553",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "All Clear",
+      "GUID": "a5aef387-081f-42db-96b5-4de539000d70",
+      "eventText": "Ihr habt alle verfügbaren Daten gesammelt. Zeit für eine waghalsige Flucht.\n\n{-} Überlebt bis zum Ende der Runde.",
+      "eventActions": [
+        {
+          "repositionText": null,
+          "GUID": "f061935a-a1d7-4ddf-9465-956b1aac12c8",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Überlebt bis zum Ende der Runde.",
+          "longText": null,
+          "GUID": "676a23b1-41ef-41d2-b771-2b81bc3c1d91",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Die Rebellen gewinnen zu Beginn der Statusphase, nachdem alle Datenspeicher untersucht wurden.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "2b7c1271-bd69-41e0-bfaa-ffff55b8bbee",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "8afe844a-ef9d-4bcd-81f4-f8152691b186",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "94b48894-a9a7-45ed-9d82-589be827d167",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "c91e872d-deac-45c8-8900-460dbbb36fc4",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Jet 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Jet 2",
+      "GUID": "e9b9be3c-2304-4994-92db-e0f0c9196095",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "1001dba9-0521-46cd-8654-5658e8b6aeb9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "1b41f11d-aa42-4d12-bd6e-e4abd745b2c6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "d8e79ee8-ac12-4300-98cf-794bac5e6e6f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "dfd2c638-17c5-40fc-81c4-e11ecb333eed",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Highlight E-Web",
+      "GUID": "c92339c0-83fa-4dea-aba7-9bb13adaefcb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "c0619e42-bb3c-4d07-a65f-cbe3a1a417e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "af74f584-8d35-496c-a529-d75b395424fc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 3",
+      "GUID": "83e77262-7393-4672-9379-153cd03f96d6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "71503db5-2165-418b-a6d8-102cf990ba19",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "e98b1127-0ca0-4b0e-aa9e-543c8c207f9a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Data Store Blue 1",
+      "GUID": "875c3d53-7cc2-49a1-9017-fabc65571ff3",
+      "mainText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+      "buttonList": [
+        {
+          "GUID": "4eb8aa6a-c0a7-4d59-8222-0da859d146d5",
+          "theText": "Studieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Store Blue 2",
+      "GUID": "23dd58e6-27b3-49b2-9763-91ad95156623",
+      "mainText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+      "buttonList": [
+        {
+          "GUID": "cdfb1f6f-c87c-4ff5-b2bd-2fb6e3dbca0e",
+          "theText": "Studieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Store Blue 3",
+      "GUID": "af4821c2-eec1-492a-ba80-b83b972ae1ab",
+      "mainText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+      "buttonList": [
+        {
+          "GUID": "95fa72fe-3c6c-4567-8b59-7003534dd3a1",
+          "theText": "Studieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Store Red 1",
+      "GUID": "e5752eda-1375-466e-93f1-eef642b9d883",
+      "mainText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+      "buttonList": [
+        {
+          "GUID": "bc1b0599-47f8-4a0e-9a3d-d46bf9702e21",
+          "theText": "Studieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Store Red 2",
+      "GUID": "460b899b-2e4e-4ea7-84fe-039b9f04db80",
+      "mainText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+      "buttonList": [
+        {
+          "GUID": "48fd5a3b-8967-4ea0-a1b0-90ae6ace64a1",
+          "theText": "Studieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Store Green",
+      "GUID": "4f336c08-7f56-4151-94f3-a6abe0f83ccd",
+      "mainText": "Der Datenspeicher könnte mehr Informationen über die Todeswache enthalten.\n\n{-} Wenn sich keine imperialen Figuren auf oder benachbart zu einem Datenspeicher befinden, darf ein Held 2 Bewegungspunkte ausgeben, wenn er sich auf oder benachbart zu diesem Datenspeicher befindet, um ihn zu studieren.",
+      "buttonList": [
+        {
+          "GUID": "c7676744-37bd-49bc-abb3-0abdb4280ee9",
+          "theText": "Studieren"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "ec7ef151-9e69-44e5-bc8f-381fdb2df61d",
+      "mainText": "Die Tür in die imperiale Basis ist fest verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "ba3c71f1-ccf2-46d1-b307-d7ec8e5c4589",
+      "mainText": "Die Tür in die imperiale Basis ist fest verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "e597082a-9094-4f61-bf02-602ac0784a58",
+      "mainText": "Die Tür in die imperiale Basis ist fest verriegelt.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Jet Trooper",
+      "customInstructions": ""
+    }
+  ]
+}

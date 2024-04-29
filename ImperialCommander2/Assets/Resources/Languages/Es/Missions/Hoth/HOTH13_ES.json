@@ -1,0 +1,642 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Huida de la Ciudad de las Nubes",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Regreso a Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a la puerta.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "b3ca91f8-9254-4cd1-8bc9-9cdaef8b81c0",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "af7fbfb3-024e-4231-93f7-bd2e75800864",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "0037a488-aa35-4eeb-9e40-ca21e92bea43",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Esquiváis las fuerzas Imperiales para abriros paso hasta los prisioneros. Una lanzadera robada y unos importantes códigos de acceso os permitirán salir, pero vuestro piloto se está poniendo nervioso.\r\n\r\n\"Debéis daros prisa\", dice a través del comunicador. \"Se aproximan cazas imperiales. Odiaría tener que dejaros a todos aquí.\"\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La puerta del Pasillo está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.\r\n{-} La misión avanza cuando la puerta del Pasillo se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+      "eventActions": [
+        {
+          "shortText": "Abrir la puerta del Pasillo.",
+          "longText": null,
+          "GUID": "b8be6af8-8ecd-44c8-b6e4-faca8debb072",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La puerta del Pasillo está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.\r\n{-} La misión avanza cuando la puerta del Pasillo se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+          "GUID": "0646a7a3-f06e-44f7-aaff-acb28ecc6a81",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Vuestro piloto esquiva los disparos de las tropas terrestres y los cazas TIE por igual hasta que consigue salir de la atmósfera. A los pocos instantes estáis a salvo en el hiperespacio.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de recompensa \"Redes Restauradas”.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} El Imperio descarta la carta de recompensa “Corte en los suministros”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "\r\n\"¡No nos abandonéis!\" oís gritar a los prisioneros que os visteis obligados a dejar atrás; pero incluso habiéndoles dejado atrás, sólo conseguís escapar a duras penas\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} El Imperio descarta la carta de recompensa “Corte en los suministros”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Hired Guards",
+      "GUID": "c1227c78-3fd4-4463-814a-6963c57238ee",
+      "eventText": "La puerta se abre a un largo pasillo y a una estación médica con un gran tanque de bacta.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "af96f392-dfe5-44d2-a839-501918077aeb",
+              "theText": "Esta puerta conduce al pasillo de la instalación. Los prisioneros deben estar en algún lugar tras ella.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "ffd4921f-66c5-4c08-850f-5d9df20df191",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "d2675649-9fda-438a-9f0b-22464ddfe2e0",
+                  "theText": "{A} Intentar abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "3853b9b7-df54-42a7-a328-37aa91241cb8",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "3eb2826a-5967-4779-87ec-b1f50c2fb50d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Al entrar en el pasillo, droides de batalla blindados preparan sus armas.",
+          "GUID": "84a0357b-4a8b-4869-8218-f2e04c1847cf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2655b035-a9a0-47fb-99e4-f7b869c7e775",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG026/HK Assassin Droid"
+        },
+        {
+          "tbText": "Desde detrás de la puerta que conduce a la celda de detención, se oyen voces en voz baja.\r\n\r\n{-} La puerta de la Celda está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.",
+          "GUID": "f38a53a1-acaf-414c-8ace-a8e30c7f9403",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Cerca, vuestra lanzadera espera con los motores en marcha.",
+          "GUID": "74e1a3d3-2062-4a4d-bf60-cc67b68c2ca8",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "{-} La puerta de la Lanzadera está sellada. Una figura del bando Imperial puede atacar la puerta (Vida: *2*, Defensa: 2 {G}).\r\n{-} La puerta de la Lanzadera no bloquea el movimiento, líneas de visión, adyacencia o el recuento de casillas para las figuras del bando Rebelde adyacentes a ella.\r\n{-} Las figuras del bando Rebelde en la Lanzadera ganan {A}: Elige una figura hostil adyacente y realiza una prueba de {K}. Si tienes éxito, empujas a esa figura 2 casillas.",
+          "GUID": "ef8a486f-665b-4f2f-925a-523957b8b61d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Abrir la puerta de la Celda.",
+          "longText": null,
+          "GUID": "e09c3c64-d293-483d-9c56-d94aed7e6e68",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La puerta de la Celda está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.\r\n{-} La puerta de la Lanzadera está sellada. Una figura del bando Imperial puede atacar la puerta (Vida: *2*, Defensa: 2 {G}).\r\n{-} La puerta de la Lanzadera no bloquea el movimiento, líneas de visión, adyacencia o el recuento de casillas para las figuras del bando Rebelde adyacentes a ella.\r\n{-} Las figuras del bando Rebelde en la Lanzadera ganan {A}: Elige una figura hostil adyacente y realiza una prueba de {K}. Si tienes éxito, empujas a esa figura 2 casillas.\r\n{-} La misión avanza cuando la puerta de la Celda se abre.\r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+          "GUID": "e813cd1e-02bd-476e-9d22-f437b3635f28",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 1 Attempt",
+      "GUID": "34eada3d-6036-4097-8f2c-bfa8cddd728f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empiezas a forzar la puerta.\r\n\r\n{-} Realiza una prueba de {K} o {I}. Aplica +1 {B} a la prueba por cada ficha de Tensión en la puerta, y descarta las fichas de Tensión de la puerta. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "91c8f085-f9fc-4d02-8e90-f94c99f177c7",
+              "theText": "Haceis algunos progresos, pero la puerta sigue cerrada.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de Tensión sobre la puerta."
+            }
+          ],
+          "GUID": "e7126a69-e34b-433f-9129-294b0e30435b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Get to the Ship",
+      "GUID": "7828452a-884c-4308-bce1-6027574cacc1",
+      "eventText": "Al atravesar la puerta de la Celda, descubres a los aterrorizados prisioneros. Los malos tratos han dejado heridos a muchos de ellos; tendréis que cargar con ellos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "40fa5d19-178e-485d-b13c-8a006c6f055b",
+              "theText": "Esta puerta da acceso a una diminuta celda de detención. Tras ella se oyen voces amortiguadas.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "a5d0142b-b325-49e5-aad6-9b0fbbca2869",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "a58cc32f-58f7-4c48-b007-d96779693657",
+                  "theText": "{A} Intentar abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "ec9074d2-c4c1-4fc7-befd-ba88bbd38a67",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 1",
+              "GUID": "62c7d941-a06c-40ff-83d7-5ec6f696f4f5",
+              "theText": "Mona Vash, una comerciante Arcaniana, parpadea ante la luz repentina y se cubre los ojos con la mano.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+              "buttonList": [
+                {
+                  "GUID": "87c9e005-39a7-4f8e-bca0-cd4a5c1c92a0",
+                  "theText": "{A} Transportar"
+                }
+              ]
+            },
+            {
+              "entityName": "Prisoner 2",
+              "GUID": "fb4e0ae3-0470-4f8e-93a1-44051bb3ffa9",
+              "theText": "Boh Kallaak, un técnico de Muun, parece maltrecho y golpeado. Está demasiado débil para caminar.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+              "buttonList": [
+                {
+                  "GUID": "1f2e0adf-256e-4b83-baf9-28d7ab56e87c",
+                  "theText": "{A} Transportar"
+                }
+              ]
+            },
+            {
+              "entityName": "Prisoner 3",
+              "GUID": "233ffcb8-784b-4ca8-a1f9-524cfca32ede",
+              "theText": "Roggnar Dreek, un líder sindicalista Ugnaught, está encadenado a la pared aquí. Está herido, pero parece desafiante e inquebrantable.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+              "buttonList": [
+                {
+                  "GUID": "efb00093-f8ab-4866-a0c1-296754bf8e6d",
+                  "theText": "{A} Transportar"
+                }
+              ]
+            }
+          ],
+          "GUID": "3dbaa231-66ac-414c-a6e5-71efed5cd3e5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las fichas de Misión Rebelde representan prisioneros.\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+          "GUID": "b08d74fc-bc3d-458e-bebf-c33bc8299d0f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Mover hacia la Lanzadera.",
+          "GUID": "3978e551-8df7-426d-b5d3-0a39ff020cc0",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Rescatar a los prisioneros.",
+          "longText": null,
+          "GUID": "4ecf3324-65fd-45ab-9dfe-40515da4d073",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La puerta de la Lanzadera está sellada. Una figura del bando Imperial puede atacar la puerta (Vida: *2*, Defensa: 2 {G}).\r\n{-} La puerta de la Lanzadera no bloquea el movimiento, líneas de visión, adyacencia o el recuento de casillas para las figuras del bando Rebelde adyacentes a ella.\r\n{-} Las figuras del bando Rebelde en la Lanzadera ganan {A}: Elige una figura hostil adyacente y realiza una prueba de {K}. Si tienes éxito, empujas a esa figura 2 casillas.\r\n{-} Las fichas de Misión Rebelde representan prisioneros.\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).\r\n{-} La misión avanza cuando un prisionero es rescatado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+          "GUID": "e06c3886-c5d5-465d-9f8c-497b5a83c526",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 Attempt",
+      "GUID": "a059f253-529b-41a8-ab24-c973dcad4d73",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Empiezas a forzar la puerta.\r\n\r\n{-} Realiza una prueba de {K} o {I}. Aplica +1 {B} a la prueba por cada ficha de Tensión en la puerta, y descarta las fichas de Tensión de la puerta. Introduce el número de éxitos debajo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "65cab51b-f89d-4e8d-96c0-f74484d2c56e",
+              "theText": "Haceis algunos progresos, pero la puerta sigue cerrada.\r\n\r\n{-} Por cada resultado {B} obtenido, coloca 1 ficha de Tensión sobre la puerta."
+            }
+          ],
+          "GUID": "d1bf9a8b-c56a-4acf-8f27-2cdb7c6a8338",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 3 destroyed",
+      "GUID": "0215c853-f483-4fdb-9383-7c723a512546",
+      "eventText": "La puerta colapsa bajo el fuego Imperial.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "4de6e961-5a78-4fdc-8294-77dff6f9378d",
+              "theText": "Esta puerta conduce a la lanzadera, lista para escapar.\r\n\r\n{-} La puerta está sellada. Una figura del bando Imperial puede atacar la puerta (Vida: *2*, Defensa: 2 {G}).\r\n{-} La puerta de la Lanzadera no bloquea el movimiento, líneas de visión, adyacencia o el recuento de casillas para las figuras del bando Rebelde adyacentes a ella.",
+              "buttonList": [
+                {
+                  "GUID": "0fe4293f-571e-4889-a537-187c8a2c1a6a",
+                  "theText": "Puerta destruida"
+                }
+              ]
+            }
+          ],
+          "GUID": "3170c859-2774-44a4-ab2a-b37a836744a1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Claim Prisoner",
+      "GUID": "e8a86d8c-cbaa-4712-bdb5-e3a49be23a09",
+      "eventText": "Ayudais al prisionero a subir a la lanzadera.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Retrieve Prisoner 1",
+      "GUID": "af699820-96d2-4cc7-8a5d-6d96a2d3d5cc",
+      "eventText": "Ayudáis a la exhausta Arcaniana a levantarse y la conducís hacia la lanzadera.\r\n\r\n{-} Cuando una figura que transporta a un prisionero está en la Lanzadera, los Rebeldes reclaman al prisionero. Pulsa sobre las casillas resaltadas en rojo y selecciona \"Reclamar prisionero\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 1",
+              "GUID": "67f951da-57a0-410d-b7f8-47321cd83955",
+              "theText": "Mona Vash, una comerciante Arcaniana, parpadea ante la luz repentina y se cubre los ojos con la mano.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+              "buttonList": [
+                {
+                  "GUID": "d046d5dd-a692-4277-bd47-a51fc1862a39",
+                  "theText": "{A} Transportar"
+                }
+              ]
+            }
+          ],
+          "GUID": "6b2c852a-e022-406c-b79d-810da2683ba2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Retrieve Prisoner 2",
+      "GUID": "07cc097e-4572-4701-8e32-b1440fd4f39b",
+      "eventText": "Colocáis lentamente los brazos bajo el técnico herido y lo levantáis con cuidado.\r\n\r\n{-} Cuando una figura que transporta a un prisionero está en la Lanzadera, los Rebeldes reclaman al prisionero. Pulsa sobre las casillas resaltadas en rojo y selecciona \"Reclamar prisionero\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 2",
+              "GUID": "bc1f5910-3dda-47fa-afd8-2bd6731cfe47",
+              "theText": "Boh Kallaak, un técnico de Muun, parece maltrecho y golpeado. Está demasiado débil para caminar.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+              "buttonList": [
+                {
+                  "GUID": "e156449d-52d0-46dc-b6ac-765d4823cdc4",
+                  "theText": "{A} Transportar"
+                }
+              ]
+            }
+          ],
+          "GUID": "12d05930-d001-427d-b0ae-9500df24c6b4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Retrieve Prisoner 3",
+      "GUID": "54f5d440-f258-4d1f-9ba3-16ce011b7c83",
+      "eventText": "Rápidamente rompéis las ataduras de Roggnar y ayudáis al Ugnaught a ponerse en pie, apoyándole en su camino hacia la lanzadera.\r\n\r\n{-} Cuando una figura que transporta a un prisionero está en la Lanzadera, los Rebeldes reclaman al prisionero. Pulsa sobre las casillas resaltadas en rojo y selecciona \"Reclamar prisionero\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 3",
+              "GUID": "ac063fa8-fac3-4262-b4eb-57f0eb5a284e",
+              "theText": "Roggnar Dreek, un líder sindicalista Ugnaught, está encadenado a la pared aquí. Está herido, pero parece desafiante e inquebrantable.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+              "buttonList": [
+                {
+                  "GUID": "b5e45df4-52e4-4fba-b3c5-7842aa806a84",
+                  "theText": "{A} Transportar"
+                }
+              ]
+            }
+          ],
+          "GUID": "5218791d-3bc1-4923-bcd2-34136b3caa24",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Prisoner retrieved",
+      "GUID": "b20b06c0-478c-4be8-a296-0cdfa3550582",
+      "eventText": "{-} Cuando una figura que transporta a un prisionero está en la Lanzadera, los Rebeldes reclaman al prisionero. Pulsa sobre las casillas resaltadas en rojo y selecciona \"Reclamar prisionero\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shuttle",
+              "GUID": "4cc746d2-353d-4cdc-93fd-53f53808f444",
+              "theText": "La lanzadera espera con los motores en marcha.\r\n\r\n{-} Cuando una figura que transporta a un prisionero está en la Lanzadera, los Rebeldes reclaman al prisionero. Pulsa sobre \"Reclamar prisionero\".",
+              "buttonList": [
+                {
+                  "GUID": "81291b45-1d34-4f7b-afd6-9ee85b62e95a",
+                  "theText": "Reclamar prisionero"
+                }
+              ]
+            }
+          ],
+          "GUID": "0396d237-9ac6-4dac-a890-bd6871d33c1f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Llevar los prisioneros a la lanzadera (&Prisoners claimed&/3).",
+          "longText": null,
+          "GUID": "b5918c68-2290-41ae-9348-590e401be6f6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Cuando un Héroe deba retirarse, en vez de ello queda incapacitado. Al activarse, tan sólo dispone de una acción y sólo puede usar esa acción para realizar un movimiento.\r\n{-} La puerta de la Lanzadera está sellada. Una figura del bando Imperial puede atacar la puerta (Vida: *2*, Defensa: 2 {G}).\r\n{-} La puerta de la Lanzadera no bloquea el movimiento, líneas de visión, adyacencia o el recuento de casillas para las figuras del bando Rebelde adyacentes a ella.\r\n{-} Las figuras del bando Rebelde en la Lanzadera ganan {A}: Elige una figura hostil adyacente y realiza una prueba de {K}. Si tienes éxito, empujas a esa figura 2 casillas.\r\n{-} Las fichas de Misión Rebelde representan prisioneros.\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).\r\n{-} Cuando una figura que transporta a un prisionero está en la Lanzadera, los Rebeldes reclaman al prisionero. Pulsa sobre las casillas resaltadas en rojo y selecciona \"Reclamar prisionero\"\r\n{-} Cuando los Rebeldes han reclamado a los 3 prisioneros, todos los Héroes están en la Lanzadera y hay 3 o menos figuras del bando Imperial en la Lanzadera, la lanzadera despega.\r\n{-} Los Rebeldes ganan cuando la Lanzadera despega.\r\n{-} Los Rebeldes pierden cuando todos los Héroes estén heridos.",
+          "GUID": "9f428ca2-054e-4e62-bd82-c91210b7ea1a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "All Prisoners Claimed",
+      "GUID": "d4e77d46-d2f7-430c-842b-77dbb3b57730",
+      "eventText": "Por fin logáis subir todos los prisioneros a bordo de la lanzadera. Ya solo queda deshacerse de los Imperiales. \r\n\r\n{-} Cuando todos los Héroes están en la Lanzadera y hay 3 o menos figuras del bando Imperial en la Lanzadera, pulsa sobre las casillas resaltadas en rojo y selecciona \"Despegar Lanzadera\" para finalizar la misión.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shuttle",
+              "GUID": "a4842df4-8d57-40cb-b25c-9cbabfd880bc",
+              "theText": "La lanzadera espera con los motores en marcha.\r\n\r\n{-} Cuando todos los Héroes están en la Lanzadera y hay 3 o menos figuras del bando Imperial en la Lanzadera, pulsa sobre las casillas resaltadas en rojo y selecciona \"Despegar Lanzadera\" para finalizar la misión.",
+              "buttonList": [
+                {
+                  "GUID": "9c104ab8-3716-4482-9f86-56fea02c3366",
+                  "theText": "Despegar Lanzadera (Fin de la misión)"
+                }
+              ]
+            }
+          ],
+          "GUID": "c26ac1ea-72c1-4142-8f5e-34e35203193f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "7692b006-4792-47d8-a266-43502df48b8e",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "381a3165-706d-493c-8a63-b3ddf490a6af",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "83f8b9f7-7b94-4412-829b-b157d7688926",
+      "mainText": "Esta puerta conduce al pasillo de la instalación. Los prisioneros deben estar en algún lugar tras ella.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.",
+      "buttonList": [
+        {
+          "GUID": "c6d34aa7-b002-4a7c-8547-b34e87708196",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "32c21c4f-d330-4854-a3f2-4edf60634a58",
+          "theText": "{A} Intentar abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "71c0e53d-ab8e-4f3a-b2e6-e92a7e37f361",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "e0d54d9e-2b64-4fa8-8f25-088603fdca28",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "73e5c1f4-e8d9-4069-bb88-c34ed857b200",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "3219f2ca-91f4-4a8f-a521-5460d3a82578",
+      "mainText": "Esta puerta da acceso a una diminuta celda de detención. Tras ella se oyen voces amortiguadas.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacar la puerta (Vida: *2*, Defensa: Ninguna). Un Héroe puede interactuar con la puerta (2 {K} o {I}) para tratar de abrirla.",
+      "buttonList": [
+        {
+          "GUID": "ebcfd55a-dbca-40bd-b48b-ed315a629bf0",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "acad6a96-c6a5-4aad-9ce6-64bcd351b290",
+          "theText": "{A} Intentar abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "14652dbb-dbe4-4e86-8dde-c1b4642e3b2e",
+      "mainText": "Esta puerta conduce a la lanzadera, lista para escapar.\r\n\r\n{-} La puerta está sellada. Una figura del bando Imperial puede atacar la puerta (Vida: *2*, Defensa: 2 {G}).\r\n{-} La puerta de la Lanzadera no bloquea el movimiento, líneas de visión, adyacencia o el recuento de casillas para las figuras del bando Rebelde adyacentes a ella.\r\n",
+      "buttonList": [
+        {
+          "GUID": "c4a9da97-ae35-4ec5-a5c7-64fea78f5367",
+          "theText": "Puerta destruida"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "3452217e-5e00-469a-b52e-a587e4d31d1a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Prisoner 1",
+      "GUID": "53666ee5-5652-402d-bb5f-c22a24a80742",
+      "mainText": "Mona Vash, una comerciante Arcaniana, parpadea ante la luz repentina y se cubre los ojos con la mano.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+      "buttonList": [
+        {
+          "GUID": "070b252f-ad2b-478c-8f3a-b606ffd45571",
+          "theText": "{A} Transportar"
+        }
+      ]
+    },
+    {
+      "entityName": "Shuttle",
+      "GUID": "0c499b3a-c95a-4ada-b0d9-66bd442fd086",
+      "mainText": "La lanzadera espera con los motores en marcha.\r\n\r\n{-} Cuando una figura que transporta a un prisionero está en la Lanzadera, los Rebeldes reclaman al prisionero. Pulsa sobre \"Reclamar Prisionero\".",
+      "buttonList": [
+        {
+          "GUID": "0cf0bbab-785d-4220-b475-d6574d1184db",
+          "theText": "Reclamar Prisionero"
+        }
+      ]
+    },
+    {
+      "entityName": "Prisoner 2",
+      "GUID": "136dee09-2345-4dfc-a461-bbc2d30a736c",
+      "mainText": "Boh Kallaak, un técnico de Muun, parece maltrecho y golpeado. Está demasiado débil para caminar.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+      "buttonList": [
+        {
+          "GUID": "af782714-8938-42d9-89dc-43d5d7169fcf",
+          "theText": "{A} Transportar"
+        }
+      ]
+    },
+    {
+      "entityName": "Prisoner 3",
+      "GUID": "2511d750-8f36-43db-8dd4-51dc7dd9d8fb",
+      "mainText": "Roggnar Dreek, un líder sindicalista Ugnaught, está encadenado a la pared aquí. Está herido, pero parece desafiante e inquebrantable.\r\n\r\n{-} Una figura del bando Rebelde puede transportar a un prisionero (y solo a uno).",
+      "buttonList": [
+        {
+          "GUID": "752e1b14-714f-4649-9967-7acf37f6b25f",
+          "theText": "{A} Transportar"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

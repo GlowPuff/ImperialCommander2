@@ -105,20 +105,35 @@ public class HelpPanel : MonoBehaviour
 
 		//uiHelpOverlay will be null if the help.json for the chosen language doesn't exist
 		var panelHelp = DataStore.uiLanguage.uiHelpOverlay?.helpOverlayPanels.Where( x => x.panelHelpID == helpOverlayID ).FirstOr( null );
+		var backupPanelHelp = DataStore.uiLanguage.uiHelpOverlayBackup?.helpOverlayPanels.Where( x => x.panelHelpID == helpOverlayID ).FirstOr( null );
 
 		if ( panelHelp != null )
 		{
 			string helpText = panelHelp.helpItems.Where( x => x.id == elementID ).FirstOr( null )?.helpText;
-			//format the text
-			//if ( !string.IsNullOrEmpty( helpText ) )
-			//{
-			//	string[] t = helpText.Split( ':' );
-			//	if ( t.Length == 2 )
-			//	{
-			//		t[0] = $"<b><color=yellow>{t[0]}</color></b>:";
-			//		helpText = t[0] + t[1];
-			//	}
-			//}
+			string helpTextBackup = backupPanelHelp?.helpItems.Where( x => x.id == elementID ).FirstOr( null )?.helpText;
+
+			if ( helpText != null )
+			{
+				var go = Instantiate( textBoxPrefab, textBoxPopupBase.transform );
+				var tb = go.transform.Find( "TextBox" ).GetComponent<TextBox>();
+				textBoxPopupBase.ShowNoZoom();
+				tb.Show( helpText, CloseTB );
+			}
+			else if ( helpTextBackup != null )
+			{
+				Utils.LogWarning( $"OnHelpRequest()::panelHelp [{helpOverlayID}]::helpText [{elementID}] wasn't found in the translation - using the English backup instead" );
+				var go = Instantiate( textBoxPrefab, textBoxPopupBase.transform );
+				var tb = go.transform.Find( "TextBox" ).GetComponent<TextBox>();
+				textBoxPopupBase.ShowNoZoom();
+				tb.Show( helpTextBackup, CloseTB );
+			}
+			else
+				Utils.LogWarning( $"OnHelpRequest()::panelHelp [{helpOverlayID}]::helpText [{elementID}] wasn't found in the translation or in the English backup" );
+		}
+		else if ( backupPanelHelp != null )
+		{
+			Utils.LogWarning( $"OnHelpRequest()::panelHelp [{helpOverlayID}]::helpText [{elementID}] wasn't found in the translation - using the English backup instead" );
+			string helpText = backupPanelHelp.helpItems.Where( x => x.id == elementID ).FirstOr( null )?.helpText;
 
 			if ( helpText != null )
 			{
@@ -128,10 +143,10 @@ public class HelpPanel : MonoBehaviour
 				tb.Show( helpText, CloseTB );
 			}
 			else
-				Utils.LogWarning( $"OnHelpRequest()::panelHelp [{helpOverlayID}]::helpText [{elementID}] is null" );
+				Utils.LogWarning( $"OnHelpRequest()::panelHelp [{helpOverlayID}]::helpText [{elementID}] wasn't found in the English backup" );
 		}
 		else
-			Utils.LogWarning( $"OnHelpRequest()::panelHelp [{helpOverlayID}] is null" );
+			Utils.LogTranslationError( $"OnHelpRequest()::panelHelp with ID=[{helpOverlayID}] wasn't found in the translation or in the English backup" );
 	}
 
 	/// <summary>

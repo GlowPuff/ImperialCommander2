@@ -11,7 +11,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle, roundLimitToggleOn, roundLimitToggleOff, roundLimitToggleDangerous, skipWarpIntroToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -25,12 +25,14 @@ public class SettingsScreen : MonoBehaviour
 	public HelpPanel graphicsHelpPanel;
 
 	Action<SettingsCommand> quitAction;
+	Action callbackAction;
 	bool toggleBusy;
 
-	public void Show( Action<SettingsCommand> onQuit, BiomeType btype = BiomeType.Menu )
+	public void Show( Action<SettingsCommand> onQuit, BiomeType btype = BiomeType.Menu, Action callback = null )
 	{
 		quitAction = onQuit;
 		biomeType = btype;
+		callbackAction = callback;
 		//remove return to title button only if we're already on the title screen
 		returnButton.SetActive( FindObjectOfType<TitleController>() == null );
 
@@ -67,6 +69,10 @@ public class SettingsScreen : MonoBehaviour
 		closeWindowToggle.isOn = PlayerPrefs.GetInt( "closeWindowToggle" ) == 1;
 		zoomToggle.isOn = PlayerPrefs.GetInt( "zoombuttons" ) == 1;
 		viewToggle.isOn = PlayerPrefs.GetInt( "viewToggle" ) == 1;
+		roundLimitToggleOn.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 1;//0=off, 1=on, 2=dangerous
+		roundLimitToggleOff.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 0;//0=off, 1=on, 2=dangerous
+		roundLimitToggleDangerous.isOn = PlayerPrefs.GetInt( "roundLimitToggle" ) == 2;//0=off, 1=on, 2=dangerous
+		skipWarpIntroToggle.isOn = PlayerPrefs.GetInt( "skipWarpIntro" ) == 1;
 		toggleBusy = false;
 
 		//set the translated UI strings
@@ -92,6 +98,7 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "musicVolume", musicWheelHandler.wheelValue );
 		PlayerPrefs.SetInt( "ambientVolume", ambientWheelHandler.wheelValue );
 		PlayerPrefs.SetInt( "soundVolume", soundWheelHandler.wheelValue );
+		PlayerPrefs.SetInt( "skipWarpIntro", skipWarpIntroToggle.isOn ? 1 : 0 );
 
 		PlayerPrefs.Save();
 
@@ -100,6 +107,7 @@ public class SettingsScreen : MonoBehaviour
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );
+			callbackAction?.Invoke();
 		} );
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
@@ -162,12 +170,29 @@ public class SettingsScreen : MonoBehaviour
 				c.CameraViewToggle( t.isOn ? CameraView.TopDown : CameraView.Normal );
 			}
 		}
+		else if ( t.name.ToLower() == "round limit on" )
+		{
+			PlayerPrefs.SetInt( "roundLimitToggle", 1 );
+		}
+		else if ( t.name.ToLower() == "round limit off" )
+		{
+			PlayerPrefs.SetInt( "roundLimitToggle", 0 );
+		}
+		else if ( t.name.ToLower() == "round limit dangerous" )
+		{
+			PlayerPrefs.SetInt( "roundLimitToggle", 2 );
+		}
+		else if ( t.name.ToLower() == "" )
+		{
+			PlayerPrefs.SetInt( "skipWarpIntro", t.isOn ? 1 : 0 );
+		}
 	}
 
 	public void OnQuit()
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
+		callbackAction?.Invoke();
 		quitAction?.Invoke( SettingsCommand.Quit );
 	}
 
@@ -178,6 +203,7 @@ public class SettingsScreen : MonoBehaviour
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );
+			callbackAction?.Invoke();
 			quitAction?.Invoke( SettingsCommand.ReturnTitles );
 		} );
 		cg.DOFade( 0, .2f );

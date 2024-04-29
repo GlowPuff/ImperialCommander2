@@ -1,0 +1,358 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Знай своего врага",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Возвращение на Хот",
+    "startingObjective": "",
+    "repositionOverride": "Заблокировать доступ к двери.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "18808fd0-d2e7-4814-af74-733c7b505609",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "1607e7fa-89b9-4aca-bcd3-6a671599bc17",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "5267e4ae-e358-4c94-8d8c-95cc16985eb4",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "ef139065-e423-4c8a-8980-096195e48d43",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Верена приводит вас к скрытому местоположению заброшенного аванпоста, где ждёт её брат. \"Мой брат - высокомерный и хвастливый человек.\" — говорит Верена, жестикулирует своим ножом. \"Но, к сожалению, он также полностью равен мне в мастерстве и технике. Не стоит его недооценивать.\"\r\n\r\n\"Я говорю вам это потому, что многие другие уже поступили так\" — говорит она, дотрагиваясь до шрама на своём лице — \"Включая меня.\"\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.\r\n{-} Задание продолжится, когда дверь будет открыта.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Разместите по 1 жетону имперской миссии на планшетах героев / картах дислокации повстанцев, которые были атакованы во время этой активации.",
+          "GUID": "61a923a7-4b0e-49a1-a0a0-55e9cec4a4e3",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "shortText": "Откройте дверь в командный центр.",
+          "longText": null,
+          "GUID": "d82deb18-88a6-4326-a5e9-0b16f5a32b07",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Задание продолжится, когда дверь будет открыта.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "ce423ad7-5c25-42d3-83cf-161691241d96",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Иван Талос лежит без чувств на земле, пока Верена связывает его. На её лице появляется такая редкая улыбка. \"Похоже, на этот раз я вышла победительницей, дорогой братец.\"\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Верена Талос получает карту награды \"Железная рука\".\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Злобный смех Ивана преследует вас, пока вы отступаете. \"Два очка в мою пользу, дорогая сестричка!\" — злорадствует он. Верена не разговаривает в течение нескольких дней, проводя всё своё свободное время за отрабатыванием боевых маневров и ругательствами себе под нос.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Face Off",
+      "GUID": "d034adad-9cb6-4563-b5c7-24365a0db1a8",
+      "eventText": "Иван Талос улыбается. \"Я рад, что ты пришла, сестрёнка. Было очень мило с твоей стороны позволить моим дроидам собрать всю эту информацию о твоих спутниках...\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "6d4080eb-6a1f-48e5-8fc5-01ca0b75f363",
+              "theText": "Старая дверь ведёт на заброшенный аванпост, где должен находиться Иван Талос.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+              "buttonList": [
+                {
+                  "GUID": "33065af6-8f11-43fe-9ed7-08a539473c79",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "6dabfa6b-0bb6-4452-b2ea-8990465b65bc",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "d7c075ee-7007-4e81-bd4d-7995f24c2f9c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ae4cab6f-c971-470d-a293-3dbb90e0a4e3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Ivan Talos",
+              "GUID": "1293cb76-bd3c-446c-86fd-6430cb9be0c4",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "54afa064-feb3-4879-9682-f198e4282c02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Жетон нейтрального задания — Иван Талос. Иван Талос является фигуркой Империи.\r\n{-} Если повстанческая фигурка с имперским жетоном на листе персонажа / карте дислокации атакует Ивана Талоса, добавьте +1{G} к результату защиты.",
+          "GUID": "7ee48502-b1e0-43c8-9126-3b63e3349a39",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "GUID": "1615cd73-6182-43f9-b953-c1fa138e0060",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Ivan Talos",
+          "repositionInstructions": "",
+          "surges": "{B}: +3 к точности\r\n{B}: Оглушение\r\n{B}: Концентрация\r\n{B}: +2{H}",
+          "bonuses": "АНАЛИЗ ОБОРОНЫ: Сбросьте 1 жетон имперской миссии с листа / карты ближайшего повстанца, у которого он есть. Иван Талос получает +2{g}.\r\nИМПРОВИЗАЦИЯ: Во время этой активации, Иван может использовать ПРОДВИНУТЫЙ БЛИЖНИЙ БОЙ на повстанческой фигурке без жетона имперской миссии на её листе / карте.\r\nАНАЛИЗ АТАКИ: Распределите X{h} как можно более равномерно между имперскими фигурками, находящимися в пределах 3 клеток от Ивана, где X — количество жетонов имперской миссии на листах героев.",
+          "keywords": "+1{G}\r\n+*1* к здоровью",
+          "abilities": "Знай своего врага: Если повстанческая фигурка с имперским жетоном на листе персонажа / карте дислокации атакует Ивана Талоса, добавьте +1{G} к результату защиты.",
+          "customText": "{Q} ПРОДВИНУТЫЙ БЛИЖНИЙ БОЙ: Передвинуться на 2 клетки чтобы взаимодействовать с повстанцем и сбросить 1 жетон имперской миссии с листа / карты этого повстанца. Выберите лучшее оружие, которое есть у этого повстанца, и выполните 2 атаки, используя выбранное оружие. \r\n{-} Если эта фигурка не выполнила ПРОДВИНУТЫЙ БЛИЖНИЙ БОЙ, сбросьте 1 жетон имперской миссии с листа / карты ближайшего повстанца, у которого он есть. Этот повстанец получает 2{C}.\r\n{A} ПРИКАЗ: Другая имперская фигурка со стоимостью 6 или меньше, которая может выполнить атаку, атакует {rebel}.\r\n{Q} Если эта фигурка не использовала ПРИКАЗ, передвинуться на 3 клетки чтобы атаковать {rebel}.\r\n{Q} Передвинуться на 1 клетку, чтобы атаковать {rebel}.\r\n{A} Передвинуться на 3 клетки, чтобы встретиться с другой имперской фигуркой, у которой осталось наибольшее количество очков здоровья.\r\n{A} Если эта фигурка не находится рядом с другой имперской фигуркой, передвинуться на 4 клетки для репозиции 5.\r\n{-} ЛОЖИСЬ: Если на клетке рядом находится другая имперская фигурка, восстановить 2{H}. Имперская фигурка без <color=\"red\">концентрации</color> на клетке рядом, которая имеет наибольшую стоимость, <color=\"red\">концентрируется</color>.",
+          "cardName": "Иван Талос"
+        },
+        {
+          "tbText": "Два телохранителя занимают позиции перед братом Верены.",
+          "GUID": "aa8a3c81-928c-4268-8089-3f99fadceab5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0a21624f-db09-4760-9e7e-89a24904cd29",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        },
+        {
+          "tbText": "Дерзко улыбаясь, Иван жестом подзывает сестру к себе.\r\n\r\n{-} Повстанцы победят, когда Иван Талос будет побеждён.",
+          "GUID": "4d76d6b9-a594-44e7-ae0f-c69a53e64fde",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Ivan Talos",
+              "GUID": "c44fed20-ecdc-4b44-9501-62e11d6dd62c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "66159288-e2e4-45a6-aa75-1fba105230ee",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Победите Ивана Талоса.",
+          "longText": null,
+          "GUID": "01daedf3-2336-4c69-9326-89695578d301",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Жетон нейтральной миссии — Иван Талос. Иван Талос является фигуркой Империи.\r\n{-} Если повстанческая фигурка с имперским жетоном на листе персонажа / карте дислокации атакует Ивана Талоса, добавьте +1{G} к результату защиты.\r\n{-} Повстанцы победят, когда Иван Талос будет побеждён.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "a2cbdbdc-a407-48e8-889a-c987a917070d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "9d42ca43-8411-4e8e-9797-2c2e027e35ae",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "35123c01-5506-4bc6-8bd7-f20964968dc9",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "1c8ead9b-40be-4b50-8145-ba84b3bdeed7",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HK1",
+      "GUID": "ea78719d-afa5-41f1-8c7b-85dc07544a49",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HK2",
+      "GUID": "cba28062-ab14-4ad6-83e3-693b6f7a386d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "a1724928-dfd2-482c-b800-215028355ea8",
+      "mainText": "Старая дверь ведёт в командный центр заброшенного аванпоста, где предположительно находится Иван Талос.\r\n\r\n{-} Дверь заперта для имперских фигурок.",
+      "buttonList": [
+        {
+          "GUID": "b1030db2-4d27-402c-8490-6d0c66166fb2",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Ivan Talos",
+      "GUID": "7072e103-9aae-4ecd-bc9a-4a5345bd8ee3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 1",
+      "GUID": "48306267-69bb-4784-9008-8b3746ce7369",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 2",
+      "GUID": "1236e287-5601-41b1-a739-880428eb8f6f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe Droid",
+      "GUID": "f2d7d473-a4e6-48c9-b194-73fb19964be9",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "HK Assassin Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

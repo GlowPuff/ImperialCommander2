@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Saga
@@ -73,8 +74,9 @@ namespace Saga
 			//restore heroes and allies
 			for ( int i = 0; i < DataStore.deployedHeroes.Count; i++ )
 			{
+				var hState = DataStore.sagaSessionData.MissionHeroes.Where( x => x.id == DataStore.deployedHeroes[i].id ).FirstOr( null )?.heroState;
 				var go = Instantiate( hgPrefab, heroContainer );
-				go.GetComponent<SagaHGPrefab>().Init( DataStore.deployedHeroes[i] );
+				go.GetComponent<SagaHGPrefab>().Init( DataStore.deployedHeroes[i], hState );
 			}
 		}
 

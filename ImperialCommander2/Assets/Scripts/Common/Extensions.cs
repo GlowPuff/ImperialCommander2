@@ -44,34 +44,22 @@ public static class Extensions
 
 	public static List<DeploymentCard> MinusEarnedVillains( this List<DeploymentCard> thisCD )
 	{
-		if ( DataStore.gameType == GameType.Classic )
-			return thisCD.Where( x => !DataStore.sessionData.EarnedVillains.ContainsCard( x ) ).ToList();
-		else
-			return thisCD.Where( x => !DataStore.sagaSessionData.EarnedVillains.ContainsCard( x ) ).ToList();
+		return thisCD.Where( x => !DataStore.sagaSessionData.EarnedVillains.ContainsCard( x ) ).ToList();
 	}
 
 	public static List<DeploymentCard> MinusIgnored( this List<DeploymentCard> thisCD )
 	{
-		if ( DataStore.gameType == GameType.Classic )
-			return thisCD.Where( x => !DataStore.sessionData.MissionIgnored.ContainsCard( x ) ).ToList();
-		else
-			return thisCD.Where( x => !DataStore.sagaSessionData.MissionIgnored.ContainsCard( x ) ).ToList();
+		return thisCD.Where( x => !DataStore.sagaSessionData.MissionIgnored.ContainsCard( x ) ).ToList();
 	}
 
 	public static List<DeploymentCard> MinusStarting( this List<DeploymentCard> thisCD )
 	{
-		if ( DataStore.gameType == GameType.Classic )
-			return thisCD.Where( x => !DataStore.sessionData.MissionStarting.ContainsCard( x ) ).ToList();
-		else
-			return thisCD.Where( x => !DataStore.sagaSessionData.MissionStarting.ContainsCard( x ) ).ToList();
+		return thisCD.Where( x => !DataStore.sagaSessionData.MissionStarting.ContainsCard( x ) ).ToList();
 	}
 
 	public static List<DeploymentCard> MinusReserved( this List<DeploymentCard> thisCD )
 	{
-		if ( DataStore.gameType == GameType.Classic )
-			return thisCD.Where( x => !DataStore.sessionData.MissionReserved.ContainsCard( x ) ).ToList();
-		else
-			return thisCD.Where( x => !DataStore.sagaSessionData.MissionReserved.ContainsCard( x ) ).ToList();
+		return thisCD.Where( x => !DataStore.sagaSessionData.MissionReserved.ContainsCard( x ) ).ToList();
 	}
 
 	public static List<DeploymentCard> MinusDeployed( this List<DeploymentCard> thisCD )
@@ -94,24 +82,12 @@ public static class Extensions
 
 	public static List<DeploymentCard> FilterByFaction( this List<DeploymentCard> thisCD )
 	{
-		if ( DataStore.gameType == GameType.Classic )
-		{
-			if ( DataStore.sessionData.includeImperials && !DataStore.sessionData.includeMercs )
-				return thisCD.Where( x => x.faction == "Imperial" ).ToList();
-			else if ( DataStore.sessionData.includeMercs && !DataStore.sessionData.includeImperials )
-				return thisCD.Where( x => x.faction == "Mercenary" ).ToList();
-			else
-				return thisCD.Where( x => x.faction == "Imperial" || x.faction == "Mercenary" ).ToList();
-		}
+		if ( DataStore.mission.missionProperties.factionImperial && !DataStore.mission.missionProperties.factionMercenary )
+			return thisCD.Where( x => x.faction == "Imperial" ).ToList();
+		else if ( DataStore.mission.missionProperties.factionMercenary && !DataStore.mission.missionProperties.factionImperial )
+			return thisCD.Where( x => x.faction == "Mercenary" ).ToList();
 		else
-		{
-			if ( DataStore.mission.missionProperties.factionImperial && !DataStore.mission.missionProperties.factionMercenary )
-				return thisCD.Where( x => x.faction == "Imperial" ).ToList();
-			else if ( DataStore.mission.missionProperties.factionMercenary && !DataStore.mission.missionProperties.factionImperial )
-				return thisCD.Where( x => x.faction == "Mercenary" ).ToList();
-			else
-				return thisCD.Where( x => x.faction == "Imperial" || x.faction == "Mercenary" ).ToList();
-		}
+			return thisCD.Where( x => x.faction == "Imperial" || x.faction == "Mercenary" ).ToList();
 	}
 
 	public static List<DeploymentCard> GetHeroesAndAllies( this List<DeploymentCard> thisCD )
@@ -224,5 +200,19 @@ public static class Extensions
 	{
 		var h = (rt.anchorMax.y - rt.anchorMin.y) * Screen.height + rt.sizeDelta.y;// * rt.GetCanvas().scaleFactor;
 		return h;
+	}
+
+	public static int FindIndexByProperty<T>( this Queue<T> queue, Func<T, bool> predicate )
+	{
+		int index = 0;
+		foreach ( var item in queue )
+		{
+			if ( predicate( item ) )
+			{
+				return index;
+			}
+			index++;
+		}
+		return -1; // Item not found
 	}
 }

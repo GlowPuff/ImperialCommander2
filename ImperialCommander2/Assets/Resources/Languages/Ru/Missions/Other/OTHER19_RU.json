@@ -1,0 +1,706 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Проникновение домой",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Набор \"Асока Тано (Подстрекатель мятежников)\"",
+    "startingObjective": "",
+    "repositionOverride": "Заблокировать поле зрения до лейтенанта Альфуса.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "f9d7926c-fd62-46c9-9983-1f492459b6b8",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "18d7e047-e2fe-4bfe-b1e2-2903e9c20d16",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "7522cf70-446b-453d-9bd3-d486aafb2f71",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "4e91c4b1-1e6c-4b6a-ab15-d4a564c6ab7d",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Вы осторожно проникаете в укреплённое, но все ещё богато украшенное здание.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.",
+      "eventActions": [
+        {
+          "tbText": "«Направляйтесь в его личные покои» — говорит Асока. «Я проберусь через базу и отключу системы охраны — не волнуйтесь, я вас догоню!»\r\n\r\n{-} Дислоцируйте <color=\"red\">Асоку Тано</color> вместе с героями.",
+          "GUID": "3590c825-0e0d-49d7-850d-8595ca0e8eba",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "customName": null,
+          "GUID": "efb43308-e933-47de-bdc9-06d065107a2a",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "Мужчина в офицерской форме удивленно поднимает взгляд, когда вы приближаетесь. \"Уничтожить эти мятежные отбросы!\" — кричит он.",
+          "GUID": "c45d7510-0480-45f6-bfb6-0d9761740730",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Лейтенант Альфус (имперский офицер)",
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "3d50290b-455e-438c-9e21-e06426a88c80",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "tbText": "{-} Дверь заперта. Когда лейтенант Альфус будет побеждён, дверь отпирается.\r\n{-} Задание продолжится, когда адмирал Ганн будет обнаружен.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "49d93a6d-5afe-40e8-88bb-2aeb3fc74b00",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Найдите адмирала Ганна.",
+          "longText": null,
+          "GUID": "c966c47a-46f8-439b-b3b0-8f5f38d1b00a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Дверь заперта. Когда лейтенант Альфус будет побеждён, дверь отпирается.\r\n{-} Задание продолжится, когда адмирал Ганн будет обнаружен.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "eadd1dc4-fa3e-4dd4-b014-f7f68c522bb5",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "После успешного отключения узла связи, Асока уверяет вас, что имперское подкрепление не прибудет — Ганн взят в плен. Она любезно благодарит вас за помощь и обещает помочь, если вы будете нуждаеться в ней.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Герои получают <color=\"red\">Асоку Тано</color> (Подстрекатель мятежников) в качестве союзника.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Битва становится слишком напряжённой, а Асоки нет и в помине; вы вынуждены бежать из резиденции через открытое окно. Проходя мимо тел двух других членов вашей ударной команды, вы осознаёте бессмысленность их смерти.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Каждый герой получает 1 ОО. Герои получают по 100 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Alphus Defeated",
+      "GUID": "fefb6ab4-73dd-4751-9c8b-c79d6ce538db",
+      "eventText": "Лейтенант Альфус падает под вашими атаками, и вы берёте кодовый цилиндр из его мундира.\r\n\r\n{-} Дверь теперь не заперта.",
+      "eventActions": [
+        {
+          "repositionText": "Заблокировать доступ к двери.",
+          "GUID": "429c19e1-de98-4ac2-8408-e9884f1374f4",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "988d3031-34ff-4c33-b244-fbb3031416e3",
+              "theText": "Богато украшенная дверь ведёт в личные покои адмирала Ганна.",
+              "buttonList": [
+                {
+                  "GUID": "916b98d7-3fea-4635-8d58-ea9569dbd916",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "833f2c91-6bcc-44f2-a6be-bfd5fd67cfdf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Задание продолжится, когда адмирал Ганн будет обнаружен.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "d2bb340a-41ae-4a35-8234-f09ffff5319d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "The Captain",
+      "GUID": "25047d2a-97c4-489d-ae9a-e118df0fce4c",
+      "eventText": "Дверь открывается в роскошный люкс, наполненный изысканной мебелью и дорогими произведениями искусства на стенах.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "2a03462d-03d3-4cf6-9098-c5a6b07efad4",
+              "theText": "Богато украшенная дверь ведёт в личные покои адмирала Ганна.\r\n\r\n{-} Дверь заперта. Когда лейтенант Альфус будет побеждён, дверь отпирается.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "e380107b-4773-4710-b4a6-aa44ee6105ee",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "572dc125-2b49-43ae-a36f-69785026dd64",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Человек в форме капитана направляет на вас свой бластер. \"Схватить их!\" — кричит он.",
+          "GUID": "86999271-a9f4-4948-b253-e3dd8cbf88da",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Капитан Байлан (имперский офицер)",
+          "customText": "",
+          "modification": "+*1* к здоровью",
+          "repositionInstructions": "",
+          "GUID": "f962cb5b-a094-4584-9c9d-2baf9732953c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "tbText": "{-} Дверь заперта. Когда капитан Байлан будет побеждён, дверь отпирается.",
+          "GUID": "cc91e9a8-c6e2-43a3-bf43-c8e193810610",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Капитана Байлана сопровождают несколько телохранителей.",
+          "GUID": "dab34b67-6e8c-452b-aff4-500652f444e3",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Заблокировать поле зрения до капитана Байлана.",
+          "GUID": "b2022ab7-84c0-4916-927b-66b7d75eda2c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Дверь заперта. Когда капитан Байлан будет побеждён, дверь отпирается.\r\n{-} Задание продолжится, когда адмирал Ганн будет обнаружен.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "0caf84d6-56dc-4bc9-b319-0c3e98166de5",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Beilan Defeated",
+      "GUID": "3bf53118-007e-482e-800e-4927afa602b6",
+      "eventText": "Капитан Байлан падает на колени. Вы наставляете на него свои бластеры, и он протягивает вам свой кодовый цилиндр, морщась прижимая руку к ране на боку.\r\n\r\n{-} Дверь теперь не заперта.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "824cb9e0-1595-4e54-b286-3e0c629a2a76",
+              "theText": "Взрывозащищённая дверь ведёт вглубь помещения. Сзади слышится прерывистая болтовня по коммуникатору.",
+              "buttonList": [
+                {
+                  "GUID": "95a7aa36-a50a-41f4-8d63-05d4799ba899",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "c4de1b46-cd9f-4206-9492-d533b8c4f45a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Заблокировать доступ к двери.",
+          "GUID": "9f2782ff-bf4b-4342-b771-014179a7e9fe",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Задание продолжится, когда адмирал Ганн будет обнаружен.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "e7717654-3b6c-4d38-82ba-2a34582e203e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "The Admiral",
+      "GUID": "7a64ae82-250b-4a43-a646-46f2a5410440",
+      "eventText": "За дверью находится оживленный узел связи с мигающими дисплеями консолей. Как только вы входите, вы слышите сигнал тревоги.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "4cd961bd-9ec1-4fc5-9262-13f7a36cc634",
+              "theText": "Взрывозащищённая дверь ведёт вглубь помещения. Сзади слышится прерывистая болтовня по коммуникатору.\r\n\r\n{-} Дверь заперта. Когда капитан Байлан будет побеждён, дверь отпирается.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "e5ce61b4-dfd1-48d4-a824-c5d31daf35b9",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "9683beb1-40a3-4a15-8380-eaf6dd4eebac",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Измождённый мужчина с жестоким выражением на лице бесстрастно наблюдает за вами. \"Вы вторглись в имперскую собственность, террористические отродья. Сдавайтесь сейчас, и, возможно, вас пощадят.\"",
+          "GUID": "9cd580a6-6233-4da5-8c36-5fe9d1e1e402",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Адмирал Ганн (<color=\"red\">имперский офицер</color>)",
+          "customText": "",
+          "modification": "+*2* к здоровью",
+          "repositionInstructions": "",
+          "GUID": "6b0d8137-bb5c-4d67-9169-7a40a4ed9c79",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Сигнализация управляется с главной консоли, надёжно защищённой дверью хранилища в конце коммутатора.\r\n\r\n{-} Дверь заперта. Когда адмирал Ганн будет побеждён, дверь отпирается.",
+          "GUID": "b5e73697-1495-4228-a46e-657d20e03988",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Солдаты поднимают своё оружие, когда вы приближаетесь к Ганну.",
+          "GUID": "29d12bb5-6c52-47b1-b9cd-72839176efe9",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Победите адмирала Ганна.",
+          "longText": null,
+          "GUID": "db2a1de5-2812-412a-9f9a-d25f495b84a5",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "repositionText": "Заблокировать поле зрения до адмирала Ганна.",
+          "GUID": "065c154e-3235-4c53-b424-03e4045ddc76",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Дверь заперта. Когда адмирал Ганн будет побеждён, дверь отпирается.\r\n{-} Задание продолжится, когда адмирал Ганн будет побеждён.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "8ba434bd-4254-4a35-bdf4-ab58255aee8b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Gann Defeated",
+      "GUID": "c49af78b-d296-4dbd-b7bd-9f6633352acc",
+      "eventText": "Адмирал Ганн отшатывается, роняет свой бластер и поднимает руки в знак капитуляции.  \"Вам не сойдёт это с рук, террористы!\" — рычит он.\r\n\r\nВы хватаете его за руку и толкаете к двери хранилища.\r\n\r\n{-} Дверь теперь не заперта.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "2cf5d98a-abd3-47aa-b677-b29562e4ce56",
+              "theText": "Прочная бронированная дверь защищает небольшое хранилище. Элементы управления коммуникационного узла должны быть где-то там.",
+              "buttonList": [
+                {
+                  "GUID": "50f1abde-7a95-461b-8c54-13ec4b5a23c5",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "02be9c42-1c32-4eb5-bea8-6d377a78e5e7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Заблокировать доступ к двери.",
+          "GUID": "90aeefe3-0200-41b0-aa67-06c104b1d665",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Откройте хранилище.",
+          "longText": null,
+          "GUID": "19365542-6399-4060-9d2a-d486f3978d4b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Задание продолжится, когда дверь хранилища будет открыта.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "f7c28353-2877-4d37-aa70-bac2dbb1b711",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Vault Opens",
+      "GUID": "c31bb201-85a1-4171-9b6f-0cb7e35a8152",
+      "eventText": "Дверь хранилища открывается. За ней видно небольшую комнату управления.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "3724e670-4556-48a3-95a7-f6f0ec726fbb",
+              "theText": "Прочная бронированная дверь защищает небольшое хранилище. Элементы управления коммуникационного узла должны быть где-то там.\r\n\r\n{-} Дверь заперта. Когда адмирал Ганн будет побеждён, дверь отпирается.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "89d03cc0-afe5-450b-9357-87387828cd62",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Главный коммуникационный пульт всё ещё посылает сигнал тревоги.",
+          "GUID": "408a0a2d-c97b-459d-acee-f01d382cc2d2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "f4a04518-cd51-471d-a230-15f5ba15b675",
+              "theText": "Главная консоль узла связи мигает, по её экранам бегут данные.\r\n\r\n{-} Здоровая повстанческая фигурка может взаимодействовать с терминалом ({I}), чтобы попробовать взломать его.",
+              "buttonList": [
+                {
+                  "GUID": "e4d5b5c1-b3e5-420e-9248-eec77b0d0981",
+                  "theText": "{A} Взломать"
+                }
+              ]
+            }
+          ],
+          "GUID": "72304da2-59f1-42d1-aba5-ed584f7ba8a0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Здоровая повстанческая фигурка может взаимодействовать с терминалом ({I}), чтобы попробовать взломать его.\r\n{-} Повстанцы победят, когда терминал будет взломан.",
+          "GUID": "638558ec-9360-4b85-a6f3-5dd25ed0d69b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Заблокировать доступ к терминалу.",
+          "GUID": "1ee21c0d-6b9c-49e0-bb8a-8d7407515cba",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Взломайте терминал.",
+          "longText": null,
+          "GUID": "64529ffd-1323-4a13-8c6a-2090a056cf99",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Здоровая повстанческая фигурка может взаимодействовать с терминалом ({I}), чтобы попробовать взломать его.\r\n{-} Повстанцы победят, когда терминал будет взломан.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "2c2478e1-968a-4429-8d39-363749f9a762",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Ahsoka Defeated",
+      "GUID": "23ea6740-62ac-4cd9-a138-a16061a3f017",
+      "eventText": "Выстрелы из бластеров обрушиваются на Асоку дождём, пока один из них наконец не попадает в неё, роняя на колени. Она с трудом поднимается на ноги, когда в неё попадает второй выстрел, снова отбрасывая её. \"Мне жаль\" — тяжело дыша произносит она, едва отразив третий выстрел своим световым мечом. \"Продолжайте, я попытаюсь увести нескольких из них!\"",
+      "eventActions": []
+    },
+    {
+      "eventName": "Ahsoka Leaves",
+      "GUID": "371cba6e-c7c3-43bd-87f9-b36cdfa0e202",
+      "eventText": "\"Ладно, мне нужно сделать еще несколько дел\" — говорит Асока. \"Увидимся позже, ребята.\" Асока прорезает решетку в потолке, прежде чем запрыгнуть в вентиляционный канал.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Ahsoka Returns 1",
+      "GUID": "dd2c910f-62ac-49cd-b5a0-7aa21468fb9d",
+      "eventText": "В комнату влетает вентиляционная решётка, и Асока спрыгивает вниз, зажигая световые мечи. \"Рада встретиться с вами снова, ребята!\" — говорит она, прежде чем переключить своё внимание на Байлана.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "f7bbe1e2-0bfc-4b9d-b29f-223d3332d5be",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        }
+      ]
+    },
+    {
+      "eventName": "Ahsoka Returns 2",
+      "GUID": "4e3fcb9a-bcd9-457c-8d2c-c1cd3cbbfc4b",
+      "eventText": "Светящиеся белые клинки прорезают стену узла связи, открывая ещё один вход, через который появляется Асока с мрачным выражением на лице. \"Давайте покончим с этим.\" Она направляет свои световые мечи на Ганна.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "9223adc8-283a-404c-b94a-5bfe0b0e65c5",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Slice",
+      "GUID": "66a1df90-fc9e-45c1-9d3a-cb42bfa8b344",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Вы быстро начинаете отключать коммуникационный концентратор.\r\n\r\n{-} Проверьте {I}. Прибавьте +1{B} за каждый жетон усталости на терминале, затем сбросьте все жетоны усталости с терминала. Введите количество успехов ниже.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "a5f0aa81-e5e5-4683-94fe-ea8328f7795a",
+              "theText": "Вы не добиваетесь никакого результата — запрос на подкрепление всё ещё не поступил. Вам нужно продолжать пытаться."
+            },
+            {
+              "GUID": "ebbbb382-cba1-47d9-a0f7-12ddf61e025d",
+              "theText": null
+            }
+          ],
+          "GUID": "ac33062e-caa2-4fe6-8147-28eabb113dc4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "a9da47c5-74d2-407b-bf96-fa31dc3ca679",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "edcbf2af-f4fd-4347-9d09-fc3801e2e31f",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "6fc64e20-aa3e-4043-b316-f4534546fe7a",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Sentry 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Sentry 2",
+      "GUID": "e93dc0ea-bac6-4878-b8eb-0d111ba97ccb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Alphus",
+      "GUID": "93b3905c-4093-491d-9dba-599ef8d7b82b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "71d61604-f1af-48be-88b0-fb4166625066",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "073582c1-89c9-4701-ac6f-ab88c171608d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "0d5a85cd-62f6-41ad-8438-56add3a72b13",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "aa5c6e13-ae44-4593-8b03-3baba0ba326c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black",
+      "GUID": "9b2822f0-0797-43e0-832d-913907ab9886",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "dbea885e-df8d-41bf-95a6-81da780638b9",
+      "mainText": "Богато украшенная дверь ведёт в личные покои адмирала Ганна.\r\n\r\n{-} Дверь заперта. Когда лейтенант Альфус будет побеждён, дверь отпирается.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "c0c58217-e0f5-4cf8-ada8-d18b312ba34f",
+      "mainText": "Взрывозащищённая дверь ведёт вглубь помещения. Сзади слышится прерывистая болтовня по коммуникатору.\r\n\r\n{-} Дверь заперта. Когда капитан Байлан будет побеждён, дверь отпирается.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "d5480507-173d-44bd-907f-81ff49ddaef0",
+      "mainText": "Прочная бронированная дверь защищает небольшое хранилище. Элементы управления коммуникационного узла должны быть где-то там.\r\n\r\n{-} Дверь заперта. Когда адмирал Ганн будет побеждён, дверь отпирается.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "4de1e8e8-bb13-4ae1-8f42-ccf6a13a2607",
+      "mainText": "Главная консоль узла связи мигает, по её экранам бегут данные.\r\n\r\n{-} Здоровая повстанческая фигурка может взаимодействовать с терминалом ({I}), чтобы попробовать взломать его.",
+      "buttonList": [
+        {
+          "GUID": "e699ed9d-da7b-43fc-86e2-b671496aacdb",
+          "theText": "{A} Взломать"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Beilan 1",
+      "GUID": "da6f8c0a-9d82-4b6b-8eb5-a9ee530e4925",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Beilan 2",
+      "GUID": "e1f8d8a5-b1c4-46a1-b15b-7dc2278d5138",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Beilan 3",
+      "GUID": "556dfc76-4f54-447b-ae37-a22e04378371",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Gann 1",
+      "GUID": "27d4db09-7c33-492a-8743-410e2e24c0aa",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Gann 2",
+      "GUID": "a43c0fea-54fc-4736-b4a4-71677d088b88",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Gann 3",
+      "GUID": "219fbe5a-ece6-4649-bd21-7144317a5c95",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Sentry Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

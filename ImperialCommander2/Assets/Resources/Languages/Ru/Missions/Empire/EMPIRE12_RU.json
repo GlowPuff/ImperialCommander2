@@ -1,0 +1,968 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Царство Тёмной стороны",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Сердце Империи",
+    "startingObjective": "",
+    "repositionOverride": "Заблокировать доступ к терминалам и дверям.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "68565780-1e95-4585-a81f-f8c2f4341f55",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "00651bca-0d47-4890-ada2-4e8cf3928f73",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "1c62f8f4-c5aa-409c-b6ba-60c111bf81e7",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "4596c463-99ed-49bb-b413-dfb9e9bfefc8",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Камера, в которую вас затащили имперцы, крошечная и тесная.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.",
+      "eventActions": [
+        {
+          "shortText": "Отключите терминалы безопасности (&Terminals claimed&/2).",
+          "longText": null,
+          "GUID": "ceaa7b20-49bc-44dc-9b73-939fcdd4a691",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Двери заперты.\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его. После чего, этот герой должен пройти проверку {I} или {J}. Если он проваливает проверку, {D} увеличивается.\r\n{-} Когда герои отключат оба терминала, дверь в храм разблокируется.\r\n{-} Задание продолжится, когда дверь в храм будет открыта.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "18326a5e-a7a9-477a-8fd5-5811b72fa096",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "tbText": "Проходя в очередной раз по своей камере, вы замечаете, что в стене внезапно открывается панель, через которую проталкивается ваше оружие и снаряжение. Через комлинк вы слышите голос Асоки Тано: \"Дверь в вашу камеру сейчас откроется. Но будьте осторожны, вокруг всё ещё есть охранники. Да пребудет с вами Сила.\"\r\n\r\nЧерез несколько мгновений после окончания передачи, дверь с шипением открывается перед вами.",
+          "GUID": "423ae455-e74f-4ebb-89b4-be29e970dec5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "0ab6421a-b784-46e7-9a97-91b9f80e7716",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "b0ea7ecd-74c6-41fc-9153-46ee4328152d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "\"Двери заперты, но где-то должны быть терминалы для отключения дверных замков\" — раздается голос Асоки из комлинка. \"Найдите их. Я встречусь с вами позже.\"",
+          "GUID": "cd60b71f-3e82-4370-8777-4e276fe4adfb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "48d01884-32d1-46a8-bbae-b9069f58ea65",
+              "theText": "Один из терминалов безопасности, управляющих дверьми.\r\n\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его.",
+              "buttonList": [
+                {
+                  "GUID": "29c7ca7b-bada-48ff-8930-95e7d16b1a39",
+                  "theText": "{A} Отключить"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 2",
+              "GUID": "82ca8a0e-3603-4635-b08d-6956612b60d8",
+              "theText": "Один из терминалов безопасности, управляющих дверьми.\r\n\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его.",
+              "buttonList": [
+                {
+                  "GUID": "f0b43024-61b9-484e-91bb-22d6bda9c8e9",
+                  "theText": "{A} Отключить"
+                }
+              ]
+            }
+          ],
+          "GUID": "956d66e8-a0a8-4e62-8de6-15cf950a2cbc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Двери заперты.\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его. После чего, этот герой должен пройти проверку {I} или {J}. Если он проваливает проверку, {D} увеличивается.\r\n{-} Когда герои отключат оба терминала, дверь в храм разблокируется.",
+          "GUID": "059c7b6d-f6bf-4f15-a365-42d398b948af",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Как и сказала вам Асока, охранники поджидают прямо за дверью.",
+          "GUID": "c5e84120-6451-4164-964f-2495fdd1a887",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f14bc802-ece4-4747-a0f0-3a7e68d9db9c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG047/Riot Trooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "29308220-d29e-4f09-8fb6-649a6e516da2",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG011/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0eca88e3-d0b9-4dbf-86f0-a8476bc4c782",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "\"И мы уходим!\" — кричит Асока, когда вы уноситесь прочь с Корусанта, оставляя разъяренного Императора и его ученика, Вейдера, позади. Уходя в гиперпространство, вы вздыхаете с облегчением.\r\n\r\nВ штаб квартире Альянса проводится праздник в вашу часть. Асока и другие лидеры восстания встречаются, чтобы изучить осколок сферы Бардоттана и решить его судьбу. В итоге было принято решение, что он слишком опасен для использования, но Асока убеждает остальных не уничтожать его.\r\n\r\nСобрана оперативная группа, и артефакт увезён в удалённый уголок галактики — даже вы не знаете его окончательного местонахождения. Впереди ещё долгая война, но вы можете быть спокойны, зная, что добились того, что осколок не будет использован во зло, и тем самым нанести сильный удар по Восстанию.\r\n\r\n{-} Повстанцы побеждают в кампании!",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Победоносный Император хихикает безрадостным смехом, пока вы опускаетесь перед ним на колени, не в силах пошевелиться. \"Какая жалость, глупые мятежники\" — усмехается он, держа в руке последний осколок сферы Бардоттана. \"Вы были полезными пешками в моих планах, и я должен поблагодарить вас за то, что вы сделали возможным приобретение мной этого мощного артефакта.\" В небе над вами, можно увидеть корабль Асоки, вынужденной отступить перед эскадрильей TIE-истребителей, оставив вас одних.\r\n\r\n\"Однако я боюсь, что вы всё ещё должны заплатить за свои преступления\" — говорит Император, когда солдаты приближаются к вам и связывают руки. \"Увести их\" — прохрипел Император своим солдатам. \"Мы покажем им последствия измены и подстрекательства к мятежу.\" Пока вас тащат к ожидающей тюремной барже, вы видите, что Палпатин уже изучает осколок, купаясь в его силе.\r\n\r\n{-} Повстанцы проигрывают в кампании.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Claim Terminal 1",
+      "GUID": "b873142b-945b-45be-9285-412c43b80134",
+      "eventText": "Вам удаётся взломать терминал и деактивировать его. Внезапно вы понимаете, что отключили некоторые протоколы безопасности.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "6b614b72-6c1d-4e59-ab2c-e5a44c05fd9a",
+              "theText": "Один из терминалов безопасности, управляющих дверьми.\r\n\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его.",
+              "buttonList": [
+                {
+                  "GUID": "5c7905e8-9f1b-4bb0-b652-1a3ffb090ef2",
+                  "theText": "{A} Отключить"
+                }
+              ]
+            }
+          ],
+          "GUID": "7f8d30c3-65d4-42f3-bbfe-c9c536677583",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "mainText": "Пройдите проверку {I} или {J}. Введите количество успехов ниже.",
+          "failText": "Вам удается отключить протокол безопасности до того, как сработает сигнал тревоги.",
+          "inputList": [
+            {
+              "GUID": "8e1e125b-a751-4b21-af66-96f9883b46e9",
+              "theText": "Вы деактивируете протоколы безопасности, но перед этим срабатывает какая-то сигнализация."
+            }
+          ],
+          "GUID": "16df14e1-f0ff-42f2-9cb6-64982e5b0894",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Claim Terminal 2",
+      "GUID": "07794d3e-40a7-4370-af5c-930d982b1f17",
+      "eventText": "Вам удаётся взломать терминал и деактивировать его. Внезапно вы понимаете, что отключили некоторые протоколы безопасности.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "51c7caf2-c7ba-4a3a-a4d5-7d412bc57a70",
+              "theText": "Один из терминалов безопасности, управляющих дверьми.\r\n\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его.",
+              "buttonList": [
+                {
+                  "GUID": "a65605d0-f15a-41d8-b286-7b33c27ef7f2",
+                  "theText": "{A} Отключить"
+                }
+              ]
+            }
+          ],
+          "GUID": "c1cc419e-0577-4b20-ae5a-d67cd4506b80",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "mainText": "Пройдите проверку {I} или {J}. Введите количество успехов ниже.",
+          "failText": "Вам удается отключить протокол безопасности до того, как сработает сигнал тревоги.",
+          "inputList": [
+            {
+              "GUID": "d7eae16e-bbff-46dd-85ab-0054f1ae3911",
+              "theText": "Вы деактивируете протоколы безопасности, но перед этим срабатывает какая-то сигнализация."
+            }
+          ],
+          "GUID": "a58b7e29-722a-457d-9baf-5789834085b3",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal Threat",
+      "GUID": "e5d77ff6-3b79-4a95-b6cf-d7633fbcb9cb",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Temple Door Unlocks",
+      "GUID": "f49ba977-f254-4090-a67d-57ea578be782",
+      "eventText": "Когда второй терминал выключается, вы слышите, как открывается тяжёлый замок на храмовой двери.\r\n\r\n{-} Дверь в храм больше не заперта.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Temple Door",
+              "GUID": "98a004be-fa38-4c10-acce-1bd1a06c0620",
+              "theText": "Прочная дверь ведёт в старый храм джедаев.",
+              "buttonList": [
+                {
+                  "GUID": "938fcae4-6312-4692-9e23-7ea1ebc01706",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "f424c8ad-3399-4c86-ae58-776cacc989ee",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Войдите в храм.",
+          "longText": null,
+          "GUID": "83d764de-76e6-4125-9802-bc3f3acb21d5",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Двери в офис заперты.\r\n{-} Задание продолжится, когда дверь в храм будет открыта.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "f3ae3870-29b5-4974-82ea-fb1323812bff",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Заблокировать доступ к дверям.",
+          "GUID": "5326e95e-8888-4d17-a35e-a1907f5ddac3",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Here to Help",
+      "GUID": "593a334b-f062-49b5-ab79-51787367790d",
+      "eventText": "\"Хорошая работа\" — говорит Асока через комлинк — \"но теперь начинается самая трудная часть.\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Temple Door",
+              "GUID": "f5c57452-a9f5-45bf-8b88-12eed1941e01",
+              "theText": "Прочная дверь ведёт в старый храм джедаев. Она накрепко заперта.\r\n\r\n{-} Когда герои отключат оба терминала, дверь в храм разблокируется.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "f2f286b2-f56f-477a-8574-a3ae4106b602",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "efad76ba-ce9a-4cc0-b48d-42968303a7bd",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Бывший джедай выпрыгивает на улицу, в то время как охранники занимают позиции.",
+          "GUID": "b5e7e84d-358a-499d-9c4d-3b3f6b9c7875",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "customName": null,
+          "GUID": "28626dc0-db13-451e-999d-cee134fe4f10",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "{-} Герои контролируют <color=\"red\">Асоку Тано</color> (Подстрекатель мятежников) в качестве союзника.",
+          "GUID": "daab6dc9-3657-4e45-882e-faf1e4d199c8",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "18d8f288-3f32-4881-bccd-65c11949a69f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG013/Probe Droid (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5fac065f-80ca-44e0-802d-29f46a96fd8a",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG050/Sentry Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "213e9432-e36c-4aee-bcf8-8e9a2a4c859b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        },
+        {
+          "tbText": "\"Доберитесь до офицеров\" — окликает вас Асока. \"У них есть коды, необходимые для того, чтобы добраться до Императора и закончить это!\"",
+          "GUID": "c67e1c42-419e-4ee2-9bb9-bcb55892eefa",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "15b0131f-9baf-4e50-b6f1-be9705d2961c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "144f32cd-0a5b-46b6-b984-a868597e0753",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b83787cf-dd85-43ba-9a61-42900d58bbda",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "{-} Когда все имперские офицеры будут побеждены, двери в офис разблокируются.\r\n{-} Задание продолжится, когда дверь в офис будет открыта.",
+          "GUID": "90a6899d-b5b3-4adb-9c60-4509afd3248d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Победите имперских офицеров (&Officers defeated&/3).",
+          "longText": null,
+          "GUID": "138bc361-18ea-47bf-b1f1-2e0c30f04b69",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Двери заперты.\r\n{-} Когда все имперские офицеры будут побеждены, двери в офис разблокируются.\r\n{-} Задание продолжится, когда дверь в офис будет открыта.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "35d95764-d1e9-469e-848e-23381ee2e2e8",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": null,
+          "GUID": "98ab1a58-7b14-445d-aa1a-2db2ae10bc93",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Office door unlocks",
+      "GUID": "00dc46bc-d0c1-4c0c-871d-82f53462444a",
+      "eventText": "Вы забираете кодовый цилиндр у последнего офицера. Путь в старый офис - и к осколку сферы Бардоттана - свободен.\r\n\r\n{-} Двери в офис больше не заперты.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Office Door 1",
+              "GUID": "6c7ecea1-749f-4fcc-bca8-3380ed2b1888",
+              "theText": "Дверь, похоже, ведёт в древний офис.",
+              "buttonList": [
+                {
+                  "GUID": "dedced0b-2ea8-4a78-acf6-02763399c670",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            },
+            {
+              "entityName": "Office Door 2",
+              "GUID": "c2e45bb6-0e82-474a-9f1e-35fb4182bd39",
+              "theText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+              "buttonList": [
+                {
+                  "GUID": "147e55da-6c77-49d9-bb4f-0e1c01894439",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            },
+            {
+              "entityName": "Office Door 3",
+              "GUID": "88cab2f0-205b-4d67-8410-873d3cb96f98",
+              "theText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+              "buttonList": [
+                {
+                  "GUID": "257a8e59-57a5-4bf8-bd0b-be9838eb505a",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "79b7fac3-d4c5-408a-bcd1-e5b99ac37c60",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Войдите в храм.",
+          "longText": null,
+          "GUID": "def26f80-b311-4cbc-9986-f289c3b0b685",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Office Door 1 opens",
+      "GUID": "a038dc23-281f-411d-9106-2f12160b4f86",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Office Door 1",
+              "GUID": "6b6e5d63-df13-4877-832b-7431be3cb31f",
+              "theText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "436e3781-f1eb-4e6f-b7fc-32f3c87ab280",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Office Door 2 opens",
+      "GUID": "bc26aa4c-3055-491b-b1c0-8396285267d6",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Office Door 2",
+              "GUID": "3d75b7bb-2ac5-41d4-a2eb-3debb94b60f8",
+              "theText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2bb258f6-0e8d-4e0c-96d2-bc25e2339b06",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Office Door 3 opens",
+      "GUID": "c7e2566f-cd49-4b38-8733-0ec55211686f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Office Door 3",
+              "GUID": "3a5e2929-2b2d-4dc3-87ee-899916205ba0",
+              "theText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "8528ad5d-0263-478f-adcd-24b5939fbe94",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Power of the Dark Side",
+      "GUID": "d1a748ec-aece-43c4-b466-cc80f5341d1c",
+      "eventText": "Как только дверь открывается, вас захватывает чувство страха.",
+      "eventActions": [
+        {
+          "tbText": "В древнем офисе находится Император Палпатин, глаза которого горят злобной яростью. \"Мощь осколка моя!\" — кричит он. \"ВСЁ МОЁ!\"",
+          "GUID": "cf0f9b1a-3aa3-4aa8-b3c4-eef45a542b7f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "{-} ИМПЕРАТОР: Другая имперская фигурка с наибольшей стоимостью, которая может атаковать, атакует {rebel}.\r\n{A} Если эта фигурка находится на расстоянии не менее 5 клеток от осколка, она движется на 3 клетки к осколку.\r\n{A} МОЛНИЯ СИЛЫ: Один повстанец в пределх 4 клеток получает 2{H} и становится <color=\"red\">ослабленной</color>. Если в пределах 2 клеток от цели есть другая повстанческая фигурка, повсторите эту инструкцию, направленную на этого повстанца. Ограничение — один раз на повстанца.\r\n{Q} Передвинуться на 2 клетки, чтобы атаковать {rebel}.\r\n{A} Передвинуться на 3 клетки к осколку.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f3b0797f-44a0-478e-a1e1-cd2ad92611e3",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG083/Emperor Palpatine"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Император Палпатин</color> не может быть побеждён.\r\n{-} Если <color=\"red\">Император Палпатин</color> получил 5 или более {H}, он восстанавливает 5{H} и на него кладётся жетон усталости.\r\n{-} Если <color=\"red\">Император Палпатин</color> получил 6 или более жетонов усталости, его активация ограничена.",
+          "GUID": "db2ad98d-ee2e-4ec2-b452-b8e042915c77",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Вы только что оправились от шока, вызванного присутствием Палпатина, когда услышали позади себя ужасающий шум механического дыхательного аппарата.",
+          "GUID": "4f10839c-d454-4bc2-8928-5d999322db8d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9a5877ef-1d6f-48ff-804a-318407519d1b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG072/Darth Vader"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0ca714ba-621b-4efa-87be-ef08530e6384",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "tbText": "Ваши руки дрожат, когда вы хватаетесь за оружие. Вот он, прямо рядом с Палпатином. Осколок сферы Бардоттана мягко светится в тусклых сумерках старого храма джедаев.",
+          "GUID": "d067d671-bb7c-45df-b02a-cdf26470a82d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bardottan Shard",
+              "GUID": "3a733730-8015-44b8-aa38-6d470bad60db",
+              "theText": "Осколок сферы Бардоттана мягко светится.\r\n\r\n{-} Герой может взаимодействовать с осколком, чтобы попробовать забрать его ({K} или {J}).",
+              "buttonList": [
+                {
+                  "GUID": "2b04e742-2a33-4a61-b2e6-4cfa52c29d07",
+                  "theText": "{A} Подобрать"
+                }
+              ]
+            }
+          ],
+          "GUID": "769ffc4d-7b4f-4b03-8369-8d6308ddaaf3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Жетон нейтрального задания — осколок. Герой может взаимодействовать с осколком, чтобы попробовать забрать его ({K} или {J}).\r\n{-} Если <color=\"red\">Император Палпатин</color> находитсяв пределах 4 клеток от осколка, примените -X{B} к результату, где X — это 4 минус количество жетонов усталости на <color=\"red\">Императоре Палпатине</color> (минимум — 0). Во время выполнения этой проверки, этот герой может получить 1{C}, чтобы перебросить до 2 кубиков.\r\n{-} Если герой обранивает осколок, герой может забрать его позже (без прохождения проверки).\r\n{-} Когда все герои будут находится рядом с путепроводом, и один из героев переносит осколок, герои улетают.\r\n{-} Повстанцы победят, когда герои улетят.",
+          "GUID": "0a8d4827-2ece-486c-97cd-9f4fe377d000",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Подобрать осколок.",
+          "longText": null,
+          "GUID": "ba6ca55b-c2d9-43cb-aeff-1c3db144deee",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} <color=\"red\">Император Палпатин</color> не может быть побеждён.\r\n{-} Если <color=\"red\">Император Палпатин</color> получил 5 или более {H}, он восстанавливает 5{H} и на него кладётся жетон усталости.\r\n{-} Если <color=\"red\">Император Палпатин</color> получил 6 или более жетонов усталости, его активация ограничена.\r\n{-} Жетон нейтрального задания — осколок. Герой может взаимодействовать с осколком, чтобы попробовать забрать его ({K} или {J}).\r\n{-} Если <color=\"red\">Император Палпатин</color> находитсяв пределах 4 клеток от осколка, примените -X{B} к результату, где X — это 4 минус количество жетонов усталости на <color=\"red\">Императоре Палпатине</color> (минимум — 0). Во время выполнения этой проверки, этот герой может получить 1{C}, чтобы перебросить до 2 кубиков.\r\n{-} Если герой обранивает осколок, герой может забрать его позже (без прохождения проверки).\r\n{-} Когда все герои будут находится рядом с путепроводом, и один из героев переносит осколок, герои улетают.\r\n{-} Повстанцы победят, когда герои улетят.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "487e04b1-1ddd-4a00-bb35-c377fe5bee58",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "tbText": "Асока, кажется, так же охвачена страхом, как и вы, но она делает глубокий вдох и поворачивается к возвышающейся фигуре Дарта Вейдера. \"Заберите осколок\" — бросает она через плечо. \"Я приведу свой шаттл, чтобы забрать вас!\"\r\n\r\nОна бросается к Вейдеру, который в предвкушении поднимает свой красный световой меч, но Асока не стремится к открытому столкновению. Она делает ложный выпад в сторону, обменивается несколькими быстрыми взглядами с ситхом, затем перепрыгивает через него и исчезает в направлении улицы и своего шаттла.\r\n\r\n{-} <color=\"red\">Асока Тано</color> отступает.",
+          "GUID": "bf4cdc37-aea3-4727-a383-ac01b1378bf7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Retrieve attempt",
+      "GUID": "069899f0-70b0-4903-8651-b84027d91ba6",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Пытаясь побороть зло, отталкивающее вас, вы тянетесь к осколку.\r\n\r\n{-} Пройдите проверку {K} или {J}. Прибавьте +1{B} за каждый жетон усталости на осколке, затем сбросьте все жетоны усталости с осколка.\r\n{-} Если <color=\"red\">Император Палпатин</color> находитсяв пределах 4 клеток от осколка, примените -X{B} к результату, где X — это 4 минус количество жетонов усталости на <color=\"red\">Императоре Палпатине</color> (минимум — 0). Во время выполнения этой проверки, вы можете получить 1{C}, чтобы перебросить до 2 кубиков.\r\n{-} Введите количество успехов ниже.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "94538a2d-e7c4-44c0-8a1b-7bf43b4d9da2",
+              "theText": "Вы кричите от боли, пытаясь сжать осколок в своей руке, но терпите неудачу. Вам нужно продолжать пытаться.\r\n\r\n{-} Разместите 1 жетон усталости на осколке за каждую выпавшую {B}."
+            },
+            {
+              "GUID": "dbb82c1b-e593-4dbd-8f02-11834fc0b81e",
+              "theText": "Вы кричите от боли, но умудряетесь схватить осколок."
+            }
+          ],
+          "GUID": "da120ee7-dfaf-48eb-97de-e037d5e7efd3",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Palpatine activation",
+      "GUID": "0692eda8-f251-4a46-90a1-138a2447b61d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "<color=\"red\">Император Палпатин</color> активируется.\r\n\r\nСколько жетонов усталости у <color=\"red\">Императора Палпатина</color>?",
+          "failText": "Императора не беспокоят ваши попытки остановить его.\r\n\r\n{-} <color=\"red\">Император Палпатин</color> активируется как обычно.",
+          "inputList": [
+            {
+              "GUID": "ff75808c-0222-457b-9e3d-8bcc67739442",
+              "theText": "Император отшатывается и хрипит от ярости, удивлённый вашей свирепостью.\r\n\r\n<color=\"red\">Император Палпатин</color> немедленно выполняет следующие инструкции:\r\n\r\n{A}{A} Уберите 1 жетон усталости с <color=\"red\">Императора Палпатина</color>.\r\n{-} Игнорируйте все бонусные эффекты, за исключением ИСКУШЕНИЯ и ТЁМНОЙ ЯРОСТИ. Игнорируйте все дальнейшие инструкции из его окна инструкций и завершите активацию.\r\n\r\n"
+            }
+          ],
+          "GUID": "acfc7df3-b9f6-4c8e-a8e1-972eb898c612",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Shard retrieved",
+      "GUID": "e99ae5e7-6c81-4dac-9a31-f0ce6b867911",
+      "eventText": "Нести осколок — всё равно что нести раскаленный свинец голыми руками, но вы отбираете его у императора. Палпатин рычит от гнева, но его голос заглушается звуками двигателя прибывшего шаттла Асоки. \"Сюда!\" — кричит Асока.",
+      "eventActions": [
+        {
+          "theText": "{-} <color=\"red\">Император Палпатин</color> не может быть побеждён.\r\n{-} Если <color=\"red\">Император Палпатин</color> получил 5 или более {H}, он восстанавливает 5{H} и на него кладётся жетон усталости.\r\n{-} Если <color=\"red\">Император Палпатин</color> получил 6 или более жетонов усталости, его активация ограничена.\r\n{-} Если герой обранивает осколок, герой может забрать его позже (без прохождения проверки).\r\n{-} Когда все герои будут находится рядом с путепроводом, и один из героев переносит осколок, герои улетают. Click the overpass highlight и выберите \"Эвакуация\".\r\n{-} Повстанцы победят, когда герои улетят.\r\n{-} Повстанцы проиграют, когда все герои будут ранены.",
+          "GUID": "f3a0fa30-f170-41af-9ea7-e05129389684",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Overpass Highlight",
+              "GUID": "5082a5db-c1b6-46b2-9726-fd47e4ef9068",
+              "theText": "Шаттл Асоки Тано завис прямо под путепроводом, готовый к отлёту, как только вы заберетесь внутрь.\r\n\r\n{-} Когда все герои будут находится рядом с путепроводом, и один из героев переносит осколок, нажмите \"Эвакуация\" для завершения задания.",
+              "buttonList": [
+                {
+                  "GUID": "6187862f-90d3-4cee-aa2c-dbbaf732e995",
+                  "theText": "Эвакуация"
+                }
+              ]
+            }
+          ],
+          "GUID": "77aaec67-ff30-42c3-8692-f9c695d2d671",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Когда все герои будут находится рядом с путепроводом, и один из героев переносит осколок, герои улетают. Нажмите на выделенную клетку путепровода и выберите \"Эвакуация\".",
+          "GUID": "cfa4a35e-7913-4584-b103-04d1d9b96bbb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Сбегите!",
+          "longText": null,
+          "GUID": "e4983025-8496-40bf-b21e-f41914dd1801",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "e0029078-4832-42a6-a9b8-35149b60204e",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "9915615d-e499-48dc-bdee-f251fdcb9c8b",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "c2f520a6-3a98-414e-92b2-c1365e6ada2a",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 2",
+      "GUID": "1fd3ac84-936e-4ac5-b618-c0260ea56636",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "4a469a88-7370-4285-b7e5-141d028c3447",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "6ced5b3e-3659-48c2-b595-fde6e4f36346",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "9493580c-b09c-423a-9b4e-dde8acf8d3bf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "10e05646-ba01-4eb1-ad90-56458a5be06e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "3926340e-eb82-42b7-a7ab-1ae84a23b38d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "e051ac9e-9da4-41cb-9944-c877278604e0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "7bc33271-afd0-45ef-87e3-b38103e689e6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black 1",
+      "GUID": "386503a0-485e-49f2-8662-e3049329ef5b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black 2",
+      "GUID": "0fef9e51-c888-43c2-99f1-25dbc61ce6e2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "dd6965f2-be8b-404a-bbed-79551ee0e080",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Streets",
+      "GUID": "009e978d-5954-4a62-b0f2-7aa5c48b3d07",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Bardottan Shard",
+      "GUID": "1b91bc2c-4335-4a5f-969a-8d3b0220142e",
+      "mainText": "Осколок сферы Бардоттана мягко светится.\r\n\r\n{-} Герой может взаимодействовать с осколком, чтобы попробовать забрать его ({K} или {J}).",
+      "buttonList": [
+        {
+          "GUID": "1042aea2-b46c-4215-9075-d4c8cffeff58",
+          "theText": "{A} Подобрать"
+        }
+      ]
+    },
+    {
+      "entityName": "Office Door 1",
+      "GUID": "c18b574c-5f06-4fc0-b0d9-32a2fa3a9ec2",
+      "mainText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Office Door 2",
+      "GUID": "cdef8b73-1d83-4c1e-86b3-cf81ffaf0c5c",
+      "mainText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Office Door 3",
+      "GUID": "7e961819-d188-4071-8ccb-e6e04b6e1812",
+      "mainText": "Дверь, похоже, ведёт в древний офис. Она накрепко заперта.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Overpass Highlight",
+      "GUID": "80ab5000-2827-4434-8f3d-17b321963b59",
+      "mainText": "Шаттл Асоки Тано завис прямо под путепроводом, готовый к отлёту, как только вы заберетесь внутрь.\r\n\r\n{-} Когда все герои будут находится рядом с путепроводом, и один из героев переносит осколок, нажмите \"Эвакуация\" для завершения задания.",
+      "buttonList": [
+        {
+          "GUID": "4414dcfc-6ba1-4a79-8012-77be32378b35",
+          "theText": "Эвакуация"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "899b9971-1207-4c59-be35-91958d895aa3",
+      "mainText": "Один из терминалов безопасности, управляющих дверьми.\r\n\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его.",
+      "buttonList": [
+        {
+          "GUID": "7636e2be-2f66-462e-87ee-8ada91179f99",
+          "theText": "{A} Отключить"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "1bb5bd78-6c25-454d-89f1-8fbff8aeae52",
+      "mainText": "Один из терминалов безопасности, управляющих дверьми.\r\n\r\n{-} Герой может взаимодействовать с терминаломом чтобы отключить его.",
+      "buttonList": [
+        {
+          "GUID": "7b8ea6c5-924d-48ce-bde3-79847943c16b",
+          "theText": "{A} Отключить"
+        }
+      ]
+    },
+    {
+      "entityName": "Temple Door",
+      "GUID": "8de5c2a8-cb69-4a8e-af28-09269de0170d",
+      "mainText": "Прочная дверь ведёт в старый храм джедаев. Она накрепко заперта.\r\n\r\n{-} Когда герои отключат оба терминала, дверь в храм разблокируется.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "09d4827a-64e4-4ef2-a997-5cbd460a82f5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Palpatine",
+      "GUID": "8b2376bb-7acb-41cb-8679-659ade49c5c0",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": []
+}

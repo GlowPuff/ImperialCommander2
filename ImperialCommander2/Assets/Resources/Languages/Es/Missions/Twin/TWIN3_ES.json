@@ -1,0 +1,638 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Enemigos de vidas pasadas",
+    "missionDescription": "",
+    "missionInfo": "{-} Una figura del bando Rebelde puede interactuar con <color=\"red\">C-3PO</color> desactivado para hacer que esté operativo. Mientras <color=\"red\">C-3PO</color> está operativo, es una figura del bando Rebelde y los Héroes lo controlan como un Aliado. Si <color=\"red\">C-3PO</color> es derrotado, no se marca como derrotado. Se descartan todos sus estados y fichas de Daño y queda desactivado, pero su figura permanece en el tablero.\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar las puertas y terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con una puerta o terminal para abrir esa puerta o descartar ese terminal.\r\n{-} La misión avanza cuando se abre una puerta.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+    "campaignName": "Sombras gemelas",
+    "startingObjective": "Entrar en el complejo. Opcional: Activar a <color=\"red\">C-3PO</color>.",
+    "repositionOverride": null,
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "433339b7-32b4-4493-941b-906bbfef5e87",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "f6db7fab-4786-42c8-8ffa-8f217e46a7fd",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "b76d0706-6fa3-4c56-87ca-d3c3b0d4071a",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "6a033355-36a3-4129-8525-de2dde40af5e",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Seguís avanzando por los callejones de Mos Eisley mientras intentáis manteneros alerta, ya que hay muchas cosas a las que estar atentos: el puesto imperial, sus guardias y C-3PO.\r\n\r\nCuando atacáis el complejo escondido, veis la brillante forma del droide de protocolo en el suelo entre una masa de soldados de guardia. Os lanzáis al combate, desesperados por entrar en la base y con la esperanza de que contenga respuestas sobre la presencia imperial en el planeta.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} La ficha de Misión Rebelde es <color=\"red\">C-3PO</color> desactivado. Mientras <color=\"red\">C-3PO</color> está desactivado, es una figura neutral que no bloquea líneas de visión.\r\n{-} Una figura del bando Rebelde puede interactuar con <color=\"red\">C-3PO</color> desactivado para hacer que esté operativo. Mientras <color=\"red\">C-3PO</color> está operativo, es una figura del bando Rebelde y los Héroes lo controlan como un Aliado. Si <color=\"red\">C-3PO</color> es derrotado, no se marca como derrotado. Se descartan todos sus estados y fichas de Daño y queda desactivado, pero su figura permanece en el tablero.\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar las puertas y terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con una puerta o terminal para abrir esa puerta o descartar ese terminal.\r\n{-} La misión avanza cuando se abre una puerta.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+      "eventActions": [
+        {
+          "repositionText": "Estar adyacente a un terminal.",
+          "GUID": "cefd81a0-04e4-4557-ba3c-7b0b615046a1",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "newInstructions": "{-} Interactúa con un terminal adyacente (límite de una vez por ronda por terminal).",
+          "GUID": "9619346b-a468-4c54-864d-6c4bb854a926",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Presionáis al comandante, pero antes de que podáis detenerle, sus tropas forman un círculo a su alrededor y le arrastran hasta ponerle a salvo. Tras eso, podéis saquear el puesto imperial libremente.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!",
+      "eventActions": [
+        {
+          "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
+          "buttonList": [
+            {
+              "GUID": "91bf1f15-b7a1-48c3-8f90-222a544ca0c7",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "e51cc5ee-9094-429f-98ba-4507223d0787",
+              "theText": "No"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Las fuerzas imperiales os superan ampliamente. Los soldados de asalto y su poderoso comandante presionan vuestra posición y os veis obligados a retiraros.\r\n\r\n{-} Los Rebeldes pierden la misión.",
+      "eventActions": [
+        {
+          "mainText": "¿Se ha jugado esta misión como parte de la mini campaña \"Sombras Gemelas\"?",
+          "buttonList": [
+            {
+              "GUID": "dc68ec37-1b14-43f8-878c-168a923b4343",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "65e3f749-f44d-4eb0-9554-5df404298f66",
+              "theText": "No"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "-¿Habéis encontrado algo interesante? -pregunta vuestro piloto a través del comunicador mientras abandonáis este pequeño puesto imperial-. Porque necesitamos encontrar información pronto. He descubierto por qué perdimos la comunicación con este planeta: resulta que hay un destructor estelar en órbita. Ni siquiera puedo conseguir que mi señal abandone la atmósfera del planeta sin que sea interceptada y codificada.\r\n\r\nCon una urgencia renovada, continuáis la búsqueda de respuestas. Encontráis información sobre un comandante imperial llamado Somos y registros de operaciones de vigilancia e intimidación en la zona, pero ninguna pista sobre el motivo de estas operaciones.\r\n\r\nFinalmente, encontráis los esquemas de otra base. Parece que el puesto que habéis registrado no era el centro de operaciones principal. Sentís una fuerte aprensión cuando comprendéis que la base principal se encuentra en medio del desierto de Jundland. Miráis a los dos soles de Tatooine, temerosos del viaje que os espera.\r\n\r\n{-} Cada Héroe recibe 3 PE.\r\n{-} Los Héroes reciben 300 créditos por Héroe.\r\n{-} La siguiente misión activa es \"Paso del cañón\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Obligados a retiraros, recogéis el cuerpo desactivado de C-3PO y escapáis del combate. Regresáis a vuestra pequeña base, pero es demasiado tarde; las fuerzas imperiales ya están allí y no os queda más remedio que esconderos mientras desmantelan vuestro refugio.\r\n\r\nCuando empiezan a salir, vuestro piloto os habla a través del comunicador.\r\n\r\n-Sé que estamos trabajando a ciegas, pero coged a los droides y seguid a esos soldados. Acabo de descubrir por qué perdimos el contacto en un primer momento. Un destructor estelar en órbita está bloqueando todas las señales rebeldes. ¡No sé qué más están tramando, pero será mejor que lo descubramos por nosotros mismos antes de que ocurra!\r\n\r\nSeguís su sugerencia y acecháis a los soldados de asalto sigilosamente. Muy a vuestro pesar, parece que se dirigen hacia una base en el implacable desierto de Jundland.\r\n\r\n{-} Cada Héroe recibe 2 PE.\r\n{-} Los Héroes reciben 300 créditos por Héroe.\r\n{-} La siguiente misión activa es \"Paso del cañón\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Cada Héroe recibe 1 PE.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Raider Ambush",
+      "GUID": "1b6fdb1b-681f-4e6f-8310-7d2aa1f7d3cd",
+      "eventText": "De repente, se oyen gritos y rugidos que vienen del extremo de la ciudad. Unos bandidos Tusken aparecen, llevando sus peligrosos bastones gaffi.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "c9409a05-b992-4534-b3ca-c435cbb92a07",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG021/Tusken Raider"
+        }
+      ]
+    },
+    {
+      "eventName": "Primary Function",
+      "GUID": "c7b5e96d-c6b2-4470-a2b5-6bd65fe5e624",
+      "eventText": "-¡Oh, vaya! ¿Qué ha ocurrido? -El droide de protocolo se tambalea, pero recupera el sentido rápidamente-. ¡Menos mal que estáis aquí! El comandante está dentro; he traducido los códigos de acceso por si los necesitáis. ¡Debemos darnos prisa antes de que lleguen más!\r\n\r\n{-} <color=\"red\">C-3PO</color> está operativo.\r\n{-} Mientras <color=\"red\">C-3PO</color> está operativo, es una figura del bando Rebelde y los Héroes lo controlan como un Aliado. Si <color=\"red\">C-3PO</color> es derrotado, no se marca como derrotado. Se descartan todos sus estados y fichas de Daño y queda desactivado, pero su figura permanece en el tablero.\r\n{-} Una figura del bando Rebelde puede interactuar con <color=\"red\">C-3PO</color> desactivado para hacer que esté operativo.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "C-3PO",
+              "GUID": "c5567973-a303-4525-aa98-c74779205c53",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "da33d5b2-ae76-4e4b-b977-8a35726c1aa4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "customName": null,
+          "GUID": "301ed2d1-1848-4fdf-8e7b-aa6c2c09a9cc",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        }
+      ]
+    },
+    {
+      "eventName": "The Commander",
+      "GUID": "01af9be8-bc61-418d-bd28-d7df9c17528d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Compound Door 1",
+              "GUID": "0a2f266d-beee-4420-b660-37528622bc10",
+              "theText": "Una puerta cerrada da acceso al complejo.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con la puerta para abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "d96d7b6d-1526-4ced-b987-4527e563b3ff",
+                  "theText": "Destruir / Descartar"
+                }
+              ]
+            },
+            {
+              "entityName": "Compound Door 2",
+              "GUID": "f0e8f956-1dd7-431f-b447-8c1ee14ab4d4",
+              "theText": "Una puerta cerrada da acceso al complejo.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con la puerta para abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "6e86d1a0-4ecb-4e24-8d19-4b30a425d322",
+                  "theText": "Destruir / Descartar"
+                }
+              ]
+            }
+          ],
+          "GUID": "c03f3cd9-b0ac-45f7-8f33-a6cd3430535f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "The Commander - Biv Yes",
+      "GUID": "87e75fdf-5dae-4988-8e1e-885341b0cbf3",
+      "eventText": "-¡Tú! -grita Biv mientras señala a un soldado de asalto condecorado y deteriorado por la guerra.\r\n\r\nEl vil Kayn Somos se alza sobre vosotros: el único soldado de asalto al que Biv no consiguió matar.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1*+1 Vida",
+          "repositionInstructions": "",
+          "GUID": "be995c23-0e00-456d-9e61-84d6b2705c6b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a8fae15f-aee3-45a0-b5be-88c6df444323",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Kayn Somos</color> recibe Vida adicional igual a 1 más una vez el nivel de amenaza (1+*1*).\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Kayn Somos</color> es derrotado.",
+          "GUID": "e2521a08-3fff-4df1-b535-787b1dba7a6f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Una figura del bando Rebelde puede interactuar con <color=\"red\">C-3PO</color> desactivado para hacer que esté operativo. Mientras <color=\"red\">C-3PO</color> está operativo, es una figura del bando Rebelde y los Héroes lo controlan como un Aliado. Si <color=\"red\">C-3PO</color> es derrotado, no se marca como derrotado. Se descartan todos sus estados y fichas de Daño y queda desactivado, pero su figura permanece en el tablero.\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Una figura del bando Rebelde puede atacar los terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con un terminal para descartarlo.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Kayn Somos</color> es derrotado.\r\n{-} Los Rebeldes pierden al cuando todos los Héroes están heridos.",
+          "GUID": "65176eef-fbd6-45c2-ad59-472674b7f567",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Derrotar a <color=\"red\">Kayn Somos</color>.",
+          "longText": null,
+          "GUID": "2f3ea816-5375-42ad-9eea-7d0bda9565a0",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Increase Threat",
+      "GUID": "2e136164-3950-4ead-85ae-1e4da4ce9bd3",
+      "eventText": "Los Imperiales consiguen pedir ayuda.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Destroy Terminal 1",
+      "GUID": "24c3ca2e-d7d1-4197-b87e-9138b46d7dd0",
+      "eventText": "La estación de comunicaciones estalla entre una lluvia de chispas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "d2a145fd-0721-4e17-af94-0fbe0c9a900e",
+              "theText": null,
+              "buttonList": [
+                {
+                  "GUID": "f52259ed-282f-46d7-ac69-996392fa05b9",
+                  "theText": "Aumentar {D}"
+                }
+              ]
+            }
+          ],
+          "GUID": "e732ccfd-4a3a-4c0d-bb55-85ab8b3c3bb2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 2",
+      "GUID": "9175c28f-2c91-42bd-bd7b-3a53caf40309",
+      "eventText": "La estación de comunicaciones estalla entre una lluvia de chispas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "40046232-db57-48d7-b6a7-887cf6a1df28",
+              "theText": "Hay una estación de comunicaciones cubierta de óxido en la esquina de una chatarrería.\r\n\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Una figura del bando Rebelde puede atacar los terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con un terminal para descartarlo.",
+              "buttonList": [
+                {
+                  "GUID": "09c77ad3-e6e1-47ed-84c5-302c7494c3c7",
+                  "theText": "Aumentar {D}"
+                },
+                {
+                  "GUID": "ce5fb849-62a5-4823-b34c-870b52c77fb0",
+                  "theText": "Destruir / Descartar"
+                }
+              ]
+            }
+          ],
+          "GUID": "f1d0e7fd-aa8c-40ab-80ae-8f7d03816f48",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Terminal 3",
+      "GUID": "6f9f44cc-b3b5-4fdb-966c-1018cd2a0a0c",
+      "eventText": "La estación de comunicaciones estalla entre una lluvia de chispas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 3",
+              "GUID": "7dc37cbc-e3f1-43c5-91bf-9a5157c1ef73",
+              "theText": "Se oye el suave zumbido del sistema de comunicaciones principal del complejo.\r\n\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Una figura del bando Rebelde puede atacar los terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con un terminal para descartarlo.",
+              "buttonList": [
+                {
+                  "GUID": "756745bd-41bd-4c8d-8ff8-ee3ae77cbdf7",
+                  "theText": "Aumentar {D}"
+                },
+                {
+                  "GUID": "ff2cdeca-dee0-4541-a335-ffdcd42131db",
+                  "theText": "Destruir / Descartar"
+                }
+              ]
+            }
+          ],
+          "GUID": "8125bac7-6634-44a3-a02f-273511267165",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "The Commander - Biv No",
+      "GUID": "491102b1-01eb-4340-bc5e-a5bfb5ea6b5d",
+      "eventText": "Cuando la puerta del complejo se abre, un enorme comandante de soldados de asalto se gira hacia vosotros. Os señala con calma: -Acabad con ellos.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1*+1 Vida",
+          "repositionInstructions": "",
+          "GUID": "b57884a3-2c86-4fc4-a810-95da61edd5c6",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "91757067-210b-463b-b2f7-924eb4e69df5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Kayn Somos</color> recibe Vida adicional igual a 1 más una vez el nivel de amenaza (1+*1*).\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Kayn Somos</color> es derrotado.",
+          "GUID": "7eca4721-da8b-4118-bb92-52d9582b33e5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Una figura del bando Rebelde puede interactuar con <color=\"red\">C-3PO</color> desactivado para hacer que esté operativo. Mientras <color=\"red\">C-3PO</color> está operativo, es una figura del bando Rebelde y los Héroes lo controlan como un Aliado. Si <color=\"red\">C-3PO</color> es derrotado, no se marca como derrotado. Se descartan todos sus estados y fichas de Daño y queda desactivado, pero su figura permanece en el tablero.\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Una figura del bando Rebelde puede atacar los terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con un terminal para descartarlo.\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Kayn Somos</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "eb30e61f-62d2-4f61-8248-1782b43b240f",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Derrotar a <color=\"red\">Kayn Somos</color>.",
+          "longText": null,
+          "GUID": "fe49de41-a152-482a-bbd0-77e4668ead6d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Biv present",
+      "GUID": "588ebdf2-eae4-4e69-84e0-86bae5060284",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission End Win Biv Yes",
+      "GUID": "8d136690-8242-4591-adac-afed87acf4e7",
+      "eventText": "Biv Bodhrik gana la carta de Recompensa \"Cazadlos\"",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission End Win Biv No",
+      "GUID": "dc97e4a6-749c-4fbf-8476-89eff649bc06",
+      "eventText": "Los Héroes reciben 150 créditos por Héroe",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission End Defeat",
+      "GUID": "26cb05e1-1f26-4267-832f-6a8cbd458571",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "58388344-ab0a-45bf-ab46-1fbde35847cb",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "6e7782e3-4187-40d3-a9d5-8302b91d3ad2",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "66b69a01-3885-496f-8c09-adf02f840700",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EWeb",
+      "GUID": "f62ba409-d378-4d30-9bcc-139a73ccb076",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "f011267c-f1cc-4de5-8953-ce83c6c2b78f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 1",
+      "GUID": "72569831-f206-4ad1-a8c1-119915386f2b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 2",
+      "GUID": "fb2b0b34-83dd-400b-bb8d-e7c455488a06",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "39f41620-a2a5-466d-880d-72106755535a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "985982ca-d69e-46eb-a4c9-0ff9dc522202",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "7feb4830-1cc0-4fa4-8525-44b8c1773e92",
+      "mainText": "Hay una estación de comunicaciones cubierta de polvo del desierto en la esquina de una chatarrería.\r\n\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Una figura del bando Rebelde puede atacar los terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con un terminal para descartarlo.",
+      "buttonList": [
+        {
+          "GUID": "86992dc1-f3c2-4531-b2c9-c02a47b5e8e1",
+          "theText": "Aumentar {D}"
+        },
+        {
+          "GUID": "832d801a-ed37-44b3-b5f7-df46673c3e61",
+          "theText": "Destruir / Descartar"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "56c18894-a7e1-4e2a-abc1-30870536d795",
+      "mainText": "Una vieja estación de comunicaciones está empotrada en las paredes del complejo.\r\n\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Una figura del bando Rebelde puede atacar los terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con un terminal para descartarlo.",
+      "buttonList": [
+        {
+          "GUID": "6dbc7762-bb50-45b2-aef0-d5150f520e22",
+          "theText": "Aumentar {D}"
+        },
+        {
+          "GUID": "7fa32f65-9218-4dc4-a271-ecfac5923f64",
+          "theText": "Destruir / Descartar"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 3",
+      "GUID": "e1df20fe-a27f-4470-9bf3-221236a4ddd8",
+      "mainText": "Se oye el suave zumbido del sistema de comunicaciones principal del complejo.\r\n\r\n{-} Una figura del bando Imperial puede interactuar con un terminal para aumentar la {D} en 1 cuando se indique. Cuando esto ocurra, pulsa sobre el terminal y selecciona \"Aumentar {D}\". Límite de una vez por terminal por ronda.\r\n{-} Una figura del bando Rebelde puede atacar los terminales (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con un terminal para descartarlo.",
+      "buttonList": [
+        {
+          "GUID": "f64587bc-4b24-4885-8829-06fe38eb63a0",
+          "theText": "Aumentar {D}"
+        },
+        {
+          "GUID": "66e81a8a-83fb-40f4-8429-c8a965ee22cb",
+          "theText": "Destruir / Descartar"
+        }
+      ]
+    },
+    {
+      "entityName": "Compound Door 1",
+      "GUID": "c5117e9b-38a1-4f6a-a7df-efcb201acfdd",
+      "mainText": "Una puerta cerrada lleva al complejo.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con la puerta para abrirla.",
+      "buttonList": [
+        {
+          "GUID": "7f2c1a09-f39a-49a9-8f23-53c50618050c",
+          "theText": "Destruir / Descartar"
+        }
+      ]
+    },
+    {
+      "entityName": "Compound Door 2",
+      "GUID": "3b9915b6-2c0d-4758-b947-657528b05118",
+      "mainText": "Una puerta cerrada lleva al complejo.\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *1*, Defensa: 1 {G}). <color=\"red\">C-3PO</color> puede interactuar con la puerta para abrirla.",
+      "buttonList": [
+        {
+          "GUID": "24450528-c6f0-4ccf-be03-c5c62b5ef3d2",
+          "theText": "Destruir / Descartar"
+        }
+      ]
+    },
+    {
+      "entityName": "C-3PO",
+      "GUID": "570bf9a6-8c3a-4824-8538-c362eebc9e31",
+      "mainText": "El cuerpo dorado de C-3PO parece maltrecho. El droide está desactivado.\r\n\r\n{-} Mientras <color=\"red\">C-3PO</color> está desactivado, es una figura neutral que no bloquea líneas de visión.\r\n{-} Una figura del bando Rebelde puede interactuar con <color=\"red\">C-3PO</color> desactivado para hacer que esté operativo.",
+      "buttonList": [
+        {
+          "GUID": "02fb302d-5fed-4a8b-88a6-d94ac1b7536e",
+          "theText": "{A} Encender"
+        }
+      ]
+    },
+    {
+      "entityName": "DP 3PO",
+      "GUID": "15dd3abc-81aa-4e23-81cf-479ad635a694",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "E-Web Engineer",
+      "customInstructions": ""
+    }
+  ]
+}

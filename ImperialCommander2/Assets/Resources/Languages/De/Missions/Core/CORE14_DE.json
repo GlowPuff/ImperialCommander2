@@ -1,0 +1,393 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Dunkle Besessenheit",
+    "missionDescription": "",
+    "missionInfo": "{-} <color=\"red\">Darth Vader</color> erhält +1 {G}.\n{-} <color=\"red\">Darth Vader</color> kann nicht von Rebellenfähigkeiten gestoßen werden.\n{-} Wenn <color=\"red\">Darth Vader</color> angegriffen wird, während er benachbart zu einem Sturmtruppler oder <color=\"red\">Sturmtruppler</color> ist, der das Ziel des Angriffs sein könnte, wird diese Figur zum Ziel des Angriffs.\n{-} Der rote Rebellen-Einsatzmarker stellt Luke Skywalker dar.\n{-} Einmal pro Aktivierung kann ein Held mit einem Terminal ({I}) interagieren, um die offene Tür zu schließen, die Luke am nächsten ist. Türen, die bereits geöffnet wurden, können nicht wieder geschlossen werden.\n{-} Türen werden verriegelt. Eine Figur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: 1 {G}).\n{-} Wenn alle Helden verwundet sind, kann <color=\"red\">Darth Vader</color> Luke angreifen.\n{-} Wenn <color=\"red\">Darth Vader</color> seine Aktivierung benachbart zu Luke beendet, greift er ihn an.\n{-} Die Rebellen gewinnen am Ende von Runde 6 oder wenn <color=\"red\">Darth Vader</color> besiegt wird.\n{-} Die Rebellen verlieren, wenn <color=\"red\">Darth Vader</color> Luke angreift.",
+    "campaignName": "Darth Vader (Lord der Sith) Figurenpack",
+    "startingObjective": "Haltet <color=\"red\">Darth Vader</color> von Luke fern.",
+    "repositionOverride": "Alle außer <color=\"red\">Darth Vader</color>, Sturmtruppen: Blockiere die Sichtlinie der Rebellen zu <color=\"red\">Darth Vader</color>.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "fa7ea3fe-e2bd-4cc4-af47-992f2b8c5233",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "c1fd9946-ba3e-4736-80c2-3c1ca3114202",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ef3e5fa6-a895-4def-96fa-a40b7f33392c",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Ihr begleitet Luke Skywalker bei einem geheimen Sabotageeinsatz. Das Ziel ist eine imperiale Befestigung, und eure Aufgabe ist es, den Helden der Rebellion zu bewachen. \n\nIhr haltet den Eingang der Anlage, als eine Nachricht eintrifft. \"Vader ist auf dem Weg! Sofort raus!\"",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "{-} Diese Figur legt jeden schädlichen Zustand ab und erleidet dann 1 {H} für jeden abgelegten Zustand. Wenn diese Figur besiegt werden würde, wird sie bis zum Ende dieser Aktivierung nicht besiegt.\n{Q}{A} BRUTALITÄT: Bewegung 4, um benachbart zu 2 oder mehr Rebellen zu sein. Dann greife jeden benachbarten Rebellen an.\n{Q} Bewegung 4, um {R1} anzugreifen.\n{A} MACHTWÜRGEGRIFF: Bewegung 2 auf {R1} zu. Dann erleidet {R1} 2 {H} und 1 {C}.\n{A} Bewegung 6 auf {R1} zu.\n{-} MACHTZUG: Platziere die beiden nächstgelegenen Sturmtruppler oder <color=\"red\">Sturmtruppler</color> benachbart zu dieser Figur.",
+          "modification": "+1 {G}",
+          "repositionInstructions": "",
+          "GUID": "bbaf2b80-a12f-4a4d-ae45-c865db559b70",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG072/Darth Vader"
+        },
+        {
+          "repositionText": "Sei benachbart zu <color=\"red\">Darth Vader</color>.",
+          "GUID": "f2842974-39f2-4a2f-a259-6d35390db780",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "{-} <color=\"red\">Darth Vader</color> erhält +1 {G}.\n{-} <color=\"red\">Darth Vader</color> kann nicht von Rebellenfähigkeiten gestoßen werden.\n{-} Wenn <color=\"red\">Darth Vader</color> angegriffen wird, während er benachbart zu einem Sturmtruppler oder <color=\"red\">Sturmtruppler</color> ist, der das Ziel des Angriffs sein könnte, wird diese Figur zum Ziel des Angriffs.\n{-} Der rote Rebellen-Einsatzmarker stellt Luke Skywalker dar.\n{-} Einmal pro Aktivierung kann ein Held mit einem Terminal ({I}) interagieren, um die offene Tür zu schließen, die Luke am nächsten ist. Türen, die einmal geöffnet wurden, können nicht wieder geschlossen werden.\n{-} Türen werden verriegelt. Eine Figur kann eine Tür angreifen (Gesundheit: 5, Verteidigung: 1 {G}).\n{-} Wenn alle Helden verwundet sind, kann <color=\"red\">Darth Vader</color> Luke angreifen.\n{-} Wenn <color=\"red\">Darth Vader</color> seine Aktivierung benachbart zu Luke beendet, greift er ihn an.\n{-} Die Rebellen gewinnen am Ende von Runde 6 oder wenn <color=\"red\">Darth Vader</color> besiegt wird.\n{-} Die Rebellen verlieren, wenn <color=\"red\">Darth Vader</color> Luke angreift.\n{-} Stelle die Helden auf dem blau hervorgehobenen Feld auf.",
+          "GUID": "b46690e4-0eed-42a1-aacb-a69e1156cb93",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Hinter euch dröhnt der Lärm einer Explosion durch den Gang. Luke meldet sich über euer Comlink: \"Ich bin hier hinten fertig und habe einen anderen Ausgang für uns geöffnet. Folge mir nach draußen!\"\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Von weiter hinten im Gang hört ihr Luke schreien. Ihr stürmt hinein und seht Vader, der über einem entwaffneten und besiegten Skywalker steht. Als der Dunkle Lord näher kommt, sprengt ihr ein Loch nach draußen. Während Vader durch die Explosion abgelenkt ist, schnappt ihr euch Luke und hechtet durch das Loch in der Wand, während um euch herum Blasterfeuer niedergeht.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Das Imperium erhält <color=\"red\">Darth Vader</color> (Herr der Sith) als Schurken.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Outer Door",
+      "GUID": "8c6180fd-ca09-4702-bd86-9ef4bb5e9f8f",
+      "eventText": "Die Tür bricht zusammen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outer Door",
+              "GUID": "309d3ebc-ea64-48e4-8004-98ab3f1d9d41",
+              "theText": "Die äußere Tür führt tiefer in die Anlage, zu Luke. Sie wird Darth Vader nicht lange standhalten.\n\nDie Tür ist verriegelt. Eine Figur kann sie angreifen (Gesundheit: 5, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "5f09d976-889a-432d-bcfb-44fb7cc92967",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "f7b125d1-360f-402b-b8c1-b52dd9377117",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Outer Door",
+      "GUID": "732f6f98-e9ad-446b-aa1d-c107236a3343",
+      "eventText": "Die Tür knallt zu und schützt Luke - für den Moment. Sie wird dem Ansturm nicht lange standhalten.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outer Door",
+              "GUID": "bf3e985b-7076-44bd-811a-d4d252bf62c8",
+              "theText": "Die äußere Tür führt tiefer in die Anlage, zu Luke. Sie wird Darth Vader nicht lange standhalten.\n\nDie Tür ist verriegelt. Eine Figur kann sie angreifen (Gesundheit: 5, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "5f16da22-62ba-43a7-bb13-b435d2df5358",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "6810a3e4-5576-4d79-9900-da3c833781f1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Inner Door",
+      "GUID": "936b12bf-db4c-4b98-842e-f8b165432a85",
+      "eventText": "Die Tür fliegt auf und schreckt Luke auf, der von seiner Arbeit aufschaut.\n\n\"Beschäftigt ihn!\", schreit er. \"Ich brauche nur noch eine Minute!\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Inner Door",
+              "GUID": "41ca60c0-daad-4491-b647-2810fa69121c",
+              "theText": "Direkt hinter der inneren Tür liegt der Raum, in dem Luke versucht, die Anlage zu sabotieren.\n\nDie Tür ist verriegelt. Eine Figur kann sie angreifen (Gesundheit: 5, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "6f94bb21-0e6e-48cf-8f6d-ca9bff2d7aeb",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "b4f37196-a497-4c40-b039-4ca75b950b49",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Inner Door",
+      "GUID": "fc04bc99-4637-44f2-8a96-2a9fe9e930df",
+      "eventText": "Die Tür knallt zu und schützt Luke - für den Moment. Sie wird dem Ansturm nicht lange standhalten.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Inner Door",
+              "GUID": "87686079-92f9-43a8-aa4d-2fa9fbb9b4cf",
+              "theText": "Direkt hinter der inneren Tür liegt der Raum, in dem Luke versucht, die Anlage zu sabotieren.\n\nDie Tür ist verriegelt. Eine Figur kann sie angreifen (Gesundheit: 5, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "56629b57-7531-4072-ba8d-e5c65a89b4bc",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "4edef6fd-5edd-4261-858a-31c2ca090c68",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "All Heroes Wounded",
+      "GUID": "72b8e023-a13f-4a6a-9118-c0dd1983778a",
+      "eventText": "Als der letzte von euch sich verletzt zurückfallen lässt, ertönt von den imperialen Truppen ein Siegesruf.\n\nDarth Vader jedoch schweigt, bis auf das mechanische Atmen und das Summen seines Lichtschwerts. Anstatt euch den Rest zu geben, wendet er seine Aufmerksamkeit sofort Luke zu.\n\n{-} <color=\"red\">Darth Vader</color> kann jetzt Luke angreifen.\n{-} Wenn <color=\"red\">Darth Vader</color> seine Aktivierung benachbart zu Luke beendet, greift er ihn an.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Diese Figur legt jeden schädlichen Zustand ab und erleidet dann 1 {H} für jeden abgelegten Zustand. Wenn diese Figur besiegt werden würde, wird sie bis zum Ende dieser Aktivierung nicht besiegt.\n{A} Bewegung 4 in Richtung des Sabotageplatzes.\n{A} Öffne eine Tür innerhalb von 3 Feldern um diese Figur.\n{A} Bewegung 4 in Richtung des Sabotageplatzes.\n{-} MACHTZUG: Platziere die beiden nächstgelegenen Sturmtruppler oder <color=\"red\">Sturmtruppler</color>benachbart zu dieser Figur.\n{-} Greife Luke an.",
+          "GUID": "089b7e67-ca7e-43a7-8a78-663e92c5f2ad",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Luke Skywalker",
+              "GUID": "4f556654-8057-4596-a30f-b31c159eb84f",
+              "theText": "Luke Skywalker versucht hektisch, seine Arbeit zu beenden. Er weiß, dass Vader ihm dicht auf den Fersen ist.\n\n{-} Wenn <color=\"red\">Darth Vader</color> seine Aktivierung benachbart zu Luke beendet, greift er ihn an.",
+              "buttonList": [
+                {
+                  "GUID": "ae1c976e-0e81-4be1-9d9a-85b2bc540edf",
+                  "theText": "Angriff auf Luke"
+                }
+              ]
+            }
+          ],
+          "GUID": "3d50cdf3-5437-4061-a218-bb452e0de08d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal inactive",
+      "GUID": "ae8e4014-4dca-422a-b20f-cff802d83794",
+      "eventText": "Die Türen können nicht wieder geschlossen werden.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal",
+              "GUID": "e8099175-c5ee-4909-a5a9-740ae5885b09",
+              "theText": "Das Terminal ist jetzt nutzlos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bf3a2f63-b4d3-4e16-8099-7b465c4c3e54",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Security Breach",
+      "GUID": "e7582cfd-c7ae-4831-97c0-91ff8af2dca9",
+      "eventText": "Überall in der Station schrillen Alarmsignale, und weitere imperiale Soldaten werden auf eure Anwesenheit aufmerksam gemacht. Eine neue Gruppe von Sturmtruppen stürmt herein, um Vader bei seinem Vormarsch zu unterstützen.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dde9c01f-02a0-4bba-bfa3-11268ed1ce1f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "Power of the Dark Side",
+      "GUID": "c0f7a89b-1d57-4f86-baf1-9ee8cd1a5676",
+      "eventText": "Während sich Vaders Wut steigert, spürst du, wie sich eine dunkle Energie um euch herum aufbaut, denn der Sith-Lord manipuliert die dunkle Seite der Macht zu seinem Vorteil.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "3373fecb-9138-4f6e-bcec-b4782dc98997",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "6259579a-437b-4177-820a-ffc2a6dfc1a8",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Vader",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "45be4ca8-b6a7-4685-aa29-bbf28d60ef60",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "0f224098-3061-4955-8eaf-dca23d59f052",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "2f1cdb7d-56bb-4b61-9ce3-4a8625216eba",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Outer Door",
+      "GUID": "ef73d503-8f0e-4768-8b4b-3e1570c68d1f",
+      "mainText": "Die äußere Tür führt tiefer in die Anlage, zu Luke.\n\nDie Tür ist verriegelt. Eine Figur kann sie angreifen (Gesundheit: 5, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "6d4cd8ed-f070-433b-87ca-81ea20501f8d",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Inner Door",
+      "GUID": "72b5929e-b47b-46c8-852f-2a82a12f67a2",
+      "mainText": "Direkt hinter der inneren Tür liegt der Raum, in dem Luke versucht, die Anlage zu sabotieren.\n\nDie Tür ist verriegelt. Eine Figur kann sie angreifen (Gesundheit: 5, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "b6bca997-cb00-42e3-9073-b0c80d8a6b11",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Luke Skywalker",
+      "GUID": "a86f044a-bce5-4201-b5a7-d2879b7cdd0e",
+      "mainText": "Luke Skywalker versucht hektisch, seine Arbeit zu beenden.\n\n{-} Wenn alle Helden verwundet sind, kann <color=\"red\">Darth Vader</color> Luke angreifen.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "dd0d7fc1-f7a9-4321-9c5a-06918c372689",
+      "mainText": "Dieses Terminal steuert die Türen.\n\n{-} Einmal pro Aktivierung kann ein Held mit einem Terminal ({I}) interagieren, um die offene Tür zu schließen, die Luke am nächsten ist. Türen, die einmal geöffnet wurden, können nicht wieder geschlossen werden.\n{-} Jede Tür kann nur einmal geschlossen werden. Wenn sie erneut geöffnet wird, wird sie zerstört und kann nicht mehr geschlossen werden.",
+      "buttonList": [
+        {
+          "GUID": "9d5abea4-b6a0-4b81-bd8e-fc9b672b0b81",
+          "theText": "{A} ({I}) Äußere Tür schließen"
+        },
+        {
+          "GUID": "dd54ebd6-03d8-4bff-a60c-3faf602e3ac7",
+          "theText": "{A} ({I}) Innere Tür schließen"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

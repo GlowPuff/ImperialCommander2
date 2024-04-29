@@ -1,0 +1,795 @@
+{
+  "languageID": "Russian (RU)",
+  "missionProperties": {
+    "missionName": "Враги приближаются",
+    "missionDescription": "",
+    "missionInfo": "{-} Двери заперты для имперцев.\r\n{-} Нейтральные жетоны заданий — тайники. Герой может взаимодействовать с тайником, чтобы обследовать его, сбросив жетон. После этого, герой проходит проверку {J}. При успехе, он получает 2 очка движения.\r\n{-} Задание продолжится когда все тайники будут обследованы.\r\n{-} Задание закончится, когда все герои будут ранены.",
+    "campaignName": "Сердце Империи",
+    "startingObjective": "",
+    "repositionOverride": "Заблокировать доступ к тайникам.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7f61ca9b-240d-4600-8029-cc1aa1b85fba",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "75894695-4d9b-412a-8060-d06cc4ce9240",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "36230cf3-4dc7-4db6-bbcb-9d74d7950617",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "14b2b6e4-d2ce-4a7a-b14b-3ce20d744695",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Вы роетесь в припасах и берёте всё, что кажется полезным.\r\n\r\nВозьмите карту снабжения. Вы получаете 1 медпак. Заберите этот жетон.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "ea16fae8-eab3-461d-8084-816602987843",
+              "theText": "Старый ящик с припасами.",
+              "buttonList": [
+                {
+                  "GUID": "f1b9318c-c613-4552-aa80-49883c97351e",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Под покровом ночи вы приближаетесь к заброшенному храму джедаев. Когда вы входите в здание, вы сразу же ощущаете мощь Силы внутри него.\r\n\r\n{-} Дислоцируйте героев на выделенную синим клетку.\r\n{-} Двери заперты для имперцев.",
+      "eventActions": [
+        {
+          "tbText": "В тусклом полумраке храма вы понимаете, что есть множество мест, где мог бы быть спрятан осколок.",
+          "GUID": "cf2f5204-d390-4442-996b-699151e1576d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hiding Place 1",
+              "GUID": "e4ea4c76-fb76-4c34-ad10-9ada590bb083",
+              "theText": "Рядом с фонтаном есть тёмный угол, похоже, там мог бы быть спрятан осколок.",
+              "buttonList": [
+                {
+                  "GUID": "33d99a41-ae0e-447e-8eeb-7aec67ffeea7",
+                  "theText": "{A} Обследовать"
+                }
+              ]
+            },
+            {
+              "entityName": "Hiding Place 2",
+              "GUID": "78934a4d-0e95-484a-8901-519b1c2f6dfa",
+              "theText": "Часть стены обрушилась под бластерным огнём, возможно, что-то погребя под собой.",
+              "buttonList": [
+                {
+                  "GUID": "fc448921-252c-4beb-9f7c-65d61777d9f3",
+                  "theText": "{A} Обследовать"
+                }
+              ]
+            },
+            {
+              "entityName": "Hiding Place 3",
+              "GUID": "7279645a-b816-40b9-8c0e-37f579576255",
+              "theText": "Рядом с перекрёстком свалена в кучу старая мебель.",
+              "buttonList": [
+                {
+                  "GUID": "97f8c9c2-00b7-4c96-86cc-d765a6ff8b2d",
+                  "theText": "{A} Обследовать"
+                }
+              ]
+            }
+          ],
+          "GUID": "bf6840d3-04b1-45d0-91cd-e7a164c23e1a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Нейтральные жетоны заданий — тайники. Герой может взаимодействовать с тайником, чтобы обследовать его, сбросив жетон. После этого, герой проходит проверку {J}. При успехе, он получает 2 очка движения.",
+          "GUID": "bc338798-5610-4700-82e9-262bd3655223",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Внезапно комнату заливает свет, и имперский офицер указывает на вас, направляя войска.\r\n\r\n\"Они здесь! Лорд Вейдер был прав. Остановите их, схватите их сейчас же!\"",
+          "GUID": "2fcd2b9c-9252-4134-b2d1-cf381c4faebc",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "89e49596-06f1-489b-a245-ba1489ecbed4",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "8d00407c-3704-4fe4-8b78-2a609fffaf74",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG049/Riot Trooper (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9fa10d26-6ede-451d-bba1-b41ce94faf46",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        },
+        {
+          "tbText": "Вы достаёте своё оружие, чтобы достойно встретить имперцев. Если Вейдер знал, что вы будете здесь, вам нужно найти осколок и убраться отсюда как можно скорее.\r\n\r\n{-} Задание продолжится когда все тайники будут обследованы.\r\n{-} Задание закончится, когда все герои будут ранены.",
+          "GUID": "3f8a9c19-3d13-45ca-a768-9ec5fc6e24a2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Обследуйте тайники (&Hiding places&/4).",
+          "longText": null,
+          "GUID": "8b805042-1937-411b-bc63-d226b6ca0b3a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Вы оттеснили лорда ситхов Вейдера и смогли сбежать из храма с осколком. Вы бежите в убежище, где можно перегруппироваться. Вы чувствуете энергию Силы, исходящую от светящегося фрагмента, посылая мурашки по рукам. Чувство мощи и ужаса одолевает вас от простого удерживания осколка.\r\n\r\nВы должны увезти осколок с планеты, туда, где Император не сможет его достать.\r\n\r\n{-} Повстанцы побеждают в задании!\r\n{-} Герои получают карту награды \"Осколок Бардоттана\". (Эта карточка работает иначе при игре с <b>Imperial Commander</b>. Обратитесь к разделу <b>изменение правил</b> в wiki документации для подробностей.)\r\n{-} Каждый герой получает 2 ОО. Герои получают по 100 кредитов.\r\n{-} Введите в игру карту сюжетного задания \"Столичный побег\".",
+      "eventActions": [
+        {
+          "mainText": "Остался только 1 здоровый герой?",
+          "buttonList": [
+            {
+              "GUID": "59507f2c-aa1f-405c-b8e6-dad87d1df208",
+              "theText": "Да"
+            },
+            {
+              "GUID": "359f4d42-3ab2-44fd-8a7b-643e7d91e1b7",
+              "theText": "Нет"
+            }
+          ],
+          "GUID": "66fee1da-6226-4914-8d54-037b7de580ea",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Wounded",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Вейдер с осколком в руке указывает на вас. Вы чувствуете, как ваше горло начинает сжиматься, и вы больше не можете дышать. Используя Силу, он поднимает вас вверх и бросает о стену, в то время как вы продолжаете бороться за воздух.\r\n\r\nВейдер шагает к вам. \"Это истинная мощь Силы, и она уничтожит вас.\" Он отпускает вас, и вы падаете на землю. Вы поднимаете глаза и видите возвышающегося над вами ситха, в руке которого энергией Силы пульсирует осколок, прежде чем теряете сознание.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Увеличьте уровень угрозы в следующем задании (и только в следующем) на 1. Во время этапа улучшения сил повстанцев, игроки могут потратить по 50 кредитов, чтобы предотвратить это. \r\n{-} Каждый герой получает 2 ОО. Герои получают по 100 кредитов.\r\n{-} Если Дарт Вейдер получил 9 или более {H}, герои получают по 25 кредитов.\r\n{-} Введите в игру карту сюжетного задания \"Царство Тёмной стороны\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round Limit",
+      "GUID": "3146a0c9-479e-48ea-b610-ea9052fcf47d",
+      "eventText": "Вейдер с осколком в руке указывает на вас. Вы чувствуете, как ваше горло начинает сжиматься, и вы больше не можете дышать. Используя Силу, он поднимает вас вверх и бросает о стену, в то время как вы продолжаете бороться за воздух.\r\n\r\nВейдер шагает к вам. \"Это истинная мощь Силы, и она уничтожит вас.\" Он отпускает вас, и вы падаете на землю. Вы поднимаете глаза и видите возвышающегося над вами ситха, в руке которого энергией Силы пульсирует осколок, прежде чем теряете сознание.\r\n\r\n{-} Повстанцы проигрывают задание.\r\n{-} Увеличьте уровень угрозы в следующем задании (и только в следующем) на 1. Во время этапа улучшения сил повстанцев, игроки могут потратить по 50 кредитов, чтобы предотвратить это. \r\n{-} Каждый герой получает 2 ОО. Герои получают по 100 кредитов.\r\n{-} Введите в игру карту сюжетного задания \"Царство Тёмной стороны\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Door 1 Opens",
+      "GUID": "baaa9ca4-a8fc-4041-9796-f6bb68ed6546",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "c10a3a5f-aab6-4c49-a3fa-c7643e78008e",
+              "theText": "Дверь ведёт в древнюю часть храма джедаев.\r\n\r\n{-} Дверь заперта для имперцев.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "33eece0c-4577-4b62-a686-ebffe7d44bbc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 Opens",
+      "GUID": "bd6a906f-4d3e-4778-a614-823a50b4fb1d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "726ed04c-b762-4f99-8af5-d6fb8989f366",
+              "theText": "Дверь ведёт в древнюю часть храма джедаев.\r\n\r\n{-} Дверь заперта для имперцев.",
+              "buttonList": [
+                {
+                  "GUID": "7ff46c25-d19a-4901-b3cd-5060a764a854",
+                  "theText": "{A} Открыть"
+                }
+              ]
+            }
+          ],
+          "GUID": "75b81b3e-b945-4641-bf63-e07ecf42c660",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Back Guards",
+      "GUID": "b8b89ad5-79fc-4faa-9b8d-f4589c247a3c",
+      "eventText": "Дверь открывается в древнюю, разрушающуюся часть храма. Имперцы и здесь разместили охранников.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Vader retrieves shard",
+      "GUID": "cd5b8098-54f9-4d1d-ac01-6246ccd296da",
+      "eventText": "Вейдер останавливается у груды щебня и поднимает руку. Осколок вылетает из кучи и попадает в его протянутую руку. Вейдер немедленно поворачивается обратно к выходу.\r\n\r\n{-} Дарт Вейдер может сбежать через точку входа, заканчивая задание. Если он это сделает, нажмите на клетку выделенную синим и выберите \"Вейдер сбежал\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bardottan Shard",
+              "GUID": "15eabf32-1061-4107-8813-9c5b7ed7a48f",
+              "theText": "Осколок Бардоттана погребён под обломками древнего пьедестала, на котором он когда-то покоился.\r\n\r\n{-} Когда <color=\"red\">Дарт Вейдер</color> входит на клетку рядом с осколком, он прерывает ход, чтобы забрать его.",
+              "buttonList": [
+                {
+                  "GUID": "e45cd0fd-0418-4163-ab29-c676b3f62041",
+                  "theText": "Вейдер забирает осколок"
+                }
+              ]
+            },
+            {
+              "entityName": "Entrance",
+              "GUID": "bdb2e304-3c3d-415e-aa24-14812b61f366",
+              "theText": "Дислоцируйте героев на эту клетку.\r\n\r\n{-} Дарт Вейдер может сбежать через эту клетку, заканчивая задание. Если он сделает это, нажмите \"Вейдер сбежал\".",
+              "buttonList": [
+                {
+                  "GUID": "5bed8677-dc96-492d-b6c8-54e1eac08fd6",
+                  "theText": "Вейдер сбежал"
+                }
+              ]
+            }
+          ],
+          "GUID": "cb77073f-14d0-4b7f-a1a7-4cfe0c4fe829",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "newInstructions": "{Q} Передвинуться на 2 клетки чтобы <color=\"red\">сконцентрироваться</color> и атаковать {rebel}.\r\n{-} УДУШЕНИЕ СИЛОЙ: Ближайшая повстанческая фигурка получает 2{H} и 1{C}.\r\n{A} Передвинуться на 6 клеток к точке входа.\r\n{-} ЗЛОВЕЩЕЕ ВОЗРОЖДЕНИЕ: Восстановить 1{H}.\r\n{-} Если находится рядом с точкой входа: Сбежать. (Нажмите на выделенную клетку и выберите \"Вейдер сбежал\".)",
+          "GUID": "8ccb3624-ba08-4a19-9324-09cc0260b23e",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Hiding Place 1 investigated",
+      "GUID": "b02e3c99-0da8-4482-8511-b968fa8705e0",
+      "eventText": "Вы не нашли ничего ценного, но, по крайней мере, вы можете исключить эту часть храма.\r\n\r\n{-} Вы можете пройти проверку {J}. В случае успеха, вы получаете 2 очка движения.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hiding Place 1",
+              "GUID": "dfb6bd1a-6d5f-46cb-8d89-7e4f5ddf702f",
+              "theText": "Рядом с фонтаном есть тёмный угол, похоже, там мог бы быть спрятан осколок.",
+              "buttonList": [
+                {
+                  "GUID": "1492aedb-0199-4a1b-a219-19d494de1243",
+                  "theText": "{-} Обследовать"
+                }
+              ]
+            }
+          ],
+          "GUID": "366975dd-e77a-47d0-84a2-6a0c1532d1ff",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hiding Place 2 investigated",
+      "GUID": "3c0c2923-113f-4231-80a9-c1b0aca83055",
+      "eventText": "Вы не нашли ничего ценного, но, по крайней мере, вы можете исключить эту часть храма.\r\n\r\n{-} Вы можете пройти проверку {J}. В случае успеха, вы получаете 2 очка движения.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hiding Place 2",
+              "GUID": "7a0d3c8d-97dd-49b4-bcfb-acca53ec57b5",
+              "theText": "Часть стены обрушилась под бластерным огнём, возможно, что-то погребя под собой.",
+              "buttonList": [
+                {
+                  "GUID": "b6fdb185-ce5f-46f3-8fac-74626b3409ba",
+                  "theText": "{-} Обследовать"
+                }
+              ]
+            }
+          ],
+          "GUID": "9e774f03-69cc-42d9-9072-4d494499a8b5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hiding Place 3 investigated",
+      "GUID": "ad8e25ec-028a-449c-bf98-1b44ee899fdd",
+      "eventText": "Вы не нашли ничего ценного, но, по крайней мере, вы можете исключить эту часть храма.\r\n\r\n{-} Вы можете пройти проверку {J}. В случае успеха, вы получаете 2 очка движения.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hiding Place 3",
+              "GUID": "6eeac0e7-2f75-435c-b671-8a149c3a4a41",
+              "theText": "Рядом с перекрёстком свалена в кучу старая мебель.",
+              "buttonList": [
+                {
+                  "GUID": "5750ac2f-c71c-4374-ab0d-dd86b90a50ff",
+                  "theText": "{-} Обследовать"
+                }
+              ]
+            }
+          ],
+          "GUID": "530af691-613f-4aba-9f0a-be5b043036fe",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hiding Place 4 investigated",
+      "GUID": "d62109c2-26e0-48dd-9c9d-f7b80105c3c6",
+      "eventText": "Вы не нашли ничего ценного, но, по крайней мере, вы можете исключить эту часть храма.\r\n\r\n{-} Вы можете пройти проверку {J}. В случае успеха, вы получаете 2 очка движения.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hiding Place 4",
+              "GUID": "5470398a-3740-458b-ac99-bcdbfc4589ae",
+              "theText": "Древняя камера стара и полуразрушена, но груда обломков выглядит многообещающе.",
+              "buttonList": [
+                {
+                  "GUID": "49c98013-eb9a-44e1-8500-0fc5ccf480f9",
+                  "theText": "{-} Обследовать"
+                }
+              ]
+            }
+          ],
+          "GUID": "d481ea86-6966-47fd-b5b4-d4cdd0a556aa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Vader's Fist",
+      "GUID": "ec53b74e-59c1-4239-9483-6849b5e8e14f",
+      "eventText": "Взрыв эхом разносится по залам храма, когда особенно хорошо вооруженный отряд штурмовиков выбивает дверь и врывается в комнату, полностью готовый к бою.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "c08b2605-25ad-4911-895d-fe5e99a12aef",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Booby Trap",
+      "GUID": "2b3f7910-2b5c-48b3-8683-f40c1ad69dd7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Срабатывает старая ловушка, посылая электрический разряд через ваше тело.\r\n\r\n{-} Герой, который обследовал этот тайник, проходит проверку {K} или {I}. Введите количество успехов ниже. (Если выбрал не проходить проверку, введите 0.)",
+          "failText": "Вам удаётся оправиться от шока.",
+          "inputList": [
+            {
+              "GUID": "7c14598d-e3bc-4330-ad43-d369304da95f",
+              "theText": "Электрошок пронизывает всё ваше тело.\r\n\r\n{-} Герой, который обследовал тайник, получает 3{C}."
+            },
+            {
+              "GUID": "9317f3f9-6468-4b91-9fe7-64641746abcb",
+              "theText": "Электрошок пронизывает всё ваше тело.\r\n\r\n{-} Герой, который обследовал тайник, получает 2{C}."
+            },
+            {
+              "GUID": "35ab5973-57f4-4484-8943-2f22b743fd6f",
+              "theText": "Электрошок пронизывает всё ваше тело.\r\n\r\n{-} The hero who investigated the hiding place получает 1{C}."
+            }
+          ],
+          "GUID": "7b0b5bdf-a5b9-487d-994f-c71ce04159f5",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "The Dark Lord",
+      "GUID": "899bb497-c9b5-409e-9a5c-b9e86fed268b",
+      "eventText": "После нескольких недель напряжённой и опасной работы вы видите свою награду: маленький светящийся фрагмент сферы Бардоттана, пульсирующий энергией Силы.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Bardottan Shard",
+              "GUID": "db088b95-2416-4df4-932c-c522bc18bcf4",
+              "theText": "Осколок Бардоттана погребён под обломками древнего пьедестала, на котором он когда-то покоился.\r\n\r\n{-} Когда <color=\"red\">Дарт Вейдер</color> входит на клетку рядом с осколком, он прерывает ход, чтобы забрать его.",
+              "buttonList": [
+                {
+                  "GUID": "5bffee6e-b435-47ac-a9b7-4cf922548850",
+                  "theText": "Вейдер забирает осколок"
+                }
+              ]
+            }
+          ],
+          "GUID": "6a70d937-b02c-4007-88ba-9a1779ccbf47",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Повстанческий жетон задания — осколок.",
+          "GUID": "3ff66ba8-94b5-48f2-ba23-186feb8cc0d9",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Однако ваша радость длилась недолго. Когда вы наклоняетесь чтобы забрать осколок, вы слышите ужасающий звук механического дыхательного аппарата, когда устрашающий Дарт Вейдер входит в комнату. Вы обнаруживаете, что не можете схватить артефакт, поскольку что-то удерживает вас. Он зажигает свой красный световой меч и движется к вам, готовый забрать осколок для себя и для своего Императора.",
+          "GUID": "92b43867-4515-4773-b818-a3f553d68928",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "{Q} Передвинуться на 2 клетки чтобы <color=\"red\">сконцентрироваться</color> и атаковать {rebel}.\r\n{-} УДУШЕНИЕ СИЛОЙ: Ближайшая повстанческая фигурка получает 2{H} и 1{C}.\r\n{A} Передвинуться на 6 клеток к осколку.\r\n{-} ЗЛОВЕЩЕЕ ВОЗРОЖДЕНИЕ: Восстановить 1{H}.\r\n{-} Если находится рядом с осколком: Подобрать осколок. (Нажмите на осколок и выберите \"Вейдер забирает осколок\".)",
+          "modification": "+1{G}",
+          "repositionInstructions": "",
+          "GUID": "7718da24-751c-4c7e-91ed-ace233ba27fe",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG072/Darth Vader"
+        },
+        {
+          "tbText": "{-}<color=\"red\">Дарт Вейдер</color> получает +1{G}.\r\n{-} <color=\"red\">Дарт Вейдер</color> не может получать состояния, не может быть передвинут, и не может получать очков движения вне своей активации.\r\n{-} Когда <color=\"red\">Дарт Вейдер</color> входит на клетку рядом с дверью, эта дверь уничтожается.\r\n{-} Когда <color=\"red\">Дарт Вейдер</color> входит на клетку рядом с осколком, он прерывает ход, чтобы забрать его.\r\n{-} Если включено ограничение раундов, задание больше не заканчивается в конце раунда 6.\r\n{-} Повстанцы победят, когда <color=\"red\">Дарт Вейдер</color> будет побеждён.\r\n{-} Повстанцы проиграют, когда <color=\"red\">Дарт Вейдер</color> сбежит или когда все герои будут ранены.",
+          "GUID": "1ce96392-73fd-48f2-8010-37728a4b48f3",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Победите <color=\"red\">Дарта Вейдера</color>.",
+          "longText": null,
+          "GUID": "f80b07b9-0b60-425d-b05b-9f6effc95c23",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-}<color=\"red\">Дарт Вейдер</color> получает +1{G}.\r\n{-} <color=\"red\">Дарт Вейдер</color> не может получать состояния, не может быть передвинут, и не может получать очков движения вне своей активации.\r\n{-} Когда <color=\"red\">Дарт Вейдер</color> входит на клетку рядом с дверью, эта дверь уничтожается.\r\n{-} Когда <color=\"red\">Дарт Вейдер</color> входит на клетку рядом с осколком, он прерывает ход, чтобы забрать его.\r\n{-} Если включено ограничение раундов, задание больше не заканчивается в конце раунда 6.\r\n{-} Повстанцы победят, когда <color=\"red\">Дарт Вейдер</color> будет побеждён.\r\n{-} Повстанцы проиграют, когда <color=\"red\">Дарт Вейдер</color> сбежит или когда все герои будут ранены.",
+          "GUID": "586e9d07-9df2-471a-851f-7a30f05653c0",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Vader Check Query",
+      "GUID": "22d1e40f-4546-465d-8351-a6ccdde03f35",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "<color=\"red\">Дарт Вейдер</color> получил 9 или более {H}?",
+          "buttonList": [
+            {
+              "GUID": "0bacb1c1-3951-45da-919b-eee1eb4afdce",
+              "theText": "Да"
+            },
+            {
+              "GUID": "721bbcff-7beb-4d16-bc35-bb3fc3059338",
+              "theText": "Нет"
+            }
+          ],
+          "GUID": "3e772a4d-e005-4a69-b553-9c59a051a188",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Vader Check Yes",
+      "GUID": "6b773eb8-e98a-4eaa-a7e4-9023df1855ed",
+      "eventText": "Поскольку <color=\"red\">Дарт Вейдер</color> получил 9 или более {H}, герои получают по 25 кредитов.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Vader Check No",
+      "GUID": "83995958-e60c-414f-bffe-c1b41c81e7b9",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Vader Not Deployed",
+      "GUID": "c93e5bc2-0961-4d4d-bb51-3dc881fb2072",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "6a33976f-0ec9-4fd3-9ba3-56b01f50035b",
+      "eventText": "{-} Увеличьте уровень угрозы в следующем задании (и только в следующем) на 1. Во время этапа улучшения сил повстанцев, игроки могут потратить по 50 кредитов, чтобы предотвратить это.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "81afe5d0-78ce-4569-a8a8-165f0721b80b",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "c3af2a67-6411-4eff-a188-47e66539ed05",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "04abc4a3-49e6-42ab-9dbd-424f2c6bb2ad",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "caee824b-eb37-48d3-a3e2-708606f9695e",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Дислоцируйте героев на эту клетку.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Старый ящик с припасами.",
+      "buttonList": [
+        {
+          "GUID": "db7e2998-b87c-498e-b4fa-e7bc7c887927",
+          "theText": "{A} Open"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 2",
+      "GUID": "d8422b78-613f-4590-a5f5-bda9f11326bc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Vader",
+      "GUID": "a12694de-e535-42b2-968b-87de9b9077c7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ERTrooper 1",
+      "GUID": "7cd83023-78cf-4882-acaf-db24a7a75679",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ERTrooper 2",
+      "GUID": "0c555ff8-9f5d-4431-a752-38d7d28e262a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "c41a8bee-7837-4ddd-9d69-7ba67e601c34",
+      "mainText": "Дверь ведёт в древнюю часть храма джедаев.\r\n\r\n{-} Дверь заперта для имперцев.",
+      "buttonList": [
+        {
+          "GUID": "e5db8ec8-6f07-44d1-9b82-06d4320fc67b",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "1a3750c5-c941-44a6-83c7-25e15840d5a1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "fb4ceba3-e55e-4014-95c3-df6720f3246b",
+      "mainText": "Дверь ведёт в древнюю часть храма джедаев.\r\n\r\n{-} Дверь заперта для имперцев.",
+      "buttonList": [
+        {
+          "GUID": "60089c00-8fb8-4302-9d4e-06bd2d5a0b08",
+          "theText": "{A} Открыть"
+        }
+      ]
+    },
+    {
+      "entityName": "Bardottan Shard",
+      "GUID": "44386d9c-d8f2-45ea-8fa8-e0e092400a7d",
+      "mainText": "Осколок Бардоттана погребён под обломками древнего пьедестала, на котором он когда-то покоился.\r\n\r\n{-} Когда <color=\"red\">Дарт Вейдер</color> входит на клетку рядом с осколком, он прерывает ход, чтобы забрать его.",
+      "buttonList": [
+        {
+          "GUID": "64a6267c-2cd0-4bb8-b6fa-b120bcaaab35",
+          "theText": "Вейдер забирает осколок"
+        }
+      ]
+    },
+    {
+      "entityName": "New Highlight",
+      "GUID": "ad04db16-f681-4fb7-a6bb-eafce6174475",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Hiding Place 1",
+      "GUID": "b5b5a973-b473-455f-8bd9-5e3d7fbcb7ac",
+      "mainText": "Рядом с фонтаном есть тёмный угол, похоже, там мог бы быть спрятан осколок.",
+      "buttonList": [
+        {
+          "GUID": "de3f3e13-1032-49a7-b451-341c6c150e15",
+          "theText": "{A} Обследовать"
+        }
+      ]
+    },
+    {
+      "entityName": "Hiding Place 2",
+      "GUID": "473895fd-9d1b-4fba-ab3e-85f06d8eaf67",
+      "mainText": "Часть стены обрушилась под бластерным огнём, возможно, что-то погребя под собой.",
+      "buttonList": [
+        {
+          "GUID": "498a958a-0d6a-44cc-a188-06da41487cab",
+          "theText": "{A} Обследовать"
+        }
+      ]
+    },
+    {
+      "entityName": "Hiding Place 3",
+      "GUID": "343683ad-6253-401f-bc1c-627b6f60372c",
+      "mainText": "Рядом с перекрёстком свалена в кучу старая мебель.",
+      "buttonList": [
+        {
+          "GUID": "1932f70d-dab1-4025-8749-e819c5ae5f18",
+          "theText": "{A} Обследовать"
+        }
+      ]
+    },
+    {
+      "entityName": "Hiding Place 4",
+      "GUID": "b55fe172-4d75-406f-998d-a5c7ba13f5d4",
+      "mainText": "Древняя камера стара и полуразрушена, но груда обломков выглядит многообещающе.",
+      "buttonList": [
+        {
+          "GUID": "01daa9a2-a44f-4878-8177-3aff9f99400e",
+          "theText": "{A} Обследовать"
+        }
+      ]
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "6f953905-0dcb-4b07-a101-5091116176e3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Back Hall",
+      "GUID": "b1be3dae-2925-4009-bbb0-f05067b21385",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": []
+}

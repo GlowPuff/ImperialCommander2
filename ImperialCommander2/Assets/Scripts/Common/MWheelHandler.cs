@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IPointerClickHandler
 {
+	public bool disableMouseWheel = false;
 	public int wheelValue;
 	public int maxValue = 10;
 	public int minValue = 0;
@@ -36,7 +37,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 	void Update()
 	{
-		if ( Input.mouseScrollDelta.magnitude > 0 && isHovering )
+		if ( !disableMouseWheel && Input.mouseScrollDelta.magnitude > 0 && isHovering )
 		{
 			if ( Input.mouseScrollDelta.y == 1 )
 			{

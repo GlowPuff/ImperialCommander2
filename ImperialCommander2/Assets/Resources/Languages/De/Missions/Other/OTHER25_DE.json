@@ -1,0 +1,638 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "In die Wüste",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Bantha-Reiter Schurken-Pack",
+    "startingObjective": "",
+    "repositionOverride": "Versperre den Zugang zu den Barrikaden.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "63e581e5-da9e-4dfd-b1bd-b36048019ba0",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "fc8942d8-c170-4057-be4b-b27fd8a04219",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "dada4d03-161a-4753-8b41-0ba2ee88223f",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Der raue Wind fegt durch die Canyons der Jundland-Wüste. Euer Pilot gibt euch ein Zeichen: \"Ich habe unseren Mann auf dem Scanner, aber ich sehe auch einen Haufen Tusken-Räuber zwischen euch und ihm. Also viel Glück dabei.\"\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.",
+      "eventActions": [
+        {
+          "tbText": "Die Tusken-Räuber haben Felsen herabgeworfen, um den Canyon hier zu versperren.",
+          "GUID": "932490ae-456d-453b-a14d-353094a7e8c6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "8f4785a2-a73f-4fb3-bc48-9af8abba9b07",
+              "theText": "Die Tusken-Räuber haben Felsen herabgeworfen, um den Canyon hier zu versperren.\n\n{-} Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "d39bba5b-2a9d-455d-9c33-45d3fca77442",
+                  "theText": "Zerstören"
+                }
+              ]
+            },
+            {
+              "entityName": "Barricade 2",
+              "GUID": "83fd8fe4-e7e9-431c-ba58-537ea40a8e67",
+              "theText": "Die Tusken-Räuber haben Felsen herabgeworfen, um den Canyon hier zu versperren.\n\n{-} Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "46b3bf1a-96e6-4b7d-b694-54a603860591",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "cc459254-e0eb-472e-a98f-149d03d337ce",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Neutrale Einsatzmarker stellen Barrikaden dar. Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).",
+          "GUID": "078b52b0-5244-4851-9441-b9bc0e8da9a6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Das raue Gebrüll der Tusken-Räuber hallt von den Felsen wider, während die Scharfschützen auf euch zielen.\n\n{-} Am Ende jeder Runde, bis die erste Barrikade zerstört ist, beansprucht der imperiale Spieler 1 Scharfschützen, maximal jedoch 4.",
+          "GUID": "c75edb19-7648-4e7b-816b-1de32d123870",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Ihr hebt eure Waffen, trotzt der Wüstenhitze und bewegt euch auf das Lager der Tusken zu.\n\n{-} Der Einsatz schreitet voran, wenn die erste Barrikade zerstört ist.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "514cfbe5-9495-499e-800d-939cd22df808",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Betretet das Tusken-Lager. Scharfschützen aktiv: &Sniper Count&",
+          "longText": null,
+          "GUID": "51ab0afa-5c24-4ac3-b185-cecaa9c3c7ab",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Neutrale Einsatzmarker stellen Barrikaden dar. Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).\r\n{-} Am Ende jeder Runde, bis die erste Barrikade zerstört ist, beansprucht der imperiale Spieler 1 Scharfschützen, maximal jedoch 4.\r\n{-} Der Einsatz schreitet voran, wenn die erste Barrikade zerstört ist.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "e521c900-6fb9-4418-85a1-3503755ca9c4",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "So schnell es die Hitze der Wüste zulässt, schleppt ihr den geretteten Agenten und die Daten des Offiziers zurück zu eurem Shuttle und überlasst die übrigen Imperialen der Gnade der wütenden Tusken.\n\n{-} Die Rebellen gewinnen den Einsatz!\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 200 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Banthas und Scharfschützen fallen über euch her. Die anderen Tusken nutzen eure missliche Lage aus, schnappen sich den Agenten und bringen ihn tiefer in die Wüste. Während ihr euch zurückzieht, hört ihr, wie er um Hilfe ruft, die niemals kommen wird.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 1. In der Phase \"Aufrüstung der Rebellen\" können die Spieler der Rebellen beschließen, 50 Credits pro Held auszugeben, um dies zu verhindern.\n{-} Jeder Held erhält 1 EP. Die Helden erhalten 100 Credits pro Held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Barricade Destroyed 1",
+      "GUID": "a12d7899-3884-46c5-900e-55135fe9499c",
+      "eventText": "Die Barrikade bricht in einen Haufen Geröll zusammen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "1f594d21-b542-4383-888d-1f9c605704e2",
+              "theText": "Die Tusken-Räuber haben Felsen herabgeworfen, um den Canyon hier zu versperren.\n\n{-} Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "b73afb72-d3e8-43f8-ac65-28a02de7976c",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "0476508d-aedb-45dc-955c-2e6e76e115b7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Barricade Destroyed 2",
+      "GUID": "69766629-701d-44ca-9c5d-411862ba53fa",
+      "eventText": "Die Barrikade bricht in einen Haufen Geröll zusammen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 2",
+              "GUID": "03bedea5-0249-45ff-9657-12904869dd07",
+              "theText": "Die Tusken-Räuber haben Felsen herabgeworfen, um den Canyon hier zu versperren.\n\n{-} Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).",
+              "buttonList": [
+                {
+                  "GUID": "f077722c-1049-43e2-91ee-90a4fbf2edbc",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "ea24d738-1109-4178-a4cc-ec568abf3108",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "The Instigator",
+      "GUID": "efed629e-a322-4a48-8e93-027c9b5ae0ea",
+      "eventText": "Bask streckt eine zitternde Hand aus und deutet auf einen bestimmten imperialen Offizier. \"Er\", sagt er. \"Er hat die Daten.\" Ihr habt ein neues Ziel.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*3* Ges.",
+          "repositionInstructions": "",
+          "GUID": "ec6995ae-d182-4aff-b1a2-a324a8940eb5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "repositionText": "Versperre die Sichtlinie auf den <color=\"red\">Imperialen Offizier</color>.",
+          "GUID": "e50d51d9-2064-431b-9bc3-4cc21dff4cd9",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "{-} Die Rebellen gewinnen, wenn der <color=\"red\">Imperiale Offizier</color> besiegt wird.",
+          "GUID": "277d3e28-3d54-4e6d-a38a-8aa4fb8b2a2e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Besiegt den <color=\"red\">Imperialen Offizier</color>. Scharfschützen aktiv: &Sniper Count&",
+          "longText": null,
+          "GUID": "f84a7e23-1ddd-4b0b-b0ef-32b968dc4a8d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Die Rebellen gewinnen, wenn der <color=\"red\">Imperiale Offizier</color> besiegt wird.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "b9f6c8f4-9b69-4c57-a467-6e275f64d1a4",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Deadly Alliance 1",
+      "GUID": "ebd5e5a7-2d0f-49a2-8dbd-1cb85b5022ac",
+      "eventText": "Vor euch seht ihr, was ihr befürchtet habt: Das Imperium hat ein Abkommen mit den Tusken-Räubern geschlossen. Ein Mann in einer Offiziersuniform schnappt sich ein Comlink und beginnt, Befehle zu brüllen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "b2466763-0f2e-4ded-835f-21581eeb2868",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "0ac21594-ffbd-4412-91ab-522d5e9435ef",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "029daa69-a470-4d7a-be4d-ea6eab84334b",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue",
+              "GUID": "7ff3a590-356e-4fda-8805-5c7dc4eab80f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "0007a7a4-b9b7-4812-ba08-afec79be856b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "52236e1f-49cb-4c13-ae1c-918ef88ee888",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "tbText": "Kaum hat er zu Ende gesprochen, hallt ein gewaltiges Gebrüll durch die Schlucht und ein riesiges Biest trampelt auf euch zu.",
+          "GUID": "686acfba-2e20-41aa-a554-70884313aa16",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "31cfb37b-9ff0-42e3-be4c-0e2b56f4b3b7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG065/Bantha Rider (Elite)"
+        },
+        {
+          "tbText": "Durch den Staub hindurch könnt ihr die Silhouette von Bask Hon'qira, dem bothanischen Agenten, auf dem Boden liegen sehen. Er rührt sich schwach und scheint noch zu leben, aber in einem schlechten Zustand zu sein.",
+          "GUID": "96a9b052-d65e-4543-8fc4-65f334b57b82",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Captive",
+              "GUID": "3f22516d-cba5-4752-b0cb-a0ab43da28d6",
+              "theText": "Bask Hon'qira, der bothanische Spion, liegt bewusstlos da, sein Körper ist von Gaffi-Stöcken zerschunden.\n\n{-} Eine Rebellenfigur kann mit dem Gefangenen interagieren, um seinen Marker zu beanspruchen. Wenn eine imperiale Figur auf oder benachbart zu dem Gefangenen ist, legt die Rebellenfigur eine Probe auf {K} ab. Wenn er scheitert, beansprucht er den Gefangenen nicht.",
+              "buttonList": [
+                {
+                  "GUID": "a7df87ff-73f0-46d9-9656-73ba3ebca567",
+                  "theText": "{A} Gefangenen retten"
+                }
+              ]
+            }
+          ],
+          "GUID": "120e34b0-c5a5-4606-8714-05ed52a73a3c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Eine Rebellenfigur kann mit dem Gefangenen interagieren, um seinen Marker zu beanspruchen. Wenn eine imperiale Figur auf oder benachbart zu dem Gefangenen ist, legt die Rebellenfigur eine Probe auf {K} ab. Wenn er scheitert, beansprucht er den Gefangenen nicht.\r\n{-} Der Einsatz schreitet voran, wenn der Gefangene gerettet wird.",
+          "GUID": "cdb11745-96c8-42f0-b5d1-3d5f987681cb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Versperre den Zugang zum Gefangenen.",
+          "GUID": "46c372a2-0672-4548-8570-49486c0707ad",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Rettet den Gefangenen. Scharfschützen aktiv: &Sniper Count&",
+          "longText": null,
+          "GUID": "3ebf125c-ae0c-4b6a-a2a5-5ace0eabada4",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Der Rebellen-Einsatzmarker stellt den Gefangenen dar. Eine Rebellenfigur kann mit dem Gefangenen interagieren, um seinen Marker zu beanspruchen. Wenn eine imperiale Figur auf oder benachbart zu dem Gefangenen ist, legt die Rebellenfigur eine Probe auf {K} ab. Wenn er scheitert, beansprucht er den Gefangenen nicht.\r\n{-} Der Einsatz schreitet voran, wenn der Gefangene gerettet wird.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "a7c837c9-ed48-475c-9ec5-1fa9d512e77a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Deadly Alliance 2",
+      "GUID": "0eb338e7-7db4-4550-86b0-7b906cb5d118",
+      "eventText": "Vor euch seht ihr, was ihr befürchtet habt: Das Imperium hat ein Abkommen mit den Tusken-Räubern geschlossen. Ein Mann in einer Offiziersuniform schnappt sich ein Comlink und beginnt, Befehle zu brüllen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "9c4948ad-6b45-4b3f-8359-a54ac350d1b8",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "4f3d0124-2fd1-474e-88bc-10dde5f7ba2f",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue",
+              "GUID": "4edaca25-91f5-41b0-a8a7-b49f07697237",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "548c41a0-4f65-4c04-81c4-a5bea211be33",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "648e39b6-d92f-4c8f-88bd-b3046bbac014",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "40ab3329-96f2-48f6-baf9-85a6663a6d66",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "tbText": "Kaum hat er zu Ende gesprochen, hallt ein gewaltiges Gebrüll durch die Schlucht und ein riesiges Biest trampelt auf euch zu.",
+          "GUID": "6a3709c9-a329-4298-8682-6c9a38567e4e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a2f938e5-2252-4008-b725-a98ad19bdeef",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG065/Bantha Rider (Elite)"
+        },
+        {
+          "tbText": "Durch den Staub hindurch könnt ihr die Silhouette von Bask Hon'qira, dem bothanischen Agenten, auf dem Boden liegen sehen. Er rührt sich schwach und scheint noch zu leben, aber in einem schlechten Zustand zu sein.",
+          "GUID": "847fd94c-c32d-4e31-8879-b3bedd9ababf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Captive",
+              "GUID": "9b5c2769-52be-4830-96bc-8f028844e94d",
+              "theText": "Bask Hon'qira, der bothanische Spion, liegt bewusstlos da, sein Körper ist von Gaffi-Stöcken zerschunden.\n\n{-} Eine Rebellenfigur kann mit dem Gefangenen interagieren, um seinen Marker zu beanspruchen. Wenn eine imperiale Figur auf oder benachbart zu dem Gefangenen ist, legt die Rebellenfigur eine Probe auf {K} ab. Wenn er scheitert, beansprucht er den Gefangenen nicht.",
+              "buttonList": [
+                {
+                  "GUID": "3c022a79-3d0f-4898-bdc8-93b287ca63ff",
+                  "theText": "{A} Gefangenen retten"
+                }
+              ]
+            }
+          ],
+          "GUID": "50ad5195-190e-4301-8f54-423a0c5f15bf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Eine Rebellenfigur kann mit dem Gefangenen interagieren, um seinen Marker zu beanspruchen. Wenn eine imperiale Figur auf oder benachbart zu dem Gefangenen ist, legt die Rebellenfigur eine Probe auf {K} ab. Wenn er scheitert, beansprucht er den Gefangenen nicht.\r\n{-} Der Einsatz schreitet voran, wenn der Gefangene gerettet wird.",
+          "GUID": "66a2e167-5cdc-4d2b-b0f7-82881227409f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Versperre den Zugang zum Gefangenen.",
+          "GUID": "34a4c28d-910c-4802-958f-b5598a294508",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Rettet den Gefangenen. Scharfschützen aktiv: &Sniper Count&",
+          "longText": null,
+          "GUID": "8c29d216-ab02-4ae6-a082-9083c452acaf",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Der Rebellen-Einsatzmarker stellt den Gefangenen dar. Eine Rebellenfigur kann mit dem Gefangenen interagieren, um seinen Marker zu beanspruchen. Wenn eine imperiale Figur auf oder benachbart zu dem Gefangenen ist, legt die Rebellenfigur eine Probe auf {K} ab. Wenn er scheitert, beansprucht er den Gefangenen nicht.\r\n{-} Der Einsatz schreitet voran, wenn der Gefangene gerettet wird.\r\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "fedaf305-13fc-413f-b4d5-19f11e347b3d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Sniper 1",
+      "GUID": "18a7b782-0854-452b-998e-07e8ac569955",
+      "eventText": "Ein Tusken-Räuber bewegt sich in Scharfschützenposition.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 2",
+      "GUID": "6feebbf5-b90d-4def-b72d-e0ed0861b051",
+      "eventText": "Ein Tusken-Räuber bewegt sich in Scharfschützenposition.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 3",
+      "GUID": "5e49dfed-a0d2-444b-b460-7799138c97eb",
+      "eventText": "Ein Tusken-Räuber bewegt sich in Scharfschützenposition.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 4",
+      "GUID": "ca2e9d2e-35e1-4746-b022-b1a03af641e0",
+      "eventText": "Ein Tusken-Räuber bewegt sich in Scharfschützenposition.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Snipers Shoot",
+      "GUID": "26cbb683-44ee-401a-84dc-639fcedbfe3c",
+      "eventText": "Die Tusken-Scharfschützen über dem Canyon brüllen herausfordernd und machen sich bereit zu schießen.\n\n{-} Die Tusken-Scharfschützen werden am Ende jeder Runde auf die Rebellen schießen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 1 Shoots",
+      "GUID": "f3784a9b-7a32-4e9d-ac7c-745b711900f8",
+      "eventText": "Ein Tusken-Scharfschütze zielt mit seinem Cycler-Gewehr.\n\n{-} Wirf 1 blauen Würfel. {rebel} erleidet {H} in Höhe der {H}-Ergebnisse.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 2 Shoots",
+      "GUID": "53db8354-4714-471f-8cc3-e5a9cb27a9cb",
+      "eventText": "Ein Tusken-Scharfschütze zielt mit seinem Cycler-Gewehr.\n\n{-} Wirf 1 blauen Würfel. {rebel} erleidet {H} in Höhe der {H}-Ergebnisse.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 3 Shoots",
+      "GUID": "6e4986b3-1c0d-494f-a540-624e5f39fd3c",
+      "eventText": "Ein Tusken-Scharfschütze zielt mit seinem Cycler-Gewehr.\n\n{-} Wirf 1 blauen Würfel. {rebel} erleidet {H} in Höhe der {H}-Ergebnisse.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 4 Shoots",
+      "GUID": "d00b25c4-49b9-40a8-b564-4dd67579d3a2",
+      "eventText": "Ein Tusken-Scharfschütze zielt mit seinem Cycler-Gewehr.\n\n{-} Wirf 1 blauen Würfel. {rebel} erleidet {H} in Höhe der {H}-Ergebnisse.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Surrounded",
+      "GUID": "472c1aad-0aa7-4253-b286-f75df47677f5",
+      "eventText": "Tusken-Räuber greifen brüllend und heulend an.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "34f400a3-ac13-4b09-a98f-fdeff2cd0404",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG021/Tusken Raider"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "ce80f45f-5ecc-438d-98bf-7b29139436ce",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "da9c2245-f4b9-46cf-93f0-a31dc36df38b",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 2",
+      "GUID": "477ff91b-ea88-4e63-b166-78f9d2e5a93a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "45d23632-7360-4164-bfda-5bc09be0f3b4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "da91186d-606b-46ff-b8d2-06dac5a2fb10",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "aa5698e0-e4b6-4d43-92be-8c004ee91f02",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Barricade 1",
+      "GUID": "d9185d9f-6406-4e3c-abbb-431fa3f3cbbd",
+      "mainText": "Die Tusken-Räuber haben Felsen herabgeworfen, um den Canyon hier zu versperren.\n\n{-} Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).",
+      "buttonList": [
+        {
+          "GUID": "64f8f42a-3ba5-41d5-8f5e-61d316df504a",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Barricade 2",
+      "GUID": "095aedc2-e433-4bf6-97fa-b307c623cb01",
+      "mainText": "Die Tusken-Räuber haben Felsen herabgeworfen, um den Canyon hier zu versperren.\n\n{-} Barrikaden sind versperrtes Gelände. Eine Rebellenfigur kann eine Barrikade angreifen (Gesundheit: *2*, Verteidigung: Keine).",
+      "buttonList": [
+        {
+          "GUID": "ff3e5243-b974-4c1e-92fa-77c971bd47c1",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Captive",
+      "GUID": "25aaa587-9325-470e-a4c9-2a26a3fbb134",
+      "mainText": "Bask Hon'qira, der bothanische Spion, liegt bewusstlos da, sein Körper ist von Gaffi-Stöcken zerschunden.\n\n{-} Eine Rebellenfigur kann mit dem Gefangenen interagieren, um seinen Marker zu beanspruchen. Wenn eine imperiale Figur auf oder benachbart zu dem Gefangenen ist, legt die Rebellenfigur eine Probe auf {K} ab. Wenn er scheitert, beansprucht er den Gefangenen nicht.",
+      "buttonList": [
+        {
+          "GUID": "022aac7e-919e-41f6-b6e8-c07548632bf4",
+          "theText": "{A} Gefangenen retten"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Tusken Raider (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

@@ -1,0 +1,467 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Medios de producción",
+    "missionDescription": "",
+    "missionInfo": "{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: *2*, Defensa: 1{G}).\r\n{-} La misión avanza al entrar en la instalación.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+    "campaignName": "Juego Base",
+    "startingObjective": "Entrar en la instalación para encontrar el núcleo de datos.",
+    "repositionOverride": "Bloquear el acceso al núcleo de datos.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "83aba702-5662-403c-b849-d4d6467726cf",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "eff38c9d-cb91-4204-8979-0bf4b0c0bbca",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "bb3fd9b1-ab77-472a-8131-6343755dce18",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Llegáis a una pequeña fábrica de modelos de prueba. Os han informado de que, si su construcción se completa, la eficiencia del ejército imperial aumentará enormemente.\r\n\r\nParece ser que otros tres equipos ya han tratado de sabotear la fábrica y fracasaron. Sus informes sugieren la existencia de algún tipo de protocolo de defensa reactiva.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: *2*, Defensa: 1{G}).\r\n{-} La misión avanza al entrar en la instalación.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Al destruir el núcleo, los cada vez más potentes protocolos de defensa se desactivan. Las alarmas quedan en silencio y las luces se apagan.\r\n\r\nSi el Imperio quiere usar este complejo para algo, pasará bastante tiempo antes de que puedan volver a ponerlo operativo.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Las defensas del complejo son demasiado para vosotros. Cuando finalmente lográis derribar la puerta que conduce al núcleo de datos, lo veis descender por una abertura en el suelo que lleva a otra sección del edificio, situada fuera de vuestro alcance.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.\r\n{-} Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Guarded",
+      "GUID": "083a7730-cf91-48fa-8da2-9eb073783dc6",
+      "eventText": "Cuando atravesáis la primera puerta, os abruma un ensordecedor chirrido mecánico. Ante vosotros veis como unas pesadas mamparas protectoras se deslizan sobre la siguiente puerta.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Facility Entrance",
+              "GUID": "bd17cfa8-4317-4bf3-9474-b4cce6a006d7",
+              "theText": "Hay una placa en la puerta: \"Entrada a la instalación\".\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *2*, Defensa: 1{G}).",
+              "buttonList": [
+                {
+                  "GUID": "34193acb-3156-4562-8d67-f0b48406522f",
+                  "theText": "Destruir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "89d2e7e4-8ca0-4d85-80cb-449e5e4ea950",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "697ed242-b03b-4b83-a223-8d333c41a2fb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "5318fbd2-9dbd-4d10-9179-632ba3285bd9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "face85e4-58a4-4f79-bf36-ee64ff866c0e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "theText": "{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: *2*, Defensa: 1{G}).\r\n{-} La misión avanza cuando los Héroes encuentran el núcleo de datos.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "fc6cdf7c-481e-44ae-ad5d-c402473bfa72",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Encontrar el núcleo de datos.",
+          "longText": null,
+          "GUID": "d7697245-90d6-468a-bb74-e6370d7e120d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Side Door",
+      "GUID": "83050119-9254-485c-8652-3b183ef90d40",
+      "eventText": "La puerta lateral se derrumba ante vuestros ataques.\r\n\r\n{-} Si había una ficha de Misión neutral junto a la puerta que acabas de abrir, pulsa sobre la ficha de ese mismo color que está en el área de control y selecciona \"Activar\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Side Door",
+              "GUID": "5da78a7e-ea32-4dc7-a18f-4d2fbb4d255d",
+              "theText": "Hay una placa en la puerta: \"Puerta lateral\".\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *2*, Defensa: 1{G}).",
+              "buttonList": [
+                {
+                  "GUID": "9514ea48-00eb-4211-9339-4121edb9679c",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "d0cff48f-e915-4efa-a576-5eca03364b51",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Core Room",
+      "GUID": "b2f9a62d-c723-4dd4-a050-12097bb27d2b",
+      "eventText": "Veis ante vosotros una sala pequeña que contiene el núcleo de datos, bañado en una luz roja. Destruir el núcleo de datos supondría un fuerte revés a los esfuerzos imperiales.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Core Room Door",
+              "GUID": "caaf0ec0-5aee-43e1-b95e-b9c3d8dcdf45",
+              "theText": "Hay una placa en la puerta: \"Sala del núcleo\".\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *2*, Defensa: 1{G}).",
+              "buttonList": [
+                {
+                  "GUID": "4e800c00-db98-48ba-ae3c-a96c9e2d9473",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "37a6bf2f-6e75-4f23-a6c0-6e0a0dd5a6a0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Una figura del bando Rebelde puede interactuar con el núcleo de datos para destruirlo y terminar la misión.",
+          "GUID": "50902ae7-2827-4777-a4d0-5a136fb09b1e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Las puertas están selladas. Una figura del bando Rebelde puede atacar una puerta (Vida: *2*, Defensa: 1{G}).\r\n{-} Una figura del bando Rebelde puede interactuar con el núcleo de datos para destruirlo.\r\n{-} Los Rebeldes ganan cuando el núcleo de datos es destruido.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "d4629309-20e0-4670-95a8-4a35c72b1d4e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Destruir el núcleo de datos.",
+          "longText": null,
+          "GUID": "e4b9966a-4d24-4608-9b05-3c1fdc83feb6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "{-} Si había una ficha de Misión neutral junto a la puerta que acabas de abrir, pulsa sobre la ficha de ese mismo color que está en el área de control y selecciona \"Activar\".",
+          "GUID": "98e07dc0-2a1b-4506-98d7-09560b669502",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal CA",
+      "GUID": "784267a1-85cb-4e00-8cfd-0f139c46b8c5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "{-} Las casillas separadas del mapa forman la sala de control. Cada vez que abras una puerta que tenga una ficha de Misión neutral de color azul, rojo o amarillo junto a ella, pulsa sobre la ficha de ese mismo color y selecciona \"Activar\".\r\n{-} Cada vez que ataques una puerta con una ficha de Misión neutral verde junto a ella, el atacante sufre 2{H} por cada ficha de Misión neutral verde que haya junto a la puerta.",
+          "GUID": "756d77fb-154b-4b65-8d16-adab0a3abc28",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Defenses Blue 1",
+      "GUID": "6293949e-90bb-451c-8a5c-a8a58dcf1772",
+      "eventText": "Coloca una ficha de Misión neutral de color AZUL junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Blue 2",
+      "GUID": "639fb135-eb67-49da-8644-1273aee2030e",
+      "eventText": "Coloca una ficha de Misión neutral de color AZUL junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 1",
+      "GUID": "5755bcd0-c5cd-4f38-8f56-2b0b7de00b91",
+      "eventText": "Coloca una ficha de Misión neutral de color ROJO junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 2",
+      "GUID": "faed7616-833b-48d3-b0eb-8fbcf2ecddff",
+      "eventText": "Coloca una ficha de Misión neutral de color ROJO junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 1",
+      "GUID": "8b4d07e6-e180-4909-82b3-ef99abf77fad",
+      "eventText": "Coloca una ficha de Misión neutral de color VERDE junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 2",
+      "GUID": "f742d3bc-7b8c-4fd3-8b8b-47310817c113",
+      "eventText": "Coloca una ficha de Misión neutral de color VERDE junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 1",
+      "GUID": "3cbd986b-6fc0-43fc-8b70-eac5bfea0caf",
+      "eventText": "Coloca una ficha de Misión neutral de color AMARILLO junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 2",
+      "GUID": "cfc116c5-66bd-4642-b1a6-89595bd4eb94",
+      "eventText": "Coloca una ficha de Misión neutral de color AMARILLO junto a una puerta cerrada en el orden siguiente. Puedes pulsar sobre una puerta para ver su placa.\r\n\r\n1. Si la Entrada a la instalación está cerrada, colócala junto a ella.\r\n2. Si la Entrada a la instalación está abierta, pero ningún Héroe ha entrado aún en la loseta 28A, colócala junto a la Puerta lateral.\r\n3. Si algún Héroe ha entrado ya en la loseta 28A, colócala junto a la puerta de la Sala del Núcleo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses End of Round",
+      "GUID": "43574d4c-926f-46dd-b9bb-014f026a4fd2",
+      "eventText": "Los protocolos de seguridad imperial proceden a cerrar la instalación.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Red",
+      "GUID": "c4f3fd42-dba3-4dc7-bca2-c3e64c727246",
+      "eventText": "Las alarmas resuenan por la instalación.\r\n\r\n{-} Si hay dos fichas rojas junto a esta puerta, pulsa \"Activar rojo\" de nuevo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Yellow",
+      "GUID": "7562643c-39d9-4b7b-aec9-37ab559b6b0a",
+      "eventText": "Un destello cegador sale de la puerta cuando se derrumba.\r\n\r\n{-} Cada Héroe a 5 o menos casillas de distancia de la puerta realiza una prueba de {K}. Los Héroes que fallen la prueba adquieren <color=\"red\">Aturdimiento</color>. Si hay dos fichas de misión amarillas junto a la puerta, tira los dados dos veces y quédate con el peor resultado.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal CA Event",
+      "GUID": "d560a1a1-1894-4ab4-94c3-116c2e2669e0",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "77ad1dc6-c81c-4471-8159-48b28f85a518",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "e641bf49-a61b-4f08-91eb-4bdd670fca5a",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "23e2172c-3435-49c4-8a8e-96718f9286fe",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "df14b7ba-feb7-4d24-bb3b-6d086610804c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "1320db38-7dd3-4bd1-913f-fd1fd58e7416",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Facility Entrance",
+      "GUID": "5af07f73-e1fe-4be2-ab15-0a1a6defa440",
+      "mainText": "Hay una placa en la puerta: \"Entrada a la instalación\".\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *2*, Defensa: 1{G}).",
+      "buttonList": [
+        {
+          "GUID": "7a4fec7a-8f33-4178-a08d-581a54f8dea8",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Side Door",
+      "GUID": "7ff79fd5-4054-4181-a72e-b6303d94d6e5",
+      "mainText": "Hay una placa en la puerta: \"Puerta lateral\".\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *2*, Defensa: 1{G}).",
+      "buttonList": [
+        {
+          "GUID": "9c73df61-4d01-4f57-8078-5e6438af73ce",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Core Room Door",
+      "GUID": "d89ff5b0-bb55-43a2-9cc8-6c7fc5ee71f5",
+      "mainText": "Hay una placa en la puerta: \"Sala del núcleo\".\r\n\r\n{-} La puerta está sellada. Una figura del bando Rebelde puede atacarla (Vida: *2*, Defensa: 1{G}).",
+      "buttonList": [
+        {
+          "GUID": "e7a58490-da37-4250-9913-cc3a6a3e8384",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "99a88f52-7505-41db-9244-37962f9132f8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "95a8dd62-0360-40cb-8815-d305b2120585",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "ff0e06f2-f4ef-41dc-bd5e-f2f30f816371",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Blue Token",
+      "GUID": "a3dbc1b4-2eaf-45b1-a4d7-e6e116abe04e",
+      "mainText": "Aplica *2* de Vida adicional a una puerta con una ficha azul junto a ella. Si hay dos fichas azules junto a ella, aplica *4* de Vida adicional en su lugar.",
+      "buttonList": [
+        {
+          "GUID": "c0641759-c7c0-41c1-a849-5740efaf5c6e",
+          "theText": "Activar Azul"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Token",
+      "GUID": "bed6feb3-bba2-4b88-8e48-9357d99b7265",
+      "mainText": "Cada vez que abras una puerta con una ficha roja junto a ella, pulsa \"Activar Rojo\" una vez por cada ficha roja que haya junto a esa puerta.",
+      "buttonList": [
+        {
+          "GUID": "20e7822f-67f8-4bee-a352-7d04e645a508",
+          "theText": "Activar Rojo"
+        }
+      ]
+    },
+    {
+      "entityName": "Green Token",
+      "GUID": "66d11f99-f4c4-4505-a373-7b02e037f156",
+      "mainText": "Cada vez que ataques una puerta con una ficha verde junto a ella, tras resolver el ataque, el atacante sufre 2{H} por cada ficha verde que haya junto a esa puerta.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Token",
+      "GUID": "2b36c803-c5bf-4fb8-9cca-b5ad0263e43d",
+      "mainText": "Cada vez que abras una puerta con una ficha amarilla junto a ella, pulsa \"Activar Amarillo\" una vez por cada ficha amarilla que haya junto a esa puerta.",
+      "buttonList": [
+        {
+          "GUID": "3e05515a-2aff-4c95-b968-6a77f1964ffb",
+          "theText": "Activar Amarillo"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Core",
+      "GUID": "8b48b9c7-d86d-4d8c-a637-c3eb3c120e3e",
+      "mainText": "El núcleo de datos de la instalación está iluminado por una suave luz roja.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el núcleo de datos para destruirlo y terminar la misión.",
+      "buttonList": [
+        {
+          "GUID": "c19885d8-2295-4b4a-bd7e-dec1f7af0c1b",
+          "theText": "{A} Destruir"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

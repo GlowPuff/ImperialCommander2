@@ -1,0 +1,638 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Adentrándose en el desierto",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Villano Jinete de Bantha",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso a las barricadas.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "63e581e5-da9e-4dfd-b1bd-b36048019ba0",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "fc8942d8-c170-4057-be4b-b27fd8a04219",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "dada4d03-161a-4753-8b41-0ba2ee88223f",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "El viento hostil recorre los cañones del desierto de Jundland mientras vuestro piloto os da indicaciones:\r\n\r\n\"Tengo a nuestro hombre en el escáner, pero también tengo lecturas de algunos Bandidos Tusken entre vosotros y su posición. Buena suerte.\"\r\n\r\n{-} Despliega a los Héroes en la casilla resaltada en azul.",
+      "eventActions": [
+        {
+          "tbText": "Los Bandidos Tusken han formado barricadas en el cañón a base de rocas.",
+          "GUID": "932490ae-456d-453b-a14d-353094a7e8c6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "8f4785a2-a73f-4fb3-bc48-9af8abba9b07",
+              "theText": "Los Bandidos Tusken han bloqueado el cañón con rocas en este punto.\r\n\r\n{-} Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).",
+              "buttonList": [
+                {
+                  "GUID": "d39bba5b-2a9d-455d-9c33-45d3fca77442",
+                  "theText": "Destruir"
+                }
+              ]
+            },
+            {
+              "entityName": "Barricade 2",
+              "GUID": "83fd8fe4-e7e9-431c-ba58-537ea40a8e67",
+              "theText": "Los Bandidos Tusken han bloqueado el cañón con rocas en este punto.\r\n\r\n{-} Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).",
+              "buttonList": [
+                {
+                  "GUID": "46b3bf1a-96e6-4b7d-b694-54a603860591",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "cc459254-e0eb-472e-a98f-149d03d337ce",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Las fichas de Misión neutrales representan barricadas. Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).",
+          "GUID": "078b52b0-5244-4851-9441-b9bc0e8da9a6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "El estridente bramido de los Bandidos Tusken resuena entre las rocas mientras los francotiradores se posicionan sobre vosotros.\r\n\r\n{-} Al final de cada Ronda, hasta que la primera barricada sea destruida, el jugador Imperial reclama 1 francotirador, hasta un máximo de 4.",
+          "GUID": "c75edb19-7648-4e7b-816b-1de32d123870",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Sacáis vuestras armas y os enfrentáis al calor del desierto, moviéndoos hacia el campamento Tusken.\r\n\r\n{-} La misión avanza cuando la primera barricada es destruida.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "514cfbe5-9495-499e-800d-939cd22df808",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Entrar en el campamento Tusken. Francotiradores activos: &Sniper Count&",
+          "longText": null,
+          "GUID": "51ab0afa-5c24-4ac3-b185-cecaa9c3c7ab",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las fichas de Misión neutrales representan barricadas. Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).\r\n{-} Al final de cada Ronda, hasta que la primera barricada sea destruida, el jugador Imperial reclama 1 francotirador, hasta un máximo de 4.\r\n{-} La misión avanza cuando la primera barricada es destruida.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "e521c900-6fb9-4418-85a1-3503755ca9c4",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Corréis tan rápido corno os permite el calor del desierto mientras transportáis al agente rescatado y los datos del oficial hasta vuestra lanzadera, dejando a las tropas Imperiales restantes a merced de los Tuskens enfurecidos.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 200 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Los banthas y los francotiradores se os echan encima. Los demás Tuskens aprovechan vuestra difícil situación para atrapar al agente y llevárselo a lo más profundo del desierto. Mientras os retiráis, le oís gritar, pidiendo una ayuda que nunca llegará.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Aumenta el nivel de amenaza de la siguiente misión (y solo de la siguiente misión) en 1. Durante la Etapa de Mejora Rebelde, los jugadores Rebeldes pueden elegir gastar 50 créditos por Héroe para evitarlo.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Barricade Destroyed 1",
+      "GUID": "a12d7899-3884-46c5-900e-55135fe9499c",
+      "eventText": "La barricada se convierte en una pila de escombros.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "1f594d21-b542-4383-888d-1f9c605704e2",
+              "theText": "Los Bandidos Tusken han bloqueado el paso con rocas.\r\n\r\n{-} Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).",
+              "buttonList": [
+                {
+                  "GUID": "b73afb72-d3e8-43f8-ac65-28a02de7976c",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "0476508d-aedb-45dc-955c-2e6e76e115b7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Barricade Destroyed 2",
+      "GUID": "69766629-701d-44ca-9c5d-411862ba53fa",
+      "eventText": "La barricada se convierte en una pila de escombros.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 2",
+              "GUID": "03bedea5-0249-45ff-9657-12904869dd07",
+              "theText": "Los Bandidos Tusken han bloqueado el paso con rocas.\r\n\r\n{-} Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).",
+              "buttonList": [
+                {
+                  "GUID": "f077722c-1049-43e2-91ee-90a4fbf2edbc",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "ea24d738-1109-4178-a4cc-ec568abf3108",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "The Instigator",
+      "GUID": "efed629e-a322-4a48-8e93-027c9b5ae0ea",
+      "eventText": "Bask extiende una mano temblorosa y señala a un oficial Imperial en concreto. \"Él\" dice- \"Él tiene los datos.\" Tenéis un nuevo objetivo.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*3* Vida",
+          "repositionInstructions": "",
+          "GUID": "ec6995ae-d182-4aff-b1a2-a324a8940eb5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "repositionText": "Bloquear la línea de visión hacia el <color=\"red\">Oficial Imperial</color>.",
+          "GUID": "e50d51d9-2064-431b-9bc3-4cc21dff4cd9",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "{-} Los Rebeldes ganan cuando el <color=\"red\">Oficial Imperial</color> es derrotado.",
+          "GUID": "277d3e28-3d54-4e6d-a38a-8aa4fb8b2a2e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Derrotar al <color=\"red\">Oficial Imperial</color>. Francotiradores activos: &Sniper Count&",
+          "longText": null,
+          "GUID": "f84a7e23-1ddd-4b0b-b0ef-32b968dc4a8d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Los Rebeldes ganan cuando el <color=\"red\">Oficial Imperial</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "b9f6c8f4-9b69-4c57-a467-6e275f64d1a4",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Deadly Alliance 1",
+      "GUID": "ebd5e5a7-2d0f-49a2-8dbd-1cb85b5022ac",
+      "eventText": "Ante vosotros veis lo que temíais: el Imperio ha llegado a un acuerdo con los Bandidos Tusken. Un hombre con uniforme de oficial activa su comunicador y empieza a gritar órdenes.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "b2466763-0f2e-4ded-835f-21581eeb2868",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "0ac21594-ffbd-4412-91ab-522d5e9435ef",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "029daa69-a470-4d7a-be4d-ea6eab84334b",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue",
+              "GUID": "7ff3a590-356e-4fda-8805-5c7dc4eab80f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "0007a7a4-b9b7-4812-ba08-afec79be856b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "52236e1f-49cb-4c13-ae1c-918ef88ee888",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "tbText": "Apenas ha terminado de hablar cuando un tremendo bramido resuena por todo el cañón. Una bestia enorme carga contra vosotros.",
+          "GUID": "686acfba-2e20-41aa-a554-70884313aa16",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "31cfb37b-9ff0-42e3-be4c-0e2b56f4b3b7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG065/Bantha Rider (Elite)"
+        },
+        {
+          "tbText": "Entre el polvo veis la silueta de Bask Hon'qira, el operativo Bothan, tumbado en el suelo. Se agita débilmente, en aparencia todavía vivo, pero no tiene muy buen aspecto.",
+          "GUID": "96a9b052-d65e-4543-8fc4-65f334b57b82",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Captive",
+              "GUID": "3f22516d-cba5-4752-b0cb-a0ab43da28d6",
+              "theText": "Bask Hon'qira, el operativo Bothan, está inconsciente, con señales de golpes de porras gaffi.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el prisionero para reclamar su ficha. Si hay una figura del bando Imperial sobre el prisionero o adya­cente al mismo, esa figura del bando Rebelde realiza una prueba de {K}. Si la falla, no recla­ma al prisionero.",
+              "buttonList": [
+                {
+                  "GUID": "a7df87ff-73f0-46d9-9656-73ba3ebca567",
+                  "theText": "{A} Rescatar al prisionero"
+                }
+              ]
+            }
+          ],
+          "GUID": "120e34b0-c5a5-4606-8714-05ed52a73a3c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Una figura del bando Rebelde puede interactuar con el prisionero para reclamar su ficha. Si hay una figura del bando Imperial sobre el prisionero o adya­cente al mismo, esa figura del bando Rebelde realiza una prueba de {K}. Si la falla, no recla­ma al prisionero.\r\n{-} La misión avanza cuando el prisionero es rescatado.",
+          "GUID": "cdb11745-96c8-42f0-b5d1-3d5f987681cb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquear el acceso al prisionero.",
+          "GUID": "46c372a2-0672-4548-8570-49486c0707ad",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Rescatar al prisionero. Francotiradores activos: &Sniper Count&",
+          "longText": null,
+          "GUID": "3ebf125c-ae0c-4b6a-a2a5-5ace0eabada4",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La ficha de Misión Rebelde representa al prisionero. Una figura del bando Rebelde puede interactuar con el prisionero para reclamar su ficha. Si hay una figura del bando Imperial sobre el prisionero o adya­cente al mismo, esa figura del bando Rebelde realiza una prueba de {K}. Si la falla, no recla­ma al prisionero.\r\n{-} La misión avanza cuando el prisionero es rescatado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "a7c837c9-ed48-475c-9ec5-1fa9d512e77a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Deadly Alliance 2",
+      "GUID": "0eb338e7-7db4-4550-86b0-7b906cb5d118",
+      "eventText": "Ante vosotros veis lo que temíais: el Imperio ha llegado a un acuerdo con los Bandidos Tusken. Un hombre con uniforme de oficial activa su comunicador y empieza a gritar órdenes.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "9c4948ad-6b45-4b3f-8359-a54ac350d1b8",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "4f3d0124-2fd1-474e-88bc-10dde5f7ba2f",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue",
+              "GUID": "4edaca25-91f5-41b0-a8a7-b49f07697237",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "548c41a0-4f65-4c04-81c4-a5bea211be33",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "648e39b6-d92f-4c8f-88bd-b3046bbac014",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "40ab3329-96f2-48f6-baf9-85a6663a6d66",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "tbText": "Apenas ha terminado de hablar cuando un tremendo bramido resuena por todo el cañón. Una bestia enorme carga contra vosotros.",
+          "GUID": "6a3709c9-a329-4298-8682-6c9a38567e4e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a2f938e5-2252-4008-b725-a98ad19bdeef",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG065/Bantha Rider (Elite)"
+        },
+        {
+          "tbText": "Entre el polvo veis la silueta de Bask Hon'qira, el operativo Bothan, tumbado en el suelo. Se agita débilmente, en aparencia todavía vivo, pero no tiene muy buen aspecto.",
+          "GUID": "847fd94c-c32d-4e31-8879-b3bedd9ababf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Captive",
+              "GUID": "9b5c2769-52be-4830-96bc-8f028844e94d",
+              "theText": "Bask Hon'qira, el operativo Bothan, está inconsciente, con señales de golpes de porras gaffi.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el prisionero para reclamar su ficha. Si hay una figura del bando Imperial sobre el prisionero o adya­cente al mismo, esa figura del bando Rebelde realiza una prueba de {K}. Si la falla, no recla­ma al prisionero.",
+              "buttonList": [
+                {
+                  "GUID": "3c022a79-3d0f-4898-bdc8-93b287ca63ff",
+                  "theText": "{A} Rescatar al prisionero"
+                }
+              ]
+            }
+          ],
+          "GUID": "50ad5195-190e-4301-8f54-423a0c5f15bf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Una figura del bando Rebelde puede interactuar con el prisionero para reclamar su ficha. Si hay una figura del bando Imperial sobre el prisionero o adya­cente al mismo, esa figura del bando Rebelde realiza una prueba de {K}. Si la falla, no recla­ma al prisionero.\r\n{-} La misión avanza cuando el prisionero es rescatado.",
+          "GUID": "66a2e167-5cdc-4d2b-b0f7-82881227409f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquear el acceso al prisionero.",
+          "GUID": "34a4c28d-910c-4802-958f-b5598a294508",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Rescatar al prisionero. Francotiradores activos: &Sniper Count&",
+          "longText": null,
+          "GUID": "8c29d216-ab02-4ae6-a082-9083c452acaf",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La ficha de Misión Rebelde representa al prisionero. Una figura del bando Rebelde puede interactuar con el prisionero para reclamar su ficha. Si hay una figura del bando Imperial sobre el prisionero o adya­cente al mismo, esa figura del bando Rebelde realiza una prueba de {K}. Si la falla, no recla­ma al prisionero.\r\n{-} La misión avanza cuando el prisionero es rescatado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "fedaf305-13fc-413f-b4d5-19f11e347b3d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Sniper 1",
+      "GUID": "18a7b782-0854-452b-998e-07e8ac569955",
+      "eventText": "Un Bandido Tusken ocupa su puesto de francotirador.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 2",
+      "GUID": "6feebbf5-b90d-4def-b72d-e0ed0861b051",
+      "eventText": "Más Bandidos Tusken ocupan sus puestos de francotirador.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 3",
+      "GUID": "5e49dfed-a0d2-444b-b460-7799138c97eb",
+      "eventText": "Más Bandidos Tusken ocupan sus puestos de francotirador.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 4",
+      "GUID": "ca2e9d2e-35e1-4746-b022-b1a03af641e0",
+      "eventText": "Más Bandidos Tusken ocupan sus puestos de francotirador.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Snipers Shoot",
+      "GUID": "26cbb683-44ee-401a-84dc-639fcedbfe3c",
+      "eventText": "Los francotiradores Tusken apostados en el cañón rugen desafiantes y se preparan para disparar.\r\n\r\n{-} Los francotiradores Tusken dispararán a los Rebeldes al final de cada Ronda.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 1 Shoots",
+      "GUID": "f3784a9b-7a32-4e9d-ac7c-745b711900f8",
+      "eventText": "Un francotirador Tusken apunta con su rifle ciclador.\r\n\r\n{-} Tira 1 dado azul. {rebel} sufre tanto {H} como resultados {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 2 Shoots",
+      "GUID": "53db8354-4714-471f-8cc3-e5a9cb27a9cb",
+      "eventText": "Un francotirador Tusken apunta con su rifle ciclador.\r\n\r\n{-} Tira 1 dado azul. {rebel} sufre tanto {H} como resultados {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 3 Shoots",
+      "GUID": "6e4986b3-1c0d-494f-a540-624e5f39fd3c",
+      "eventText": "Un francotirador Tusken apunta con su rifle ciclador.\r\n\r\n{-} Tira 1 dado azul. {rebel} sufre tanto {H} como resultados {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Sniper 4 Shoots",
+      "GUID": "d00b25c4-49b9-40a8-b564-4dd67579d3a2",
+      "eventText": "Un francotirador Tusken apunta con su rifle ciclador.\r\n\r\n{-} Tira 1 dado azul. {rebel} sufre tanto {H} como resultados {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Surrounded",
+      "GUID": "472c1aad-0aa7-4253-b286-f75df47677f5",
+      "eventText": "Rugiendo sin parar, los Bandidos Tusken cargan.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "34f400a3-ac13-4b09-a98f-fdeff2cd0404",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG021/Tusken Raider"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "ce80f45f-5ecc-438d-98bf-7b29139436ce",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "da9c2245-f4b9-46cf-93f0-a31dc36df38b",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega aquí a los Héroes.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 2",
+      "GUID": "477ff91b-ea88-4e63-b166-78f9d2e5a93a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "45d23632-7360-4164-bfda-5bc09be0f3b4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "da91186d-606b-46ff-b8d2-06dac5a2fb10",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "aa5698e0-e4b6-4d43-92be-8c004ee91f02",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Barricade 1",
+      "GUID": "d9185d9f-6406-4e3c-abbb-431fa3f3cbbd",
+      "mainText": "Los Bandidos Tusken han bloqueado el paso con rocas.\r\n\r\n{-} Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).",
+      "buttonList": [
+        {
+          "GUID": "64f8f42a-3ba5-41d5-8f5e-61d316df504a",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Barricade 2",
+      "GUID": "095aedc2-e433-4bf6-97fa-b307c623cb01",
+      "mainText": "Los Bandidos Tusken han bloqueado el paso con rocas.\r\n\r\n{-} Las barricadas son terreno blo­queado. Una figura del bando Rebelde puede atacar una barricada (Vida: *2* , Defensa: Ninguna).",
+      "buttonList": [
+        {
+          "GUID": "ff3e5243-b974-4c1e-92fa-77c971bd47c1",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Captive",
+      "GUID": "25aaa587-9325-470e-a4c9-2a26a3fbb134",
+      "mainText": "Bask Hon'qira, el operativo Bothan, está inconsciente, con señales de golpes de porras gaffi.\r\n\r\n{-} Una figura del bando Rebelde puede interactuar con el prisionero para reclamar su ficha. Si hay una figura del bando Imperial sobre el prisionero o adya­cente al mismo, esa figura del bando Rebelde realiza una prueba de {K}. Si la falla, no recla­ma al prisionero.",
+      "buttonList": [
+        {
+          "GUID": "022aac7e-919e-41f6-b6e8-c07548632bf4",
+          "theText": "{A} Rescatar al prisionero"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Tusken Raider (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

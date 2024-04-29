@@ -1,0 +1,487 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Una luz en la oscuridad",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Pack de Aliado Luke Skywalker (Caballero Jedi)",
+    "startingObjective": "",
+    "repositionOverride": "Bloquear el acceso al terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "2dca37ec-7840-4aa0-bd6d-8957154cdd8f",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "9fd52ea9-8b30-440c-9625-e7b7d0bf7654",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "95f169ff-3ada-489c-9d9c-2a7e3a6a0322",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\n\r\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "91d374dc-2c9a-4d0f-b36e-20b909ad6429",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "La base está en silencio, y vuestra lanzadera aterriza en la oscuridad. Bajáis por la rampa sin prisa, con las armas preparadas.\r\n\r\n{-} Despliega a los Héroes en la casilla resaltada en azul.\r\n{-} Aplica -2 precisión a todos los ataques {O}. Ignora todas las demás penalizaciones a la precisión.",
+      "eventActions": [
+        {
+          "tbText": "A lo lejos, veis una puerta que conecta dos partes de la base. El terminal debe de estar en algún lugar detrás de ella.",
+          "GUID": "23c66661-c931-456b-8185-cb5ce56f5e64",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal",
+              "GUID": "cd7cc2c8-c966-43fb-987e-6400529e77f4",
+              "theText": "Apenas podéis ver la silueta del terminal en la oscuridad. Ahí podrían estar los datos de la flota.",
+              "buttonList": [
+                {
+                  "GUID": "92ed4a42-8daf-4622-9acf-68c49817c585",
+                  "theText": "{A} Descargar datos"
+                }
+              ]
+            }
+          ],
+          "GUID": "32810272-7808-48aa-811a-2f8ce576a512",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Una figura del bando Rebelde puede interactuar con el terminal para descargar los datos de la flota.",
+          "GUID": "131c545a-574f-4c7b-b382-506320f5839a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Antes de que Luke también pueda salir de la lanzadera, uno de vosotros tropieza en la oscuridad, lo que alerta a una patrulla.\r\n\r\n{-} La puerta está sellada\r\n{-} La misión avanza cuando una figura del bando Rebelde descarga los datos de la flota.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "ef2f3b48-1822-4e6a-8acd-a21e2de39c6b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Descargar los datos de la flota.",
+          "longText": "",
+          "GUID": "7d83056a-3a77-4d2c-a292-e8bf8c8ae3d5",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Aplica -2 precisión a todos los ataques {O}. Ignora todas las demás penalizaciones a la precisión.\r\n{-} La puerta está sellada\r\n{-} Una figura del bando Rebelde puede interactuar con el terminal para descargar los datos de la flota.\r\n{-} La misión avanza cuando una figura del bando Rebelde descarga los datos de la flota.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "c5879082-5ef3-4f8b-84dc-2edd5675240a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "El último impacto provoca que la cabina del AT-ST explote con un brillante fogonazo, enviando fragmentos de metal retorcido al cielo nocturno. En el caos resultante, vuestro equipo escapa de la base con los preciados datos.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben a <color=\"red\">Luke Skywalker</color> (Caballero Jedi) como Aliado.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Gravemente herido, vuestro equipo consigue huir de las instalaciones bajo el intenso fuego del AT-ST. No es hasta más tarde que os dais cuenta de que vuestro módulo de datos recibió un disparo, y que recibió daños que hacen imposible su reparación.\r\n\r\n{-} Los Rebeldes pierden la misión.\r\n{-} Cada Héroe recibe 1 PE. Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "The Trap is Sprung",
+      "GUID": "579cf568-605c-4892-8d63-b7916da7cdce",
+      "eventText": "En cuanto descargáis los datos, veis un aviso de seguridad en la pantalla. Todo era una trampa.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal",
+              "GUID": "e26fe7fe-c854-4a27-aea2-2dcb98cffdbe",
+              "theText": "Apenas podéis ver la silueta del terminal en la oscuridad. Ahí podrían estar los datos de la flota.",
+              "buttonList": [
+                {
+                  "GUID": "823a060f-4aae-47e5-a4f8-510ea0088277",
+                  "theText": "{A} Descargar datos"
+                }
+              ]
+            },
+            {
+              "entityName": "Door",
+              "GUID": "45c5913d-0d28-4c70-a62f-073b7f248c22",
+              "theText": "Una puerta blindada conecta las dos partes de la base secreta.\r\n\r\n{-} La puerta está sellada.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "e7ef4f7e-afaf-407e-b033-721c3e2fbc3a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Al instante, la base queda bañada de luz y podéis ver una enorme monstruosidad.",
+          "GUID": "f7ba01d1-c2df-42ad-bc0e-6bca5f2bfd9d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "{-} Cuando esta figura llega al final de su lista de instrucciones, recibe 2 acciones más, empezando desde el principio de la lista (límite de una vez por activación).",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "81c6c841-12a2-462c-ad57-c9658593a64c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG014/AT-ST"
+        },
+        {
+          "tbText": "Ahora que os puede apuntar adecuadamente, el vehículo gira para enfrentarse a vosotros.\r\n\r\n{-} Ignora todas las penalizaciones a la precisión.\r\n{-} El <color=\"red\">AT-ST</color> realiza 2 activaciones, la segunda justo después de la primera.\r\n{-} Los Rebeldes ganan cuando el <color=\"red\">AT-ST</color> es derrotado.",
+          "GUID": "378a2060-c41e-46c6-8636-1477245bd7c6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": null,
+          "GUID": "d2870cca-59f5-4174-a2b0-75605fc2dae8",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Derrotar al <color=\"red\">AT-ST</color>.",
+          "longText": "",
+          "GUID": "edf30048-9550-47ae-80ca-1ac6515e0c59",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Ignora todas las penalizaciones a la precisión.\r\n{-} El <color=\"red\">AT-ST</color> realiza 2 activaciones, la segunda justo después de la primera.\r\n{-} Los Rebeldes ganan cuando el <color=\"red\">AT-ST</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "7be69a6f-68ed-4f31-9bcb-c53cdcb19f07",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Return of the Jedi",
+      "GUID": "536de532-6648-4e97-b845-bbbde5da1505",
+      "eventText": "Luke aparece con su sable encendido, un valiente borrón verde, al mismo tiempo que más enemigos se acercan.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "50ab19df-fc2c-4479-8a3a-97dc419b18e3",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "666d1b59-851f-43da-b2a6-699647dd22b7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG013/Probe Droid (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "df0a02fd-2188-4b2e-bddf-5d428ca3a400",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Blue 1",
+              "GUID": "45c10428-be6c-4a1f-9d2f-2420bbd5f42d",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue 2",
+              "GUID": "309e2000-7a79-4df7-8178-1578f98cb0f2",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "306c0c70-df92-4f18-b839-2065032ab62d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reinforcement Alpha",
+      "GUID": "e51e7f68-4403-4b80-98a0-373c80a94367",
+      "eventText": "Más enemigos se acercan.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Red 1",
+              "GUID": "1e899c11-008b-413a-8795-65a5e9e42044",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "351fe446-4650-470e-8f47-734397ecd50d",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "1e8ba949-63ca-4b13-ada5-f15f121f452e",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "76db8250-6c56-4a90-8ea2-fe41001f235b",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "65875286-bab9-4b05-8499-6b0c7a62483b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "1a0934df-bdc5-4aba-9896-03cc3b278815",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG042/Weequay Pirate"
+        }
+      ]
+    },
+    {
+      "eventName": "Reinforcement Bravo",
+      "GUID": "937a99d5-b923-456e-b720-989ea729d280",
+      "eventText": "Más enemigos se acercan.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reinforcement Charlie",
+      "GUID": "cdf9f018-e21a-45ea-a036-c355ec916a56",
+      "eventText": "Más enemigos se acercan.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f638fd62-7679-4c5a-8c7f-894422490a62",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG039/Gamorrean Guard"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "2bc50a11-8c1b-4e20-9641-ee065d9f5c0e",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "f44ac9be-2a10-4cf6-b18c-c6d87e56f82d",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "bdfbe366-9327-48ef-a2a4-783e92207332",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "0e43ee1b-e67b-4623-9a78-27151390b9e1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "ddf3e6ec-1c76-44c3-83f5-3870247529c8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "cabc5a26-e38d-4bb9-b77c-a6c39db9397f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "786e4e33-e44b-45f3-82df-fc208e442b64",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door",
+      "GUID": "0ad9ac33-5c6c-47a1-8dae-98fe6dcb1bd0",
+      "mainText": "Una puerta blindada conecta las dos partes de la base secreta.\r\n\r\n{-} La puerta está sellada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "1285a372-4dbe-4fbd-bd08-4927f787619c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "c6906983-b70c-4a2b-a391-42e68a9ec945",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "4e6478da-2d81-4b09-8485-19779a6e33c0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "71e220ff-cc45-4ca2-b0c6-f69af3092d06",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "7c932f59-9f05-4517-aa26-070303a417ec",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "80b39e2d-1e2f-4376-a509-b1c8ed916931",
+      "mainText": "Apenas podéis ver la silueta del terminal en la oscuridad. Ahí podrían estar los datos de la flota.",
+      "buttonList": [
+        {
+          "GUID": "0ccaff69-c02d-4159-891c-a409a8b84fcc",
+          "theText": "{A} Descargar datos"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Luke",
+      "GUID": "91ca796b-0a2d-4cc3-b7d9-15f313d78ba8",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

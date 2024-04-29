@@ -1,0 +1,969 @@
+{
+  "languageID": "Spanish (ES)",
+  "missionProperties": {
+    "missionName": "Revolucionarios",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "El Gambito de Bespin",
+    "startingObjective": "",
+    "repositionOverride": "Estar a 2 o menos casillas de un ciudadano.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "af9dfead-b64c-40e7-a3f4-98075380b0c1",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": [
+                {
+                  "GUID": "1c01667a-f672-45fc-be29-c0cd6cd57635",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "74cdeaf7-c5f9-4c8a-981d-048fc6ab453f",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Rebuscas entre los suministros y coges todo lo que parece útil.\r\n\nRoba una carta de suministro. Obtienes 1 medpac. Reclama esta ficha.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "05ac2253-0cea-46e5-bb3c-71cc1dda8584",
+              "theText": "Un viejo contenedor de suministros.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Los laberínticos túneles de servicio se extienden por los niveles inferiores de la Ciudad de las Nubes. Normalmente, los ugnaught usan estos pasajes para realizar labores de mantenimiento, pero habéis seguido a un trandoshano hasta aquí desde Ciudad Portuaria.\r\n\r\nLos contenedores de suministros han sido transformados en celdas abarrotadas. A los ugnaught no parece importarles, pero lo más probable es que les hayan sobornado. Tomáis aliento y cargáis.\r\n\r\n{-} Despliega los Héroes en la casilla resaltada en azul.\r\n{-} Las puertas están selladas para las figuras del bando imperial\r\n{-} Las fichas de Misión neutrales representan ciudadanos. Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de ese ciudadano, ese ciudadano es liberado.\r\n{-} La misión avanza cuando todos los ciudadanos son liberados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+      "eventActions": [
+        {
+          "shortText": "Liberar a los prisioneros (&Citizens freed&/4).",
+          "longText": "",
+          "GUID": "758e1e35-4b6f-44de-ad54-a535e632e405",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las puertas están selladas para las figuras del bando imperial\r\n{-} Las fichas de Misión neutrales representan ciudadanos. Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de ese ciudadano, ese ciudadano es liberado.\r\n{-} La misión avanza cuando todos los ciudadanos son liberados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "7dc77bdb-db77-4502-ba73-00e9b4df52d1",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win campaign",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Asustado, Bossk se cuela a través de una puerta atrancada, dejando atrás parte de su brazo. Los ciudadanos están a salvo y los esclavistas huyen.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes obtienen la carta de Recompensa \"El favor de Lobot''.",
+      "eventActions": [
+        {
+          "tbText": "Os aseguráis de inspeccionar a fondo la zona, para no dejar atrás a ningún civil. Su gratitud es abrumadora, y varios de ellos prometen ayudar a la Rebelión de cualquier modo que puedan. Es bueno saber que la lucha continuará una vez que hayáis completado vuestra misión.\r\n\r\nRegresáis al campo de batalla y tenéis un golpe de suerte. En la mano que ha perdido el cazarrecompensas está el módulo de datos del que tan orgulloso estaba. Ansiosos por encontrar buenas noticias, revisáis el diario de un agente rebelde, cuyo nombre en clave es \"Gorrión\".\r\n\r\nEl módulo de datos contiene mensajes entre Gorrión y un segundo agente, Dragón. Parece que ambos eran piezas clave de inteligencia de la Rebelión en la Ciudad de las Nubes. Dragón dice haber robado códigos imperiales y otra información clasificada de la OSI. En el diario también hay varios mapas. Una ubicación está marcada como el punto de entrega que los espías usaron para transferir secretos.\r\n\r\nPor fin en el camino correcto, os preparáis para recuperar los códigos. Desconocéis el destino de vuestros agentes, pero estáis decididos a terminar su trabajo.\r\n\r\n{-} Cada héroe recibe 3 PE. Los Héroes reciben 300 créditos por Héroe.\r\n{-} La siguiente misión activa es \"El secreto de la Ciudad de las Nubes\".\r\n",
+          "GUID": "1355cc54-33d9-4c97-bfc4-85cf2d8d3ea1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "No erais los únicos que contaban con apoyo. Un muro salta por los aires y Bossk escapa tras una lluvia de disparos de bláster. Lobot abre una puerta trasera y os retiráis para poneros a salvo.\r\n\r\n{-} Los Rebeldes pierden la misión",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"El gambito de Bespin\"?",
+          "buttonList": [
+            {
+              "GUID": "01cb74ca-92a6-4f99-b733-a77c7edfbf51",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "990e609a-1c6c-4e21-8034-57b9647de970",
+              "theText": "No"
+            }
+          ],
+          "GUID": "1c636161-65c6-41cc-8424-97235c6d0d93",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Vuestros corazones se encogen al comprender que Bossk ha escapado con el módulo de datos de un agente rebelde. Incluso aunque no fuese una pieza clave de vuestra misión, la OSI va a diseccionarlo. La información es un arma y los secretos que porta un espía podrían acabar con la Rebelión en la Ciudad de las Nubes.\r\n\r\nDe camino al cuartel general, un contrabandista asociado a la guerrilla os intercepta con un mensaje urgente. Lando Calrissian se arriesgó para tratar de conseguir el módulo de datos y fue capturado por la OSI. Sin duda, va a ser interrogado por el despiadado agente, Blaise.\r\n\r\nPara empeorar las cosas, las cámaras de seguridad pirateadas muestran a los soldados preparando a vuestro aliado para ser congelado en carbonita. ¡Si se llevan a Lando fuera del planeta, es posible que nunca volváis a verle!\r\n\r\n{-} Cada héroe recibe 2 PE.\r\n{-} Los Héroes reciben 300 créditos por Héroe.\r\n{-} La siguiente misión activa es \"Adquisición Hostil\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Cada Héroe recibe 1 XP.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Free Lobot",
+      "GUID": "5c2223d4-c4c6-4a4e-b93f-1f9b059ba654",
+      "eventText": "Retiráis el chip inhibidor y Lobot hace una reverencia de agradecimiento. \"Gracias\", dice con calma. \"El chip inhibidor ha limitado severamente mis capacidades defensivas, pero tal vez pueda ayudaros con las puertas de seguridad\".\r\n\r\nLobot señala un par de ranuras en el techo que se pueden usar para sellar o abris las puertas con una explosión.",
+      "eventActions": [
+        {
+          "tbText": "\"Avisadme cuando necesitéis que se cierre una puerta. Tengo un suministro de energía limitado, pero cuanta más energía desvíes de las puertas de las celdas, más puertas podré cerrar\".\r\n\r\n{-} Durante su activación, un Héroe puede elegir sufrir 1 {C} para usar a Lobot (no se requiere estar adyacente) y cerrar una de las puertas del mapa o abrir una puerta que haya colocado un Héroe. Límite de una vez por activación.\r\n{-} Los héroes sólo pueden cerrar tantas puertas blindadas como puertas de celdas hayan abierto.\r\n{-} Las puertas colocadas por los héroes están selladas. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).",
+          "GUID": "3703b24f-0459-41bd-b275-0c3169d0c6f1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Lobot",
+              "GUID": "501d08a0-db44-437f-b9f5-529f8b16ec27",
+              "theText": "Lobot, el oficial de enlace informático de la Ciudad de las Nubes, espera tranquilamente vuestras órdenes.\r\n\r\n{-} Durante su activación, un Héroe puede elegir sufrir 1 {C} para usar a Lobot (no se requiere estar adyacente) y cerrar una de las puertas del mapa o abrir una puerta que haya colocado un Héroe. Límite de una vez por activación.\r\n{-} Los héroes sólo pueden cerrar tantas puertas blindadas como puertas de celdas hayan abierto.",
+              "buttonList": [
+                {
+                  "GUID": "809ec0e7-82f9-40dd-85a7-37d8218865a8",
+                  "theText": "Cerrar Puerta NO (5A)"
+                },
+                {
+                  "GUID": "5ff94b5b-3f4b-4ae4-ad51-7e63161b3aa0",
+                  "theText": "Cerrar Puerta NE (34A)"
+                },
+                {
+                  "GUID": "2313ae80-6cb0-4afa-a949-73d7ce30737c",
+                  "theText": "Cerrar Puerta SO (26A)"
+                },
+                {
+                  "GUID": "339e6949-67d4-4e4d-9d83-1a5e5f04a3ce",
+                  "theText": "Cerrar Puerta SE (3A)"
+                }
+              ]
+            }
+          ],
+          "GUID": "c82aac81-b6f5-4fc2-8cc8-ceacb66fb6e2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Liberar a los prisioneros (&Citizens freed&/4). Puertas disponibles: &Doors claimed&",
+          "longText": null,
+          "GUID": "1b4f47f8-f7f7-4b42-a6ea-f133603d12d7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Las fichas de Misión neutrales representan ciudadanos. Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de ese ciudadano, ese ciudadano es liberado.\r\n{-} Durante su activación, un Héroe puede elegir sufrir 1 {C} para usar a Lobot (no se requiere estar adyacente) y cerrar una de las puertas del mapa o abrir una puerta que haya colocado un Héroe. Límite de una vez por activación.\r\n{-} Los héroes sólo pueden cerrar tantas puertas blindadas como puertas de celdas hayan abierto.\r\n{-} Las puertas colocadas por los héroes están selladas. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).\r\n{-} La misión avanza cuando todos los ciudadanos son liberados.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "9fa6c4f3-278e-46b7-8e06-0c3d1a39014e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Free Citizen 2",
+      "GUID": "b9be58a1-67e7-4531-9960-aee294f56120",
+      "eventText": "El Ugnaught te da las gracias y se marcha corriendo.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Citizen 2",
+              "GUID": "6baeaaf8-d6f6-4166-9a37-d557249b4610",
+              "theText": "Un mecánico de Ugnaught y sus hijos están encogidos de miedo en este lugar.\r\n\r\n{-} Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de distancia de ese ciudadano, ese ciudadano es liberado.",
+              "buttonList": [
+                {
+                  "GUID": "9a587b21-4e55-488b-bd20-4d4099eb59d6",
+                  "theText": "Liberar"
+                }
+              ]
+            }
+          ],
+          "GUID": "9a6946a3-bd90-4e6c-adc5-8ad708b54159",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Free Citizen 3",
+      "GUID": "9061eddf-e264-46ce-a121-8664223d8918",
+      "eventText": "La mujer os da las gracias y se marcha rauda y veloz.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Citizen 3",
+              "GUID": "f1fa7189-bdcb-4ecd-a121-46571de01dc2",
+              "theText": "Una mujer Togruta vestida con un mono de piloto está encadenada a la pared en este lugar.\r\n\r\n{-} Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de distancia de ese ciudadano, ese ciudadano es liberado.",
+              "buttonList": [
+                {
+                  "GUID": "90512572-4ea4-44cb-9bd2-a58bf46a9f46",
+                  "theText": "Liberar"
+                }
+              ]
+            }
+          ],
+          "GUID": "493bfd08-367c-4c3f-abdb-9697abfbe728",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Free Citizen 4",
+      "GUID": "f90d2769-e8b8-429e-b77a-e655125ffc59",
+      "eventText": "La Sullustan os da las gracias y se apresura a marcharse.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Citizen 4",
+              "GUID": "fea68a76-a782-4ad9-8185-13af40c52687",
+              "theText": "Una pequeña mujer Sullustan parpadea ante la repentina luz.\r\n\r\n{-} Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de distancia de ese ciudadano, ese ciudadano es liberado.",
+              "buttonList": [
+                {
+                  "GUID": "98fbb3b8-11b4-4697-be4f-dc55f446dca6",
+                  "theText": "Liberar"
+                }
+              ]
+            }
+          ],
+          "GUID": "5b490c47-5f57-471e-b84d-40d5a6e39673",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Cell Door 1",
+      "GUID": "860f95b0-cb29-4831-834c-049c7476e809",
+      "eventText": "La puerta se abre para revelar un espacio diminuto y estrecho con alguien encogido en su interior.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door 1",
+              "GUID": "f3f68ba3-82c5-45b5-ad50-c7bf4a8c7905",
+              "theText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+              "buttonList": [
+                {
+                  "GUID": "81a746d3-caa1-4d52-9d34-4f93e2d0a181",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "51d81ce0-f227-4010-8b4a-7b7f03453751",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Cell Door 2",
+      "GUID": "815d3645-ab95-4f4a-aa67-118d99d7764b",
+      "eventText": "La puerta se abre para revelar un espacio diminuto y estrecho con alguien encogido en su interior.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door 2",
+              "GUID": "dd0a188a-ffde-4124-b844-0bb78138b3cf",
+              "theText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+              "buttonList": [
+                {
+                  "GUID": "ef845e92-1c19-439e-bf28-69f2c3c97541",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "e0719dcc-afae-4d57-84e6-23d025d661f5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Cell Door 3",
+      "GUID": "56198054-cae4-444c-a625-763b460cfe89",
+      "eventText": "La puerta se abre para revelar un espacio diminuto y estrecho con alguien encogido en su interior.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door 3",
+              "GUID": "a45c35a3-2ae2-4cdf-865f-27fc214c4eee",
+              "theText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+              "buttonList": [
+                {
+                  "GUID": "2582aa0e-96c6-4602-8841-4fd4a3bdf488",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "40a3b38a-cda6-4e2d-b269-d2766934714a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Cell Door 4",
+      "GUID": "6b0b30be-e7fa-4fcf-8368-fb80e93cc249",
+      "eventText": "La puerta se abre para revelar un espacio diminuto y estrecho con alguien encogido en su interior.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door 4",
+              "GUID": "bfa5955c-4c9a-47b2-866f-62b2cfbe69af",
+              "theText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+              "buttonList": [
+                {
+                  "GUID": "43417cba-c2dc-4da9-a0c9-9e1c0ab9cd9b",
+                  "theText": "{A} Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "c8cc2f5d-2ebb-4faa-8591-34d62b6b297e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Door NW",
+      "GUID": "ea1f0ff3-ed90-4791-92fa-426a0c125000",
+      "eventText": "La puerta blindada se cierra de golpe.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door NW",
+              "GUID": "aca043ad-35ed-457e-99fb-e39442163102",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}) para abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "8bbcd2ec-6f6a-4cb4-86e3-da8ddf4e498d",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "91c01bb0-dbc4-4d66-b304-2d4a21b60a63",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Door NE",
+      "GUID": "3d123d26-c0bb-4898-bdb5-4fce4bb5a8a4",
+      "eventText": "La puerta blindada se cierra de golpe.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door NE",
+              "GUID": "bf0cb2e8-0604-4507-91cd-d7285626cb84",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "56f532f2-fef2-483a-ac33-10f31efe9d92",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "f91f0c0d-24df-4e9a-bf63-7630e9b1e9fa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Door SW",
+      "GUID": "72932b32-2843-48e9-bcc6-c0469ca69342",
+      "eventText": "La puerta blindada se cierra de golpe.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door SW",
+              "GUID": "5c680286-535d-4dd3-aa59-0f3fa32fb8c1",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "d5918a64-db80-48c0-8f74-23c6ef973ad3",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "21746e51-21f8-42f4-b6be-3b02939d87a6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Door SE",
+      "GUID": "b6981149-bb62-4014-a0e0-810764624cd7",
+      "eventText": "La puerta blindada se cierra de golpe.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door SE",
+              "GUID": "8876e216-5768-4886-a01c-948d7a547a2e",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "eecf75ac-8217-4724-bb74-1c654e8210b8",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "0569834d-59cf-4c19-8b82-23069a3fff2e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door NW",
+      "GUID": "d153f4b6-f33b-461e-9371-c659e50f97cf",
+      "eventText": "La puerta blindada se abre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door NW",
+              "GUID": "1012e35a-a2a3-469a-aee9-7ffcc87f6eab",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}) para abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "aaad1be7-b3bd-48bf-8fc4-c9225bae0adc",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "3fe46737-4d06-4056-90a9-3dab28b13e4c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door NE",
+      "GUID": "692fe598-b8a3-496a-bc09-3f6e26c5ba5b",
+      "eventText": "La puerta blindada se abre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door NE",
+              "GUID": "e96f06de-9867-4456-901a-d4eece9454df",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}) para abrirla.",
+              "buttonList": [
+                {
+                  "GUID": "c808421b-86f8-4c5c-aabc-45f8e2e63b8e",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "edeba0fd-0d2b-443c-8571-398b954dcbe2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door SW",
+      "GUID": "0136d950-7877-4503-982a-ae40ff09547d",
+      "eventText": "La puerta blindada se abre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door SW",
+              "GUID": "c57888da-2654-4080-90a3-1bd97422544b",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "6c16292d-64e5-4678-97ab-234f98726fe2",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "9e961a40-9b82-4fb4-baf2-a662cecdf063",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door SE",
+      "GUID": "a4f972c4-e498-4e44-8523-75c92898c0f7",
+      "eventText": "La puerta blindada se abre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Central Door SE",
+              "GUID": "c603fe46-6b1d-4170-b509-1a28235d1480",
+              "theText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "1654bb6c-49ec-439e-838d-642c3473369b",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "9623110f-84cc-46b9-9d0d-a8566581a9bd",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Lobot out of power",
+      "GUID": "e454f897-aee2-4ba3-bbf2-ad2cd569b62a",
+      "eventText": "\"Eso es todo\", dice Lobot. \"No hay nada más que pueda hacer por ahora\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Lobot",
+              "GUID": "fbbbfea5-5d0a-482a-8fea-a36fd5874244",
+              "theText": "Lobot, el oficial de enlace informático de la Ciudad de las Nubes, espera tranquilamente a que liberéis a los ciudadanos restantes.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "4664fbd5-7a4d-4d8a-9deb-2fc4bbaec14d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Lobot power again",
+      "GUID": "52c14d9e-cb94-4aa4-b668-2baf5e665da6",
+      "eventText": "\"Genial\", la voz de Lobot se escucha por el transmisor. \"Las puertas están operativas de nuevo\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Lobot",
+              "GUID": "1e74ee4f-19e0-469b-9a0e-0522e7374cb5",
+              "theText": "Lobot, el oficial de enlace informático de la Ciudad de las Nubes, espera tranquilamente vuestras órdenes.\r\n\r\n{-} Durante su activación, un Héroe puede elegir sufrir 1 {C} para usar a Lobot (no se requiere estar adyacente) y cerrar una de las puertas del mapa o abrir una puerta que haya colocado un Héroe. Límite de una vez por activación.\r\n{-} Los Héroes sólo pueden cerrar tantas puertas explosivas como puertas de celdas hayan abierto.",
+              "buttonList": [
+                {
+                  "GUID": "9263fc1e-6679-4db9-b971-d4e94d207cb4",
+                  "theText": "Cerrar Puerta NO (5A)"
+                },
+                {
+                  "GUID": "16b4228a-16c6-4637-a92d-3c207f4f651d",
+                  "theText": "Cerrar Puerta NE (34A)"
+                },
+                {
+                  "GUID": "269708d2-6579-4302-b58f-0220fb63e415",
+                  "theText": "Cerrar Puerta SO (26A)"
+                },
+                {
+                  "GUID": "9c1da9b6-3971-4eda-a24a-0033f2c27440",
+                  "theText": "Cerrar Puerta SE (3A)"
+                }
+              ]
+            }
+          ],
+          "GUID": "72231c0a-2029-459c-8c5f-f9b9f31f2a88",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Escape Alert",
+      "GUID": "b77fb8c3-76b8-4a74-9f99-bc1c95412fe0",
+      "eventText": "A medida que se liberan más y más ciudadanos, los aliados del cazarrecompensas llegan para intentar deteneros.\r\n\r\n{-} Si el Droide reciclado está en el tablero, adquiere <color=\"red\">Concentra­ción</color>. En caso contrario, coloca el Droide reciclado en una casill adyacente a cualquier figura del bando Rebelde.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Containment Question",
+      "GUID": "57d09579-1571-4459-adfd-069ded939765",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "¿Habéis jugado esta misión como parte de la minicampaña \"El gambito de Bespin\"?",
+          "buttonList": [
+            {
+              "GUID": "468357ee-3684-4012-909c-06f07f0bd210",
+              "theText": "Sí"
+            },
+            {
+              "GUID": "6ab951b3-e19d-446e-96c7-c6c89d77fe72",
+              "theText": "No"
+            }
+          ],
+          "GUID": "19338574-c49b-4230-9320-ff844ce06a9b",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        },
+        {
+          "repositionText": null,
+          "GUID": "057bad1d-a5f8-430d-ae28-b055a26c9a51",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Containment Yes",
+      "GUID": "d6dc7d0c-c5d0-4471-98fa-f4d2e36b5348",
+      "eventText": "Bossk regresa y descubre que sus prisioneros han escapado. Antes de que pueda huir, Lobot cierra las salidas de golpe. Sin inmutarse, el cazarrecompensas muestra una sonrisa retorcida y se burla de vosotros mostrándoos el módulo de datos Rebelde.\r\n\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Bossk</color> es derrotado.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "{A} FUEGO INDISCRIMINADO: Si hay al menos 1 figura Rebelde a 3 o menos casillas, tira 1 dado rojo. Una figura Rebelde a 3 o menos casillas sufre {H} igual al resultado de {H}. Después, cada figura adyacente a esa figura Rebelde que no sea esta figura sufre 1 {H}.\r\n{Q} Mueve 5 para atacar a {rebel}.\r\n{Q}{A} Mueve 7 para atacar a {rebel}.\r\n{A} Mueve 4 para reposicionar a 3.\r\n{A} Mueve 6 a la posición a 3.",
+          "modification": "+*1* Vida",
+          "repositionInstructions": "",
+          "GUID": "7483a3b1-08d9-4fcb-865f-ee42ddacb121",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG080/Bossk"
+        },
+        {
+          "shortText": "Derrotar a <color=\"red\">Bossk</color>.",
+          "longText": null,
+          "GUID": "7f854e26-7cbf-40d4-baa6-d6c84af27dcd",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Durante su activación, un Héroe puede elegir sufrir 1 {C} para usar a Lobot (no se requiere estar adyacente) y cerrar una de las puertas del mapa o abrir una puerta que haya colocado un Héroe. Límite de una vez por activación.\r\n{-} Los héroes sólo pueden cerrar tantas puertas explosivas como puertas de celdas hayan abierto.\r\n{-} Las puertas colocadas por los héroes están selladas. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Bossk</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "2b599fce-76b1-409a-ade3-f4d18492b075",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Containment No",
+      "GUID": "8e728584-9c69-4fc8-8225-205712884c1a",
+      "eventText": "Bossk regresa y descubre que sus prisioneros han escapado. Antes de que pueda huir, Lobot cierra las salidas de golpe.\r\n\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Bossk</color> es derrotado.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "{A} FUEGO INDISCRIMINADO: Si hay al menos 1 figura Rebelde a 3 o menos casillas, tira 1 dado rojo. Una figura Rebelde a 3 o menos casillas sufre {H} igual al resultado de {H}. Después, cada figura adyacente a esa figura Rebelde que no sea esta figura sufre 1 {H}.\r\n{Q} Mueve 5 para atacar a {rebel}.\r\n{Q}{A} Mueve 7 para atacar a {rebel}.\r\n{A} Mueve 4 para reposicionar a 3.\r\n{A} Mueve 6 a la posición a 3.",
+          "modification": "+*1* Health",
+          "repositionInstructions": "",
+          "GUID": "001982bf-5be7-4df8-aac1-50b0bafc9bce",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG080/Bossk"
+        },
+        {
+          "shortText": "Derrotar a <color=\"red\">Bossk</color>.",
+          "longText": null,
+          "GUID": "55ad1eb6-8008-4122-9ea2-5ed27c3a4a90",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Durante su activación, un Héroe puede elegir sufrir 1 {C} para usar a Lobot (no se requiere estar adyacente) y cerrar una de las puertas del mapa o abrir una puerta que haya colocado un Héroe. Límite de una vez por activación.\r\n{-} Los héroes sólo pueden cerrar tantas puertas explosivas como puertas de celdas hayan abierto.\r\n{-} Las puertas colocadas por los héroes están selladas. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}).\r\n{-} Los Rebeldes ganan cuando <color=\"red\">Bossk</color> es derrotado.\r\n{-} Los Rebeldes pierden cuando todos los Héroes están heridos.",
+          "GUID": "2fe53ba1-fd34-412f-b0d9-9e62c197e25e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win no campaign",
+      "GUID": "c27a241d-9abf-45a7-bf90-2dccc0a92b95",
+      "eventText": "Asustado, Bossk se cuela a través de una puerta atrancada, dejando atrás parte de su brazo. los ciudadanos están a salvo y los esclavistas huyen.\r\n\r\n{-} ¡Los Rebeldes ganan la misión!\r\n{-} Los Héroes reciben la carta de Recompensa \"El Favor de Lobot\".\r\n{-} Cada Héroe recibe 1 XP.\r\n{-} Los Héroes reciben 100 créditos por Héroe.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "59be6119-a698-4f36-a6ec-019c7b870167",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "b9bff0a1-47c2-46f1-b1d9-661351833360",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Un viejo contenedor de suministros.",
+      "buttonList": [
+        {
+          "GUID": "9b2832a4-a5a6-4e38-822a-cd5337be7c69",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Despliega los Héroes aquí.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Entrance",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door 1",
+      "GUID": "781d5728-b00a-4682-a1eb-caddef7384e2",
+      "mainText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+      "buttonList": [
+        {
+          "GUID": "31ce5d1f-4b60-42f6-9dec-1d23027a2076",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Cell Door 2",
+      "GUID": "eaa7c701-6628-46d8-aebb-2fab427017ac",
+      "mainText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+      "buttonList": [
+        {
+          "GUID": "33a8584a-8847-4f47-9749-39ab9a2004e8",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Cell Door 3",
+      "GUID": "448bedfb-e003-4788-9f98-5c944c635961",
+      "mainText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+      "buttonList": [
+        {
+          "GUID": "11bb5ade-959d-455d-a72c-44714abee725",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Cell Door 4",
+      "GUID": "fc832543-21c7-424a-b295-4cf8af6cd70e",
+      "mainText": "La puerta conduce a un pequeño habitáculo, perfecto para encarcelar a los detenidos.",
+      "buttonList": [
+        {
+          "GUID": "23140d86-9109-436b-8d10-7d6d62beb6d8",
+          "theText": "{A} Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Lobot",
+      "GUID": "14a9171b-056d-40cf-a638-800b14fe8634",
+      "mainText": "Encontráis a Lobot sentado en el suelo. Una luz roja parpadea en un tosco accesorio que ha sido acoplado a su implante. Retiráis el chip inhibidor y Lobot hace una reverencia de agradecimiento.\r\n\r\n{-} Cuando un Héroe está en la misma casilla que Lobot y no hay ninguna figura imperial a menos de 2 o menos casillas de Lobot, Lobot es liberado.",
+      "buttonList": [
+        {
+          "GUID": "153f0c21-711c-40dd-9429-8bd4b286f536",
+          "theText": "Liberar"
+        }
+      ]
+    },
+    {
+      "entityName": "Citizen 2",
+      "GUID": "fe3e8033-5deb-4ce2-988d-d20fad59a1c1",
+      "mainText": "Un mecánico de Ugnaught y sus hijos están encogidos de miedo en este lugar.\r\n\r\n{-} Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de distancia de ese ciudadano, ese ciudadano es liberado.",
+      "buttonList": [
+        {
+          "GUID": "ac078096-ad68-4d6b-a549-5dd5bafcb2c4",
+          "theText": "Liberar"
+        }
+      ]
+    },
+    {
+      "entityName": "Citizen 3",
+      "GUID": "63f5d133-08e9-4ad0-bcab-724f9a384803",
+      "mainText": "Una mujer Togruta vestida con un mono de piloto está encadenada a la pared en este lugar.\r\n\r\n{-} Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de distancia de ese ciudadano, ese ciudadano es liberado.",
+      "buttonList": [
+        {
+          "GUID": "686942b7-b00b-4dca-a2cc-15d3031e09e6",
+          "theText": "Liberar"
+        }
+      ]
+    },
+    {
+      "entityName": "Citizen 4",
+      "GUID": "17ee93ff-57b7-44e8-8ccb-884bc46bc49e",
+      "mainText": "Una pequeña mujer Sullustan parpadea ante la repentina luz.\r\n\r\n{-} Cuando un Héroe está en la misma casilla que un ciudadano o adyacente a ella y no hay ninguna figura del bando Imperial a 2 o menos casillas de distancia de ese ciudadano, ese ciudadano es liberado.",
+      "buttonList": [
+        {
+          "GUID": "cc1c5553-1945-4c1b-a987-9d709b4c20b4",
+          "theText": "Liberar"
+        }
+      ]
+    },
+    {
+      "entityName": "Central Door NW",
+      "GUID": "69d78adc-a9f9-4776-92ad-4ea65b56cf89",
+      "mainText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}) para abrirla.",
+      "buttonList": [
+        {
+          "GUID": "1280327f-1adc-47ae-8053-3d4a58763979",
+          "theText": "Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Central Door NE",
+      "GUID": "63d70509-8539-4c8e-a36d-42d3af41ab4a",
+      "mainText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}) para abrirla.",
+      "buttonList": [
+        {
+          "GUID": "5bdec88b-e625-4f61-accf-611a332bdc7e",
+          "theText": "Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Central Door SW",
+      "GUID": "7525f106-6124-4bf4-b4f8-7cf1b431697f",
+      "mainText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}) para abrirla.",
+      "buttonList": [
+        {
+          "GUID": "87943847-4799-44da-bc9f-00c74b3bd1b9",
+          "theText": "Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Central Door SE",
+      "GUID": "df120813-5168-4112-9dad-1e98b3d95469",
+      "mainText": "La puerta de seguridad está bien sellada.\r\n\r\n{-} La puerta está sellada. Una figura puede atacar una puerta sellada (Vida: *1*, Defensa: 1 {G}) para abrirla.",
+      "buttonList": [
+        {
+          "GUID": "965e1d8a-cd8a-43ea-ae4a-b22d15d0b305",
+          "theText": "Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "3f9f4446-1d6f-425a-8d39-b631d9530d8a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "c7024d91-ac30-47af-bc16-ea2a4c5be50c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Ugnaught 1",
+      "GUID": "355a1752-0567-4bc7-93c3-eeea9ae6d797",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Ugnaught 2",
+      "GUID": "4c4c3a16-3bb4-4431-82bd-171e697e560c",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Ugnaught Tinkerer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Ugnaught Tinkerer",
+      "customInstructions": ""
+    }
+  ]
+}

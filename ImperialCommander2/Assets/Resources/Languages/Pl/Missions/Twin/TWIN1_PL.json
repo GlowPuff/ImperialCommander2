@@ -1,0 +1,757 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Canyon Run",
+    "missionDescription": "",
+    "missionInfo": "{-} Jeśli <color=\"red\">R2-D2</color> lub <color=\"red\">C-3PO</color> podczas obrony nie są w promieniu 4 pól od bohatera, usuwają 1 kość ze swojej puli obrony.\r\n{-} Żetony misji Imperium reprezentują barykady i pułapki i stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren. Bohater może skorzystać z żetonu, aby go odrzucić.\r\n{-} Jeźdźcy Tusken na wąskiej ścieżce (kafelek Bliźniacze cienie 05B) to snajperzy, którzy mogą obierać za cel ataku każdą figurkę na mapie.\r\n{-} Drzwi są zabezpieczone. Figurka może atakować te drzwi (żywotność: *1*, obrona: 1 {G}).\r\n{-} Misja pójdzie naprzód, kiedy figurka Rebelii wejdzie na wąską ścieżkę (kliknij na pole zaznaczone na zielono i wybierz \"Wejdź\").\r\n{-} Bohaterowie przegrają na końcu rundy 8 lub kiedy wszyscy bohaterowie będą ranni i <color=\"red\">R2-D2</color> oraz <color=\"red\">C-3PO</color> zostaną pokonani.",
+    "campaignName": "Twin Shadows",
+    "startingObjective": "Wejdź na wąską ścieżkę.",
+    "repositionOverride": "Blokuj dostęp do drzwi i terminala.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "324a2829-730b-440e-93d2-274ab7000522",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "1bdcd4b6-33b9-4f4a-9f88-435131a5302b",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d5cabb83-3ebf-4445-9eaa-c799aab01e63",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9474dfae-1552-4fd3-a903-d6138d3bd780",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Skała pod waszymi stopami jest twarda, a palący żar bliźniaczych słońc Tatooine trudny do zniesienia. Z mozołem przedzieracie się przez Pustkowia Jundlandii. C-3PO podsumowuje wasze zniechęcenie smętnym stwierdzeniem: To nie jest miejsce dla cywilizowanych istot. Zginiemy tu niechybnie!\r\n\r\nJego towarzysz R2-D2 szczebiocze coś i kręci kopułką. Wkrótce jesteście jednak zmuszeni zignorować prozaiczne niedogodności, bo nad waszymi głowami przelatują nagle strzały z blastera. Ostrzał prowadzą szturmowcy, których widzicie w oddali. Gdy mobilizujecie się, żeby odpowiedzieć na atak, nieopodal dostrzegacie grupę Tuskenów. Ludzie Pustyni zajmują pozycje, szykując się do zasypania was ogniem, podczas gdy wy będziecie zajęci wspinaczką.\r\n\r\n{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "37835dc0-55a3-4171-8531-e13185e04499",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "customName": null,
+          "GUID": "0f981860-b7b5-4963-ac12-35f079ce575e",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "{-} Bohaterowie kontrolują <color=\"red\">R2-D2</color> i <color=\"red\">C-3PO</color> jako sojuszników.\r\n{-} Jeśli <color=\"red\">R2-D2</color> lub <color=\"red\">C-3PO</color> podczas obrony nie są w promieniu 4 pól od bohatera, usuwają 1 kość ze swojej puli obrony.\r\n{-} Żetony misji Imperium reprezentują barykady i pułapki i stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren. Bohater może skorzystać z żetonu, aby go odrzucić.\r\n{-} Jeźdźcy Tusken na wąskiej ścieżce (kafelek Bliźniacze cienie 05B) to snajperzy, którzy mogą obierać za cel ataku każdą figurkę na mapie.\r\n{-} Drzwi są zabezpieczone. Figurka może atakować te drzwi (żywotność: *1*, obrona: 1 {G}).\r\n{-} Misja pójdzie naprzód, kiedy figurka Rebelii wejdzie na wąską ścieżkę (kliknij na pole zaznaczone na zielono i wybierz \"Wejdź\").\r\n{-} Bohaterowie przegrają na końcu rundy 8 lub kiedy wszyscy bohaterowie będą ranni i <color=\"red\">R2-D2</color> oraz <color=\"red\">C-3PO</color> zostaną pokonani.",
+          "GUID": "4ad617c5-a911-4290-be4a-d7a9c79f0eda",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Po wyczerpującej wspinaczce i męczącej walce docieracie do bazy i wykradacie imperialne plany z centralnej konsoli. Macie nadzieję, że dzięki nim uda wam się pokrzyżować Imperium plany.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Bohaterowie dostają kartę nagrody \"Partnerzy\".",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Bliźniacze cienie\"?",
+          "buttonList": [
+            {
+              "GUID": "bd74c6b8-03b5-4b99-b098-7c3857cc2bef",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "8c29e961-bf68-4e72-bbd9-c0139dee8bc4",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Wspinaczka i walka skrajnie was wyczerpały. Nie macie wyjścia: musicie poddać się i wycofać. Możecie tylko mieć cichą nadzieję, że z tej imperialnej bazy nie są prowadzone operacje najwyższej rangi, mogące poważnie zaszkodzić interesom Rebelii…\r\n\r\n{-} Bohaterowie przegrali misję.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Bliźniacze cienie\"?",
+          "buttonList": [
+            {
+              "GUID": "1d8e7f1d-959f-4fa5-a174-940952051598",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "ecbe5c7b-cd0d-46d4-a905-131a95911991",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "Wasz pilot staje na wysokości zadania i sprawnie odbiera wasz zespół w punkcie zbornym. Wypełniwszy misję infiltracyjną, dokonujecie przegrupowania na pokładzie waszego promu i planujecie następny krok. Z wykradzionych przez was planów wynika, że Kayn Somos, dowódca szturmowców, którego spotkaliście, stoi na czele misji wywiadowczej, mającej na celu namierzenie i schwytanie bohatera Rebelii, Luke’a Skywalkera. Gwiezdny niszczyciel na orbicie jest centrum całej operacji. Wszystko wskazuje na to, że wkrótce będzie się zbierał do odlotu, co oznacza, że Imperium odkryło, gdzie przebywa. Czas wkroczyć do akcji.\r\n\r\nPrzechwycone plany zawierają także kody dokujące gwiezdnego niszczyciela. Wasz pilot twierdzi, że powinny wystarczyć do bezpiecznego ominięcia turbolaserów i wprowadzenia promu do głównego hangaru okrętu. Gdy ten etap się uda, będziecie musieli tylko znaleźć sposób na zniszczenie statku i opuszczenie go.\r\n\r\n{-} Każdy bohater dostaje 3 PD.\r\n{-} Bohaterowie dostają 300 kredytów za każdego bohatera w grze.\r\n{-} Bohaterowie dostają <color=\"red\">R2-D2</color> (Oddanego astromecha) i <color=\"red\">C-3PO</color> (Kontakty ludzie roboty) jako sojuszników.\r\n{-} Następna aktywna misja to “Ogień na niebie”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "“Idealnie wam wychodzi pakowanie się w kłopoty” parska z przekąsem wasz pilot, kiedy – ryzykując życiem – przejmuje was z linii ognia.\r\n\r\n“Nie dowiedzieliście się nic nowego? Cóż, z informacji, które udało się mi uzyskać wynika, że – jeśli ufać odczytom – ten niszczyciel wybiera się niebawem na Sullust. Nie mam całkowitej pewności, ale sądzę, że zamierzają schwytać Luke’a. To właśnie tam poleciał z ostatnią misją. Przypuszczam, że dokonywali tu zwiadu.”\r\n\r\nŚwiadomi, że macie mało czasu na uratowanie bohatera Rebelii, pośpiesznie przygotowujecie plan przechwycenia imperialnego promu i wdarcia się na pokład gwiezdnego niszczyciela. Nie wiecie, czego uda wam się dokonać, gdy już tam dotrzecie, ale liczycie na to, że trafi się jakaś warta wykorzystania okazja.\r\n\r\n{-} Każdy bohater dostaje 2 PD.\r\n{-} Bohaterowie dostają 300 kredytów za każdego bohatera w grze.\r\n{-} Bohaterowie dostają <color=\"red\">R2-D2</color> (Oddanego astromecha) i <color=\"red\">C-3PO</color> (Kontakty ludzie roboty) jako sojuszników.\r\n{-} Następna aktywna misja to “Odnaleziony”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Każdy bohater dostaje 1 PD.\r\n{-} Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round Limit",
+      "GUID": "cc82e014-6c01-4e9b-8674-00a575d7a794",
+      "eventText": "Wspinaczka i walka skrajnie was wyczerpały. Nie macie wyjścia: musicie poddać się i wycofać. Możecie tylko mieć cichą nadzieję, że z tej imperialnej bazy nie są prowadzone operacje najwyższej rangi, mogące poważnie zaszkodzić interesom Rebelii…\r\n\r\n{-} Bohaterowie przegrali misję.",
+      "eventActions": [
+        {
+          "mainText": "Czy ta misja jest rozgrywana jako część minikampanii \"Bliźniacze cienie\"?",
+          "buttonList": [
+            {
+              "GUID": "22594630-87d8-4e92-8c1d-a80a693f9174",
+              "theText": "Tak"
+            },
+            {
+              "GUID": "77b8dba2-b3f4-4aef-a5f3-d4d3fc60a585",
+              "theText": "Nie"
+            }
+          ],
+          "GUID": "161ea904-5b7c-4b3a-b565-b5871da81ae4",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "R2-D2 defeated",
+      "GUID": "fc9ebd58-d346-4f33-b590-597e66ab759b",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "C-3PO defeated",
+      "GUID": "a02f3fe2-13fd-475b-aa4b-a8a654ac6b95",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Door",
+      "GUID": "3daf4a5f-5ca4-40b6-a732-7f7a74903587",
+      "eventText": "Chłodne powietrze wydostaje się z klimatyzowanego pomieszczenia, gdy drzwi się otwierają.\r\n\r\n{-} Bohater może skorzystać z terminala ({I}) aby przechwycić plany.\r\n{-} Bohaterowie wygrają, kiedy figurka Rebelii przechwyci plany.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "dbaf96f9-fef5-4363-aabb-a31a7572fdb4",
+              "theText": "Drzwi prowadzą do imperialnego bunkra.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować te drzwi (żywotność: *1*, obrona: 1 {G}).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a8b99d52-a80e-4519-8149-f7b9e8134b39",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Skorzystaj z terminala, aby przechwycić plany.",
+          "longText": null,
+          "GUID": "be0f5232-96aa-40a8-9586-e8cbdbd6d9f2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Jeśli <color=\"red\">R2-D2</color> lub <color=\"red\">C-3PO</color> podczas obrony nie są w promieniu 4 pól od bohatera, usuwają 1 kość ze swojej puli obrony.\r\n{-} Bohater może skorzystać z terminala ({I}) aby przechwycić plany.\r\n{-} Bohaterowie wygrają, kiedy figurka Rebelii przechwyci plany.\r\n{-} Bohaterowie przegrają na końcu rundy 8 lub kiedy wszyscy bohaterowie będą ranni i <color=\"red\">R2-D2</color> oraz <color=\"red\">C-3PO</color> zostaną pokonani.",
+          "GUID": "61cba9b9-6332-4443-bdae-557c1e9d0509",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Narrow Path Entered",
+      "GUID": "6095b3ff-c7aa-4f56-855f-c650b8ea2b3d",
+      "eventText": "Gdy rozpoczniecie wspinaczkę, Jeźdźcy Tusken chwytają za swoje kije i pędzą do przodu, aby się z wami zmierzyć.\r\n\r\n{-} Misja pójdzie naprzód, kiedy drzwi zostaną zniszczone.",
+      "eventActions": [
+        {
+          "theText": "{-} Bohaterowie kontrolują <color=\"red\">R2-D2</color> i <color=\"red\">C-3PO</color> jako sojuszników.\r\n{-} Jeśli <color=\"red\">R2-D2</color> lub <color=\"red\">C-3PO</color> podczas obrony nie są w promieniu 4 pól od bohatera, usuwają 1 kość ze swojej puli obrony.\r\n{-} Żetony misji Imperium reprezentują barykady i pułapki i stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren. Bohater może skorzystać z żetonu, aby go odrzucić.\r\n{-} Jeźdźcy Tusken na wąskiej ścieżce (kafelek Bliźniacze cienie 05B) to snajperzy, którzy mogą obierać za cel ataku każdą figurkę na mapie.\r\n{-} Drzwi są zabezpieczone. Figurka może atakować te drzwi (żywotność: *1*, obrona: 1 {G}).\r\n{-} Misja pójdzie naprzód, kiedy drzwi zostaną zniszczone.\r\n{-} Bohaterowie przegrają na końcu rundy 8 lub kiedy wszyscy bohaterowie będą ranni i <color=\"red\">R2-D2</color> oraz <color=\"red\">C-3PO</color> zostaną pokonani.",
+          "GUID": "268db73d-8bcc-4841-bbf0-359438006dbf",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Wejdź do bunkra.",
+          "longText": null,
+          "GUID": "f4e547b5-28c8-4018-a9a3-8b4e12c1b896",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Narrow Path",
+              "GUID": "184cd330-058f-4fb3-8d0a-ca0be4e2003f",
+              "theText": "Kręta, wąska ścieżka prowadzi wzdłuż zbocza kanionu. To długa i uciążliwa wspinaczka.\r\n\r\n{-} Kiedy figurka Rebelii wejdzie na wąską ścieżkę (kliknij na pole zaznaczone na zielono i wybierz \"Wejdź\").",
+              "buttonList": [
+                {
+                  "GUID": "7e4b0da1-e739-4b84-9a47-669ac60f6b35",
+                  "theText": "Wejdź"
+                }
+              ]
+            }
+          ],
+          "GUID": "4ba0d02d-9246-4e07-b06c-02ac8db71652",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "cd191d59-7dad-4c14-9c47-7e0dd92e7c35",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Zaczynasz włamywać się do terminalu.\r\n\r\n{-} Wykonaj test {I}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na terminalu, następnie odrzuć wszystkie żetony zmęczenia z terminala. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "ca752a8c-2b8d-4be0-8b18-fc19102c0244",
+              "theText": "Systemy zabezpieczeń są po prostu zbyt skomplikowane. Musisz spróbować ponownie.\r\n\r\n{-} Połóż 1 żeton zmęczenia na drzwiach za każdy wynik {B} na kościach."
+            }
+          ],
+          "GUID": "e4c03dbf-00c5-4d1a-8bcb-f5076f424259",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Heat of the Suns",
+      "GUID": "299727e4-b187-4222-8aa9-1dbabeff6a99",
+      "eventText": "Żar z dwóch słońc Tatooine jest bezlitosny. Czujecie, że wysysa wasze siły.\r\n\r\n{-} Każdy bohater wykonuje test {K}. Każdy bohater, którego test jest nieudany, zostaje Wycieńczony.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Yellow Barricade Removed",
+      "GUID": "26dc59a7-333d-4647-8dc2-52cb50c6e229",
+      "eventText": "Drzwi w końcu się poddają i zostają rozsunięte. W tym samym czasie, alarmy zaczynają huczeć wśród pustynnego upału.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Barricade 1",
+              "GUID": "c55b4777-006c-42a1-b39a-29289b569803",
+              "theText": "Imperium postawiło tu ogrodzenie, wyposażone w skomplikowany zamek.\r\n\r\n{-} Bohater może skorzystać z ogrodzenia, aby otworzyć zamek.\r\n\r\n",
+              "buttonList": [
+                {
+                  "GUID": "99380c8c-4c08-4cfb-81e8-f4affca71eb6",
+                  "theText": "{A} Otwórz zamek"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Barricade 2",
+              "GUID": "74859529-6b01-44b0-b76d-fb1d541d9a16",
+              "theText": "Imperium postawiło tu ogrodzenie, wyposażone w skomplikowany zamek.\r\n\r\n{-} Bohater może skorzystać z ogrodzenia, aby otworzyć zamek.\r\n\r\n",
+              "buttonList": [
+                {
+                  "GUID": "1ef4a3cb-dd67-4906-ae0c-cbf3bbc40723",
+                  "theText": "{A} Otwórz zamek"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "18645343-6037-4abd-99b5-80db2d2badca",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "3a8f0b64-437d-41a5-926a-58d91d60fc7e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Yellow Attempt",
+      "GUID": "acd6547b-e222-4702-b92e-b661c92881c1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Próbujesz otworzyć zamek w bramie.\r\n\r\n{-} Wykonaj test {I}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na żółtym żetonie misji, następnie odrzuć wszystkie żetony zmęczenia z żółtych żetonów misji. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "6964be2e-8bd2-4557-86ef-f4810f3d8a81",
+              "theText": "Robisz pewne postępy, ale zamek pozostaje zamknięty. Musisz próbować dalej.\r\n\r\n{-} Połóż 1 żeton zmęczenia na żółtym żetonie misji za każdy wynik {B} na kościach.\r\n"
+            }
+          ],
+          "GUID": "27424fb1-bd9f-4fc6-8aae-48463fc61560",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Attempt",
+      "GUID": "542c0da1-3d1d-4ac6-89b9-65a0caabcb9c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Zaczynasz odsuwać kamienie.\r\n\r\n{-} Wykonaj test {K}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na zielonym żetonie misji, następnie odrzuć wszystkie żetony zmęczenia z zielonego żetonu misji. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "973ea2cf-cda4-4a17-ab62-9a2e78eea4e8",
+              "theText": "Robisz pewne postępy, ale jeszcze trochę pracy przed tobą. Musisz próbować dalej.\r\n\r\n{-} Połóż 1 żeton zmęczenia na zielonym żetonie misji za każdy wynik {B} na kościach.\r\n"
+            }
+          ],
+          "GUID": "96bc9c81-e8ad-46cc-9e7f-baf859c68feb",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Barricade Removed",
+      "GUID": "c209ae7c-8d30-4cc8-9ecb-9b5f5dcd6442",
+      "eventText": "W końcu udaje ci się oczyścić drogę naprzód.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Green Barricade",
+              "GUID": "49d6124c-d86a-434e-a77a-e58c3f95ec6d",
+              "theText": "Jeźdźcy Tusken wywołali lawinę skalną. Ogromne skały blokują drogę.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać ze skał, aby spróbować je odsunąć.",
+              "buttonList": [
+                {
+                  "GUID": "6a104a60-888b-42a4-bd3e-a4d0ac0bb106",
+                  "theText": "{A} Odsuń"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "44ef3229-c7e6-4e42-beb6-5822a07871bb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "26b2946d-b711-49a9-be25-53beb72ae812",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Attempt",
+      "GUID": "b0343c2c-d0fa-49f5-9f25-3a7e8b82e059",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Starasz się ostrożnie przedzierać przez przeszkody.\r\n\r\n{-} Wykonaj test {J}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na czerwonym żetonie misji, następnie odrzuć wszystkie żetony zmęczenia z czerwonego żetonu misji. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "f7e382d1-948a-4380-af84-3a39e62cb6ca",
+              "theText": "Ładunek detonuje blisko ciebie, wyrzucając ostre jak brzytwa odłamki.\r\n\r\n{-} Otrzymujesz 2 {H} i zaczynasz Krwawić.\r\n"
+            },
+            {
+              "GUID": "6ca67ab1-3a1e-4970-8462-4c17a9c1aafa",
+              "theText": "Przechodzisz bezpiecznie na drugą stronę i rozbrajasz pułapki."
+            }
+          ],
+          "GUID": "453a52a9-7e27-43ea-904b-1f65a10712df",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Removed",
+      "GUID": "2ff5ef48-9a4a-4b40-88d5-ef684b983dfd",
+      "eventText": "Kiedy zbliżacie się do bazy, pojawia się dowódca szturmowców, pokrzykując do swoich żołnierzy: “Przyłóżcie się, wy głupcy! Nie możemy pozwolić, żeby przez te rebelianckie szumowiny cała nasza praca poszła na marne!”",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 1",
+              "GUID": "57e3a45a-3a03-4f3c-9553-f52c68a87e6f",
+              "theText": "Imperium zabezpieczyło wąską ścieżkę minami i innymi pułapkami.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać z pułapki, aby spróbować ją rozbroić.",
+              "buttonList": [
+                {
+                  "GUID": "aac3d39f-e591-49c4-b5e9-5d22d598d0a3",
+                  "theText": "{A} Spróbuj rozbroić"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "3935f472-c399-4e92-8105-4236d522466c",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "23666b4c-befe-4ff0-9b36-b4cdbb9ab113",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "19605115-2230-451b-8e72-ffe5759c5159",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9970da39-b251-4bd2-be05-f03221c8d114",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Attempt",
+      "GUID": "b27fef3c-8c20-4e01-8c8b-a53cdb404241",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Starasz się ostrożnie przedzierać przez detonatory.\r\n\r\n{-} Wykonaj test {J}. Dodaj +1 {B} za każdy żeton zmęczenia znajdujący się na czerwonym żetonie misji, następnie odrzuć wszystkie żetony zmęczenia z czerwonego żetonu misji. Wprowadź liczbę sukcesów.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1b13b451-d282-4c28-9f92-2801fb06806e",
+              "theText": "Ładunek detonuje blisko ciebie, wyrzucając ostre jak brzytwa odłamki.\r\n\r\n{-} Otrzymujesz 2 {H} i zaczynasz Krwawić.\r\n"
+            },
+            {
+              "GUID": "fad88174-952b-43be-951c-81e24c393fac",
+              "theText": "Przechodzisz bezpiecznie na drugą stronę i rozbrajasz pułapki."
+            }
+          ],
+          "GUID": "43a0d136-2318-46e0-9ff8-4950f16b6092",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Removed",
+      "GUID": "85cebcf8-c072-4deb-9310-3c2fb6905fc7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 2",
+              "GUID": "70d39b82-ca4f-4e94-8795-392d073f99f1",
+              "theText": "Imperium zabezpieczyło wąską ścieżkę minami i innymi pułapkami.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać z pułapki, aby spróbować ją rozbroić.",
+              "buttonList": [
+                {
+                  "GUID": "0b00ba43-e951-492c-aad6-a8210c5b63cb",
+                  "theText": "{A} Spróbuj rozbroić"
+                }
+              ]
+            }
+          ],
+          "GUID": "de36bdbd-56eb-4ff4-be87-21fe52d9503b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "27223615-6599-4609-b1cc-2ad8aaa3e691",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "8320b094-a652-488f-a6e6-de3fc02f84de",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "fcec21ce-37d1-49da-bc87-c440f2b014bf",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Należy rozstawić bohaterów na tym punkcie.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP R2-D2",
+      "GUID": "a68aaf34-7548-4f9c-b87b-eb91a95e637b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP 3PO",
+      "GUID": "88ae215d-c925-4758-a66f-a7f5ac77cc76",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 2",
+      "GUID": "92bd617d-f424-4259-9959-860ee748d91d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "f1e88402-ee51-4558-a1c2-d98ce94f2ac8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 1",
+      "GUID": "41d13a0e-35f6-4a44-a5f7-80eaf347c89b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 2",
+      "GUID": "b68a7e88-6ddb-478b-b62c-9d9d41ad51e0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 1",
+      "GUID": "c64deca0-e973-44f4-b85c-8dec42caf319",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 2",
+      "GUID": "0623b2ab-5bd4-411e-93a3-709ae0669b42",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "78ddaab1-3664-4f2b-b0a2-f23332f9c12f",
+      "mainText": "Drzwi prowadzą do imperialnego bunkra.\r\n\r\n{-} Drzwi są zabezpieczone. Figurka może atakować te drzwi (żywotność: *1*, obrona: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "872b5b98-5374-4247-963e-4d959c64746e",
+          "theText": "Zniszcz"
+        }
+      ]
+    },
+    {
+      "entityName": "Narrow Path",
+      "GUID": "d4b69a45-37c8-4848-a698-77d99b609ea6",
+      "mainText": "Kręta, wąska ścieżka prowadzi wzdłuż zbocza kanionu. To długa i uciążliwa wspinaczka.\r\n\r\n{-} Kiedy figurka Rebelii wejdzie na wąską ścieżkę (kliknij na pole zaznaczone na zielono i wybierz \"Wejdź\").",
+      "buttonList": [
+        {
+          "GUID": "2ad8ba7e-7ab8-4cf8-bb79-d7e3c8026cad",
+          "theText": "Wejdź"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "c133c9c6-cdb6-4425-8a1c-96a57a8fb816",
+      "mainText": "Jeden terminal przechowuje wszystkie dane operacyjne.\r\n\r\n{-} Bohater może skorzystać z terminala ({I}) aby przechwycić plany.",
+      "buttonList": [
+        {
+          "GUID": "0c1161c8-8048-459b-852f-731b530b1628",
+          "theText": "{A} Skorzystaj"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 1",
+      "GUID": "8797db84-fad6-4efd-83bf-ecc769129664",
+      "mainText": "Imperium postawiło tu ogrodzenie, wyposażone w skomplikowany zamek.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać z ogrodzenia, aby otworzyć zamek.",
+      "buttonList": [
+        {
+          "GUID": "7c16c517-1937-4b8b-bf77-19dad67e2270",
+          "theText": "{A} Otwórz zamek"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 2",
+      "GUID": "0aae7804-0de7-4bad-a479-996cd1618ec5",
+      "mainText": "Imperium postawiło tu ogrodzenie, wyposażone w skomplikowany zamek.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać z ogrodzenia, aby otworzyć zamek.",
+      "buttonList": [
+        {
+          "GUID": "57e1da51-c71e-426c-b63a-6a5c4c4c3bab",
+          "theText": "{A} Otwórz zamek"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "17e3c444-37c0-455d-a752-80613721db11",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "f2501918-e1f9-4f32-89aa-0036b110941f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Green Barricade",
+      "GUID": "680b548b-d73f-45df-b8ed-3420a6a6bf21",
+      "mainText": "Jeźdźcy Tusken wywołali lawinę skalną. Ogromne skały blokują drogę.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać ze skał, aby spróbować je odsunąć.",
+      "buttonList": [
+        {
+          "GUID": "123edccc-7bea-426b-b184-11b79b69e6d8",
+          "theText": "{A} Odsuń"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 1",
+      "GUID": "07575fd7-76b8-4c39-9efc-ecb61c267043",
+      "mainText": "Imperium zabezpieczyło wąską ścieżkę minami i innymi pułapkami.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać z pułapki, aby spróbować ją rozbroić.",
+      "buttonList": [
+        {
+          "GUID": "785599b8-04f2-473a-90bb-fe690c02ae5e",
+          "theText": "{A} Spróbuj rozbroić"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 2",
+      "GUID": "3d438bf3-6e55-4faa-b215-fc89351398e1",
+      "mainText": "Imperium zabezpieczyło wąską ścieżkę minami i innymi pułapkami.\r\n\r\n{-} Żetony misji Imperium stanowią niedostępny teren. Dla Jeźdźców Tusken imperialne żetony misji stanowią normalny teren.\r\n{-} Bohater może skorzystać z pułapki, aby spróbować ją rozbroić.",
+      "buttonList": [
+        {
+          "GUID": "b6c0c6a5-db87-4954-ac7a-e1e80743fa5e",
+          "theText": "{A} Spróbuj rozbroić"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Tusken Raider",
+      "customInstructions": "{Q}{A} Wykonaj atak {O} na {rebel} używając 2 niebieskich kości. Ten atak wymaga 8 celności. Podczas wykonywania tego ataku każda figurka na polu pleneru jest w twoim polu widzenia. Ten atak zyskuje {B}: + 2 celności. Podczas wykonywania tego ataku nie możesz używać żadnych zdolności."
+    },
+    {
+      "cardName": "Tusken Raider (Elite)",
+      "customInstructions": "{Q}{A} Wykonaj atak {O} na {rebel} używając 2 niebieskich kości. Ten atak wymaga 8 celności. Podczas wykonywania tego ataku każda figurka na polu pleneru jest w twoim polu widzenia. Ten atak zyskuje {B}: + 2 celności. Podczas wykonywania tego ataku nie możesz używać żadnych zdolności."
+    }
+  ]
+}

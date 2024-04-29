@@ -1,0 +1,664 @@
+{
+  "languageID": "Polski (PL)",
+  "missionProperties": {
+    "missionName": "Security Breach",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Agent Blaise (ISB Interrogator) Villain Pack",
+    "startingObjective": "",
+    "repositionOverride": "Blokuj dostęp do prototypu.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "822533b6-214e-46bb-957c-db4b4c208edc",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": [
+                {
+                  "GUID": "481d348e-7712-48c6-8ba8-20af793ac524",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Grzebiesz w skrzynce i bierzesz to, co wydaje się przydatne.\r\n\r\nDobierz 1 kartę zaopatrzenia. Zdobywasz dodatkowo 1 medpak. Przejmij ten żeton skrzynki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d33ea8a7-6404-4955-900a-0dd2b3db73b3",
+              "theText": "Stara skrzynka z zaopatrzeniem.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Włamanie się do Imperialnego Biura Bezpieczeństwa nie jest łatwe. Aby uniknąć natychmiastowego wykrycia, wasz pilot zostawia was w punkcie oddalonym od kompleksu o godzinę drogi.\r\n\r\nDzięki fałszywym mundurom i identyfikatorom udaje się wam dotrzeć zaskakująco daleko. Pod drzwiami laboratorium badawczego zatrzymuje was jednak sonda zwiadowcza. \"Witamy z powrotem, generale Weiss\" - świergocze, a potem oddala się od was.\r\n\r\n{-} Należy rozstawić bohaterów na punkcie zaznaczonym na niebiesko.\r\n{-} Drzwi są zabezpieczone.",
+      "eventActions": [
+        {
+          "tbText": "Droid wraca do swojej stacji ładowania i dezaktywuje się.",
+          "GUID": "803fabd4-bdd7-4b9e-8fc6-088b63a21e35",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prototype",
+              "GUID": "13afd735-4c0b-4b2f-b329-3ab1e20b2264",
+              "theText": "Prototyp droida obserwacyjnego jest uśpiony.\r\n\r\n{-} Figurka Rebelii może skorzystać z prototypu aby go zabrać.",
+              "buttonList": [
+                {
+                  "GUID": "99aebfd2-444b-4695-9d2d-064d5562c95c",
+                  "theText": "{A} Zabierz"
+                }
+              ]
+            }
+          ],
+          "GUID": "089d4aec-da44-4b3b-a9b7-18051d8437b7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Żeton misji Imperium reprezentuje prototyp. Figurka Rebelii może zabrać prototyp.\r\n{-} Misja pójdzie naprzód, kiedy figurka Rebelii zabierze prototyp.",
+          "GUID": "ccc4963c-45c9-463e-b9ee-edfd031b672a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "\"Proszę o wybaczenie\" - przeprasza was oficer. \"Prototypy wciąż mają problemy z identyfikacją. Chwileczkę...\" Przygląda wam się lepiej i rozpoznaje was jako poszukiwanych rebeliantów. Nie spuszczając droida z oka, przygotowujecie się do walki...\r\n\r\n{-} Na końcu każdej rundy {D} zwiększy się.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "c1c86cec-1ed7-4bb2-a33d-5c86a859f590",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Zabierz prototyp.",
+          "longText": null,
+          "GUID": "ad683dd6-08c1-407b-9be3-7130c27ca89d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone.\r\n{-} Żeton misji Imperium reprezentuje prototyp. Figurka Rebelii może zabrać prototyp.\r\n{-} Na końcu każdej rundy {D} zwiększy się.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Misja pójdzie naprzód, kiedy figurka Rebelii zabierze prototyp.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "fe78ec9f-b709-44c2-b9e2-002cf3482a6c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Podróż w dół jest długa i żmudna, ale dobrze się do niej przygotowaliście. Spuszczając się w głąb szybu serwisowego, opuszczacie placówkę ze zdobycznym prototypem w sakwie. Przez całą drogę powrotną do statku droid raczy was strumieniem losowych nazwisk i danych. Nawet jeśli nie brzmią zbyt spójnie, to maszynka z całą pewnością dysponuje przydatnymi informacjami.\r\n\r\n{-} Bohaterowie wygrali misję!\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 200 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Nie zdoławszy zabezpieczyć prototypu, kierujecie się do szybu awaryjnego. Zejście nie jest łatwe, ale udaje wam się opuścić go bez szwanku. Nad waszymi głowami lewituje droid, wołając za wami: \"Do zobaczenia, nowi przyjaciele!\" Blaise dysponuje teraz nagraniem waszego zespołu w akcji. W przyszłości powinniście zdecydowanie unikać IBB.\r\n\r\n{-} Bohaterowie przegrali misję.\r\n{-} Imperium dostaje <color=\"red\">Agent Blaise'a</color> (Śledczego IBB) jako przeciwnika.\r\n{-} Każdy gracz dostaje 1 PD. Bohaterowie dostają 100 kredytów za każdego bohatera w grze.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Flip Terminal Red",
+      "GUID": "a7168f79-3dbe-47b2-a575-a7f9e2fd367e",
+      "eventText": "Dezaktywujesz jeden z zamków.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "a61214e1-812b-48b7-bfc7-6b0ab9e5170d",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego. Zamek jest dezaktywowany.\r\n\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a611bcd4-d6e4-4073-b2dc-7033b3220f6d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Flip Terminal Blue",
+      "GUID": "976448cf-f7ab-4089-b375-2dafdaf6244a",
+      "eventText": "Dezaktywujesz jeden z zamków.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "da421ebb-3dc4-4261-964a-2f4910d6c93b",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego. Zamek jest dezaktywowany.\r\n\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "929285c7-088f-4a1e-aa6d-027ed12c0145",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Flip Terminals Back",
+      "GUID": "1b863158-3379-4acd-a773-bcbc0830af8a",
+      "eventText": "Zamki w drzwiach zamykają się ponownie.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "02fa71f5-11cd-4881-9c53-fe98f36a1419",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": [
+                {
+                  "GUID": "bd391bf4-6d5f-4d8c-b9c4-b335d28943e4",
+                  "theText": "{A} Dezaktywuj zamek"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "c3b0793e-b78a-4643-985f-20d124bb235e",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": [
+                {
+                  "GUID": "49357cd1-b567-4bec-87a0-581f83698b21",
+                  "theText": "{A} Dezaktywuj zamek"
+                }
+              ]
+            }
+          ],
+          "GUID": "f474fbae-4f4a-4f70-bc33-60749b7bd340",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Maintenance Shaft Opens",
+      "GUID": "27241b15-e657-48c4-a8e2-128a1783ad1e",
+      "eventText": "Drzwi do szybu naprawczego otworzą się. Natychmiast czuć powiew wiatru w korytarzach.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "7f83eb30-6fb2-4f4c-acb9-1e1c2bbb8b11",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": [
+                {
+                  "GUID": "b88fece8-449a-4ddf-a263-61eed4f5913f",
+                  "theText": "{A} Dezaktywuj zamek"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "b97a0cce-dac1-450d-bd67-2a179e6a96ea",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": [
+                {
+                  "GUID": "a8bf3b75-f4e7-4691-afe0-2001bace54e7",
+                  "theText": "{A} Dezaktywuj zamek"
+                }
+              ]
+            },
+            {
+              "entityName": "Maintenance Door",
+              "GUID": "305e7622-4bee-47e6-8c15-fd714a8a99e7",
+              "theText": "Stare, zardzewiałe drzwi prowadzą do szybu naprawczego.\r\n\r\n{-} Drzwi są zabezpieczone. Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "dd8b90d2-6d70-4677-bfb4-76760bbf5e58",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 3",
+              "GUID": "42b7f7eb-93b2-4ae9-b716-7549495a2a43",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 4",
+              "GUID": "99955792-38dc-4da4-98da-3cef9922d26f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "8221b5b2-6d2f-49f2-b7a5-8286899899e4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blokuj dostęp do szybu naprawczego.",
+          "GUID": "bac2f743-3bd4-4b51-a2e1-54dfcbc67708",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "{-} Kiedy każdy bohater znajdzie się na polu zaznaczonym na niebiesko i figurka będzie niosła prototyp, kliknij na pole zaznaczone na niebiesko i wybierz \"Bohaterowie odlatują\".\r\n{-} Bohaterowie wygrają kiedy bohaterowie odlecą.",
+          "GUID": "bbd49000-14a1-4a43-8960-590f1f2f7283",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Ucieknij przez szyb naprawczy.",
+          "longText": null,
+          "GUID": "18c0cde1-3807-42fb-9eaf-393529c9a736",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Kiedy każdy bohater znajdzie się na polu zaznaczonym na niebiesko i figurka będzie niosła prototyp, kliknij na pole zaznaczone na niebiesko i wybierz \"Bohaterowie odlatują\".\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Na końcu każdej rundy {D} zwiększy się.\r\n{-} Bohaterowie wygrają kiedy bohaterowie odlecą.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "e6a379e5-3e59-458b-a054-0ea1730af085",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Hallway Door Opens",
+      "GUID": "fcd8d263-bc9d-41b8-b68f-e7b791a04e2a",
+      "eventText": "Drzwi otwierają się i ukazują obskurne korytarze wypełnione rurami i kablami. Niedaleko przed sobą widzicie kolejne drzwi prowadzące do ogromnego, centralnego szybu naprawczego. To wasza droga ucieczki.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hallway Door",
+              "GUID": "67a2a2e5-f8bd-4c5e-8cbb-f86eeb2ad648",
+              "theText": "Pancerne drzwi prowadzą do sekcji naprawczej Miasta w Chmurach.\r\n\r\n{-} Drzwi są zabezpieczone.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "abcf451a-6c68-487d-a9de-0113003c8bc6",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ff4b7f69-dd15-4755-95b2-a47ccbf1ef01",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blokuj dostęp do terminali.",
+          "GUID": "cc99c271-63ef-4be4-a1d1-7801e0e66b6c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "tbText": "Najwyraźniej wasza droga ucieczki nie była tak skryta jak się spodziewaliście. Wysoki agent IBB czeka na was w korytarzu. \"Jeśli się poddacie, okażemy wam łaskę.\" - mówi. Kiedy nie reagujecie natychmiast, wyciąga swój blaster.",
+          "GUID": "78bd812a-05bb-49e7-99e6-3726a8d5b169",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*1* żywotności",
+          "repositionInstructions": "",
+          "GUID": "41f54ba7-5ec7-4067-9e0e-8ff8178ccdee",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG079/Agent Blaise"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "c59597ef-ccd1-43d8-8748-bb48001a10ce",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "89529515-b6ef-4c86-81cf-e35799553947",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Drzwi do szybu naprawczego są zamykane na podwójny zamek, każdy sterowany przez inną konsolę.",
+          "GUID": "915f4425-b5f1-41eb-a436-ac4b426f158e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red",
+              "GUID": "d41f3b24-ba76-42ea-8b11-29e723c3a878",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": [
+                {
+                  "GUID": "67aecc8c-d83c-437a-bbc5-3bbaac26c715",
+                  "theText": "{A} Dezaktywuj zamek"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Blue",
+              "GUID": "81e9ea7c-83b3-4ba1-847f-fe755a056ca9",
+              "theText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+              "buttonList": [
+                {
+                  "GUID": "55e2d46a-c5ff-4512-b9cf-440d61dfe2ef",
+                  "theText": "{A} Dezaktywuj zamek"
+                }
+              ]
+            }
+          ],
+          "GUID": "cb2a3e6f-61d1-4ecf-876f-68eab5c89535",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Musicie otworzyć te drzwi.\r\n\r\n{-} Drzwi są zabezpieczone.\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}). Należy zmniejszyć liczbę wymaganych sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.\r\n{-} Misja pójdzie naprzód, kiedy drzwi otworzą się.",
+          "GUID": "53ee55b6-a34d-4425-a673-4cecaeb2558d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Otwórz drzwi do szybu naprawczego.",
+          "longText": null,
+          "GUID": "12515779-3fc6-4cc8-a561-1c041fff4adb",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone.\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}). Należy zmniejszyć liczbę wymaganych sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.\r\n{-} Na końcu każdej rundy {D} zwiększy się.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Misja pójdzie naprzód, kiedy drzwi otworzą się.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "f8e67bd1-03c5-496f-bd94-3ff1726b7f95",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Threat EoR 1",
+      "GUID": "a30790ea-e182-4d9c-a6ad-c086b800c917",
+      "eventText": "Alarmy rozbrzmiewają w całym obiekcie, wzywając coraz więcej żołnierzy.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 2",
+      "GUID": "ebb48db3-b8ad-49a1-8559-f674acab82d7",
+      "eventText": "Alarmy rozbrzmiewają w całym obiekcie, wzywając coraz więcej żołnierzy.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 3",
+      "GUID": "25e90ff7-93bc-4193-b096-557ac0e3fef8",
+      "eventText": "Alarmy rozbrzmiewają w całym obiekcie, wzywając coraz więcej żołnierzy.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 4",
+      "GUID": "ed500a52-476e-41b8-b566-e23c3aacd6c7",
+      "eventText": "Alarmy rozbrzmiewają w całym obiekcie, wzywając coraz więcej żołnierzy.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat EoR 5",
+      "GUID": "56915dd2-86f8-4d45-9250-9823e6f21f2c",
+      "eventText": "Alarmy rozbrzmiewają w całym obiekcie, wzywając coraz więcej żołnierzy.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Retrieve Prototype",
+      "GUID": "786f8e6c-c50e-497d-9f0a-585a43b25496",
+      "eventText": "\"Dzień dobry, panie śledczy. Och, proszę pozwolić, że przytrzymam panu drzwi...\"\r\n\r\n{-} Drzwi do korytarza są od tej chwili odbezpieczone dla figurek Rebelii.\r\n{-} Misja pójdzie naprzód, kiedy drzwi otworzą się.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prototype",
+              "GUID": "b2b9aa86-d79a-4ba0-8173-fbeccc8a9685",
+              "theText": "Prototyp droida obserwacyjnego jest uśpiony.\r\n\r\n{-} Figurka Rebelii może skorzystać z prototypu aby go zabrać.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Hallway Door",
+              "GUID": "adb3fd94-91b4-414f-a579-24a6c8e7e57b",
+              "theText": "Pancerne drzwi prowadzą do sekcji naprawczej Miasta w Chmurach.\r\n\r\n{-} Drzwi są zabezpieczone dla figurek Imperium.",
+              "buttonList": [
+                {
+                  "GUID": "6abf4e5d-7bdd-4bd7-8ba2-f54e40edf1c8",
+                  "theText": "{A} Otwórz"
+                }
+              ]
+            }
+          ],
+          "GUID": "976f3298-a9e9-41d8-8ca2-cb67ed7a57d8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blokuj dostęp do drzwi.",
+          "GUID": "0a013fed-103b-48b5-8787-71b3395383d1",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Otwórz drzwi.",
+          "longText": null,
+          "GUID": "18fe9c23-0973-47aa-b17a-a70af8efc2ca",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Drzwi są zabezpieczone dla figurek Imperium.\r\n{-} Na końcu każdej rundy {D} zwiększy się.\r\n{-} Kiedy bohater miałby się wycofać, zamiast tego zostaje osłabiony. Kiedy się aktywuje, dostaje tylko 1 akcję i może jej użyć wyłącznie do wykonania ruchu.\r\n{-} Misja pójdzie naprzód, kiedy drzwi otworzą się.\r\n{-} Bohaterowie przegrają na końcu rundy 6 lub kiedy wszyscy bohaterowie będą ranni.",
+          "GUID": "97cb7b52-1cad-4717-8d8f-5474cca83e35",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "2dd2222e-4655-43a3-83fb-15bde0b3befe",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Stara skrzynka z zaopatrzeniem.",
+      "buttonList": [
+        {
+          "GUID": "111b6592-9a31-4370-9f07-dfe71339affb",
+          "theText": "{A} Otwórz"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Należy rozstawić bohaterów na tym punkcie.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "61878f23-9d4b-4f1f-b033-9911fd6224cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "65397aa9-0760-4192-9b34-dfce09d1fe1f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "aa7a5eeb-7470-494f-9136-6eea3d499f40",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "099762e6-b82e-4121-9795-01a7f60b956d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "a63cc7fd-07e5-46c7-9781-ddb412bd0e4c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "1be7eabf-530e-44dd-b1d6-bfdcedde0f1d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 3",
+      "GUID": "28a70da5-feac-4fa0-a1ea-8c683aba98f2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 4",
+      "GUID": "35ee83a5-30ce-48b4-907b-ccc47e77e3ad",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal Red",
+      "GUID": "d6b0db53-14b5-46cc-92a3-2905cf05a33a",
+      "mainText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+      "buttonList": [
+        {
+          "GUID": "5a5c4999-b732-435b-b3e5-b0eea3610b8a",
+          "theText": "{A} Dezaktywuj zamek"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Blue",
+      "GUID": "84cdb404-c4de-472d-96db-00ae122039c1",
+      "mainText": "Mechanizm zamykający drzwi jest podłączony do drugiego zacisku. Oba kontrolują dostęp do szybu naprawczego.\r\n\r\n{-} Figurka Rebelii może skorzystać z terminala (2 {I} lub {J}) aby dezaktywować zamek. Należy zmniejszyć liczbę sukcesów o 1 za każdy terminal leżący kolorową stroną do góry. Jeśli test jest udany należy odwrócić ten terminal na kolorową stronę.\r\n{-} Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.\r\n{-} Na końcu każdej rundy, zamek się aktywuje i należy odwrócić każdy terminal leżący kolorową stroną do góry na szarą stronę.",
+      "buttonList": [
+        {
+          "GUID": "be09171c-81e7-4ec6-87ce-f8737e9f2275",
+          "theText": "{A} Dezaktywuj zamek"
+        }
+      ]
+    },
+    {
+      "entityName": "Hallway Door",
+      "GUID": "fbd99f81-939f-4dc8-a924-08e31def9588",
+      "mainText": "Pancerne drzwi prowadzą do sekcji naprawczej Miasta w Chmurach.\r\n\r\n{-} Drzwi są zabezpieczone.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Maintenance Door",
+      "GUID": "ec825a64-2be6-4400-926a-8d9b0fa1fddf",
+      "mainText": "Stare, zardzewiałe drzwi prowadzą do szybu naprawczego.\r\n\r\n{-} Drzwi są zabezpieczone. Kiedy oba terminale będą leżeć kolorową stroną do góry, drzwi do szybu naprawczego otworzą się.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Prototype",
+      "GUID": "f2fdda37-1e7b-4e13-95bf-4f3ae079f4c7",
+      "mainText": "Prototyp droida obserwacyjnego jest uśpiony.\r\n\r\n{-} Figurka Rebelii może skorzystać z prototypu aby go zabrać.",
+      "buttonList": [
+        {
+          "GUID": "14672a87-70eb-444c-b682-92a6efb59390",
+          "theText": "{A} Zabierz"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit 1",
+      "GUID": "2b43e105-a7c2-4175-92b6-1bd26902c9c0",
+      "mainText": "Szyb naprawczy prowadzi w niezgłębioną ciemność. Gdzieś tam w dole jest miejsce, z którego zostaniecie ewakuowani.\r\n\r\n{-} Kiedy każdy bohater znajdzie się na polu zaznaczonym na niebiesko i figurka będzie niosła prototyp, kliknij \"Bohaterowie odlatują\" aby zakończyć misję.",
+      "buttonList": [
+        {
+          "GUID": "fc36fa79-0523-4e97-808a-7a23deae1c5f",
+          "theText": "Bohaterowie odlatują (zakończ misję)"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit 2",
+      "GUID": "67f118e8-0d01-484e-b981-e4533b218fa6",
+      "mainText": "Szyb naprawczy prowadzi w niezgłębioną ciemność. Gdzieś tam w dole jest miejsce, z którego zostaniecie ewakuowani.\r\n\r\n{-} Kiedy każdy bohater znajdzie się na polu zaznaczonym na niebiesko i figurka będzie niosła prototyp, kliknij \"Bohaterowie odlatują\" aby zakończyć misję.",
+      "buttonList": [
+        {
+          "GUID": "ce080685-c244-4635-bc61-79b453ac33b1",
+          "theText": "Bohaterowie odlatują (zakończ misję)"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit 3",
+      "GUID": "77781875-946c-493f-b821-a3f9ca6c35d1",
+      "mainText": "Szyb naprawczy prowadzi w niezgłębioną ciemność. Gdzieś tam w dole jest miejsce, z którego zostaniecie ewakuowani.\r\n\r\n{-} Kiedy każdy bohater znajdzie się na polu zaznaczonym na niebiesko i figurka będzie niosła prototyp, kliknij \"Bohaterowie odlatują\" aby zakończyć misję.",
+      "buttonList": [
+        {
+          "GUID": "080c8287-a43b-43fc-82c2-053738a37b45",
+          "theText": "Bohaterowie odlatują (zakończ misję)"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

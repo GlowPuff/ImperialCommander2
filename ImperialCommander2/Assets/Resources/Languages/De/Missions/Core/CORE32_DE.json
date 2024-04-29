@@ -1,0 +1,447 @@
+{
+  "languageID": "German (DE)",
+  "missionProperties": {
+    "missionName": "Gesucht",
+    "missionDescription": "",
+    "missionInfo": "{-} Die Türen sind verriegelt.\n{-} Der neutrale Einsatzmarker ist die Schlüsselkarte. Nachdem sie fallen gelassen wurde, kann ein Held die Schlüsselkarte aufheben.\n{-} Ein Held, der die Schlüsselkarte trägt, kann die Tür zum Büro öffnen.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Büro öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+    "campaignName": "Grundspiel",
+    "startingObjective": "Öffnet die Tür zum Büro.",
+    "repositionOverride": "Versperre den Zugang zum Büro.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "847582d2-7831-4f28-816f-89d06d381e67",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": [
+                {
+                  "GUID": "f8b126a7-e328-4f4f-be59-fb578da38f79",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Du durchstöberst die Vorräte und nimmst mit, was dir nützlich erscheint.\r\n\r\nZiehe eine Versorgungskarte. Du erhältst 1 Medpac. Beanspruche diesen Marker.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ed25c638-9714-4297-896e-76943b285c4a",
+              "theText": "Eine alte Versorgungskiste.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "In der Cantina Ooze haltet ihr Ausschau nach eurem schwer zu fassenden Kontaktmann. Eine Gestalt, die einem Kopfgeldjäger sehr ähnlich sieht, tritt mit gezücktem Blaster aus dem Schatten.\n\nDie Türen knallen zu. So wie es aussieht, versuchen sie, euch hier gefangen zu halten. Ihr müsst einen Weg nach draußen finden.\n\n{-} Stelle die Helden in dem blau hervorgehobenen Feld auf.\n{-} Die Türen sind verriegelt.\n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Büro öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Ihr durchbrecht die Barrikade und bahnt euch euren Weg nach draußen. Unter freiem Himmel kümmert ihr euch um die anderen Jäger, die ihren Anteil beanspruchen wollen, während ihr zu eurem Schiff zurückkehrt.\n\n{-} Die Rebellen gewinnen den Einsatz!",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Ihr seid kurz davor, euch zu befreien, als einer eurer Angreifer, von dem ihr dachtet, er sei kampfunfähig, einen Thermaldetonator zückt. Er schreit irgendetwas in einer fremden Sprache, während ihr hinter jeder Deckung verschwindet, die ihr finden könnt.\n\nIhr kämpft euch schwer verletzt aus den Trümmern und gebt das Signal, dass ihr evakuiert werden müsst. Einige von euch sind schwerer verletzt als andere, aber alles in allem habt ihr Glück, dass ihr noch am Leben seid.\n\n{-} Die Rebellen verlieren den Einsatz.\n{-} Der Bedrohungsgrad des nächsten Einsatzes (und nur des nächsten Einsatzes) erhöht sich um 2. In der Phase \"Aufrüstung der Rebellen\" können die Rebellenspieler beschließen, 100 Credits pro Held aufzuwenden, um dies zu verhindern.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard 1",
+      "GUID": "03ef51c1-ee9a-4c89-b98a-bd6d8fe503ba",
+      "eventText": "Einer der Trandoshaner scheint der Anführer zu sein.\n\n{-} Platziere einen neutralen Einsatzmarker unter dem trandoshanischen Jäger auf Spielplanteil 27B. Er trägt die Schlüsselkarte.\n{-} Der neutrale Einsatzmarker ist die Schlüsselkarte. Nachdem sie fallen gelassen wurde, kann ein Held die Schlüsselkarte aufheben.\n{-} Ein Held, der die Schlüsselkarte trägt, kann die Tür zum Büro öffnen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard 2",
+      "GUID": "e20b278f-e899-4ab5-8f9a-4bde3698443d",
+      "eventText": "Einer der Trandoshaner scheint der Anführer zu sein.\n\n{-} Platziere einen neutralen Einsatzmarker unter dem trandoshanischen Jäger auf Spielplanteil 26B. Er trägt die Schlüsselkarte.\n{-} Der neutrale Einsatzmarker ist die Schlüsselkarte. Nachdem sie fallen gelassen wurde, kann ein Held die Schlüsselkarte aufheben.\n{-} Ein Held, der die Schlüsselkarte trägt, kann die Tür zum Büro öffnen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard Trigger",
+      "GUID": "78de7bf0-36b2-4311-a629-db64f524c097",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Store Room Door",
+      "GUID": "17af65e6-4ce8-4027-83c0-70097ccf7ce3",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Store Room Door",
+              "GUID": "31e1bbcd-3a97-4b72-b73c-8399166e6e97",
+              "theText": "Das ist die Tür zum Lagerraum.\n\nDie Tür ist verriegelt.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a5f70365-afb4-4dad-99fe-d63a13d59546",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hunted Down",
+      "GUID": "1689a3e7-a07f-46fa-bbf8-b6281ae213bc",
+      "eventText": "Die Tür öffnet sich und gibt den Blick auf einen schrecklichen Anblick frei: Die mechanische Silhouette des furchterregenden Droiden-Kopfgeldjägers IG-88, begleitet von einer fliegenden Kampfdrohne.\n\n{-} Die Tür zum Lagerraum ist jetzt unverschlossen.\n{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.\n{-} Die imperialen Einsatzmarker sind Barrikaden. Barrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Store Room Door",
+              "GUID": "3167b591-549c-4def-b039-4ee0b5e06d09",
+              "theText": "Das ist die Tür zum Lagerraum.",
+              "buttonList": [
+                {
+                  "GUID": "ebd2ae7b-eb2b-4bb4-a803-47af66ce9209",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            },
+            {
+              "entityName": "Office Door",
+              "GUID": "49599b33-edc0-402a-994a-3aeca049af3f",
+              "theText": "Das ist die Tür zum Büro.\n\nDie Tür ist verriegelt. Ein Held, der die Schlüsselkarte trägt, kann die Tür zum Büro öffnen.",
+              "buttonList": [
+                {
+                  "GUID": "31c55e58-5497-404d-b85f-3f1197ef7c33",
+                  "theText": "{A} Öffnen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "651eba5b-e277-4c57-baa8-42b0b4093d85",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "93ec7dbd-364b-48e6-9a93-a8f795614cc6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "531b39f6-9efd-4617-9625-63d6fe320569",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG071/IG-88"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "708076f8-e610-4d73-9bdb-aaaac4546c79",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG012/Probe Droid"
+        },
+        {
+          "repositionText": "Versperre den Zugang zum Ausgang.",
+          "GUID": "ffbf9260-9a45-4564-9cda-0abd94d7390c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.\n{-} Die imperialen Einsatzmarker sind Barrikaden. Barrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Der Einsatz schreitet voran, wenn sich die Tür zum Ausgang öffnet.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "2c5aec6b-0229-4372-ba17-7c28634367ae",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Öffnet die Tür zum Ausgang.",
+          "longText": null,
+          "GUID": "9486bd00-99bc-40cc-816a-c4e339e0b416",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Round Close Door",
+      "GUID": "e42221aa-c792-4f4a-807b-dddd9e664b41",
+      "eventText": "Die Tür zum Ausgang knallt zu.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "8acaf478-0c40-4203-ad43-f9bd2324a0f3",
+              "theText": "Dies ist die Tür zum Ausgang.\n\nEin Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c3c5f5bf-f9cb-4fb6-a3a4-f08fb5478b02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Exit Door",
+      "GUID": "e2768ed2-c8f6-46fb-87f2-5a4977f2f8bd",
+      "eventText": "Die Tür zum Ausgang gleitet auf.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "3d5998d7-598a-42ff-8fdd-5cb1befb3165",
+              "theText": "Dies ist die Tür zum Ausgang.\n\nEin Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "aeff8d5b-d069-4aa1-96f6-38e700aebad3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Exit Open First Time",
+      "GUID": "ff07d6b9-675b-4d44-89a9-6c18e2c8fa03",
+      "eventText": "Hinter der Tür liegt eine kleine Hintergasse. Von hier aus könnt ihr einen Fluchtweg sehen.\n\n{-} Der Rebellen-Einsatzmarker stellt den Ausgang dar. Wenn alle Helden auf oder benachbart zum Ausgang sind, brechen die Helden auf und beenden den Einsatz.",
+      "eventActions": [
+        {
+          "theText": "{-} Ein Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.\n{-} Die imperialen Einsatzmarker sind Barrikaden. Barrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).\n{-} Der Rebellen-Einsatzmarker stellt den Ausgang dar. Wenn alle Helden auf oder benachbart zum Ausgang sind, brechen die Helden auf und beenden den Einsatz.\n{-} Wenn sich ein Held zurückzieht, wird er stattdessen kampfunfähig. Wenn er aktiviert wird, erhält er nur 1 Aktion und kann mit dieser Aktion nur eine Bewegung durchführen. \n{-} Die Rebellen gewinnen den Einsatz, wenn sie aufbrechen.\n{-} Die Rebellen verlieren, wenn alle Helden verwundet sind.",
+          "GUID": "9d481c5f-77cb-46fa-88e5-561a1524f6a5",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Entkommt!",
+          "longText": null,
+          "GUID": "8f652f0a-7bae-4fb6-b9d4-7235c7ffb79e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Barricade 1",
+      "GUID": "d53b076f-510d-4139-80d0-a3e7727fa59a",
+      "eventText": "Die Barrikade zerfällt unter euren Angriffen zu Splittern.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "4f33ee96-0ae6-4d4b-b32b-73e9b5d6eb1d",
+              "theText": "Die Tür zum Ausgang ist verbarrikadiert.\n\nBarrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "a0763cb3-011c-4184-a6f5-ab8315391762",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "78c756f6-fbae-4a3f-8df8-a2cf0c6ebafb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Barricade 2",
+      "GUID": "05dbdcda-d19d-4f64-8ee6-cd21dc548d69",
+      "eventText": "Die Barrikade zerfällt unter euren Angriffen zu Splittern.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 2",
+              "GUID": "91f2aa10-e44b-41ea-991c-3cd92b65b3b0",
+              "theText": "Die Tür zum Ausgang ist verbarrikadiert.\n\nBarrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "8a1cd223-eef9-4b3d-8c46-ac7e042fa4ba",
+                  "theText": "Zerstören"
+                }
+              ]
+            }
+          ],
+          "GUID": "dda76abe-693c-48b7-adb8-72298fca4d70",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "e8dd9a90-589c-4343-aa29-4f5f8937ecf5",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Eine alte Versorgungskiste.",
+      "buttonList": [
+        {
+          "GUID": "40e543f0-78f6-4956-b130-662f52e53b2d",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Stelle die Rebellen hier auf.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Store Room Door",
+      "GUID": "9327e697-b67c-4e81-a924-131885ea7944",
+      "mainText": "Das ist die Tür zum Lagerraum.\n\nDie Tür ist verriegelt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Office Door",
+      "GUID": "df4a89e8-fe54-43be-89e1-7c51374451d2",
+      "mainText": "Das ist die Tür zum Büro.\n\nDie Tür ist verriegelt. Ein Held, der die Schlüsselkarte trägt, kann die Tür zum Büro öffnen.",
+      "buttonList": [
+        {
+          "GUID": "7b7fa85e-5b18-44a5-b6bf-087d7219d287",
+          "theText": "{A} Öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit Door",
+      "GUID": "3567293a-f305-4937-89c3-4cc92231d1fc",
+      "mainText": "Dies ist die Tür zum Ausgang.\n\nEin Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "ed4d1f85-5f14-4071-8280-9b291f9f8733",
+      "mainText": "Dies ist der Ausgang.\n\nWenn alle Helden am oder benachbart zum Ausgang sind, brechen die Helden auf und beenden den Einsatz.",
+      "buttonList": [
+        {
+          "GUID": "e05ce562-110b-4a38-bb84-1cfc22d4bc86",
+          "theText": "Aufbrechen (Einsatz beenden)"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "23a27494-500c-4d9e-a99a-2c24f191845b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "ad2b2088-a892-41e7-8f2c-8bef889959e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "New Terminal",
+      "GUID": "c28acf0e-6c73-4224-9159-04cd5544405f",
+      "mainText": "Dieses Terminal kontrolliert die Ausgangstür, aber seine Sicherheitsmaßnahmen sorgen dafür, dass sie nicht lange offen bleibt.\n\nEin Held kann mit dem Terminal interagieren ({I}), um die Tür zum Ausgang zu öffnen. Am Ende jeder Runde schließt sich die Tür zum Ausgang.",
+      "buttonList": [
+        {
+          "GUID": "246e1880-9739-4b68-9042-06835c9f5c61",
+          "theText": "{A} Ausgangstür öffnen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "08927e2c-5ff7-4465-9fe9-db488f63abca",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "3f83acd9-450d-42ff-9128-e857808dc7d7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Barricade 1",
+      "GUID": "6b48fa4b-394b-4229-9ef9-88eb51492f85",
+      "mainText": "Die Tür zum Ausgang ist verbarrikadiert.\n\nBarrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "02e594ae-55cb-4384-bfdd-1f85122eef65",
+          "theText": "Zerstören"
+        }
+      ]
+    },
+    {
+      "entityName": "Barricade 2",
+      "GUID": "e5ccaa95-6372-4cf2-a80e-669bbdcd4b38",
+      "mainText": "Die Tür zum Ausgang ist verbarrikadiert.\n\nBarrikaden sind versperrtes Gelände und können angegriffen werden (Gesundheit: *3*, Verteidigung: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "37b13d9a-c6d5-4349-be06-9adbb89fd97b",
+          "theText": "Zerstören"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

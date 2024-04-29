@@ -68,7 +68,7 @@ namespace Saga
 
 		public void SetEndProcessingCallback( Action callback )
 		{
-			Debug.Log( "SetEndProcessingCallback()::SET" );
+			Debug.Log( "SetEndProcessingCallback()::CALLBACK SET" );
 			endProcessingCallback = callback;
 		}
 
@@ -97,7 +97,7 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Checks if an event is triggered.
+		/// Checks if an event with a trigger condition is triggered, then fires it.
 		/// Call this when any of the trigger conditions happen (ie: end of turn, hero wounded, trigger value changed)
 		/// </summary>
 		public void CheckIfEventsTriggered( Action callback = null )
@@ -109,7 +109,7 @@ namespace Saga
 				//if this event is NOT repeatable AND it has already fired, continue to next
 				if ( !ev.isRepeatable && DataStore.sagaSessionData.gameVars.firedEvents.Contains( ev.GUID ) )
 				{
-					Debug.Log( "CheckIfEventsTriggered()::NON-REPEAT EVENT, SKIPPING::" + ev.name );
+					//Debug.Log( "CheckIfEventsTriggered()::NON-REPEAT EVENT, SKIPPING::" + ev.name );
 					continue;
 				}
 
@@ -145,6 +145,8 @@ namespace Saga
 					}
 				}
 			}
+
+			Debug.Log( $"CheckIfEventsTriggered()::FINISHED LOOKING FOR EVENT TRIGGERS, FIRING CALLBACK [{callback != null}]" );
 
 			callback?.Invoke();
 		}
@@ -212,6 +214,67 @@ namespace Saga
 		}
 
 		/// <summary>
+		/// Enqueues an Event, cutInLine makes it fire NEXT instead of LAST, after the currently processing Event
+		/// </summary>
+		void EnqueueEventAfterCurrent( MissionEvent ev, bool cutInLine )
+		{
+			//check if this Mission is using the alternate Event system
+			if ( DataStore.mission.missionProperties.useAlternateEventSystem )
+			{
+				//Debug.Log( "EnqueueEventAfterCurrent()::Using Alternate Event System" );
+				cutInLine = false;
+			}
+
+			if ( !processingEvents )
+			{
+				Debug.Log( $"EnqueueEventAfterCurrent()::Queue empty, new Event added: [{ev.name}]" );
+				eventQueue.Enqueue( ev );
+			}
+			else if ( !cutInLine )
+			{
+				Debug.Log( $"EnqueueEventAfterCurrent()::new Event added to END of queue: [{ev.name}], Alternate Event System=[{DataStore.mission.missionProperties.useAlternateEventSystem}]" );
+				eventQueue.Enqueue( ev );
+			}
+			else
+			{
+				Guid current = eventQueue.Peek().GUID;
+				int idx = eventQueue.FindIndexByProperty( x => x.GUID == current );
+
+				//if there are no more Events after the current one, just enqueue the new one
+				if ( eventQueue.Count - 1 == idx )
+				{
+					Debug.Log( $"EnqueueEventAfterCurrent()::Current Event is last in queue, new Event added to END of queue: [{ev.name}]" );
+					eventQueue.Enqueue( ev );
+				}
+				else
+				{
+					Debug.Log( $"EnqueueEventAfterCurrent()::Queue has many elements, adding new Event..." );
+
+					//with many events queued, we need to recreate the queue so the new event can cut in line
+					//create a temp list of all Events already in the current queue
+					List<MissionEvent> temp = new List<MissionEvent>();
+					temp.AddRange( eventQueue );
+
+					//reset the actual queue to empty, now that it's copied
+					eventQueue.Clear();
+
+					//go through each queued Event...
+					for ( int i = 0; i < temp.Count; i++ )
+					{
+						//let the new Event cut in line when we're at the currently indexed Event
+						if ( i == idx + 1 )
+						{
+							Debug.Log( $"EnqueueEventAfterCurrent()::New Event added at index {i} [{ev.name}]" );
+							eventQueue.Enqueue( ev );
+						}
+						//and be sure to also queue the currently indexed Event back into line
+						eventQueue.Enqueue( temp[i] );
+					}
+				}
+			}
+		}
+
+		/// <summary>
 		/// [DEPRECATED] Just show the event's text
 		/// </summary>
 		public void PreviewEvent( Guid guid )
@@ -223,12 +286,18 @@ namespace Saga
 				FindObjectOfType<SagaController>().errorPanel.Show( "PreviewEvent()", "GUID not found." );
 		}
 
-		public void DoEvent( Guid guid )
+		/// <summary>
+		/// Queues an Event if another Event is in progress, otherwise fires it immediately
+		/// </summary>
+		public void DoEvent( Guid guid, bool cutInLine = true )
 		{
-			DoEvent( EventFromGUID( guid ) );
+			DoEvent( EventFromGUID( guid ), cutInLine );
 		}
 
-		public void DoEvent( MissionEvent ev )
+		/// <summary>
+		/// Queues an Event if another Event is in progress, otherwise fires it immediately
+		/// </summary>
+		public void DoEvent( MissionEvent ev, bool cutInLine = true )
 		{
 			if ( ev != null && ev.GUID != Guid.Empty )
 			{
@@ -249,9 +318,8 @@ namespace Saga
 				else
 				{
 					Debug.Log( "DoEvent()::Queued " + ev.name );
-					//DataStore.sagaSessionData.gameVars.AddFiredEvent( ev.GUID );
 					if ( !eventQueue.Contains( ev ) )
-						eventQueue.Enqueue( ev );
+						EnqueueEventAfterCurrent( ev, cutInLine );
 
 					//start processing if not busy with an event already
 					if ( !processingEvents )
@@ -289,7 +357,7 @@ namespace Saga
 					{
 						Debug.Log( "QueueEndOfCurrentTurnEvents()::EVENT TRIGGERED::" + ev.name );
 						if ( !eventQueue.Contains( ev ) )
-							eventQueue.Enqueue( ev );
+							EnqueueEventAfterCurrent( ev, true );
 					}
 				}
 			}
@@ -306,9 +374,6 @@ namespace Saga
 		void ProcessEvent( MissionEvent ev )
 		{
 			Debug.Log( "ProcessEvent()::START PROCESSING EVENT QUEUE::" + ev.name );
-
-			//FindObjectOfType<SagaController>().ToggleNavAndEntitySelection( false );
-			//toggleVisButton.SetActive( true );
 
 			processingEvents = true;
 
@@ -419,6 +484,27 @@ namespace Saga
 				case EventActionType.M2:
 					ModifyMapEntity( eventAction as ModifyMapEntity );
 					break;
+				case EventActionType.CM1:
+					ModifyXP( eventAction as CampaignModifyXP );
+					break;
+				case EventActionType.CM2:
+					ModifyCredits( eventAction as CampaignModifyCredits );
+					break;
+				case EventActionType.CM3:
+					ModifyFameAwards( eventAction as CampaignModifyFameAwards );
+					break;
+				case EventActionType.CM4:
+					SetNextMission( eventAction as CampaignSetNextMission );
+					break;
+				case EventActionType.G10:
+					ModifyRndLimit( eventAction as ModifyRoundLimit );
+					break;
+				case EventActionType.G11:
+					SetCountdown( eventAction as SetCountdown );
+					break;
+				case EventActionType.CM5:
+					AddCampaignRewards( eventAction as AddCampaignReward );
+					break;
 				default:
 					Debug.Log( "ProcessEventAction()::EVENT TYPE NOT SUPPORTED: " + eventAction.eventActionType.ToString() + " = " + (int)eventAction.eventActionType );
 					NextEventAction();
@@ -486,16 +572,6 @@ namespace Saga
 			}
 
 			toggleVisButton.SetActive( vis );
-		}
-
-		public void SaveState()
-		{
-
-		}
-
-		public void LoadState()
-		{
-
 		}
 	}
 }
