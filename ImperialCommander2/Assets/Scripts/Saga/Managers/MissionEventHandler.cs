@@ -217,11 +217,16 @@ namespace Saga
 			//check if this is a disable command
 			if ( scd.countdownTimer == -1 )
 			{
-				Debug.Log( $"Countdown Timer with name {scd.countdownTimerName} is now DISABLED" );
-				DataStore.sagaSessionData.gameVars.countdownTimers.Remove( scd.countdownTimerName );
-				//remove it from the UI
-				var sc = FindObjectOfType<SagaController>();
-				sc.OnSetCountdownTimer();
+				if ( string.IsNullOrEmpty( scd.countdownTimerName ) )
+				{
+					Debug.Log( $"Countdown Timer with name {scd.countdownTimerName} is now DISABLED" );
+					DataStore.sagaSessionData.gameVars.countdownTimers.Remove( scd.countdownTimerName );
+					//remove it from the UI
+					var sc = FindObjectOfType<SagaController>();
+					sc.OnSetCountdownTimer();
+				}
+				else
+					Debug.Log( $"WARNING: Countdown Timer name is null or empty" );
 			}
 			else
 			{
@@ -230,6 +235,11 @@ namespace Saga
 				int ending = DataStore.sagaSessionData.gameVars.round + scd.countdownTimer;
 				scd.endRound = ending;
 				//add the timer with the name trimmed and lowercase
+				if ( string.IsNullOrEmpty( scd.countdownTimerName ) )
+				{
+					scd.countdownTimerName = Guid.NewGuid().ToString();
+					Debug.Log( $"WARNING: Countdown Timer name is null or empty, setting a default GUID [{scd.countdownTimerName}]" );
+				}
 				DataStore.sagaSessionData.gameVars.countdownTimers.Add( scd.countdownTimerName.Trim().ToLower(), scd );
 				//if it's visible, notify to show it
 				if ( scd.showPlayerCountdown )

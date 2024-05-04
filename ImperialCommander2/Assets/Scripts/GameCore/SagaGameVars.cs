@@ -186,7 +186,7 @@ namespace Saga
 			//remove expired timers from the list
 			foreach ( var timer in expired )
 			{
-				countdownTimers.Remove( timer.countdownTimerName.ToLower() );
+				countdownTimers.Remove( timer.countdownTimerName?.ToLower() );
 			}
 			return expired;
 		}
