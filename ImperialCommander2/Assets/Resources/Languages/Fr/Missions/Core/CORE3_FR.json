@@ -125,7 +125,7 @@
         },
         {
           "enemyName": "Weiss",
-          "customText": "{A} ORDRES DU GENERAL: L'autre figurine ayant un coût 8 ou moins et qui peut attaquer, attaque {R1}.\r\n{A} L'autre figurine ayant le coût le plus élevé devient Concentré.",
+          "customText": "{A} ORDRES DU GENERAL: L'autre figurine ayant un coût 8 ou moins et qui peut attaquer, attaque {R1}.\r\n{A} L'autre figurine ayant le coût le plus élevé devient <color=\"red\">Concentré.</color>.",
           "modification": "+6 {H}, +1 {G}",
           "repositionInstructions": "",
           "GUID": "f9fe20c5-414b-465e-a0b7-a7b76499e6d8",
@@ -227,18 +227,18 @@
     {
       "eventName": "Vulnerable - Door open",
       "GUID": "1ac56beb-dd8a-48c7-ae3c-c6fad2c96c9f",
-      "eventText": "The sight of his walker arriving fills General Weiss with determination.",
+      "eventText": "La vue de l'arrivée de son TR-TT remplit le général Weiss de détermination.",
       "eventActions": [
         {
-          "mainText": "Does Weiss have line of sight to a Rebel figure?",
+          "mainText": "Weiss a-t-il une ligne de vue sur une figure rebelle ?",
           "buttonList": [
             {
               "GUID": "981f353a-2e7a-4f2b-88fb-1a676532beb4",
-              "theText": "Yes"
+              "theText": "Oui"
             },
             {
               "GUID": "8e454929-5ef2-4b71-8a81-f50127264eb7",
-              "theText": "No"
+              "theText": "Non"
             }
           ],
           "GUID": "e0dd975a-de1b-4d3d-ac51-308f48e09d6a",
@@ -250,19 +250,19 @@
     {
       "eventName": "Vulnerable - DO Yes",
       "GUID": "21f32927-c287-4fa1-b3bb-f404738cdbb8",
-      "eventText": "Weiss raises his blaster pistol and takes aim.\r\n\r\n{-} Weiss recovers 5 {H} and interrupts to attack {rebel}.",
+      "eventText": "Weiss lève son pistolet blaster et vise.\r\n\r\n{-} Weiss récupère 5 {H} et effectue une interruption pour attaquer {rebel}.",
       "eventActions": []
     },
     {
       "eventName": "Vulnerable - DO No",
       "GUID": "2d70810d-3e4b-4745-b2aa-8733c334f39c",
-      "eventText": "Weiss rushes towards the walker.\r\n\r\n{-} Weiss moves 5 towards the inactive AT-ST.",
+      "eventText": "Weiss se précipite vers le TR-TT.\n\n{-} Weiss se déplace de 5 vers le TR-TT inactif.",
       "eventActions": []
     },
     {
       "eventName": "Vulnerable - Door closed",
       "GUID": "620acd1d-9a0e-425f-bae5-f66f19d9979b",
-      "eventText": "The sight of his walker arriving fills General Weiss with determination.\r\n\r\n{-} Open the door.\r\n{-} Weiss moves 3 towards the inactive AT-ST.",
+      "eventText": "La vue de l'arrivée de son TR-TT remplit le général Weiss de détermination.\n\n{-} Ouvrez la porte.\n{-} Weiss se dirige vers le TR-TT inactif.",
       "eventActions": [
         {
           "translatedEntityProperties": [
@@ -287,23 +287,23 @@
     {
       "eventName": "Invulnerable",
       "GUID": "afb0c075-09b9-47fd-8152-15f9f954792d",
-      "eventText": "Couvert par ses soldats, Weiss se précipite vers son engin, appuie la main sur le verrou et se glisse aux commandes.\r\n\r\n\"Oui. Voilà qui est beaucoup mieux.\" Sa voix amplifiée résonne dans le vaste hangar tandis que le bipode démarre et pivote dans votre direction. \"Alors, où en étions-nous ?\"\r\n\r\n{-} Discard the <color=\"red\">Imperial Officer</color> figure and its Deployment card. It is not defeated.\r\n{-} <color=\"red\">General Weiss</color> recovers 6 {H}.\r\n{-} <color=\"red\">General Weiss</color> now activates as normal. Apply +1 {G} to each of his defense results.\r\n{-} The Rebels win when <color=\"red\">General Weiss</color> is defeated.",
+      "eventText": "Couvert par ses soldats, Weiss se précipite vers son engin, appuie la main sur le verrou et se glisse aux commandes.\r\n\r\n\"Oui. Voilà qui est beaucoup mieux.\" Sa voix amplifiée résonne dans le vaste hangar tandis que le bipode démarre et pivote dans votre direction. \"Alors, où en étions-nous ?\"\r\n\r\n{-} Défaussez la figurine <color=\"red\">Officier impérial</color> et sa carte de déploiement. Il n'est pas vaincu.\n{-} Le <color=\"red\">Général Weiss</color> récupère 6 {H}.\n{-} Le <color=\"red\">General Weiss</color> s'active maintenant normalement. Appliquez +1 {G} à chacun de ses résultats de défense.\n{-} Les Rebelles gagnent lorsque le <color=\"red\">Général Weiss</color> est vaincu.",
       "eventActions": [
         {
-          "shortText": "Defeat <color=\"red\">General Weiss</color>",
+          "shortText": "Vaincre le <color=\"red\">Général Weiss</color>",
           "longText": null,
           "GUID": "1bf51766-91c3-4120-8624-ce8552640ad4",
           "eventActionType": 2,
           "eaName": "Change Objective"
         },
         {
-          "theText": "{-} An Imperial figure can interact with a terminal to increase {D} by 2 (only once per round per terminal).\r\n{-} A Rebel figure can attack a terminal (Health: 8, Defense: 1 {G}).\r\n{-} The Rebels win when Weiss is defeated.\r\n{-} The Rebels lose when all heroes are wounded.",
+          "theText": "{-} Une figurine impériale peut interagir avec un terminal pour augmenter {D} de 2 (une seule fois par round et par terminal).\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 8, Défense : 1 {G}).\r\n{-} Les Rebelles gagnent lorsque Weiss est vaincu.\r\n{-} Les Rebelles perdent lorsque tous les héros sont blessés.",
           "GUID": "7ac30986-576b-47ec-b249-bbc0df469d7a",
           "eventActionType": 1,
           "eaName": "Change Mission Info"
         },
         {
-          "newInstructions": "{-} <color=\"red\">General Weiss</color> recovers 3 {H}.",
+          "newInstructions": "{-} Le <color=\"red\">Général Weiss</color> récupère 3 {H}.",
           "GUID": "2a8fea8d-0ed0-4cfd-8c01-a2def635f0c3",
           "eventActionType": 11,
           "eaName": "Change Group Instructions"
