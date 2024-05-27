@@ -30,6 +30,7 @@ namespace Saga
 		public MissionCardZoom missionCardZoom;
 		public ErrorPanel errorPanel;
 		public HelpPanel helpPanel;
+		public CanvasGroup uiCanvasGroup;
 		//OTHER
 		public GameObject warpEffect, rightPanel;
 		public Transform thrusterRoot, thrusterLeft, thrusterRight;
@@ -364,6 +365,9 @@ namespace Saga
 			DataStore.sagaSessionData.setupOptions = setupOptions;
 
 			missionPicker.isBusy = true;
+			uiCanvasGroup.interactable = false;
+			threatValue.disableInteractions = true;
+			addtlThreatValue.disableInteractions = true;
 
 			//load/validate the mission
 			if ( missionPicker.pickerMode == PickerMode.Custom )//custom mission

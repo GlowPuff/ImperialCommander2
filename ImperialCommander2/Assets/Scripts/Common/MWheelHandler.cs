@@ -17,6 +17,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 	public ValueAdjuster valueAdjuster;
 	public UnityEvent wheelValueChanged;
 	public Action wheelValueChangedCallback;
+	public bool disableInteractions = false;
 
 	//swiping
 	public float distancePerTick = 15;//distance (pixels) have to swipe to register 1 tick of increment/decrement
@@ -52,16 +53,23 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 	public void OnPointerEnter( PointerEventData eventData )
 	{
+		if ( disableInteractions )
+			return;
 		isHovering = true;
 	}
 
 	public void OnPointerExit( PointerEventData eventData )
 	{
+		if ( disableInteractions )
+			return;
 		isHovering = false;
 	}
 
 	public void OnPointerClick( PointerEventData eventData )
 	{
+		if ( disableInteractions )
+			return;
+
 		if ( eventData.button == PointerEventData.InputButton.Left )
 		{
 			if ( valueAdjuster != null )
