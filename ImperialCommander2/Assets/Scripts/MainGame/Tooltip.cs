@@ -41,7 +41,7 @@ public class Tooltip : MonoBehaviour
 				tt = DataStore.uiLanguage.sagaMainApp.tooltipHideUIUC;
 				break;
 			case "MedPac":
-				tt = "MedPac";
+				tt = DataStore.uiLanguage.uiMainApp.tooltipMedPacUC;
 				break;
 			case "Dashboard":
 				tt = DataStore.uiLanguage.uiMainApp.tooltipDashboardUC;
