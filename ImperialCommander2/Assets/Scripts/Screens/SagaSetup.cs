@@ -55,6 +55,9 @@ namespace Saga
 		bool isFromCampaign = false;
 		//these ignored groups are from mission/preset, and player can't toggle them
 		List<DeploymentCard> disabledIgnoredGroups = new List<DeploymentCard>();
+		//set the fixed ally when a Mission is selected, or grab it from the Campaign's Mission
+		[HideInInspector]
+		public string fixedAlly = null;
 
 		void LogCallback( string condition, string stackTrace, LogType type )
 		{
@@ -269,6 +272,9 @@ namespace Saga
 					//add ignored from mission
 					disabledIgnoredGroups.AddRange( ign );
 					SetMissionIgnored( ignored );
+					//set the fixed ally from the mission, if there is one
+					if ( m.missionProperties.useFixedAlly == YesNoAll.Yes )
+						fixedAlly = m.missionProperties.fixedAlly;
 				}
 				else
 					errorPanel.Show( "SetupCampaignMission()", $"Could not load embedded mission:\n{structure.projectItem.Title}::{structure.projectItem.missionGUID}" );
@@ -289,8 +295,14 @@ namespace Saga
 
 					var card = DataStore.GetMissionCard( structure.projectItem.missionID );
 					structure.projectItem.Description = card.descriptionText;
+
+					//set the fixed ally from the mission, if there is one
+					if ( m.missionProperties.useFixedAlly == YesNoAll.Yes )
+						fixedAlly = m.missionProperties.fixedAlly;
 				}
 
+				//Deprecated - Missions are no longer Addressable Assets
+				//Leaving it as a reminder of how to use FileManager to load Addressable Assets in the future
 				//FileManager.LoadMissionFromAddressable( setupOptions.projectItem.fullPathWithFilename, ( m, s ) =>
 				//{
 				//	if ( m != null )
@@ -315,6 +327,9 @@ namespace Saga
 					//add ignored from mission
 					disabledIgnoredGroups.AddRange( ign );
 					SetMissionIgnored( ignored );
+					//set the fixed ally from the mission, if there is one
+					if ( m.missionProperties.useFixedAlly == YesNoAll.Yes )
+						fixedAlly = m.missionProperties.fixedAlly;
 				}
 				else
 					errorPanel.Show( "SetupCampaignMission()", $"Could not load custom mission:\n{structure.projectItem.fullPathWithFilename}" );
@@ -509,13 +524,14 @@ namespace Saga
 		/// </summary>
 		public void OnOfficialMissionSelected( ProjectItem pi )
 		{
-			//clear ignored groups, banned allies, and custom heroes/allies
+			//clear ignored groups, banned allies, fixed ally, and custom heroes/allies
 			DataStore.sagaSessionData.MissionIgnored.Clear();
 			DataStore.sagaSessionData.BannedAllies.Clear();
 			missionCustomAllies.Clear();
 			missionCustomHeroes.Clear();
 			missionCustomVillains.Clear();
 			disabledIgnoredGroups.Clear();
+			fixedAlly = null;
 			//remove any embedded villains from another Mission, otherwise they won't appear
 			DataStore.sagaSessionData.EarnedVillains = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.id.Contains( "TC" ) ).ToList();
 
@@ -545,6 +561,10 @@ namespace Saga
 				missionCustomAllies = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
 				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
 				missionCustomVillains = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
+
+				//set the fixed ally from the mission, if there is one
+				if ( m.missionProperties.useFixedAlly == YesNoAll.Yes )
+					fixedAlly = m.missionProperties.fixedAlly;
 
 				//set additional info
 				//sanity check that the index is within range of the loaded mission card data
@@ -578,6 +598,7 @@ namespace Saga
 			missionCustomHeroes.Clear();
 			missionCustomVillains.Clear();
 			disabledIgnoredGroups.Clear();
+			fixedAlly = null;
 			//remove any embedded villains from another Mission, otherwise they won't appear
 			DataStore.sagaSessionData.EarnedVillains = DataStore.sagaSessionData.EarnedVillains.Where( x => !x.id.Contains( "TC" ) ).ToList();
 
@@ -591,6 +612,9 @@ namespace Saga
 				missionCustomAllies = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ).ToList();
 				missionCustomHeroes = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ).ToList();
 				missionCustomVillains = m.customCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ).ToList();
+
+				//set the fixed ally from the mission, if there is one
+				fixedAlly = m.missionProperties.fixedAlly;
 
 				//set additional info
 				additionalInfoText.text = m.missionProperties.additionalMissionInfo ?? "";
