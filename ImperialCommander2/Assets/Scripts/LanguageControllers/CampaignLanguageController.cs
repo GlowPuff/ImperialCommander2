@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CampaignLanguageController : MonoBehaviour
 {
-	public TextMeshProUGUI campaignNameUC, creditsUC, fameUC, awardsUC, itemsUC, rewardsUC, villainsUC, alliesUC, xpUC;
+	public TextMeshProUGUI campaignNameUC, creditsUC, fameUC, awardsUC, itemsUC, rewardsUC, villainsUC, alliesUC, xpUC, missionTypeMockupUC, missionNameMockupUC, itemMockupUC;
 
 	public void SetTranslatedUI()
 	{
@@ -19,5 +19,8 @@ public class CampaignLanguageController : MonoBehaviour
 		villainsUC.text = ui.villainsUC;
 		alliesUC.text = ui.alliesUC;
 		xpUC.text = ui.xpUC + ":";
+		missionTypeMockupUC.text = ui.missionTypeMockupUC;
+		missionNameMockupUC.text = ui.missionNameMockupUC;
+		itemMockupUC.text = ui.itemMockupUC;
 	}
 }
