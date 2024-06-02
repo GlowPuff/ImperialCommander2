@@ -1,0 +1,453 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Confiscation",
+    "missionDescription": "",
+    "missionInfo": "{-} La mission évolue quand les contrôles des pinces d'amarrage sont désactivés et que le pilote a été récupéré.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+    "campaignName": "Jeu de base",
+    "startingObjective": "Trouver et désactiver les contrôles des pinces d'amarrage. Trouver et sauver le pilote.",
+    "repositionOverride": "Bloquer l'accès aux contrôles des pinces d'amarrage et au pilote.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7071c358-7747-4273-b3d1-e2a090f26eb1",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "eb9019cb-6c50-41df-9c7b-7f439d931ba2",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "e49c98f4-bc69-4d85-83f2-b286161c2dfc",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Alors que vous refaisiez le plein de carburant pour votre vaisseau, on vous a arrêtés en vous accusant d'activités criminelles. Tous vos documents sont pourtant à jour. Vous envisagiez d'employer la manière forte et de tirer sur tout ce qui bouge, mais votre pilote vous a assuré qu'il pourrait s'en sortir en négociant.\r\n\r\nComme il est parti depuis trois heures déjà, vous décidez de vous faufiler hors de la salle d'attente. Après avoir fouiné dans les environs quelques minutes, vous arrivez juste à temps pour voir votre pilote jeté dans une sorte d'enclos, inconscient. De redoutables monstres y rôdent et dévoilent des dents effilées.\r\n\r\nEt pour ne rien arranger, votre vaisseau est toujours bloqué par les pinces d'amarrage.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} La mission évolue quand les contrôles des pinces d'amarrage sont désactivés et que le pilote a été récupéré.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Le pilote manifeste un zèle un peu excessif en mitraillant les alentours à coups de canons blaster avant de se préparer au décollage. Avec une expression sinistre, il se contente de vous dire merci tandis que vous embarquez.\r\n\r\n{-} Les Rebelles remportent la mission !",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Vous vous enfuyez dans le désert, bien conscients que les Impériaux sont déjà en train de démonter votre appareil pièce par pièce. Tout ce que contenait le vaisseau tombera bientôt entre leurs mains : journaux de bord, messages, position des agents secrets…\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Le niveau de menace de la prochaine mission (et seulement de la prochaine) est augmenté de 2. Pendant la Séquence d'Amélioration Rebelle, les joueurs rebelles peuvent décider de dépenser 100 crédits par héros pour éviter cela.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Control Room",
+      "GUID": "22e9e3eb-dd27-46c4-b535-98890e846a0d",
+      "eventText": "Vous ouvrez la porte de la Salle de Contrôle et vous vous retrouvez face aux gardes.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control Room Door",
+              "GUID": "4bbdbdf9-7248-4c4a-bc28-8aa9fa1af907",
+              "theText": "La porte est étiquetée \"Salle de Contrôle\".",
+              "buttonList": [
+                {
+                  "GUID": "1726a371-2b8e-4c46-b8cc-79c005a114a1",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "0b9c0802-fdff-4849-8f90-da6ceb66ffde",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "66c692b6-09c5-452e-9bd4-59435a93317e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "84bb86d0-1749-4419-89c3-fff27ee5244e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Exit Door",
+      "GUID": "037f196d-d213-407f-b390-d83870a18407",
+      "eventText": "L'air chaud du désert vous fait suffoquer lorsque vous ouvrez la porte. Tout près, des bêtes grognent agressivement.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "042d8ced-1bf1-42bc-bb29-c24991ba5683",
+              "theText": "La porte est étiquetée \"Sortie\".",
+              "buttonList": [
+                {
+                  "GUID": "128a3b2b-9954-4b5b-ad30-df12abdd8e86",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "da411f41-ee08-4882-9c68-95ac37bbed82",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "Se placer sur le pilote.",
+          "GUID": "fbd3c520-368d-44b3-866e-14edbabc4c69",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG017/Nexu"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "Se placer sur le pilote.",
+          "GUID": "e8ff8c50-17ef-4224-9e44-542f0a34ed33",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG018/Nexu (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "2033679c-f843-45c7-89e7-935e0cba16c7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à pirater le terminal.\r\n\r\nEffectuez un test {I} ou {J}. Appliquer +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défausser ces pions Stress. Entrer le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d2dc3d94-2290-4fa9-881e-c0c0c98c196a",
+              "theText": "Vous ne parvenez pas à surmonter les protocoles de sécurité. Vous devez continuer à essayer.\r\n\r\n{-} Placez un pion Stress sur le terminal pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "284d9db2-0bf0-4d9d-a9ae-dbb758435eab",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Success",
+      "GUID": "bf1788a0-135b-4b5b-a29f-f520da3cb082",
+      "eventText": "Vous parvenez à libérer les pinces d'amarrage.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Clamp Controls",
+              "GUID": "4f88026d-1d33-4eea-a302-fe4a8e3e4a00",
+              "theText": "Le terminal contrôle les pinces d'amarrage.\r\n\r\nUn héros peut interagir avec les contrôles des pinces d'amarrage pour essayer de les désactiver.",
+              "buttonList": [
+                {
+                  "GUID": "1e278bfb-c7b3-403f-b765-86adac829e43",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            }
+          ],
+          "GUID": "ffba9045-e3dd-43ac-86a4-45f85870ec29",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Pilot retrieved",
+      "GUID": "889f8d37-4098-4a7d-bccf-75abc2bffa16",
+      "eventText": "Votre pilote a manifestement beaucoup souffert, mais il ne semble pas gravement blessé.\r\n\r\n{-} Appliquez -1 en Vitesse et -1 à aux résultats de défense au héros qui transporte le pilote.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Pilot",
+              "GUID": "1ec93a65-9e69-4ce5-8040-ab60bdec0d2b",
+              "theText": "Votre pilote gît immobile sur le sol, inconscient.\r\n\r\nUn héros peut récupérer le pilote, mais subit -1 en Vitesse et -1 à ses résultats de défense tant qu'il le transporte.",
+              "buttonList": [
+                {
+                  "GUID": "080c7f07-2b90-45e9-ae7f-a87abb7d87f9",
+                  "theText": "{A} Sauver"
+                }
+              ]
+            }
+          ],
+          "GUID": "b1b39c91-505c-4f8e-ae7b-99ff8d92a222",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} La mission évolue quand les contrôles des pinces d'amarrage sont désactivés et que le pilote a été récupéré.\r\n{-} Appliquez -1 en Vitesse et -1 à aux résultats de défense au héros qui transporte le pilote.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "73d53de0-dd21-411e-8a7d-6bbf05758523",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Prep for Takeoff",
+      "GUID": "e30f6aa1-d319-428d-a3e7-529984a07504",
+      "eventText": "Votre pilote en piètre état reprend lentement connaissance. Vous le mettez au courant de la situation.\r\n\r\n\"D'accord, une fois les pinces d'amarrage déverrouillées, on n'a plus qu'à rentrer au vaisseau.\" Il grimace en pressant la main contre sa blessure au flanc. \"Oh, ils vont me payer ça...\" murmure-t-il, les dents serrées.\r\n\r\n{-} Appliquez -1 en Vitesse et -1 à aux résultats de défense au héros qui transporte le pilote.\r\n{-} Un héros transportant le pilote peut interagir avec l'écoutille pour que ce dernier quitte les lieux.\r\n{-} Les Rebelles gagnent quand le pilote quitte les lieux.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hatch",
+              "GUID": "63cd4730-818e-453e-8494-253d92d7f95c",
+              "theText": "L'écoutille mène à la baie d'atterrissage où votre vaisseau est retenu.\r\n\r\nUn héros transportant le pilote peut interagir avec l'écoutille pour que ce dernier quitte les lieux, mettant ainsi un terme à la mission.",
+              "buttonList": [
+                {
+                  "GUID": "8ff61de3-f36f-4d28-a190-9f588a19353a",
+                  "theText": "{A} Quitter les lieux"
+                }
+              ]
+            }
+          ],
+          "GUID": "d3f935b3-fc3e-4d2b-93c3-c327429c12f3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquer l'accès à l'écoutille.",
+          "GUID": "bc733562-ce49-43b6-9816-462c4a4b24a4",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Appliquez -1 en Vitesse et -1 à aux résultats de défense au héros qui transporte le pilote.\r\n{-} Un héros transportant le pilote peut interagir avec l'écoutille pour que ce dernier quitte les lieux.\r\n{-} Les Rebelles gagnent quand le pilote quitte les lieux.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "eff57a45-1095-4862-b6e8-d3e3ddf20f37",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Aider le pilote à s'échapper.",
+          "longText": null,
+          "GUID": "23154839-3bc7-44ed-9313-5717c759198f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Pen Door opens",
+      "GUID": "86d95cf3-f896-4f86-ba04-4ffe94f4ca84",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Pen Door",
+              "GUID": "e717e5e3-a709-43f4-abd4-65575f8ff610",
+              "theText": "Cette porte permet de sortir de l'enclos des animaux.",
+              "buttonList": [
+                {
+                  "GUID": "2d5c3341-dc8a-4d33-b75f-87598464c0ab",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "6ad67ba6-0fdb-4cc4-a142-256caabe86eb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "16e34fea-d15d-4848-8e34-103fe597b068",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "a3e5f757-641c-4889-afb2-713e7be2613d",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Control Room Door",
+      "GUID": "21076d95-5a09-474a-aec2-9be53ff22711",
+      "mainText": "La porte est étiquetée \"Salle de Contrôle\".",
+      "buttonList": [
+        {
+          "GUID": "b11a378e-5b62-4920-9f4e-df6c723bc45b",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit Door",
+      "GUID": "9925d6ca-a2d3-4297-b725-decf24a09fae",
+      "mainText": "La porte est étiquetée \"Sortie\".",
+      "buttonList": [
+        {
+          "GUID": "72663c18-a2ae-4269-91c6-4901705fef74",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Pen Door",
+      "GUID": "097f6279-b760-40bd-89c4-97e2abe63f3a",
+      "mainText": "Cette porte permet de sortir de l'enclos des animaux.",
+      "buttonList": [
+        {
+          "GUID": "6bb1331a-7cef-4577-99be-ac6bf424f384",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Pilot",
+      "GUID": "e73e2181-e662-4c71-9197-e26d2c5b8fe9",
+      "mainText": "Votre pilote gît immobile sur le sol, inconscient.\r\n\r\nUn héros peut récupérer le pilote, mais subit -1 en Vitesse et -1 à ses résultats de défense tant qu'il le transporte.",
+      "buttonList": [
+        {
+          "GUID": "5a51dbaf-b9f3-4caf-b15d-38e9ca672447",
+          "theText": "{A} Sauver"
+        }
+      ]
+    },
+    {
+      "entityName": "Hatch",
+      "GUID": "a97e9959-a6b7-4895-8ca7-d28b96d60dc2",
+      "mainText": "L'écoutille mène à la baie d'atterrissage où votre vaisseau est retenu.\r\n\r\nUn héros transportant le pilote peut interagir avec l'écoutille pour que ce dernier quitte les lieux, mettant ainsi un terme à la mission.",
+      "buttonList": [
+        {
+          "GUID": "6c7b8fbf-76cd-4371-97a0-fb0c22d5a91a",
+          "theText": "{A} Quitter les lieux"
+        }
+      ]
+    },
+    {
+      "entityName": "Clamp Controls",
+      "GUID": "dd7cb996-baec-4a8f-8a44-6d2e1401dfd5",
+      "mainText": "Le terminal contrôle les pinces d'amarrage.\r\n\r\nUn héros peut interagir avec les contrôles des pinces d'amarrage pour essayer de les désactiver.",
+      "buttonList": [
+        {
+          "GUID": "fd337f56-7dda-4933-9d70-f3b249178dd3",
+          "theText": "{A} Pirater"
+        }
+      ]
+    },
+    {
+      "entityName": "DP ENexu",
+      "GUID": "9546a288-2af6-49d6-bbcf-abb4ffd4e2d5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "46a15125-1031-40f8-924c-d7881dfc0d7b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "c5dafeb2-7a1b-4dce-b84b-903b7cd9acb5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 1",
+      "GUID": "1acbd03c-0633-4809-b7ba-23836d0f5edb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 2",
+      "GUID": "d625d3f7-e3e2-4cc7-b5c6-0512e9731db3",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": []
+}

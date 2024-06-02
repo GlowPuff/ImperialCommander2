@@ -1,0 +1,447 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Recherchés",
+    "missionDescription": "",
+    "missionInfo": "{-} Les portes sont verrouillées.\r\n{-} Le pion Mission neutre représente la carte codée. Après avoir été lâchée, un héros peut la récupérer.\r\n{-} Un héros portant la carte codée peut ouvrir la porte du Bureau.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Lors de son activation, il ne dispose plus que de 1 action, dont il peut seulement se servir pour effectuer un déplacement.\r\n{-} La mission évolue quand la porte du Bureau s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+    "campaignName": "Jeu de base",
+    "startingObjective": "Ouvrir la porte du Bureau.",
+    "repositionOverride": "Bloquer l'accès au Bureau.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "847582d2-7831-4f28-816f-89d06d381e67",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "f8b126a7-e328-4f4f-be59-fb578da38f79",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "ed25c638-9714-4297-896e-76943b285c4a",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Vous traversez une cantina baptisée La Fange dans l'espoir d'y trouver un signe d'un de vos insaisissables contacts. Une silhouette qui évoque dangereusement un chasseur de primes surgit des ombres, le blaster au poing.\r\n\r\nLes portes claquent. On dirait bien que ces gens ont décidé de vous prendre au piège. Il va falloir trouver une issue.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} Les portes sont verrouillées.\r\n{-} La mission évolue quand la porte du Bureau s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Vous forcez les barricades pour vous frayer un chemin. Une fois dehors, vous réglez leur compte à tous les autres chasseurs de primes qui veulent une part du gâteau sur le chemin de votre vaisseau.\r\n\r\n{-} Les Rebelles remportent la mission !",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Alors que vous êtes sur le point de vous échapper, un de vos assaillants, que vous croyiez neutralisé, dégaine un détonateur thermique. Il pousse un cri dans une langue incompréhensible tandis que vous plongez vers le premier abri que vous trouvez.\r\n\r\nAprès l'explosion, vous émergez des ruines en piteux état et vous appelez la navette qui vient vous récupérer. Certains d'entre vous sont plus gravement blessés que d'autres mais, tout bien considéré, vous avez de la chance d'être encore en vie.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Le niveau de menace de la prochaine mission (et seulement de la prochaine) est augmenté de 2. Pendant la Séquence d'Amélioration Rebelle, les joueurs rebelles peuvent décider de dépenser 100 crédits par héros pour éviter cela.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard 1",
+      "GUID": "03ef51c1-ee9a-4c89-b98a-bd6d8fe503ba",
+      "eventText": "Un des Trandosiens semble être le chef.\r\n\r\n{-} Placez 1 pion Mission neutre sous le Chasseur Trandosien qui est sur la tuile 27B. Il transporte la carte codée.\r\n{-} Le pion Mission neutre représente la carte codée. Après avoir été lâchée, un héros peut la récupérer.\r\n{-} Un héros portant la carte codée peut ouvrir la porte du Bureau.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard 2",
+      "GUID": "e20b278f-e899-4ab5-8f9a-4bde3698443d",
+      "eventText": "Un des Trandosiens semble être le chef.\r\n\r\n{-} Placez 1 pion Mission neutre sous le Chasseur Trandosien qui est sur la tuile 26B. Il transporte la carte codée.\r\n{-} Le pion Mission neutre représente la carte codée. Après avoir été lâchée, un héros peut la récupérer.\r\n{-} Un héros portant la carte codée peut ouvrir la porte du Bureau.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Keycard Trigger",
+      "GUID": "78de7bf0-36b2-4311-a629-db64f524c097",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Store Room Door",
+      "GUID": "17af65e6-4ce8-4027-83c0-70097ccf7ce3",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Store Room Door",
+              "GUID": "31e1bbcd-3a97-4b72-b73c-8399166e6e97",
+              "theText": "C'est la porte de la Remise.\n\nLa porte est verrouillée.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a5f70365-afb4-4dad-99fe-d63a13d59546",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hunted Down",
+      "GUID": "1689a3e7-a07f-46fa-bbf8-b6281ae213bc",
+      "eventText": "La porte s'ouvre et laisse apparaître un spectacle effrayant : La silhouette mécanique du redoutable droïde chasseur de primes IG-88, accompagné d'un drone de combat volant.\r\n\r\n{-} La porte de la Remise est désormais déverrouillée.\r\n{-} Un héros peut interagir avec le terminal ({I}) pour ouvrir la porte de la sortie. À la fin de chaque round, la porte de la sortie se referme.\r\n{-} Les pions Mission Impériaux représentent des barricades. Celles-ci constituent un terrain bloquant et peuvent être attaquées (Santé : *3*, Défense : 1 {G}).",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Store Room Door",
+              "GUID": "3167b591-549c-4def-b039-4ee0b5e06d09",
+              "theText": "C'est la porte de la Remise.",
+              "buttonList": [
+                {
+                  "GUID": "ebd2ae7b-eb2b-4bb4-a803-47af66ce9209",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Office Door",
+              "GUID": "49599b33-edc0-402a-994a-3aeca049af3f",
+              "theText": "C'est la porte du Bureau.\r\n\r\nLa porte est verrouillée. Un héros portant la carte codée peut ouvrir la porte du Bureau.",
+              "buttonList": [
+                {
+                  "GUID": "31c55e58-5497-404d-b85f-3f1197ef7c33",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "651eba5b-e277-4c57-baa8-42b0b4093d85",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "93ec7dbd-364b-48e6-9a93-a8f795614cc6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "531b39f6-9efd-4617-9625-63d6fe320569",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG071/IG-88"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "708076f8-e610-4d73-9bdb-aaaac4546c79",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG012/Probe Droid"
+        },
+        {
+          "repositionText": "Bloquer l'accès à la sortie.",
+          "GUID": "ffbf9260-9a45-4564-9cda-0abd94d7390c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Un héros peut interagir avec le terminal ({I}) pour ouvrir la porte de la sortie. À la fin de chaque round, la porte de la sortie se referme.\r\n{-} Les pions Mission Impériaux représentent des barricades. Celles-ci constituent un terrain bloquant et peuvent être attaquées (Santé : *3*, Défense : 1 {G}).\r\n{-} Quand un héros se replie, il est neutralisé à la place. Lors de son activation, il ne dispose plus que de 1 action, dont il peut seulement se servir pour effectuer un déplacement.\r\n{-} La mission évolue quand la porte de la Sortie s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "2c5aec6b-0229-4372-ba17-7c28634367ae",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Ouvrir la porte de la Sortie.",
+          "longText": null,
+          "GUID": "9486bd00-99bc-40cc-816a-c4e339e0b416",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Round Close Door",
+      "GUID": "e42221aa-c792-4f4a-807b-dddd9e664b41",
+      "eventText": "La porte de sortie se referme avec fracas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "8acaf478-0c40-4203-ad43-f9bd2324a0f3",
+              "theText": "C'est la porte de sortie.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I}) pour ouvrir la porte de la sortie. À la fin de chaque round, la porte de la sortie se referme.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c3c5f5bf-f9cb-4fb6-a3a4-f08fb5478b02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Exit Door",
+      "GUID": "e2768ed2-c8f6-46fb-87f2-5a4977f2f8bd",
+      "eventText": "La porte de la sortie s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "3d5998d7-598a-42ff-8fdd-5cb1befb3165",
+              "theText": "C'est la porte de sortie.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I}) pour ouvrir la porte de la sortie. À la fin de chaque round, la porte de la sortie se referme.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "aeff8d5b-d069-4aa1-96f6-38e700aebad3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Exit Open First Time",
+      "GUID": "ff07d6b9-675b-4d44-89a9-6c18e2c8fa03",
+      "eventText": "Derrière la porte se trouve une petite ruelle. Vous entrevoyez un moyen de vous échapper d'ici.\r\n\r\n{-} Le pion Mission Rebelle représente la sortie. Quand tous les héros se trouvent sur la sortie ou sur une case adjacente, ils quittent les lieux, mettant un terme à la mission.",
+      "eventActions": [
+        {
+          "theText": "{-} Un héros peut interagir avec le terminal ({I}) pour ouvrir la porte de la sortie. À la fin de chaque round, la porte de la sortie se referme.\r\n{-} Les pions Mission Impériaux représentent des barricades. Celles-ci constituent un terrain bloquant et peuvent être attaquées (Santé : *3*, Défense : 1 {G}).\r\n{-} Le pion Mission Rebelle représente la sortie. Quand tous les héros se trouvent sur la sortie ou sur une case adjacente, ils quittent les lieux, mettant un terme à la mission.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Lors de son activation, il ne dispose plus que de 1 action, dont il peut seulement se servir pour effectuer un déplacement.\r\n{-} Les Rebelles gagnent quand ils quittent les lieux.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "9d481c5f-77cb-46fa-88e5-561a1524f6a5",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "S'échapper !",
+          "longText": null,
+          "GUID": "8f652f0a-7bae-4fb6-b9d4-7235c7ffb79e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Barricade 1",
+      "GUID": "d53b076f-510d-4139-80d0-a3e7727fa59a",
+      "eventText": "La barricade est réduite en éclats sous vos attaques.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 1",
+              "GUID": "4f33ee96-0ae6-4d4b-b32b-73e9b5d6eb1d",
+              "theText": "La porte de sortie est barricadée.\r\n\r\nLes barricades constituent un terrain bloquant et peuvent être attaquées (Santé : *3*, Défense : 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "a0763cb3-011c-4184-a6f5-ab8315391762",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "78c756f6-fbae-4a3f-8df8-a2cf0c6ebafb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Destroy Barricade 2",
+      "GUID": "05dbdcda-d19d-4f64-8ee6-cd21dc548d69",
+      "eventText": "La barricade est réduite en éclats sous vos attaques.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Barricade 2",
+              "GUID": "91f2aa10-e44b-41ea-991c-3cd92b65b3b0",
+              "theText": "La porte de sortie est barricadée.\r\n\r\nLes barricades constituent un terrain bloquant et peuvent être attaquées (Santé : *3*, Défense : 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "8a1cd223-eef9-4b3d-8c46-ac7e042fa4ba",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "dda76abe-693c-48b7-adb8-72298fca4d70",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "e8dd9a90-589c-4343-aa29-4f5f8937ecf5",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "40e543f0-78f6-4956-b130-662f52e53b2d",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Store Room Door",
+      "GUID": "9327e697-b67c-4e81-a924-131885ea7944",
+      "mainText": "C'est la porte de la Remise.\n\nLa porte est verrouillée.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Office Door",
+      "GUID": "df4a89e8-fe54-43be-89e1-7c51374451d2",
+      "mainText": "C'est la porte du Bureau.\r\n\r\nLa porte est verrouillée. Un héros portant la carte codée peut ouvrir la porte du Bureau.",
+      "buttonList": [
+        {
+          "GUID": "7b7fa85e-5b18-44a5-b6bf-087d7219d287",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Exit Door",
+      "GUID": "3567293a-f305-4937-89c3-4cc92231d1fc",
+      "mainText": "C'est la porte de sortie.\r\n\r\nUn héros peut interagir avec le terminal ({I}) pour ouvrir la porte de la sortie. À la fin de chaque round, la porte de la sortie se referme.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "ed4d1f85-5f14-4071-8280-9b291f9f8733",
+      "mainText": "C'est la sortie.\r\n\r\nQuand tous les héros se trouvent sur la sortie ou sur une case adjacente, ils quittent les lieux, mettant un terme à la mission.",
+      "buttonList": [
+        {
+          "GUID": "e05ce562-110b-4a38-bb84-1cfc22d4bc86",
+          "theText": "Quitter les lieux (Fin de la mission)"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "23a27494-500c-4d9e-a99a-2c24f191845b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "ad2b2088-a892-41e7-8f2c-8bef889959e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "New Terminal",
+      "GUID": "c28acf0e-6c73-4224-9159-04cd5544405f",
+      "mainText": "Ce terminal contrôle la porte de sortie, mais ses mesures de sécurité garantissent qu'elle ne restera pas ouverte longtemps.\r\n\r\nUn héros peut interagir avec le terminal ({I}) pour ouvrir la porte de la sortie. À la fin de chaque round, la porte de la sortie se referme.",
+      "buttonList": [
+        {
+          "GUID": "246e1880-9739-4b68-9042-06835c9f5c61",
+          "theText": "{A} Ouvrir la porte de sortie"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "08927e2c-5ff7-4465-9fe9-db488f63abca",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "3f83acd9-450d-42ff-9128-e857808dc7d7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Barricade 1",
+      "GUID": "6b48fa4b-394b-4229-9ef9-88eb51492f85",
+      "mainText": "La porte de sortie est barricadée.\r\n\r\nLes barricades constituent un terrain bloquant et peuvent être attaquées (Santé : *3*, Défense : 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "02e594ae-55cb-4384-bfdd-1f85122eef65",
+          "theText": "Détruire"
+        }
+      ]
+    },
+    {
+      "entityName": "Barricade 2",
+      "GUID": "e5ccaa95-6372-4cf2-a80e-669bbdcd4b38",
+      "mainText": "La porte de sortie est barricadée.\r\n\r\nLes barricades constituent un terrain bloquant et peuvent être attaquées (Santé : *3*, Défense : 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "37b13d9a-c6d5-4349-be06-9adbb89fd97b",
+          "theText": "Détruire"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}
