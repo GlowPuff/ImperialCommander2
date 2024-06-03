@@ -1,0 +1,596 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Capturés",
+    "missionDescription": "",
+    "missionInfo": "{-} Retournez toutes les cartes Article des héros face cachée : ils ne peuvent plus s'en servir. Le pion Mission neutre représente la cache d'équipement. Un héros peut interagir avec celui-ci pour retourner ses cartes Article face visible et s'en servir à nouveau.\r\n{-} Quand un héros se replie, il se retrouve neutralisé à la place. Lors de son activation, il ne dispose que de 1 action, qu'il ne peut utiliser que pour effectuer un déplacement.\r\n{-} Un héros sans arme peut attaquer une figurine hostile adjacente en lançant 1 dé vert et 1 dé jaune. Avant cette attaque, le héros effectue un test de {K}. S'il le réussit, l'attaque bénéficie de l'effet suivant : {B}: +2 {H}.\r\n{-} Les portes de la Remise et du Couloir sont verrouillées. Une porte adjacente à une figurine Impériale ne bloque ni ses déplacements ni sa ligne de vue.\r\n{-} La mission évolue lorsque tous les héros ont retourné leurs cartes Article face visible.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+    "campaignName": "Jeu de base",
+    "startingObjective": "Récupérez votre équipement dans la cache d'équipement.",
+    "repositionOverride": "Bloquer l'accès aux terminaux et aux pions Mission.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Vous vous acharnez depuis des jours sur le système d'ouverture de votre cellule, mais on vous a ôté tout votre équipement, à l'exception d'un comlink que vous avez réussi à cacher.\r\n\r\nLa situation vous parait sans espoir jusqu'à ce que le complexe tout entier tremble et que le petit appareil émette un message plein de parasites.\r\n\r\n\"Dans dix secondes, la porte de votre cellule va se déverrouiller. Votre équipement se trouve au bout du couloir. Allez-y… maintenant !\"",
+      "eventActions": [
+        {
+          "tbText": "{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} Retournez toutes les cartes Article des héros face cachée : ils ne peuvent plus s'en servir. Le pion Mission neutre représente la cache d'équipement. Un héros peut interagir avec celui-ci pour retourner ses cartes Article face visible et s'en servir à nouveau.\r\n{-} Quand un héros se replie, il se retrouve neutralisé à la place. Lors de son activation, il ne dispose que de 1 action, qu'il ne peut utiliser que pour effectuer un déplacement.\r\n{-} Un héros sans arme peut attaquer une figurine hostile adjacente en lançant 1 dé vert et 1 dé jaune. Avant cette attaque, le héros effectue un test de {K}. S'il le réussit, l'attaque bénéficie de l'effet suivant : {B}: +2 {H}.\r\n{-} Les portes de la Remise et du Couloir sont verrouillées. Une porte adjacente à une figurine Impériale ne bloque ni ses déplacements ni sa ligne de vue.\r\n{-} La mission évolue lorsque tous les héros ont retourné leurs cartes Article face visible.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "d5cc48e2-ad5a-4c57-83e6-3d5bd079cc26",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Trash Compactor",
+      "GUID": "dac171c0-ca6b-492c-915e-54632e294337",
+      "eventText": "Les trappes d'accès du Compacteur à ordures s'ouvrent en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Imperial Token 1",
+              "GUID": "a73523a1-c650-467e-815c-429c5798e58b",
+              "theText": "La trappe d'accès au Compacteur à ordures est fermée.\r\n\r\nUn héros peut interagir avec le terminal rouge pour ouvrir toutes les trappes d'accès au Compacteur à ordures.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Imperial Token 2",
+              "GUID": "fd9d7423-7d02-48e5-8156-00dbbf6021dd",
+              "theText": "La trappe d'accès au Compacteur à ordures est fermée.\r\n\r\nUn héros peut interagir avec le terminal rouge pour ouvrir toutes les trappes d'accès au Compacteur à ordures.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "a8c22f13-aa05-4c76-b3e3-1cb1014a6705",
+              "theText": "La trappe d'accès au Compacteur à ordures est ouverte.\r\n\r\n{-} Un héros peut interagir avec ce pion pour descendre dans le Compacteur à ordures.",
+              "buttonList": [
+                {
+                  "GUID": "77e78cff-71b2-45b3-8ff4-b07eb62afbe2",
+                  "theText": "{A} Descendre"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "0d66d078-3887-43a0-aec5-ad6b5a73fe52",
+              "theText": "La trappe d'accès au Compacteur à ordures est ouverte.\r\n\r\n{-} Un héros peut interagir avec ce pion pour descendre dans le Compacteur à ordures.",
+              "buttonList": [
+                {
+                  "GUID": "5a785ed0-a6ad-4fd5-ae81-7c620b93403a",
+                  "theText": "{A} Descendre"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Terminal",
+              "GUID": "804e7d9d-2284-41b8-afa3-01572c42daff",
+              "theText": "Ce terminal contrôle les trappes d'accès au Compacteur à ordures.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2c28072e-e528-42aa-86f8-54aa5ebd4240",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Trash Compactor",
+      "GUID": "84d326bd-6bf1-4bd2-b7b6-0637d91b6fe5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous tentez de pirater le terminal.\r\n\r\nEffectuez un test {J} ou {I}. Appliquer +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défausser ces pions Stress. Entrer le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d7bc3bde-9324-49e4-805f-116a03385032",
+              "theText": "Les systèmes de sécurité protégeant le terminal sont trop performants. Vous devez continuer à essayer.\r\n\r\n{-} Placez un pion Stress sur le terminal pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "db5f75d7-2ef2-4374-818b-009effe0de3b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "TC Door Opens",
+      "GUID": "b19d3b9f-40f4-4ed6-844f-1ff7f586ea5f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "a20189f7-1e96-4376-be30-09203367fbe1",
+              "theText": "Cette porte rouillée est manifestement conçue pour protéger le Couloir des odeurs du Compacteur à ordures.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "8767cb64-1d2d-4b6d-85bd-9629c793131f",
+              "theText": "Ce terminal contrôle les conduits d'évacuation qui mène hors du Compacteur à ordures.",
+              "buttonList": [
+                {
+                  "GUID": "70dd6469-abca-4237-b717-5369428ba0a9",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "2932ccdd-a648-4ed3-b9ee-27a677878836",
+              "theText": "Ce terminal contrôle les conduits d'évacuation qui mène hors du Compacteur à ordures.",
+              "buttonList": [
+                {
+                  "GUID": "1104e1a7-ec1c-40c2-9501-9d21aa7d55c2",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            }
+          ],
+          "GUID": "9bf0635e-ea7a-48e4-b29d-65b3220eaef6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cell Door opens",
+      "GUID": "830aa383-6c6f-4ce4-8cf0-c54bd43f28aa",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "0f5df446-d345-4f27-972d-70c1aa998d7e",
+              "theText": "La porte de la cellule de la prison semble solide, mais elle a été affaiblie par vos efforts.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bd24e3a6-293d-40cc-a7ae-33f061d4b781",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Ends - Rebel win",
+      "GUID": "719dc69a-6390-40b1-b564-f493ca8d39e4",
+      "eventText": "En pataugeant dans les ordures, vous tombez sur des prisonniers Rebelles qui ont profité de l'occasion pour s'enfuir eux aussi. Ensemble, vous parvenez à éliminer les soldats de l'Empire qui vous barrent la route. Grâce aux instructions de votre contact, vous parvenez à sortir tous ensemble et vous vous entassez dans un vaisseau posé non loin de là.\r\n\r\n{-} Les Rebelles remportent la mission !",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends - Rebels lose",
+      "GUID": "1c4f99fe-5bd0-4683-afe8-cec815814869",
+      "eventText": "Les Impériaux parviennent à vous capturer à nouveau. Vous êtes transférés sur Kessel, sous bonne garde cette fois. Heureusement, après plusieurs semaines d'efforts acharnés, le Haut Commandement de l'Alliance lance une vaste opération de sauvetage.\r\n\r\nL'Escadron Rogue s'en tire haut la main et vous libère, ainsi que plusieurs officiers Rebelles de haut rang.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Le niveau de menace de la prochaine mission (et seulement de la prochaine) est augmenté de 2. Pendant la Séquence d'Amélioration Rebelle, les joueurs rebelles peuvent décider de dépenser 100 crédits par héros pour éviter cela.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Escape",
+      "GUID": "34fcad06-4144-4a3d-a4dc-00477c794f23",
+      "eventText": "\"J'ai posé le vaisseau près du conduit d'évacuation des ordures, vous annonce votre sauveteur, mais il vous faut pirater le système et ouvrir les passages. En tout cas, dépêchez-vous ! Je peux les occuper un moment, mais ça ne va pas durer.\"\r\n\r\n{-} Les pions Mission Impériaux représentent des trappe d'accès fermées et les pions Mission Rebelles des trappe d'accès ouvertes. Un héros peut interagir avec un terminal pour retourner tous les pions Mission Impériaux de la même couleur que celle du terminal.\r\n{-} Une figurine peut interagir avec un pion Mission Rebelle rouge pour se placer sur n'importe quelle case vide du Compacteur à ordures.\r\n{-} Quand un héros se replie, il se retrouve neutralisé à la place. Lors de son activation, il ne dispose que de 1 action, qu'il ne peut utiliser que pour effectuer un déplacement.\r\n{-} Les portes de la Remise et du Couloir sont verrouillées. Une porte adjacente à une figurine Impériale ne bloque ni ses déplacements ni sa ligne de vue.\r\n{-} Si tous les héros sont placés sur des pions Rebelles jaunes ou sur des cases adjacentes à ceux-ci, sélectionnez le pion puis cliquez sur \"Quitter les lieux\" pour gagner la mission.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Terminal",
+              "GUID": "e39142fe-f976-4cc0-8b01-fab676149b3e",
+              "theText": "Ce terminal contrôle les trappes d'accès au Compacteur à ordures.",
+              "buttonList": [
+                {
+                  "GUID": "d07e8b47-9270-42c7-8345-3a390573ac74",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            },
+            {
+              "entityName": "Equipment Cache",
+              "GUID": "e85d7f60-35b1-4d2f-b350-fe50d10efc0b",
+              "theText": "Votre équipement est stocké dans cette cache.\r\n\r\nUn héros peut interagir avec cette cache pour retourner ses cartes Article face visible. Quand tous les héros ont retourné leurs cartes Article face visible, cliquez sur \"Équipement récupéré\" pour faire évoluer la mission.",
+              "buttonList": [
+                {
+                  "GUID": "46189a01-0904-4ebc-a466-8f049306a9f1",
+                  "theText": "Équipement récupéré"
+                }
+              ]
+            }
+          ],
+          "GUID": "d037a863-7eaf-4f34-9ea8-a18575344161",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Les pions Mission Impériaux représentent des trappe d'accès fermées et les pions Mission Rebelles des trappe d'accès ouvertes. Un héros peut interagir avec un terminal pour retourner tous les pions Mission Impériaux de la même couleur que celle du terminal.\r\n{-} Une figurine peut interagir avec un pion Mission Rebelle rouge pour se placer sur n'importe quelle case vide du Compacteur à ordures.\r\n{-} Quand un héros se replie, il se retrouve neutralisé à la place. Lors de son activation, il ne dispose que de 1 action, qu'il ne peut utiliser que pour effectuer un déplacement.\r\n{-} Les portes de la Remise et du Couloir sont verrouillées. Une porte adjacente à une figurine Impériale ne bloque ni ses déplacements ni sa ligne de vue.\r\n{-} Si tous les héros sont placés sur des pions Rebelles jaunes ou sur des cases adjacentes à ceux-ci, sélectionnez le pion puis cliquez sur \"Quitter les lieux\" pour gagner la mission.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "6ea359dc-7a18-447a-82f0-9b519291687a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Trouver un moyen d'ouvrir les trappe d'accès du Compacteur à ordures.",
+          "longText": null,
+          "GUID": "f7550b2c-70a0-4626-9abb-dc83a99ec9b7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Garbage Chute",
+      "GUID": "c9a18ce4-ba8b-4b62-83f3-92f94a20c944",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous tentez de pirater le terminal.\r\n\r\nEffectuez un test {J} ou {I}. Appliquer +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défausser ces pions Stress. Entrer le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "86a3d9d5-16e5-4d31-8953-f26c41e88b3a",
+              "theText": "Les systèmes de sécurité protégeant le terminal sont trop performants. Vous devez continuer à essayer.\r\n\r\n{-} Placez un pion Stress sur le terminal pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "44b7b7ad-e373-421c-86e6-f68037705e87",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Garbage Chute Opens",
+      "GUID": "0d4a3a62-9f44-4bc6-be0b-c26cb015d0fa",
+      "eventText": "Les conduits d'évacuation s'ouvrent. C'est peut-être le chemin de la liberté !",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Imperial Token 1",
+              "GUID": "f64a3ddc-8299-484e-ad7a-5b321d92f238",
+              "theText": "La sortie du Compacteur à ordures est fermée. Elle ne peut être ouverte qu'à partir d'un terminal jaune.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Imperial Token 2",
+              "GUID": "4b484ec0-3e00-415c-b7d7-9541b76d6788",
+              "theText": "La sortie du Compacteur à ordures est fermée. Elle ne peut être ouverte qu'à partir d'un terminal jaune.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Rebel Token 1",
+              "GUID": "51512a82-2895-4d99-b15f-55409439aabe",
+              "theText": "La sortie du Compacteur à ordures est ouverte. C'est votre moyen de vous échapper !\r\n\r\n{-} Si tous les héros sont placés sur des pions Rebelles jaunes ou sur des cases adjacentes à ceux-ci, sélectionnez le pion puis cliquez sur \"Quitter les lieux\" pour gagner la mission.",
+              "buttonList": [
+                {
+                  "GUID": "a3c0c164-f131-4531-bb47-33ddcfb69068",
+                  "theText": "Quitter les lieux"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Rebel Token 2",
+              "GUID": "e090a1a6-0740-4569-860a-137f44a410ad",
+              "theText": "La sortie du Compacteur à ordures est ouverte. C'est votre moyen de vous échapper !\r\n\r\n{-} Si tous les héros sont placés sur des pions Rebelles jaunes ou sur des cases adjacentes à ceux-ci, sélectionnez le pion puis cliquez sur \"Quitter les lieux\" pour gagner la mission.",
+              "buttonList": [
+                {
+                  "GUID": "32ccd7b4-d960-487d-bda1-78374621431f",
+                  "theText": "Quitter les lieux"
+                }
+              ]
+            },
+            {
+              "entityName": "Hallway Door",
+              "GUID": "79e4978f-94ff-48cd-a9a2-f17195cf0e22",
+              "theText": "La porte est bien verrouillée.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Storage Room Door",
+              "GUID": "277565b4-8ce5-47ce-8b45-bb97c91247f8",
+              "theText": "La porte est bien verrouillée.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "0b777269-cbbe-47fc-b8e3-68e221342ec9",
+              "theText": "Ce terminal contrôle les conduits d'évacuation qui mène hors du Compacteur à ordures.",
+              "buttonList": [
+                {
+                  "GUID": "52174907-05eb-44b1-b6be-03eb2b71cb06",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "a685ee5f-2f84-46e0-ac4a-521f69b5018f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "933d6bd5-b9fb-42b5-b4f2-f2d8b42c460d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "S'échapper par les conduits d'évacuation.",
+          "longText": null,
+          "GUID": "5d87d0fe-7871-4024-ab3f-8d2ee647ae61",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il se retrouve neutralisé à la place. Lors de son activation, il ne dispose que de 1 action, qu'il ne peut utiliser que pour effectuer un déplacement.\r\n{-} Si tous les héros sont placés sur des pions Rebelles jaunes ou sur des cases adjacentes à ceux-ci, sélectionnez le pion puis cliquez sur \"Quitter les lieux\" pour gagner la mission.",
+          "GUID": "866c4cbf-2e35-4de7-adcb-4716d9ac6489",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb down",
+      "GUID": "af2f95f6-b30c-4fe8-8a75-066141a6c200",
+      "eventText": "Vous descendez dans le trou, glissez et vous vous retrouvez bientôt entouré d'ordures. Quelle odeur répugnante vous venez de découvrir !",
+      "eventActions": [
+        {
+          "shortText": "Ouvrir les conduits d'évacuation du Compacteur à ordures.",
+          "longText": null,
+          "GUID": "f52451ad-3c33-40db-ba4f-1d973c12606d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "82a639ca-e6f6-4bfa-abfb-7cfc73002e4c",
+              "theText": "La trappe d'accès au Compacteur à ordures est ouverte.\r\n\r\n{-} Un héros peut interagir avec ce pion pour placer sa figurine sur n'importe quelle case vide du Compacteur à ordures.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "3f89a360-fc83-4409-a9c6-5658dda96af8",
+              "theText": "La trappe d'accès au Compacteur à ordures est ouverte.\r\n\r\n{-} Un héros peut interagir avec ce pion pour placer sa figurine sur n'importe quelle case vide du Compacteur à ordures.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "4e3c96d9-b0c1-497a-9fe7-ec7b1047dc44",
+              "theText": "Cette porte rouillée est manifestement conçue pour protéger le Couloir des odeurs du Compacteur à ordures.",
+              "buttonList": [
+                {
+                  "GUID": "b5c48878-24cc-41d9-8434-9ae450c65de5",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "93de1451-40e7-4d18-adcf-92baefb3bbd7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Entrance",
+      "GUID": "9c2b4f3a-c336-4a80-b015-7e27365a5326",
+      "mainText": "C'est la cellule des héros. Déployez-les ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "29cd84c0-58f9-47e9-8ced-432f5515d9e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "e78a0a86-e764-49fd-82f2-77fe019574e4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "d3d0ae17-f9cd-4516-8d5c-01b385b5080d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "0a45fcb1-2c6a-4c21-9877-86be6dfba11e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "82225e76-06ab-4aec-9069-a5bec843b375",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "551def1d-2afe-4ea1-b828-27c9a2b18c0a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3be15fdc-a062-48c8-9d31-794fa22dfb6b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite Officer",
+      "GUID": "644e7104-8a58-4189-84c2-d091fcc1f864",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 3",
+      "GUID": "d992e442-5c6f-46ac-80d4-1b20cdeb4d04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 2",
+      "GUID": "55c48f99-c50a-4219-a4f7-209f6c75e465",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 1",
+      "GUID": "84c3e752-11bb-4ae5-b09d-17513513f2cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Terminal",
+      "GUID": "0f6454f8-bc95-447e-ad51-72f7e4db9f1e",
+      "mainText": "Ce terminal contrôle les trappes d'accès au Compacteur à ordures.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 1",
+      "GUID": "69856693-788f-4357-8b7a-333a7dfdc330",
+      "mainText": "Ce terminal contrôle les conduits d'évacuation qui mène hors du Compacteur à ordures.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 2",
+      "GUID": "49632046-382f-4407-9584-39f8c1c2f7fe",
+      "mainText": "Ce terminal contrôle les conduits d'évacuation qui mène hors du Compacteur à ordures.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 1",
+      "GUID": "e45723b0-7379-4d17-974e-a1dbd1dc22c5",
+      "mainText": "La trappe d'accès au Compacteur à ordures est fermée.\r\n\r\n{-} Un héros peut interagir avec le terminal rouge pour ouvrir toutes les trappes d'accès au Compacteur à ordures.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 2",
+      "GUID": "03cf63aa-bb2f-4427-b9b3-b3c82a0ca20b",
+      "mainText": "La trappe d'accès au Compacteur à ordures est fermée.\r\n\r\n{-} Un héros peut interagir avec le terminal rouge pour ouvrir toutes les trappes d'accès au Compacteur à ordures.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Rebel Token 2",
+      "GUID": "5f4f90d0-c524-4cd2-8d92-b7a72348fb1c",
+      "mainText": "La trappe d'accès au Compacteur à ordures est ouverte.\r\n\r\n{-} Un héros peut interagir avec ce pion pour descendre dans le Compacteur à ordures.",
+      "buttonList": [
+        {
+          "GUID": "368f0b76-a31c-43e9-b8c2-6b464d8f2233",
+          "theText": "{A} Descendre"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Rebel Token 1",
+      "GUID": "16037a15-1ded-4a0b-b9eb-fd0851e594b0",
+      "mainText": "La trappe d'accès au Compacteur à ordures est ouverte.\r\n\r\n{-} Un héros peut interagir avec ce pion pour descendre dans le Compacteur à ordures.",
+      "buttonList": [
+        {
+          "GUID": "258b5ec7-e671-433f-be5d-2bcb0346c928",
+          "theText": "{A} Descendre"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Imperial Token 1",
+      "GUID": "7f6aeb7e-44e0-4e52-8308-fe0ba221ff23",
+      "mainText": "Les conduits d'évacuation du Compacteur à ordures sont fermés. Ils ne peuvent être ouverts qu'à partir d'un terminal jaune.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Imperial Token 2",
+      "GUID": "889af84e-a26f-43bc-8d52-2ebff893a032",
+      "mainText": "Les conduits d'évacuation du Compacteur à ordures sont fermés. Ils ne peuvent être ouverts qu'à partir d'un terminal jaune.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "d5879e17-e5cc-4501-867f-4bdbac0cc5b6",
+      "mainText": "La porte de la cellule de la prison est en plastacier massif, mais elle a été déverrouillée par votre sauveteur.",
+      "buttonList": [
+        {
+          "GUID": "9990c353-00d3-431c-8365-b4c3b074a092",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Hallway Door",
+      "GUID": "719a6aeb-dfa5-4819-8a15-f05c55a23ec5",
+      "mainText": "La porte du Couloir est bien verrouillée.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Trash Compactor Door",
+      "GUID": "61c10a4f-dddd-4a68-9081-25c6def3540b",
+      "mainText": "Cette porte rouillée est manifestement conçue pour protéger le Couloir des odeurs du Compacteur à ordures.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Storage Room Door",
+      "GUID": "2f12d2ec-1b90-4b91-b043-9207d5d66d81",
+      "mainText": "La porte de la Remise est bien verrouillée.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Rebel Token 1",
+      "GUID": "27ce12b5-ea26-4cc4-b0f3-d069df9f0622",
+      "mainText": "Les conduits d'évacuation du Compacteur à ordures sont ouverts. C'est le moyen de vous échapper !\r\n\r\n{-} Si tous les héros sont placés sur des pions Rebelles jaunes ou sur des cases adjacentes à ceux-ci, cliquez sur \"Quitter les lieux\" pour gagner la mission.",
+      "buttonList": [
+        {
+          "GUID": "4b9f202c-8cde-4f88-ad54-f88094648ba3",
+          "theText": "Quitter les lieux"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Rebel Token 2",
+      "GUID": "04ca1c00-2ec6-4883-bd9c-683acec240a3",
+      "mainText": "Les conduits d'évacuation du Compacteur à ordures sont ouverts. C'est le moyen de vous échapper !\r\n\r\n{-} Si tous les héros sont placés sur des pions Rebelles jaunes ou sur des cases adjacentes à ceux-ci, cliquez sur \"Quitter les lieux\" pour gagner la mission.",
+      "buttonList": [
+        {
+          "GUID": "1aa1f395-cdf7-4a60-9fc9-2077ac41f891",
+          "theText": "Quitter les lieux"
+        }
+      ]
+    },
+    {
+      "entityName": "Equipment Cache",
+      "GUID": "b66ecce5-eb8d-4ee9-a701-ac60739f926c",
+      "mainText": "Votre équipement est stocké dans cette cache.\r\n\r\n{-} Un héros peut interagir avec cette cache pour retourner ses cartes Article face visible. Quand tous les héros ont retourné leurs cartes Article face visible, cliquez sur \"Équipement récupéré\" pour faire évoluer la mission.",
+      "buttonList": [
+        {
+          "GUID": "2d680aee-d2c5-43ae-b100-444cbf4c1bf6",
+          "theText": "Équipement récupéré"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}
