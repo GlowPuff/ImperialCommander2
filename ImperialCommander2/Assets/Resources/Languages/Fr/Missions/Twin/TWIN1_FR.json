@@ -1,0 +1,757 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Accrochage au canyon",
+    "missionDescription": "",
+    "missionInfo": "{-} Quand <color=\"red\">R2-D2</color> ou <color=\"red\">C-3PO</color> se défend, s'il se trouve à plus de 4 cases de tout héros, retirez 1 dé de la réserve de défense.\r\n{-} Les pions Mission Impériaux représentent des barricades et des pièges et forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal. Un héros peut interagir avec un pion pour essayer de le défausser.\r\n{-} Les Pillards Tuskens situés sur le Sentier étroit (tuile 05B, Ombres Jumelles) sont des tireurs d'élite qui peuvent cibler des figurines sur l'ensemble du plateau lorsqu'ils en reçoivent l'instruction.\r\n{-} La porte est verrouillée. Une figurine peut attaquer la porte (Santé : *1*, Défense : 1 {G}).\r\n{-} La mission évolue quand une figurine Rebelle gravit le Sentier étroit (cliquez sur la case verte en surbrillance et sélectionnez \"Gravir\").\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">R2-D2</color> et <color=\"red\">C-3PO</color> vaincus.",
+    "campaignName": "Ombres Jumelles",
+    "startingObjective": "Grimper le Sentier étroit.",
+    "repositionOverride": "Bloquer l'accès à la porte et au terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "324a2829-730b-440e-93d2-274ab7000522",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "1bdcd4b6-33b9-4f4a-9f88-435131a5302b",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d5cabb83-3ebf-4445-9eaa-c799aab01e63",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9474dfae-1552-4fd3-a903-d6138d3bd780",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Au milieu d'un paysage de roche stérile, écrasés par les soleils de plomb de Tatooine, vous escaladez les hauteurs du désert du Jundland. C-3PO s'exclame d'une voix pathétique : \"Ce n'est pas un endroit pour les gens civilisés. Je crains bien que nous n'y survivions pas, R2.\" Le petit droïde répond par un sifflement agacé et poursuit sa route.\r\n\r\nVous oubliez vite les désagréments dus à la chaleur lorsqu'un tir de blaster vous frôle. Un peu plus loin, vous apercevez des stormtroopers. Au moment où vous entamez le combat, vous remarquez une bande de Tuskens embusqués dans les hauteurs. Ils se déploient pour vous mitrailler dans le canyon pendant votre ascension.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.",
+      "eventActions": [
+        {
+          "customName": null,
+          "GUID": "37835dc0-55a3-4171-8531-e13185e04499",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "customName": null,
+          "GUID": "0f981860-b7b5-4963-ac12-35f079ce575e",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "{-} Les héros contrôlent <color=\"red\">R2-D2</color> et <color=\"red\">C-3PO</color>en tant qu'alliés.\r\n{-} Quand <color=\"red\">R2-D2</color> ou <color=\"red\">C-3PO</color> se défend, s'il se trouve à plus de 4 cases de tout héros, retirez 1 dé de la réserve de défense.\r\n{-} Les pions Mission Impériaux représentent des barricades et des pièges et forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal. Un héros peut interagir avec un pion pour essayer de le défausser.\r\n{-} Les Pillards Tuskens situés sur le Sentier étroit (tuile 05B, Ombres Jumelles) sont des tireurs d'élite qui peuvent cibler des figurines sur l'ensemble du plateau lorsqu'ils en reçoivent l'instruction.\r\n{-} La porte est verrouillée. Une figurine peut attaquer la porte (Santé : *1*, Défense : 1 {G}).\r\n{-} La mission évolue quand une figurine Rebelle gravit le Sentier étroit (cliquez sur la case verte en surbrillance et sélectionnez \"Gravir\").\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">R2-D2</color> et <color=\"red\">C-3PO</color> vaincus.",
+          "GUID": "4ad617c5-a911-4290-be4a-d7a9c79f0eda",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Après une escalade éreintante doublée d'un combat épique, vous vous infiltrez dans la base et dérobez les plans dans la console centrale, en espérant que cette opération permettra de déjouer les desseins des Impériaux.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent la carte Récompense \"Homologues\". (Cette carte Récompense fonctionne différemment lorsque vous jouez avec <b>Imperial Commander 2</b>. Reportez-vous à la section \"Changement de règles\" de la documentation du wiki pour plus de détails.)",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Ombres Jumelles\" ?",
+          "buttonList": [
+            {
+              "GUID": "bd74c6b8-03b5-4b99-b098-7c3857cc2bef",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "8c29e961-bf68-4e72-bbd9-c0139dee8bc4",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "L'escalade et l'affrontement ont eu raison de vos forces : vous êtes contraints de renoncer et de rebrousser chemin. Pourvu que cette base ne participe pas à l'une des plus pernicieuses opérations de l'Empire !\r\n\r\n{-} Les Rebelles perdent la mission.",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Ombres Jumelles\" ?",
+          "buttonList": [
+            {
+              "GUID": "1d8e7f1d-959f-4fa5-a174-940952051598",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "ecbe5c7b-cd0d-46d4-a905-131a95911991",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "Votre pilote exécute une extraction magistrale et vous vous regroupez dans votre navette pour mettre au point une nouvelle stratégie. Selon les plans que vous avez dérobés, Kayn Somos, le commandant des stormtroopers que vous avez croisé, a dirigé une expédition visant à traquer le héros de la Rébellion, Luke Skywalker. C'est par le destroyer stellaire que passe toute l'opération, et d'après ce vous avez compris, il ne va pas tarder à s'en aller, ce qui signifie qu'ils l'ont débusqué. Il faut agir sans tarder.\r\n\r\nLe plan comprend également les codes d'atterrissage du destroyer Impérial. Votre pilote affirme qu'ils devraient vous permettre d'éviter les turbolasers du vaisseau et de vous poser dans son hangar. Ensuite, c'est à vous qu'il appartiendra de trouver le moyen de le détruire… et d'en revenir vivants.\r\n\r\n{-} Chaque héros reçoit 3 XP.\r\n{-} Les héros reçoivent 300 crédits par héros.\r\n{-} Les héros reçoivent <color=\"red\">R2-D2</color> (Fidèle astromech) et <color=\"red\">C-3PO</color> (Relations Humano-cyborg) en tant qu'alliés.\r\n{-} La prochaine mission active est \"Opération Ciel embrasé\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "\"Vous avez le chic pour vous mettre dans le pétrin, vous savez ?\" Après vous avoir envoyé cette remarque ironique par comlink, votre pilote se livre à une manœuvre d'extraction audacieuse sous le feu nourri des Impériaux.\r\n\r\n\"Alors, rien de neuf ? De mon côté, j'ai seulement réussi à découvrir en scannant le destroyer qu'il allait partir pour Sullust d'ici peu. Je n'en suis pas certain, mais ils pourraient bien être sur les traces de Luke, car il s'agissait du site de sa dernière mission. Ils ont dû se renseigner.\"\r\n\r\nLe temps vous est compté. Si vous voulez sauver le héros de la Rébellion, il vous faut échafauder un plan pour embarquer à bord d'une navette Impériale et vous introduire dans le destroyer stellaire. Vous ignorez ce que vous réussirez à faire une fois à l'intérieur, mais vous espérez qu'une occasion se présentera d'elle-même.\r\n\r\n{-} Chaque héros reçoit 2 XP.\r\n{-} Les héros reçoivent 300 crédits par héros.\r\n{-} Les héros reçoivent <color=\"red\">R2-D2</color> (Fidèle astromech) et <color=\"red\">C-3PO</color> (Relations Humano-cyborg) en tant qu'alliés.\r\n{-} La prochaine mission active est \"Infiltrés\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Chaque héros reçoit 1 XP.\r\n{-} Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round Limit",
+      "GUID": "cc82e014-6c01-4e9b-8674-00a575d7a794",
+      "eventText": "L'escalade et l'affrontement ont eu raison de vos forces : vous êtes contraints de renoncer et de rebrousser chemin. Pourvu que cette base ne participe pas à l'une des plus pernicieuses opérations de l'Empire !\r\n\r\n{-} Les Rebelles perdent la mission.",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Ombres Jumelles\" ?",
+          "buttonList": [
+            {
+              "GUID": "22594630-87d8-4e92-8c1d-a80a693f9174",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "77b8dba2-b3f4-4aef-a5f3-d4d3fc60a585",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "161ea904-5b7c-4b3a-b565-b5871da81ae4",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "R2-D2 defeated",
+      "GUID": "fc9ebd58-d346-4f33-b590-597e66ab759b",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "C-3PO defeated",
+      "GUID": "a02f3fe2-13fd-475b-aa4b-a8a654ac6b95",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Door",
+      "GUID": "3daf4a5f-5ca4-40b6-a732-7f7a74903587",
+      "eventText": "De l'air frais s'échappe du complexe climatisé lorsque la porte s'ouvre en coulissant.\r\n\r\n{-} Un héros peut interagir avec un terminal ({I}) pour obtenir les plans.\r\n{-} Les Rebelles gagnent quand un héros obtient les plans.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "dbaf96f9-fef5-4363-aabb-a31a7572fdb4",
+              "theText": "Cette porte mène dans le complexe Impériale.\r\n\r\n{-} La porte est verrouillée. Une figurine peut attaquer la porte (Santé : *1*, Défense : 1 {G}).",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a8b99d52-a80e-4519-8149-f7b9e8134b39",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Obtenir les plans à partir du terminal.",
+          "longText": null,
+          "GUID": "be0f5232-96aa-40a8-9586-e8cbdbd6d9f2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand <color=\"red\">R2-D2</color> ou <color=\"red\">C-3PO</color> se défend, s'il se trouve à plus de 4 cases de tout héros, retirez 1 dé de la réserve de défense.\r\n{-} Un héros peut interagir avec un terminal ({I}) pour obtenir les plans.\r\n{-} Les Rebelles gagnent quand un héros obtient les plans.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">R2-D2</color> et <color=\"red\">C-3PO</color> vaincus.",
+          "GUID": "61cba9b9-6332-4443-bdae-557c1e9d0509",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Narrow Path Entered",
+      "GUID": "6095b3ff-c7aa-4f56-855f-c650b8ea2b3d",
+      "eventText": "Alors que vous entamez l'ascension, les Pillards Tuskens saisissent leurs bâtons gaffi et se précipitent vers vous pour vous affronter.\r\n\r\n{-} La mission évolue quand la porte du complexe est détruite.",
+      "eventActions": [
+        {
+          "theText": "{-} Les héros contrôlent <color=\"red\">R2-D2</color> et <color=\"red\">C-3PO</color>en tant qu'alliés.\r\n{-} Quand <color=\"red\">R2-D2</color> ou <color=\"red\">C-3PO</color> se défend, s'il se trouve à plus de 4 cases de tout héros, retirez 1 dé de la réserve de défense.\r\n{-} Les pions Mission Impériaux représentent des barricades et des pièges et forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal. Un héros peut interagir avec un pion pour essayer de le défausser.\r\n{-} Les Pillards Tuskens situés sur le Sentier étroit (tuile 05B, Ombres Jumelles) sont des tireurs d'élite qui peuvent cibler des figurines sur l'ensemble du plateau lorsqu'ils en reçoivent l'instruction.\r\n{-} La porte est verrouillée. Une figurine peut attaquer la porte (Santé : *1*, Défense : 1 {G}).\r\n{-} La mission évolue quand la porte du complexe est détruite.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">R2-D2</color> et <color=\"red\">C-3PO</color> vaincus.",
+          "GUID": "268db73d-8bcc-4841-bbf0-359438006dbf",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Entrer dans le complexe.",
+          "longText": null,
+          "GUID": "f4e547b5-28c8-4018-a9a3-8b4e12c1b896",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Narrow Path",
+              "GUID": "184cd330-058f-4fb3-8d0a-ca0be4e2003f",
+              "theText": "Un Sentier étroit et sinueux longe le canyon. L'ascension est longue et pénible.\r\n\r\n{-} La première fois qu'une figurine Rebelle entre dans le Sentier étroit, cliquez sur \"Gravir\".",
+              "buttonList": [
+                {
+                  "GUID": "7e4b0da1-e739-4b84-9a47-669ac60f6b35",
+                  "theText": "Gravir"
+                }
+              ]
+            }
+          ],
+          "GUID": "4ba0d02d-9246-4e07-b06c-02ac8db71652",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "cd191d59-7dad-4c14-9c47-7e0dd92e7c35",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à pirater le terminal.\r\n\r\nEffectuez un test {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "ca752a8c-2b8d-4be0-8b18-fc19102c0244",
+              "theText": "Les systèmes de sécurité tiennent bon. Vous devez continuer à essayer.\r\n\r\n{-} Placez un pion Stress sur le terminal pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "e4c03dbf-00c5-4d1a-8bcb-f5076f424259",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Heat of the Suns",
+      "GUID": "299727e4-b187-4222-8aa9-1dbabeff6a99",
+      "eventText": "La chaleur des soleils jumeaux de Tatooine est impitoyable. Vous sentez que vos forces s'épuisent.\r\n\r\n{-} Chaque héros effectue un test  {K}. Chaque héros qui échoue devient <color=\"red\">Affaibli</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Yellow Barricade Removed",
+      "GUID": "26dc59a7-333d-4647-8dc2-52cb50c6e229",
+      "eventText": "La grille finit par céder et s'ouvre. Au même moment, les alarmes se mettent à hurler dans la chaleur du désert.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Barricade 1",
+              "GUID": "c55b4777-006c-42a1-b39a-29289b569803",
+              "theText": "L'Empire a érigé à cet endroit une clôture dotée d'une serrure complexe.\r\n\r\n{-} Un héros peut interagir avec la clôture pour essayer de crocheter la serrure.",
+              "buttonList": [
+                {
+                  "GUID": "99380c8c-4c08-4cfb-81e8-f4affca71eb6",
+                  "theText": "{A} Crocheter la serrure"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Barricade 2",
+              "GUID": "74859529-6b01-44b0-b76d-fb1d541d9a16",
+              "theText": "L'Empire a érigé à cet endroit une clôture dotée d'une serrure complexe.\r\n\r\n{-} Un héros peut interagir avec la clôture pour essayer de crocheter la serrure.",
+              "buttonList": [
+                {
+                  "GUID": "1ef4a3cb-dd67-4906-ae0c-cbf3bbc40723",
+                  "theText": "{A} Crocheter la serrure"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "18645343-6037-4abd-99b5-80db2d2badca",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "3a8f0b64-437d-41a5-926a-58d91d60fc7e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Yellow Attempt",
+      "GUID": "acd6547b-e222-4702-b92e-b661c92881c1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous essayez de crocheter la serrure de la grille.\r\n\r\nEffectuez un test {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur les pions Mission jaunes, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "6964be2e-8bd2-4557-86ef-f4810f3d8a81",
+              "theText": "Vous faites quelques progrès, mais la serrure reste bloquée. Vous devez continuer à essayer.\r\n\r\n{-} Placez un pion Stress sur les pions Mission jaunes pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "27424fb1-bd9f-4fc6-8aae-48463fc61560",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Attempt",
+      "GUID": "542c0da1-3d1d-4ac6-89b9-65a0caabcb9c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à retirer les pierres.\r\n\r\nEffectuez un test {K}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le pion Mission vert, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "973ea2cf-cda4-4a17-ab62-9a2e78eea4e8",
+              "theText": "Vous avez fait des progrès, mais il vous reste encore du travail à faire. Vous devez continuer à essayer.\r\n\r\n{-} Placez un pion Stress sur le pion Mission vert pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "96bc9c81-e8ad-46cc-9e7f-baf859c68feb",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Green Barricade Removed",
+      "GUID": "c209ae7c-8d30-4cc8-9ecb-9b5f5dcd6442",
+      "eventText": "Vous parvenez enfin à vous frayer un chemin.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Green Barricade",
+              "GUID": "49d6124c-d86a-434e-a77a-e58c3f95ec6d",
+              "theText": "Les Pillards Tuskens ont déclenché un éboulement. D'énormes rochers bloquent le passage.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec les rochers pour essayer de les retirer.",
+              "buttonList": [
+                {
+                  "GUID": "6a104a60-888b-42a4-bd3e-a4d0ac0bb106",
+                  "theText": "{A} Retirer"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "44ef3229-c7e6-4e42-beb6-5822a07871bb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "26b2946d-b711-49a9-be25-53beb72ae812",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Attempt",
+      "GUID": "b0343c2c-d0fa-49f5-9f25-3a7e8b82e059",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous essayez de vous faufiler entre les déclencheurs.\r\n\r\nEffectuez un test {J}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le pion Mission rouge, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "f7e382d1-948a-4380-af84-3a39e62cb6ca",
+              "theText": "Une charge explose près de vous, projetant des éclats tranchants comme des lames de rasoir.\r\n\r\n{-} Vous subissez 2 {H} et vous voyez infliger l'état <color=\"red\">Hémorragie</color>."
+            },
+            {
+              "GUID": "6ca67ab1-3a1e-4970-8462-4c17a9c1aafa",
+              "theText": "Vous traversez en toute sécurité et désamorcez les pièges."
+            }
+          ],
+          "GUID": "453a52a9-7e27-43ea-904b-1f65a10712df",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 1 Removed",
+      "GUID": "2ff5ef48-9a4a-4b40-88d5-ef684b983dfd",
+      "eventText": "Quand vous approchez de la base, un commandant stormtrooper en surgit et harangue ses hommes : \"Un peu de nerf bande d'abrutis ! Pas question de laisser ces salopards de Rebelles saper tous nos efforts !\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 1",
+              "GUID": "57e3a45a-3a03-4f3c-9553-f52c68a87e6f",
+              "theText": "L'Empire a truffé le Sentier étroit de mines et autres pièges.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec les pièges pour tenter de les désamorcer.",
+              "buttonList": [
+                {
+                  "GUID": "aac3d39f-e591-49c4-b5e9-5d22d598d0a3",
+                  "theText": "{A} Désamorcer"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "3935f472-c399-4e92-8105-4236d522466c",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "23666b4c-befe-4ff0-9b36-b4cdbb9ab113",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "19605115-2230-451b-8e72-ffe5759c5159",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9970da39-b251-4bd2-be05-f03221c8d114",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG075/Kayn Somos"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Attempt",
+      "GUID": "b27fef3c-8c20-4e01-8c8b-a53cdb404241",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous essayez de vous faufiler entre les déclencheurs.\r\n\r\nEffectuez un test {J}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le pion Mission rouge, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1b13b451-d282-4c28-9f92-2801fb06806e",
+              "theText": "Une charge explose près de vous, projetant des éclats tranchants comme des lames de rasoir.\r\n\r\n{-} Vous subissez 2 {H} et vous voyez infliger l'état <color=\"red\">Hémorragie</color>."
+            },
+            {
+              "GUID": "fad88174-952b-43be-951c-81e24c393fac",
+              "theText": "Vous traversez en toute sécurité et désamorcez les pièges."
+            }
+          ],
+          "GUID": "43a0d136-2318-46e0-9ff8-4950f16b6092",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Red 2 Removed",
+      "GUID": "85cebcf8-c072-4deb-9310-3c2fb6905fc7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Barricade 2",
+              "GUID": "70d39b82-ca4f-4e94-8795-392d073f99f1",
+              "theText": "L'Empire a truffé le Sentier étroit de mines et autres pièges.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec les pièges pour tenter de les désamorcer.",
+              "buttonList": [
+                {
+                  "GUID": "0b00ba43-e951-492c-aad6-a8210c5b63cb",
+                  "theText": "{A} Désamorcer"
+                }
+              ]
+            }
+          ],
+          "GUID": "de36bdbd-56eb-4ff4-be87-21fe52d9503b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "27223615-6599-4609-b1cc-2ad8aaa3e691",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "8320b094-a652-488f-a6e6-de3fc02f84de",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "fcec21ce-37d1-49da-bc87-c440f2b014bf",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP R2-D2",
+      "GUID": "a68aaf34-7548-4f9c-b87b-eb91a95e637b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP 3PO",
+      "GUID": "88ae215d-c925-4758-a66f-a7f5ac77cc76",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 2",
+      "GUID": "92bd617d-f424-4259-9959-860ee748d91d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "f1e88402-ee51-4558-a1c2-d98ce94f2ac8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 1",
+      "GUID": "41d13a0e-35f6-4a44-a5f7-80eaf347c89b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Tusken 2",
+      "GUID": "b68a7e88-6ddb-478b-b62c-9d9d41ad51e0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 1",
+      "GUID": "c64deca0-e973-44f4-b85c-8dec42caf319",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETusken 2",
+      "GUID": "0623b2ab-5bd4-411e-93a3-709ae0669b42",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "78ddaab1-3664-4f2b-b0a2-f23332f9c12f",
+      "mainText": "Cette porte mène dans le complexe Impériale.\r\n\r\n{-} La porte est verrouillée. Une figurine peut attaquer la porte (Santé : *1*, Défense : 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "872b5b98-5374-4247-963e-4d959c64746e",
+          "theText": "Détruire"
+        }
+      ]
+    },
+    {
+      "entityName": "Narrow Path",
+      "GUID": "d4b69a45-37c8-4848-a698-77d99b609ea6",
+      "mainText": "Un Sentier étroit et sinueux longe le canyon. L'ascension est longue et pénible.\r\n\r\n{-} La première fois qu'une figurine Rebelle entre dans le Sentier étroit, cliquez sur \"Gravir\".",
+      "buttonList": [
+        {
+          "GUID": "2ad8ba7e-7ab8-4cf8-bb79-d7e3c8026cad",
+          "theText": "Gravir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "c133c9c6-cdb6-4425-8a1c-96a57a8fb816",
+      "mainText": "Un terminal isolé contenant les données opérationnelles.\r\n\r\n{-} Un héros peut interagir avec un terminal ({I}) pour obtenir les plans.",
+      "buttonList": [
+        {
+          "GUID": "0c1161c8-8048-459b-852f-731b530b1628",
+          "theText": "{A} Pirater"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 1",
+      "GUID": "8797db84-fad6-4efd-83bf-ecc769129664",
+      "mainText": "L'Empire a érigé à cet endroit une clôture dotée d'une serrure complexe.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec la clôture pour essayer de crocheter la serrure.",
+      "buttonList": [
+        {
+          "GUID": "7c16c517-1937-4b8b-bf77-19dad67e2270",
+          "theText": "{A} Crocheter la serrure"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Barricade 2",
+      "GUID": "0aae7804-0de7-4bad-a479-996cd1618ec5",
+      "mainText": "L'Empire a érigé à cet endroit une clôture dotée d'une serrure complexe.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec la clôture pour essayer de crocheter la serrure.",
+      "buttonList": [
+        {
+          "GUID": "57e1da51-c71e-426c-b63a-6a5c4c4c3bab",
+          "theText": "{A} Crocheter la serrure"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "17e3c444-37c0-455d-a752-80613721db11",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "f2501918-e1f9-4f32-89aa-0036b110941f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Green Barricade",
+      "GUID": "680b548b-d73f-45df-b8ed-3420a6a6bf21",
+      "mainText": "Les Pillards Tuskens ont déclenché un éboulement. D'énormes rochers bloquent le passage.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec les rochers pour essayer de les retirer.",
+      "buttonList": [
+        {
+          "GUID": "123edccc-7bea-426b-b184-11b79b69e6d8",
+          "theText": "{A} Retirer"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 1",
+      "GUID": "07575fd7-76b8-4c39-9efc-ecb61c267043",
+      "mainText": "L'Empire a truffé le Sentier étroit de mines et autres pièges.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec les pièges pour tenter de les désamorcer.",
+      "buttonList": [
+        {
+          "GUID": "785599b8-04f2-473a-90bb-fe690c02ae5e",
+          "theText": "{A} Désamorcer"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Barricade 2",
+      "GUID": "3d438bf3-6e55-4faa-b215-fc89351398e1",
+      "mainText": "L'Empire a truffé le Sentier étroit de mines et autres pièges.\r\n\r\n{-} Les pions Mission Impériaux forment un terrain infranchissable. Les Pillards Tuskens les traitent cependant comme un terrain normal.\r\n{-} Un héros peut interagir avec les pièges pour tenter de les désamorcer.",
+      "buttonList": [
+        {
+          "GUID": "b6c0c6a5-db87-4954-ac7a-e1e80743fa5e",
+          "theText": "{A} Désamorcer"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Heavy Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Tusken Raider",
+      "customInstructions": "{Q}{A} Effectue une attaque à distance ciblant {rebel}, utilisant 2 dés bleus et nécessitant une Précision de 8. Pendant cette attaque, vous disposez d'une ligne de vue vers toute figurine occupant une case d'extérieur. Cette attaque gagne : {B}: +2 Précision. Vous ne pouvez pas utiliser d'autres capacités pendant cette attaque."
+    },
+    {
+      "cardName": "Tusken Raider (Elite)",
+      "customInstructions": "{Q}{A} Effectue une attaque à distance ciblant {rebel}, utilisant 2 dés bleus et nécessitant une Précision de 8. Pendant cette attaque, vous disposez d'une ligne de vue vers toute figurine occupant une case d'extérieur. Cette attaque gagne : {B}: +2 Précision. Vous ne pouvez pas utiliser d'autres capacités pendant cette attaque."
+    }
+  ]
+}
