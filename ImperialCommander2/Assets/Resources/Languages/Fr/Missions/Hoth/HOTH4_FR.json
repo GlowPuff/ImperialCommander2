@@ -1,0 +1,738 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Notre dernier espoir",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Retour sur Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Bloquer l'accès aux terminaux.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nDraw a supply card. You gain 1 medpac.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "bb5dcfff-c080-4603-870a-9cb99684bdc0",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "63baeeda-2952-4c6a-b4cc-2bb5a29e381f",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nDraw a supply card. You gain 1 medpac.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "1504a663-ae3b-4d05-9b28-0990a6423ecc",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Quand vous apprenez la trahison de Benex à votre pilote, ce dernier se retourne dans son fauteuil et s'empare des commandes. \"L'un d'entre vous ferait mieux de se rendre dans la soute et d'y récupérer tout le matériel possible. Les autres, sortez et poussez.\" Vous n'avez pas le temps de répondre que le vaisseau pointe le nez vers le ciel et accélère plus violemment que vous n'auriez jamais pu l'imaginer. À peine sortis de l'atmosphère d'Ison, l'hyperdrive s'active en hurlant et vous passez en vitesse-lumière.",
+      "eventActions": [
+        {
+          "tbText": "Vous rendant dans la soute, vous rassemblez munitions, matériel médical et combinaisons environnementales — tout ce qui pourrait être utile dans le combat qui vous attend. Certes, vous avez de quoi faire, mais vous ne pourrez plus vous équiper ensuite.\r\n\r\n{-} Les Rebelles s'approprient 12 pions Mission neutres.\r\n{-} Défausser 1 pion Mission neutre pour chaque Fléau dans la zone de jeu de l'Empire.",
+          "GUID": "6196d06e-8f21-4214-a53d-6d7740433c49",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Vous allez devoir faire preuve de prudence dans l'utilisation de vos ressources.\r\n\r\n{-} Chaque fois qu'un héros se repose, les héros défaussent 1 pion Mission neutre. Si les héros n'ont plus de pions Mission neutres, ils ne peuvent pas se reposer.\r\n{-} Au début de son activation, un héros peut défausser 1 pion Mission neutre pour éliminer 2 {C} ou défausser 1 État.\r\n{-} Durant l'activation d'un héros blessé, s'il n'a pas subi de {H}, les héros peuvent défausser 2 pions Mission neutres (3 s'il a 2 pions Activation) pour retourner la fiche de ce héros du côté indemne. Ensuite, ce héros subit un nombre de {H} égal à sa Santé moins 5.\r\n{-} Quand un héros est blessé, ne le marquez pas comme tel dans l'application tant que les héros ont encore assez de pions Mission neutres pour retourner sa fiche. Quand un héros blessé, mais non marqué comme tel dans l'application, devient la cible d'une attaque, l'attaque vise le Rebelle indemne le plus proche à la place.",
+          "GUID": "a8db80d8-d852-4be9-8437-6c08ee777318",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Une fois à destination, la voix de votre pilote retentit dans les haut-parleurs du vaisseau. \"Mettez vos ceintures. Le vaisseau de Sorin est déjà dans l'atmosphère et je suis sur le point de faire un truc complètement stupide.\" À peine avez-vous fixé vos harnais de sécurité que le vaisseau accélère brutalement avant de s'arrêter aussi sec. Vous vous précipitez vers le sas et réalisez que votre appareil est fixé à la coque du Destroyer Stellaire de Sorin. Vous vous précipitez sans hésitation, vous frayant un chemin au cœur du vaisseau afin de détruire ses systèmes de contrôle.",
+          "GUID": "8f6b24ed-4fb0-4d10-963b-f951478bfc54",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Vous vous retrouvez rapidement sur la passerelle du Destroyer Stellaire de Sorin. Le général se tient à côté d'un des systèmes de contrôle du vaisseau. Si vous parvenez à détruire les systèmes de contrôle, vous devriez pouvoir abattre le vaisseau.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.",
+          "GUID": "11b4bce2-c658-4641-8d8b-a17c782f9eac",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7b75a789-1946-43d5-92d8-be5f8dc88654",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG078/General Sorin"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control System 1",
+              "GUID": "70cced5e-cde5-4d59-9621-7b79950ae914",
+              "theText": "Le système de contrôle de vol du Destroyer Stellaire affiche les données de position du vaisseau capital.\r\n\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "4b749235-4609-40d1-8ae3-999bcba61471",
+                  "theText": "Détruire"
+                }
+              ]
+            },
+            {
+              "entityName": "Control System 2",
+              "GUID": "ab5779b1-5969-4df1-b0cf-bcca124ce2aa",
+              "theText": "Le système de contrôle de poussée du Destroyer Stellaire affiche les données d'accélération du vaisseau capital.\r\n\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "f7336219-1440-416b-aba8-fbaf5c5e657f",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "c91a2cb9-be46-4199-8833-821f6ed32bfa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).\r\n{-} La mission évolue quand tous les terminaux sont détruits et que le <color=\"red\">Général Sorin</color> est vaincu.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "1ce63096-4672-42b5-9b55-a4bf16039761",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Le général se tourne vers vous, le visage tordu par la rage. \"Saisissez-les !\", grogne-t-il, et d'autres troupes se précipitent pour vous arrêter.",
+          "GUID": "9bc6a96f-9ef7-4268-8bff-03d2dfb998df",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "89733fda-be9d-4001-9bc0-aec0234c81fe",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG011/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b9d3dd86-f339-4870-88ac-2c017a52764b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "3b0a6b88-a472-42ad-a3b5-d874152f42b0",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "shortText": "Détruire les systèmes de contrôle du Destroyer Stellaire (&Stations Destroyed&/2).",
+          "longText": null,
+          "GUID": "64a86b2f-8004-47ec-aa76-35f90f8ecf09",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Les Rebelles s'approprient 12 pions Mission neutres.\r\n{-} Chaque fois qu'un héros se repose, les héros défaussent 1 pion Mission neutre. Si les héros n'ont plus de pions Mission neutres, ils ne peuvent pas se reposer.\r\n{-} Au début de son activation, un héros peut défausser 1 pion Mission neutre pour éliminer 2 {C} ou défausser 1 État.\r\n{-} Durant l'activation d'un héros blessé, s'il n'a pas subi de {H}, les héros peuvent défausser 2 pions Mission neutres (3 s'il a 2 pions Activation) pour retourner la fiche de ce héros du côté indemne. Ensuite, ce héros subit un nombre de {H} égal à sa Santé moins 5.\r\n{-} Quand un héros est blessé, ne le marquez pas comme tel dans l'application tant que les héros ont encore assez de pions Mission neutres pour retourner sa fiche. Quand un héros blessé, mais non marqué comme tel dans l'application, devient la cible d'une attaque, l'attaque vise le Rebelle indemne le plus proche à la place.\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).\r\n{-} La mission évolue quand tous les terminaux sont détruits et que le <color=\"red\">Général Sorin</color> est vaincu.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "291cb32c-69d5-4e7f-88d7-648b6581b424",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Sorin gît au sol et son prototype n'est plus qu'une carcasse fumante ! Les Impériaux restants battent en retraite tandis que des renforts Rebelles sortent de la base.\r\n\r\nVous vous tournez alors vers Sorin, qui rampe dans l'espoir de trouver un blaster. \"Je ne crois pas que vous deviendrez Moff\", dites-vous en le ligotant. Lâche jusqu'au bout, il se rend sans résister.\r\n\r\nVous retrouvez votre pilote, qui répare sa navette, et vous apprêtez à livrer Sorin au Haut Commandement. L'Empire tient toujours debout, mais pour le moment la Rébellion est sauve.\r\n\r\n{-} Les Rebelles remportent la campagne !",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Sorin et son char avancent lentement vers vous tandis que les troupes Impériales investissent déjà la base. Alors que vous êtes attachés, vous voyez les snowtroopers ressortir avec leurs prisonniers Rebelles, chargés de matériel volé et d'informations classifiées.\r\n\r\nVous êtes conduits jusqu'à un camp de travail, où vous serez exécutés. Vous y retrouvez plusieurs des évacués de Hoth originaires de Sanctuaire, ceux-là mêmes que vous avez tenté de sauver. Tout cela pour rien.\r\n\r\nVous espérez que l'Alliance se remettra de ce coup sévère et retrouvera les forces nécessaires pour combattre le redoutable Empire, mais l'espoir est plus faible que jamais.\r\n\r\n{-} Les Rebelles perdent la campagne.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Control Station 1 Destroyed",
+      "GUID": "284f9447-1a47-41f3-a82a-ce420691bef4",
+      "eventText": "Le système de contrôle de vol explose dans une pluie d'étincelles. Immédiatement, la trajectoire du Destroyer Stellaire change et les sirènes d'alerte se mettent à hurler.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control System 1",
+              "GUID": "f0516b49-19ed-4de2-88e1-794cd8660d0c",
+              "theText": "Le système de contrôle de vol du Destroyer Stellaire affiche les données de position du vaisseau capital.\r\n\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "3afa1f98-5f7c-4e3e-a84c-88d601b73625",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "61cd20d7-8190-47a8-9f62-1d220c1ca2fb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Control Station 2 Destroyed",
+      "GUID": "e3434aac-7a1c-4bf1-87ba-bdf935a8242a",
+      "eventText": "Le système de contrôle de poussée s'effondre dans un bruit sourd et un flash lumineux. Les moteurs du Destroyer Stellaire alternent entre crachotement et rugissement. La passerelle est baignée dans la lumière rouge de l'éclairage des systèmes d'urgence.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control System 2",
+              "GUID": "f79ecaf2-e0b4-4f6d-ac49-67f72104edca",
+              "theText": "Le système de contrôle de poussée du Destroyer Stellaire affiche les données d'accélération du vaisseau capital.\r\n\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "fdb89678-834d-4564-9c3f-49f51c0e7df3",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "dc2e3026-9233-4052-8670-c1630dec14d2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Sorin Defeated",
+      "GUID": "47fc5916-63a9-4990-ad65-b9356d84b664",
+      "eventText": "L'une de vos attaques le touche finalement, et Sorin recule en chancelant, l'air surpris : \"Idiots\", bredouille-t-il. \"Croyez-vous réellement pouvoir m'arrêter ? Mes chars de classe Sorin remporteront cette guerre pour l'Empire, et je vais vous le prouver en vous détruisant, vous et votre pathétique base Rebelle !\"\r\n\r\nUn autre tir de blaster lui siffle aux oreilles, et il s'enfuit en courant. \"Soldats ! Tuez-les pendant que je supervise l'invasion !\"\r\nLa porte anti-explosion se referme derrière lui. Vous devrez vous occuper de lui et de ses \"chars de classe Sorin\" plus tard.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Crash Landing",
+      "GUID": "7ff2b909-29d0-430b-afb0-ff42270edf98",
+      "eventText": "Les pupitres de contrôle se mettent à cracher des étincelles, les alarmes clignotent et hurlent comme le vaisseau part en piqué. Pour la seconde fois de la journée, vous êtes à bord d'un appareil sur le point de se crasher.\r\n\r\nVous tentez de vous accrocher à ce qui vous tombe sous la main tandis que les Impériaux vous imitent. Les alarmes semblent mugir de plus en plus fort, le vaisseau tremble, et vous finissez par heurter la surface de la planète dans un vacarme épouvantable. Vous valdinguez en tous sens alors que le vaisseau rebondit, tourne sur lui-même et creuse un profond sillon dans la neige et la glace.\r\n\r\nLorsque l'appareil s'immobilise enfin, la lumière du jour filtre par une plaie béante dans la coque. Au loin, vous distinguez la base Rebelle, dont les boucliers sont déjà tombés... Sorin a dû transmettre les codes d'accès que Benex lui a donnés avant le crash.",
+      "eventActions": [
+        {
+          "tbText": "{-} Les murs qui séparent les tuiles Neige des autres types de tuiles ne bloquent pas les déplacements, la ligne de vue, l'adjacence, et n'empêchent pas de compter les cases.",
+          "GUID": "6a4ce041-eee3-4549-a5e0-61dae327700b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Les troupes Impériales se sont déjà lancées à l'attaque.",
+          "GUID": "f9308b8c-4546-416b-9e12-e6e3fe4f5d9f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4c2113dc-d23a-4d8e-afac-9b931b6f8438",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG024/Snowtrooper (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "64ea3826-e6d8-4b96-9b48-7f42f927ff52",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG013/Probe Droid (Elite)"
+        },
+        {
+          "tbText": "Comme vous vous relevez, vous apercevez les commandes des boucliers non loin du vaisseau. Si vous parvenez à les atteindre et à réactiver les boucliers, la base pourrait être sauvée.\r\n\r\n{-} Les héros s'approprient 1 pion Mission neutre.\r\n{-} La mission évolue quand une figurine Rebelle entre dans le Centre de Commandement (case rouge en surbrillance). Lorsque cela arrive, cliquez sur une case rouge en surbrillance et sélectionnez \"Entrer dans le Centre de Commandement\".",
+          "GUID": "a7570a85-50e0-4d36-bf85-4dc25db05149",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 2",
+              "GUID": "047a3722-ac1e-49ca-8d89-5c3a593fc7ca",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "bd3ae21f-c53f-4ad7-90b6-8d9dfe966f3d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquer l'accès au Centre de Commandement.",
+          "GUID": "ca5e82c8-5fe8-41f8-b285-0f89ab936f68",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Entrer dans le Centre de Commandement.",
+          "longText": null,
+          "GUID": "a8c196e8-d780-4af3-bad8-ec1b97a7b52c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Les murs qui séparent les tuiles Neige des autres types de tuiles ne bloquent pas les déplacements, la ligne de vue, l'adjacence, et n'empêchent pas de compter les cases.\r\n{-} Chaque fois qu'un héros se repose, les héros défaussent 1 pion Mission neutre. Si les héros n'ont plus de pions Mission neutres, ils ne peuvent pas se reposer.\r\n{-} Au début de son activation, un héros peut défausser 1 pion Mission neutre pour éliminer 2 {C} ou défausser 1 État.\r\n{-} Durant l'activation d'un héros blessé, s'il n'a pas subi de {H}, les héros peuvent défausser 2 pions Mission neutres (3 s'il a 2 pions Activation) pour retourner la fiche de ce héros du côté indemne. Ensuite, ce héros subit un nombre de {H} égal à sa Santé moins 5.\r\n{-} Quand un héros est blessé, ne le marquez pas comme tel dans l'application tant que les héros ont encore assez de pions Mission neutres pour retourner sa fiche. Quand un héros blessé, mais non marqué comme tel dans l'application, devient la cible d'une attaque, l'attaque vise le Rebelle indemne le plus proche à la place.\r\n{-} La mission évolue quand une figurine Rebelle entre dans le Centre de Commandement (case rouge en surbrillance). Lorsque cela arrive, cliquez sur une case rouge en surbrillance et sélectionnez \"Entrer dans le Centre de Commandement\".\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "11f23b79-f4e5-4792-bfd5-35bfa25396a9",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "A Trap is Sprung",
+      "GUID": "7678eaea-7c9f-4b44-b702-c697cc9a312b",
+      "eventText": "Tel qu'il en avait l'air depuis l'extérieur, le centre de commandement a été abandonné à la hâte. Il y a encore des traces du personnel Rebelle qui est venu ici récemment. Près d'un mur, vous voyez les commandes des boucliers, inactifs, mais opérationnels.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Center",
+              "GUID": "dcb36244-2de3-4ab3-81dd-98c5fdce7e99",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Shield Terminal",
+              "GUID": "e4e4a6e3-f4d4-4e26-a7b1-7fd213832133",
+              "theText": "Le système de contrôle des boucliers de la base est éteint. Une fois activé, des boucliers énergétiques protégeront la base Rebelle du pire.\r\n\r\n{-} Un héros peut interagir avec le terminal rouge pour activer les boucliers.",
+              "buttonList": [
+                {
+                  "GUID": "351e27c3-9bff-4474-8b04-dc8b5c7551f9",
+                  "theText": "{A} Activer les boucliers"
+                }
+              ]
+            }
+          ],
+          "GUID": "f8c74d20-722b-436e-8849-876243146bf5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Un héros peut interagir avec le terminal rouge pour activer les boucliers.\r\n{-} La mission évolue quand les boucliers sont activés.",
+          "GUID": "c48a633b-0773-449e-923e-d7d2ff374564",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Activer les boucliers.",
+          "longText": null,
+          "GUID": "99086aa1-2fcd-414f-939e-a5739d66504e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Les murs qui séparent les tuiles Neige des autres types de tuiles ne bloquent pas les déplacements, la ligne de vue, l'adjacence, et n'empêchent pas de compter les cases.\r\n{-} Chaque fois qu'un héros se repose, les héros défaussent 1 pion Mission neutre. Si les héros n'ont plus de pions Mission neutres, ils ne peuvent pas se reposer.\r\n{-} Au début de son activation, un héros peut défausser 1 pion Mission neutre pour éliminer 2 {C} ou défausser 1 État.\r\n{-} Durant l'activation d'un héros blessé, s'il n'a pas subi de {H}, les héros peuvent défausser 2 pions Mission neutres (3 s'il a 2 pions Activation) pour retourner la fiche de ce héros du côté indemne. Ensuite, ce héros subit un nombre de {H} égal à sa Santé moins 5.\r\n{-} Quand un héros est blessé, ne le marquez pas comme tel dans l'application tant que les héros ont encore assez de pions Mission neutres pour retourner sa fiche. Quand un héros blessé, mais non marqué comme tel dans l'application, devient la cible d'une attaque, l'attaque vise le Rebelle indemne le plus proche à la place.\r\n{-} Un héros peut interagir avec le terminal rouge pour activer les boucliers.\r\n{-} La mission évolue quand les boucliers sont activés.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "69401d8e-858b-4bd2-9d5e-160cd6f923fa",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "tbText": "En vous approchant du système de contrôle des boucliers, vous remarquez des traces de blaster sur le mur. Apparemment, il y a eu des combats ici, et ce, il n'y a pas longtemps. Vous levez vos armes et, confirmant votre pressentiment, une silhouette se déplace dans la pénombre des couloirs de service. Vous reconnaissez alors l'armure de métal et le visage balafré, il a une expression sinistre. Dengar est venu pour en finir une fois pour toutes.",
+          "GUID": "aad9b82a-af6c-4f7c-8e21-aea8b4097229",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "\"Dengar !\" vous écriez-vous. \"Quoi que Sorin vous paye, cela n'en vaut pas la peine. Nous avons tout subi de la part de l'Empire, et nous sommes encore là. Ne soyez pas idiot, rangez-vous du côté des vainqueurs !\"\r\n\r\nDengar marque une pause, réfléchissant aux options qui s'offrent à lui.",
+          "GUID": "b02844aa-f999-41b5-a1ea-aed6fdafc442",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquer l'accès au terminal.",
+          "GUID": "a2aa5cb2-3f6b-4d8b-8cae-2ce86074f74f",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "mainText": "Combien de cartes Récompense Bienfait sont dans la zone de jeu des joueurs ?",
+          "buttonList": [
+            {
+              "GUID": "c30c8bca-8f73-4b03-a4f1-2f77aa54be6b",
+              "theText": "0"
+            },
+            {
+              "GUID": "14582c2b-7021-478e-8e3d-54dbae8d98ba",
+              "theText": "1"
+            },
+            {
+              "GUID": "2f6ccd63-0db8-481e-9791-40668239a967",
+              "theText": "2"
+            }
+          ],
+          "GUID": "eb0d411e-ea0b-469c-ac2c-f7d28bb931ac",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "A Trap is Sprung - 0",
+      "GUID": "4f8febbd-6829-4d23-af2e-c4cfe657b134",
+      "eventText": "Dengar vous lance un regard noir et tend son blaster vers vous.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "6e0bba92-58a2-49b8-a782-bdb1be232f41",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG077/Dengar"
+        }
+      ]
+    },
+    {
+      "eventName": "A Trap is Sprung - 1",
+      "GUID": "07a6b7f3-044b-4491-8d0b-3dcbbc6efac9",
+      "eventText": "Dengar semble réfléchir, avant de vous tourner le dos et de s'en aller. Vous n'avez plus qu'à affronter Sorin et ses troupes.",
+      "eventActions": []
+    },
+    {
+      "eventName": "A Trap is Sprung - 2",
+      "GUID": "e6796060-0d5c-4b78-a75c-7feeb0521f6a",
+      "eventText": "Dengar réalise parfaitement votre détermination et hoche la tête. Il se met alors à tirer pour vous couvrir.\r\n\r\n{-} Les héros contrôlent <color=\"red\">Dengar</color> en tant qu'allié.",
+      "eventActions": [
+        {
+          "GUID": "a8929b96-4536-4761-b699-7487d0a71fbf",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Dengar (Ruthless Killer)",
+          "repositionInstructions": "",
+          "surges": "{B}: +2 {H}",
+          "bonuses": "",
+          "keywords": "+2 Précision",
+          "abilities": "Mépris : Lors d'une attaque, si la cible n'a pas d'état NÉFASTE, Dengar applique +1 {B} aux résultats de l'attaque.\r\n{B} Châtiment : Après cette attaque, si la cible a subit un {H} ou plus, choisissez un état NÉFASTE. La cible gagne cet état. Cette capacité peut être déclenchée plusieurs fois au cours de la même attaque.",
+          "customText": "",
+          "cardName": "Dengar (Tueur Implacable)"
+        }
+      ]
+    },
+    {
+      "eventName": "The Final Confrontation",
+      "GUID": "4ab49e0b-b119-44c0-8a81-aaa4342014c8",
+      "eventText": "Une dernière vague d'Impériaux avance vers la base, et vous apercevez Sorin sur un char lourdement armé. \"Merci de vous être mêlé de ce qui ne vous regarde pas. Je n'ai plus qu'un seul prototype de classe Sorin !\" hurle le général. \"Mais peu importe ! Je vais m'en servir pour vous anéantir, puis j'anéantirai les Rebelles, et je serai promu Moff !\"",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+2 Santé, +1 {B}",
+          "repositionInstructions": "",
+          "GUID": "b065f2a3-c269-49af-b908-847ebac8bfa8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG078/General Sorin"
+        },
+        {
+          "enemyName": "Char de classe Sorin (<color=\"red\">Char Répulseur SC2-M</color>)",
+          "customText": "{-} Chaque attaque de cette figurine gagne +1 {B}. Si adjacent au <color=\"red\">Général Sorin</color>, l'attaque gagne également {B}: Sonné.",
+          "modification": "+8 Santé, +1 {G}",
+          "repositionInstructions": "",
+          "GUID": "b5c1e3a0-87ce-4999-abfb-4b8bdc449113",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG025/SC2-M Repulsor Tank"
+        },
+        {
+          "tbText": "Bien que les boucliers aient été activés, Sorin et son étrange char font peser une menace sur la base et les survivants de Hoth. Vous allez devoir l'éliminer une bonne fois pour toutes.\r\n\r\n{-} Les Rebelles gagnent quand le <color=\"red\">Général Sorin</color> et le Char de classe Sorin sont vaincus.",
+          "GUID": "52b52392-13c0-4a16-8e53-86bc82b1a300",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": null,
+          "GUID": "46799aff-5d54-452e-bb14-1fb763d2aa23",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Vaincre le <color=\"red\">Général Sorin</color> et le Char de classe Sorin.",
+          "longText": null,
+          "GUID": "43c27f8d-99e5-4bc7-99a4-ae90f13f3571",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Les murs qui séparent les tuiles Neige des autres types de tuiles ne bloquent pas les déplacements, la ligne de vue, l'adjacence, et n'empêchent pas de compter les cases.\r\n{-} Chaque fois qu'un héros se repose, les héros défaussent 1 pion Mission neutre. Si les héros n'ont plus de pions Mission neutres, ils ne peuvent pas se reposer.\r\n{-} Au début de son activation, un héros peut défausser 1 pion Mission neutre pour éliminer 2 {C} ou défausser 1 État.\r\n{-} Durant l'activation d'un héros blessé, s'il n'a pas subi de {H}, les héros peuvent défausser 2 pions Mission neutres (3 s'il a 2 pions Activation) pour retourner la fiche de ce héros du côté indemne. Ensuite, ce héros subit un nombre de {H} égal à sa Santé moins 5.\r\n{-} Quand un héros est blessé, ne le marquez pas comme tel dans l'application tant que les héros ont encore assez de pions Mission neutres pour retourner sa fiche. Quand un héros blessé, mais non marqué comme tel dans l'application, devient la cible d'une attaque, l'attaque vise le Rebelle indemne le plus proche à la place.\r\n{-} Les Rebelles gagnent quand le <color=\"red\">Général Sorin</color> et le Char de classe Sorin sont vaincus.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "51cfe800-f4f8-4539-9ed9-6ba011c73a4d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green Base 4",
+              "GUID": "95b637a1-e30d-4a63-85bd-a9657a86f1fe",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "af66f982-cda2-4089-85f7-1cd022a321d9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Sorin defeated 2",
+      "GUID": "66400084-8a6f-446e-847d-ef633f3928b1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Vaincre le Char de classe Sorin.",
+          "longText": null,
+          "GUID": "99f8b9eb-ce65-4371-9a97-dbf1c718283b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Tank defeated",
+      "GUID": "acc10977-bd47-471d-be26-ce18ae17e730",
+      "eventText": "",
+      "eventActions": [
+        {
+          "shortText": "Vaincre le <color=\"red\">Général Sorin</color>.",
+          "longText": null,
+          "GUID": "9bd87b2b-562e-4bec-bfe4-f480e5e3469e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "569b2aff-55aa-4494-b051-bf9de346fd82",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "4f15f090-a0c7-49b8-b366-bba7d669ac4a",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Sorin",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "494b1c57-306d-4f3d-bfcb-c2419ceacac6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "e504c575-b6ab-45fe-a33a-e1d0800b99c6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "908745d1-ad68-4b66-a85c-b8ff8d0c70b9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "ce936a0b-67aa-4c53-a817-a215bbda5949",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "b21dcd93-f3fc-440d-882b-a24504a82bd6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "e8b1a8e1-a8ab-4801-9409-914ad04a7afa",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Control System 1",
+      "GUID": "f15d54d3-008a-41aa-bc09-3c191d959f56",
+      "mainText": "Le système de contrôle de vol du Destroyer Stellaire affiche les données de position du vaisseau capital.\r\n\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).",
+      "buttonList": [
+        {
+          "GUID": "b3219e87-507b-4682-8e58-488041cc3a62",
+          "theText": "Détruire"
+        }
+      ]
+    },
+    {
+      "entityName": "Control System 2",
+      "GUID": "9b7e7a58-c51f-4f11-b9ce-2f8cfa6102e0",
+      "mainText": "Le système de contrôle de poussée du Destroyer Stellaire affiche les données d'accélération du vaisseau capital.\r\n\r\n{-} Une figurine Rebelle peut attaquer un terminal (Santé : 6, Défense : 2 {G}).",
+      "buttonList": [
+        {
+          "GUID": "a490a842-2025-45bf-9ad6-2732705bfe29",
+          "theText": "Détruire"
+        }
+      ]
+    },
+    {
+      "entityName": "DP ESTrooper 1",
+      "GUID": "7725075e-faf7-406f-b6e0-0ec9223e2207",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ESTrooper 2",
+      "GUID": "6ad8403f-3e0c-4721-b698-c0e6c0dd2a92",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ESTrooper 3",
+      "GUID": "99d2b4c4-5254-49d9-b478-c4fd2ea13b1e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe Droid",
+      "GUID": "e854773c-397d-44ed-9a34-8f8b5f44a086",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green Base 1",
+      "GUID": "72ca9fff-8d7e-4ab1-8823-3dce66f69cc4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green Base 2",
+      "GUID": "db7db6d3-6570-4217-8d79-14df6bb465c2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green Base 3",
+      "GUID": "1f62a62f-511e-4289-b414-f5e5aeca49a9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green Base 4",
+      "GUID": "5980b10f-357d-4f4f-aeab-16f689f71de5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Command Center",
+      "GUID": "b1bbfbd6-0866-4218-9379-a11a3f660f36",
+      "mainText": "Le centre de commandement de la base Rebelle semble abandonné. Apparemment, le personnel a évacué les lieux lorsqu'il a vu le Destroyer Stellaire descendre dans l'atmosphère.\r\n\r\n{-} Quand une figurine Rebelle entre dans le Centre de Commandement pour la première fois, cliquez sur \"Entrer dans le Centre de Commandement\".",
+      "buttonList": [
+        {
+          "GUID": "f534f6e3-b0a1-4658-ab19-2c571a67d498",
+          "theText": "Entrer dans le Centre de Commandement"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "28968543-57f8-44fc-8511-7a1fac6e7f13",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Shield Terminal",
+      "GUID": "ba8809fd-ddca-4a27-9546-5bdf8c3ee97e",
+      "mainText": "Le système de contrôle des boucliers de la base est éteint. Une fois activé, des boucliers énergétiques protégeront la base Rebelle du pire.\r\n\r\n{-} Un héros peut interagir avec le terminal rouge pour activer les boucliers.",
+      "buttonList": [
+        {
+          "GUID": "ab56e70c-e47c-407d-9170-7ab233e56f8f",
+          "theText": "{A} Activer les boucliers"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "e0d55fc0-2bce-4d74-a5a2-f0429c5fe941",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": []
+}

@@ -1,0 +1,642 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Fuite de la Cité des Nuages",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Retour sur Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Bloquer l'accès à la porte.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "b3ca91f8-9254-4cd1-8bc9-9cdaef8b81c0",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "af7fbfb3-024e-4231-93f7-bd2e75800864",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "0037a488-aa35-4eeb-9e40-ca21e92bea43",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Vous jouant des forces Impériales, vous vous approchez des prisonniers. Une navette volée et des codes d'accès importants vous permettront de filer quand vous serez prêts, mais votre pilote est de plus en plus nerveux.\r\n\r\n\"… vous feriez bien de vous magner\", dit-il dans le comlink. \"Des chasseurs Impériaux arrivent. J'aimerais pas devoir vous laisser ici.\"\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il n'a droit qu'à 1 action, qu'il peut utiliser uniquement pour effectuer un déplacement.\r\n{-} La porte du Hall est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.\r\n{-} La mission évolue quand la porte du Hall s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+      "eventActions": [
+        {
+          "shortText": "Ouvrir la porte du Hall.",
+          "longText": null,
+          "GUID": "b8be6af8-8ecd-44c8-b6e4-faca8debb072",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il n'a droit qu'à 1 action, qu'il peut utiliser uniquement pour effectuer un déplacement.\r\n{-} La porte du Hall est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.\r\n{-} La mission évolue quand la porte du Hall s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "0646a7a3-f06e-44f7-aaff-acb28ecc6a81",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Votre pilote esquive les tirs de lasers des troupes au sol et des chasseurs TIE avant de quitter l'atmosphère en trombe. Quelques instants plus tard, vous passez en hyperespace.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent la carte Récompense \"Réseaux rétablis\".\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.\r\n{-} L'Empire défausse la carte Récompense \"Approvisionnement perturbé\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "\"Ne nous abandonnez pas !\" crient les prisonniers que vous avez dû laisser derrière vous. Vous parvenez tout juste à vous enfuir.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.\r\n{-} L'Empire défausse la carte Récompense \"Approvisionnement perturbé\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Hired Guards",
+      "GUID": "c1227c78-3fd4-4463-814a-6963c57238ee",
+      "eventText": "La porte s'ouvre sur un grand hall et une station médicale avec une grande cuve à bacta.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "af96f392-dfe5-44d2-a839-501918077aeb",
+              "theText": "Cette porte donne sur le hall du complexe. Les prisonniers doivent être gardés quelque part derrière.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.",
+              "buttonList": [
+                {
+                  "GUID": "ffd4921f-66c5-4c08-850f-5d9df20df191",
+                  "theText": "Détruire"
+                },
+                {
+                  "GUID": "d2675649-9fda-438a-9f0b-22464ddfe2e0",
+                  "theText": "{A} Essayer d'ouvrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "3853b9b7-df54-42a7-a328-37aa91241cb8",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "3eb2826a-5967-4779-87ec-b1f50c2fb50d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Lorsque vous entrez dans le hall, des droïdes de combat blindés préparent leurs armes.",
+          "GUID": "84a0357b-4a8b-4869-8218-f2e04c1847cf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2655b035-a9a0-47fb-99e4-f7b869c7e775",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG026/HK Assassin Droid"
+        },
+        {
+          "tbText": "Derrière la porte menant à la cellule de détention, vous entendez des voix étouffées.\r\n\r\n{-} La porte de la Cellule est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.",
+          "GUID": "f38a53a1-acaf-414c-8ace-a8e30c7f9403",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Votre navette d'évacuation attend à proximité, les moteurs déjà en marche.",
+          "GUID": "74e1a3d3-2062-4a4d-bf60-cc67b68c2ca8",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "{-} La porte de la Navette est verrouillée. Une figurine Impériale peut l'attaquer (Santé : *2*, Défense : 2 {G}).\r\n{-} La porte de la Navette adjacente à une figurine Rebelle ne bloque ni son déplacement, ni sa ligne de vue, ni l'adjacence, et n'empêche pas de compter les cases.\r\n{-} Les figurines Rebelles situées dans la Navette gagnent {A} : choisissez une figurine hostile adjacente et effectuez un test de {K}. En cas de réussite, poussez cette figurine jusqu'à 2 cases.",
+          "GUID": "ef8a486f-665b-4f2f-925a-523957b8b61d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Ouvrir la porte de la Cellule.",
+          "longText": null,
+          "GUID": "e09c3c64-d293-483d-9c56-d94aed7e6e68",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il n'a droit qu'à 1 action, qu'il peut utiliser uniquement pour effectuer un déplacement.\r\n{-} La porte de la Cellule est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.\r\n{-} La porte de la Navette est verrouillée. Une figurine Impériale peut l'attaquer (Santé : *2*, Défense : 2 {G}).\r\n{-} La porte de la Navette adjacente à une figurine Rebelle ne bloque ni son déplacement, ni sa ligne de vue, ni l'adjacence, et n'empêche pas de compter les cases.\r\n{-} Les figurines Rebelles situées dans la Navette gagnent {A} : choisissez une figurine hostile adjacente et effectuez un test de {K}. En cas de réussite, poussez cette figurine jusqu'à 2 cases.\r\n{-} La mission évolue quand la porte de la Cellule s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "e813cd1e-02bd-476e-9d22-f437b3635f28",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 1 Attempt",
+      "GUID": "34eada3d-6036-4097-8f2c-bfa8cddd728f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à forcer la porte.\r\n\r\n{-} Effectuez un test {K} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur la porte, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "91c8f085-f9fc-4d02-8e90-f94c99f177c7",
+              "theText": "Vous faites quelques progrès, mais la porte reste fermée.\r\n\r\n{-} Placez un pion Stress sur la porte pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "e7126a69-e34b-433f-9129-294b0e30435b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Get to the Ship",
+      "GUID": "7828452a-884c-4308-bce1-6027574cacc1",
+      "eventText": "Vous enfoncez la porte de la cellule et découvrez les prisonniers terrifiés. Les sévices qui leur ont été infligés les ont grandement diminués, il va falloir les porter.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "40fa5d19-178e-485d-b13c-8a006c6f055b",
+              "theText": "Cette porte mène à une minuscule cellule de détention. Vous pouvez entendre des voix étouffées derrière elle.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.",
+              "buttonList": [
+                {
+                  "GUID": "a5d0142b-b325-49e5-aad6-9b0fbbca2869",
+                  "theText": "Détruire"
+                },
+                {
+                  "GUID": "a58cc32f-58f7-4c48-b007-d96779693657",
+                  "theText": "{A} Essayer d'ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "ec9074d2-c4c1-4fc7-befd-ba88bbd38a67",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 1",
+              "GUID": "62c7d941-a06c-40ff-83d7-5ec6f696f4f5",
+              "theText": "Mona Vash, une marchande Arkanienne, se protége les yeux avec la main, éblouie par la lumière soudaine.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+              "buttonList": [
+                {
+                  "GUID": "87c9e005-39a7-4f8e-bca0-cd4a5c1c92a0",
+                  "theText": "{A} Récupérer"
+                }
+              ]
+            },
+            {
+              "entityName": "Prisoner 2",
+              "GUID": "fb4e0ae3-0470-4f8e-93a1-44051bb3ffa9",
+              "theText": "Boh Kallaak, un technicien de Muun, a l'air meurtri et battu. Il est trop faible pour marcher.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+              "buttonList": [
+                {
+                  "GUID": "1f2e0adf-256e-4b83-baf9-28d7ab56e87c",
+                  "theText": "{A} Récupérer"
+                }
+              ]
+            },
+            {
+              "entityName": "Prisoner 3",
+              "GUID": "233ffcb8-784b-4ca8-a1f9-524cfca32ede",
+              "theText": "Roggnar Dreek, un chef du syndicat des Ugnaughts, est enchaîné au mur. Il est blessé, mais il semble toujours défiant et inébranlable.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+              "buttonList": [
+                {
+                  "GUID": "efb00093-f8ab-4866-a0c1-296754bf8e6d",
+                  "theText": "{A} Récupérer"
+                }
+              ]
+            }
+          ],
+          "GUID": "3dbaa231-66ac-414c-a6e5-71efed5cd3e5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Les pions Mission Rebelles représentent des prisonniers.\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+          "GUID": "b08d74fc-bc3d-458e-bebf-c33bc8299d0f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Aller dans la Navette.",
+          "GUID": "3978e551-8df7-426d-b5d3-0a39ff020cc0",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Récupérer les prisonniers.",
+          "longText": null,
+          "GUID": "4ecf3324-65fd-45ab-9dfe-40515da4d073",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il n'a droit qu'à 1 action, qu'il peut utiliser uniquement pour effectuer un déplacement.\r\n{-} La porte de la Navette est verrouillée. Une figurine Impériale peut l'attaquer (Santé : *2*, Défense : 2 {G}).\r\n{-} La porte de la Navette adjacente à une figurine Rebelle ne bloque ni son déplacement, ni sa ligne de vue, ni l'adjacence, et n'empêche pas de compter les cases.\r\n{-} Les figurines Rebelles situées dans la Navette gagnent {A} : choisissez une figurine hostile adjacente et effectuez un test de {K}. En cas de réussite, poussez cette figurine jusqu'à 2 cases.\r\n{-} Les pions Mission Rebelles représentent des prisonniers.\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.\r\n{-} La mission évolue quand un prisonnier est récupéré.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "e06c3886-c5d5-465d-9f8c-497b5a83c526",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 Attempt",
+      "GUID": "a059f253-529b-41a8-ab24-c973dcad4d73",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à forcer la porte.\r\n\r\n{-} Effectuez un test {K} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur la porte, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "65cab51b-f89d-4e8d-96c0-f74484d2c56e",
+              "theText": "Vous faites quelques progrès, mais la porte reste fermée.\r\n\r\n{-} Placez un pion Stress sur la porte pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "d1bf9a8b-c56a-4acf-8f27-2cdb7c6a8338",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 3 destroyed",
+      "GUID": "0215c853-f483-4fdb-9383-7c723a512546",
+      "eventText": "La porte s'écroule sous les tirs Impériaux.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 3",
+              "GUID": "4de6e961-5a78-4fdc-8294-77dff6f9378d",
+              "theText": "Cette porte mène à la navette d'évacuation qui vous attend.\r\n\r\n{-} La porte est verrouillée. Une figurine Impériale peut l'attaquer (Santé : *2*, Défense : 2 {G}). \r\n{-} La porte de la Navette adjacente à une figurine Rebelle ne bloque ni son déplacement, ni sa ligne de vue, ni l'adjacence, et n'empêche pas de compter les cases.",
+              "buttonList": [
+                {
+                  "GUID": "0fe4293f-571e-4889-a537-187c8a2c1a6a",
+                  "theText": "Porte détruite"
+                }
+              ]
+            }
+          ],
+          "GUID": "3170c859-2774-44a4-ab2a-b37a836744a1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Claim Prisoner",
+      "GUID": "e8a86d8c-cbaa-4712-bdb5-e3a49be23a09",
+      "eventText": "Vous aidez le prisonnier à monter dans la navette.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Retrieve Prisoner 1",
+      "GUID": "af699820-96d2-4cc7-8a5d-6d96a2d3d5cc",
+      "eventText": "Vous aidez l'Arkanienne épuisée à se relever et la conduisez vers la navette.\r\n\r\n{-} Quand une figurine qui porte un prisonnier est dans la Navette, les héros s'approprient ce prisonnier. Cliquez sur une des cases rouges en surbrillance et sélectionnez \"S'approprier un prisonnier\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 1",
+              "GUID": "67f951da-57a0-410d-b7f8-47321cd83955",
+              "theText": "Mona Vash, une marchande Arkanienne, se protége les yeux avec la main, éblouie par la lumière soudaine.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+              "buttonList": [
+                {
+                  "GUID": "d046d5dd-a692-4277-bd47-a51fc1862a39",
+                  "theText": "{A} Récupérer"
+                }
+              ]
+            }
+          ],
+          "GUID": "6b2c852a-e022-406c-b79d-810da2683ba2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Retrieve Prisoner 2",
+      "GUID": "07cc097e-4572-4701-8e32-b1440fd4f39b",
+      "eventText": "Vous placez lentement vos bras sous le technicien blessé et le soulevez avec précaution.\r\n\r\n{-} Quand une figurine qui porte un prisonnier est dans la Navette, les héros s'approprient ce prisonnier. Cliquez sur une des cases rouges en surbrillance et sélectionnez \"S'approprier un prisonnier\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 2",
+              "GUID": "bc1f5910-3dda-47fa-afd8-2bd6731cfe47",
+              "theText": "Boh Kallaak, un technicien de Muun, a l'air meurtri et battu. Il est trop faible pour marcher.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+              "buttonList": [
+                {
+                  "GUID": "e156449d-52d0-46dc-b6ac-765d4823cdc4",
+                  "theText": "{A} Récupérer"
+                }
+              ]
+            }
+          ],
+          "GUID": "12d05930-d001-427d-b0ae-9500df24c6b4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Retrieve Prisoner 3",
+      "GUID": "54f5d440-f258-4d1f-9ba3-16ce011b7c83",
+      "eventText": "Vous brisez rapidement les liens de Roggnar et aidez l'Ugnaught à se lever. Vous allez devoir le soutenir jusqu'à la navette.\r\n\r\n{-} Quand une figurine qui porte un prisonnier est dans la Navette, les héros s'approprient ce prisonnier. Cliquez sur une des cases rouges en surbrillance et sélectionnez \"S'approprier un prisonnier\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Prisoner 3",
+              "GUID": "ac063fa8-fac3-4262-b4eb-57f0eb5a284e",
+              "theText": "Roggnar Dreek, un chef du syndicat des Ugnaughts, est enchaîné au mur. Il est blessé, mais il semble toujours défiant et inébranlable.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+              "buttonList": [
+                {
+                  "GUID": "b5e45df4-52e4-4fba-b3c5-7842aa806a84",
+                  "theText": "{A} Récupérer"
+                }
+              ]
+            }
+          ],
+          "GUID": "5218791d-3bc1-4923-bcd2-34136b3caa24",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Prisoner retrieved",
+      "GUID": "b20b06c0-478c-4be8-a296-0cdfa3550582",
+      "eventText": "{-} Quand une figurine qui porte un prisonnier est dans la Navette, les héros s'approprient ce prisonnier. Cliquez sur une des cases rouges en surbrillance et sélectionnez \"S'approprier un prisonnier\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shuttle",
+              "GUID": "4cc746d2-353d-4cdc-93fd-53f53808f444",
+              "theText": "La navette d'évacuation attend, moteurs en marche.\r\n\r\n{-} Quand une figurine qui porte un prisonnier est dans la Navette, les héros s'approprient ce prisonnier. Cliquez sur \"S'approprier un prisonnier\".",
+              "buttonList": [
+                {
+                  "GUID": "81291b45-1d34-4f7b-afd6-9ee85b62e95a",
+                  "theText": "S'approprier un prisonnier"
+                }
+              ]
+            }
+          ],
+          "GUID": "0396d237-9ac6-4dac-a890-bd6871d33c1f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Porter les prisonniers jusqu'à la navette (&Prisoners claimed&/3).",
+          "longText": null,
+          "GUID": "b5918c68-2290-41ae-9348-590e401be6f6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il n'a droit qu'à 1 action, qu'il peut utiliser uniquement pour effectuer un déplacement.\r\n{-} La porte de la Navette est verrouillée. Une figurine Impériale peut l'attaquer (Santé : *2*, Défense : 2 {G}).\r\n{-} La porte de la Navette adjacente à une figurine Rebelle ne bloque ni son déplacement, ni sa ligne de vue, ni l'adjacence, et n'empêche pas de compter les cases.\r\n{-} Les figurines Rebelles situées dans la Navette gagnent {A} : choisissez une figurine hostile adjacente et effectuez un test de {K}. En cas de réussite, poussez cette figurine jusqu'à 2 cases.\r\n{-} Les pions Mission Rebelles représentent des prisonniers.\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.\r\n{-} Quand une figurine qui porte un prisonnier est dans la Navette, les héros s'approprient ce prisonnier. Cliquez sur une des cases rouges en surbrillance et sélectionnez \"S'approprier un prisonnier\".\r\n{-} Quand les héros se sont approprié les trois prisonniers, que tous les héros sont dans la Navette, et s'il y a 3 ou moins figurines Impériales dans la Navette, cette dernière décolle.\r\n{-} Les Rebelles gagnent quand la navette décolle.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "9f428ca2-054e-4e62-bd82-c91210b7ea1a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "All Prisoners Claimed",
+      "GUID": "d4e77d46-d2f7-430c-842b-77dbb3b57730",
+      "eventText": "Vous parvenez enfin à faire monter tous les prisonniers à bord de la navette d'évacuation. Il ne reste plus qu'à vous débarrasser des Impériaux.\r\n\r\n{-} Quand tous les héros sont dans la Navette, et s'il y a 3 ou moins figurines Impériales dans la Navette, cliquez sur une des cases rouges en surbrillance de la navette et sélectionnez \"Faire décoller la navette\" pour mettre fin à la mission.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shuttle",
+              "GUID": "a4842df4-8d57-40cb-b25c-9cbabfd880bc",
+              "theText": "La navette d'évacuation attend, moteurs en marche.\r\n\r\n{-} Quand tous les héros sont dans la Navette, et s'il y a 3 ou moins figurines Impériales dans la Navette, cliquez sur une des cases rouges en surbrillance de la navette et sélectionnez \"Faire décoller la navette\" pour mettre fin à la mission.",
+              "buttonList": [
+                {
+                  "GUID": "9c104ab8-3716-4482-9f86-56fea02c3366",
+                  "theText": "Faire décoller la navette (Fin de Mission)"
+                }
+              ]
+            }
+          ],
+          "GUID": "c26ac1ea-72c1-4142-8f5e-34e35203193f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "7692b006-4792-47d8-a266-43502df48b8e",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "381a3165-706d-493c-8a63-b3ddf490a6af",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "83f8b9f7-7b94-4412-829b-b157d7688926",
+      "mainText": "Cette porte donne sur le hall du complexe. Les prisonniers doivent être gardés quelque part derrière.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.",
+      "buttonList": [
+        {
+          "GUID": "c6d34aa7-b002-4a7c-8547-b34e87708196",
+          "theText": "Détruire"
+        },
+        {
+          "GUID": "32c21c4f-d330-4854-a3f2-4edf60634a58",
+          "theText": "{A} Essayer de l'ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "71c0e53d-ab8e-4f3a-b2e6-e92a7e37f361",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "e0d54d9e-2b64-4fa8-8f25-088603fdca28",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "73e5c1f4-e8d9-4069-bb88-c34ed857b200",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "3219f2ca-91f4-4a8f-a521-5460d3a82578",
+      "mainText": "Cette porte mène à une minuscule cellule de détention. Vous pouvez entendre des voix étouffées derrière elle.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut attaquer la porte (Santé : *2*, Défense : aucune). Un héros peut interagir avec une porte (2 {K} ou {I}) pour essayer de l'ouvrir.",
+      "buttonList": [
+        {
+          "GUID": "ebcfd55a-dbca-40bd-b48b-ed315a629bf0",
+          "theText": "Détruire"
+        },
+        {
+          "GUID": "acad6a96-c6a5-4aad-9ce6-64bcd351b290",
+          "theText": "{A} Essayer d'ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 3",
+      "GUID": "14652dbb-dbe4-4e86-8dde-c1b4642e3b2e",
+      "mainText": "Cette porte mène à la navette d'évacuation qui vous attend.\r\n\r\n{-} La porte est verrouillée. Une figurine Impériale peut l'attaquer (Santé : *2*, Défense : 2 {G}). \r\n{-} La porte de la Navette adjacente à une figurine Rebelle ne bloque ni son déplacement, ni sa ligne de vue, ni l'adjacence, et n'empêche pas de compter les cases.",
+      "buttonList": [
+        {
+          "GUID": "c4a9da97-ae35-4ec5-a5c7-64fea78f5367",
+          "theText": "Porte détruite"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "3452217e-5e00-469a-b52e-a587e4d31d1a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Prisoner 1",
+      "GUID": "53666ee5-5652-402d-bb5f-c22a24a80742",
+      "mainText": "Mona Vash, une marchande Arkanienne, se protége les yeux avec la main, éblouie par la lumière soudaine.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+      "buttonList": [
+        {
+          "GUID": "070b252f-ad2b-478c-8f3a-b606ffd45571",
+          "theText": "{A} Récupérer"
+        }
+      ]
+    },
+    {
+      "entityName": "Shuttle",
+      "GUID": "0c499b3a-c95a-4ada-b0d9-66bd442fd086",
+      "mainText": "La navette d'évacuation attend, moteurs en marche.\r\n\r\n{-} Quand une figurine qui porte un prisonnier est dans la Navette, les héros s'approprient ce prisonnier. Cliquez sur \"S'approprier un prisonnier\".",
+      "buttonList": [
+        {
+          "GUID": "0cf0bbab-785d-4220-b475-d6574d1184db",
+          "theText": "S'approprier un prisonnier"
+        }
+      ]
+    },
+    {
+      "entityName": "Prisoner 2",
+      "GUID": "136dee09-2345-4dfc-a461-bbc2d30a736c",
+      "mainText": "Boh Kallaak, un technicien de Muun, a l'air meurtri et battu. Il est trop faible pour marcher.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+      "buttonList": [
+        {
+          "GUID": "af782714-8938-42d9-89dc-43d5d7169fcf",
+          "theText": "{A} Récupérer"
+        }
+      ]
+    },
+    {
+      "entityName": "Prisoner 3",
+      "GUID": "2511d750-8f36-43db-8dd4-51dc7dd9d8fb",
+      "mainText": "Roggnar Dreek, un chef du syndicat des Ugnaughts, est enchaîné au mur. Il est blessé, mais il semble toujours défiant et inébranlable.\r\n\r\n{-} Une figurine Rebelle peut récupérer un prisonnier. Une figurine ne peut porter que 1 seul prisonnier.",
+      "buttonList": [
+        {
+          "GUID": "752e1b14-714f-4649-9967-7acf37f6b25f",
+          "theText": "{A} Récupérer"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}
