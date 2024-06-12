@@ -1,0 +1,358 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Connais ton ennemi",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Retour sur Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Bloquer l'accès à la porte.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "18808fd0-d2e7-4814-af74-733c7b505609",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "1607e7fa-89b9-4aca-bcd3-6a671599bc17",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "5267e4ae-e358-4c94-8d8c-95cc16985eb4",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "ef139065-e423-4c8a-8980-096195e48d43",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Verena vous guide jusqu'aux coordonnées de l'avant-poste abandonné où l'attend son frère. Elle fait un geste avec son poignard. \"Mon frère est arrogant et vantard. Par ailleurs, et c'est fort regrettable, il est tout aussi habile que moi. Ne le sous-estimez pas.\"\r\n\r\n\"Si je vous le dis, c'est parce que beaucoup ont fait cette erreur\", ajoute-t-elle en tapotant la balafre qui orne sa joue. \"Y compris moi-même.\"\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} La mission évolue quand la porte s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Placez 1 pion Mission Impérial sur la fiche Héros ou la carte Déploiement de chaque Rebelle qui a été attaqué pendant cette activation.",
+          "GUID": "61a923a7-4b0e-49a1-a0a0-55e9cec4a4e3",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "shortText": "Ouvrir la porte vers le Centre de Commandement",
+          "longText": null,
+          "GUID": "d82deb18-88a6-4326-a5e9-0b16f5a32b07",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La mission évolue quand la porte s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "ce423ad7-5c25-42d3-83cf-161691241d96",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Ivan Talos gît au sol, et Verena le ligote. Chose rare, elle sourit. \"On dirait que c'est moi qui ai gagné cette fois, cher frère.\"\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Verena Talos reçoit la carte Récompense \"Main de fer\".\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Vous battez en retraite sous les rires cruels d'Ivan. \"Cela fait 2 à 0 pour moi, chère sœur !\" jubile-t-il. Verena reste murée dans le silence pendant plusieurs jours et préfère passer son temps à s'entraîner en jurant à mi-voix.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Face Off",
+      "GUID": "d034adad-9cb6-4563-b5c7-24365a0db1a8",
+      "eventText": "Ivan Talos sourit. \"Je suis content que tu sois venue, sœurette. Tu as été bien aimable de permettre à mes droïdes de collecter toutes ces informations sur tes compagnons...\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "6d4080eb-6a1f-48e5-8fc5-01ca0b75f363",
+              "theText": "Une vieille porte menant à l'avant-poste abandonné où Ivan Talos est censé se trouver.\r\n\r\n{-} La porte est verrouillée pour les figurines Impériales.",
+              "buttonList": [
+                {
+                  "GUID": "33065af6-8f11-43fe-9ed7-08a539473c79",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "6dabfa6b-0bb6-4452-b2ea-8990465b65bc",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "d7c075ee-7007-4e81-bd4d-7995f24c2f9c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ae4cab6f-c971-470d-a293-3dbb90e0a4e3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Ivan Talos",
+              "GUID": "1293cb76-bd3c-446c-86fd-6430cb9be0c4",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "54afa064-feb3-4879-9682-f198e4282c02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Le pion Mission neutre représente Ivan Talos. Ivan Talos est une figurine Impériale.\r\n{-} Si une figurine Rebelle avec 1 pion Mission Impérial sur sa fiche Héros ou sa carte Déploiement est attaqué par Ivan Talos, appliquez +1 {G} supplémentaire aux résultats de défense.",
+          "GUID": "7ee48502-b1e0-43c8-9126-3b63e3349a39",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "GUID": "1615cd73-6182-43f9-b953-c1fa138e0060",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Ivan Talos",
+          "repositionInstructions": "",
+          "surges": "{B}: +3 Précision\r\n{B}: Sonné\r\n{B}: Concentré\r\n{B}: +2 {H}",
+          "bonuses": "ÉTUDIER LA DÉFENSE: Défausse 1 pion Mission Impérial du Rebelle le plus proche ayant un pion Mission Impérial sur sa fiche Héros ou sa carte Déploiement. Ivan Talos gagne +2 {g}.\r\nIMPROVISATION: Au cours de cette activation, cette figurine peut utiliser COMBAT RAPPROCHÉ AMÉLIORÉ sur des figurines Rebelles qui n'ont pas de pion Mission Impérial sur leur fiche Héros ou carte Déploiement.\r\nÉTUDIER L'ATTAQUE: Répartissez X {h} aussi équitablement que possible entre les figurines Impériales situées à 3 cases ou moins de cette figurine, X étant le nombre de pions Mission Impériaux sur les fiches Héros.",
+          "keywords": "+1 {G}\r\n+*1* Santé",
+          "abilities": "Connaître Son Ennemi: Si une figurine Rebelle avec 1 pion Mission Impérial sur sa fiche Héros ou sa carte Déploiement est attaqué par Ivan Talos, appliquez +1 {G} supplémentaire aux résultats de défense.",
+          "customText": "{Q} COMBAT RAPPROCHÉ AMÉLIORÉ : Déplacement de 2 pour interagir avec un Rebelle et défausser 1 pion Mission Impérial de la fiche Héros ou de la carte Déploiementde ce Rebelle. Choisir la meilleure arme que porte ce Rebelle et effectuer 2 attaques en l'utilisant.\r\n{-} Si cette figurine n'a pas effectué de COMBAT RAPPROCHÉ AMÉLIORÉ, défaussez 1 pion Mission Impérial du Rebelle le plus proche ayant un pion Mission Impérial sur sa fiche Héros ou sa carte Déploiement. Ce Rebelle subit 2 {C}.\r\n{A} ORDRE : Choisir une autre figurine Impériale ayant un coût de 6 ou moins et qui peut attaquer, puis la faire attaquer {rebel}.\r\n{Q} Si cette figurine n'a pas utilisé ORDRE, Déplacement de 3 pour attaquer {rebel}.\r\n{Q} Déplacement de 1 pour attaquer {rebel}.\r\n{A} Déplacement de 3 pour engager une autre figurine Impériale ayant le plus de vie restante.\r\n{A} Si cette figurine n'est pas adjacente à une autre figurine Impériale, Déplacement de 4 pour se repositionner à 5.\r\n{-} COUVERTURE : Si adjacent à une autre figurine Impériale, élimine 2 {H}. La figurine Impériale adjacente non-<color=\"red\">Concentrée</color> ayant le coût le plus élévé devient <color=\"red\">Concentrée</color>.",
+          "cardName": "Ivan Talos"
+        },
+        {
+          "tbText": "Deux gardes du corps se placent devant le frère de Verana.",
+          "GUID": "aa8a3c81-928c-4268-8089-3f99fadceab5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0a21624f-db09-4760-9e7e-89a24904cd29",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        },
+        {
+          "tbText": "Avec un sourire provocateur, Ivan fait signe à sa sœur de s'approcher.\r\n\r\n{-} Les Rebelles gagnent quand Ivan Talos est vaincu.",
+          "GUID": "4d76d6b9-a594-44e7-ae0f-c69a53e64fde",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Ivan Talos",
+              "GUID": "c44fed20-ecdc-4b44-9501-62e11d6dd62c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "66159288-e2e4-45a6-aa75-1fba105230ee",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Vaincre Ivan Talos.",
+          "longText": null,
+          "GUID": "01daedf3-2336-4c69-9326-89695578d301",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Le pion Mission neutre représente Ivan Talos. Ivan Talos est une figurine Impériale.\r\n{-} Si une figurine Rebelle avec 1 pion Mission Impérial sur sa fiche Héros ou sa carte Déploiement est attaqué par Ivan Talos, appliquez +1 {G} supplémentaire aux résultats de défense.\r\n{-} Les Rebelles gagnent quand Ivan Talos est vaincu.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "a2cbdbdc-a407-48e8-889a-c987a917070d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "9d42ca43-8411-4e8e-9797-2c2e027e35ae",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "35123c01-5506-4bc6-8bd7-f20964968dc9",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "1c8ead9b-40be-4b50-8145-ba84b3bdeed7",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HK1",
+      "GUID": "ea78719d-afa5-41f1-8c7b-85dc07544a49",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HK2",
+      "GUID": "cba28062-ab14-4ad6-83e3-693b6f7a386d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "a1724928-dfd2-482c-b800-215028355ea8",
+      "mainText": "Une vieille porte menant à l'avant-poste abandonné où Ivan Talos est censé se trouver.\r\n\r\n{-} La porte est verrouillée pour les figurines Impériales.",
+      "buttonList": [
+        {
+          "GUID": "b1030db2-4d27-402c-8490-6d0c66166fb2",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Ivan Talos",
+      "GUID": "7072e103-9aae-4ecd-bc9a-4a5345bd8ee3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 1",
+      "GUID": "48306267-69bb-4784-9008-8b3746ce7369",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 2",
+      "GUID": "1236e287-5601-41b1-a739-880428eb8f6f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe Droid",
+      "GUID": "f2d7d473-a4e6-48c9-b194-73fb19964be9",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "HK Assassin Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}
