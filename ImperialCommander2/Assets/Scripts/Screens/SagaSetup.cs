@@ -19,7 +19,7 @@ namespace Saga
 		public GameObject descriptionTextBox;
 		public Text difficultyText;
 		public Transform heroContainer;
-		public Button adaptiveButton, startMissionButton, viewMissionCardButton, campaignTilesButton;
+		public Button adaptiveButton, startMissionButton, viewMissionCardButton, campaignTilesButton, allyButton;
 		public GameObject miniMugPrefab;
 		public Image allyImage;
 		public MWheelHandler threatValue, addtlThreatValue;
@@ -756,6 +756,12 @@ namespace Saga
 
 		private void Update()
 		{
+			if ( missionPicker.selectedMission != null
+				&& !missionPicker.isBusy )
+				allyButton.interactable = true;
+			else
+				allyButton.interactable = false;
+
 			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0
 				&& missionPicker.selectedMission != null
 				&& !missionPicker.isBusy )
