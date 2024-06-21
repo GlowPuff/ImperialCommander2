@@ -1,0 +1,507 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Traqué",
+    "missionDescription": "",
+    "missionInfo": "{-} La porte du Coffre-fort est verrouillée. Une figurine Rebelle peut attaquer la porte du Coffre-fort (Santé : 8, Défense : 1 {G}) ou interagir avec ({J}) pour l'ouvrir.\r\n{-} Le pion Mission Rebelle représente la puce de données. Une figurine Rebelle indemne peut récupérer la puce de données.\r\n{-} La mission évolue quand la puce de données est récupérée.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">Han Solo</color> vaincu.",
+    "campaignName": "Ombres Jumelles",
+    "startingObjective": "Récupérer la puce de données.",
+    "repositionOverride": "Bloquer l'accès à la puce de données.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "05842b2e-65b3-400a-875e-465f16f61736",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "eca98960-2bf9-42ee-a55e-2f590a83ab65",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "5c8bb70a-fb4d-4334-a44f-4a409b52812f",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "86574ea7-1195-4869-aa01-aecaac179a22",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Après avoir perdu le contact avec Han Solo, vous avez désespérément cherché la moindre trace du contrebandier. Votre seul indice provient des canaux impériaux : un sabot d'amarrage a été placé sur le vaisseau de Solo. En remontant cette piste, vous avez fini par reprendre contact avec Solo. Vous l'avez rejoint dans une cantina louche de Mos Eisley où il échafaude un plan pour retrouver les codes d'amarrage impériaux et s'échapper.\r\n\r\n\"Ils devraient fermer bientôt. Chewie m'a dit qu'un des types qui gèrent cet endroit est de notre côté. Il a les codes dont j'ai besoin pour retirer ce fichu sabot du Faucon. Si on met la main dessus, on peut se tirer. J'ai pas l'intention de m'éterniser dans ce patelin.\"\r\n\r\nMais les Impériaux n'ont pas prévu de vous laisser faire. Avant que vous n'ayez une chance de mettre à exécution cette stratégie élémentaire, une escouade fait irruption dans la cantina par les deux issues. Les clients paniquent et se ruent vers la sortie. On dirait bien qu'il va falloir adopter une méthode moins subtile.",
+      "eventActions": [
+        {
+          "tbText": "{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} Déployez <color=\"red\">Han Solo</color> (Vaurien) sur la case rouge en surbrillance.\r\n{-} La porte du Coffre-fort est verrouillée. Une figurine Rebelle peut attaquer la porte du Coffre-fort (Santé : 8, Défense : 1 {G}) ou interagir avec ({J}) pour l'ouvrir.\r\n{-} Le pion Mission Rebelle représente la puce de données. Une figurine Rebelle indemne peut récupérer la puce de données.\r\n{-} La mission évolue quand la puce de données est récupérée.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">Han Solo</color> vaincu.",
+          "GUID": "f421d142-479f-454c-be9a-3cadfcb91f7b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Sous une pluie de tirs de blasters, vous entrez précipitamment les codes volés dans le terminal. Vous vous précipitez avec Han pour le couvrir tandis qu'il saute à bord du Faucon et quitte en trombe la surface désolée de la planète. Peu après, il vous contacte par comlink.\r\n\r\n\"Ravi d'avoir échappé à ce trou perdu. Merci pour le coup de main. Si je peux vous rendre la pareille, faites-le-moi savoir.\"\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent <color=\"red\">Han Solo</color> (Vaurien) comme allié.",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Ombres Jumelles\" ?",
+          "buttonList": [
+            {
+              "GUID": "d8699369-b5a2-439f-8c56-6f3f95660a46",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "9c339935-9d25-43d2-8220-585f9f0c8849",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Sous une pluie de tirs de blasters, vous êtes plaqués au sol par un stormtrooper et la puce de donnée éclate en morceaux. Les codes sont perdus. Vous êtes forcés de battre en retraite et vous vous retrouvez séparés de Solo. Un peu plus tard, il vous contacte par comlink : \"On dirait bien que je vais devoir faire profil bas un bout de temps. On s'attire toujours des embrouilles sur cette planète... et pour pas grand-chose.\"\r\n\r\n{-} Les Rebelles perdent la mission.",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Ombres Jumelles\" ?",
+          "buttonList": [
+            {
+              "GUID": "d2adb9bf-dc69-4996-b5bb-a05ff56593f2",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "4968cd45-ba42-4030-a61e-3155ab233d1d",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "\"Merci encore pour le coup de main, vous dit Solo par comlink. Écoutez, avec tout ce chambard, j'ai dû décamper plus vite que prévu et j'ai laissé deux droïdes dans une base de fortune. Je vous envoie les coordonnées. Ils pourront peut-être se rendre utiles : ils enquêtaient sur la présence Impériale sur cette planète. Je devrais arriver à me poser un peu à l'écart de Mos Eisley d'ici peu. Si vous avez besoin d'aide, faites-le-moi savoir et je m'arrangerai pour venir en douce.\"\r\n\r\nLes coordonnées sont celles d'un repaire Rebelle en périphérie de Mos Eisley. Vous n'y trouvez pas grand-chose excepté deux ordinateurs et un lit, ainsi qu'un petit astromech bleu. Vous reconnaissez là le droïde qui accompagnait Luke Skywalker, R2-D2. Dès qu'il vous voit entrer, il se balance frénétiquement d'avant en arrière en pépiant à tue-tête. À votre grande surprise, il diffuse aussitôt un hologramme.\r\n\r\nL'enregistrement montre un petit avant-poste Impérial dans les ruelles de Mos Eisley. Un droïde de protocole doré s'y fait abattre par un stormtrooper. L'unité R2 s'agite encore plus après vous avoir fait voir cette scène. Vous savez désormais quelle sera votre prochaine destination.\r\n\r\n{-} Chaque héros reçoit 2 XP.\r\n{-} Les héros reçoivent 300 crédits par héros.\r\n{-} La prochaine mission active est \"Ennemis d'une vie antérieure\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "\"Pas le temps de panser nos plaies, les amis, vous annonce votre pilote par comlink. On dirait que l'Empire a décidé de s'installer durablement sur cette planète, par l'intermédiaire d'un destroyer stellaire en orbite. Solo devait enquêter là-dessus. J'ai tenté de me renseigner, mais difficile de le scanner efficacement depuis cette simple navette.\r\n\r\nUne chose est sûr, malgré tout : le croiseur n'est pas seul, ils ont des hommes au sol. Je continue de mon côté, mais vous devriez pouvoir trouver pas mal d'infos à la surface.\r\n\r\nAu fait, on dirait que Solo est venu avec des droïdes. J'ai capté un signal envoyé par un astromech du nom de R2-D2. Peut-être qu'il pourrait nous aider à découvrir ce qui se trame dans le coin.\"\r\n\r\n{-} Chaque héros reçoit 2 XP.\r\n{-} Les héros reçoivent 300 crédits par héros.\r\n{-} L'Empire reçoit <color=\"red\">Boba Fett</color> (Infâme Chasseur de Primes) en tant qu'antagoniste.\r\n{-} La prochaine mission active est \"Douteuses tractations\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Chaque héros reçoit 1 XP.\r\n{-} Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round",
+      "GUID": "0efae4d3-cf5d-4126-bf17-2cf51fcc52ec",
+      "eventText": "Sous une pluie de tirs de blasters, vous êtes plaqués au sol par un stormtrooper et la puce de donnée éclate en morceaux. Les codes sont perdus. Vous êtes forcés de battre en retraite et vous vous retrouvez séparés de Solo. Un peu plus tard, il vous contacte par comlink : \"On dirait bien que je vais devoir faire profil bas un bout de temps. On s'attire toujours des embrouilles sur cette planète... et pour pas grand-chose.\"\r\n\r\n{-} Les Rebelles perdent la mission.",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Ombres Jumelles\" ?",
+          "buttonList": [
+            {
+              "GUID": "28c8aa10-1514-44c1-b934-376e81d899ea",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "d6a4db28-8503-49fd-ac2e-644b243bb68f",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "a4ed2f3a-4f3a-4b6f-b71d-15680e790a9f",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "On the Trail",
+      "GUID": "99301e43-920a-4064-bf46-d8f085f0a8d4",
+      "eventText": "Vous entendez le rugissement tonitruant d'un propulseur dorsal et un chasseur de primes apparaît. Le redoutable Boba Fett rejoint le combat. Vous ignorez s'il a été engagé par les Impériaux ou s'il vient simplement capturer Han, mais quoi qu'il en soit, sa présence va vous compliquer la tâche.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4ac8f371-5da6-41c0-a23c-f846348e6627",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG076/Boba Fett"
+        }
+      ]
+    },
+    {
+      "eventName": "Final Defense",
+      "GUID": "b1232962-a20e-4785-9204-3af5436c3b35",
+      "eventText": "Vous ouvrez la porte pour découvrir la Baie d'amarrage. Le <i>Faucon</i> est là, silencieux. Sur le côté du hangar, une porte s'ouvre et des ennemis en affluent.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Docking Bay Door",
+              "GUID": "82d89d58-8fda-4469-8622-1cf6d57584f0",
+              "theText": "Cette porte mène à la Baie d'amarrage.",
+              "buttonList": [
+                {
+                  "GUID": "238a1997-fc1b-4384-8153-96184edebf99",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "21e8b7a2-e7d3-4756-a580-fa8211b3eee3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "84c317eb-d6b8-4ef1-8071-2ad38784ffb0",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b86556e6-0915-490f-bd7b-1db4d3311d15",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "Safe Door Opens",
+      "GUID": "73c9cd98-2898-4be0-90ee-ffbfb070dda9",
+      "eventText": "La porte s'ouvre enfin sur un grand coffre-fort. La puce de données contenant les codes d'accès se trouve sur l'une des étagères.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Safe Door",
+              "GUID": "ffee6908-c8d3-427a-aa9d-612f416ee6e7",
+              "theText": "Une porte solide protège un grand coffre-fort.\r\n\r\n{-} La porte du Coffre-fort est verrouillée. Une figurine Rebelle peut attaquer la porte du Coffre-fort (Santé : 8, Défense : 1 {G}) ou interagir avec ({J}) pour l'ouvrir.",
+              "buttonList": [
+                {
+                  "GUID": "d19017f7-c1e6-4ef4-97e6-ef21179d248b",
+                  "theText": "Détruire"
+                },
+                {
+                  "GUID": "e9b6578b-8cb6-4ffd-b464-cce7db13f1c6",
+                  "theText": "{A} Essayer de trouver la combinaison"
+                }
+              ]
+            },
+            {
+              "entityName": "Data Chip",
+              "GUID": "701b65cb-d991-4c45-9866-41a0d1d5648d",
+              "theText": "La puce de données contenant les codes d'amarrage est posée sur l'une des étagères du coffre-fort.\r\n\r\n{-} Une figurine Rebelle indemne peut récupérer la puce de données.",
+              "buttonList": [
+                {
+                  "GUID": "04b9882a-3138-47a2-912e-dd8f68120e81",
+                  "theText": "{A} Récupérer"
+                }
+              ]
+            }
+          ],
+          "GUID": "6d51a155-7479-474d-8027-466cb34d8a3e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Data Chip Retrieved",
+      "GUID": "c7d48960-67fd-42e4-9fa3-5bb320451446",
+      "eventText": "Vous vous empressez de saisir la puce de données. Il ne reste plus qu'à télécharger les codes d'amarrage dans la Baie d'amarrage. Plus facile à dire qu'à faire.\r\n\r\n{-} S'il porte la puce de données, un héros ou color=\"red\">Han Solo</color> peut interagir avec le terminal ({I}) pour y transférer les codes d'amarrage.\r\n{-} Les Rebelles gagnent quand les codes d'amarrage sont transférés.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">Han Solo</color> vaincu.",
+      "eventActions": [
+        {
+          "theText": "{-} S'il porte la puce de données, un héros ou color=\"red\">Han Solo</color> peut interagir avec le terminal ({I}) pour y transférer les codes d'amarrage.\r\n{-} Les Rebelles gagnent quand les codes d'amarrage sont transférés.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés et <color=\"red\">Han Solo</color> vaincu.",
+          "GUID": "fe34b05a-7915-499b-8974-26466430fd27",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Transférer les codes d'amarrage.",
+          "longText": null,
+          "GUID": "83da503d-5749-4935-915f-5444a7bf4b20",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Data Chip",
+              "GUID": "9ec0c51a-2e0a-47bd-b20c-af944682584a",
+              "theText": "La puce de données contenant les codes d'amarrage est posée sur l'une des étagères du coffre-fort.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "06162000-5d5b-490c-9a60-7684122b2830",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquer l'accès à la Baie d'amarrage et au terminal.",
+          "GUID": "edbed6ee-3f1e-46e4-8df9-8921962e57cb",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "7e16feb7-82d9-4499-9806-00fbfc87035b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous essayez de trouver la combinaison de la porte.\r\n\r\nEffectuez un test {J}. Appliquez +1 {B} au test pour chaque pion Stress présent sur la porte, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "fe78b3e0-1bcf-4e15-b44f-3ed69f39f2c4",
+              "theText": "Vous avez fait quelques progrès, mais vous n'avez pas encore trouvé la combinaison.\r\n\r\n{-} Placez un pion Stress sur la porte pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "5b62acea-4d1a-47bd-9056-a31264cd12ef",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "74b7b636-d6f3-4967-b6c1-efad7fe2f9c4",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "55d0e8d7-25b0-4a17-bb29-a203709b82d1",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "43dbf4bf-bf60-4976-b29b-131772e3b7cf",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Han Entrance",
+      "GUID": "750cc34b-5c67-4bf9-929f-6c2560dd3b53",
+      "mainText": "Déployer <color=\"red\">Han Solo</color> (Vaurien) ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Safe Door",
+      "GUID": "fa70937f-08bc-439b-91f2-924c13e6d12a",
+      "mainText": "Une porte solide protège un grand coffre-fort.\r\n\r\n{-} La porte du Coffre-fort est verrouillée. Une figurine Rebelle peut attaquer la porte du Coffre-fort (Santé : 8, Défense : 1 {G}) ou interagir avec ({J}) pour l'ouvrir.",
+      "buttonList": [
+        {
+          "GUID": "b08b2688-a207-4bc5-b911-b25ebece7199",
+          "theText": "Détruire"
+        },
+        {
+          "GUID": "6bf216ee-852f-4c6c-8ddc-f8901a178aa1",
+          "theText": "{A} Essayer de trouver la combinaison"
+        }
+      ]
+    },
+    {
+      "entityName": "Docking Bay Door",
+      "GUID": "f2bf5a7e-49b5-4971-a85e-1491b46abd98",
+      "mainText": "Cette porte mène à la Baie d'amarrage.",
+      "buttonList": [
+        {
+          "GUID": "dc43b413-f258-4434-988b-4b07a6631ce5",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "d83ec4cc-84b9-4f78-a19c-4c5157aacc50",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "e3550211-965c-411b-b8c1-fbfc54a0ffbe",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 1",
+      "GUID": "f323a387-aeed-4c66-9bdb-f0e9f1399d0d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HTrooper 2",
+      "GUID": "ea581f5d-dc53-40ad-a598-80d42bbd0370",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "aa5d419f-23ae-451b-ba65-1db7f371192d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "40d9b240-0b43-494a-b50c-8aefa23d900f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "910ea128-4472-4f2e-a1df-d6302356eb2d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "c7673988-3689-4fff-9345-3fbfc9197fe2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Data Chip",
+      "GUID": "3f4e88bf-6972-4e76-bc99-f8bbd4fa5d6b",
+      "mainText": "La puce de données contenant les codes d'amarrage est posée sur l'une des étagères du coffre-fort.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "b45adf51-50d7-417d-878e-c4ddf4aae76b",
+      "mainText": "Ce terminal contrôle le sabot d'amarrage.\r\n\r\n{-} S'il porte la puce de données, un héros ou color=\"red\">Han Solo</color> peut interagir avec le terminal ({I}) pour y transférer les codes d'amarrage.",
+      "buttonList": [
+        {
+          "GUID": "1994f79f-360b-4a47-955c-68dd907cf979",
+          "theText": "{A} Transférer les codes d'amarrage."
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Heavy Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

@@ -1,0 +1,811 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Panique dans les rues",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Le Gambit de Bespin",
+    "startingObjective": "",
+    "repositionOverride": "Entrer dans la Salle Sécurisée et en bloquer l'accès aux Rebelles.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "b82f055b-5d71-4291-8c3f-2c1c8fb5d663",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "38b1323a-78ed-44b6-b22f-fb74d2ab61b1",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "3f21ac9a-6588-4e40-9879-3fead6127ca0",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "4c17c604-5b46-4746-97bf-fc1c43224792",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Après avoir livré les provisions, vous entendez un garçonnet implorer non loin. \"Je ne sais pas qui est à la tête des guérilleros... je veux dire des radicaux !\" Les deux Trandosiens n'apprécient pas votre intervention. Au moment où la Garde Ailée arrive, la confrontation est inévitable.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} Les portes sont verrouillées pour les figurines Impériales.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+      "eventActions": [
+        {
+          "tbText": "Pris dans des échanges de tirs, les civils commencent à paniquer. Certains se mettent même à vous lancer des pierres en vous prenant pour les assaillants. Si rien n'est fait rapidement, cette échauffourée pourrait coûter la vie à des innocents.",
+          "GUID": "2eba5ce0-d6a7-4b01-89a7-5da41b179564",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Citizen 1",
+              "GUID": "0c8020ed-0326-4db0-af1e-aead3dee76d7",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 2",
+              "GUID": "edf957e6-c879-4be0-b14c-8d77c9800594",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 3",
+              "GUID": "776b085b-9fb2-4300-8d30-d8eaa851f3fe",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 4",
+              "GUID": "0650a9a0-7489-43c1-866d-8d4bd71b6baa",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 5",
+              "GUID": "b6827b13-fd56-470c-a9d0-a5b989974bdd",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ca6ff114-58d0-419f-858c-8b6e00c4fc97",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Les pions Mission neutres représentent des citoyens.\r\n{-} Les héros gagnent {A}: test {J}. Avant de lancer les dés, vous pouvez subir jusqu'à 2 {C} pour appliquer +1 {B} aux résultats pour chaque {C} subi. Vous pouvez pousser chaque citoyen situé à 3 cases ou moins de vous d'un nombre de cases égal à vos succès.",
+          "GUID": "ba8257aa-1b0c-4930-b959-086f1344a60f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Panic Token",
+              "GUID": "cafe8c65-6cb9-474f-bbfb-b0322f58bd50",
+              "theText": "Il s'agit du pion de gestion de la panique.\r\n\r\n{-} Quand un héros situé dans la ligne de vue de 1 ou plusieurs citoyens déclare une Attaque, cliquez sur \"Augmenter la Panique\".\r\n{-} À la fin de chaque Round, avant de cliquer sur \"Fin du Round\", cliquez sur \"Déclencher la Panique\".",
+              "buttonList": [
+                {
+                  "GUID": "019f7b44-0e0f-4dfe-af04-d0fc58ada60f",
+                  "theText": "Augmenter la Panique"
+                },
+                {
+                  "GUID": "37e49d1b-ff76-48a1-a076-d1193e5fdcb6",
+                  "theText": "Déclencher la Panique"
+                },
+                {
+                  "GUID": "3566d9ba-8b1b-4d26-bbb0-90d413787789",
+                  "theText": "Citoyens en sécurité (Fin de Mission)"
+                }
+              ]
+            }
+          ],
+          "GUID": "0be00e89-0427-4697-8595-015b7b8e6007",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Il s'agit du pion de gestion de la panique.\r\n\r\n{-} Quand un héros situé dans la ligne de vue de 1 ou plusieurs citoyens déclare une Attaque, cliquez sur le pion de gestion de la panique et sélectionnez \"Augmenter la Panique\".\r\n{-} À la fin de chaque Round, avant de cliquer sur \"Fin du Round\", cliquez sur le pion de gestion de la panique et sélectionnez \"Déclencher la Panique\".\r\n{-} Quand tous les citoyens sont dans la Salle Sécurisée, qu'il n'y a pas de figurines Impériales dans la Salle Sécurisée et que toutes les portes sont fermées, les citoyens sont en sécurité. Cliquez alors sur le pion de gestion de la panique et sélectionnez \"Citoyens en sécurité\".\r\n{-} Les héros gagnent quand les citoyens sont en sécurité.",
+          "GUID": "4009ade8-6a4f-4b16-b978-fa981b0e99cc",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Citizen 1",
+              "GUID": "3aabfbe8-06fa-4d39-be0c-2d7aed5a55fe",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 2",
+              "GUID": "a4aca082-1af5-4463-b80a-f193f4b4a17d",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 3",
+              "GUID": "6989e3cc-ea47-4fa3-b506-8c52ca5f6401",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 4",
+              "GUID": "57ccd01c-6f06-4f75-8cad-6d914b3dfc6b",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Citizen 5",
+              "GUID": "4d3decd2-f550-4fc0-b6b1-e55ad5381242",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "35cbc3e4-ad2e-481a-a16c-7374de83303f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Emmener les citoyens dans la Salle Sécurisée. Panique : &Panic&",
+          "longText": null,
+          "GUID": "814969a0-5b11-4bf2-99ff-d693c672dcfb",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Les portes sont verrouillées pour les figurines Impériales.\r\n{-} Les pions Mission neutres représentent des citoyens.\r\n{-} Quand un héros situé dans la ligne de vue de 1 ou plusieurs citoyens déclare une Attaque, cliquez sur le pion de gestion de la panique et sélectionnez \"Augmenter la Panique\".\r\n{-} À la fin de chaque Round, avant de cliquer sur \"Fin du Round\", cliquez sur le pion de gestion de la panique et sélectionnez \"Déclencher la Panique\".\r\n{-} Les héros gagnent {A}: test {J}. Avant de lancer les dés, vous pouvez subir jusqu'à 2 {C} pour appliquer +1 {B} aux résultats pour chaque {C} subi. Vous pouvez pousser chaque citoyen situé à 3 cases ou moins de vous d'un nombre de cases égal à vos succès.\r\n{-} Quand tous les citoyens sont dans la Salle Sécurisée, qu'il n'y a pas de figurines Impériales dans la Salle Sécurisée et que toutes les portes sont fermées, les citoyens sont en sécurité. Cliquez alors sur le pion de gestion de la panique et sélectionnez \"Citoyens en sécurité\".\r\n{-} Les héros gagnent quand les citoyens sont en sécurité.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "1517b95c-7b09-494b-93b3-1e6d57701325",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Les Impériaux martèlent les portes, qui tiennent bon. Enfin réunis avec leurs familles, de nombreux citoyens s'excusent pour leurs actes. Témoins du mépris dont a fait preuve l'Empire, quelques-uns jurent même de rejoindre la guérilla.\r\n\r\nEn restant ici, ces gens vont à nouveau se retrouver en danger. Vous laissez les provisions dont vous n'avez pas besoin avant d'entraîner les Impériaux à votre suite et de disparaître dans la Cité des Nuages.\r\n\r\n{-} Les Rebelles remportent la mission !",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Le Gambit de Bespin\" ?",
+          "buttonList": [
+            {
+              "GUID": "5d4975f5-9d56-405d-a712-dff72d0b82d9",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "3544ead1-ad18-49e3-8ef4-02df59d9a415",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Incapables de mettre tout le monde à l'abri, vous n'avez d'autre choix que de tenter de filer. Impossible de savoir si quelqu'un a été blessé. Demain, les gros titres des médias afficheront \"La guérilla menace la vie des civils\", et il n'y aura pas grand-monde pour leur donner tort.\r\n\r\n{-} Les Rebelles perdent la mission.",
+      "eventActions": [
+        {
+          "mainText": "Avez-vous joué cette mission dans le cadre de la mini-campagne \"Le Gambit de Bespin\" ?",
+          "buttonList": [
+            {
+              "GUID": "8c41b77a-a7cd-4734-8eb0-56a5b4e971e3",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "5769735f-2fc1-4ed3-a003-e6b278aac956",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Panic reaches 1",
+      "GUID": "47f2f28d-5240-4d0d-88ac-9a3c338bf57f",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Panic reaches 0",
+      "GUID": "067eee70-bab4-49ed-9f56-7c94d08b090f",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Panic Event",
+      "GUID": "af521935-4626-47a7-be3e-30a744e6d096",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Panic Event Reset",
+      "GUID": "c20d551e-2801-4834-adf1-15d4594cf1a9",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Panic Event 1",
+      "GUID": "ef736139-7856-47e5-a582-796f648e38f5",
+      "eventText": "Les citoyens crient et s'enfuient, terrorisés.\r\n\r\n{-} Déplacez les 2 citoyens qui sont les plus proches de la Salle Sécurisée, mais qui ne sont pas dans la Salle Sécurisée, d'1 case chacun en s'éloignant de la Salle Sécurisée.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Panic Event 2",
+      "GUID": "67dc26c8-84ca-44a5-9f9d-1d45be030aa4",
+      "eventText": "La foule en panique vous pousse et vous bouscule, les citoyens vous piétinent presque.\r\n\r\n{-} Si la figurine de {rebel} est située à 3 cases ou moins d'un citoyen et dans sa ligne de vue, lancez 1 dé bleu. {rebel} subit un nombre de {H} égal aux résultats de {H} obtenus. Sinon, choisissez une autre figurine Rebelle située à 3 cases ou moins d'un citoyen et dans sa ligne de vue pour subir ce nombre des {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Panic Event 3",
+      "GUID": "2dd01325-bac2-44aa-9321-6ae4505af370",
+      "eventText": "Les cris de panique résonnent dans la Cité des Nuages, alarmant les forces ennemies qui arrivent sur les lieux.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Door North",
+      "GUID": "8ca5fd08-a31b-4142-8cab-7652a9a8b9aa",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door North",
+              "GUID": "640807a2-476c-47ea-9c5e-9932dfcb82dd",
+              "theText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+              "buttonList": [
+                {
+                  "GUID": "fc3f1fc5-d3d8-4f7f-8dbc-14201f48c494",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "ea1dcda8-4077-4bef-8031-c9e5c1030816",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door East",
+      "GUID": "f515b2c2-1f86-48b8-be15-803e3bcdcc08",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door East",
+              "GUID": "9896f4dc-ae85-47f1-9214-bf91ba129692",
+              "theText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+              "buttonList": [
+                {
+                  "GUID": "a02a71b2-cc8f-4df9-b800-1ef017f544a1",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "67624ba0-c874-4125-9523-c5a7b3ddc38c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Door West",
+      "GUID": "bb3428a7-c6bc-415b-9785-80b3df6f9d68",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door West",
+              "GUID": "2e421201-bc4f-4331-9b3d-025bb8427125",
+              "theText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+              "buttonList": [
+                {
+                  "GUID": "ace33e7d-7456-4686-867d-c0bcee3b8e83",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "a102db7c-6a61-46ac-bd5f-df695be865d1",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Door North",
+      "GUID": "6d6f825e-35c9-47b6-8c5b-c9836246bf3f",
+      "eventText": "La porte se referme avec fracas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door North",
+              "GUID": "f46d74b5-4faa-4805-ae17-48d1f98e34fd",
+              "theText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+              "buttonList": [
+                {
+                  "GUID": "0cf42f95-a288-4475-bf17-b348c154fc1d",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "a8787dd7-137d-4661-83e0-0a2f8451594f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Door East",
+      "GUID": "49197284-30ab-4c35-9933-f13a29eb02f6",
+      "eventText": "La porte se referme avec fracas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door East",
+              "GUID": "fdb1d442-b356-4083-af6c-b8ad1ce792a2",
+              "theText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+              "buttonList": [
+                {
+                  "GUID": "acc76d78-a677-43b4-a2aa-3f48cdc18afa",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "cd1cafac-0ff8-49a6-ad3d-03c701b65040",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Close Door West",
+      "GUID": "ed24923f-3082-4155-b085-02eaeca68fec",
+      "eventText": "La porte se referme avec fracas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door West",
+              "GUID": "b259c703-acbe-43ed-971c-14f8360dc97b",
+              "theText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+              "buttonList": [
+                {
+                  "GUID": "7edc5913-7e3c-4d06-b3c7-3e6e76ef2e9f",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "f07a171d-1337-4920-ad13-89dfe1075ff8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal Safe Room",
+      "GUID": "4d89abea-a301-45ae-8f53-d4ba8f878d15",
+      "eventText": "La pièce située derrière est spacieuse et bien éclairée, parfaitement adaptée à la sécurité des citoyens.",
+      "eventActions": [
+        {
+          "tbText": "Au centre de la pièce, un panneau de commande contrôle les mécanismes de verrouillage de la Salle Sécurisée.",
+          "GUID": "bec18109-098a-4313-a1e2-40d8fe98c5bc",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door Control",
+              "GUID": "141f0271-e9a5-4261-8673-22e8fbd51bae",
+              "theText": "Le panneau de contrôle des portes se trouve au centre de la salle de conférence. Il permet de fermer les portes de la Salle Sécurisée.",
+              "buttonList": [
+                {
+                  "GUID": "b1ce2362-22f3-4a77-b6ab-c78067ee44bc",
+                  "theText": "{A} Fermer la porte Nord"
+                },
+                {
+                  "GUID": "7aa09e46-1082-4fc8-9a87-86220247be84",
+                  "theText": "{A} Fermer la porte Est"
+                },
+                {
+                  "GUID": "252e0870-bed9-43bf-9df1-5ef44544a1f6",
+                  "theText": "{A} Fermer la porte Ouest"
+                }
+              ]
+            }
+          ],
+          "GUID": "89c82a74-99d4-42de-a4e2-d8171bc680a8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Un héros peut interagir avec le terminal pour fermer une porte.",
+          "GUID": "622ca3dc-56e8-47ee-b950-5e7c8dcf7a4e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Les portes sont verrouillées pour les figurines Impériales.\r\n{-} Un héros peut interagir avec le terminal pour fermer une porte.\r\n{-} Les pions Mission neutres représentent des citoyens.\r\n{-} Quand un héros situé dans la ligne de vue de 1 ou plusieurs citoyens déclare une Attaque, cliquez sur le pion de gestion de la panique et sélectionnez \"Augmenter la Panique\".\r\n{-} À la fin de chaque Round, avant de cliquer sur \"Fin du Round\", cliquez sur le pion de gestion de la panique et sélectionnez \"Déclencher la Panique\".\r\n{-} Les héros gagnent {A}: test {J}. Avant de lancer les dés, vous pouvez subir jusqu'à 2 {C} pour appliquer +1 {B} aux résultats pour chaque {C} subi. Vous pouvez pousser chaque citoyen situé à 3 cases ou moins de vous d'un nombre de cases égal à vos succès.\r\n{-} Quand tous les citoyens sont dans la Salle Sécurisée, qu'il n'y a pas de figurines Impériales dans la Salle Sécurisée et que toutes les portes sont fermées, les citoyens sont en sécurité. Cliquez alors sur le pion de gestion de la panique et sélectionnez \"Citoyens en sécurité\".\r\n{-} Les héros gagnent quand les citoyens sont en sécurité.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "9ee0aad6-396d-479a-8423-0899c66f379c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Reminder",
+      "GUID": "5e3ee100-b807-4d23-a483-c3b474a3af20",
+      "eventText": "<color=\"red\">Rappel :</color>\r\n{-} Quand un héros situé dans la ligne de vue de 1 ou plusieurs citoyens déclare une Attaque, cliquez sur le pion de gestion de la panique et sélectionnez \"Augmenter la Panique\".\r\n{-} À la fin de chaque Round, avant de cliquer sur \"Fin du Round\", cliquez sur le pion de gestion de la panique et sélectionnez \"Déclencher la Panique\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Out-Flanked",
+      "GUID": "34b4e020-58f9-400d-8d16-687f34463177",
+      "eventText": "Une autre porte s'ouvre et l'intimidant chasseur de primes Bossk fait son entrée, accompagné d'un agent de sécurité en colère. \"Les voilà ! Arrêtez-les ! Pourquoi vous paye-t-on ?\", crie l'agent.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "d0c527b3-4f2b-4047-9c4e-2477a00b00b0",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5b55c7d4-1705-4feb-b4a1-0c4be0fe42aa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG080/Bossk"
+        }
+      ]
+    },
+    {
+      "eventName": "Murne present",
+      "GUID": "08e45092-174d-4c04-beef-e9f291e44605",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends Win Murne Yes",
+      "GUID": "d874b01b-f209-4b6a-ab29-e61e1026a6ac",
+      "eventText": "Murne Rin reçoit la carte Récompense \"Droïde vidéo\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends Win Murne No",
+      "GUID": "9560afc5-6661-48f1-a146-9564e4489c5c",
+      "eventText": "Les héros reçoivent 150 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends Defeat",
+      "GUID": "16f5f233-66ff-4fee-b0e7-4f622c641fb6",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "La présence du célèbre chasseur de primes Bossk sur la Cité des Nuages ne manque pas de vous inquiéter. Il n'accepte pas de petits contrats, ce qui veut dire qu'il est là pour un gros poisson ; les codes Impériaux, par exemple.\r\n\r\nVous mettez de côté vos préoccupations en rejoignant le Q. G., où vous découvrez de nouveaux visages. Votre retenue lors de votre dernier combat vous a valu le soutien de la population. Les gens en ont assez d'être maltraités et il semblerait que certains aient envie de passer du côté de la résistance.\r\n\r\nL'enfant que vous avez sauvé des Trandosiens juste avant que le combat n'éclate s'avance vers vous. \"Merci de m'avoir aidé, mais beaucoup d'autres ont été capturés avant votre arrivée. Si vous pouviez les libérer, je suis sûr qu'on aurait toute l'aide nécessaire pour débuter une vraie rébellion !\"\r\n\r\nC'est mignon, mais il se trouve qu'il a raison. Si les rangs de la guérilla grossissent, ses ressources en feront de même, et vos chances de trouver les codes grimperont elles aussi. Vous vous mettez aussitôt en route pour retrouver les citoyens disparus.\r\n\r\n{-} Chaque héros reçoit 3 XP.\r\n{-} Les héros reçoivent 300 crédits par héros.\r\n{-} La prochaine mission active est \"Combattants de la liberté\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Votre mission s'est compliquée et vous avez bien du mal à reconstituer le puzzle. Pourquoi les Trandosiens harcèlent-ils les habitants au sujet des guérilleros ? Comment font-ils pour agir au grand jour sans que la Garde Ailée n'intervienne ? Et que peut bien faire une célébrité comme Bossk sur la Cité des Nuages ?\r\n\r\nDe retour au Q.G., vous avez bien du mal à convaincre les soldats de rester. Le soutien de la population faiblit, et avec tous ces mercenaires qui écument les rues, il est de plus en plus risqué de sympathiser avec la Rébellion.\r\n\r\nDangereuse ou pas, vous avez une mission. Et les rumeurs qui prétendent que Bossk profite du chaos pour vendre des esclaves ne font que renforcer votre détermination. Si ces lézards veulent se mêler du conflit, ils vont être servis.\r\n\r\n{-} Chaque héros reçoit 2 XP.\r\n{-} Les héros reçoivent 300 crédits par héros.\r\n{-} La prochaine mission active est \"Combattants de la liberté\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Chaque héros reçoit 1 XP.\r\n{-} Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "ddfbbf41-f75c-4576-9319-8d5d4df298b7",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "557a69b7-63e0-4b1f-b765-6d9cdd3404fc",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "403ad846-40a0-4986-9f19-2c15b27e7bfd",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "27ea2766-2a05-48fb-ab86-0c3c6562fc25",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing Guard 1",
+      "GUID": "6d128665-a1b7-43c5-b492-e7d536c32335",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing Guard 2",
+      "GUID": "3d3c0c17-bd59-4d5a-b316-770593838626",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing Guard 3",
+      "GUID": "7a341b2e-9a3d-4a99-8f62-d7a3c06c88aa",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "fb4efab0-243f-4635-af4a-964a8d088bc7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "c1ead48f-c57c-480e-b862-6a7d4afb19d0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Panic Token",
+      "GUID": "0b20f6f8-7d2d-4b5e-a0e2-20115aa2bfce",
+      "mainText": "Il s'agit du pion de gestion de la panique.\r\n\r\n{-} Quand un héros situé dans la ligne de vue de 1 ou plusieurs citoyens déclare une Attaque, cliquez sur \"Augmenter la Panique\".\r\n{-} À la fin de chaque Round, avant de cliquer sur \"Fin du Round\", cliquez sur \"Déclencher la Panique\".",
+      "buttonList": [
+        {
+          "GUID": "cd027273-7180-4af9-8aee-edaf57dac150",
+          "theText": "Augmenter la Panique"
+        },
+        {
+          "GUID": "a943e70f-37ba-48b7-998e-68f0a3a4cfab",
+          "theText": "Déclencher la Panique"
+        },
+        {
+          "GUID": "1fec0008-040a-4634-af1b-adfb82cb69c6",
+          "theText": "Citoyens en sécurité (Fin de Mission)"
+        }
+      ]
+    },
+    {
+      "entityName": "Door North",
+      "GUID": "01c44b0a-6c5a-4dbf-8f62-ab03874306bc",
+      "mainText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+      "buttonList": [
+        {
+          "GUID": "9caf55e9-9c9f-401d-a59a-db98ac5e7afb",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door East",
+      "GUID": "fb5eeb50-1902-471f-81e6-bbb46630fb40",
+      "mainText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+      "buttonList": [
+        {
+          "GUID": "503f2562-36de-4460-8399-d364279f07d7",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door West",
+      "GUID": "ed97f0f2-a509-4c00-9171-b549e09b6615",
+      "mainText": "Une porte solide permet d'accéder à la Salle Sécurisée.",
+      "buttonList": [
+        {
+          "GUID": "34508f61-1a01-42cb-822b-5f69a72ac5dd",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door Control",
+      "GUID": "2401bc27-63d9-4393-93a3-d03b166e6ad1",
+      "mainText": "Le panneau de contrôle des portes se trouve au centre de la salle de conférence. Il permet de fermer les portes de la Salle Sécurisée.",
+      "buttonList": [
+        {
+          "GUID": "1c1474e3-5dd8-4353-b5a5-0c1d6d9a9a4f",
+          "theText": "{A} Fermer la porte Nord"
+        },
+        {
+          "GUID": "f4e5182a-0401-4cab-89ce-b2cf0bde2575",
+          "theText": "{A} Fermer la porte Est"
+        },
+        {
+          "GUID": "fb4429ca-af76-4bc2-9cb9-450f77474002",
+          "theText": "{A} Fermer la porte Ouest"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Entrance",
+      "GUID": "7d4298f1-6440-43a9-91b8-a30a9d06cad4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Citizen 1",
+      "GUID": "97641a4a-f701-43b4-ba1c-9bb4c6a45108",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Citizen 2",
+      "GUID": "0b8b56ec-5fd9-4e79-aa27-0269f8fceb10",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Citizen 3",
+      "GUID": "612a9bfa-c035-4844-82c9-6941a8e9cbe3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Citizen 4",
+      "GUID": "e37d3290-80f0-4e5c-8d8b-110797157628",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Citizen 5",
+      "GUID": "6d62aa84-f1cb-457a-b7eb-c4e33e95ed57",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Wing Guard",
+      "customInstructions": ""
+    }
+  ]
+}

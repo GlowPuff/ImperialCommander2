@@ -1,0 +1,602 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Le subterfuge du pirate",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Extension \"Hondo Ohnaka (Ami de Circonstance)\"",
+    "startingObjective": "",
+    "repositionOverride": "Bloquer l'accès au droïde infiltrateur E-XD.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "0d0828b6-9a3f-43af-bce4-e3a2d00bfa16",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "6969461d-faa0-4da9-9766-2fe9fdbdd1de",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "4004d93e-61d9-4e93-ab5e-194431b70b5d",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "afe678a8-ef71-49a6-9629-ef540cf6bed3",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Vous coincez Hondo dans sa planque au moment où il ouvre la caisse. Se confondant en excuses, le pirate accepte de vous céder la cargaison Impériale.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} La porte est verrouillée.",
+      "eventActions": [
+        {
+          "tbText": "Hondo s'écarte au moment où un droïde infiltrateur E-XD jaillit de la caisse.",
+          "GUID": "1efa31db-8865-44cd-837a-9d1c4afe11b8",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "E-XD",
+              "GUID": "4a01aae6-61dc-4796-b665-9098a5c92aec",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "517899d4-648d-45f2-ac09-7cd7d9814d45",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "GUID": "ae59cebd-1c6b-4a4d-8338-88fe0c34020b",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: E-XD Infiltrator Droid",
+          "repositionInstructions": "",
+          "surges": "{B}: Perforant 2",
+          "bonuses": "GÉNÉRATEURS DE CHARGE: Cette figurine gagne 1 {h}.\nRÉPARATIONS AUTOMATIQUES: Cette figurine élimine 2 {H}.",
+          "keywords": "+5 Santé\r\n+4 Précision",
+          "abilities": "",
+          "customText": "{Q} Déplacement de 2 pour attaquer {rebel}.\r\n{A} Déplacement de 2 pour s'éloigner des Rebelles.\r\n{A} Déplacement de 4 pour s'éloigner des Rebelles.\r\n{-} Cette figurine gagne 1 {g}.",
+          "cardName": "Droïde Infiltrateur E-XD"
+        },
+        {
+          "tbText": "{-} Le pion Mission Impérial représente le droïde infiltrateur E-XD. \r\n{-} Si le E-XD a été vaincu, une figurine peut interagir avec la porte ({K} ou {I}) pour essayer de l'ouvrir. Cette figurine peut subir 1 {C} durant ce test pour relancer n'importe quel nombre de dés.\r\n{-} La mission évolue quand la porte s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "323e6074-8a06-4b69-99f2-40751a8b4757",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "E-XD",
+              "GUID": "39084945-6af7-48d5-8a80-d0de59177ea2",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "c497dffd-30f9-4b7b-997d-d23d277467e4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Vaincre le droïde infiltrateur E-XD.",
+          "longText": null,
+          "GUID": "a71ea5ab-b407-4c55-9e18-3d0dd6699de2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Le pion Mission Impérial représente le droïde infiltrateur E-XD. \r\n{-} La porte est verrouillée. Si le E-XD a été vaincu, une figurine peut interagir avec la porte ({K} ou {I}) pour essayer de l'ouvrir. Cette figurine peut subir 1 {C} durant ce test pour relancer n'importe quel nombre de dés.\r\n{-} La mission évolue quand la porte s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "fa10d00f-0761-47ff-a3e4-91cf0645eb70",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Une fois la balise de pistage discrètement posée, vous faites mine d'être vaincus et battez en retraite. Les données de ce droïde devraient se révéler très utiles pour la Rébellion.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent 100 crédits par héros.",
+      "eventActions": [
+        {
+          "mainText": "Jouez-vous cette mission dans le cadre de la mini-campagne \"Tyrans de Lothal\" ?",
+          "buttonList": [
+            {
+              "GUID": "2ff51d84-9e77-4684-bbb6-42ca3784e270",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "7d783a89-f3a9-4728-8dbc-bd52787bdbd6",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "fa160c96-ff1c-4306-ad5f-f40d51ef9331",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Incapables de rattraper Hondo ou le mystérieux droïde Impérial, vous n'avez d'autre choix que de battre en retraite vers votre appareil.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Si vous jouez cette mission en tant que mission annexe, l'Empire reçoit <color=\"red\">Hondo Ohnaka</color> (Ami de Circonstance) en tant qu'antagoniste.",
+      "eventActions": [
+        {
+          "mainText": "Jouez-vous cette mission dans le cadre de la mini-campagne \"Tyrans de Lothal\" ?",
+          "buttonList": [
+            {
+              "GUID": "487bffdf-5024-40d2-8f74-44eb5a57e4f8",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "abe30545-8e23-4487-80e7-13471e97868f",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "922d0b18-3b9c-4426-b8b1-9d79afd7d873",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Win",
+      "GUID": "1fb0c0b1-7388-42f6-9c4c-801de27f03a5",
+      "eventText": "Une fois les Impériaux partis, vous parvenez à coincer Hondo. \"Je vous ai peut-être trahis, mais l'Empire ne m'a pas laissé le choix\", explique-t-il. \"En plus, mon droïde a disparu et je me retrouve les mains vides. Vraiment, nous partageons une même tragédie.\"\r\n\r\nN-4M vous appelle. \"Je reçois la télémétrie du droïde infiltrateur et la transmets à nos alliés Rebelles.\"\r\n\r\nVous dites à Hondo que vous serez moins charitables la prochaine fois qu'il se mettra en travers de votre chemin et regagnez votre vaisseau.\r\n\r\n{-} Chaque héros reçoit 1 XP.\r\n{-} Les héros reçoivent 100 crédits par héros.",
+      "eventActions": [
+        {
+          "tbText": "Vous vous amarrez à un Cargo VCX-100. Une fois à bord, vous rencontrez le reste de l'équipe, et la Capitaine Hera Syndulla. \"Toute l'aide que nous pourrons recevoir sera la bienvenue\", confirme-t-elle, \"et puisque vous avez gagné la confiance de mon équipe, je vous confie aussi la mienne. Nous avons plus de travail à accomplir que de bras pour le faire.\"\r\n\r\n\"Avez-vous entendu parler du Grand Amiral Thrawn\" ? Il vient de mettre tout le secteur en alerte rouge. On peut à peine bouger le petit doigt. Elle s'appuie contre la petite table au milieu de la pièce. \"Nous avons des alliés sur Seelos, Wolfe et Gregor. Ils ont récupéré des codes Impériaux sur un marcheur volé, mais ils ont besoin d'aide pour échapper à l'Empire. Nous avons également une piste qui nous mène à la cachette d'un vieux contrebandier sur Dévaron. Elle contient les cartes des meilleures routes de contrebande du secteur. Si nous arrivons à les obtenir, nous pourrons éviter les patrouilles Impériales et il nous sera même possible de nous passer des codes.\" Elle se tourne vers vous. \"Si vous pouvez nous aider à accomplir ces missions, j'enverrai un membre de mon équipage avec vous.\"\r\n\r\n{-} Les héros choisissent collectivement s'ils souhaitent aider Wolffe et Gregor ou s'ils préfèrent fouiller la cachette du contrebandier.\r\n{-} Si les héros choisissent d'aider Wolffe et Gregor, la prochaine mission active est \"Les Dunes de Seelos\".\r\n{-} Si les héros choisissent de fouiller la cachette du contrebandier, la prochaine mission active est \"Duel sur Dévaron\".",
+          "GUID": "00b502cf-6261-4d81-94b1-9365d28eb78b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Mini campaign Defeat",
+      "GUID": "ee9e6f21-9b9f-47ca-b982-44b59453a837",
+      "eventText": "Vous vous glissez dans un entrepôt rempli de caisses et semez vos poursuivants. Lorsque vous en ressortez, Hondo et le droïde Impérial ont disparu. Vous vous inquiétez concernant le droïde infiltrateur... et le danger que représente Hondo si ses contacts avec l'Empire ne relèvent pas d'une simple coïncidence.\r\n\r\nIl est maintenant temps de faire la connaissance de vos nouveaux alliés.\r\n\r\n{-} Chaque héros reçoit 1 XP.\r\n{-} Les héros reçoivent 100 crédits par héros.",
+      "eventActions": [
+        {
+          "tbText": "Vous vous amarrez à un Cargo VCX-100. Une fois à bord, vous rencontrez le reste de l'équipe, et la Capitaine Hera Syndulla. \"Toute l'aide que nous pourrons recevoir sera la bienvenue\", confirme-t-elle, \"et puisque vous avez gagné la confiance de mon équipe, je vous confie aussi la mienne. Nous avons plus de travail à accomplir que de bras pour le faire.\"\r\n\r\n\"Avez-vous entendu parler du Grand Amiral Thrawn\" ? Il vient de mettre tout le secteur en alerte rouge. On peut à peine bouger le petit doigt. Elle s'appuie contre la petite table au milieu de la pièce. \"Nous avons des alliés sur Seelos, Wolfe et Gregor. Ils ont récupéré des codes Impériaux sur un marcheur volé, mais ils ont besoin d'aide pour échapper à l'Empire. Nous avons également une piste qui nous mène à la cachette d'un vieux contrebandier sur Dévaron. Elle contient les cartes des meilleures routes de contrebande du secteur. Si nous arrivons à les obtenir, nous pourrons éviter les patrouilles Impériales et il nous sera même possible de nous passer des codes.\" Elle se tourne vers vous. \"Si vous pouvez nous aider à accomplir ces missions, j'enverrai un membre de mon équipage avec vous.\"\r\n\r\n{-} Les héros choisissent collectivement s'ils souhaitent aider Wolffe et Gregor ou s'ils préfèrent fouiller la cachette du contrebandier.\r\n{-} Si les héros choisissent d'aider Wolffe et Gregor, la prochaine mission active est \"Les Dunes de Seelos\".\r\n{-} Si les héros choisissent de fouiller la cachette du contrebandier, la prochaine mission active est \"Duel sur Dévaron\".",
+          "GUID": "a48da895-588c-40a5-ae8f-fa2b6a4da0b2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "No campaign",
+      "GUID": "8fe1b24a-487b-46a0-9e81-94329508e0dc",
+      "eventText": "{-} Chaque héros reçoit 1 XP.\r\n{-} Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Droid Defeated 1",
+      "GUID": "9cb3b762-aece-40a2-9fb2-c6e9d8228221",
+      "eventText": "Le droïde blessé passe par la porte et la soude en toute hâte derrière lui. Si vous pouviez placer un traceur sur lui, vous sauriez où il emmène ses renseignements.\r\n\r\n{-} Une figurine peut interagir avec la porte ({K} ou {I}) pour essayer de l'ouvrir. Cette figurine peut subir 1 {C} durant ce test pour relancer n'importe quel nombre de dés.",
+      "eventActions": [
+        {
+          "shortText": "Quitter la planque.",
+          "longText": null,
+          "GUID": "9c247914-7a90-4349-8db0-a1ab0bad8a20",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "repositionText": "Bloquer l'accès à la porte.",
+          "GUID": "9ba6c090-b450-4432-a92d-38de74136647",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "2d4a1911-00b0-4b33-a3cf-9c2da53c22e6",
+              "theText": "Une porte poussiéreuse mène à l'extérieur.",
+              "buttonList": [
+                {
+                  "GUID": "18a6c5e3-a3b3-43ef-9aa7-a1764bfe38f3",
+                  "theText": "{A} Essayer de l'ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "2de34cad-0b0a-436d-a492-25b42cc877f5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Call for Backup",
+      "GUID": "09ef7cb6-2c05-4e3d-a8eb-c7f5d403acdc",
+      "eventText": "Certains des hommes de main de Hondo semblent avoir été alertés par le pirate.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Door Attempt",
+      "GUID": "84cfbc26-7755-44b4-a34e-0d7a223bf11c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous essayez de forcer la porte.\r\n\r\n{-} Effectuez un test {K} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur la porte, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous. Vous pouvez subir 1 {C} durant ce test pour relancer n'importe quel nombre de dés.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "3a941474-9892-4d62-b2e5-c9df849965e2",
+              "theText": "Vous faites quelques progrès, mais la porte reste fermée. Vous devez continuer à essayer.\r\n\r\n{-} Placez un pion Stress sur la porte pour chaque résultat {B}."
+            }
+          ],
+          "GUID": "5084bc4d-bfcc-474c-8ca0-becb20a74077",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Follow the Source",
+      "GUID": "2e09ffaf-3350-4d13-ab79-57aaf32de736",
+      "eventText": "La porte s'ouvre pour révéler le désert poussiéreux de Florrum.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "a6f6c888-a61b-4bc6-a45b-6674c39ed831",
+              "theText": "Une porte poussiéreuse mène à l'extérieur. Elle est verrouillée.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "0244dde3-3a83-40fc-b019-1e88bcfaaa56",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "53493470-9fe8-46a2-800c-c96eddef58a4",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "4cff9923-5b0a-4942-b832-9f219a014829",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Les ennemis vous attendent déjà.",
+          "GUID": "5c26fc15-941e-4706-9b89-3abcee988963",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "À côté, vous voyez Hondo Ohnaka sourire en s'excusant. \"Je suis vraiment désolé, mes amis, mais je suis sûr que nous pourrons encore faire des affaires à l'avenir, non ?\", dit-il en dégainant son blaster.",
+          "GUID": "24fb31f1-398c-41a0-a390-4706f065f0ac",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": "+*2* Santé",
+          "repositionInstructions": "",
+          "GUID": "67c65489-09d2-4e60-9416-b81482e8c845",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG086/Hondo Ohnaka"
+        },
+        {
+          "tbText": "Le droïde infiltrateur se repose à proximité. Les protocoles de réparation se sont déjà occupé de la plupart des dommages. Ils ont même amélioré son armure.",
+          "GUID": "90bf9139-4221-4d0c-a34b-cadc10df4e6b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "E-XD 2",
+              "GUID": "e5448568-e6ff-4165-8f74-ef110059d816",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "4e89238c-20e4-454e-bcc5-905755bc1541",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "GUID": "47e01a30-efc4-40ab-85e1-638a0acdf7d5",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: E-XD Infiltrator Droid",
+          "repositionInstructions": "",
+          "surges": "{B}: Perforant 2",
+          "bonuses": "GÉNÉRATEURS DE CHARGE: Cette figurine gagne 1 {h}.\nRÉPARATIONS AUTOMATIQUES: Cette figurine élimine 2 {H}.",
+          "keywords": "+5 Santé\r\n+4 Précision\r\n+1 {G}",
+          "abilities": "",
+          "customText": "{Q} Déplacement de 2 pour attaquer {rebel}.\r\n{A} Déplacement de 2 pour s'éloigner des Rebelles.\r\n{A} Déplacement de 4 pour s'éloigner des Rebelles.\r\n{-} Cette figurine gagne 1 {g}.",
+          "cardName": "Droïde Infiltrateur E-XD"
+        },
+        {
+          "tbText": "{-} Quand le E-XD est cense être vaincu, il est neutralisé à la place. \r\n{-} La mission évolue quand le E-XD est neutralisé.",
+          "GUID": "e40f3078-e413-48ed-b5e6-2349c2fb7983",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquer l'accès au droïde infiltrateur E-XD.",
+          "GUID": "61693b26-32ef-490b-8b06-b0eb8e317690",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Vaincre le droïde infiltrateur E-XD une deuxième fois.",
+          "longText": null,
+          "GUID": "4be5304b-dd3a-4b52-b136-0d2a11103b4b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Le pion Mission Impérial représente le droïde infiltrateur E-XD. \r\n{-} Quand le E-XD est cense être vaincu, il est neutralisé à la place. \r\n{-} La mission évolue quand le E-XD est neutralisé.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "aed1397f-051e-479c-97ac-9e94f1650b15",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "E-XD 2",
+              "GUID": "d2c9018e-e792-4800-afc6-ee32dac1f453",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "0ac9a7bc-0d8a-473e-8578-1d549b831e16",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Droid Defeated 2",
+      "GUID": "844e4120-d90d-452b-9fb7-2571996f8fc0",
+      "eventText": "Le droïde infiltrateur E-XD s'effondre, tel un tas de ferraille. Si vous arrivez à placer un traceur avant qu'il ne se répare de nouveau, vous pourrez le pister.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "E-XD 3",
+              "GUID": "43289eea-3cd1-4a20-a7e1-275be25c5344",
+              "theText": "{-} Une figurine Rebelle peut interagir avec le E-XD neutralisé ({J}) pour essayer de placer dessus une balise de pistage. Quand la balise de pistage est placée, cliquez sur \"Placer une balise de pistage\".",
+              "buttonList": [
+                {
+                  "GUID": "c928ca86-9eae-421b-a93b-85576f7a4f5c",
+                  "theText": "{A} Placer une balise de pistage"
+                }
+              ]
+            }
+          ],
+          "GUID": "2540c8cb-faa3-4b12-9595-144bad6cf5e2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Une figurine Rebelle peut interagir avec le E-XD neutralisé ({J}) pour essayer de placer dessus une balise de pistage. Cliquez alors sur le pion Mission situé hors du plateau et sélectionnez \"Placer une balise de pistage\".\r\n{-} Les Rebelles gagnent quand la balise de pistage est placée.",
+          "GUID": "b7b3087d-e977-40d4-b3b1-54b090891b33",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Placer la balise de pistage.",
+          "longText": null,
+          "GUID": "d2e714e9-c56b-4c09-9b74-a0b3cc3bc508",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Le pion Mission Impérial représente le droïde infiltrateur E-XD neutralisé. \r\n{-} Une figurine Rebelle peut interagir avec le E-XD neutralisé ({J}) pour essayer de placer dessus une balise de pistage. Cliquez alors sur le pion Mission situé hors du plateau et sélectionnez \"Placer une balise de pistage\".\r\n{-} Les Rebelles gagnent quand la balise de pistage est placée.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "b058f822-e31d-47cb-899a-1dd61db5b7ea",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Beacon attempt",
+      "GUID": "a2e7e7fb-6d85-4223-abbb-89c660f4de97",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous essayez de placer la balise de pistage dans un endroit où les systèmes du droïde ne la trouveront pas.\r\n\r\nEffectuez un test {J}. Appliquez +1 {B} au test pour chaque pion Stress présent sur E-XD, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "7292ad87-86ca-4d35-a040-b416aa2fbe55",
+              "theText": "Vous ne trouvez pas d'emplacement approprié pour la balise."
+            }
+          ],
+          "GUID": "25cfc9b8-db28-4479-9eeb-877fb3543fcc",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "0fa979f6-fb91-42ee-9c29-0a48d5df82ba",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "c332e66c-ec46-4d01-a753-3365c3c2e8fe",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "3a8866fd-5e86-47d9-b8f2-a8df9a58f32f",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "7e9021ad-ba7b-4a72-9f6a-58e1113bc9fc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "0a6ea6c7-bc32-4abf-b7ff-d7a450dc916b",
+      "mainText": "Une porte poussiéreuse mène à l'extérieur. Elle est verrouillée.",
+      "buttonList": []
+    },
+    {
+      "entityName": "E-XD",
+      "GUID": "cdbd3f0f-9821-4bb5-a129-c1cb2419a459",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "7a5baa2d-d607-4955-91eb-7320301058cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "7c5f7bdc-83f6-4e26-b590-b4f7249adfeb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 3",
+      "GUID": "03f47c35-5ce4-4085-9c18-3622def07680",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "a23cdb91-ebc1-4a81-9561-23b2fe9f39f5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black",
+      "GUID": "0330dab6-0fa0-4f7a-8456-c55c76a40d51",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "E-XD 2",
+      "GUID": "a00ccdd1-4fe1-41aa-8732-87814ef1c8c1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "E-XD 3",
+      "GUID": "9ca16c10-5b9f-41a9-9bba-67a15641ff43",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}
