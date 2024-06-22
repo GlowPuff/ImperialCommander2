@@ -48,6 +48,9 @@ namespace Saga
 		public Transform planet;
 		public SpriteRenderer planetSprite;
 		public Sprite[] planetSpritePool;
+		//TEXTBOX
+		public PopupBase textBoxPopupBase;
+		public GameObject textBoxPrefab;
 		public bool isDebugMode = false;
 
 		Sound sound;
@@ -752,6 +755,18 @@ namespace Saga
 		public void OnHelpClick()
 		{
 			helpPanel.Show();
+		}
+
+		public void OnAdditionalinfoClick()
+		{
+			if ( missionPicker.selectedMission != null
+				&& !string.IsNullOrEmpty( additionalInfoText.text ) )
+			{
+				var go = Instantiate( textBoxPrefab, textBoxPopupBase.transform );
+				var tb = go.transform.Find( "TextBox" ).GetComponent<TextBox>();
+				textBoxPopupBase.ShowNoZoom();
+				tb.Show( additionalInfoText.text, () => textBoxPopupBase.Close() );
+			}
 		}
 
 		private void Update()

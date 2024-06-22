@@ -14,13 +14,11 @@ namespace Saga
 
 		Action callback;
 		RectTransform rect;
-		Vector2 ap;
 		bool acceptInput = true;
 
 		void Awake()
 		{
 			rect = GetComponent<RectTransform>();
-			ap = rect.anchoredPosition;
 		}
 
 		/// <summary>
@@ -47,6 +45,7 @@ namespace Saga
 			//Debug.Log( size.y );
 			//adjust size of window
 			var windowH = Mathf.Clamp( size.y + 125, 250, 600 );
+			rect = GetComponent<RectTransform>();
 			rect.SetSizeWithCurrentAnchors( RectTransform.Axis.Vertical, windowH );
 		}
 
