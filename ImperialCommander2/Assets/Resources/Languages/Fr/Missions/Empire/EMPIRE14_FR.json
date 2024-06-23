@@ -1,0 +1,748 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Extraction",
+    "missionDescription": "",
+    "missionInfo": "{-} Le sénateur Feralo est une figurine Rebelle contrôlée par les héros qui ne s'active pas. Le sénateur Feralo ne peut pas subir de {H}. Le sénateur Feralo ne bloque pas la ligne de vue. À la fin de l'activation de chaque héros, le sénateur Feralo gagne 2 points de déplacement. Si une figurine Impériale contrôle le sénateur Feralo, ce dernier est arrêté.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et ne peut utiliser cette action que pour effectuer un déplacement. Les héros neutralisés ne comptent pas pour le contrôle du sénateur Feralo.\r\n{-} Les portes sont verrouillées.\r\n{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur.\r\n{-} Le pion Mission Rebelle représente l'échelle de maintenance. Une figurine située sur l'échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour grimper sur le Toit.\r\n{-} La mission évolue quand une figurine Rebelle est sur le Toit.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés ou quand le sénateur Feralo est arrêté. Quand le sénateur Feralo est arrêté, cliquez sur le pion Mission Impérial et sélectionnez \"Sénateur arrêté\".",
+    "campaignName": "Au Cœur de l'Empire",
+    "startingObjective": "Monter sur le toit. Protéger le sénateur Feralo.",
+    "repositionOverride": "Être adjacent au <b>Sénateur Feralo</b>. Bloquer l'accès au toit.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "5cd4af94-67e9-43d5-b29d-4ea0ad09f0e6",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "be7c13c3-190b-4a12-b7d4-7bbdecc6347b",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "0eae3620-3fc6-4574-ba84-8aadeda4aedb",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "f1ca26f5-67f4-4f25-b357-bfd8024823d7",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "L'appartement du sénateur Feralo est luxueux, avec une barrière énergétiques fermant une salle de maintenance au sud. Il commence tout juste à vous briefer quand vous entendez frapper à la porte. Le sénateur prend une profonde inspiration. \"Ils sont là pour moi\", dit-il. \"Nous devons y aller.\"\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} Les portes sont verrouillées.\r\n{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur.\r\n{-} Le pion Mission Rebelle représente l'échelle de maintenance. Une figurine située sur l'échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour grimper sur le Toit.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Energy Shields",
+              "GUID": "a500406b-e183-4067-aa34-a59c685a3351",
+              "theText": "Placez un pion bouclier d'énergie sur chaque case.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "81d13d78-8ee1-44c3-8d64-4fe5d6df8772",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Placez un pion bouclier d'énergie sur chaque case violette en surbrillance.",
+          "GUID": "ee433e25-ba21-448e-8492-446f9b13e665",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Deploy Feralo",
+              "GUID": "ff3f845b-213f-46d3-86a5-6ece73bdd3cc",
+              "theText": "Placez 1 pion Mission neutre ici. C'est le sénateur Feralo.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "106ed52e-121c-4386-852a-d4915ec1545c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Le sénateur Feralo se lève de son siège, prêt à partir.\r\n\r\n{-} Placez 1 pion Mission neutre sur la case verte en surbrillance. C'est le sénateur Feralo.\r\n{-} Le sénateur Feralo est une figurine Rebelle contrôlée par les héros qui ne s'active pas. Le sénateur Feralo ne peut pas subir de {H}. Le sénateur Feralo ne bloque pas la ligne de vue. À la fin de l'activation de chaque héros, le sénateur Feralo gagne 2 points de déplacement. Si une figurine Impériale contrôle le sénateur Feralo, ce dernier est arrêté.",
+          "GUID": "ff061fba-acc9-4147-a8cc-09005921d2bf",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "{-} La mission évolue quand une figurine Rebelle est sur le Toit.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés ou quand le sénateur Feralo est arrêté. Quand le sénateur Feralo est arrêté, cliquez sur le pion Mission Impérial et sélectionnez \"Sénateur arrêté\".",
+          "GUID": "99131a7d-c4aa-48c8-a8da-c0f11be0640d",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Le sénateur Feralo reprend son souffle et essuie son visage dégoulinant de sueur. Le sénateur en fuite se confond en remerciements auprès de sa fille, qu'il serre dans ses bras. Il vous promet de faire tout son possible pour vous aider et vous assure que les renseignements qu'il a réunis se révéleront utiles.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Ko-Tun Feralo reçoit la carte Récompense \"Efficacité de l'Alliance\".\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Les Impériaux s'emparent du sénateur Feralo et disparaissent aussi vite qu'ils étaient venus. Vous tentez de consoler Ko-Tun, qui répond laconiquement : \"Il connaissait les risques.\"\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Move Elevator to Penthouse",
+      "GUID": "97d134dc-32be-49ff-8d60-c90c840d95ef",
+      "eventText": "Avec un doux bourdonnement, l'ascenseur arrive au Penthouse.\r\n\r\n{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour déplacer l'ascenseur (tuile 33A), et toutes les figurines et pions qui s'y trouvent, vers le Toit. Cliquez sur une des cases vertes en surbrillance et sélectionnez \"Déplacer vers le Toit\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Roof Elevator Door",
+              "GUID": "1e4f5e5f-64f9-4684-9252-66d6117720ca",
+              "theText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur qui mène sur le Toit.",
+              "buttonList": [
+                {
+                  "GUID": "1ed77689-e185-42e9-8a20-2aedee8dc1ca",
+                  "theText": "Appeler l'ascenseur"
+                }
+              ]
+            }
+          ],
+          "GUID": "ba9dc938-4472-4e38-85db-5ba6e91dfebb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Elevator Door",
+              "GUID": "15158a84-90be-4b8e-8e6a-4ed873c77304",
+              "theText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur.",
+              "buttonList": [
+                {
+                  "GUID": "2c814409-4fa6-43f1-a929-f8c0cbb7b31b",
+                  "theText": "Appeler l'ascenseur"
+                }
+              ]
+            }
+          ],
+          "GUID": "cd2d7c45-b7c5-4fac-a7b0-469c29eea254",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Move Elevator to Roof",
+      "GUID": "0e2a0d19-cd52-4f0d-a054-be55e13a0326",
+      "eventText": "Avec un doux bourdonnement, l'ascenseur arrive sur le Toit.\r\n\r\n{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour déplacer l'ascenseur (tuile 33A), et toutes les figurines et pions qui s'y trouvent, vers le Penthouse. Cliquez sur une des cases vertes en surbrillance et sélectionnez \"Déplacer vers le Penthouse\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Elevator Door",
+              "GUID": "72e48d55-db10-4d56-90c8-34db7714829b",
+              "theText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur qui mène au Penthouse.",
+              "buttonList": [
+                {
+                  "GUID": "b109cc57-88a4-4b36-bb51-6bda109f162a",
+                  "theText": "Appeler l'ascenseur"
+                }
+              ]
+            }
+          ],
+          "GUID": "d298c500-d2cb-489f-ad2f-c7f427921dd9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Roof Elevator Door",
+              "GUID": "4cc88b69-266f-44fa-9cdf-eb61be482702",
+              "theText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur qui mène sur le Toit.",
+              "buttonList": [
+                {
+                  "GUID": "52f9ceba-81c3-4c8b-af62-d78eb7d10dac",
+                  "theText": "Appeler l'ascenseur"
+                }
+              ]
+            }
+          ],
+          "GUID": "137def3f-86ea-40ef-83da-f955fdfbd108",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb Roof Elevator Yes",
+      "GUID": "2f06a2db-d374-4172-a2c3-e5d4d7e6b6f0",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Ladder",
+              "GUID": "5a4a9b39-18b4-4544-9bc3-368038530aab",
+              "theText": "Une échelle de maintenance permet de monter sur le toit.\r\n\r\n{-} Une figurine située sur l'échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour se déplacer vers l'échelle du Toit.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "fe444a19-765b-4583-beb5-0fb43e3b2e26",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb Roof Elevator No",
+      "GUID": "387511a4-a33b-4c2f-8149-2399907d156d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Ladder",
+              "GUID": "02cffe63-f6ca-4c5f-a5a6-4bad3266b307",
+              "theText": "Une échelle de maintenance permet de monter sur le toit.\r\n\r\n{-} Une figurine située sur l'échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour se déplacer vers l'échelle du Toit.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "13eb6326-f9a1-4a3c-91fa-c3072052647f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof Revealed Climb",
+      "GUID": "59c35f49-1c2a-4f6e-8906-4fe4e1ad2c2b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "{-} Placez votre figurine sur le pion Mission Rebelle bleu. C'est l'échelle du Toit.",
+          "GUID": "f5e2c3da-d5f8-4a9e-92f9-3a89b72fc973",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Un vent violent projette la pluie sur votre visage. Les contours de Coruscant, illuminée de néons, se dessinent autour de vous. Au bord du toit, la navette vous attend. Mais vous n'êtes pas seul. Des ennemis se précipitent vers vous.",
+          "GUID": "af3d9e6c-2d29-49d1-b4ab-6aa6f758fec6",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 1",
+              "GUID": "87ccf23b-3afb-437f-a3dc-4974a590e8ea",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "90349e44-7611-401e-b65f-f8df9f036a74",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "fd8b0790-4b50-47b9-9ddd-8afd47827073",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Getaway Shuttle",
+              "GUID": "cc2895b1-0dfd-4be1-b887-201ec080ab98",
+              "theText": "Les moteurs de la navette vrombissent déjà ; elle prête à partir.\r\n\r\n{-} La première fois qu'une figurine Rebelle entre dans la Navette, cliquez sur \"Entrer\".",
+              "buttonList": [
+                {
+                  "GUID": "296ec509-4e7d-4102-9710-1bea49fe4070",
+                  "theText": "Entrer"
+                }
+              ]
+            }
+          ],
+          "GUID": "3f69f2ca-2fd2-4099-b5f4-e5fc3fc59447",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Les cases bleues en surbrillance représente la Navette. La première fois qu'une figurine Rebelle entre dans la Navette, cliquez sur une des cases de la Navette et sélectionnez \"Entrer\".",
+          "GUID": "02d1a8f2-547c-499b-8e7a-f05fe92b9aac",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof elevator revealed",
+      "GUID": "8d149370-fcf5-493e-bed8-383b7a05d0a1",
+      "eventText": "Sur le côté nord du Toit, un ascenseur est ouvert.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Call elevator first time",
+      "GUID": "116d3f6f-db3d-4cd4-86f9-eb0e783ec41a",
+      "eventText": "Avec un doux bourdonnement, l'ascenseur arrive au Penthouse.\r\n\r\n{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour déplacer l'ascenseur (tuile 33A), et toutes les figurines et pions qui s'y trouvent, vers le Toit. Cliquez sur une des cases vertes en surbrillance et sélectionnez \"Déplacer vers le Toit\".",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Elevator Door",
+              "GUID": "ac8ef46f-33da-447e-a253-f16ad1a3d1ed",
+              "theText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur qui mène au Penthouse.",
+              "buttonList": [
+                {
+                  "GUID": "e12c025d-6627-4abc-91b8-150499791df2",
+                  "theText": "Appeler l'ascenseur"
+                }
+              ]
+            },
+            {
+              "entityName": "Roof Elevator Door",
+              "GUID": "7cb548d3-cbb0-422c-acaa-9c3676cff361",
+              "theText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur qui mène sur le Toit.",
+              "buttonList": [
+                {
+                  "GUID": "0d7ae462-f9c5-4643-84d1-9d983256ba90",
+                  "theText": "Appeler l'ascenseur"
+                }
+              ]
+            }
+          ],
+          "GUID": "44bd9e12-ea61-4416-b9bc-40258e855eaf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof Revealed Elevator",
+      "GUID": "f3f340dd-b33a-44f4-8a04-3ac8a67a4ee5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Penthouse Ladder",
+              "GUID": "6ff5cb75-548c-489d-8482-a44c09556c71",
+              "theText": "Une échelle de maintenance permet de monter sur le toit.\r\n\r\n{-} Une figurine située sur l'échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour se déplacer vers l'échelle du Toit.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "51dc0827-356e-4dc6-88d6-19be99961171",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "ad5f1015-c074-41e8-8324-2ca55750b24c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "d069ce8c-3ffb-40b9-8172-a5243b1d14c5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Un vent violent projette la pluie sur votre visage. Les contours de Coruscant, illuminée de néons, se dessinent autour de vous. Au bord du toit, la navette vous attend. Mais vous n'êtes pas seul. Des ennemis se précipitent vers vous.",
+          "GUID": "164190b0-460d-4f16-81bb-509371739b36",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Getaway Shuttle",
+              "GUID": "0a5b9c18-c31d-4aa4-90b1-17e2c89bb9c9",
+              "theText": "Les moteurs de la navette vrombissent déjà ; elle prête à partir.\r\n\r\n{-} La première fois qu'une figurine Rebelle entre dans la Navette, cliquez sur \"Entrer\".",
+              "buttonList": [
+                {
+                  "GUID": "5f270c19-6578-488c-ac93-fac9adaf9c93",
+                  "theText": "Entrer"
+                }
+              ]
+            }
+          ],
+          "GUID": "a61993e9-1494-4444-ada4-403d7095d9a6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Les cases bleues en surbrillance représente la Navette. La première fois qu'une figurine Rebelle entre dans la Navette, cliquez sur une des cases de la Navette et sélectionnez \"Entrer\".",
+          "GUID": "f4e52685-253a-4a87-8e89-dd379445372b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Roof Objectives",
+      "GUID": "170e9b56-b77c-4538-b74e-89516f8de6f1",
+      "eventText": "",
+      "eventActions": [
+        {
+          "repositionText": "Être adjacent au <b>Sénateur Feralo</b>. Bloquer l'accès à la Navette.",
+          "GUID": "2f3e8841-cf95-4867-8786-3f0adc190678",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Entrer dans la Navette.",
+          "longText": null,
+          "GUID": "03d18282-ef6a-4be8-a810-51f30dd94021",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Le sénateur Feralo est une figurine Rebelle contrôlée par les héros qui ne s'active pas. Le sénateur Feralo ne peut pas subir de {H}. Le sénateur Feralo ne bloque pas la ligne de vue. À la fin de l'activation de chaque héros, le sénateur Feralo gagne 2 points de déplacement. Si une figurine Impériale contrôle le sénateur Feralo, ce dernier est arrêté.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et ne peut utiliser cette action que pour effectuer un déplacement. Les héros neutralisés ne comptent pas pour le contrôle du sénateur Feralo.\r\n{-} Les portes sont verrouillées.\r\n{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur.\r\n{-} Une figurine située sur une échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour se déplacer vers l'autre échelle.\r\n{-} La première fois qu'une figurine Rebelle entre dans la Navette, cliquez sur une des cases de la Navette et sélectionnez \"Entrer\".\r\n{-} La mission évolue quand une figurine Rebelle entre dans la Navette.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés ou quand le sénateur Feralo est arrêté. Quand le sénateur Feralo est arrêté, cliquez sur le pion Mission Impérial et sélectionnez \"Sénateur arrêté\".",
+          "GUID": "aa47a19c-9cb4-41b1-a2d6-1e4946aacf7e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Secure the Shuttle",
+      "GUID": "243bc80e-0db4-4c90-b40f-53dd9caadbe3",
+      "eventText": "\"Pas si vite !\" s'écrie un stormtrooper qui attendait en embuscade. \"Vous n'allez pas vous en tirer aussi facilement, racailles Rebelles !\" La navette est remplie de troupes Impériales !",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Getaway Shuttle",
+              "GUID": "72930a10-ed51-41fd-8907-34b90fa8240d",
+              "theText": "Les moteurs de la navette vrombissent déjà ; elle prête à partir.\r\n\r\n{-} Quand le sénateur Feralo et tous les héros sont sur la Navette et qu'il n'y a plus de figurines Impériales sur la Navette, cliquez sur une des cases de la Navette et sélectionnez \"Décoller\" pour faire décoller cette dernière et remporter la mission.",
+              "buttonList": [
+                {
+                  "GUID": "41cd7558-6640-4447-90cf-97682e37eca0",
+                  "theText": "Décoller"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "4cec999f-7408-4c2e-9073-6913a044e808",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "611b7f67-cea4-42db-9f46-bab7385bede4",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "a42abebb-dba0-4ca8-8551-706bae8fdc8c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "1f7f1a14-0c5a-41bf-a40c-7584c2809528",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Le sénateur Feralo est une figurine Rebelle contrôlée par les héros qui ne s'active pas. Le sénateur Feralo ne peut pas subir de {H}. Le sénateur Feralo ne bloque pas la ligne de vue. À la fin de l'activation de chaque héros, le sénateur Feralo gagne 2 points de déplacement. Si une figurine Impériale contrôle le sénateur Feralo, ce dernier est arrêté.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et ne peut utiliser cette action que pour effectuer un déplacement. Les héros neutralisés ne comptent pas pour le contrôle du sénateur Feralo.\r\n{-} Les portes sont verrouillées.\r\n{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur.\r\n{-} Une figurine située sur une échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour se déplacer vers l'autre échelle.\r\n{-} Quand le sénateur Feralo et tous les héros sont sur la Navette et qu'il n'y a plus de figurines Impériales sur la Navette, cliquez sur une des cases de la Navette et sélectionnez \"Décoller\" pour faire décoller cette dernière.\r\n{-} Les Rebelles gagnent quand la lavette décolle.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés ou quand le sénateur Feralo est arrêté. Quand le sénateur Feralo est arrêté, cliquez sur le pion Mission Impérial et sélectionnez \"Sénateur arrêté\".",
+          "GUID": "ed500348-c954-40b6-b93c-cfe611e2c7c2",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "S'échapper avec la Navette.",
+          "longText": null,
+          "GUID": "c812975a-32b7-490f-b63c-158f2dad876b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "{-} Quand le sénateur Feralo et tous les héros sont sur la Navette et qu'il n'y a plus de figurines Impériales sur la Navette, cliquez sur une des cases de la Navette et sélectionnez \"Décoller\" pour faire décoller cette dernière.\r\n{-} Les Rebelles gagnent quand la lavette décolle.",
+          "GUID": "04a6b2ce-64c8-45bd-b201-fd90c8eec4b1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Les comlinks Impériaux crépitent, mais on peut clairement entendre les troupes qui se précipitent vers le toit.\r\n\r\n{-} Placez toutes les figurines Impériales qui sont dans le Penthouse sur le Toit, en les répartissant aussi équitablement que possible entre l'échelle et les cases adjacentes à la porte de l'ascenseur.\n{-} Ensuite, chaque figurine ainsi déplacée subit 1 {H}, sauf dans le cas où subir 1 {H} signifie que la figurine est vaincue.",
+          "GUID": "7b606ede-3436-40b9-8126-199d4b12bdd2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Être adjacent au <b>Sénateur Feralo</b>. Être sur la Navette.",
+          "GUID": "f01c9de2-5f94-4e5b-bade-021e3a249129",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "915f1fc9-d1d9-428b-bcc5-43cd7bd38ea3",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "eb8d1594-d071-4196-9268-7d7eb5293b11",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "a1268e83-6cfd-4a71-b28b-f55e3e111b9e",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Roof Elevator Door",
+      "GUID": "7b95f341-255f-4ae4-82a3-c1277d92fc1f",
+      "mainText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur qui mène sur le Toit.",
+      "buttonList": [
+        {
+          "GUID": "244aa60d-a399-4efb-913b-82c68d4befa8",
+          "theText": "Appeler l'ascenseur"
+        }
+      ]
+    },
+    {
+      "entityName": "Penthouse Elevator Door",
+      "GUID": "9d070583-3cb6-4843-9317-edd09614ba96",
+      "mainText": "La porte de l'ascenseur est fermée.\r\n\r\n{-} Une figurine adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour appeler l'ascenseur qui mène au Penthouse.",
+      "buttonList": [
+        {
+          "GUID": "5d3424d0-342d-4a90-9d7b-bc34cf80f7e7",
+          "theText": "Appeler l'ascenseur"
+        }
+      ]
+    },
+    {
+      "entityName": "HL Penthouse Elevator",
+      "GUID": "45eb97de-96b4-40a4-b17e-6fe859cf1d51",
+      "mainText": "{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour déplacer l'ascenseur (tuile 33A), et toutes les figurines et pions qui s'y trouvent, vers le Toit.",
+      "buttonList": [
+        {
+          "GUID": "59f931f0-70c9-42a5-bd63-060a01c9dba1",
+          "theText": "Déplacer vers le Toit"
+        }
+      ]
+    },
+    {
+      "entityName": "HL Roof Elevator",
+      "GUID": "d2847ef6-057d-4fc2-800c-00087074f428",
+      "mainText": "{-} Une figurine sur l'ascenseur ou adjacente à la porte de l'ascenseur peut dépenser 2 points de déplacement pour déplacer l'ascenseur (tuile 33A), et toutes les figurines et pions qui s'y trouvent, vers le Penthouse.",
+      "buttonList": [
+        {
+          "GUID": "2335b5a9-2a41-416a-835c-223746c04b63",
+          "theText": "Déplacer vers le Penthouse"
+        }
+      ]
+    },
+    {
+      "entityName": "Penthouse Ladder",
+      "GUID": "2b66deb7-5066-4e18-846b-addbcc08334a",
+      "mainText": "Une échelle de maintenance permet de monter sur le toit.\r\n\r\n{-} Une figurine située sur l'échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour grimper sur le Toit.",
+      "buttonList": [
+        {
+          "GUID": "a781a497-a20c-4d38-9621-7cb22c3ee5e0",
+          "theText": "Grimper sur le Toit"
+        }
+      ]
+    },
+    {
+      "entityName": "Roof Ladder",
+      "GUID": "ce39b028-12f7-4de4-a03e-04bed8eac7dd",
+      "mainText": "Une échelle de maintenance permet de descendre au penthouse.\r\n\r\n{-} Une figurine située sur l'échelle ou adjacente à celle-ci peut dépenser 2 points de déplacement pour se déplacer vers l'échelle du Penthouse.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "a0348b93-ab27-4f83-a024-fc51a1439b5f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Arrest Token",
+      "GUID": "a0c92f24-5cf0-447c-93a2-a5d8f21e669e",
+      "mainText": "{-} Quand le sénateur Feralo est arrêté, cliquez sur le pion Mission Impérial et sélectionnez \"Sénateur arrêté\".",
+      "buttonList": [
+        {
+          "GUID": "06c32136-850f-4a51-b829-23207129f0e2",
+          "theText": "Sénateur arrêté"
+        }
+      ]
+    },
+    {
+      "entityName": "Deploy Feralo",
+      "GUID": "5325ccd2-487f-43ef-8fd5-428fc8bfe7ef",
+      "mainText": "Placer 1 pion Mission neutre ici. C'est le sénateur Feralo.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Energy Shields",
+      "GUID": "bfc794e7-c2ba-43ec-a52f-fa2ae983b661",
+      "mainText": "Placer un pion bouclier d'énergie sur chaque case.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Getaway Shuttle",
+      "GUID": "19ea0644-3db7-4a51-be1d-c1e3123e424f",
+      "mainText": "Les moteurs de la navette vrombissent déjà ; elle prête à partir.\r\n\r\n{-} La première fois qu'une figurine Rebelle entre dans la Navette, cliquez sur \"Entrer\".",
+      "buttonList": [
+        {
+          "GUID": "7f0f7ad9-c3bc-4890-a6b1-d7e3b017099d",
+          "theText": "Entrer"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Probe Droid 2",
+      "GUID": "c2f017df-f10b-4375-89c2-a50148047f3f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 1",
+      "GUID": "248451bc-2b93-4faa-811e-1152a1abb8e2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 2",
+      "GUID": "f13bde19-8985-4944-b913-b3421625fd26",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "32da67c2-e698-427b-a253-ccbe7c82c425",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Shuttle",
+      "GUID": "a9fbd8d1-2108-430f-8a6a-a6a22b917b3f",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Riot Trooper",
+      "customInstructions": ""
+    }
+  ]
+}
