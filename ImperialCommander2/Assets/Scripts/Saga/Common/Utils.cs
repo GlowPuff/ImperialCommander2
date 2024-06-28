@@ -125,13 +125,13 @@ namespace Saga
 			item = item.Replace( "{e}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">e</font></color>" );
 			item = item.Replace( "{s}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">s</font></color>" );
 			item = item.Replace( "{-}", " \u25A0 " );
-			item = item.Replace( "{0}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">0</font></color>" );
-			item = item.Replace( "{1}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">1</font></color>" );
-			item = item.Replace( "{2}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">2</font></color>" );
-			item = item.Replace( "{3}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">3</font></color>" );
-			item = item.Replace( "{4}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">4</font></color>" );
-			item = item.Replace( "{5}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">5</font></color>" );
-			item = item.Replace( "{6}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">6</font></color>" );
+			item = item.Replace( "{0}", "<font=\"ImperialAssaultSymbols SDF\">0</font>" );
+			item = item.Replace( "{1}", "<font=\"ImperialAssaultSymbols SDF\">1</font>" );
+			item = item.Replace( "{2}", "<font=\"ImperialAssaultSymbols SDF\">2</font>" );
+			item = item.Replace( "{3}", "<font=\"ImperialAssaultSymbols SDF\">3</font>" );
+			item = item.Replace( "{4}", "<font=\"ImperialAssaultSymbols SDF\">4</font>" );
+			item = item.Replace( "{5}", "<font=\"ImperialAssaultSymbols SDF\">5</font>" );
+			item = item.Replace( "{6}", "<font=\"ImperialAssaultSymbols SDF\">6</font>" );
 			//if ( item.Contains( "{O}" ) )
 			//{
 			//	item = item.Replace( "{O}", "" );

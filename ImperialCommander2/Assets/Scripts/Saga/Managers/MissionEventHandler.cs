@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using DG.Tweening;
 using UnityEngine;
 
@@ -648,6 +649,18 @@ namespace Saga
 		void MapManagement( MapManagement mm )
 		{
 			Debug.Log( "SagaEventManager()::PROCESSING MapManagement" );
+
+			var tileExpansionTranslatedNames = new Dictionary<string, string>()
+			{
+				{ Expansion.Core.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmCoreTileNameUC}" },
+				{ Expansion.Twin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmTwinTileNameUC}" },
+				{ Expansion.Hoth.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmHothTileNameUC}" },
+				{ Expansion.Bespin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmBespinTileNameUC}" },
+				{ Expansion.Jabba.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmJabbaTileNameUC}" },
+				{ Expansion.Empire.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmEmpireTileNameUC}" },
+				{ Expansion.Lothal.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmLothalTileNameUC}" },
+			};
+
 			//activate map section
 			if ( mm.mapSection != Guid.Empty )
 			{
@@ -679,6 +692,11 @@ namespace Saga
 					}
 				}
 
+				// Replacing tile expansion name with translated name
+				tilesWithCount = tilesWithCount.Select(x => { var name = x.Split(' ')[0]; return tileExpansionTranslatedNames.ContainsKey(name) ? x.Replace(name, tileExpansionTranslatedNames[name]) : x; }).ToList();
+				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
+				tilesWithCount = tilesWithCount.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}") ? x.Replace("} ", "}") : x).ToList();
+
 				var tmsg = string.Join( ", ", tilesWithCount );
 				var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
 				var emsg2 = string.Join( "\n", tiles.Item2 );
@@ -706,6 +724,12 @@ namespace Saga
 			if ( mm.mapSectionRemove != Guid.Empty )
 			{
 				var tiles = FindObjectOfType<SagaController>().tileManager.DeactivateMapSection( mm.mapSectionRemove );
+
+				// Replacing tile expansion name with translated name
+				tiles = tiles.Select(x => { var name = x.Split(' ')[0]; return tileExpansionTranslatedNames.ContainsKey(name) ? x.Replace(name, tileExpansionTranslatedNames[name]) : x; }).ToList();
+				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
+				tiles = tiles.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}") ? x.Replace("} ", "}") : x).ToList();
+
 				FindObjectOfType<TileManager>().CamToSection( mm.mapSectionRemove );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmRemoveTilesUC}:\n\n<color=orange>{string.Join( ", ", tiles )}</color>", () =>
 					{
@@ -717,6 +741,12 @@ namespace Saga
 			{
 				string t = FindObjectOfType<SagaController>().tileManager.ActivateTile( mm.mapTile );
 
+				name = t.Split(' ')[0];
+				// Replacing tile expansion name with translated name
+				t = tileExpansionTranslatedNames.ContainsKey(name) ? t.Replace(name, tileExpansionTranslatedNames[name]) : t;
+				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
+				t = Regex.IsMatch(t, "\\{[0-6]+\\}") ? t.Replace("} ", "}") : t;
+
 				FindObjectOfType<TileManager>().CamToTile( mm.mapTile );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{t}</color>", () =>
 				{
@@ -727,6 +757,12 @@ namespace Saga
 			if ( mm.mapTileRemove != Guid.Empty )
 			{
 				string t = FindObjectOfType<SagaController>().tileManager.DeactivateTile( mm.mapTileRemove );
+
+				name = t.Split(' ')[0];
+				// Replacing tile expansion name with translated name
+				t = tileExpansionTranslatedNames.ContainsKey(name) ? t.Replace(name, tileExpansionTranslatedNames[name]) : t;
+				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
+				t = Regex.IsMatch(t, "\\{[0-6]+\\}") ? t.Replace("} ", "}") : t;
 
 				FindObjectOfType<TileManager>().CamToTile( mm.mapTileRemove );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmRemoveTilesUC}:\n\n<color=orange>{t}</color>", () =>

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -488,6 +489,20 @@ namespace Saga
 						tilesWithCount.Add( item.Tile );
 					}
 				}
+
+				var tileExpansionTranslatedNames = new Dictionary<string, string>()
+				{
+					{ Expansion.Core.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmCoreTileNameUC}" },
+					{ Expansion.Twin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmTwinTileNameUC}" },
+					{ Expansion.Hoth.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmHothTileNameUC}" },
+					{ Expansion.Bespin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmBespinTileNameUC}" },
+					{ Expansion.Jabba.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmJabbaTileNameUC}" },
+					{ Expansion.Empire.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmEmpireTileNameUC}" },
+					{ Expansion.Lothal.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmLothalTileNameUC}" },
+				};
+
+				tilesWithCount = tilesWithCount.Select(x => { var name = x.Split(' ')[0]; return tileExpansionTranslatedNames.ContainsKey(name) ? x.Replace(name, tileExpansionTranslatedNames[name]) : x; }).ToList();
+				tilesWithCount = tilesWithCount.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}") ? x.Replace("} ", "}") : x).ToList();
 
 				var tmsg = string.Join( ", ", tilesWithCount );
 				var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
