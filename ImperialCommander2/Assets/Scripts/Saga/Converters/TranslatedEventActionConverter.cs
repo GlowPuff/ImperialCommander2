@@ -64,6 +64,9 @@ public class TranslatedEventActionConverter : JsonConverter
 				case 21://D6
 					eventActionAction = item.ToObject<TranslatedCustomEnemyDeployment>();
 					break;
+				case 12://GM2
+					eventActionAction = item.ToObject<TranslatedChangeTarget>();
+					break;
 			}
 			eObserver.Add( eventActionAction );
 		}

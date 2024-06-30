@@ -182,6 +182,9 @@ public class TranslatedEvent
 				case EventActionType.D6:
 					eventActions.Add( new TranslatedCustomEnemyDeployment( item ) );
 					break;
+				case EventActionType.GM2:
+					eventActions.Add(new TranslatedChangeTarget(item));
+					break;
 			}
 		}
 	}
@@ -624,6 +627,36 @@ public class TranslatedChangeRepositionInstructions : ITranslatedEventAction//GM
 		var problems = new List<string>();
 
 		repositionText = (loadedEA as TranslatedChangeRepositionInstructions).repositionText;
+
+		return problems;
+	}
+}
+
+public class TranslatedChangeTarget : ITranslatedEventAction//GM2
+{
+	public string otherTarget { get; set; }
+	public Guid GUID { get; set; }
+	public EventActionType eventActionType { get; set; }
+	public string eaName { get; set; }
+
+	public TranslatedChangeTarget()
+	{
+
+	}
+
+	public TranslatedChangeTarget(IEventAction ea)
+	{
+		eaName = ea.displayName;
+		GUID = ea.GUID;
+		eventActionType = ea.eventActionType;
+		otherTarget = ((ChangeReposition)ea).theText;
+	}
+
+	public List<string> Validate(ITranslatedEventAction loadedEA, bool useLooseValidation = false)
+	{
+		var problems = new List<string>();
+
+		otherTarget = (loadedEA as TranslatedChangeTarget).otherTarget;
 
 		return problems;
 	}

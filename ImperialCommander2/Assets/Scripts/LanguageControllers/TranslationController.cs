@@ -220,6 +220,13 @@ namespace Saga
 											customEnemyDeployment.enemyGroupData.customText = translatedCustomEnemyDeployment.customText;
 											customEnemyDeployment.enemyGroupData.cardName = translatedCustomEnemyDeployment.cardName;
 											break;
+
+										case EventActionType.GM2:
+											ChangeTarget changeTarget = missionEA as ChangeTarget;
+											TranslatedChangeTarget translatedChangeTarget = translatedEA as TranslatedChangeTarget;
+
+											changeTarget.otherTarget = translatedChangeTarget.otherTarget;
+											break;
 									}
 								}
 							}
