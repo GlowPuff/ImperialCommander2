@@ -1,0 +1,769 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Cible de choix",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Extension \"Greedo (Mercenaire Ambitieux)\"",
+    "startingObjective": "",
+    "repositionOverride": "Être sur ou adjacent au terminal le plus proche avec le moins de figurines Impériales qui soient déjà dessus ou adjacentes.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "d6af50fe-1ae6-46a2-a8c6-deda92401a00",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "e1b4acce-78aa-4c2d-b9a5-33a09f2067a0",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "2b734f99-6b41-4200-a9b6-15d9ef30f63a",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "En rejoignant ce que vous pensiez être une zone Rebelle sûre, vous entendez des explosions et des bruits de pas précipités tandis que le tunnel se referme derrière vous.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Trap Door Locked",
+              "GUID": "fb61ad16-2644-4477-a0ab-52179b914467",
+              "theText": "La trappe est verrouillée.\r\n\r\n{-} Quand le héros marqué est blessé, cliquez sur \"Cible blessée\".",
+              "buttonList": [
+                {
+                  "GUID": "fb32ec5b-25b2-42d7-b42e-37c8468910e9",
+                  "theText": "Cible blessée"
+                }
+              ]
+            }
+          ],
+          "GUID": "883816ee-03d5-4cfe-84f1-aec25d6b0d35",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Le pion Mission Impérial représente la trappe verrouillée.",
+          "GUID": "a7ddc621-8198-42e0-a364-6f0c513fbf5f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Les Impériaux et les chasseurs arrivent en trombe. L'un d'eux vous désigne et grogne : \"Celui-là.\"\r\n\r\n{-} Le héros choisi devient le héros marqué. Si l'application a choisi un allié comme marqué, le héros le plus proche de cet allié devient le héros marqué.\r\n{-} Les figurines Impériales ne peuvent pas déclarer d'attaques ciblant le héros marqué s'il est adjacent à une figurine Rebelle indemne. Dans ce cas, l'attaque cible la figurine Rebelle indemne la plus proche.",
+          "GUID": "a4e8bdaf-5712-4ebd-b126-c99547d1b1c4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Vous devez sortir. Mais pour sortir, il faut ouvrir la trappe. Peut-être que les consoles informatiques de la zone contiennent des bouts du code permettant d'ouvrir la trappe.\r\n\r\n{-} Un héros peut interagir avec un terminal pour effectuer un test d'attribut basé sur la couleur du terminal et essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci. Terminaux bleus : {I} ou {J}; terminaux rouges : {I} ou {K}.\r\n{-} La mission évolue quand tous les bouts du code ont été téléchargés.\r\n{-} Les Rebelles perdent quand le héros marqué est blessé. Dans ce cas, cliquez sur la trappe et sélectionnez \"Cible blessée\".",
+          "GUID": "43965ab4-3bcc-4488-8ef3-1e7c0d3cf778",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Trouver les consoles et télécharger les bouts du code (&Terminals&/4).",
+          "longText": null,
+          "GUID": "8859bf5e-e743-49ac-97ac-79eb07537a3e",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Les figurines Impériales ne peuvent pas déclarer d'attaques ciblant le héros marqué s'il est adjacent à une figurine Rebelle indemne. Dans ce cas, l'attaque cible la figurine Rebelle indemne la plus proche.\r\n{-} Un héros peut interagir avec un terminal pour effectuer un test d'attribut basé sur la couleur du terminal et essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci. Terminaux bleus : {I} ou {J}; terminaux rouges : {I} ou {K}.\r\n{-} Le pion Mission Impérial représente la trappe verrouillée.\r\n{-} La mission évolue quand tous les bouts du code ont été téléchargés.\r\n{-} Les Rebelles perdent quand le héros marqué est blessé. Dans ce cas, cliquez sur la trappe et sélectionnez \"Cible blessée\".",
+          "GUID": "7635633b-004a-4029-8e46-99583a01e952",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Vous saisissez le code pour ouvrir la trappe. Vous vous glissez dans le tunnel avec les tirs de blaster qui vous sifflent aux oreilles et verrouillez le passage derrière vous. Après quelques instants passés à reprendre votre souffle, vous éclatez de rire en pensant que vous avez une fois de plus échappé à vos poursuivants.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 200 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Greedo et ses chasseurs de primes encerclent leur proie. Puis ils poussent leur prisonnier dans un transport de stormtroopers en vous tenant à distance à coups de blaster, Le commandement finit par organiser une mission de sauvetage coûteuse, mais votre ami en ressort visiblement secoué.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} L'Empire reçoit <color=\"red\">Greedo</color> (Mercenaire Ambitieux) en tant qu'antagoniste.\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Attempt Terminal Blue 1",
+      "GUID": "e75ddb61-032a-466c-8aa2-7cf2813fe3d6",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Sans perdre de temps, vous vous mettez au travail sur le terminal.\r\n\r\n{-} Effectuez un test {J} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "4bd09c0b-b1b5-4be5-a928-9a2601246b09",
+              "theText": "Vous ne faites aucun progrès. Vous devez continuer à essayer."
+            },
+            {
+              "GUID": "fcec4778-84b3-4cd5-985d-e5a8c2341eb9",
+              "theText": null
+            }
+          ],
+          "GUID": "f581f6bd-cd6c-4c29-b1d2-43683a8ad1e6",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Terminal Blue 1",
+      "GUID": "2a66c9e1-903e-4988-9971-cec9fed690c8",
+      "eventText": "Vous parvenez à télécharger un bout du code.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Blue 1",
+              "GUID": "41606963-596f-4362-ae27-a6fd2e6f7942",
+              "theText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {J}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+              "buttonList": [
+                {
+                  "GUID": "56859cdd-829e-4d13-a8b0-c5e04f4a5b34",
+                  "theText": "{A} Télécharger le code"
+                }
+              ]
+            }
+          ],
+          "GUID": "3c9e19c4-67ae-4fad-94cf-3d96300b9bd2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Terminal Blue 2",
+      "GUID": "53e6be72-98ed-4e99-8cfa-4e128cde3a42",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Sans perdre de temps, vous vous mettez au travail sur le terminal.\r\n\r\n{-} Effectuez un test {J} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d4cab2d7-4049-4ae2-bb63-12aaa04fb42a",
+              "theText": "Vous ne faites aucun progrès. Vous devez continuer à essayer."
+            },
+            {
+              "GUID": "67dfc81e-b026-4a93-b9ec-61f445073973",
+              "theText": null
+            }
+          ],
+          "GUID": "05148dd0-c84f-4204-b266-ee01cc5b6059",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Terminal Blue 2",
+      "GUID": "6e21d9d7-e174-4cd2-bdb2-3ca034b33a98",
+      "eventText": "Vous parvenez à télécharger un bout du code.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Blue 2",
+              "GUID": "beb20dec-d756-43e0-84da-b5fceebde7fd",
+              "theText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {J}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+              "buttonList": [
+                {
+                  "GUID": "e5144ad9-d062-4d6d-bb30-8109da8a58ee",
+                  "theText": "{A} Télécharger le code"
+                }
+              ]
+            }
+          ],
+          "GUID": "2f169bff-6aa5-4ac0-9262-d5337c7df87d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Terminal Red 1",
+      "GUID": "55824684-388c-439c-a9e1-ea9ff347c40c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Sans perdre de temps, vous vous mettez au travail sur le terminal.\r\n\r\n{-} Effectuez un test {K} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d424d464-88eb-40a0-81ef-aadbd0ad1b6f",
+              "theText": "Vous ne faites aucun progrès. Vous devez continuer à essayer."
+            },
+            {
+              "GUID": "a215a86d-19f7-4d8f-98da-0b37f6c80c1b",
+              "theText": null
+            }
+          ],
+          "GUID": "8fb2339e-1538-4204-a35c-c68d600047d2",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Terminal Red 1",
+      "GUID": "0bb08edd-8a15-4961-bb30-0521faac3e70",
+      "eventText": "Vous parvenez à télécharger un bout du code.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red 1",
+              "GUID": "599af357-3695-4625-95ae-5d9612a6ef36",
+              "theText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {K}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+              "buttonList": [
+                {
+                  "GUID": "24e36083-5285-4152-8401-e6d8cd8cdf62",
+                  "theText": "{A} Télécharger le code"
+                }
+              ]
+            }
+          ],
+          "GUID": "de584d30-c9f9-410d-829d-ab064ef2522a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Terminal Red 2",
+      "GUID": "66f78386-1ea1-42d5-a0e9-336acdd57396",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Sans perdre de temps, vous vous mettez au travail sur le terminal.\r\n\r\n{-} Effectuez un test {K} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "54055344-e1ff-4ac9-a028-96348d53816a",
+              "theText": "Vous ne faites aucun progrès. Vous devez continuer à essayer."
+            },
+            {
+              "GUID": "7c3c40f5-d28a-4c3a-86d6-1a25b9a2919e",
+              "theText": null
+            }
+          ],
+          "GUID": "c50eb16e-43d3-433d-97d0-f9f5b1784057",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Terminal Red 2",
+      "GUID": "00ac2a95-2853-4f6c-86d7-e4ecbc300d14",
+      "eventText": "Vous parvenez à télécharger un bout du code.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Red 2",
+              "GUID": "2e9e69c0-9816-41cc-b409-bf023ac0102a",
+              "theText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {K}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+              "buttonList": [
+                {
+                  "GUID": "46cd4575-6874-4663-85ac-cfe6b4fa23b4",
+                  "theText": "{A} Télécharger le code"
+                }
+              ]
+            }
+          ],
+          "GUID": "6031fd04-982b-4a34-be7b-48035737b5c4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Ambition",
+      "GUID": "11089a48-b30a-4845-a5cf-883386f9586f",
+      "eventText": "Vous apercevez du mouvement, et de l'ombre émerge un Rodien à la peau verte, un blaster à la main. \"Oot wan ka noota,\" dit-il. Il est sur le point de découvrir que vous n'êtes pas une <i>prime</i> si facile que çà à avoir.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "{-} Quand cette figurine déclare une attaque prenant pour cible le héros marqué, appliquez +1 {H} aux résultats de l'attaque.",
+          "modification": "+*1* Santé",
+          "repositionInstructions": "",
+          "GUID": "048fdc42-9551-46ec-bdb9-61bf2de422b8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG090/Greedo"
+        }
+      ]
+    },
+    {
+      "eventName": "Surrounded",
+      "GUID": "8a3e17dd-76bb-4f32-9e6f-002b3c64c9cf",
+      "eventText": "La panique s'installe de plus en plus autour de vous. Le temps presse.\r\n\r\n{-} L'Empire reçoit de la {D} supplémentaire au début de chaque phase de Statut.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Surrounded Repeat",
+      "GUID": "fa3570e5-4f48-477c-abe1-cebaae42b5b4",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Cantina Door N",
+      "GUID": "ed4ebe21-8f5b-4ec3-ac26-05dfb9f3a678",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door N",
+              "GUID": "1fbcecc6-bd41-47f3-9b7d-2076eea80c64",
+              "theText": "De la musique et des voix se font entendre derrière la porte de la cantina.",
+              "buttonList": [
+                {
+                  "GUID": "73e7e165-8aac-4a09-b54c-ce83157be633",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "c8886f32-346f-4246-98a2-0daea41feaf7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Cantina Door W",
+      "GUID": "d7a2e2e2-dacc-44d1-8f72-5c996a49a31e",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door W",
+              "GUID": "2da59354-5884-4a84-b20e-6e0d878f2943",
+              "theText": "De la musique et des voix se font entendre derrière la porte de la cantina.",
+              "buttonList": [
+                {
+                  "GUID": "8642a5fc-5666-4c86-b93f-dd0d9aacb0f3",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "a96bda2b-6989-430a-8850-56ca9e1e046a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Cantina Door S",
+      "GUID": "397db23b-41de-41e0-a728-f19eca731517",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door S",
+              "GUID": "e4b6b874-6ff6-4b12-9fb3-d6c080d457e0",
+              "theText": "De la musique et des voix se font entendre derrière la porte de la cantina.",
+              "buttonList": [
+                {
+                  "GUID": "84144fe7-29c9-49cd-b524-7be24a3ed05f",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "5a275cf7-cbb3-473b-8fb2-9060083a3802",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Inciting Panic",
+      "GUID": "153b3b25-bd1e-4487-a667-29dfd56e3f86",
+      "eventText": "Vous vous introduisez dans la cantina à la recherche des commandes qui vous permettront de vous enfuir par le tunnel secret emprunté à l'aller. Les chasseurs de primes qui vous pourchassent vous tirent dessus à coups de blaster en poussant brutalement les clients.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Inciting Panic 1",
+      "GUID": "fea08608-4a1e-4a5c-bf6c-3b97de1d83db",
+      "eventText": "Les cris, le bruit et la panique des clients rendent la concentration presque impossible.\r\n\r\n{-} Quand une figurine de la Cantina (tuile CORE 21B) effectue un test, appliquez -1 {B} aux résultats.",
+      "eventActions": [
+        {
+          "theText": "{-} Les figurines Impériales ne peuvent pas déclarer d'attaques ciblant le héros marqué s'il est adjacent à une figurine Rebelle indemne. Dans ce cas, l'attaque cible la figurine Rebelle indemne la plus proche.\r\n{-} Un héros peut interagir avec un terminal pour effectuer un test d'attribut basé sur la couleur du terminal et essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci. Terminaux bleus : {I} ou {J}; terminaux rouges : {I} ou {K}.\r\n{-} Quand une figurine de la Cantina (tuile CORE 21B) effectue un test, appliquez -1 {B} aux résultats.\r\n{-} Le pion Mission Impérial représente la trappe verrouillée.\r\n{-} La mission évolue quand tous les bouts du code ont été téléchargés.\r\n{-} Les Rebelles perdent quand le héros marqué est blessé. Dans ce cas, cliquez sur la trappe et sélectionnez \"Cible blessée\".",
+          "GUID": "8b42e002-0595-4992-8838-e60a7bd26c56",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Inciting Panic 2",
+      "GUID": "b69a4e77-41ac-4270-b675-41f36f4c98a5",
+      "eventText": "Les clients paniqués sortent en trombe de la cantina, vous piétinant au passage.\r\n\r\n{-} La figurine qui a ouvert la porte subit 4 {C}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Inciting Panic 3",
+      "GUID": "58de5fad-837f-43d4-ad70-62b04ce86c76",
+      "eventText": "Les clients paniqués sortent en trombe de la cantina ; vous êtes emportés par le mouvement de foule.\r\n\r\n{-} Poussez la figurine qui a ouvert la porte de 3 cases, de sorte à l'éloigner de la cantina.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Dead End",
+      "GUID": "732d6fd5-bba1-4fd5-9f00-325590c1aab0",
+      "eventText": "La porte s'ouvre pour révéler une grande et ancienne salle de stockage.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Storage Door",
+              "GUID": "e2f496dd-9ca6-4c11-9ced-45a6ba283aeb",
+              "theText": "Une porte rouillée mène à ce qui semble être une salle de stockage.",
+              "buttonList": [
+                {
+                  "GUID": "10df8e22-9743-4966-9c05-dd6a9a1d1267",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "5e8b8da7-9122-4ac6-b49d-9894ff2a747f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Les ennemis vous attendent déjà à l'intérieur.",
+          "GUID": "6fd412f4-5a8c-45ce-a07c-e41608744dc1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "All Data Downloaded",
+      "GUID": "e885f48f-93f8-4ba8-8360-04885d0358a4",
+      "eventText": "Vous parvenez à reconstituer le code de la trappe. Il ne vous reste plus qu'à vous enfuir.\r\n\r\n{-} Le pion Mission Rebelle représente la trappe déverrouillée.\r\n{-} Le héros marqué peut s'échapper par la trappe. Dans ce cas, cliquez sur la trappe et sélectionnez \"La cible s'échappe\".\r\n{-} Les Rebelles gagnent quand le héros marqué s'échappe.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Trap Door Locked",
+              "GUID": "d04dea44-010e-43d5-9c4d-a6d6ae7035eb",
+              "theText": "La trappe est verrouillée.\r\n\r\n{-} Quand le héros marqué est blessé, cliquez sur \"Cible blessée\".",
+              "buttonList": [
+                {
+                  "GUID": "a5ee9cd3-5a03-4fec-8b14-57def35f8de9",
+                  "theText": "Cible blessée"
+                }
+              ]
+            },
+            {
+              "entityName": "Trap Door Open",
+              "GUID": "4a3edb7e-64b4-42a2-9da8-22f2c9c292f0",
+              "theText": "Maintenant que vous avez trouvé le code, vous pouvez enfin ouvrir l'issue de secours.\r\n\r\n{-} Quand le héros marqué est blessé, cliquez sur \"Cible blessée\".\r\n{-} Le héros marqué peut s'échapper par la trappe. Dans ce cas, cliquez sur la trappe et sélectionnez \"La cible s'échappe\".",
+              "buttonList": [
+                {
+                  "GUID": "e4e4d75a-b0de-4c4d-ae54-2156a4a58f52",
+                  "theText": "Cible blessée"
+                },
+                {
+                  "GUID": "9e0b9876-45e7-4513-a3b9-6646d52c2afc",
+                  "theText": "La cible s'échappe"
+                }
+              ]
+            }
+          ],
+          "GUID": "b3530f09-dc8e-47f9-b35c-a49e9dfba3b9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquer l'accès à la trappe.",
+          "GUID": "7161a2fe-f556-4f8f-b031-610b09c3f956",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Aider le héros marqué à s'échapper.",
+          "longText": null,
+          "GUID": "a6f8e2cc-433a-4cab-aded-0923c0490b11",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Le pion Mission Rebelle représente la trappe déverrouillée.\r\n{-} Le héros marqué peut s'échapper par la trappe. Dans ce cas, cliquez sur la trappe et sélectionnez \"La cible s'échappe\".\r\n{-} Les Rebelles gagnent quand le héros marqué s'échappe.\r\n{-} Les Rebelles perdent quand le héros marqué est blessé. Dans ce cas, cliquez sur la trappe et sélectionnez \"Cible blessée\".",
+          "GUID": "4511b4fe-7329-4702-aadf-c45127c16886",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "a6d164f0-ec98-4001-80bd-d19c93f42381",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "02b8c5a6-b77c-4268-8f57-6ad7c9ec7ebd",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer 1",
+      "GUID": "f23c1a7c-fd35-40f3-a234-6a319e3789b2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer 2",
+      "GUID": "6f675479-908c-4e75-8422-7418d2dce023",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "2d8495be-14d7-400e-8bcd-332b5f8833e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "4b267540-7b57-4b10-b131-f5ba178d9977",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cantina Door N",
+      "GUID": "1368ddaa-5ea0-42dd-b0ad-76163539d64c",
+      "mainText": "De la musique et des voix se font entendre derrière la porte de la cantina.",
+      "buttonList": [
+        {
+          "GUID": "b9be95ae-779a-4d92-abe7-dc615eca93b2",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Cantina Door W",
+      "GUID": "be167455-9e12-45e7-a4d8-d6d429ea2f27",
+      "mainText": "De la musique et des voix se font entendre derrière la porte de la cantina.",
+      "buttonList": [
+        {
+          "GUID": "ea87d0ea-edd9-4de1-9258-1e92efd82c47",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Cantina Door S",
+      "GUID": "3896bc47-0b3d-43f1-88ec-8afebf9ef4ef",
+      "mainText": "De la musique et des voix se font entendre derrière la porte de la cantina.",
+      "buttonList": [
+        {
+          "GUID": "1875b74f-0f47-4979-800b-3de4dabc4dc1",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Storage Door",
+      "GUID": "924286a9-bb61-4478-86d8-55bf1a36509f",
+      "mainText": "Une porte rouillée mène à ce qui semble être une salle de stockage.",
+      "buttonList": [
+        {
+          "GUID": "71fedd7d-eb41-4b25-aa7f-a9aed42258b7",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Blue 1",
+      "GUID": "56fe6313-fe43-483b-afa4-3281085e66e2",
+      "mainText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {J}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+      "buttonList": [
+        {
+          "GUID": "9e47ee97-6477-41f2-86aa-ac536b59337e",
+          "theText": "{A} Télécharger le code"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Blue 2",
+      "GUID": "8257ce90-3ccc-4a5e-bcf9-83c41689d487",
+      "mainText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {J}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+      "buttonList": [
+        {
+          "GUID": "a48d9615-46d4-4d67-b8f1-f692c16888ae",
+          "theText": "{A} Télécharger le code"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Red 1",
+      "GUID": "e05d24e0-0f43-4a41-8f4a-42e9aa48dd81",
+      "mainText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {K}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+      "buttonList": [
+        {
+          "GUID": "44d73ad8-d438-44be-a929-2abcf1d756ae",
+          "theText": "{A} Télécharger le code"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Red 2",
+      "GUID": "144b8307-24af-4773-81c2-3c1a4f963208",
+      "mainText": "L'ancienne console d'ordinateur pourrait contenir un bout du code permettant de déverrouiller la trappe, votre issue de secours.\r\n\r\n{-} Un héros peut interagir avec le terminal ({I} ou {K}) pour essayer de télécharger un bout du code. Appliquez -1 {B} aux résultats du test s'il y a au moins 1 figurine Impériale sur le terminal ou adjacente à celui-ci.",
+      "buttonList": [
+        {
+          "GUID": "c5e399e1-dfd8-403f-8d18-3e5f9fdb0a7b",
+          "theText": "{A} Télécharger le code"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "8b502450-a1df-4cb0-9cd4-c9412392ecff",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Trap Door Locked",
+      "GUID": "fa2be1d7-0fb3-409c-8daa-ba3697be792d",
+      "mainText": "La trappe est verrouillée.\r\n\r\n{-} Quand le héros marqué est blessé, cliquez sur \"Cible blessée\".",
+      "buttonList": [
+        {
+          "GUID": "a5e7f0d7-e9ad-48ae-ac55-b1c5224a3e4b",
+          "theText": "Cible blessée"
+        }
+      ]
+    },
+    {
+      "entityName": "Trap Door Open",
+      "GUID": "65e87d57-cf1f-4151-b460-25d369c16178",
+      "mainText": "Maintenant que vous avez trouvé le code, vous pouvez enfin ouvrir l'issue de secours.\r\n\r\n{-} Quand le héros marqué est blessé, cliquez sur \"Cible blessée\".\r\n{-} Le héros marqué peut s'échapper par la trappe. Dans ce cas, cliquez sur la trappe et sélectionnez \"La cible s'échappe\".",
+      "buttonList": [
+        {
+          "GUID": "4b522f3a-f793-433c-93da-162768b0248d",
+          "theText": "Cible blessée"
+        },
+        {
+          "GUID": "49c94068-cba1-444c-a979-256363451473",
+          "theText": "La cible s'échappe"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}
