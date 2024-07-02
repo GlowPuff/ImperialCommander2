@@ -1,0 +1,946 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Insidieux",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Extension \"Empereur Palpatine (Maître Sith)\"",
+    "startingObjective": "",
+    "repositionOverride": "Bloquer l'accès aux terminaux.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "21112951-6b62-4718-88c1-8b90c1770054",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "1e222f2f-a82f-4e35-b579-e8eef03bcc81",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "3ed84889-e4b7-4ef9-9f04-e5e0a4763997",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Vous infiltrez une installation du BSI de Coruscant en quête d'informations concernant les agents doubles à l'œuvre au sein du réseau Rebelle. Alors que vous vous frayez un chemin dans le complexe, vous avez le sentiment d'être observés, comme si une ombre planait sur votre esprit.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.",
+      "eventActions": [
+        {
+          "tbText": "Les portes menant à l'installation sont verrouillées, mais vous pouvez voir les consoles de sécurité qui protègent les serrures.",
+          "GUID": "5be3ea80-6ee8-49e9-be06-e86aa51c03a2",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "f68277c6-6600-4ac1-a688-6cd59a72d9dc",
+              "theText": "La console de sécurité bourdonne doucement et ses lumières clignotent.\r\n\r\n{-} Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Durant le test, cette figurine peut subir 1 {C} pour relancer 1 dé.",
+              "buttonList": [
+                {
+                  "GUID": "0744a514-b60a-43f4-a436-8c194f03029b",
+                  "theText": "{A} Désactiver une serrure"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 2",
+              "GUID": "76e1b698-d20e-420e-9aaf-dd9583901d5a",
+              "theText": "La console de sécurité bourdonne doucement et ses lumières clignotent.\r\n\r\n{-} Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Durant le test, cette figurine peut subir 1 {C} pour relancer 1 dé.",
+              "buttonList": [
+                {
+                  "GUID": "55d70d9a-ca91-4f54-a31d-6084e0eb4e09",
+                  "theText": "{A} Désactiver une serrure"
+                }
+              ]
+            }
+          ],
+          "GUID": "7b9fb180-4448-4cfd-8cca-916f22e3e418",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Durant le test, cette figurine peut subir 1 {C} pour relancer 1 dé.\r\n{-} Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.",
+          "GUID": "e73a1bdb-5f9e-403d-ace8-6d054bc8164a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Highlight",
+              "GUID": "21b40eac-4185-426a-ba5f-3c188656525d",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "4b174b65-91cc-42c3-93a0-5e83b5b165b4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Le piège se referme subitement. {rebel} est saisi(e) par les deux bras et tiré(e) vers l'avant par quelques soldats et leur commandant.\r\n\r\n{-} Placez {rebel} sur la case rouge en surbrillance. {rebel} subit 1 {C} et devient <color=\"red\">Affaibli(e)</color>.",
+          "GUID": "cd3b80c3-a696-4647-9848-c2c167c52640",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "1def4899-fa20-434b-bcc9-fe18fe685098",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "bb4868d0-c279-4e2c-b900-882063f00352",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "tbText": "Vous vous précipitez pour aider votre ami.\r\n\r\n{-} La mission évolue quand une porte s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "1ec88bb1-e225-459a-9ecb-619a5defd06e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Highlight",
+              "GUID": "9c4c59c2-49ab-4900-9a1a-c4a1bb8a8f31",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "78847550-a77c-42d5-a93a-3b8b9579060f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Désactiver les serrures des portes.",
+          "longText": null,
+          "GUID": "ee405eaf-8ea6-44ea-98af-affa7d00ab61",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Durant le test, cette figurine peut subir 1 {C} pour relancer 1 dé.\r\n{-} Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.\r\n{-} La mission évolue quand une porte s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "cba778fd-bba6-4f94-b7aa-bb1266388f0f",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Vous parvenez tout juste à regagner votre vaisseau et examinez de plus près les données que vous avez récupérées. Vous savez désormais que l'Empereur en personne est impliqué dans cette vague de défections. Reste à savoir comment et pourquoi.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 200 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Le rire rauque de l'Empereur vous pourchasse alors que vous quittez l'installation. Bien que vous n'ayez pas réussi à découvrir l'identité de l'agent double, vous savez au moins que l'Empereur est personnellement impliqué.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} L'Empire reçoit l'<color=\"red\">Empereur Palpatine</color> (Maître Sith) en tant qu'antagoniste.\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious 1",
+      "GUID": "4fa62445-6655-4181-afd2-3e6c4c1f4e4d",
+      "eventText": "{-} {rebel} subit 1 {H} et gagne 1 {h}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious 2",
+      "GUID": "12dcfefe-a09e-415e-9933-ef444c3f5761",
+      "eventText": "{-} La figurine Rebelle avec le moins de Santé restante subit 1 {H} et gagne 1 {h}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious 3",
+      "GUID": "c956b9ee-b69d-419e-98fe-441d309bf3cf",
+      "eventText": "{-} Le héros avec le moins de Santé restante subit 1 {H} et gagne 1 {h}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious 4",
+      "GUID": "ab614006-29e9-4c35-b958-1f39252764ec",
+      "eventText": "{-} Le héros avec le plus de {e} subit 1 {H} et gagne 1 {h}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious 5",
+      "GUID": "3eb5b9c4-61a3-456b-985b-14340f422a1d",
+      "eventText": "{-} La figurine Impériale avec le plus de Santé restante subit 1 {H} et gagne 1 {h}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious Trigger 0",
+      "GUID": "3eebd4c8-b4e6-435e-9105-3fddb69eb76c",
+      "eventText": "Une tempête de colère et de haine ravage votre esprit et celui de vos ennemis.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious Trigger 1",
+      "GUID": "6da91b24-fa06-4071-8f56-87b2b6e25970",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious Trigger 2",
+      "GUID": "08980a7c-82e0-4902-b3ab-debb440809ba",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Insidious Trigger 3",
+      "GUID": "ff73d780-6361-48e5-bcf1-f5c518f92f3a",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Attempt Door Lock 1",
+      "GUID": "6adff843-9db0-419f-94d2-d447fecfbe6a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à pirater le terminal, en essayant de désactiver les serrures des portes.\r\n\r\n{-} Effectuez un test {J} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Durant ce test, cette figurine peut subir 1 {C} pour relancer 1 dé. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "7094e845-4f61-4782-81c5-3abef7b253ad",
+              "theText": "Vous ne faites aucun progrès. Vous devez continuer à essayer."
+            },
+            {
+              "GUID": "def47db3-6a0a-445a-b896-ee777e229d97",
+              "theText": null
+            }
+          ],
+          "GUID": "8f5574a7-04de-49ce-8e7a-29c28848bc22",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Door Lock 1",
+      "GUID": "fc771302-0565-4174-9aa9-f90210c666e1",
+      "eventText": "Vous entendez l'une des lourdes serrures glisser sur les portes.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "d32b437c-5eeb-4a3c-9a22-7f5825510c3f",
+              "theText": "La console de sécurité bourdonne doucement et ses lumières clignotent.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "5065d1ae-1842-4fad-bfa8-19eb5e59bbdc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Door Lock 2",
+      "GUID": "69b47948-bc31-4638-ad48-6087a7083228",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à pirater le terminal, en essayant de désactiver les serrures des portes.\r\n\r\n{-} Effectuez un test {J} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Durant ce test, cette figurine peut subir 1 {C} pour relancer 1 dé. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "3f5f639e-6d76-4e3a-aa71-d2a5eef90089",
+              "theText": "Vous ne faites aucun progrès. Vous devez continuer à essayer."
+            },
+            {
+              "GUID": "64803ee6-8afe-4868-9d78-68afb906a292",
+              "theText": null
+            }
+          ],
+          "GUID": "e995b4bd-f93b-4f17-a07a-b7ee80e21f85",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Success Door Lock 2",
+      "GUID": "cf5a0cb1-6023-4b97-9e00-4430cf2c355e",
+      "eventText": "Vous entendez l'une des lourdes serrures glisser sur les portes.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 2",
+              "GUID": "4e4368e3-f514-4d81-8550-c4aa080366a3",
+              "theText": "La console de sécurité bourdonne doucement et ses lumières clignotent.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "4f332f01-dde8-4c1d-9e41-dfc47aec0801",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Doors unlocked",
+      "GUID": "6a7a665b-0848-453c-b0f6-66c29c71e0da",
+      "eventText": "Maintenant que vous avez déverrouillé les portes, vous pouvez entrer librement dans le bureau du BSI.\r\n\r\n{-} Les portes sont maintenant déverrouillées.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "2b980591-92d8-4e62-addf-d476c9ef0c2f",
+              "theText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.",
+              "buttonList": [
+                {
+                  "GUID": "e45e78e7-4e71-4dd5-b44b-c44540d237da",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "f4b05fcc-40f1-426e-be83-045a0e4a261a",
+              "theText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.",
+              "buttonList": [
+                {
+                  "GUID": "73fcbf2e-7d28-4c05-aef5-b9ac4a43433a",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "62b7b846-9609-4e32-bc27-7369e6cb6f47",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquer l'accès aux portes.",
+          "GUID": "6cbd7141-85cd-4c86-97f6-f7533215a413",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Entrer dans le bureau du BSI.",
+          "longText": null,
+          "GUID": "f14b5418-c433-4fa1-8b18-cc832544b94b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La mission évolue quand une porte s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "70ae0a77-e9fb-4c3c-8cef-707d5652401e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Guarded",
+      "GUID": "69f528d3-af4e-427f-b612-46e47b89be38",
+      "eventText": "Derrière les portes se trouve un bureau spacieux, inondé de lumière. Il est dominé par un grand bureau central. Malgré la beauté de l'intérieur, quelque chose ne tourne pas rond, et vous ne pouvez pas vous débarrasser du sentiment d'effroi qui vous saisit.",
+      "eventActions": [
+        {
+          "tbText": "Des gardes en armure écarlate se tiennent de chaque côté du bureau, leurs piques de force bourdonnant de puissance.",
+          "GUID": "1e770c10-e186-4cce-a87e-7c69863888bc",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a9d7af8b-ad2e-4a81-8c6f-94bf93ef2a3a",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        },
+        {
+          "tbText": "Le bureau derrière les gardes est encombré de documents et de puces de données. Vous y trouverez forcément quelque chose d'important.",
+          "GUID": "e3b0fa9a-aa42-4196-a37b-f7358b21720a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Records",
+              "GUID": "acb9be92-34db-45e7-aa6d-3a8f185f5d2c",
+              "theText": "Le bureau est encombré de documents et de puces de données. Vous y trouverez forcément quelque chose d'important.\r\n\r\n{-} Un héros peut interagir avec le pion Mission neutre ({J}) pour essayer de trouver les données. Durant le test, ce héros peut subir 1 {C} pour relancer 1 dé.",
+              "buttonList": [
+                {
+                  "GUID": "1bdbeca6-ccb8-41bc-ba7f-025cb15bcca2",
+                  "theText": "{A} Rechercher"
+                }
+              ]
+            }
+          ],
+          "GUID": "af5fe0d4-37cf-4cd1-982d-593d388e3117",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Un héros peut interagir avec le pion Mission neutre ({J}) pour essayer de trouver les données. Durant le test, ce héros peut subir 1 {C} pour relancer 1 dé.\r\n{-} La mission évolue quand un héros trouve les données.",
+          "GUID": "594d6c28-bc28-42cf-ad81-194e08ec86d3",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquer l'accès aux données.",
+          "GUID": "4754d0e4-a2d4-4fd6-80ac-796c4da351fe",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Trouver les données.",
+          "longText": null,
+          "GUID": "c955165c-45ae-4a97-a7ef-007b76d36f99",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Un héros peut interagir avec le pion Mission neutre ({J}) pour essayer de trouver les données. Durant le test, ce héros peut subir 1 {C} pour relancer 1 dé.\r\n{-} La mission évolue quand un héros trouve les données.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "d02e2993-1a07-4452-80da-cc8c60871f71",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 1 Opens",
+      "GUID": "6d1c599f-0535-408c-b342-4ce11617e862",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "de4e405b-d347-4c1a-b1ab-d80eaaad7efa",
+              "theText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.\r\n\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "76c4457d-838d-4916-a170-ba146e854797",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 Opens",
+      "GUID": "8125b3bd-ef1d-4cbd-8644-85920f301973",
+      "eventText": "La porte s'ouvre en coulissant.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "a707f8f1-8bcd-4e67-b513-53d3f5076e8f",
+              "theText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.\r\n\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c06f7416-afe7-40c9-afbc-4998fb6a1ce0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Attempt Records",
+      "GUID": "db4fe1a2-9289-4b4b-b027-c4a2a828143d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à chercher quelque chose d'utile dans la masse d'informations qui se trouve sur le bureau.\r\n\r\n{-} Effectuez un test {J}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le pion Mission neutre, puis défaussez ces pions Stress. Durant le test, vous pouvez subir 1 {C} pour relancer 1 dé. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "a7b77f8a-2099-4153-b773-406f3462befa",
+              "theText": "Les données sont forcément ici, mais vous ne trouvez rien. Il faut continuer à chercher."
+            },
+            {
+              "GUID": "c8f52f28-fc54-407c-bcf7-0b3f6bbef043",
+              "theText": null
+            }
+          ],
+          "GUID": "148595a9-d97a-4d1f-a56c-098ba4009b0c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "The Puppetmaster",
+      "GUID": "7ebfa422-7c86-4934-8fc3-20f68ba76c44",
+      "eventText": "Un frisson vous parcourt l'échine lorsque vous lisez les données, qui indiquent que plusieurs agents Rebelles se sont brutalement retournés contre leurs cellules. Vous y retrouvez même des noms familiers que vous n'auriez jamais cru capables de trahir la cause. Vous devez transmettre ces informations au Haut Commandement dès que possible.\r\n\r\n{-} Récupérez le pion Mission neutre. Le pion Mission neutre représente les données.\r\n{-} Un héros qui porte les données peut interagir avec un terminal afin de les télécharger.\r\n{-} Les Rebelles gagnent quand un héros télécharge les données.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Records",
+              "GUID": "25fbb9b4-b054-49d3-a895-382b2670a8b6",
+              "theText": "Le bureau est encombré de documents et de puces de données. Vous y trouverez forcément quelque chose d'important.\r\n\r\n{-} Un héros peut interagir avec le pion Mission neutre ({J}) pour essayer de trouver les données. Durant le test, ce héros peut subir 1 {C} pour relancer 1 dé.",
+              "buttonList": [
+                {
+                  "GUID": "38ff68a0-a691-4f3a-8e62-6b76499eaefa",
+                  "theText": "{A} Rechercher"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 1",
+              "GUID": "c76dd12f-16b5-4463-992e-b789519ba405",
+              "theText": "La console de sécurité bourdonne doucement, ses lumières clignotent.\r\n\r\n{-} Un héros qui porte les données peut interagir avec le terminal afin de les télécharger.",
+              "buttonList": [
+                {
+                  "GUID": "3f9fe641-5c2f-4437-a424-336a129b869b",
+                  "theText": "{A} Télécharger les données (Fin de Mission)"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal 2",
+              "GUID": "6eb0aac0-e3c2-4ac1-b37f-cdee61068d76",
+              "theText": "La console de sécurité bourdonne doucement, ses lumières clignotent.\r\n\r\n{-} Un héros qui porte les données peut interagir avec le terminal afin de les télécharger.",
+              "buttonList": [
+                {
+                  "GUID": "420527a9-0438-4f0e-b5ef-3f7b3c52ccbb",
+                  "theText": "{A} Télécharger les données (Fin de Mission)"
+                }
+              ]
+            }
+          ],
+          "GUID": "ed631eed-1f32-4dea-9454-5331a567dbac",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Alors que vous êtes encore en train de lire, un homme en robe s'approche de vous. \"Avez-vous trouvé ce que vous cherchiez, pauvres fous... ?\"",
+          "GUID": "56ac34e7-0e96-4bdd-a955-2e765a2979e7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cf905731-7762-4a4e-942e-6436db406d45",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG083/Emperor Palpatine"
+        },
+        {
+          "tbText": "Derrière Palpatine, les portes se referment brusquement. De lourdes plaques de blindage glissent devant elles.\r\n\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut attaquer une porte (Santé : *2*, Défense : 2 {G}).\r\n{-} Une figurine Rebelle peut interagir avec une porte ({K} ou {I}) pour essayer de l'ouvrir.",
+          "GUID": "4173faae-fb72-4e76-8f24-d032646347a4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "f4d5a314-6b99-43ca-9d55-f411fa9eabe1",
+              "theText": "La porte de sécurité est renforcée par un lourd blindage.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : *2*, Défense : 2 {G}).\r\n{-} Une figurine Rebelle peut interagir avec la porte ({K} ou {I}) pour essayer de l'ouvrir.",
+              "buttonList": [
+                {
+                  "GUID": "940d9dce-6946-4427-ae80-af5f43a5e5fb",
+                  "theText": "Détruire"
+                },
+                {
+                  "GUID": "d88fdadc-0fae-4bb1-9900-34a6ae03beef",
+                  "theText": "{A} Forcer l'ouverture"
+                }
+              ]
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "8a504ec8-f236-4d44-ac19-a14f50c9ee5e",
+              "theText": "La porte de sécurité est renforcée par un lourd blindage.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : *2*, Défense : 2 {G}).\r\n{-} Une figurine Rebelle peut interagir avec la porte ({K} ou {I}) pour essayer de l'ouvrir.",
+              "buttonList": [
+                {
+                  "GUID": "86415fd3-0903-4126-9a3b-352e72ca4b84",
+                  "theText": "Détruire"
+                },
+                {
+                  "GUID": "18473d73-8f67-4685-bc74-d2680b2edb97",
+                  "theText": "{A} Forcer l'ouverture"
+                }
+              ]
+            }
+          ],
+          "GUID": "e72f3307-a507-4af0-953a-cc0726869399",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquer l'accès aux terminaux.",
+          "GUID": "4a3adea2-399a-421d-b87c-4232ab71d955",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "shortText": "Télécharger les données.",
+          "longText": null,
+          "GUID": "01465df4-0d26-448e-b253-25c2c5994055",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Le pion Mission neutre représente les données.\r\n{-} Un héros qui porte les données peut interagir avec un terminal afin de les télécharger.\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut attaquer une porte (Santé : *2*, Défense : 2 {G}).\r\n{-} Une figurine Rebelle peut interagir avec une porte ({K} ou {I}) pour essayer de l'ouvrir.\r\n{-} Les Rebelles gagnent quand un héros télécharge les données.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "d24e5904-f316-49c8-9b8b-69d48037c8f7",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Force Door 1",
+      "GUID": "571fa147-a0ad-4850-a163-38e54862880c",
+      "eventText": "Vous parvenez enfin à ouvrir la porte.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "6ecb8f74-d18c-419a-a45b-521d6f4fe3ef",
+              "theText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.\r\n\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "5e0c45b6-eabe-482c-bb2a-7760fcb35338",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Force Door 2",
+      "GUID": "7879a389-c37e-44bc-9b9d-274609c7995a",
+      "eventText": "Vous parvenez enfin à ouvrir la porte.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "cc4d2738-6b0b-4cb6-b2cd-f197cef9d834",
+              "theText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.\r\n\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "230d89df-3b01-4ab1-9fe3-1d7994c58e72",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Final Onslaught",
+      "GUID": "347b4d5f-ed02-4e8d-8829-1c78f220ad96",
+      "eventText": "Derrière la porte, les forces ennemies vous attendent déjà.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Red 1",
+              "GUID": "55e97a26-3797-4b93-9ed9-d9f6863b65d8",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "b8f111d6-6e82-4341-8391-a2cc3067da17",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "fa80ab54-9069-4ef1-989e-c8d083f0d9ed",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Red 1",
+              "GUID": "befeeaa1-2957-4e10-9fa4-ad5663d97879",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "63bac2ba-863c-4ed1-9afe-c0c6e96ee12b",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ba84f655-6920-4640-993a-738f1b00cc87",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Force Attempt Door 1",
+      "GUID": "e65b1f06-35cd-4d59-b087-c9d268def262",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à faire levier pour ouvrir la porte, mais la lourdeur du blindage rend la tâche difficile.\r\n\r\n{-} Effectuez un test {K} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur la porte, puis défaussez ces pions Stress. Il faut *1* réussites pour ouvrir la porte.",
+          "buttonList": [
+            {
+              "GUID": "f1422ae0-7fb9-482f-95d4-fddc6739392a",
+              "theText": "Succès"
+            },
+            {
+              "GUID": "b7ac8487-957a-42a4-8149-22b317a40643",
+              "theText": "Échec"
+            }
+          ],
+          "GUID": "6f168dd4-1ba0-47a6-82ec-6712ff7f8207",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Force Attempt Door 2",
+      "GUID": "0ace8843-c94a-4cad-bec4-ea1485542327",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à faire levier pour ouvrir la porte, mais la lourdeur du blindage rend la tâche difficile.\r\n\r\n{-} Effectuez un test {K} ou {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur la porte, puis défaussez ces pions Stress. Il faut *1* réussites pour ouvrir la porte.",
+          "buttonList": [
+            {
+              "GUID": "cde240c4-261c-475a-ba00-49b030d69aa5",
+              "theText": "Succès"
+            },
+            {
+              "GUID": "2071beb1-ba26-49fd-840b-2fbf768d1275",
+              "theText": "Échec"
+            }
+          ],
+          "GUID": "b9982ea6-6368-462b-b27e-06bdd0223ae3",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Force Door Failure",
+      "GUID": "689db715-19c8-4f14-95f2-319cf68f0a4b",
+      "eventText": "La porte reste immobile.\r\n\r\n{-} Placez un pion Stress sur la porte pour chaque résultat {B}.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "d710ecfa-e80b-4cde-b77b-57697fb0f3d6",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "294f693b-cad3-402f-bb2c-13a6b10ee5da",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "316ea274-2250-47c9-895a-63bd7f7912dd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "7e5f2d1f-5272-44b4-a193-c31065a9c6bc",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer 1",
+      "GUID": "30ff398c-0a03-431b-b200-7d66dcf7e5f2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer 2",
+      "GUID": "f3e2b10a-9963-48c8-bea1-3b4ad3a387f4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "554fc60e-455f-4ad0-a7d2-3227ec29e036",
+      "mainText": "La console de sécurité bourdonne doucement et ses lumières clignotent.\r\n\r\n{-} Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Durant le test, cette figurine peut subir 1 {C} pour relancer 1 dé.",
+      "buttonList": [
+        {
+          "GUID": "0bf6e37c-53a0-4b3b-ac6f-805002c1dd10",
+          "theText": "{A} Désactiver une serrure"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal 2",
+      "GUID": "d4214d5e-5a2d-4454-b311-5c24f46a7d46",
+      "mainText": "La console de sécurité bourdonne doucement et ses lumières clignotent.\r\n\r\n{-} Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Durant le test, cette figurine peut subir 1 {C} pour relancer 1 dé.",
+      "buttonList": [
+        {
+          "GUID": "0247cc88-9fa9-4ff3-9026-563f3f490cd0",
+          "theText": "{A} Désactiver une serrure"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "e8f732a4-2294-4dcb-ac7a-a930665d87da",
+      "mainText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.\r\n\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "586a3854-62e3-47cc-bf97-298aef0c1107",
+      "mainText": "Une solide porte de sécurité permet de pénétrer plus profondément dans l'installation.\r\n\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec un terminal ({I} ou {J}) pour essayer de désactiver une des serrures des portes. Quand les deux serrures des portes sont désactivées, les portes se déverrouillent.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "96bd4866-85cd-4233-a297-749b8c70d38f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "1b08c84b-5d3b-4f76-a624-eb2b9175768a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "fbf0d4c4-58df-4716-9c5a-7cbc0c85d75e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "0cf59b5d-1c2f-4def-98e8-f0fa797e6597",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "dc6d5dc9-e800-422b-a197-3570f05805f4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Records",
+      "GUID": "61d81e4a-248d-45d2-9705-5a69a754d03d",
+      "mainText": "Le bureau est encombré de documents et de puces de données. Vous y trouverez forcément quelque chose d'important.\r\n\r\n{-} Un héros peut interagir avec le pion Mission neutre ({J}) pour essayer de trouver les données. Durant le test, ce héros peut subir 1 {C} pour relancer 1 dé.",
+      "buttonList": [
+        {
+          "GUID": "5a1b46bf-90f1-48a5-8679-c080f7d1ce5f",
+          "theText": "{A} Rechercher"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Highlight",
+      "GUID": "ad306c1d-1a0e-4464-8be8-bdddec9590e3",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}
