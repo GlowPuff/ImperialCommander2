@@ -1,0 +1,692 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Taupe",
+    "missionDescription": "",
+    "missionInfo": "{-} L'Empire ne peut pas résoudre de déploiements optionnels.\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec le terminal ({J}) pour essayer de déverrouiller la porte du Vestibule.\r\n{-} La mission évolue quand la porte du Vestibule s'ouvre.\r\n{-} Les Rebelles perdent quand le compteur de round atteint 7 ou quand tous les héros sont blessés.",
+    "campaignName": "Au Cœur de l'Empire",
+    "startingObjective": "Entrer dans le bureau. Alertes : &Alerts&/12",
+    "repositionOverride": "Bloquer l'accès au terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "a5b29d25-598b-4e58-8cc4-dbd92a170d88",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "4acde491-25de-4759-b7e1-a63d3d35b8ba",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "1590133e-86cc-47a2-ad1b-b73d729a3a65",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "d98bf5ed-376e-4e4c-bed3-e0f0e0651dc7",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "9d806dae-728d-4001-8608-030e519ae998",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "b3df4e75-da16-4e02-8de3-45acbbf3fe52",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "L'étage des archives historiques du vieux bâtiment du Sénat est mieux gardé que vous ne vous y attendiez. Vous profitez des bouches d'aération pour pénétrer dans le bâtiment mais vous retrouvez bloqués au niveau de la console de sécurité située devant le bureau de Lorn. Pour y entrer, pas d'autre choix que de passer par la porte. Le niveau de sécurité vous pousse à croire qu'il y a gros à gagner.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} L'Empire ne peut pas résoudre de déploiements optionnels.\r\n{-} Les portes sont verrouillées. Une figurine Rebelle peut interagir avec le terminal ({J}) pour essayer de déverrouiller la porte du Vestibule.\r\n{-} La mission évolue quand la porte du Vestibule s'ouvre.\r\n{-} Les Rebelles perdent quand le compteur de round atteint 7 ou quand tous les héros sont blessés.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Les fichiers sont enregistrés sur la datacarte, que vous glissez dans votre poche. \"Vous avez obtenu ce que vous vouliez, alors laissez-moi maintenant !\" s'écrie Lorn pour se faire entendre malgré le boucan des combats. Il articule en silence les mots \"frappez-moi\". C'est à contrecœur que vous le cognez au menton, avant qu'il se laisse tomber au sol.\r\n\r\nVous regagnez votre cachette pour étudier les archives historiques que Lorn vous a remises, mais vous avez bien du mal à reconstituer le puzzle. Vous songez à redemander de l'aide à l'historien, mais vous risqueriez d'anéantir sa couverture.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent la carte Récompense \"Leçons d'histoire\". (Cette carte Récompense fonctionne différemment lorsque vous jouez avec <b>Imperial Commander 2</b>. Reportez-vous à la section \"Changement de règles\" de la documentation du wiki pour plus de détails.)\r\n{-} Chaque héros reçoit 2 XP. Les héros reçoivent 100 crédits par héros.\r\n{-} Les héros doivent choisir : continuer à demander de l'aide à Lorn ou suivre d'autres pistes. S'ils redemandent de l'aide à Lorn, mettez en jeu la carte Mission de l'Intrigue \"Agent double\". S'ils suivent une autre piste, mettez en jeu la carte Mission de l'Intrigue \"Dans un coin\".",
+      "eventActions": [
+        {
+          "mainText": "N'y a-t-il qu'un seul héros indemne ?",
+          "buttonList": [
+            {
+              "GUID": "77ae27ff-e203-49d4-b884-8deecad99a56",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "4bf5bf46-e3cc-4476-bd6e-631cb9b38738",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "3799661a-7225-4383-954c-3d83112553b7",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Entre l'alarme qui hurle et les nuées de gardes, vous êtes obligés de fuir le bâtiment avant de pouvoir accéder aux archives historiques. Alors que vous vous repliez, vous entendez Lorn remercier les forces de sécurité de l'avoir sauvé de ces \"terroristes\".\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Chaque héros reçoit 2 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Alarm triggered",
+      "GUID": "9e7cd125-60b1-4ede-a192-e50bc06075b8",
+      "eventText": "Le bruit que vous faites attire de plus en plus l'attention. Vous devez rester silencieux, sinon il ne vous restera pas assez de temps et vous serez débordés.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Attack performed",
+      "GUID": "a8b14a9b-d2d4-453a-a937-83851404518d",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Round Alerts",
+      "GUID": "1034a8b6-9837-44e4-b36b-cd7acfee132a",
+      "eventText": "Même si vous essayez d'être silencieux, les capteurs détectent la moindre activité suspecte.\r\n\r\n{-} Le compteur d'alertes est augmenté de 3.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Unlock Attempt",
+      "GUID": "84131817-a7b6-4dfd-8082-876e73a6f2d9",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à bidouiller le terminal.\r\n\r\n{-} Effectuez un test {J}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal, puis défaussez ces pions Stress. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d9aae7cb-17da-47d0-9a52-dc260e098c41",
+              "theText": "Vous ne faites aucun progrès."
+            }
+          ],
+          "GUID": "1bd73a23-1734-4502-b375-e1c9aa46274e",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Unlock Success",
+      "GUID": "3460f91d-5d7a-4cef-9547-17130bb24c29",
+      "eventText": "La lourde serrure de la porte du Vestibule glisse sur le côté.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Foyer Door",
+              "GUID": "cf33d2c1-215c-4c2e-a98b-541f117f636e",
+              "theText": "Cette porte mène au Vestibule du bureau de Lorn.",
+              "buttonList": [
+                {
+                  "GUID": "d49d45ed-59df-4ff6-a023-eb6154f948bb",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal",
+              "GUID": "bd3c2373-448d-4fef-9e70-a2f4b88fb0d9",
+              "theText": "Un terminal mural contrôle les systèmes du bâtiment.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "8030a28a-6df5-45a8-9e5d-5ce20eb81749",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloquer l'accès aux portes.",
+          "GUID": "14a2d1d7-0899-4f9c-a649-c7e737780ba2",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} L'Empire ne peut pas résoudre de déploiements optionnels.\r\n{-} La mission évolue quand la porte du Vestibule s'ouvre.\r\n{-} Les Rebelles perdent quand le compteur de round atteint 7 ou quand tous les héros sont blessés.",
+          "GUID": "38248ce7-1fc9-41e2-ae7d-0550c16990a0",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "High Alert",
+      "GUID": "e44f434e-b161-422f-8c11-cd393e93ece7",
+      "eventText": "Vous vous débarrassez de l'équipe du poste de sécurité sans grande difficulté et déverrouillez la porte. À l'intérieur, vous découvrez une escouade de droïdes et son officier qui veillent sur un vestibule luxueux.\r\n\r\n{-} La porte latérale du bureau de Lorn est verrouillée. (Porte qui sépare le Vestibule du Bureau.)\r\n{-} La mission évolue quand une porte du Bureau s'ouvre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Foyer Door",
+              "GUID": "bdd822d0-7aa8-48e0-ab54-999ff873556b",
+              "theText": "Cette porte mène au Vestibule du bureau de Lorn.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut interagir avec le terminal ({J}) pour essayer de déverrouiller la porte du Vestibule.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c3accfc4-3f12-4824-a3c1-bc12d9061d02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "d062b13f-a014-4732-a990-ece060085340",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG012/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "16ce02d0-f7b0-47e8-8b13-e15d23310f3e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "cf9040b8-5f44-4960-9aa1-27ac183d7070",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG051/Sentry Droid"
+        },
+        {
+          "tbText": "La pièce est remplie de matériel de surveillance contrôlé depuis le bureau de sécurité central. Vous décidez d'agir avec discrétion pour éviter d'attirer les forces de sécurité de tout le bâtiment.",
+          "GUID": "e342046d-dd63-4354-b42c-31f0657e53ce",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Surveillance System",
+              "GUID": "d9d31eb0-3c26-41e0-9f20-97bbac620683",
+              "theText": "Les capteurs de surveillance contrôlent toute activité suspecte.\r\n\r\n{-} Chaque fois qu'un Rebelle effectue une attaque, cliquez sur les capteurs de surveillance et sélectionnez \"Déclencher l'alerte\".",
+              "buttonList": [
+                {
+                  "GUID": "f520f293-228f-45d7-aed6-a063224b1578",
+                  "theText": "Déclencher l'alerte"
+                }
+              ]
+            }
+          ],
+          "GUID": "6674f3a1-521a-4922-bff9-a2e376577027",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Le pion Mission Impérial bleu représente les capteurs de surveillance.\r\n{-} Quand 12 alertes ont été déclenchées, le compteur de round augmente de 1.\r\n{-} À la fin de chaque round, le compteur d'alertes est augmenté de 3.\r\n{-} Chaque fois qu'un Rebelle effectue une attaque, cliquez sur les capteurs de surveillance et sélectionnez \"Déclencher l'alerte\".\r\n{-} Une figurine Rebelle peut interagir avec une figurine Impériale ({K}) pour que cette figurine Impériale subisse des {H} égaux au nombre de succès. Si cette figurine Impériale est un DROÏDE, cette figurine Rebelle peut effectuer un test de {I} à la place. Avant d'effectuer le test, cette figurine Rebelle peut subir 1 {C} pour appliquer +1 {B} aux résultats du test.\r\n{-} La mission évolue quand la porte du Bureau s'ouvre.",
+          "GUID": "3fcf962e-7d61-486f-959f-038cc6cfa1b5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} L'Empire ne peut pas résoudre de déploiements optionnels.\r\n{-} La porte latérale du bureau de Lorn est verrouillée. (Porte qui sépare le Vestibule du Bureau.)\r\n{-} Quand 12 alertes ont été déclenchées, le compteur de round augmente de 1.\r\n{-} À la fin de chaque round, le compteur d'alertes est augmenté de 3.\r\n{-} Chaque fois qu'un Rebelle effectue une attaque, cliquez sur les capteurs de surveillance et sélectionnez \"Déclencher l'alerte\".\r\n{-} Une figurine Rebelle peut interagir avec une figurine Impériale ({K}) pour que cette figurine Impériale subisse des {H} égaux au nombre de succès. Si cette figurine Impériale est un DROÏDE, cette figurine Rebelle peut effectuer un test de {I} à la place. Avant d'effectuer le test, cette figurine Rebelle peut subir 1 {C} pour appliquer +1 {B} aux résultats du test.\r\n{-} La mission évolue quand la porte du Bureau s'ouvre.\r\n{-} Les Rebelles perdent quand le compteur de round atteint 7 ou quand tous les héros sont blessés.",
+          "GUID": "e04b9be1-21f1-467f-8d14-4ba1ae2ad69f",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Aller dans le bureau de Lorn. Alertes : &Alerts&/12",
+          "longText": null,
+          "GUID": "857dc718-792a-4b90-9694-7dd81df86126",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Round 1",
+      "GUID": "1136ba4a-dcdc-4d8f-8e64-ae6002805619",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 2",
+      "GUID": "ff9eccb0-2c7e-4cd0-b175-c35f292fd192",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 3",
+      "GUID": "ef561843-7f08-40cd-b26c-6d6b5c1d90ee",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 4",
+      "GUID": "a556ad2c-43f7-4034-b1f1-f70f735add5c",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 5",
+      "GUID": "6dd37d43-edd6-42f5-9b83-fa4fbd2ccec8",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 6",
+      "GUID": "993ff9d9-3cc7-4b14-9145-8c23c491a420",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 7",
+      "GUID": "d124e2bc-b41d-4d67-9cce-a99e0eefa429",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Historical Records",
+      "GUID": "f8e2c5d0-915e-423e-9148-6d67909e1693",
+      "eventText": "Le bureau de Lorn dépasse vos attentes. Sa surface et son luxe révèlent que le travail effectué par l'historien pour l'Empire est plus important que vous ne le pensiez de prime abord.\r\n\r\nQuand vous ouvrez la porte, Lorn lève les yeux de son bureau.\r\n\r\n\"Qui êtes-vous ?\" demande-t-il. \"Que veut dire tout ceci ?\"\r\n\r\n{-} Le pion Mission neutre représente Lorn, Un héros peut interagir avec Lorn pour mui parler.\r\n{-} La mission évolue quand un héros parle avec Lorn.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Office Main Door",
+              "GUID": "1736c20a-3a2e-4829-97d0-84670e3592c7",
+              "theText": "C'est la porte principale du bureau de Lorn.",
+              "buttonList": [
+                {
+                  "GUID": "1b38c7ce-b344-4ee9-9470-17c0144a22df",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "9c0aae0a-04ec-43c1-82ca-03dd9e652b48",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} L'Empire ne peut pas résoudre de déploiements optionnels.\r\n{-} La porte latérale du bureau de Lorn est verrouillée. (Porte qui sépare le Vestibule du Bureau.)\r\n{-} Quand 12 alertes ont été déclenchées, le compteur de round augmente de 1.\r\n{-} À la fin de chaque round, le compteur d'alertes est augmenté de 3.\r\n{-} Chaque fois qu'un Rebelle effectue une attaque, cliquez sur les capteurs de surveillance et sélectionnez \"Déclencher l'alerte\".\r\n{-} Une figurine Rebelle peut interagir avec une figurine Impériale ({K}) pour que cette figurine Impériale subisse des {H} égaux au nombre de succès. Si cette figurine Impériale est un DROÏDE, cette figurine Rebelle peut effectuer un test de {I} à la place. Avant d'effectuer le test, cette figurine Rebelle peut subir 1 {C} pour appliquer +1 {B} aux résultats du test.\r\n{-} Le pion Mission neutre représente Lorn, Un héros peut interagir avec Lorn pour mui parler.\r\n{-} La mission évolue quand un héros parle avec Lorn.\r\n{-} Les Rebelles perdent quand le compteur de round atteint 7 ou quand tous les héros sont blessés.",
+          "GUID": "035a8195-bc9a-46e5-b623-58ab86dc7c34",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Parler à Lorn. Alertes : &Alerts&/12",
+          "longText": null,
+          "GUID": "391e3429-388a-4227-8b6f-8221e4b92659",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "repositionText": "Bloquer l'accès à Lorn.",
+          "GUID": "067e3b69-ffd8-47ee-b65c-bf6ff2531eb0",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Ambush",
+      "GUID": "eedeb17b-c181-4e38-916a-63bd93dadd03",
+      "eventText": "Vous expliquez rapidement à Lorn qui vous êtes.\r\n\r\n\"Je vais vous donner ce que vous voulez, mais ne me faites pas de mal\", implore Lorn en levant les mains. Vous êtes perdus jusqu'à ce qu'il vous fasse un clin d'œil. \"Vous ne pouvez accéder à ce que vous cherchez que depuis la console de sécurité.\"\r\n\r\nVous saisissez l'historien par le col et le poussez vers le terminal, en faisant votre possible pour ne pas dévoiler sa couverture.\r\n\r\n{-} Le héros qui a interagi avec Lorn se l'approprie.\r\n{-} L'Empire ne peut pas résoudre de déploiements optionnels.\r\n{-} Les alertes ne sont plus déclenchées.\r\n{-} Le héros qui s'est approprié Lorn peut interagir avec le terminal pour télécharger les archives historiques.\r\n{-} Si le héros qui s'est approprié Lorn se replie, placez Lorn sur la case que le héros occupait.\r\n{-} Les Rebelles gagnent quand ils téléchargent les archives historiques.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Office Side Door",
+              "GUID": "b0a972be-f0cc-4090-93df-bcb07b97e0e9",
+              "theText": "La porte latérale du bureau de Lorn est fermement verrouillée.\r\n\r\n{-} Cette porte est verrouillée.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Lorn",
+              "GUID": "501f7e85-2001-459f-9729-9289f542d909",
+              "theText": "C'est Lorn.",
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue",
+              "GUID": "0174e751-b37c-4b75-9bc2-02c7df8c91fb",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "cc7ef96e-d5f6-43ff-80e5-956ff3760031",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red",
+              "GUID": "88181177-84b5-4fb2-b6fe-2332481596c5",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Surveillance System",
+              "GUID": "269fcae3-d0c8-4bdd-9394-205c3c80196f",
+              "theText": "Les capteurs de surveillance ont déclenché l'alarme du bâtiment. Elle ne peut pas être désactivée.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Terminal",
+              "GUID": "28be54b3-669d-48e5-9549-52e6c5b5b6ca",
+              "theText": "Un terminal mural contrôle les systèmes du bâtiment.\r\n\r\n{-} Le héros qui s'est approprié Lorn peut interagir avec le terminal pour télécharger les archives historiques.",
+              "buttonList": [
+                {
+                  "GUID": "7fab6a7f-869f-45e3-b0cc-30a70d3f23d0",
+                  "theText": "{A} Télécharger les archives"
+                }
+              ]
+            }
+          ],
+          "GUID": "6b360e20-5308-419f-ad6f-c5bcdce85342",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Le héros qui s'est approprié Lorn peut interagir avec le terminal pour télécharger les archives historiques.\r\n{-} Si le héros qui s'est approprié Lorn se replie, placez Lorn sur la case que le héros occupait.\r\n{-} Les Rebelles gagnent quand ils téléchargent les archives historiques.\r\n{-} Les Rebelles perdent quand le compteur de round atteint 7 ou quand tous les héros sont blessés.",
+          "GUID": "1313759f-0b46-421a-a074-445f0c555695",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Télécharger les archives historiques.",
+          "longText": null,
+          "GUID": "fedcdba7-2ca4-40be-99d6-78940bf0aa8a",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "repositionText": "Bloquer l'accès au terminal.",
+          "GUID": "e16aa8cc-6310-4bdf-8422-b71b3d8240d7",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Story 1",
+      "GUID": "5f367a68-56c5-4087-966d-c4df7af401dd",
+      "eventText": "Malgré sa performance, l'Empire a des soupçons sur Lorn et décide de le surveiller.\r\n\r\n{-} Mettez en jeu la carte Mission de l'Intrigue \"Agent double\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Story 2",
+      "GUID": "1d5aec5b-b45c-4002-8c63-6347620c89f6",
+      "eventText": "Même si les Rebelles n'ont pas réussi, l'Empire les considère comme une menace et décide de les traquer.\r\n\r\n{-} Mettez en jeu la carte Mission de l'Intrigue \"Dans un coin\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Lorn Claimed",
+      "GUID": "3a3a21ee-d176-4a4c-8d9d-c8ae50f8d05a",
+      "eventText": "Parce qu'un héros s'est approprié Lorn, les héros reçoivent 25 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Lorn Not Claimed",
+      "GUID": "4a8145db-c4c5-4108-995b-0276f01214e0",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "362d4530-7b4e-456a-91d5-fcb2ba8998eb",
+      "eventText": "Le niveau de menace de la prochaine mission (et seulement de la prochaine) est augmenté de 1. Pendant la Séquence d'Amélioration Rebelle, les joueurs rebelles peuvent décider de dépenser 50 crédits par héros pour éviter cela.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "16922952-689c-47d9-bd9d-c775e0557f1e",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "9b7d0837-e4b8-46e2-acac-1ac8164b7c40",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "793efcfa-f0ff-491d-9450-baf023f7b504",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "63f80d32-7c8a-48e9-a5e8-1111ca7f6bd7",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "1c6e2bb2-3317-4064-aaaa-facb82e920b2",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Surveillance System",
+      "GUID": "8308d594-5473-4ac1-a9bb-a564b3ec8c55",
+      "mainText": "Les capteurs de surveillance contrôlent toute activité suspecte.\r\n\r\n{-} Chaque fois qu'un Rebelle effectue une attaque, cliquez sur les capteurs de surveillance et sélectionnez \"Déclencher l'alerte\".",
+      "buttonList": [
+        {
+          "GUID": "1c7b08e9-e55b-452f-8cef-4914b53255d0",
+          "theText": "Déclencher l'alerte"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "91310ae5-b7ee-433d-a735-5da54421cf25",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Sentry 1",
+      "GUID": "f76808e6-db51-46bb-9fd9-a9d34fa11e48",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Sentry 2",
+      "GUID": "cd23acab-fdcb-4657-9a7a-f55c85a1c15f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "e5fa660d-851b-4efd-8dbe-d0105a50f4b7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "b54a681d-2551-4865-ba0f-522d1d62e98b",
+      "mainText": "Un terminal mural contrôle les systèmes du bâtiment.\r\n\r\n{-} Une figurine Rebelle peut interagir avec le terminal ({J}) pour essayer de déverrouiller la porte du Vestibule.",
+      "buttonList": [
+        {
+          "GUID": "7943185c-538c-44cc-b15f-3477ef12c39b",
+          "theText": "{A} Déverrouiller la porte"
+        }
+      ]
+    },
+    {
+      "entityName": "Foyer Door",
+      "GUID": "befc2dbf-3a88-450f-a4f8-a7c7f03b3aa5",
+      "mainText": "Cette porte mène au Vestibule du bureau de Lorn.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut interagir avec le terminal ({J}) pour essayer de déverrouiller la porte du Vestibule.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Office Main Door",
+      "GUID": "dda5e2ce-c9dd-46ef-8c7d-2007df4b8f1d",
+      "mainText": "C'est la porte principale du bureau de Lorn.",
+      "buttonList": [
+        {
+          "GUID": "0fc5627d-0fd3-4cfc-9925-f95fc883733a",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Office Side Door",
+      "GUID": "9e69f613-65b4-4b03-bbc5-2b0e9fc544e0",
+      "mainText": "La porte latérale du bureau de Lorn est fermement verrouillée.\r\n\r\n{-} Cette porte est verrouillée.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "c6afe6db-8d6d-405c-be4a-e7838af5ec8e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "1dfcabac-bca3-42d0-9dcf-06791cac47a6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "894e81d8-de8e-4296-99e1-2232ade2f03a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Lorn",
+      "GUID": "2b9ffa8f-4c5f-4875-8af1-6071d0603aa9",
+      "mainText": "Lorn est assis à son bureau et vous regarde avec confusion.\r\n\r\n{-} Un héros peut interagir avec Lorn pour parler avec lui.",
+      "buttonList": [
+        {
+          "GUID": "774a5038-b2a1-4215-a93d-567d6aa199ad",
+          "theText": "{A} Parler"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Sentry Droid",
+      "customInstructions": ""
+    }
+  ]
+}

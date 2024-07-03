@@ -1,0 +1,637 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Magouilles dans l'arrière-salle",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Extension \"Blasters à louer\"",
+    "startingObjective": "",
+    "repositionOverride": "Bloquer l'accès à la porte.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "a601c0d6-9959-4898-8bf7-27a248dbee63",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "5ff89cbd-8e72-4efb-86e3-741811418a24",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "b1c43493-cd09-4da2-9dc3-8472e8273107",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Il ne vous reste que peu de temps pour empêcher l'Empire de conclure un arrangement : vous vous précipitez donc dans le repaire de mercenaires. \r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} La porte de l'Accueil est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : *2*, Défense : 1 {G}).",
+      "eventActions": [
+        {
+          "tbText": "Malheureusement, ce que vous voyez confirme vos craintes : mercenaires et Impériaux travaillent déjà main dans la main et surveillent l'endroit. Deux mercenaires Rodiens pointent leurs armes sur vous.",
+          "GUID": "fcefd0a0-e584-4e5d-8c55-d44402f70e25",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a5d897a3-39fe-4855-82b9-25941a90ac3b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG064/Hired Gun (Elite)"
+        },
+        {
+          "tbText": "Les négociations sont apparemment déjà en cours. Vous devez les arrêter avant qu'il ne soit trop tard.\r\n\r\n{-} Le marché est conclu à la fin du round 5 si la porte de l'Arrière-salle est fermée.\r\n{-} La mission évolue quand la porte de l'Arrière-salle s'ouvre ({V}) ou quand le marché est conclu.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "85bb9d27-26ec-498b-b0b5-9d95145d5ece",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Trouvez l'endroit où à lieu le marché.",
+          "longText": null,
+          "GUID": "4112e8a8-0393-4c37-a4c2-83c1ab96347d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} La porte de l'Accueil est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : *2*, Défense : 1 {G}).\r\n{-} Le marché est conclu à la fin du round 5 si la porte de l'Arrière-salle est fermée.\r\n{-} La mission évolue quand la porte de l'Arrière-salle s'ouvre ({V}) ou quand le marché est conclu.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "1fe4bed5-75b4-4c98-980b-8895fcf04773",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Après avoir repoussé les mercenaires et les Impériaux, vous parvenez finalement à pirater leur console. Vous récupérez autant de données que possible : avec un peu de chance, vous les aurez empêchés de conclure cette redoutable alliance.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 200 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Vous n'êtes pas de taille à affronter à la fois les mercenaires et les Impériaux, qui vous forcent à battre en retraite. Vous regagnez votre navette et, inquiets, vous commencez à échafauder des plans pour déjouer cette nouvelle alliance qui ne manquera pas de vous nuire.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Le niveau de menace de la prochaine mission (et seulement de la prochaine) est augmenté de 1. Pendant la Séquence d'Amélioration Rebelle, les joueurs rebelles peuvent décider de dépenser 50 crédits par héros pour éviter cela.\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Unyielding",
+      "GUID": "daf08d42-40f1-4622-8e16-75419d7cf4cb",
+      "eventText": "Derrière la porte se trouve une ancienne usine, avec des machines éparpillées un peu partout. Au fond, une porte mène à une arrière-salle. Des voix se font entendre derrière la porte.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hall Door",
+              "GUID": "8ab46e36-0ee4-4f01-8c4d-0424b9891440",
+              "theText": "Une solide porte de sécurité permet de pénétrer plus profondément dans le repaire des mercenaires.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : *2*, Défense : 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "035eb856-142f-4533-95f5-043ec5caa550",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "f64abc58-2622-4b7e-8c72-b69f29d5a2e0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Les forces ennemies vous attendent déjà.",
+          "GUID": "050ac142-dc17-4aa4-9e7d-0a4086ed37e1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Le marché est conclu à la fin du round 5 si la porte de l'Arrière-salle est fermée.\r\n{-} La mission évolue quand la porte de l'Arrière-salle s'ouvre ({V}) ou quand le marché est conclu.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "6904e0a1-ef35-4a7b-89a0-5f0ea8768be0",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Hired Gun Question",
+      "GUID": "32ea6eb2-0469-4b1a-a4bb-53af94498e55",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Combien y a-t-il de figurines <color=\"red\">Blaster à louer</color> sur le plateau ?",
+          "buttonList": [
+            {
+              "GUID": "842e70f1-1e02-49d9-813c-2576dc6f8be3",
+              "theText": "1"
+            },
+            {
+              "GUID": "bb513215-7699-4ab7-883e-daf84eb0c90a",
+              "theText": "2"
+            }
+          ],
+          "GUID": "0517f4fb-94c9-4a82-a8f8-120c65b7bf6e",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Hired Gun 1",
+      "GUID": "d6152eed-3a05-42b8-893b-3662e1b900ad",
+      "eventText": "Des renforts de mercenaires Rodiens arrivent.\r\n\r\n{-} Déployez 1 figurine <color=\"red\">Blaster à louer</color> en renfort, de manière à être adjacente à l'autre figurine de son groupe.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Hired Gun 2",
+      "GUID": "bac2333d-1d99-4fd2-88fd-c3cf7a79c911",
+      "eventText": "Les mercenaires Rodiens se mettent en position et lèvent leurs armes.\r\n\r\n{-} Chaque figurine <color=\"red\">Blaster à louer</color> devient <color=\"red\">Concentrée</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Party Crashers",
+      "GUID": "1ddb3582-8575-44d6-b23c-68060b38ea0d",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Back Room Door",
+              "GUID": "471a0bbd-0553-4909-b931-06235990514d",
+              "theText": "Une simple porte mène à l'arrière-salle du repaire. Des voix se font entendre de l'autre côté. Les négociations sont en cours.",
+              "buttonList": [
+                {
+                  "GUID": "15f4d084-b108-4391-9a17-64020f414c96",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "d581cf9a-ab1f-459d-9cd2-e4074367da40",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "7373dda0-cbb4-4b9d-a690-c45639b75ff4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Un homme en uniforme d'officier Impérial se tient derrière une table de l'arrière-salle, accompagné de deux chasseurs de primes Trandosiens. Ils se tournent tous dans votre direction.",
+          "GUID": "c23932f0-3af6-42f8-9939-519c19c9c429",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b59b611a-7d7b-4d01-a222-5a34a5c9f76d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "137a4349-0c36-4f58-b2cd-c591e94b48bf",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "tbText": "Les trois négociateurs sont accompagnés d'autres hommes de main.",
+          "GUID": "0fcf2b4a-110b-439e-b4cd-e8c69f09d5ae",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Un datapad est posé sur la table. Il doit contenir les données du marché.",
+          "GUID": "f1c8d96e-7954-48c7-9a94-e7b237340865",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal 1",
+              "GUID": "794b9a25-daaf-4759-ad53-14e5de8ff889",
+              "theText": "Le datapad contient toutes les données du marché.\r\n\r\n{-} Une figurine Rebelle indemne peut interagir avec le terminal pour essayer de télécharger les données ({J} ou {I}).",
+              "buttonList": [
+                {
+                  "GUID": "8187dd62-3a43-4c61-8416-c6ef19440750",
+                  "theText": "{A} Télécharger les données"
+                }
+              ]
+            }
+          ],
+          "GUID": "5c958070-5cf4-432a-a6ec-d159a7de7b10",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Une figurine Rebelle indemne peut interagir avec le terminal pour essayer de télécharger les données ({J} ou {I}).\r\n{-} Les Rebelles gagnent quand tous les paquets de données ont été téléchargés.",
+          "GUID": "91b7cb57-6d62-44b4-a639-1c3e6dffc754",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Télécharger les données. Paquets de données restants : &Data Package&",
+          "longText": null,
+          "GUID": "43235a80-5afc-435b-8754-3713e7d84cdf",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Une figurine Rebelle indemne peut interagir avec le terminal pour essayer de télécharger les données ({J} ou {I}).\r\n{-} Les Rebelles gagnent quand tous les paquets de données ont été téléchargés.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "0bd8abd0-da3c-4dbc-ad38-e677f23b0f82",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Bloquer l'accès au terminal.",
+          "GUID": "e7aca93a-3579-4418-b341-bf96a57f51a7",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Forged Alliance",
+      "GUID": "92be40c0-2f58-45da-8448-65c8bab2a9bb",
+      "eventText": "On peut entendre des réjouissement derrière la porte de l'arrière-salle alors que l'Empire et les mercenaires concluent leur accord. La porte s'ouvre peu de temps après.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Back Room Door",
+      "GUID": "ec188304-6ed2-4887-be3b-a45ebab64ba8",
+      "eventText": "Vous vous précipitez vers l'arrière-salle pour interrompre les tractations, ou au moins pour intercepter les données que s'échangent les forces en présence.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Deal Complete",
+      "GUID": "42f2a362-abf6-47eb-a5f4-d398d6071840",
+      "eventText": "L'accord conclu a donné confiance et force à vos ennemis.\r\n\r\n{-} L'<color=\"red\">Officier Impérial</color> et les Chasseurs Trandosiens deviennent <color=\"red\">Concentrés</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Hired Gun Deployment",
+      "GUID": "2a5e83e3-57eb-47a7-9416-ae5b738db313",
+      "eventText": "D'autres mercenaires Rodiens arrivent.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ff8147ba-6482-4d07-af49-db749cc3f714",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG064/Hired Gun (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Data Package 2",
+      "GUID": "73d27894-63de-429d-a2f1-98c28b604724",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Data Package 3",
+      "GUID": "40346ae8-9176-4c79-88db-fae85a04f8e6",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Data Package 4",
+      "GUID": "cd4d4899-d0a5-407f-acfe-b6894eb8abbb",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Data Package 5",
+      "GUID": "d6deb86c-de1c-4831-a7cd-b2ac09e162d5",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Data Package 6",
+      "GUID": "b8751ab2-8d52-460b-8ed7-096a9f557d8f",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Data Package 7",
+      "GUID": "8f2eb342-7fd0-4680-b981-9f747800bbcc",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Data Package 8",
+      "GUID": "7e109b63-f322-484f-a0eb-1b3aaf0400f7",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat Level Question",
+      "GUID": "646ee04b-0f74-47b9-82d0-2bd1bb0f0512",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Quel est le niveau de menace de cette mission ?",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "f46e9d02-b1fa-457a-a45f-686d57562a11",
+              "theText": null
+            },
+            {
+              "GUID": "4f9d6e2e-7552-41eb-9ab9-0d602993e3d6",
+              "theText": null
+            },
+            {
+              "GUID": "fc4f2182-2425-4bc2-85a9-c1f3e8aa13c7",
+              "theText": null
+            },
+            {
+              "GUID": "6dd2a1cc-2fbb-4cc9-96f7-44749382bd64",
+              "theText": null
+            },
+            {
+              "GUID": "9a9ffa2a-6129-4b53-a7f7-9454cef929fd",
+              "theText": null
+            },
+            {
+              "GUID": "1c76bdc0-0783-4d75-8647-585ea9766904",
+              "theText": null
+            },
+            {
+              "GUID": "0cee718b-16e6-444a-b8ac-ef2315a87a2c",
+              "theText": null
+            }
+          ],
+          "GUID": "df6fa0c5-ff07-4762-b148-b100a457aa5c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Rebels Win",
+      "GUID": "11065dc9-081c-4a5e-ab45-32b2f3f02d91",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data",
+      "GUID": "f7f18b0d-f121-4e06-8793-aa6973e03dc0",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à télécharger les données du datapad.\r\n\r\n{-} Effectuez un test {J} ou {I}. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d60c5ee4-5539-4f41-9b8a-3a9c1f56a613",
+              "theText": "Le cryptage est trop complexe. Vous ne parvenez pas à télécharger de données."
+            },
+            {
+              "GUID": "e910b963-9fbb-440a-991c-682e4924d2b4",
+              "theText": null
+            },
+            {
+              "GUID": "f1bc3e6a-2bbf-4cfc-afa0-393603df880e",
+              "theText": null
+            },
+            {
+              "GUID": "e7469d37-22b9-48ea-aa72-3d85aa526d52",
+              "theText": null
+            },
+            {
+              "GUID": "4c128226-b2a2-4302-9960-89e5972ad372",
+              "theText": null
+            },
+            {
+              "GUID": "b374ac7b-76e3-4da9-a88d-81d748756fb2",
+              "theText": null
+            },
+            {
+              "GUID": "2ca86c15-fb6c-44cd-ba62-0783a5c79550",
+              "theText": null
+            },
+            {
+              "GUID": "e489aa4c-fb2d-42da-a79e-b3d32beef5da",
+              "theText": null
+            },
+            {
+              "GUID": "409d82d5-9c6d-4e47-ab7c-9dab91c85c0f",
+              "theText": null
+            }
+          ],
+          "GUID": "c1c4e146-afdd-41e2-ba57-bd3407636648",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Download Data 1",
+      "GUID": "ab3e7086-48ce-4b49-a1cb-62825080399f",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data 2",
+      "GUID": "ca778c25-1d5b-4ede-a6c9-d965cc3b0feb",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data 3",
+      "GUID": "71217d4f-38dc-408c-827f-cbc5fedbdaba",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data 4",
+      "GUID": "1c177395-5321-4ed2-b914-d32d93d5c851",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data 5",
+      "GUID": "1c26fd4d-d8ad-4c58-8891-cc4deb17b41b",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data 6",
+      "GUID": "e6d11904-f847-4592-b049-8df38e8c485c",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data 7",
+      "GUID": "7444ae4b-9c0a-4e7b-8b1a-b86de704d7f3",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Download Data 8",
+      "GUID": "afd125d8-684a-44a0-95c3-8c8251215b24",
+      "eventText": "Vous parvenez à télécharger des paquets de données.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "283ea835-afee-4495-b8f3-9c67971009e2",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "ad9577af-23de-40b5-9aef-e6638672e730",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHired 1",
+      "GUID": "67cb1d4a-2bf4-4994-a766-8e7bee6cfc14",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EHired 2",
+      "GUID": "de933269-124a-4a9a-abc3-1e4be0fa2c8d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Back Room Door",
+      "GUID": "7297f82a-199a-4a33-a611-8ef548570f26",
+      "mainText": "Une simple porte mène à l'arrière-salle du repaire. Des voix se font entendre de l'autre côté. Les négociations sont en cours.",
+      "buttonList": [
+        {
+          "GUID": "ffb8988c-e72d-4e71-a65a-0f4454a408a9",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Hall Door",
+      "GUID": "636dc4cf-212e-482f-bd39-8eb5c3aaad0f",
+      "mainText": "Une solide porte de sécurité mène à un couloir et permet de pénétrer plus profondément dans le repaire des mercenaires.\r\n\r\n{-} La porte est verrouillée. Une figurine Rebelle peut l'attaquer (Santé : *2*, Défense : 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "b31abf5b-ce45-43a3-9672-ab3d2e2fac4b",
+          "theText": "Détruire"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "f65f6be9-6a8f-4a73-9974-8af08307e5ff",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "f7900d85-8c56-49ca-87dc-9430a2df56a3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "ecd7205a-8d8f-4968-adaf-828b0e87243c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal 1",
+      "GUID": "cbc479d4-f82d-4df3-a049-dee4d1defbdb",
+      "mainText": "Le datapad contient toutes les données du marché.\r\n\r\n{-} Une figurine Rebelle indemne peut interagir avec le terminal pour essayer de télécharger les données ({J} ou {I}).",
+      "buttonList": [
+        {
+          "GUID": "1612c28c-15d6-4aee-9e3f-782f25e08f96",
+          "theText": "{A} Télécharger les données"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "a43ebea6-b1cf-4776-aa62-0f09dbdd6554",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

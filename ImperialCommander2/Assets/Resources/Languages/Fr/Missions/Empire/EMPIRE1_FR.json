@@ -1,0 +1,1089 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Fuir la capitale",
+    "missionDescription": "",
+    "missionInfo": "{-} Une figurine Rebelle peut interagir avec un terminal face cachée ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et peut uniquement utiliser cette action pour se déplacer.\r\n{-} La mission évolue au début de la Phase de Statut si les deux terminaux sont défaussés et que tous les héros sont adjacents au speeder. Ignorez le terrain bloquant pour cette adjacence. Quand la mission évolue, retirez <color=\"red\">Ahsoka Tano</color> du plateau.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+    "campaignName": "Au Cœur de l'Empire",
+    "startingObjective": "",
+    "repositionOverride": "Bloquer l'accès aux terminaux.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "099768fb-bafd-45a4-be2d-6ea482436b99",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "3d208d23-6189-4991-9d8e-3f0e98f8fdb1",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "d5d0d50c-77df-4780-b783-9609aec40012",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "0d32ecc0-b9a8-4be8-8268-eb1e0c44a462",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Vous vous ruez dans la rue pour regagner votre speeder quand un important contingent de soldats se dresse en travers de votre chemin. Le fragment de la sphère Bardottane dans votre main, vous ressentez un lien avec la Force comme jamais vous n'en avez connu. Ahsoka active ses deux sabres laser et vous fait savoir qu'elle est prête d'un simple signe de la tête.\r\n\r\n{-} Déployez les héros sur la case bleue en surbrillance.\r\n{-} Déployez <color=\"red\">Ahsoka Tano</color> (Instigatrice Rebelle) sur la case rouge en surbrillance. Les héros la contôlent en tant qu'alliée.\r\n{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et peut uniquement utiliser cette action pour se déplacer.",
+      "eventActions": [
+        {
+          "tbText": "Votre speeder attend à l'autre bout de la place. Il semble intact, mais les forces Impériales y ont fixé des pinces d'amarrage mobiles qui le fixent au sol. Les pinces semblent être contrôlées par deux stations de sécurité.\r\n\r\n{-} Une figurine Rebelle peut interagir avec un terminal face cachée ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.",
+          "GUID": "46c90350-38d0-49f7-9559-43242e9e1f58",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Clamps 1",
+              "GUID": "3bdcb021-2a19-4de4-ab2c-f803fa3ad985",
+              "theText": "Le terminal contrôle la pince d'amarrage qui maintiennent l'avant du speeder au sol.\r\n\r\n{-} Une figurine Rebelle peut interagir avec le terminal ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.",
+              "buttonList": [
+                {
+                  "GUID": "8d99fb09-8b2a-43d5-9a66-352d9adae730",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            },
+            {
+              "entityName": "Terminal Clamps 2",
+              "GUID": "334c9db7-5bce-423e-975a-0b5769cf378f",
+              "theText": "Le terminal contrôle la pince d'amarrage qui maintiennent l'arrière du speeder au sol.\r\n\r\n{-} Une figurine Rebelle peut interagir avec le terminal ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.",
+              "buttonList": [
+                {
+                  "GUID": "18c2459f-b5a0-497e-9221-b89362a8c073",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            },
+            {
+              "entityName": "Speeder Highlight",
+              "GUID": "835e0833-1c71-4568-b837-3d186da3767f",
+              "theText": "Votre speeder vous attend ici.\r\n\r\n{-} La mission évolue au début de la Phase de Statut si les deux terminaux sont défaussés et que tous les héros sont adjacents au speeder. Ignorez le terrain bloquant pour cette adjacence.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "e5ebf6ce-f15c-41fd-af32-9d9594825008",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Fragment en main, vous préparez vos armes, déterminé à ne laisser aucune force Impériale vous empêcher de quitter la planète.\r\n\r\n{-} La mission évolue au début de la Phase de Statut si les deux terminaux sont défaussés et que tous les héros sont adjacents au speeder. Ignorez le terrain bloquant pour cette adjacence. Quand la mission évolue, retirez <color=\"red\">Ahsoka Tano</color> du plateau.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "105d5364-16a0-432c-a3ef-7e4fb377a943",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Libérer les pinces d'amarrage (&Clamps released&/2).",
+          "longText": null,
+          "GUID": "00743e06-1712-4ade-8323-d41a5a65347c",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Ahsoka pousse les moteurs de sa navette à fond et vous emporte loin de Coruscant, au grand dam de l'Empereur enragé. Vous sautez en hyperespace en poussant un soupir de soulagement.\r\n\r\nDe retour au quartier général de l'Alliance, une fête est donnée en votre honneur. Ahsoka et les autres chefs de la Rébellion se retrouvent pour examiner le fragment de la sphère Bardottane et décider de son sort. Pour finir, il est convenu que son utilisation serait trop dangereuse, mais Ahsoka convainc les autres de ne pas le détruire.\r\n\r\nUne force opérationnelle est rassemblée, et l'artefact est conduit dans un coin reculé de la galaxie. Même vous ne savez rien de l'endroit. Une longue guerre vous attend toujours, mais vous vous endormez à poings fermés en sachant que le fragment ne sera pas utilisé à des fins maléfiques, et que la Rébellion a remporté une victoire importante.\r\n\r\n{-} Les Rebelles remportent la campagne !",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "L'Empereur victorieux glousse d'un air sinistre alors que vous tombez à genoux devant lui, incapables de bouger. \"Pitoyables Rebelles\", ricane-t-il en brandissant le dernier fragment de la sphère bardottane. \"Vous m'avez été utiles, et je dois vous remercier d'avoir rendu possible l'acquisition de cet artefact.\" Dans le ciel, vous apercevez la navette d'Ahsoka qui n'a d'autre choix que de battre en retraite face à un escadron de chasseurs TIE.\r\n\r\n\"Je crains néanmoins que vous ne deviez payer pour vos crimes\", reprend l'Empereur tandis que les troopers s'approchent pour vous ligoter. \"Emmenez-les\", croasse-t-il à ses troupes. \"Nous leur ferons payer les conséquences de leur trahison et de leur sédition.\" Tandis qu'ils vous emmènent vers une barge pénitentiaire, vous voyez Palpatine qui examine le fragment et en savoure la puissance.\r\n\r\n{-} Les Rebelles perdent la campagne.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Clamps Attempt 1",
+      "GUID": "9c453d23-5464-4a01-94ec-918965f62889",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à pirater le système d'amarrage.\r\n\r\n{-} Effectuez un test {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal. Durant le test, vous pouvez subir 1 {C} pour relancer jusqu'à 2 dés.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "dfeb71c8-2fb9-4971-8cb7-343424b90371",
+              "theText": "La sécurité est trop renforcée. Il faut continuer à essayer."
+            }
+          ],
+          "GUID": "87976edd-8b3b-43d5-9bd4-17d250a4caf7",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Clamps Success 1",
+      "GUID": "06f5692a-7bd6-4571-bd18-57cdab76b3d8",
+      "eventText": "Vous réussissez à pénétrer dans le système. Dans un vrombissement, les pinces d'amarrage libèrent la partie avant du speeder.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Clamps 1",
+              "GUID": "f64ffc2d-9651-45c7-816d-26addd77c708",
+              "theText": "Le terminal contrôle la pince d'amarrage qui maintiennent l'avant du speeder au sol.\r\n\r\n{-} Une figurine Rebelle peut interagir avec le terminal ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.",
+              "buttonList": [
+                {
+                  "GUID": "96bf76ac-dd2c-4996-b8c1-712476da70a7",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            }
+          ],
+          "GUID": "b421902b-5206-4dcc-beec-27a56b7f56d4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Clamps Attempt 2",
+      "GUID": "bd9e4133-36a1-4bbd-8ddd-84576c6f1598",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Vous commencez à pirater le système d'amarrage.\r\n\r\n{-} Effectuez un test {I}. Appliquez +1 {B} au test pour chaque pion Stress présent sur le terminal. Durant le test, vous pouvez subir 1 {C} pour relancer jusqu'à 2 dés.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1d5b46a3-e003-4cff-8115-32f117bb72c6",
+              "theText": "La sécurité est trop renforcée. Il faut continuer à essayer."
+            }
+          ],
+          "GUID": "68f38a55-6b9f-405f-a6d2-953dc50ec15c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Clamps Success 2",
+      "GUID": "c3a4b1b4-2092-42f9-9201-907f14f29241",
+      "eventText": "Vous réussissez à pénétrer dans le système. Dans un vrombissement, les pinces d'amarrage libèrent la partie arrière du speeder.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal Clamps 2",
+              "GUID": "20a513fc-9b81-45ec-bf3c-3077b838419b",
+              "theText": "Le terminal contrôle la pince d'amarrage qui maintiennent l'arrière du speeder au sol.\r\n\r\n{-} Une figurine Rebelle peut interagir avec le terminal ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.",
+              "buttonList": [
+                {
+                  "GUID": "17bc5f27-29cd-4da9-b4e4-4cdd87d13ebc",
+                  "theText": "{A} Pirater"
+                }
+              ]
+            }
+          ],
+          "GUID": "d38c4b60-3f11-4627-ac04-18d48f3221e4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Speeder free",
+      "GUID": "57f6ed4d-cfc2-4f2d-a36f-fba6a0626787",
+      "eventText": "Les pinces étant libérées et le marcheur ne menaçant plus d'abattre votre speeder dès son démarrage, vous êtes enfin libre de vous échapper.\r\n\r\n{-} Au début de la Phase de Statut, si tous les héros sont adjacents au speeder, cliquez sur le speeder (cases rouges en surbrillance) et sélectionnez \"Héros adjacents\" ; ensuite, cliquez sur \"Fin du Round\". Ignorez le terrain bloquant pour cette adjacence.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Speeder Highlight",
+              "GUID": "07bdc51c-f0d7-4c2f-828a-e6cceb598264",
+              "theText": "Votre speeder vous attend ici.\r\n\r\n{-} Au début de la Phase de Statut, si tous les héros sont adjacents au speeder, cliquez sur \"Héros adjacents\" ; ensuite, cliquez sur \"Fin du Round\". Ignorez le terrain bloquant pour cette adjacence.",
+              "buttonList": [
+                {
+                  "GUID": "b1429a71-3c7c-489d-be8f-b53238c9c969",
+                  "theText": "Héros adjacents"
+                }
+              ]
+            }
+          ],
+          "GUID": "6ae26d2d-3ae8-4ee2-939a-720365826f0c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Être adjacents au speeder.",
+          "longText": null,
+          "GUID": "584abdc5-030f-41fb-9d45-3f933c615671",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Support Troops",
+      "GUID": "2ae3c04b-3370-484c-bc33-c0ad2714f7f7",
+      "eventText": "Dans un grand bruit mécanique, un énorme marcheur de combat traverse les rues étroites de Coruscant en tirant à plusieurs reprises. Un seul tir de cet engin suffirait à abattre votre speeder. Tant que ce marcheur est là, vous ne pouvez même pas envisager de vous échapper.\r\n\r\n{-} La mission ne peut pas évoluer tant que le <color=\"red\">CD-TT</color> est sur le plateau.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5cd2cae0-1704-49b6-a5e9-580f8514e08d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG046/AT-DP"
+        },
+        {
+          "shortText": "Libérer les pinces d'amarrage (&Clamps released&/2).\r\nVaincre le <color=\"red\">CD-TT</color>.",
+          "longText": null,
+          "GUID": "634ddf62-7a40-4a86-9015-2bbcaea7b33f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Ship Down 1",
+      "GUID": "eb510f77-68e0-4115-ba15-a3fd9e8bd583",
+      "eventText": "Au moment où vous grimpez dans votre speeder, Ahsoka s'écrie : \"Je vais tenter de les attirer !\" Puis elle file vers son vaisseau.\r\n\r\n{-} Mettez de côté les figurines situés sur le plateau.",
+      "eventActions": [
+        {
+          "tbText": "Vous vous précipitez pour tous prendre place dans le speeder alors que vous décollez.\r\n\r\n{-} Chaque héros choisit un rôle différent pour chaque pion Activation qu'il possède : <b>Pilote</b>, <b>Navigateur</b>, <b>Artilleur</b> ou <b>Défenseur de l'Artefact</b>.\r\n{-} Pour chacun des tests suivants, considérez que toutes les figurines Rebelles sont adjacentes les unes aux autres, à 1 case ou moins les unes des autres, et dans leurs lignes de vue respectives.",
+          "GUID": "d6a0aa7d-4630-49f8-8f57-537c89b3bfac",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Votre appareil décolle tout juste de l'aire quand des alarmes retentissent, et vos moteurs sont secoués par des explosions. Vous perdez de l'altitude et n'avez d'autre choix que de vous poser sur une aire dotée de systèmes de défenses et de troupes prêtes à investir votre épave.",
+          "GUID": "8729eb12-6c1a-4979-a5fc-e2e722956206",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ad47da66-24d6-404c-8c59-8dc53b18e5ad",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "mainText": "Vous visez avec les canons du speeder.\r\n\r\n{-} L'artilleur effectue un test de {I} ou {J}. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1a5df050-24ce-487a-af02-ab80cf75cd38",
+              "theText": "La descente du speeder est trop incontrôlée pour que vous puissiez viser. Vos tirs sont trop larges et ne touchent que des murs en béton."
+            },
+            {
+              "GUID": "6dc16bcb-a1d3-4623-a79f-d154b0658090",
+              "theText": "Vous mitraillez les stormtroopers avec les tirs de vos canons.\r\n\r\n{-} Vaincre 1 figurine Stormtrooper."
+            },
+            {
+              "GUID": "71a3a6ee-df71-463f-bacd-8649cd8012d9",
+              "theText": "Vous mitraillez les stormtroopers avec les tirs de vos canons.\r\n\r\n{-} Vaincre 2 figurines Stormtrooper."
+            },
+            {
+              "GUID": "c4c4ba75-af5e-41d8-8f6e-9553a6ef139f",
+              "theText": "Vous gardez votre arme braquée sur les stormtroopers, suivant chacun de leurs mouvements et ne vous arrêtant de tirer que lorsqu'ils sont tous immobiles sur le sol.\r\n\r\n{-} Vaincre 3 figurines Stormtrooper."
+            }
+          ],
+          "GUID": "a2354e90-9e75-4223-9728-f61d2ce1e97e",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        },
+        {
+          "mainText": "Les moteurs du speeder se désactivent définitivement et les répulseurs d'urgence se mettent en marche. Le speeder descend en spirale vers l'installation.\r\n\r\n{-} Le Pilote effectue un test de {I} ou {J}. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "9bce0aa5-6bd1-458f-a364-3cfcaf7e661e",
+              "theText": "Le speeder s'écrase durement sur le sol.\r\n\r\n{-} Déployez les Rebelles sur la case bleue en surbrillance.\r\n{-} Chaque figurine Rebelle subit 2 {H} (4 {H} s'il s'agit d'un héros avec 2 pions Activation)."
+            },
+            {
+              "GUID": "9a7c2e71-b83e-4231-b092-03287a84a008",
+              "theText": "Le speeder s'écrase au sol, mais vous parvenez à atténuer un peu l'impact.\r\n\r\n{-} Déployez les Rebelles sur la case bleue en surbrillance.\r\n{-} Chaque figurine Rebelle subit 1 {H} (3 {H} s'il s'agit d'un héros avec 2 pions Activation)."
+            },
+            {
+              "GUID": "55040516-7baf-4379-9c35-ace973f33e6e",
+              "theText": "Le speeder s'écrase au sol, mais vous parvenez à atténuer la majeure partie de l'impact.\r\n\r\n{-} Déployez les Rebelles sur la case bleue en surbrillance.\r\n{-} Chaque héros avec 2 pions Activation subit 2 {H}."
+            },
+            {
+              "GUID": "ac87de00-63ec-4c1e-acb8-f6d94aa2d046",
+              "theText": "Le speeder s'écrase au sol, mais vous parvenez à atténuer la majeure partie de l'impact.\r\n\r\n{-} Déployez les Rebelles sur la case bleue en surbrillance.\r\n{-} Chaque héros avec 2 pions Activation subit 1 {H}."
+            },
+            {
+              "GUID": "a0082c7a-af53-4050-a2f0-6145a977aba4",
+              "theText": "Le speeder s'écrase au sol, mais vous activez les systèmes d'urgence juste à temps pour amortir l'atterrissage.\r\n\r\n{-} Déployez les Rebelles sur la case bleue en surbrillance."
+            }
+          ],
+          "GUID": "b96b9f92-509e-47e7-8f88-36df8c86bac3",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        },
+        {
+          "tbText": "Vous sortez de l'épave en rampant, en essayant de vous orienter.\r\n\r\n{-} Le Navigateur effectue un test de {I} ou {J}, en appliquant +2 {B} aux résultats. Ensuite, pour chaque {B}, n'importe quel héros peut gagner 1 {e} ou éliminer 1 {C}.",
+          "GUID": "74ff1c33-e2c9-4154-9969-9d939070d3be",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "mainText": "Alors que vous émergez de l'épave, une force obscure semble vouloir s'emparer du fragment.\r\n\r\n{-}  Le Défenseur de l'Artefact effectue un test de {K} ou {I}. Entrez le nombre de réussites ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "e069df5c-b85c-48f4-b25e-fa4cb456fd5f",
+              "theText": null
+            },
+            {
+              "GUID": "00386e1f-6651-4bfa-bb95-b4f1129cef1a",
+              "theText": null
+            },
+            {
+              "GUID": "6fea4130-84bd-4456-966b-a1674cf4fa21",
+              "theText": null
+            },
+            {
+              "GUID": "a3ff7953-3c89-4602-9e30-9cea696ed0c4",
+              "theText": null
+            }
+          ],
+          "GUID": "8b5723d4-c65e-4c4c-9fa5-8ab4a29ab708",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "AT-DP defeated",
+      "GUID": "add87686-c652-4d4b-921d-2f1be35b0451",
+      "eventText": "Le marcheur finit par s'effondrer dans un amas de métal en fusion.",
+      "eventActions": [
+        {
+          "shortText": "Libérer les pinces d'amarrage  (&Clamps released&/2).",
+          "longText": null,
+          "GUID": "0852bcde-4a57-4595-b059-59d569b96168",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Threat 0",
+      "GUID": "81ca830b-891c-4394-b00f-5d015baad705",
+      "eventText": "Vous parvenez à reprendre le contrôle du fragment.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 1",
+      "GUID": "42330ec9-0a5e-4091-9aaf-b16488107160",
+      "eventText": "Vous parvenez à reprendre le contrôle du fragment, mais vous ne pouvez pas vous débarrasser du sentiment qu'une puissance obscure s'y trouve encore.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 2",
+      "GUID": "916f342a-9e80-463a-a408-64833a816f16",
+      "eventText": "Le fragment vibre dans votre main, mais vous gardez vos doigts serrés autour de lui. Une puissance obscure semble en émaner.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 3",
+      "GUID": "31a20683-145d-4cee-839f-d72079e3d020",
+      "eventText": "Le fragment vibre et brille dans votre main, et vous sentez une vive douleur vous envahir.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Ship Down - Continue",
+      "GUID": "6dd93acd-1df4-47d8-9cf3-068fe6b23e0a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shields 1",
+              "GUID": "7695ab29-efd1-421a-a11a-dea3ef797072",
+              "theText": "{-} Placez 1 pion bouclier d'énergie sur chaque case violette en surbrillance.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Shields 2",
+              "GUID": "8e08206e-f420-4cdf-8fd8-e9423ed83c79",
+              "theText": "{-} Placez 1 pion bouclier d'énergie sur chaque case violette en surbrillance.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "87d941f4-2eff-4732-98d2-fb48e848b199",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Immédiatement après votre crash, l'installation Impériale est placée en état d'alerte. Les boucliers énergétiques s'activent pour protéger l'entrée.\r\n\r\n{-} Placez 1 pion bouclier d'énergie sur chaque case violette en surbrillance.",
+          "GUID": "85e05bf2-37f7-431e-813a-8645415d6bbb",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "mainText": "Les forces Impériales se rassemblent pour stopper votre avancée.\r\n\r\n{-} Additionnez le coût en menace total de toutes les figurines Impériales qui ont été mises de côté depuis la première section du plateau. Entrez le résultat ci-dessous.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "2da0f485-cc3a-40b1-978b-26fcdf51dc5e",
+              "theText": null
+            },
+            {
+              "GUID": "4f5f5798-41df-47c8-b89b-788f444be038",
+              "theText": null
+            },
+            {
+              "GUID": "3b9b5f38-63ab-40b0-b825-35549dc74f9f",
+              "theText": null
+            },
+            {
+              "GUID": "752829eb-e3e5-45e9-ae8d-20860589d522",
+              "theText": null
+            }
+          ],
+          "GUID": "f8c73d52-d823-4d80-a80a-380603de18bd",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Threat 0-5",
+      "GUID": "7903208d-bf33-4a39-9ee8-606aa4145084",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 6-10",
+      "GUID": "d39cc679-34ac-404c-90e0-8bb2ebe4a0b8",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 11-15",
+      "GUID": "9ffbf7ed-3457-4126-8ff7-a38a7380ce75",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Threat 16+",
+      "GUID": "83ac2b44-7ede-4b2c-9a08-2286213413d7",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Ahsoka leaves",
+      "GUID": "62007169-b603-44d4-97c1-04b2b26ac232",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "\"Pas de panique !\" s'exclame Ahsoka. \"Je vais vous sortir de là. Neutralisez les défenses de cette station pour que je puisse me poser et vous récupérer !\"\r\n\r\n{-} La mission évolue quand la porte de la Station de Défense s'ouvre.",
+          "GUID": "21eb6ff6-a0b2-44a4-b45f-a3093e1e5123",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Entrer dans la Station de Défense.",
+          "longText": null,
+          "GUID": "73e67339-0cae-4e25-8574-a8fc2c9783bb",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et peut uniquement utiliser cette action pour se déplacer.\r\n{-} La mission évolue quand la porte de la Station de Défense s'ouvre.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "4937d94c-e13d-4a48-b41a-b13dfc773423",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Bloquer l'accès aux portes.",
+          "GUID": "da93e7fc-3f50-4512-938f-2fdf5506920b",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "622ae17f-98d8-4e69-9038-c9a65b5f9ddd",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Heroes adjacent",
+      "GUID": "3cd08992-3ce2-47d8-a0f7-65c2cb9e4d5d",
+      "eventText": "Vous vous rassemblez autour du speeder et vous vous préparez à partir.\r\n\r\n{-} Cliquez sur \"Fin du Round\" pour faire évoluer la mission.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Speeder Highlight",
+              "GUID": "a595208b-fabd-47c4-b8b8-5d37a7e82c3a",
+              "theText": "Votre speeder vous attend ici.\r\n\r\n{-} La mission évolue au début de la Phase de Statut si les deux terminaux sont défaussés et que tous les héros sont adjacents au speeder. Ignorez le terrain bloquant pour cette adjacence.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c607344b-c187-469b-befc-d3f49dc43241",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Generator 1 destroyed",
+      "GUID": "ca0d4b0e-3a7c-4181-a537-d05f87df6993",
+      "eventText": "Le générateur s'effondre dans une pluie d'étincelles.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shield Generator 1",
+              "GUID": "6fc04e3f-d37c-4f0a-9d8d-03806f3513f7",
+              "theText": "Les générateurs de boucliers protègent la station de défense et empêchent Ahsoka d'atterrir.\r\n\r\n{-} Une figurine Rebelle peut attaquer un générateur de boucliers (Santé : 8, Défense : 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "25a15a69-cd5d-45a1-b078-d97a1a2c15f1",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "7480ab33-8f6d-44df-aad8-bac2ee06a1f2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Generator 2 destroyed",
+      "GUID": "4476e348-5dc1-4237-87b8-d4e9833de07a",
+      "eventText": "Le générateur s'effondre dans une pluie d'étincelles.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Shield Generator 2",
+              "GUID": "b4bf44bc-8d57-4469-bdf3-799bbbd6805b",
+              "theText": "Les générateurs de boucliers protègent la station de défense et empêchent Ahsoka d'atterrir.\r\n\r\n{-} Une figurine Rebelle peut attaquer un générateur de boucliers (Santé : 8, Défense : 2 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "6e475a7b-cb8f-4b95-904b-cc751525136e",
+                  "theText": "Détruire"
+                }
+              ]
+            }
+          ],
+          "GUID": "b938cffb-545e-45aa-bcb8-8503fe5ba69b",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Escape Plan",
+      "GUID": "cd327316-ad89-46f1-8539-22d39ad3b48a",
+      "eventText": "La porte s'ouvre pour révéler une petite station de défense avec deux générateurs de boucliers, bourdonnant d'énergie. Peu après l'ouverture de la porte, des gardes automatiques s'activent.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Defense Station Door",
+              "GUID": "92cc2fcd-3d03-4174-bc66-89c5eef3b2e1",
+              "theText": "Une lourde porte anti-explosion permet d'accéder à la station de défense.",
+              "buttonList": [
+                {
+                  "GUID": "a7f7fe0a-be3d-4d7a-9950-585c12a6af85",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "dee954ae-a4aa-4c28-9ec7-9529c1372b2a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "3fa32853-4ce5-4269-bc6d-11511c9cc9ba",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG052/Sentry Droid (Elite)"
+        },
+        {
+          "tbText": "Les générateurs de boucliers semblent robustes, mais pas indestructibles.\r\n\r\n{-} Une figurine Rebelle peut attaquer un générateur de boucliers (Santé : 8, Défense : 2 {G}).\r\n{-} Quand les générateurs de boucliers sont détruits et que tous les héros sont sur des cases d'extérieur, les héros sont extraits.\r\n{-} Les Rebelles gagnent quand les héros sont extraits.",
+          "GUID": "d581fb27-5f25-43fd-a1c0-d398fa0c5df7",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Détruire les générateurs de boucliers (&Terminals destroyed&/2).",
+          "longText": null,
+          "GUID": "65154061-6b19-426e-87f5-bc3ed09d9f3b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et peut uniquement utiliser cette action pour se déplacer.\r\n{-} Une figurine Rebelle peut attaquer un générateur de boucliers (Santé : 8, Défense : 2 {G}).\r\n{-} Quand les générateurs de boucliers sont détruits et que tous les héros sont sur des cases d'extérieur, les héros sont extraits.\r\n{-} Les Rebelles gagnent quand les héros sont extraits.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "2ec3d438-a807-4453-868e-77d41406dd11",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "tbText": "Alors que vous vous apprêtez à pénétrer dans le complexe, une douleur soudaine vous envahit. Un sentiment de terreur absolue s'empare de vous. À travers le bouclier, une navette noire descend et se pose devant le complexe. Il en sort une silhouette vêtue de noir et empreinte de malice.",
+          "GUID": "11564662-8a74-435b-8030-092ee352c107",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "1be11246-e8a5-42a3-a5f5-bbe0cecde2f3",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG083/Emperor Palpatine"
+        },
+        {
+          "tbText": "{-} L'<color=\"red\">Empereur Palpatine</color> ne peut pas subir de {H}.",
+          "GUID": "42218a89-84a8-45e3-8641-9b646173085e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "repositionText": "Bloquer l'accès aux terminaux.",
+          "GUID": "ba4ab234-548b-41c4-8a0f-238aa844679a",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Shields down",
+      "GUID": "3bfdc478-72f8-4d62-a25f-9e2fe32d2164",
+      "eventText": "Les générateurs de bouclier s'éteignent et les boucliers entourant le complexe disparaissent immédiatement. \"Maintenant !\", appelle Ahsoka par radio. \"Sortez de là, je viens vous chercher !\"\r\n\r\n{-} Retirez tous les boucliers d'énergie du plateau.",
+      "eventActions": [
+        {
+          "repositionText": "Bloquer l'accès aux tuiles d'extérieur.",
+          "GUID": "8f15f7b6-e7de-41a1-8fbb-36713cc2227c",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Escape Token",
+              "GUID": "a9c62d42-2295-431f-a872-ec9ec8572980",
+              "theText": "{-} Quand tous les héros sont sur des cases d'extérieur, cliquez sur \"Extraction\" pour partir et mettre fin à la mission.",
+              "buttonList": [
+                {
+                  "GUID": "bcaa9eb2-cbb0-40ed-832c-4e279fb909d5",
+                  "theText": "Extraction"
+                }
+              ]
+            }
+          ],
+          "GUID": "df09b353-d884-4b4a-bfb6-30054863337a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Quand tous les héros sont sur des cases d'extérieur, cliquez sur le pion Mission Rebelle et sélectionnez \"Extraction\" pour partir.",
+          "GUID": "311000e3-b20a-4cbe-a57b-486845463f0c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Quand un héros se replie, il est neutralisé à la place. Quand il est activé, il ne reçoit que 1 action et peut uniquement utiliser cette action pour se déplacer.\r\n{-} Quand tous les héros sont sur des cases d'extérieur, cliquez sur le pion Mission Rebelle et sélectionnez \"Extraction\" pour partir.\r\n{-} Les Rebelles gagnent quand les héros sont extraits.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+          "GUID": "1c60e6cf-9029-4f18-b4f2-d63fade195d2",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "S'échapper !",
+          "longText": null,
+          "GUID": "101569bc-2da0-4d25-b904-e32243eca493",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "6a83a570-d030-45d4-9778-e2003a12b163",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "4be84208-1c15-43e8-b747-398212c64f4e",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "db61f6e7-0006-442f-bb95-d4ca5171dc84",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Ahsoka Entrance",
+      "GUID": "70e6ef6f-9dd1-4b9f-85e6-bbc66dbf85da",
+      "mainText": "{-} Déployer <color=\"red\">Ahsoka Tano</color> (Instigatrice Rebelle) ici.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 5",
+      "GUID": "5c3e51ed-22ac-4df7-ac35-30cb1d0f8609",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 6",
+      "GUID": "462508ff-7def-440e-925d-4ff7efd105ad",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Speeder Highlight",
+      "GUID": "31f2d76d-ff35-46cc-89d4-f9299761a042",
+      "mainText": "Votre speeder vous attend ici.\r\n\r\n{-} La mission évolue au début de la Phase de Statut si les deux terminaux sont défaussés et que tous les héros sont adjacents au speeder. Ignorez le terrain bloquant pour cette adjacence.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "f51088e8-95fd-45cd-9f01-47b6e53e0c64",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "b5e61f64-b1d5-4303-b5a4-70437afeaca7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "c9147411-6b58-499b-8839-59d3da363ef6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "713fd077-cc17-43e7-933b-b5d06a67704e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "47551a2d-aaf7-4ebf-8ed9-30d925c6f05a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe Droid",
+      "GUID": "33bf0854-65bd-4b8a-9fbd-c2d3e83fed17",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ERTrooper 1",
+      "GUID": "f2b9fa6d-02e6-4590-b5ad-3c1eb1ba3dc2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ERTrooper 2",
+      "GUID": "59d7eac0-a379-4295-81b7-0af3418936da",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Terminal Clamps 1",
+      "GUID": "159fdf87-38b1-44ba-949a-19520e3cf843",
+      "mainText": "Le terminal contrôle la pince d'amarrage qui maintiennent l'avant du speeder au sol.\r\n\r\n{-} Une figurine Rebelle peut interagir avec le terminal ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.",
+      "buttonList": [
+        {
+          "GUID": "3ad8db0e-d0b9-440d-b262-57d378aeccd2",
+          "theText": "{A} Pirater"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal Clamps 2",
+      "GUID": "450134f9-870f-4846-9185-85915e596764",
+      "mainText": "Le terminal contrôle la pince d'amarrage qui maintiennent l'arrière du speeder au sol.\r\n\r\n{-} Une figurine Rebelle peut interagir avec le terminal ({I}) pour essayer de libérer une pince d'amarrage, et ainsi défausser le terminal. Durant le test, cette figurine peut subir 1 {C} pour relancer jusqu'à 2 dés.",
+      "buttonList": [
+        {
+          "GUID": "6cc75cf3-a97c-4cc3-ac14-2d202fe3206e",
+          "theText": "{A} Pirater"
+        }
+      ]
+    },
+    {
+      "entityName": "DP AT-DP",
+      "GUID": "03dd838d-6ff6-4f89-a742-d64765178338",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 7",
+      "GUID": "16d4fc00-dcf0-4848-8213-86be26d5c626",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 8",
+      "GUID": "ac10b1ec-64de-4ad8-acf1-6d33eda75e91",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 9",
+      "GUID": "db9b50d6-7cb9-48a0-a78b-be551f1aeeca",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 10",
+      "GUID": "b592abeb-e829-4880-867d-513460d2bf01",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Defense Station Door",
+      "GUID": "009c6993-9a5e-43b9-acff-91ca0d3aadae",
+      "mainText": "Une lourde porte anti-explosion permet d'accéder à la station de défense.",
+      "buttonList": [
+        {
+          "GUID": "411f14db-6f85-4cd5-a028-6dcdb1338152",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Shields 1",
+      "GUID": "f91e1cfa-aa72-4315-a2e8-f5ba0c03135b",
+      "mainText": "{-} Placer 1 pion bouclier d'énergie sur chaque case violette en surbrillance.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Shields 2",
+      "GUID": "6d83cf9e-b5db-418f-8648-e46c950821e7",
+      "mainText": "{-} Placer 1 pion bouclier d'énergie sur chaque case violette en surbrillance.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Palpatine",
+      "GUID": "a48c7257-0824-4110-bd3d-8fb6e4e215d4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "927696d7-29d5-45a3-ae34-1e3f0b933c83",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "a5bcc029-aca3-42a3-8819-98f37dae584a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "fa69bf3e-aa24-4d47-a9cb-49d9be6e346c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "3676372a-1be6-4730-aa49-5e81fc638cff",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "3f0b8cbb-334f-4480-9f48-1209072af5d9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Shield Generator 1",
+      "GUID": "db3f6b8d-2f97-47d5-9eb4-b2c0b2d3f294",
+      "mainText": "Les générateurs de boucliers protègent la station de défense et empêchent Ahsoka d'atterrir.\r\n\r\n{-} Une figurine Rebelle peut attaquer un générateur de boucliers (Santé : 8, Défense : 2 {G}).",
+      "buttonList": [
+        {
+          "GUID": "b9e6e0b3-0639-47f8-aee4-fa3f52447fe5",
+          "theText": "Détruire"
+        }
+      ]
+    },
+    {
+      "entityName": "Shield Generator 2",
+      "GUID": "b2138e00-bd2f-4207-ae27-b44700c47dc0",
+      "mainText": "Les générateurs de boucliers protègent la station de défense et empêchent Ahsoka d'atterrir.\r\n\r\n{-} Une figurine Rebelle peut attaquer un générateur de boucliers (Santé : 8, Défense : 2 {G}).",
+      "buttonList": [
+        {
+          "GUID": "73880d26-2a8c-43b5-b33d-c0505e3c32ea",
+          "theText": "Détruire"
+        }
+      ]
+    },
+    {
+      "entityName": "Escape Token",
+      "GUID": "6860550c-2d6f-4995-abcd-921650519a47",
+      "mainText": "{-} Quand tous les héros sont sur des cases d'extérieur, cliquez sur \"Extraction\" pour partir et mettre fin à la mission.",
+      "buttonList": [
+        {
+          "GUID": "8c8ba560-8c1e-4f46-9811-bc75c55d6284",
+          "theText": "Extraction"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance Command Centre",
+      "GUID": "6edaaa47-afa5-4179-b7f5-6f07b18b9d39",
+      "mainText": "Placer les héros ici.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Riot Trooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}
