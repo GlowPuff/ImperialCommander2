@@ -19,7 +19,7 @@ namespace Saga
 		public GameObject descriptionTextBox;
 		public Text difficultyText;
 		public Transform heroContainer;
-		public Button adaptiveButton, startMissionButton, viewMissionCardButton, campaignTilesButton;
+		public Button adaptiveButton, startMissionButton, viewMissionCardButton, campaignTilesButton, allyButton;
 		public GameObject miniMugPrefab;
 		public Image allyImage;
 		public MWheelHandler threatValue, addtlThreatValue;
@@ -48,6 +48,9 @@ namespace Saga
 		public Transform planet;
 		public SpriteRenderer planetSprite;
 		public Sprite[] planetSpritePool;
+		//TEXTBOX
+		public PopupBase textBoxPopupBase;
+		public GameObject textBoxPrefab;
 		public bool isDebugMode = false;
 
 		Sound sound;
@@ -754,8 +757,26 @@ namespace Saga
 			helpPanel.Show();
 		}
 
+		public void OnAdditionalinfoClick()
+		{
+			if ( missionPicker.selectedMission != null
+				&& !string.IsNullOrEmpty( additionalInfoText.text ) )
+			{
+				var go = Instantiate( textBoxPrefab, textBoxPopupBase.transform );
+				var tb = go.transform.Find( "TextBox" ).GetComponent<TextBox>();
+				textBoxPopupBase.ShowNoZoom();
+				tb.Show( additionalInfoText.text, () => textBoxPopupBase.Close() );
+			}
+		}
+
 		private void Update()
 		{
+			if ( missionPicker.selectedMission != null
+				&& !missionPicker.isBusy )
+				allyButton.interactable = true;
+			else
+				allyButton.interactable = false;
+
 			if ( DataStore.sagaSessionData.MissionHeroes.Count > 0
 				&& missionPicker.selectedMission != null
 				&& !missionPicker.isBusy )

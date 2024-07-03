@@ -96,7 +96,7 @@ namespace Saga
 
 				//get the fixed ally in the selected mission, if any, so it can be omitted from the pool
 				string fixedAlly = FindObjectOfType<SagaSetup>().fixedAlly;
-				if ( fixedAlly != null )
+				if ( !string.IsNullOrEmpty( fixedAlly ) && allyCards.Count > 0 )
 				{
 					Debug.Log( $"Ally Panel::Omitting {allyCards.First( x => x.id == fixedAlly )?.name} [{fixedAlly}] from the pool" );
 					//remove it from the list so it can't be chosen

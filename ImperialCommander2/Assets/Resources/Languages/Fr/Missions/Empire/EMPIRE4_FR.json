@@ -1,0 +1,694 @@
+{
+  "languageID": "French (FR)",
+  "missionProperties": {
+    "missionName": "Agent double",
+    "missionDescription": "",
+    "missionInfo": "{-} Lorn est une figurine Rebelle contrôlée par les Rebelles en tant qu'allié. Lorn ne peut pas subir de {H}.\r\n{-} Lorn n'est pas activé normalement. À la place, il effectue 1 action au début de chaque Phase de Statut.\r\n{-} S'il n'y a pas de héros indemnes à 3 cases ou moins de Lorn, une figurine Impériale peut interagir avec Lorn pour l'arrêter lorsqu'il en reçoit l'instruction. Quand cela se produit, cliquez sur le pion Mission Impériale et sélectionnez \"Lorn est arrêté\".\r\n{-} Les murs situés entre 2 pions Décombres ne bloquent pas les déplacements des figurines situées sur 1 de ces pions Décombres.\r\n{-} Quand vient le tour d'un Rebelle d'activer une figurine, il peut passer et laisser l'Empire jouer.\r\n{-} Les Rebelles gagnent à la fin du Round 7.\r\n{-} Les Rebelles perdent quand Lorn est arrêté.",
+    "campaignName": "Au Cœur de l'Empire",
+    "startingObjective": "",
+    "repositionOverride": "Être adjacent à Lorn (seulement les figurines sans \"Immense\" ou \"Insensible\" ou \"Intelligence limitée\").",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "f2037eb8-7860-4951-971f-d417208d7076",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "06b72f01-872b-4341-8367-271a0c01312d",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "9b3a2b9e-e148-4c39-8f64-5ea7153a78ed",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "87ca8257-5cc3-485e-a161-97365cdc74df",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Vous fouillez la caisse et prenez ce qui vous semble utile.\r\n\r\nPiochez une carte Ravitaillement. Vous gagnez 1 médipack. Récupérez ce pion.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "085fb320-a2fb-468c-b997-42f76f03ffa6",
+              "theText": "Une vieille caisse de ravitaillement.",
+              "buttonList": [
+                {
+                  "GUID": "d2a6d47f-7563-4355-8345-dceef72b8944",
+                  "theText": "{A} Ouvrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Le petit bar où Lorn a choisi de vous rencontrer se situe dans une partie très industrialisée de la planète. L'air est chargé de fumée et de suie, au point qu'on a du mal à distinguer les appareils en approche.\r\n\r\nPour éviter d'éveiller les soupçons, la moitié du groupe reste dehors avec le speeder tandis que l'autre entre dans le bar. Vous vous installez et attendez que Lorn arrive.\r\n\r\nAprès quelques verres que la serveuse vous fait commander en jouant la carte de la culpabilité, vous êtes contrariés, car Lorn n'est toujours pas là. Commençant à croire qu'il ne viendra pas, vous remarquez soudain un homme portant un long manteau et des lunettes fumées. Vous levez les yeux au ciel face au ridicule de ce déguisement et vous décidez à vous approcher quand vous apercevez du mouvement du coin de l'œil. Vous réalisez alors que vous avez de la compagnie.\r\n\r\nDehors, un vrombissement s'intensifie juste avant qu'un orbe étincelant ne frappe votre speeder, qui explose. Malgré la fumée, vous apercevez la silhouette d'un véhicule bombardier qui entame déjà un virage pour faire un nouveau passage. Vous activez votre balise de détresse pour appeler des secours en espérant que votre extraction ne tardera pas.\r\n\r\n{-} Déployez les héros sur les cases bleues en surbrillance, répartis aussi équitablement que possible entre les deux cases.",
+      "eventActions": [
+        {
+          "tbText": "Lorn se blottit dans un coin, choqué par l'explosion, mais reprenant peu à peu ses esprits.",
+          "GUID": "5b964cf1-c4ec-419f-8868-89fe26e87fad",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Lorn",
+              "GUID": "9778b553-efb9-4b26-8274-14e5098f8d2d",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "43c6692e-2e24-497a-892e-168bfddab23d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Placez 1 pion Mission Rebelle comme indiqué. C'est Lorn.\r\n{-} Lorn est une figurine Rebelle contrôlée par les Rebelles en tant qu'allié. Lorn ne peut pas subir de {H}.\r\n{-} Lorn n'est pas activé normalement. À la place, il effectue 1 action au début de chaque Phase de Statut.\r\n{-} S'il n'y a pas de héros indemnes à 3 cases ou moins de Lorn, une figurine Impériale peut interagir avec Lorn pour l'arrêter lorsqu'il en reçoit l'instruction. Quand cela se produit, cliquez sur le pion Mission Impériale et sélectionnez \"Lorn est arrêté\".",
+          "GUID": "b105c929-e6f1-4d5e-aae0-242334f974c4",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Lorn",
+              "GUID": "02412988-576f-47ae-b577-c622a890aadb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "1d180127-e449-4410-a9f1-985197678024",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Soudain, des explosions secouent le bâtiment et des pans de murs s'effondrent.",
+          "GUID": "3efe625c-14a1-439c-ae9d-2d6eaa9460ec",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Rubble 1",
+              "GUID": "92b565b4-df7c-4337-979d-6d09ce317b65",
+              "theText": "{-} Placez 1 pion Décombres sur chaque case verte en surbrillance.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Rubble 2",
+              "GUID": "4c75e93e-c4ce-4d4f-a0e5-2041654c56d9",
+              "theText": "{-} Placez 1 pion Décombres sur chaque case verte en surbrillance.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "c728e70e-f255-4a42-963f-f6495e45b2ae",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Placez 1 pion Décombres sur chacune des cases vertes en surbrillance.\r\n{-} Les murs situés entre 2 pions Décombres ne bloquent pas les déplacements des figurines situées sur 1 de ces pions Décombres.",
+          "GUID": "26fdb11f-00d2-4f23-bd4f-fbb28d5f4b8a",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "\"Terroristes Rebelles\", la voix amplifiée d'un commandant Impérial résonne sur la place. \"Vous hébergez un traître recherché. Livrez-le et rendez-vous, ou vous serez arrêtés par la force.\"\n\nA l'extérieur, un nombre terrifiant de troupes Impériales se mettent en position, bientôt rejointes par des chasseurs de primes à la recherche d'une proie facile.",
+          "GUID": "97405af1-5e8c-4650-a4d0-4deb5af90ebd",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4036526b-ca2a-4d6e-9313-e9bfea70834d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG053/Clawdite Shapeshifter"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "bb83c616-c0f4-4c27-9aa8-958f44d423c6",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dc4f5eb9-0e27-4c81-8464-3f1f46c9f197",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG011/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0dc972f2-860c-44f8-91f3-b4a32f5c68ad",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "tbText": "Vous cherchez une issue lorsque les premiers soldats font irruption dans le bar, munis d'énormes boucliers anti-émeute. Deux clients Trandosiens qui ont suivi chacun de vos mouvements se lèvent à leur tour, montrent les dents et saisissent leurs armes.",
+          "GUID": "9991c6ea-bb03-4330-8283-b8797980e32b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b0787cce-9950-48e9-bdf6-413c6326fca5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG047/Riot Trooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "c6e6b60f-a723-417d-a8f2-243e8dd69a9b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "newInstructions": "{-} Si adjacent à Lorn, et qu'il n'y a pas de héros indemnes à 3 cases ou moins de Lorn : Arrêter Lorn. (Seulement les figurines sans \"Immense\" ou \"Insensible\" ou \"Intelligence limitée\".)",
+          "GUID": "7ba6b65e-37a0-4062-ab97-a70781895197",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "tbText": "Vous préparez vos armes, en espérant que l'extraction est pour bientôt.\r\n\r\n{-} Quand vient le tour d'un Rebelle d'activer une figurine, il peut passer et laisser l'Empire jouer.\r\n{-} Les Rebelles gagnent à la fin du Round 7.\r\n{-} Les Rebelles perdent quand Lorn est arrêté.",
+          "GUID": "b9203bd6-64cf-4d5d-afed-f4b51edfc6d1",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Protéger Lorn.",
+          "longText": null,
+          "GUID": "b22d0e98-6e38-40c8-8ab7-0368a1fc5cd2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "\"Quelqu'un cherche un véhicule ?\" demande une voix crépitante sur le comlink. Un speeder surgit du nuage de fumée et s'approche du sol en évitant les tirs du bombardier. Il se pose le temps de vous laisser monter à bord en compagnie de Lorn avant de redécoller et de disparaître dans le brouillard.\r\n\r\n\"C'était moins une !\" s'exclame Lorn, heureux d'avoir pu échapper à une zone de guerre. \"Merci pour le coup de main ! Je serais ravi de vous renvoyer l'ascenseur.\"\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent la carte Récompense \"Source interne\". (Cette carte Récompense fonctionne différemment lorsque vous jouez avec <b>Imperial Commander 2</b>. Reportez-vous à la section \"Changement de règles\" de la documentation du wiki pour plus de détails.)\r\n{-} Chaque héros reçoit 2 XP. Les héros reçoivent 100 crédits par héros.\r\n{-} Les héros doivent choisir : chercher l'artefact avec ou sans Lorn. S'ils le cherchent avec Lorn, mettez en jeu la carte Mission de l'Intrigue \"L'histoire se répète\". S'ils le cherchent sans Lorn, mettez en jeu la carte Mission de l'Intrigue \"L'ennemi se rapproche\".",
+      "eventActions": [
+        {
+          "mainText": "N'y a-t-il qu'un seul héros indemne ?",
+          "buttonList": [
+            {
+              "GUID": "8d8778d6-9b04-48bd-a46c-b627f517758d",
+              "theText": "Oui"
+            },
+            {
+              "GUID": "ee0dfae9-26c0-481d-9450-e685e59cf4d9",
+              "theText": "Non"
+            }
+          ],
+          "GUID": "9d3c24ba-360f-4934-ade8-5deb209c4add",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Les soldats Impériaux encerclent Lorn et le jettent au sol avant de lui attacher les mains dans le dos. \"Aidez-moi !\" s'écrie l'historien. \"Ne me laissez pas !\" Sachant cette bataille perdue, vous réprimez le sentiment de culpabilité qui menace de s'emparer de vous et tentez de ne pas penser à ce qui l'attend.\r\n\r\n{-} Les Rebelles perdent la mission.\r\n{-} Le niveau de menace de la prochaine mission (et seulement de la prochaine) est augmenté de 1. Pendant la Séquence d'Amélioration Rebelle, les joueurs rebelles peuvent décider de dépenser 50 crédits par héros pour éviter cela.\r\n{-} Chaque héros reçoit 2 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Story 1",
+      "GUID": "fac456cf-6c32-4b32-9708-84538d36ec5d",
+      "eventText": "L'Empire décide de poursuivre directement l'artefact, espérant le récupérer avant les héros.\r\n\r\n{-} Mettez en jeu la carte Mission de l'Intrigue \"L'ennemi se rapproche\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Story 2",
+      "GUID": "24142781-4f57-4d08-aa89-dec53e4c9c27",
+      "eventText": "Au lieu de poursuivre l'artefact directement, l'Empire décide d'essayer de saboter les efforts des héros, en les ralentissant.\r\n\r\n{-} Mettez en jeu la carte Mission de l'Intrigue \"En fuite\".",
+      "eventActions": []
+    },
+    {
+      "eventName": "Intrusion",
+      "GUID": "09ddd186-7d41-47bf-85b6-f792b390346c",
+      "eventText": "Des speeders militaires approchent, et des soldats lourdement blindés en sautent.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5832a217-3135-44c0-a80f-478316479a42",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG049/Riot Trooper (Elite)"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "318c85f7-9805-4bcd-a226-7be45b3768d7",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "491ef120-8b43-49a4-8066-890758af8faf",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "72c3d9ca-4db2-4aec-8f05-ad6cb125995d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "On Patrol",
+      "GUID": "bc7c7bb6-4193-4ae2-8b86-56cba06225c3",
+      "eventText": "Entendant l'agitation autour du bar, une patrouille de Stormtroopers entre en trombe et se joint immédiatement à la mêlée.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4b0be648-1bca-4560-9e3c-5a32bc1f30fa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "DP Green 2",
+              "GUID": "252e0460-93e1-4a69-ab6f-a8cb68ae0def",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 3",
+              "GUID": "13109eba-3824-43e7-8d4b-a7bc850414fa",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 4",
+              "GUID": "08137dee-1ca3-4006-ab44-86bfd67186d9",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "dd68b9ea-4fc4-4497-9ca5-6ea77b6d8a8a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Walker Support",
+      "GUID": "7ba30888-5045-4e89-b23e-27e3a360142c",
+      "eventText": "\"Vous ne m'aurez jamais vivant !\" crie Lorn en riant alors que vous abattez un autre soldat. Puis vous sentez des trépidations dans le sol, accompagnées du pas lourd d'un marcheur. Lorn déglutit à grand-peine, son assurance sérieusement ébranlée.\r\n\r\n\"À bien y réfléchir...\"",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "{-} GÉNÉRATEUR DE DÉCHARGES : Si cette figurine a subi moins de 9 {H}, elle gagne +2 {H}.\r\n{-} TIRS EXPLOSIFS : Après chaque attaque, placez 1 pion Décombres sur la case du défenseur. Ensuite, si le défenseur était adjacent à un mur, placez également 1 pion Décombres de l'autre côté du mur, si possible.\r\n{Q} Déplacement de 1 pour attaquer {rebel}.\r\n{Q} Déplacement de 1 pour attaquer {rebel}.\r\n{Q}{A} Déplacement de 3 pour attaquer {rebel}.\r\n{A}{A} Déplacement de 6 vers {rebel}.\r\n{A} Déplacement de 2 vers le Rebelle le plus proche.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "95c8aa6c-a44a-4bce-abb1-e21970d0a3ad",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG046/AT-DP"
+        }
+      ]
+    },
+    {
+      "eventName": "Vile Creatures",
+      "GUID": "e7a1428c-82d4-43ce-858f-4c4a2785cf50",
+      "eventText": "Les murs arrière du bar éclatent quand des charges cachées explosent. Hargneux, des mercenaires Trandosiens se précipitent à l'intérieur, leurs fusils de chasse dégainés.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "671ba25a-0664-4179-a472-05d57f193e69",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG016/Trandoshan Hunter (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Bombardment Trigger",
+      "GUID": "b9c89a5d-76bd-4b75-a41c-ed5e93ca55db",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 1",
+      "GUID": "a1da5642-7efc-4dfe-872d-9c095d79e9c3",
+      "eventText": "Le bombardier fait demi-tour pour un nouveau passage. Des explosions secouent le bar.\r\n\r\n{-} Placez 1 pion Décombres de chaque côté du mur entre Core 28B et Empire 18B.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 2",
+      "GUID": "6beddd1a-ab84-4ca7-b0cd-f397fec871c7",
+      "eventText": "Le bombardier fait demi-tour pour un nouveau passage. Des explosions secouent le bar.\r\n\r\n{-} Placez 1 pion Décombres de chaque côté du mur entre Core 23B et Empire 6B (position la plus basse).",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 3",
+      "GUID": "15210d80-ba8f-45c2-9ff9-cc1c851f2c22",
+      "eventText": "Le bombardier fait demi-tour pour un nouveau passage. Des explosions secouent le bar.\r\n\r\n{-} Placez 1 pion Décombres sur la case de la figurine Rebelle adjacente au plus grand nombre d'autres figurines Rebelles. Chaque figurine Rebelle Située sur ce pion Décombres ou adjacente à celui-ci subit 1 {C}. Chaque figurine située sur ce pion Décombres subit aussi 1 {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 4",
+      "GUID": "3b229440-a554-407c-aab9-227f78b7a121",
+      "eventText": "Le bombardier fait demi-tour pour un nouveau passage. Des explosions secouent le bar.\r\n\r\n{-} Placez 1 pion Décombres sur la case de la figurine Rebelle adjacente au plus grand nombre d'autres figurines Rebelles. Chaque figurine Rebelle Située sur ce pion Décombres ou adjacente à celui-ci subit 1 {C}. Chaque figurine située sur ce pion Décombres subit aussi 1 {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 5",
+      "GUID": "78323a7e-9f9f-4824-8969-c0b746c5ddc4",
+      "eventText": "Les alarmes retentissent dans les rues de Coruscant, alertant les forces Impériales sur les lieux.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment 6",
+      "GUID": "cfac4d25-94d5-439f-bab7-401d86d6165d",
+      "eventText": "Les alarmes retentissent dans les rues de Coruscant, alertant les forces Impériales sur les lieux.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Round 7 starts",
+      "GUID": "f2beeb78-c18d-4fa7-9971-fd6ae5e3fa2c",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Rebels Lose Bonus Credits",
+      "GUID": "1e764237-0372-404c-826a-5fcaf978fefd",
+      "eventText": "Parce que Lorn n'a pas été arrêté avant le round 7, les héros reçoivent 25 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Rebels Lose No Bonus Credits",
+      "GUID": "6381b60d-b612-4eb5-be22-6befded031e0",
+      "eventText": "Parce que c'est le round 7, les héros reçoivent 25 crédits par héros.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero Yes",
+      "GUID": "92cb039a-9d87-412e-8afd-a01f525208f5",
+      "eventText": "Le niveau de menace de la prochaine mission (et seulement de la prochaine) est augmenté de 1. Pendant la Séquence d'Amélioration Rebelle, les joueurs rebelles peuvent décider de dépenser 50 crédits par héros pour éviter cela.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Healthy Hero No",
+      "GUID": "64a222fd-16e5-4545-9d2b-2a8fe10f7261",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "412e45a2-5009-45e8-aa24-9a37bb3ada93",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "95e52a17-75ad-42b4-8aa2-61eb3faef7a9",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "0f956e2c-894b-4de9-b716-28e346d32723",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance 1",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Déployer les héros sur les cases bleues en surbrillance, répartis aussi équitablement que possible entre les deux cases.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Une vieille caisse de ravitaillement.",
+      "buttonList": [
+        {
+          "GUID": "13302b9b-01cc-42bc-82df-1140c2b9afcb",
+          "theText": "{A} Ouvrir"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 4",
+      "GUID": "2e35c1c1-e257-4195-ae0a-0b94cbd3e374",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance 2",
+      "GUID": "af39b8f5-dbf6-441c-b5e1-f221ab357918",
+      "mainText": "Déployer les héros sur les cases bleues en surbrillance, répartis aussi équitablement que possible entre les deux cases.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Rubble 1",
+      "GUID": "4869b0f2-600e-4a8c-8a02-c62fdd1857c3",
+      "mainText": "Placer 1 pion Décombres sur chaque case verte en surbrillance.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Rubble 2",
+      "GUID": "b42c137c-9598-40be-a8b8-50a7309ebae4",
+      "mainText": "Placer 1 pion Décombres sur chaque case verte en surbrillance.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Lorn",
+      "GUID": "72d9bc48-2bd4-4243-8a02-d794ecec8439",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 5",
+      "GUID": "683f3140-50cf-44c5-8c1c-b9a5c99ce91b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "96efd903-fa53-4958-870f-0c3a490e0588",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "011fbe90-2374-4817-8867-4bec2c29d3f0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "415fabe1-fdb7-4daf-a409-f4aec0113510",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "49f3a43a-477b-42c8-817a-630f509e032e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Clawdite",
+      "GUID": "111e8b4c-871b-434e-9d54-b4b96ad58de6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "6e8c747c-e13d-431f-8a6e-a6bf8d4d42b7",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "59b045e1-66e7-4c76-9f51-d267eb62bfcb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 2",
+      "GUID": "274ebb06-986f-4aed-a2d7-5aaec76c9f05",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP RTrooper 1",
+      "GUID": "e5fc0f24-9e5e-4420-82d5-7583cbb41134",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black 1",
+      "GUID": "cb138c1f-99c3-482e-9a93-794529b2354b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Black 2",
+      "GUID": "e61b564c-e072-4a46-acfc-25843760934e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "ab63f242-66aa-49b0-8f3d-64f42d4fec9e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "27a5a1d8-3ccc-41ec-80c4-de777d6e270f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "ded513cc-509e-4eb2-8c4a-2e29c559bcf2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Arrest Token",
+      "GUID": "5ed67f85-cc46-47e9-942a-44147e380ce9",
+      "mainText": "Quand Lorn est arrêté, cliquez sur \"Lorn est arrêté\".",
+      "buttonList": [
+        {
+          "GUID": "f7c43e95-93ad-4c8a-aa10-cfdaee1c603c",
+          "theText": "Lorn est arrêté"
+        }
+      ]
+    }
+  ],
+  "initialGroups": []
+}
