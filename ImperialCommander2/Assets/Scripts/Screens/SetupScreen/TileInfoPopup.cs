@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +14,17 @@ namespace Saga
 
 		public void Show( string[] tiles )
 		{
+			var tileExpansionTranslatedNames = new Dictionary<string, string>()
+				{
+					{ Expansion.Core.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmCoreTileNameUC}" },
+					{ Expansion.Twin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmTwinTileNameUC}" },
+					{ Expansion.Hoth.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmHothTileNameUC}" },
+					{ Expansion.Bespin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmBespinTileNameUC}" },
+					{ Expansion.Jabba.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmJabbaTileNameUC}" },
+					{ Expansion.Empire.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmEmpireTileNameUC}" },
+					{ Expansion.Lothal.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmLothalTileNameUC}" },
+				};
+
 			EventSystem.current.SetSelectedGameObject( null );
 			popupBase.Show();
 
@@ -47,14 +60,20 @@ namespace Saga
 				nt.alignment = TextAlignmentOptions.Center;
 				nt.horizontalAlignment = HorizontalAlignmentOptions.Left;
 
+				// Replacing tile expansion name with translated name
+				string expansionName = item.Tile.Split(' ')[0];
+				string itemTileTranslated = tileExpansionTranslatedNames.ContainsKey(expansionName) ? item.Tile.Replace(expansionName, tileExpansionTranslatedNames[expansionName]) : item.Tile;
+				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
+				itemTileTranslated = Regex.IsMatch(itemTileTranslated, "\\{[0-6]+\\}\\s") ? itemTileTranslated.Replace("} ", "}") : itemTileTranslated;
+
 				// Display a count when more than one tile is needed
 				if (item.Count > 1 )
 				{
-					nt.text = $"{item.Tile} x {item.Count}";
+					nt.text = $"{Utils.ReplaceGlyphs(itemTileTranslated)} x {item.Count}";
 				}
 				else
 				{
-					nt.text = item.Tile;
+					nt.text = Utils.ReplaceGlyphs(itemTileTranslated);
 				}
 			}
 		}

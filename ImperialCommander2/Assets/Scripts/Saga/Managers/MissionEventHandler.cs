@@ -695,7 +695,7 @@ namespace Saga
 				// Replacing tile expansion name with translated name
 				tilesWithCount = tilesWithCount.Select(x => { var name = x.Split(' ')[0]; return tileExpansionTranslatedNames.ContainsKey(name) ? x.Replace(name, tileExpansionTranslatedNames[name]) : x; }).ToList();
 				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
-				tilesWithCount = tilesWithCount.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}") ? x.Replace("} ", "}") : x).ToList();
+				tilesWithCount = tilesWithCount.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}\\s") ? x.Replace("} ", "}") : x).ToList();
 
 				var tmsg = string.Join( ", ", tilesWithCount );
 				var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";
@@ -728,7 +728,7 @@ namespace Saga
 				// Replacing tile expansion name with translated name
 				tiles = tiles.Select(x => { var name = x.Split(' ')[0]; return tileExpansionTranslatedNames.ContainsKey(name) ? x.Replace(name, tileExpansionTranslatedNames[name]) : x; }).ToList();
 				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
-				tiles = tiles.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}") ? x.Replace("} ", "}") : x).ToList();
+				tiles = tiles.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}\\s") ? x.Replace("} ", "}") : x).ToList();
 
 				FindObjectOfType<TileManager>().CamToSection( mm.mapSectionRemove );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmRemoveTilesUC}:\n\n<color=orange>{string.Join( ", ", tiles )}</color>", () =>
@@ -745,7 +745,7 @@ namespace Saga
 				// Replacing tile expansion name with translated name
 				t = tileExpansionTranslatedNames.ContainsKey(name) ? t.Replace(name, tileExpansionTranslatedNames[name]) : t;
 				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
-				t = Regex.IsMatch(t, "\\{[0-6]+\\}") ? t.Replace("} ", "}") : t;
+				t = Regex.IsMatch(t, "\\{[0-6]+\\}\\s") ? t.Replace("} ", "}") : t;
 
 				FindObjectOfType<TileManager>().CamToTile( mm.mapTile );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmAddTilesUC}:\n\n<color=orange>{t}</color>", () =>
@@ -762,7 +762,7 @@ namespace Saga
 				// Replacing tile expansion name with translated name
 				t = tileExpansionTranslatedNames.ContainsKey(name) ? t.Replace(name, tileExpansionTranslatedNames[name]) : t;
 				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
-				t = Regex.IsMatch(t, "\\{[0-6]+\\}") ? t.Replace("} ", "}") : t;
+				t = Regex.IsMatch(t, "\\{[0-6]+\\}\\s") ? t.Replace("} ", "}") : t;
 
 				FindObjectOfType<TileManager>().CamToTile( mm.mapTileRemove );
 				ShowTextBox( $"{DataStore.uiLanguage.sagaMainApp.mmRemoveTilesUC}:\n\n<color=orange>{t}</color>", () =>
