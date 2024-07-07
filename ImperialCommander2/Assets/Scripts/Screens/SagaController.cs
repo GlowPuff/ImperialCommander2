@@ -502,7 +502,7 @@ namespace Saga
 				};
 
 				tilesWithCount = tilesWithCount.Select(x => { var name = x.Split(' ')[0]; return tileExpansionTranslatedNames.ContainsKey(name) ? x.Replace(name, tileExpansionTranslatedNames[name]) : x; }).ToList();
-				tilesWithCount = tilesWithCount.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}") ? x.Replace("} ", "}") : x).ToList();
+				tilesWithCount = tilesWithCount.Select(x => Regex.IsMatch(x, "\\{[0-6]+\\}\\s") ? x.Replace("} ", "}") : x).ToList();
 
 				var tmsg = string.Join( ", ", tilesWithCount );
 				var emsg = DataStore.uiLanguage.sagaMainApp.mmAddEntitiesUC + ":\n\n";

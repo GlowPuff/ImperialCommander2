@@ -3,9 +3,9 @@
   "missionProperties": {
     "missionName": "Troubles civils",
     "missionDescription": "",
-    "missionInfo": "{-} La <color=\"red\">CD-TT</color> ne peut pas subir de {H}.\r\n{-} Les pions Mission neutres représentent des civils. Les civils sont des figurines neutres. Les figurines Impériales peuvent attaquer les civils (Santé : 4).\r\n{-} Le pion Mission Rebelle représente une issue de secours. Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez \"Un civil s'échappe\".\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez \"Un civil est vaincu\".\r\n{-} À la fin de l'activation d'un héros, ce dernier peut déplacer jusqu'à 2 cases un civil situé à 2 cases ou moins.\r\n{-} Un héros peut dépenser 1 point de déplacement pour placer un bouclier d'énergie de sa zone de jeu sur une case adjacente.\r\n{-} Un héros peut dépenser 1 point de déplacement pour s'approprier un bouclier d'énergie adjacent.\r\n{-} La mission évolue quand il n'y a plus de civils sur le plateau ou à la fin du round 4.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
+    "missionInfo": "{-} La <color=\"red\">CD-TT</color> ne peut pas subir de {H}.\r\n{-} Les pions Mission neutres représentent des civils. Les civils sont des figurines neutres. Les figurines Impériales peuvent attaquer les civils (Santé : 4).\r\n{-} Le pion Mission Rebelle représente une issue de secours. Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez « Un civil s'échappe ».\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez « Un civil est vaincu ».\r\n{-} À la fin de l'activation d'un héros, ce dernier peut déplacer jusqu'à 2 cases un civil situé à 2 cases ou moins.\r\n{-} Un héros peut dépenser 1 point de déplacement pour placer un bouclier d'énergie de sa zone de jeu sur une case adjacente.\r\n{-} Un héros peut dépenser 1 point de déplacement pour s'approprier un bouclier d'énergie adjacent.\r\n{-} La mission évolue quand il n'y a plus de civils sur le plateau ou à la fin du round 4.\r\n{-} Les Rebelles perdent quand tous les héros sont blessés.",
     "campaignName": "Au Cœur de l'Empire",
-    "startingObjective": "Protéger les civils. Civils qui se sont échappés ou ont été vaincus : &Civilians&/9",
+    "startingObjective": "Protéger les civils. Civils qui se sont échappés ou ont été vaincus : &Civilians&/9",
     "repositionOverride": null,
     "additionalMissionInfo": ""
   },
@@ -81,7 +81,13 @@
       "eventText": "Lorsque vous atteignez les lieux, les rues sont déjà en proie au chaos. Des civils se cachent comme ils le peuvent dans l'espoir d'échapper aux imposantes machines de guerre de l'Empire.\r\n\r\n{-} Déployer les héros sur le pion Mission Rebelle.",
       "eventActions": [
         {
-          "tbText": "Les manifestants se recroquevillent sur eux-mêmes ou courent se mettre à l'abri.\r\n\r\n{-} Placez 1 pion Mission neutre sur chaque case rouge en surbrillance.\r\n{-} Les pions Mission neutres représentent des civils. Les civils sont des figurines neutres. Les figurines Impériales peuvent attaquer les civils (Santé : 4).\r\n{-} Le pion Mission Rebelle représente une issue de secours. Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez \"Un civil s'échappe\".\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez \"Un civil est vaincu\".\r\n{-} À la fin de l'activation d'un héros, ce dernier peut déplacer jusqu'à 2 cases un civil situé à 2 cases ou moins.",
+          "otherTarget": "le civil le plus proche",
+          "GUID": "13df9421-7be5-4584-a465-b28dbe6f0a1d",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
+          "tbText": "Les manifestants se recroquevillent sur eux-mêmes ou courent se mettre à l'abri.\r\n\r\n{-} Placez 1 pion Mission neutre sur chaque case rouge en surbrillance.\r\n{-} Les pions Mission neutres représentent des civils. Les civils sont des figurines neutres. Les figurines Impériales peuvent attaquer les civils (Santé : 4).\r\n{-} Le pion Mission Rebelle représente une issue de secours. Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez « Un civil s'échappe ».\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez « Un civil est vaincu ».\r\n{-} À la fin de l'activation d'un héros, ce dernier peut déplacer jusqu'à 2 cases un civil situé à 2 cases ou moins.",
           "GUID": "561387f9-553b-46ec-a660-6061017be9d0",
           "eventActionType": 16,
           "eaName": "Text Box"
@@ -94,7 +100,7 @@
         },
         {
           "enemyName": null,
-          "customText": "{-} GÉNÉRATEUR DE DÉCHARGES : Si cette figurine a subi moins de 9 {H}, elle gagne +2 {H}.\r\n{Q} Déplacement de 2 pour attaquer {rebel}.\r\n{Q} Déplacement de 2 pour attaquer {rebel}.\r\n{Q}{A} Déplacement de 5 pour attaquer {rebel}.\r\n{A}{A} Déplacement de 8 vers {rebel}.\r\n{A} Déplacement de 3 vers le Rebelle le plus proche.",
+          "customText": "{-} GÉNÉRATEUR DE DÉCHARGES : Si cette figurine a subi moins de 9 {H}, elle gagne +2 {H}.\r\n{Q} Déplacement de 2 pour attaquer {rebel}.\r\n{Q} Déplacement de 2 pour attaquer {rebel}.\r\n{Q}{A} Déplacement de 5 pour attaquer {rebel}.\r\n{A}{A} Déplacement de 8 vers {rebel}.\r\n{A} Déplacement de 3 vers le Rebelle le plus proche.",
           "modification": null,
           "repositionInstructions": "",
           "GUID": "0b17956e-45fb-44be-b43c-daa860b4484f",
@@ -118,7 +124,7 @@
     {
       "eventName": "End of Mission - Rebels win",
       "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
-      "eventText": "En flammes, le marcheur s'effondre. De courageux contestataires sortent de leur abri pour escalader l'épave et crier leur défiance. Vous quittez les lieux, certains que ces événements ont renforcé la Rébellion.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent la carte Récompense \"Soutien populiste\". (Cette carte Récompense fonctionne différemment lorsque vous jouez avec <b>Imperial Commander 2</b>. Reportez-vous à la section \"Changement de règles\" de la documentation du wiki pour plus de détails.)\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
+      "eventText": "En flammes, le marcheur s'effondre. De courageux contestataires sortent de leur abri pour escalader l'épave et crier leur défiance. Vous quittez les lieux, certains que ces événements ont renforcé la Rébellion.\r\n\r\n{-} Les Rebelles remportent la mission !\r\n{-} Les héros reçoivent la carte Récompense « Soutien populiste ». (Cette carte Récompense fonctionne différemment lorsque vous jouez avec <b>Imperial Commander 2</b>. Reportez-vous à la section « Changement de règles » de la documentation du wiki pour plus de détails.)\r\n{-} Chaque héros reçoit 1 XP. Les héros reçoivent 100 crédits par héros.",
       "eventActions": []
     },
     {
@@ -151,6 +157,12 @@
       "eventText": "Les derniers manifestants tentent de se mettre à l'abri alors que les renforts se rapprochent. Votre pilote met les gaz et tire une décharge IEM contre le générateur de bouclier de la CD-TT.\r\n\r\nMaintenant que son point faible vous est connu, vous mettez en joue le marcheur et vous apprêtez à l'abattre.\r\n\r\n{-} La <color=\"red\">CD-TT</color> ne peut pas subir de {H}.\r\n{-} Les Rebelles gagnent quand la <color=\"red\">CD-TT</color> est vaincue.",
       "eventActions": [
         {
+          "otherTarget": null,
+          "GUID": "983c4f28-68df-42d9-a8e7-cff7cbc9ced2",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
           "shortText": "Abattre la <color=\"red\">CD-TT</color>.",
           "longText": null,
           "GUID": "e5a15a54-2d26-43ea-92b3-c8641bf3dc0f",
@@ -168,7 +180,7 @@
             {
               "entityName": "Escape Route",
               "GUID": "751be06f-102c-4cfd-b6a3-d7e46ead9da9",
-              "theText": "Des rues étroites mènent aux bas-fonds de Taris, rendant la poursuite impossible pour l'Empire.\r\n\r\n{-} Déployez les héros ici.\r\n{-} Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez \"Un civil s'échappe\".\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez \"Un civil est vaincu\".",
+              "theText": "Des rues étroites mènent aux bas-fonds de Taris, rendant la poursuite impossible pour l'Empire.\r\n\r\n{-} Déployez les héros ici.\r\n{-} Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez « Un civil s'échappe ».\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez « Un civil est vaincu ».",
               "buttonList": [
                 {
                   "GUID": "3cd60078-1086-4878-86ea-4b6a802d7f34",
@@ -261,7 +273,7 @@
     {
       "entityName": "Escape Route",
       "GUID": "ee1ec8a2-4825-447d-9f0a-49664ed84091",
-      "mainText": "Des rues étroites mènent aux bas-fonds de Taris, rendant la poursuite impossible pour l'Empire.\r\n\r\n{-} Déployez les héros ici.\r\n{-} Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez \"Un civil s'échappe\".\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez \"Un civil est vaincu\".",
+      "mainText": "Des rues étroites mènent aux bas-fonds de Taris, rendant la poursuite impossible pour l'Empire.\r\n\r\n{-} Déployez les héros ici.\r\n{-} Quand un civil entre sur la case de l'issue de secours ou est adjacent à celle-ci, cliquez sur l'issue de secours et sélectionnez « Un civil s'échappe ».\r\n{-} Quand un civil est vaincu, cliquez sur l'issue de secours et sélectionnez « Un civil est vaincu ».",
       "buttonList": [
         {
           "GUID": "3fb56b57-3f57-4eab-a12f-b2fb00c45ea3",
