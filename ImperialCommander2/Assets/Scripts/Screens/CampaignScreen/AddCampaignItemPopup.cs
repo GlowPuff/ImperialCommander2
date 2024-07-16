@@ -220,7 +220,7 @@ namespace Saga
 			else
 			{
 				//default behavior in every other case, show missions from initially selected expansion in the dropdown (selectedExpansion)
-				foreach ( var item in DataStore.missionCards[selectedExpansion] )
+				foreach ( var item in DataStore.missionCards[selectedExpansion].OrderBy(x => x.name).OrderBy(x => x.missionType[0]).ToList())
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
