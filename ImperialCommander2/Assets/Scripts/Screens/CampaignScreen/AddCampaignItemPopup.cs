@@ -316,7 +316,7 @@ namespace Saga
 			//official missions
 			if ( selectedExpansion != "Custom" && selectedExpansion != "Embedded" )
 			{
-				foreach ( var item in DataStore.missionCards[selectedExpansion].OrderBy(x => x.name).OrderBy(x => x.missionType[0]).ToList() )
+				foreach ( var card in DataStore.missionCards[selectedExpansion].OrderBy(x => x.name).OrderBy(x => x.missionType[0]).ToList() )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( card );
