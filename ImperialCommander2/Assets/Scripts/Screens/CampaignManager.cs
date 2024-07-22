@@ -307,7 +307,7 @@ namespace Saga
 				{
 					if (hero.campaignItems.Any(x => x.id == item.id))
 					{
-						hero.campaignItems.Remove(item);
+						hero.campaignItems.Remove(hero.campaignItems.Where(x => x.id == item.id).First());
 
 						int c = sagaCampaign.campaignHeroes.Count;
 						for (int i = 0; i < c; i++)
