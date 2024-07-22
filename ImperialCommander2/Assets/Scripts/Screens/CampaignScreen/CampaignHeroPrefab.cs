@@ -115,7 +115,7 @@ namespace Saga
 			//skills
 			var skills = SagaCampaign.campaignDataSkills.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).SelectMany( x => x.heroSkills ) );
 
-			foreach ( var skill in campaignHero.campaignSkills )
+			foreach ( var skill in campaignHero.campaignSkills.OrderBy(x => x.name) )
 			{
 				var go = Instantiate( listItem, contentContainer );
 				string s = skills.Where( x => x.id == skill.id ).First().name;
@@ -128,7 +128,7 @@ namespace Saga
 				} );
 			}
 			//items
-			foreach ( var item in campaignHero.campaignItems )
+			foreach ( var item in campaignHero.campaignItems.OrderBy(x => x.name) )
 			{
 				var go = Instantiate( listItem, contentContainer );
 				string s = SagaCampaign.campaignDataItems.Where( x => x.id == item.id ).First().name;
