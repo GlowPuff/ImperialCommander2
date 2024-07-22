@@ -302,6 +302,22 @@ namespace Saga
 				sc.UpdateCreditsUI( RunningCampaign.sagaCampaign.credits + item.cost );
 				sc.sound.PlaySound( 1 );
 
+				//remove item from hero items as well
+				foreach (var hero in sagaCampaign.campaignHeroes)
+				{
+					if (hero.campaignItems.Any(x => x.id == item.id))
+					{
+						hero.campaignItems.Remove(item);
+
+						int c = sagaCampaign.campaignHeroes.Count;
+						for (int i = 0; i < c; i++)
+						{
+							if (sagaCampaign.campaignHeroes[i].heroID == hero.heroID)
+								heroPrefabs[i].AddHeroToUI(sagaCampaign.campaignHeroes[i]);
+						}
+					}
+				}
+
 				sagaCampaign.campaignItems.Remove( item.id );
 				Destroy( go );
 			} );
