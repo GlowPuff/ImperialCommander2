@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace Saga
@@ -255,6 +257,30 @@ namespace Saga
 			}
 
 			return false;
+		}
+
+		public static bool IsJSONValid( string jsonString )
+		{
+			try
+			{
+				if ( jsonString.StartsWith( "{" ) && jsonString.EndsWith( "}" ) )
+				{
+					JToken.Parse( jsonString );
+				}
+				else if ( jsonString.StartsWith( "[" ) && jsonString.EndsWith( "]" ) )
+				{
+					JArray.Parse( jsonString );
+				}
+				else
+				{
+					return false;
+				}
+				return true;
+			}
+			catch ( JsonReaderException e )
+			{
+				return false;
+			}
 		}
 
 		/// <summary>

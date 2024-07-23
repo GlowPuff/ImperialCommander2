@@ -424,8 +424,10 @@ namespace Saga
 										//detect correct version BEFORE trying to deserialize it
 										if ( !s.Contains( expectedVersion ) )
 											throw new Exception( $"This Package isn't in the Version [2] format." );
-										package = JsonConvert.DeserializeObject<CampaignPackage>( s );
-
+										if ( Utils.IsJSONValid( s ) )
+											package = JsonConvert.DeserializeObject<CampaignPackage>( s );
+										else
+											throw new Exception( $"`{entry.Name}` is not valid JSON" );
 									}
 									catch ( Exception e )
 									{
@@ -469,7 +471,11 @@ namespace Saga
 								{
 									try
 									{
-										missionTranslationList.Add( entry.Name, JsonConvert.DeserializeObject<TranslatedMission>( tr.ReadToEnd() ) );
+										string s = tr.ReadToEnd();
+										if ( Utils.IsJSONValid( s ) )
+											missionTranslationList.Add( entry.Name, JsonConvert.DeserializeObject<TranslatedMission>( s ) );
+										else
+											throw new Exception( $"`{entry.Name}` is not valid JSON" );
 									}
 									catch ( Exception e )
 									{
@@ -484,10 +490,15 @@ namespace Saga
 								{
 									try
 									{
-										//sanity check, make sure it's a mission
 										string m = tr.ReadToEnd();
-										if ( m.Contains( "missionGUID" ) )
-											missionList.Add( JsonConvert.DeserializeObject<Mission>( m ) );
+										if ( Utils.IsJSONValid( m ) )
+										{
+											//sanity check, make sure it's a mission
+											if ( m.Contains( "missionGUID" ) )
+												missionList.Add( JsonConvert.DeserializeObject<Mission>( m ) );
+										}
+										else
+											throw new Exception( $"`{entry.Name}` is not valid JSON" );
 									}
 									catch ( Exception e )
 									{
