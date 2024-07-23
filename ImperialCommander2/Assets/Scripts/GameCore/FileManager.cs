@@ -496,6 +496,8 @@ namespace Saga
 											//sanity check, make sure it's a mission
 											if ( m.Contains( "missionGUID" ) )
 												missionList.Add( JsonConvert.DeserializeObject<Mission>( m ) );
+											else
+												throw new Exception( $"Expected a Mission, `{entry.Name}` is not a Mission" );
 										}
 										else
 											throw new Exception( $"`{entry.Name}` is not valid JSON" );
