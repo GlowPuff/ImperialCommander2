@@ -33,11 +33,11 @@ namespace Saga
 		}
 
 		/// <summary>
-		/// Logs error to console and to log file, but doesn't trigger the Error panel to show
+		/// Logs warning to console and to log file, but doesn't trigger the Error panel to show
 		/// </summary>
 		public static void LogWarning( string message )
 		{
-			Debug.Log( "***ERROR***:\n" + message );
+			Debug.Log( "***WARNING***:\n" + message );
 
 			try
 			{

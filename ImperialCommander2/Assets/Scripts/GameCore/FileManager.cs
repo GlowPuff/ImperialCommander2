@@ -341,7 +341,9 @@ namespace Saga
 			try
 			{
 				var filenames = Directory.GetFiles( importedCharactersPath );
-				foreach ( string filename in filenames )
+
+				//ONLY grab json files - Mac adds a .DS_Store file to all folders
+				foreach ( string filename in filenames.Where( x => x.EndsWith( ".json" ) ) )
 				{
 					using ( StreamReader sr = new StreamReader( filename ) )
 					{
@@ -416,10 +418,19 @@ namespace Saga
 								//open the package meta file
 								using ( TextReader tr = new StreamReader( entry.Open() ) )
 								{
-									string s = tr.ReadToEnd();
-									package = JsonConvert.DeserializeObject<CampaignPackage>( s );
-									if ( !s.Contains( expectedVersion ) )
-										throw new Exception( $"This Package isn't in the Version [2] format." );
+									try
+									{
+										string s = tr.ReadToEnd();
+										//detect correct version BEFORE trying to deserialize it
+										if ( !s.Contains( expectedVersion ) )
+											throw new Exception( $"This Package isn't in the Version [2] format." );
+										package = JsonConvert.DeserializeObject<CampaignPackage>( s );
+
+									}
+									catch ( Exception e )
+									{
+										throw new Exception( $"Error while deserializing CampaignPackage: '{entry.Name}'.\n{e.Message}" );
+									}
 								}
 							}
 							else if ( (entry.Name.EndsWith( ".png" )) )//icon image
@@ -428,11 +439,18 @@ namespace Saga
 								{
 									using ( var s = entry.Open() )
 									{
-										s.CopyTo( stream );
-										//get bytes
-										stream.Position = 0;
-										iconBytesBuffer = new byte[stream.Length];
-										stream.Read( iconBytesBuffer, 0, iconBytesBuffer.Length );
+										try
+										{
+											s.CopyTo( stream );
+											//get bytes
+											stream.Position = 0;
+											iconBytesBuffer = new byte[stream.Length];
+											stream.Read( iconBytesBuffer, 0, iconBytesBuffer.Length );
+										}
+										catch ( Exception e )
+										{
+											throw new Exception( $"Error while opening PNG: '{entry.Name}'.\n{e.Message}" );
+										}
 									}
 								}
 							}
@@ -449,7 +467,14 @@ namespace Saga
 							{
 								using ( TextReader tr = new StreamReader( entry.Open() ) )
 								{
-									missionTranslationList.Add( entry.Name, JsonConvert.DeserializeObject<TranslatedMission>( tr.ReadToEnd() ) );
+									try
+									{
+										missionTranslationList.Add( entry.Name, JsonConvert.DeserializeObject<TranslatedMission>( tr.ReadToEnd() ) );
+									}
+									catch ( Exception e )
+									{
+										throw new Exception( $"Error while deserializing a translation: {entry.Name}\n{e.Message}" );
+									}
 								}
 							}
 							//deserialize the individual missions
@@ -457,10 +482,17 @@ namespace Saga
 							{
 								using ( TextReader tr = new StreamReader( entry.Open() ) )
 								{
-									//sanity check, make sure it's a mission
-									string m = tr.ReadToEnd();
-									if ( m.Contains( "missionGUID" ) )
-										missionList.Add( JsonConvert.DeserializeObject<Mission>( m ) );
+									try
+									{
+										//sanity check, make sure it's a mission
+										string m = tr.ReadToEnd();
+										if ( m.Contains( "missionGUID" ) )
+											missionList.Add( JsonConvert.DeserializeObject<Mission>( m ) );
+									}
+									catch ( Exception e )
+									{
+										throw new Exception( $"Error while deserializing a Mission: {entry.Name}\n{e.Message}" );
+									}
 								}
 							}
 						}
@@ -512,7 +544,9 @@ namespace Saga
 			try
 			{
 				var filenames = Directory.GetFiles( customCampaignPath );
-				foreach ( string filename in filenames )
+
+				//ONLY grab zip files - Mac adds a .DS_Store file to all folders
+				foreach ( string filename in filenames.Where( x => x.EndsWith( ".zip" ) ) )
 				{
 					var cc = LoadCampaignPackage( filename, skipMissions );
 					if ( cc != null )
