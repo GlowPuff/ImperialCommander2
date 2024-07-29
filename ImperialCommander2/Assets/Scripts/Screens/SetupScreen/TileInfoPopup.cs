@@ -16,13 +16,13 @@ namespace Saga
 		{
 			var tileExpansionTranslatedNames = new Dictionary<string, string>()
 				{
-					{ Expansion.Core.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmCoreTileNameUC}" },
-					{ Expansion.Twin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmTwinTileNameUC}" },
-					{ Expansion.Hoth.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmHothTileNameUC}" },
-					{ Expansion.Bespin.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmBespinTileNameUC}" },
-					{ Expansion.Jabba.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmJabbaTileNameUC}" },
-					{ Expansion.Empire.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmEmpireTileNameUC}" },
-					{ Expansion.Lothal.ToString(), $"{DataStore.uiLanguage.sagaMainApp.mmLothalTileNameUC}" },
+					{ Expansion.Core.ToString(), $"<color=#7FD3FF>{DataStore.uiLanguage.sagaMainApp.mmCoreTileNameUC}</color>" },
+					{ Expansion.Twin.ToString(), $"<color=#7FD3FF>{DataStore.uiLanguage.sagaMainApp.mmTwinTileNameUC}</color>" },
+					{ Expansion.Hoth.ToString(), $"<color=#7FD3FF>{DataStore.uiLanguage.sagaMainApp.mmHothTileNameUC}</color>" },
+					{ Expansion.Bespin.ToString(), $"<color=#7FD3FF>{DataStore.uiLanguage.sagaMainApp.mmBespinTileNameUC}</color>" },
+					{ Expansion.Jabba.ToString(), $"<color=#7FD3FF>{DataStore.uiLanguage.sagaMainApp.mmJabbaTileNameUC}</color>" },
+					{ Expansion.Empire.ToString(), $"<color=#7FD3FF>{DataStore.uiLanguage.sagaMainApp.mmEmpireTileNameUC}</color>" },
+					{ Expansion.Lothal.ToString(), $"<color=#7FD3FF>{DataStore.uiLanguage.sagaMainApp.mmLothalTileNameUC}</color>" },
 				};
 
 			EventSystem.current.SetSelectedGameObject( null );
@@ -35,17 +35,17 @@ namespace Saga
 
 			//sort and group tiles by number, i.e. "Core 2A", "Core 11A", "Empire 2B"
 			var orderedAndGrouped = tiles
-					.OrderBy(str => str.Split(' ')[0])  // Order alphabetically
-					.ThenBy(str => int.Parse(str.Split(' ')[1].TrimEnd('A', 'B'))) // Then order by entire numerical values
-					.ThenBy(str => str.EndsWith("A") ? 0 : 1) // Finally, order by A/B values
-					.GroupBy(str => str) // Group the strings
-					.Select(group => new
+					.OrderBy( str => str.Split( ' ' )[0] )  // Order alphabetically
+					.ThenBy( str => int.Parse( str.Split( ' ' )[1].TrimEnd( 'A', 'B' ) ) ) // Then order by entire numerical values
+					.ThenBy( str => str.EndsWith( "A" ) ? 0 : 1 ) // Finally, order by A/B values
+					.GroupBy( str => str ) // Group the strings
+					.Select( group => new
 					{
 						Tile = group.Key,
 						Count = group.Count()
-					});
+					} );
 
-			foreach ( var item in orderedAndGrouped)
+			foreach ( var item in orderedAndGrouped )
 			{
 				GameObject go = new GameObject( "content item" );
 				go.layer = 5;
@@ -56,24 +56,24 @@ namespace Saga
 
 				TextMeshProUGUI nt = go.AddComponent<TextMeshProUGUI>();
 				nt.color = Color.white;
-				nt.fontSize = 25;
+				nt.fontSize = 45;
 				nt.alignment = TextAlignmentOptions.Center;
 				nt.horizontalAlignment = HorizontalAlignmentOptions.Left;
 
 				// Replacing tile expansion name with translated name
-				string expansionName = item.Tile.Split(' ')[0];
-				string itemTileTranslated = tileExpansionTranslatedNames.ContainsKey(expansionName) ? item.Tile.Replace(expansionName, tileExpansionTranslatedNames[expansionName]) : item.Tile;
+				string expansionName = item.Tile.Split( ' ' )[0];
+				string itemTileTranslated = tileExpansionTranslatedNames.ContainsKey( expansionName ) ? item.Tile.Replace( expansionName, tileExpansionTranslatedNames[expansionName] ) : item.Tile;
 				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
-				itemTileTranslated = Regex.IsMatch(itemTileTranslated, "\\{[0-6]+\\}\\s") ? itemTileTranslated.Replace("} ", "}") : itemTileTranslated;
+				itemTileTranslated = Regex.IsMatch( itemTileTranslated, "\\{[0-6]+\\}\\s" ) ? itemTileTranslated.Replace( "} ", "}" ) : itemTileTranslated;
 
 				// Display a count when more than one tile is needed
-				if (item.Count > 1 )
+				if ( item.Count > 1 )
 				{
-					nt.text = $"{Utils.ReplaceGlyphs(itemTileTranslated)} x {item.Count}";
+					nt.text = $"{Utils.ReplaceGlyphs( itemTileTranslated )} <color=orange>x {item.Count}</color>";
 				}
 				else
 				{
-					nt.text = Utils.ReplaceGlyphs(itemTileTranslated);
+					nt.text = Utils.ReplaceGlyphs( itemTileTranslated );
 				}
 			}
 		}
