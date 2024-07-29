@@ -186,13 +186,18 @@ namespace Saga
 			awardsWheel.ResetWheeler( sagaCampaign.awards );
 
 			//items
-			foreach ( var item in sagaCampaign.campaignItems )
-				AddItemToUI( sagaCampaign.GetItemFromID( item ) );
+			Dictionary<string, string> items = new Dictionary<string, string>();
+			foreach (var campaignItem in sagaCampaign.campaignItems)
+			{
+				items.Add(campaignItem, SagaCampaign.campaignDataItems.First(x => x.id == campaignItem).name);
+			}
+			foreach ( var item in items.OrderBy(x => x.Value) )
+				AddItemToUI( sagaCampaign.GetItemFromID( item.Key ) );
 			//allies
-			foreach ( var ally in sagaCampaign.campaignAllies )
+			foreach ( var ally in sagaCampaign.campaignAllies.OrderBy(x => x.name) )
 				AddAllyToUI( ally );
 			//villains
-			foreach ( var villain in sagaCampaign.campaignVillains )
+			foreach ( var villain in sagaCampaign.campaignVillains.OrderBy(x => x.name) )
 				AddVillainToUI( villain );
 			//heroes
 			int c = sagaCampaign.campaignHeroes.Count;
@@ -202,8 +207,13 @@ namespace Saga
 				heroPrefabs[i].mWheelHandler.valueAdjuster = valueAdjuster;
 			}
 			//rewards
-			foreach ( var item in sagaCampaign.campaignRewards )
-				AddRewardToUI( sagaCampaign.GetRewardFromID( item ) );
+			Dictionary<string, string> rewards = new Dictionary<string, string>();
+			foreach (var campaignReward in sagaCampaign.campaignRewards)
+			{
+				rewards.Add(campaignReward, SagaCampaign.campaignDataRewards.First(x => x.id == campaignReward).name);
+			}
+			foreach ( var reward in rewards.OrderBy(x => x.Value))
+				AddRewardToUI( sagaCampaign.GetRewardFromID( reward.Key) );
 			//campaign structure
 			foreach ( Transform item in structureContainer )
 				Destroy( item.gameObject );
@@ -236,7 +246,13 @@ namespace Saga
 				return;
 			}
 
+			var index = sagaCampaign.campaignAllies.OrderBy(x => x.name).ToList().FindIndex(x => x.name == a.name);
+
 			var go = Instantiate( listItemPrefab, allyContainer );
+
+			if (index < allyContainer.childCount)
+				go.transform.SetSiblingIndex(index);
+
 			go.GetComponent<CampaignListItemPrefab>().InitAlly( a.name, ( n ) =>
 			{
 				sagaCampaign.campaignAllies.Remove( a );
@@ -252,7 +268,13 @@ namespace Saga
 				return;
 			}
 
+			var index = sagaCampaign.campaignVillains.OrderBy(x => x.name).ToList().FindIndex(x => x.name == v.name);
+
 			var go = Instantiate( listItemPrefab, villainContainer );
+
+			if (index < villainContainer.childCount)
+				go.transform.SetSiblingIndex(index);
+
 			go.GetComponent<CampaignListItemPrefab>().InitVillain( v.name, ( n ) =>
 			{
 				sagaCampaign.campaignVillains.Remove( v );
@@ -262,13 +284,39 @@ namespace Saga
 
 		void AddItemToUI( CampaignItem item, bool showCoinIcon = false )
 		{
+			List<string> items = new List<string>();
+			foreach (var campaignItem in sagaCampaign.campaignItems)
+				items.Add(SagaCampaign.campaignDataItems.First(x => x.id == campaignItem).name);
+
+			var index = items.OrderBy(x => x).ToList().FindIndex(x => x == item.name);
+
 			var go = Instantiate( listItemPrefab, itemContainer );
+
+			if (index < itemContainer.childCount)
+				go.transform.SetSiblingIndex(index);
+
 			go.GetComponent<CampaignListItemPrefab>().InitGeneralItem( item.name, ( n ) =>
 			{
 				//add item cost back to credits
 				var sc = FindObjectOfType<CampaignManager>();
 				sc.UpdateCreditsUI( RunningCampaign.sagaCampaign.credits + item.cost );
 				sc.sound.PlaySound( 1 );
+
+				//remove item from hero items as well
+				foreach (var hero in sagaCampaign.campaignHeroes)
+				{
+					if (hero.campaignItems.Any(x => x.id == item.id))
+					{
+						hero.campaignItems.Remove(hero.campaignItems.Where(x => x.id == item.id).First());
+
+						int c = sagaCampaign.campaignHeroes.Count;
+						for (int i = 0; i < c; i++)
+						{
+							if (sagaCampaign.campaignHeroes[i].heroID == hero.heroID)
+								heroPrefabs[i].AddHeroToUI(sagaCampaign.campaignHeroes[i]);
+						}
+					}
+				}
 
 				sagaCampaign.campaignItems.Remove( item.id );
 				Destroy( go );
@@ -277,7 +325,17 @@ namespace Saga
 
 		void AddRewardToUI( CampaignReward item )
 		{
+			List<string> rewards = new List<string>();
+			foreach (var campaignReward in sagaCampaign.campaignRewards)
+				rewards.Add(SagaCampaign.campaignDataRewards.First(x => x.id == campaignReward).name);
+
+			var index = rewards.OrderBy(x => x).ToList().FindIndex(x => x == item.name);
+
 			var go = Instantiate( listItemPrefab, rewardContainer );
+
+			if (index < rewardContainer.childCount)
+				go.transform.SetSiblingIndex(index);
+
 			go.GetComponent<CampaignListItemPrefab>().InitGeneralItem( item.name, ( n ) =>
 			{
 				sagaCampaign.campaignRewards.Remove( item.id );

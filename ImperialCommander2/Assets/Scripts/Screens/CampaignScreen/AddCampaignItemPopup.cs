@@ -57,7 +57,7 @@ namespace Saga
 			//add global imports, omitting those already added to compaign
 			h = h.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero && !ch.Contains( x.deploymentCard.id ) ).Select( x => x.deploymentCard ) );
 
-			foreach ( var item in h )
+			foreach ( var item in h.OrderBy(x => x.name) )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitHero( item );
@@ -77,7 +77,7 @@ namespace Saga
 			//add global imports
 			var allies = DataStore.allyCards.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ) ).Where( x => !sc.Contains( x ) ).ToList();
 
-			foreach ( var item in allies )
+			foreach ( var item in allies.OrderBy(x => x.name) )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitAlly( item );
@@ -98,7 +98,7 @@ namespace Saga
 			var villains = DataStore.villainCards.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ) ).Where( x => !sc.Contains( x ) ).ToList();
 
 			//omit villains already added to campaign
-			foreach ( var item in villains )
+			foreach ( var item in villains.OrderBy(x => x.name) )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitVillain( item );
@@ -117,10 +117,13 @@ namespace Saga
 
 			var skills = SagaCampaign.campaignDataSkills.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).SelectMany( x => x.heroSkills ) );
 
-			foreach ( var item in skills.Where( x => x.owner == heroID ) )
+			foreach ( var item in skills.Where( x => x.owner == heroID ).OrderBy(x => x.name).OrderBy(x => x.cost) )
 			{
-				var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
-				go.GetComponent<ItemSkillSelectorPrefab>().Init( item, heroID );
+				if (!sagaCampaign.campaignHeroes.Where(x => x.heroID == heroID).First().campaignSkills.Any(x => x.id == item.id))
+				{
+					var go = Instantiate(itemSkillSelectorPrefab, itemContainer);
+					go.GetComponent<ItemSkillSelectorPrefab>().Init(item, heroID);
+				}
 			}
 
 			addSkillCallback = callback;

@@ -25,9 +25,27 @@ namespace Saga
 		{
 			itemType = 0;
 			campaignItem = item;
-			nameText.text = $"{item.name} / <color=orange>{DataStore.uiLanguage.uiCampaign.tierUC} {item.tier}</color>";
 			typeText.text = item.type;
-			costText.text = $"{DataStore.uiLanguage.uiCampaign.costUC}: {item.cost}";
+
+			bool itemAlreadyAssigned = false;
+			foreach (var campaignHero in FindObjectOfType<CampaignManager>().sagaCampaign.campaignHeroes)
+			{
+				if (campaignHero.campaignItems.Any(x => x.id == item.id) )
+					itemAlreadyAssigned = true;
+			}
+
+			if (!itemAlreadyAssigned)
+			{
+				nameText.text = $"{item.name} / <color=orange>{DataStore.uiLanguage.uiCampaign.tierUC} {item.tier}</color>";
+				costText.text = $"{DataStore.uiLanguage.uiCampaign.costUC}: {item.cost}";
+			}
+			else //item is already assigned to one of the heroes
+			{
+				nameText.text = $"<color=grey>{item.name} / {DataStore.uiLanguage.uiCampaign.tierUC} {item.tier}</color>";
+				costText.text = $"<color=grey>{DataStore.uiLanguage.uiCampaign.costUC}: {item.cost}</color>";
+				addButton.interactable = false;
+			}
+
 			plusObject.SetActive( !showCoinIcon );
 			cointObject.SetActive( showCoinIcon );
 			usingCoins = showCoinIcon;
