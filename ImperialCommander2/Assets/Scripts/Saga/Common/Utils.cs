@@ -277,7 +277,7 @@ namespace Saga
 				}
 				return true;
 			}
-			catch ( JsonReaderException e )
+			catch ( JsonReaderException )
 			{
 				return false;
 			}
