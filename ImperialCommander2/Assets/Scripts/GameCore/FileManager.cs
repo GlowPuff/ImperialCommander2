@@ -410,7 +410,8 @@ namespace Saga
 					//open the archive
 					using ( ZipArchive archive = new ZipArchive( zipPath, ZipArchiveMode.Read ) )
 					{
-						foreach ( var entry in archive.Entries )
+						//skip MacOS "._" files
+						foreach ( var entry in archive.Entries.Where( x => !x.Name.StartsWith( "._" ) ) )
 						{
 							//deserialize the CampaignPackage
 							if ( entry.Name == "campaign_package.json" )
