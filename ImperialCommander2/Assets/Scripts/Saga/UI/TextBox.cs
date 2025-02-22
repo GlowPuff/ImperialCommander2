@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,7 +29,11 @@ namespace Saga
 		{
 			EventSystem.current.SetSelectedGameObject( null );
 
-			SetText( Utils.ReplaceGlyphs( text ) );
+			if (Regex.IsMatch(text, "\\{[0-6]\\}[0-9]+"))
+				SetText(Utils.ReplaceGlyphs(Utils.AddTilesIcons(text)));
+			else
+				SetText(Utils.ReplaceGlyphs(text));
+
 			continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 			callback = action;
 
