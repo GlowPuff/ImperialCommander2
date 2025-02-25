@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -56,25 +55,28 @@ namespace Saga
 
 				TextMeshProUGUI nt = go.AddComponent<TextMeshProUGUI>();
 				nt.color = Color.white;
-				nt.fontSize = 45;
+				nt.fontSize = 40;
 				nt.alignment = TextAlignmentOptions.Center;
 				nt.horizontalAlignment = HorizontalAlignmentOptions.Left;
 
 				// Replacing tile expansion name with translated name
 				string expansionName = item.Tile.Split( ' ' )[0];
 				string itemTileTranslated = tileExpansionTranslatedNames.ContainsKey( expansionName ) ? item.Tile.Replace( expansionName, tileExpansionTranslatedNames[expansionName] ) : item.Tile;
-				// If translated name is an expansion symbol, removing whitespace between symbol and tile number
-				itemTileTranslated = Regex.IsMatch( itemTileTranslated, "\\{[0-6]+\\}\\s" ) ? itemTileTranslated.Replace( "} ", "}" ) : itemTileTranslated;
 
 				// Display a count when more than one tile is needed
 				if ( item.Count > 1 )
 				{
-					nt.text = $"{Utils.ReplaceGlyphs( itemTileTranslated )} <color=orange>x {item.Count}</color>";
+					itemTileTranslated = $"{Utils.ReplaceGlyphs( itemTileTranslated )} <color=orange>x {item.Count}</color>";
 				}
 				else
 				{
-					nt.text = Utils.ReplaceGlyphs( itemTileTranslated );
+					itemTileTranslated = Utils.ReplaceGlyphs( itemTileTranslated );
 				}
+
+				if (Utils.tileShapes.ContainsKey(item.Tile))
+					itemTileTranslated = $"{itemTileTranslated} <font=\"TilesIcons SDF\">{Utils.tileShapes[item.Tile]}</font>";
+
+				nt.text = itemTileTranslated;
 			}
 		}
 
