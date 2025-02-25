@@ -24,7 +24,7 @@ public class HPTracker : MonoBehaviour
 		gameObject.SetActive( setActive );
 		card = c;
 		index = idx;
-		groupColorImage.color = DataStore.pipColors[c.colorIndex].ToColor();
+		groupColorImage.color = DataStore.pipColors[c.GetColorIndex()].ToColor();
 		healthWheelHandler.ResetWheeler( card.woundTrackerValue[index] );
 		indexWheelHandler.ResetWheeler( card.trackerNumbers[index] );
 	}

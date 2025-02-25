@@ -47,6 +47,6 @@ public class ReinforcePrefab : MonoBehaviour
 		thumbnail.sprite = Resources.Load<Sprite>( cd.mugShotPath );
 		if ( cd.isElite )
 			outlineImage.color = Color.red;
-		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
+		colorPip.color = DataStore.pipColors[cd.GetColorIndex()].ToColor();
 	}
 }

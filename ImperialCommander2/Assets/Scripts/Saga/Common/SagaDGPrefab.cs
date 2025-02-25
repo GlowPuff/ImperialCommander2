@@ -295,7 +295,8 @@ namespace Saga
 
 		public void SetColorIndex()
 		{
-			colorIndex = cardDescriptor.colorIndex;
+			colorIndex = cardDescriptor.GetColorIndex();
+			cardDescriptor.colorIndex = colorIndex;
 			colorPip.color = DataStore.pipColors[colorIndex].ToColor();
 		}
 

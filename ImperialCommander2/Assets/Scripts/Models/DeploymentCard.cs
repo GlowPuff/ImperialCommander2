@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Saga;
+using UnityEngine;
 
 public class DeploymentCard : IEquatable<DeploymentCard>
 {
@@ -180,6 +181,19 @@ public class DeploymentCard : IEquatable<DeploymentCard>
 	{
 		var copy = JsonConvert.SerializeObject( this );
 		return JsonConvert.DeserializeObject<DeploymentCard>( copy );
+	}
+
+	public int GetColorIndex()
+	{
+		return colorIndex switch
+		{
+			11 => PlayerPrefs.GetInt("defaultRegularEnemyColor1"),
+			12 => PlayerPrefs.GetInt("defaultRegularEnemyColor2"),
+			13 => PlayerPrefs.GetInt("defaultEliteEnemyColor1"),
+			14 => PlayerPrefs.GetInt("defaultEliteEnemyColor2"),
+			15 => PlayerPrefs.GetInt("defaultVillainColor"),
+			_ => colorIndex,
+		};
 	}
 
 	public bool IsImported

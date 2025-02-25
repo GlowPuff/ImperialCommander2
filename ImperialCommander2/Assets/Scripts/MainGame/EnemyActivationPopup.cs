@@ -45,7 +45,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		enemyName.text = "";
 		ignoreText.text = "";
 		spaceListen = true;
-		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
+		colorPip.color = DataStore.pipColors[cd.GetColorIndex()].ToColor();
 		continueText.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 
 		cardDescriptor = cd;
