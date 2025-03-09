@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Saga;
 using TMPro;
 using UnityEngine;
@@ -98,7 +99,13 @@ public class HeroDashboard : MonoBehaviour
 		List<string> log = DataStore.sagaSessionData.missionLogger.GetLogFromRound( roundValue );
 		if ( log.Count > 0 )
 		{
-			logText.text = Utils.ReplaceGlyphs( log.Aggregate( ( acc, cur ) => acc + cur ) );
+			var logAggregate = log.Aggregate( ( acc, cur ) => acc + cur );
+
+			if ( Regex.IsMatch( logAggregate, "\\{[0-6]\\}[0-9]+" ) )
+				logText.text = Utils.ReplaceGlyphs( Utils.AddTilesIcons( logAggregate ) );
+			else
+				logText.text = Utils.ReplaceGlyphs( logAggregate );
+
 			logScrollRect.verticalNormalizedPosition = 0;//scroll to bottom
 		}
 		else

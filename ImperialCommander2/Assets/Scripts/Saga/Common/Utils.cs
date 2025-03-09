@@ -16,6 +16,35 @@ namespace Saga
 		public static int vaderSound = 0;//increase each time the vader "defeat" sound is played to mix up which voice clip is used
 		public static int defeatsWithoutSpecialSound = 10;//make sure special sound plays after 1st defeat
 
+		public static Dictionary<string, int> tileShapes = new Dictionary<string, int>()
+				{
+					{ "Core 17", 2 },
+					{ "Core 18", 1 },
+					{ "Core 35", 2 },
+					{ "Core 36", 1 },
+					{ "Core 39", 2 },
+					{ "Twin 8", 2 },
+					{ "Twin 9", 1 },
+					{ "Twin 10", 2 },
+					{ "Twin 11", 1 },
+					{ "Hoth 19", 2 },
+					{ "Hoth 20", 1 },
+					{ "Hoth 23", 2 },
+					{ "Hoth 24", 2 },
+					{ "Hoth 25", 2 },
+					{ "Hoth 26", 1 },
+					{ "Hoth 27", 2 },
+					{ "Hoth 28", 1 },
+					{ "Bespin 10", 1 },
+					{ "Jabba 15", 1 },
+					{ "Jabba 16", 1 },
+					{ "Jabba 17", 1 },
+					{ "Empire 16", 2 },
+					{ "Empire 17", 2 },
+					{ "Empire 18", 1 },
+					{ "Lothal 12", 1 },
+				};
+
 		/// <summary>
 		/// Logs error to console and to log file, optionally showing the Error Panel (if one exists in the Scene)
 		/// </summary>
@@ -179,6 +208,31 @@ namespace Saga
 						rebelName = rebel.name;
 
 					item = item.Replace( match.ToString(), rebelName );
+				}
+			}
+
+			return item;
+		}
+
+		public static string AddTilesIcons(string item)
+		{
+			if (string.IsNullOrEmpty(item))
+				return "";
+
+			var results = Regex.Matches(item, @"(\{[0-6]\}[0-9]+)([A-Ba-b])").Cast<Match>().Select(x => x.Groups[1].Value).Distinct().ToList();
+
+			foreach (var result in results)
+			{
+				if (Int32.TryParse(result.Substring(1, 1), out int expansionId))
+					{
+					var tileName = result.Replace($"{{{expansionId}}}", Enum.GetName(typeof(Expansion), expansionId) + " ");
+
+					if (tileShapes.ContainsKey(tileName))
+					{
+						var formatedResult = result.Replace("{", "\\{").Replace("}", "\\}");
+						item = Regex.Replace(item, $"({formatedResult}[A-Ba-b]+\\sx\\s[0-9]+)", $"$1\u00A0<font=\"TilesIcons SDF\">{tileShapes[tileName]}</font>");
+						item = Regex.Replace(item, $"({formatedResult}[A-Ba-b]+)(?!\\sx\\s[0-9]+)", $"$1\u00A0<font=\"TilesIcons SDF\">{tileShapes[tileName]}</font>");
+					} 
 				}
 			}
 
