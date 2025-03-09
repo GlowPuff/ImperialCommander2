@@ -106,6 +106,12 @@
       "eventText": "Dejáis el esquife en un almacén a las afueras de Mos Eisley y os encontráis con un Gotal encapuchado, quien ignora vuestro saludo y os pasa un barril. Cuando intentáis echar un vistazo a la carga, os aparta las manos de ella. \"Sin preguntas,\" masculla. \"Sólo trabajo.\" Señala una pila de barriles similares y luego el YV-666 que tiene fuera. En breve, los barriles están cargados y os marcháis.\r\n\rMientras os aproximáis a un templo en ruinas, os fijáis en que hay varios mercenarios posicionados a lo largo de la jungla de Dosha. ",
       "eventActions": [
         {
+          "otherTarget": "a Rebel figure carrying a spice barrel",
+          "GUID": "2d38f322-40a2-40b8-add9-63358d5a3d00",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
           "enemyName": null,
           "customText": "",
           "modification": null,
@@ -272,6 +278,30 @@
           "GUID": "281c5e9a-a0fb-45c9-829b-da7e829de60c",
           "eventActionType": 5,
           "eaName": "Question Prompt"
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        {
+          "enemyName": "Tratante de Especia A (oficial imperial)",
+          "customText": "{A} Mueve 4 hacia el alijo de los Tratantes.\r\n{A} Abre una puerta adyacente.\r\n{A} Mueve 4 hacia el alijo de los Tratantes.\r\n{A} Abre una puerta adyacente.\r\n{-} Cuando un Tratante de Especia que lleva un barril de especia se mueve sobre o adyacente al alijo de los tratantes, el Imperio reclama ese barril de especia. Después, ese Tratante de Especia se retira del tablero y se deja a un lado.\r\n",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "041585b8-9c36-4de4-bbaa-6b620c510a12",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": "Tratante de Especia B (oficial imperial)",
+          "customText": "{A} Mueve 4 hacia el alijo de los Tratantes.\r\n{A} Abre una puerta adyacente.\r\n{A} Mueve 4 hacia el alijo de los Tratantes.\r\n{A} Abre una puerta adyacente.\r\n{-} Cuando un Tratante de Especia que lleva un barril de especia se mueve sobre o adyacente al alijo de los tratantes, el Imperio reclama ese barril de especia. Después, ese Tratante de Especia se retira del tablero y se deja a un lado.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "979c14f5-fb0c-4ba8-a625-622480f068d5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
         }
       ]
     },
@@ -437,23 +467,20 @@
       "eventText": "\"Vienen más\" os advierte vuestro piloto. \"¡Haceos con lo que necesitéis, pero tenemos que irnos!\" Los motores resplandecen; la lanzadera está lista para partir en cualquier momento.",
       "eventActions": [
         {
-          "translatedEntityProperties": [
+          "mainText": "¿Está el Tratante de Especia A apartado?",
+          "buttonList": [
             {
-              "entityName": "DP Red 1",
-              "GUID": "30a1c458-2b44-47c2-83c2-63670dda6e3c",
-              "theText": null,
-              "buttonList": []
+              "GUID": "24176864-4d8c-4c59-afb6-e01a8f551c57",
+              "theText": "Si"
             },
             {
-              "entityName": "DP Red 2",
-              "GUID": "fb6777aa-2fde-4c8f-9059-6fc4f04920e4",
-              "theText": null,
-              "buttonList": []
+              "GUID": "3b3a6606-bfe8-4cb7-bb92-308137f64e21",
+              "theText": "No"
             }
           ],
-          "GUID": "7c9a37c5-1eef-401b-b3d2-549668fc97ff",
-          "eventActionType": 15,
-          "eaName": "Modify Map Entity"
+          "GUID": "b8202a90-1cfa-422d-8a5f-b130d585ea4f",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
         },
         {
           "enemyName": null,
@@ -472,18 +499,18 @@
       "eventText": "",
       "eventActions": [
         {
-          "mainText": "¿Han reclamado los Rebeldes más barriles de especias que el Imperio?",
+          "mainText": "¿Está el Tratante de Especia B apartado?",
           "buttonList": [
             {
-              "GUID": "4313ba85-e1c5-41cb-ad41-8978469ff676",
+              "GUID": "9b56a5ea-a2aa-48b7-a1cb-b9044f441d38",
               "theText": "Si"
             },
             {
-              "GUID": "72d0a91e-7d08-4086-985f-80918cd865d5",
+              "GUID": "b7f48846-7586-4026-9cad-b6dc3731cbd0",
               "theText": "No"
             }
           ],
-          "GUID": "3a6f400a-c20c-417d-b766-97c1a8140e67",
+          "GUID": "5b7d0cf7-c9b1-4d38-8b65-6b5bbdcfac08",
           "eventActionType": 5,
           "eaName": "Question Prompt"
         }
