@@ -1,0 +1,521 @@
+{
+  "languageID": "Dutch (NL)",
+  "missionProperties": {
+    "missionName": "Nasleep",
+    "missionDescription": "OVERWINNING! Met de vernietiging van de Death Star heeft het Verzet hoop gegeven aan een melkwegstelsel in angst. Nu ze hun ultieme wapen hebben verloren, probeert het Keizerrijk zich te herstellen van deze verpletterende nederlaag.\n\nTerwijl de brokstukken van het gevechtsstation neerregenen op de rebellenbasis op Yavin 4, zet het Keizerrijk troepen in om wraak te nemen op de rebellen die op de kleine maan zijn gestationeerd.\n\nNiet lang daarna, wanneer een keizerlijk baken begint uit te zenden vanaf een buitenpost op enige afstand van de rebellenbasis, wordt een klein team van elite-agenten uitgezonden; hun missie: het signaal koste wat het kost het zwijgen op te leggen.",
+    "missionInfo": "{-} Een rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.\n{-} Deuren zijn vergrendeld voor keizerlijke figuren.\n{-} De rebellen winnen als alle terminals zijn vernietigd.\n{-} De rebellen verliezen aan het einde van ronde 6, of wanneer alle helden gewond zijn.",
+    "campaignName": "Basisspel",
+    "startingObjective": "Vernietig de terminals (&All terminals destroyed&/4).",
+    "repositionOverride": "Sta aangrenzend aan een terminal.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "4ca9290d-b6b6-4314-a347-fbbd19b7b1a1",
+      "eventText": "Als je bij de buitenpost aankomt, open je meteen het vuur op de troepen die de wacht houden. Je vermoedt dat ze wisten dat je kwam en dat je waarschijnlijk in een hinderlaag loopt. Hoe dan ook, met het signaal dat blijft uitzenden, is er gewoon geen tijd voor een subtielere aanpak.\n\n{-} Plaats de helden op het blauw gemarkeerde veld.\n{-} Een rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.\n{-} Deuren zijn vergrendeld voor keizerlijke figuren.\n{-} De rebellen winnen als alle terminals zijn vernietigd.\n{-} De rebellen verliezen aan het einde van ronde 6, of wanneer alle helden gewond zijn.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Fortified",
+      "GUID": "44387bd2-8147-473c-a48b-a3bd08685a96",
+      "eventText": "\"Ze zijn er!\" roepen de keizerlijke troepen terwijl ze haastig hun verdediging opstellen. \"Hou ze weg bij de zenders!\"\n\nEr klinkt gekraak vanuit je comlink. \"Keizerlijke troepen in aantocht!\" je piloot neemt contact op vanuit je transport, dat nu boven je cirkelt. \"Deze plek zal snel overspoeld worden, dus zorg dat de klus snel geklaard wordt!\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "1a7a686f-7397-424a-baf8-d5bfcc8ec1d1",
+              "theText": "Een deur leidt naar de keizerlijke buitenpost",
+              "buttonList": [
+                {
+                  "GUID": "06175041-a604-48ed-8319-00fcebf83655",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "04ff4ab0-d23b-4ba9-9bbf-d3233ba6f239",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "88b56268-6a96-42d4-bcf5-4a2e260d4fa7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "tbText": "De E-Web engineer wordt <color=\"red\">gefocust</color>.",
+          "GUID": "b29a2e8e-9fd0-45ac-b850-bed92d238e39",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2f434a05-b3db-4f2d-b6a6-2cd31cdb49aa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "282cf3f0-3917-436b-a541-94ff9c06e59d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - Selection",
+      "GUID": "48c1cabd-d027-4d10-af6b-9615f431a0ab",
+      "eventText": "Kort nadat je de buitenposten bent binnengevallen, worden er keizerlijke veiligheidsprotocollen geactiveerd.",
+      "eventActions": [
+        {
+          "mainText": "Zijn er twee of meer rebellenfiguren buiten de buitenpost?",
+          "buttonList": [
+            {
+              "GUID": "b26342d6-cd14-43f8-9f76-20f354d1b0a9",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "1d2275cb-8062-4895-acdc-00a979af0129",
+              "theText": "Nee"
+            }
+          ],
+          "GUID": "3841a266-35c9-4fc1-9874-471ef92e929d",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - option 1",
+      "GUID": "d02af3cc-d824-40a0-b8fc-068daff410d3",
+      "eventText": "Met een luid gebrom worden de energieschilden rond de overgebleven terminals geactiveerd.\n\nElke terminal heeft 7 gezondheid in plaats van 4.",
+      "eventActions": [
+        {
+          "theText": "{-} Een rebellenfiguur kan een terminal aanvallen (gezondheid: 7, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.\n{-} Deuren zijn vergrendeld voor keizerlijke figuren.\n{-} De rebellen winnen als alle terminals zijn vernietigd.\n{-} De rebellen verliezen aan het einde van ronde 6, of wanneer alle helden gewond zijn.",
+          "GUID": "ff0c6d17-0ae8-4ecc-b578-0124ced7f71c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - option 2",
+      "GUID": "3ccef7c8-2e48-4f39-8dd7-64b69b5dfcd4",
+      "eventText": "De deur slaat weer dicht.\n\n{-} De deur is vergrendeld. Een rebellenfiguur kan de deur aanvallen (gezondheid: 8, verdediging: 1 zwarte dobbelsteen).",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "c943b08c-5993-44cb-8961-1e424892713f",
+              "theText": "De deur zit op slot.\n\nEen rebellenfiguur kan de deur aanvallen (gezondheid: 8, verdediging: 1 zwarte dobbelsteen).",
+              "buttonList": [
+                {
+                  "GUID": "72fad6c1-f077-4ad6-ac69-708e013cb1ec",
+                  "theText": "Vernietigen"
+                }
+              ]
+            }
+          ],
+          "GUID": "d2f777a3-7fb1-4579-ab90-a4e1f2392fc6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Een rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.\n{-} De deur is op slot. Een rebellenfiguur kan de deur aanvallen (gezondheid: 8, verdediging: 1 zwarte dobbelsteen).\n{-} De rebellen winnen als alle terminals vernietigd zijn.\n{-} De rebellen verliezen aan het einde van ronde 6 of wanneer alle helden gewond zijn.",
+          "GUID": "26fed357-841d-4dd4-95ca-3e72f33f1882",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of mission - Rebels win",
+      "GUID": "870b7c74-06ff-4e5c-a912-987a840df6d9",
+      "eventText": "De overgebleven keizerlijke troepen trekken zich haastig terug, nadat hun plannen verstoord zijn. \"Goed gedaan!\" Je piloot grijnst naar je als je in het transport stapt.\n\n{-} De rebellen winnen de missie!\n{-} Plaats verhaalmissiekaart \"A New Threat\" in het spel.\n{-} Elke speler ontvangt 1 XP. Helden ontvangen 200 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of mission - Rebels lose",
+      "GUID": "7ddd5374-8f96-43a0-8fc7-eda3931adea6",
+      "eventText": "Keizerlijke soldaten stromen aan alle kanten het bos uit; het baken heeft zijn werk gedaan en je moet vluchten. Met zoveel keizerlijke overlevenden die zich organiseren, zullen de rebellen hun handen vol hebben.\n\n{-} De rebellen verliezen de missie.\n{-} Plaats verhaalmissiekaart \"Under Siege\" in het spel.\n{-} Elke speler ontvangt 1 XP. Helden ontvangen 100 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Terminal 1 destroyed",
+      "GUID": "6d935ef2-418e-434b-9ab4-55df80a4263a",
+      "eventText": "De terminal explodeert in een vonkenregen. Het gezoem van de uitzending stopt onmiddellijk.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal1",
+              "GUID": "e48a6569-e35a-43bd-9e2b-6c4c0baaaf85",
+              "theText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer Keizerlijke figuren.",
+              "buttonList": [
+                {
+                  "GUID": "cff8053c-e16a-458e-92aa-423cbb843bef",
+                  "theText": "Vernietigen"
+                }
+              ]
+            }
+          ],
+          "GUID": "9efb3d19-8c3d-4b90-b8a7-fa3463850f63",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 2 destroyed",
+      "GUID": "4e6aa656-7f34-4820-b01f-1c2cb040c4c8",
+      "eventText": "De terminal explodeert in een vonkenregen. Het gezoem van de uitzending stopt onmiddellijk.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal2",
+              "GUID": "1c793804-1c11-49c3-a09f-350ef53dba85",
+              "theText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer Keizerlijke figuren.",
+              "buttonList": [
+                {
+                  "GUID": "53d957e9-0bb5-4d24-a86b-9d0967322552",
+                  "theText": "Vernietigen"
+                }
+              ]
+            }
+          ],
+          "GUID": "2fb52ae4-cef6-404f-a3dc-325a7a0c57dd",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 3 destroyed",
+      "GUID": "b285b2dc-8961-4ebf-85d0-f2be705362d8",
+      "eventText": "De terminal explodeert in een vonkenregen. Het gezoem van de uitzending stopt onmiddellijk.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal3",
+              "GUID": "d7f5fcd8-2010-4f41-bb9f-fcb769b30c5b",
+              "theText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer Keizerlijke figuren.",
+              "buttonList": [
+                {
+                  "GUID": "5e9be623-e80d-4ada-9908-1b438f73742a",
+                  "theText": "Vernietigen"
+                }
+              ]
+            }
+          ],
+          "GUID": "bd47b359-b647-46b1-ba6c-7894f737f230",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 4 destroyed",
+      "GUID": "d929242e-cff1-4245-95c2-60112d413950",
+      "eventText": "De terminal explodeert in een vonkenregen. Het gezoem van de uitzending stopt onmiddellijk.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal4",
+              "GUID": "ac6058e5-d5cd-4db3-a2d2-f795690c5e6d",
+              "theText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer Keizerlijke figuren.",
+              "buttonList": [
+                {
+                  "GUID": "8daa7102-55b2-43f3-b5af-6b1aaf66b45a",
+                  "theText": "Vernietigen"
+                }
+              ]
+            }
+          ],
+          "GUID": "a19a20e0-2328-43fb-91d9-2b9731765370",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 1 opened",
+      "GUID": "fae52e20-9575-448c-a8be-a5aa5f7b678f",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\n\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "421a7384-99d3-43b8-9b8b-a67c20c73fd1",
+              "theText": "Een oud keizerlijk voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "632ce159-ebc5-4fbb-885d-85ca7628d853",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "c843b940-bba5-4459-be63-c9fc32dad32c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 2 opened",
+      "GUID": "c5410e34-c9fd-40d2-b823-515f1e394b73",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\n\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "55af3c65-590a-4e0c-b580-2e7c2047c512",
+              "theText": "Een oud keizerlijk voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "dc7b530d-d8e8-4dfe-984b-cb3f81739c14",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "94d875b4-f21e-4944-97f3-c8fb45f6c373",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 3 opened",
+      "GUID": "e86b66f8-57b8-401b-af32-320ce10e7ca7",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\n\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "d5d989e9-eb57-488e-a089-11688b2065fc",
+              "theText": "Een oud keizerlijk voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "aaec1525-1603-49e3-8639-57c6e3e3b4c5",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "b62ede53-88e8-4dcb-8a8a-7f1e22d6e25e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 destroyed",
+      "GUID": "90202d3e-1285-4763-9f1e-17b6c3c845e3",
+      "eventText": "De deur bezwijkt al snel onder jouw aanvallen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "cf57686f-07fc-4e0e-8b7e-2d9e8f67875a",
+              "theText": "Een deur leidt naar de keizerlijke buitenpost",
+              "buttonList": [
+                {
+                  "GUID": "f466ce66-bb36-42ff-97b3-813195a57490",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "692704f0-8513-4aef-a30a-f0c277820f8e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "DP Green",
+      "GUID": "32fbea41-c677-469e-bb9e-628e47e221bd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "61c15ba1-45d1-404c-aabc-62e2e4836a23",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "3e206334-2075-4690-8396-c45a3ce8a5be",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "00acfb0d-b9be-47a3-abf3-f1516260886a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "213ef341-ae49-4a1c-88de-ff84c7dd2a76",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "ad8ac2d1-90fb-4d3d-b36d-fdfb4b708d7f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "cfb99e66-b766-4bf3-8ba1-87d070ee0e0b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "ea09f556-2a0b-48fb-b30d-a8be3929b449",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Imperial Officer",
+      "GUID": "c9b21ce9-c10d-43cf-8512-4af8035c9fab",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Outpost Door 1",
+      "GUID": "0b1c0ae9-8fec-46c0-835d-f68031d2c2aa",
+      "mainText": "Een deur leidt naar de keizerlijke buitenpost",
+      "buttonList": [
+        {
+          "GUID": "150b4fd0-0b0b-491e-9607-eb5d4671e299",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "f43f95ed-7316-4f00-b66c-d1f2d6ddf965",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "8029660c-518c-4158-b9a2-0bc5c0aafd37",
+      "mainText": "Een oud keizerlijk voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "490b44fc-f56d-4c36-80ba-6a2cd04c15ed",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "f9220f6a-c9d1-4c47-afbd-561a601eb764",
+      "mainText": "Een oud keizerlijk voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "615dd7d5-0d42-49d7-8cb3-428318500b77",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1631eed8-357a-43bd-8fa3-9f35fedf7768",
+      "mainText": "Een oud keizerlijk voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "91ddce27-0a1a-4203-a083-2eaaada21300",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal1",
+      "GUID": "71710954-71e1-4e6b-8f0f-906d301caba1",
+      "mainText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.",
+      "buttonList": [
+        {
+          "GUID": "a3360f5d-9acd-4c21-9755-d9f89b21d705",
+          "theText": "Vernietigen"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal2",
+      "GUID": "d90b24a6-1181-49f4-b659-ca6e7b5f8714",
+      "mainText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.",
+      "buttonList": [
+        {
+          "GUID": "ee732d47-3f83-4e63-a796-d2282a1a83ae",
+          "theText": "Vernietigen"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal3",
+      "GUID": "739d0d45-3a58-435e-9103-223304a67ca4",
+      "mainText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.",
+      "buttonList": [
+        {
+          "GUID": "260d5068-23f7-48d3-b99a-b9bb1fa2fca7",
+          "theText": "Vernietigen"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal4",
+      "GUID": "60441375-9584-486f-a56e-130420fff398",
+      "mainText": "De terminal gonst van de elektriciteit terwijl het signaal wordt uitgezonden.\n\nEen Rebellenfiguur kan een terminal aanvallen (gezondheid: 4, verdediging: 1 {G}). Pas +1 {G} toe op de verdedigingsresultaten van de terminal als deze grenst aan 1 of meer keizerlijke figuren.",
+      "buttonList": [
+        {
+          "GUID": "fca0a4f0-05eb-4035-a28e-3d014c106683",
+          "theText": "Vernietigen"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    }
+  ]
+}

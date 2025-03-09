@@ -1,0 +1,569 @@
+{
+  "languageID": "Dutch (NL)",
+  "missionProperties": {
+    "missionName": "Op eigen houtje",
+    "missionDescription": "",
+    "missionInfo": "{-} De deur naar de achterkamer is op slot. Een held kan een interactie uitvoeren om de deur in te trappen.\n{-} De missie gaat verder als de deur naar de achterkamer opengaat ({V}) of aan het einde van ronde 3.",
+    "campaignName": "Basisspel",
+    "startingObjective": "Open de deur naar de achterkamer.",
+    "repositionOverride": "Blokkeer de toegang tot de achterkamer.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\n\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "195908ef-2aab-4a1e-a222-bf600ad6b371",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "22e15491-6dd2-478a-a482-6236241375ad",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\n\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "8d9e4e61-426e-40be-ab1f-0faab72828a5",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\n\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9fc13df2-97c4-4d0f-aba8-7e56f1500c98",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\n\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "72d24cea-1856-4b92-9f58-5f50fc21293e",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "385bf05f-a316-4785-ac79-80d716ba08a4",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Terwijl de rebellen het heelal afspeuren op zoek naar informatie over het wapenproject van Weiss, heeft kapitein Solo zich al een paar dagen niet gemeld.\n\nJe herinnert je commandant er snel aan dat dit geen ongewoon gedrag is voor de smokkelaar, maar ze haalt haar schouders op en antwoordt: \"Kapitein Solo zei iets over een veelbelovende aanwijzing bij zijn laatste check-in. We willen hem graag vinden en het opvolgen.\"\n\nDus nu moeten jullie zijn stappen traceren. Na het doorlopen van verschillende locaties en contacten, is de laatste veelbelovend. Het is niet alleen Solo's laatst bekende locatie, maar er patrouilleren ook een behoorlijk aantal keizerlijke troepen in de nabije omgeving.\n\n{-} Plaats de helden op het blauw gemarkeerde veld.\n{-} De deur naar de achterkamer is op slot. Een held kan een interactie uitvoeren om de deur in te trappen.\n{-} De missie gaat verder als de deur naar de achterkamer opengaat ({V}) of aan het einde van ronde 3.",
+      "eventActions": [
+        {
+          "newInstructions": "Alle keizerlijke figuren spenderen een actie om een deur te openen als dat de snelste weg is naar hun doelwit.",
+          "GUID": "45628223-bfc3-42b7-aeca-7ea08b49dd62",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Sluipend door steegjes en keizerlijke troepen ontwijkend, baan je je een weg naar Han's schip. Chewbacca staat te wachten bij het luik en laat een keelklank horen bij het zien van Han. \"Ja, ja, ik weet het!\" zegt Han en wuift hem weg.\n\n\"Dit is alles wat ik kon vinden over het wapen. Laten we hier weggaan.\" Hij overhandigt je een kleine datakubus voordat hij de helling op klautert de Falcon in.\n\nDe informatie uit de datakubus onthult het wapen dat generaal Weiss ontwikkelt voor de keizerlijke schepen. Het is behoorlijk geavanceerd, met vernietigende eigenschappen die alles overtreffen wat de rebellen tot hun beschikking hebben.\n\n{-} De rebellen winnen de missie!\n{-} Leg verhaalmissiekaart \"Incoming\" in het spel.\n{-} Elke held ontvangt 2 XP. Helden ontvangen 100 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Een schot van een blaster raakt Han's schouder. Met een schreeuw van pijn krabbelt hij de hoek om. Keizerlijke soldaten blokkeren je weg naar hem toe. Voordat hij uit het zicht verdwijnt, gooit hij iets jouw kant op.\n\nTe midden van een regen van blastervuur grijp je het voorwerp, een kleine datakubus, en vlucht je de andere kant op.\n\nDe informatie uit de datakubus onthult het wapen dat generaal Weiss ontwikkelt voor de keizerlijke schepen. Het is behoorlijk geavanceerd, met vernietigende eigenschappen die alles overtreffen wat de rebellen tot hun beschikking hebben.\n\n{-} De rebellen verliezen de missie.\n{-} Leg verhaalmissiekaart \"Drawn In\" in het spel.\n{-} Elke held ontvangt 1 XP. Helden ontvangen 100 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Kitchen Door",
+      "GUID": "bf44f221-4be1-4118-a18b-0ac7dacf867a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Kitchen Door",
+              "GUID": "2d27276e-8810-4d91-a3b2-6414a9ee1173",
+              "theText": "De deur scheidt de keuken van de kantine.",
+              "buttonList": [
+                {
+                  "GUID": "c602b4f3-9241-45ea-aebe-9652f172f78f",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "21c76dd3-7afc-472e-9880-38a877534aaa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Daring Escape",
+      "GUID": "7b364285-bb66-480d-a4b5-6a5dc97d8040",
+      "eventText": "Een deur aan de achterkant van de bar vliegt open en een gehavende Han Solo strompelt door de opening. Zijn polsen zijn nog steeds vastgebonden, maar in zijn handen houdt hij een blaster, waarmee hij terugvuurt de kamer in waar hij net uitkwam.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Back Room Door",
+              "GUID": "dd860065-7e02-4930-93ac-fbb6c4953e67",
+              "theText": "De deur naar de achterkamer zit op slot. Vanachter de deur klinken gedempte stemmen.\n\n{-} De deur naar de achterkamer zit op slot. Een held kan een interacte uitvoeren om de deur in te trappen.",
+              "buttonList": [
+                {
+                  "GUID": "7b58e95c-005b-47a6-a729-f9387c80423e",
+                  "theText": "{A} Trap de deur in"
+                }
+              ]
+            }
+          ],
+          "GUID": "9ed03c53-73e4-4b28-9942-fa6edcaa6e36",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "customName": null,
+          "GUID": "cfc0e279-cba2-4f93-a963-b23022b3c581",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "Han bloedt uit een paar oppervlakkige wonden.\n\n{-} <color=\"red\">Han Solo</color> verliest 4 {H}.",
+          "GUID": "13d150f1-b496-4157-8b0f-092ad0ee5126",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "66b7b7dc-ddeb-4f68-8f67-fd5c4d96c4e8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "tbText": "Han Solo leek een meningsverschil te hebben gehad met de soldaten die hem bewaakten.\n\n{-} Elk figuur in de <color=\"red\">Stormtrooper</color> groep lijdt 2 {H}.",
+          "GUID": "407066f6-cd48-4259-bace-80928293534e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Kick in attempt",
+      "GUID": "956ca1de-85c1-46d8-a99f-97af556485c8",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Je trapt met al je kracht tegen de deur.\n\n{-} Test {K}. Pas +1 {B} toe voor elke forceertoken op de deur en leg daarna alle forceertokens van de deur af. Voer hieronder het aantal successen in.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1d7abb53-9c01-4060-8bde-106f0ffe879a",
+              "theText": "Je trapt zo hard je kunt, maar de deur geeft geen krimp. Je moet het blijven proberen.\n\nVoor elke {B} die je gooit, leg je 1 forceertoken op de deur."
+            }
+          ],
+          "GUID": "c64844df-6fb1-498d-b8ae-b6c9a421d6e5",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Strange Patrons",
+      "GUID": "0e0b5be9-1a00-4e14-896b-783deb1a988c",
+      "eventText": "Toen je binnenkwam, verwachtte je een achterkamer vol Sabacc-tafels, geen volledig functionerende keizerlijke observatiepost. \n\nSchermen bedekken de muren en stemmen klinken uit meerdere luidsprekers. Computers en bewakingsapparatuur zijn overal verspreid. Aan de achterkant van de kamer, in een kleine cel versperd door een krachtveld, zit Han Solo.\n\n\"Pas op!\" roept hij, terwijl hij naar de troepen in de kamer wijst, die naar hun wapens grijpen.\n\nEr klinkt gerommel onder je voeten. De lichten in de kamer flikkeren en het krachtveld gaat uit. \"Mooie timing, Chewie,\" grijnst Han terwijl hij naar de dichtstbijzijnde blaster duikt.\n\n{-} Helden ontvangen 100 credits per held.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Back Room Door",
+              "GUID": "2767804e-0c5b-4e6c-a23e-e571213f85b7",
+              "theText": "De deur naar de achterkamer zit op slot. Vanachter de deur klinken gedempte stemmen.\n\n{-} De deur naar de achterkamer zit op slot. Een held kan een interacte uitvoeren om de deur in te trappen.",
+              "buttonList": [
+                {
+                  "GUID": "d90c7b70-d942-4955-83bf-2ae6aa74eded",
+                  "theText": "{A} Trap de deur in"
+                }
+              ]
+            }
+          ],
+          "GUID": "0d27dbca-935b-43fc-87ad-39ffb0a7f27a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "customName": null,
+          "GUID": "079031a4-5cbf-4a1c-be03-e31f765118e7",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "96a27445-2090-477d-bd82-1d1f2330c6ef",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ec5d2349-e70b-43be-b583-b4e520ea1906",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Han Solo leeft nog, maar is gewond en uitgeput.\n\n{-} Put de inzetkaart van <color=\"red\">Han Solo</color> uit.",
+          "GUID": "8976440b-1320-440f-8613-ef0c0166f86f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Time to Run",
+      "GUID": "68121706-35f7-4134-9940-b4ecfdaecf4c",
+      "eventText": "\"Jullie komen me bekend voor!\" schreeuwt Han, terwijl hij vuurt op zijn voormalige ontvoerders. Hij wilt nog iets zeggen maar stopt en duikt op de grond terwijl de keizerlijke soldaten terugvuren.\n\n\"Ik spreek je later!\" roept hij terwijl hij dekking zoekt.\n\n{-} Helden besturen <color=\"red\">Han Solo</color> als bondgenoot.\n{-} De rebellen missietoken vertegenwoordigt de uitgang.\n{-} <color=\"red\">Han Solo</color> kan ontsnappen via de uitgang.\n{-} De rebellen winnen als <color=\"red\">Han Solo</color> ontsnapt.\n{-} De rebellen verliezen wanneer <color=\"red\">Han Solo</color> wordt verslagen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "db6ce373-cb3f-4264-990b-21ff5479493a",
+              "theText": "Smalle gangen leiden weg van de kantine, waardoor het makkelijk is om achtervolgers af te schudden.\n\n{-} <color=\"red\">Han Solo</color> kan ontsnappen via de uitgang, waardoor de missie eindigt.",
+              "buttonList": [
+                {
+                  "GUID": "8d84e205-876c-411e-8d73-8255612670b7",
+                  "theText": "Han Solo ontsnapt"
+                }
+              ]
+            }
+          ],
+          "GUID": "34e1a323-66cd-413b-89a6-6c6eb843bffc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Terwijl je naar de uitgang klautert, kondigt mechanisch gezoem de komst van een meedogenloze jager aan, op zoek naar Solo.",
+          "GUID": "944cb357-3155-4710-b934-cae519446252",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "856aba9e-7a79-4659-a153-752603cad90d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG071/IG-88"
+        },
+        {
+          "theText": "{-} Helden besturen <color=\"red\">Han Solo</color> als bondgenoot.\n{-} De rebellen missietoken vertegenwoordigt de uitgang.\n{-} <color=\"red\">Han Solo</color> kan ontsnappen via de uitgang.\n{-} De rebellen winnen als <color=\"red\">Han Solo</color> ontsnapt.\n{-} De rebellen verliezen wanneer <color=\"red\">Han Solo</color> wordt verslagen.",
+          "GUID": "d624631a-54c4-4982-a157-e503b5212d9d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Help <color=\"red\">Han Solo</color> te ontsnappen.",
+          "longText": null,
+          "GUID": "770b09f1-977c-44ff-a7c8-4d928e2c0915",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "otherTarget": null,
+          "GUID": "f64233e3-a718-4f90-905d-3bf5c6836072",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
+          "repositionText": "Blokker de uitgang.",
+          "GUID": "2c901212-a768-41fb-b146-ff128d088447",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Time to Run-1",
+      "GUID": "9838f8ca-8f28-4186-b39a-236b4f4d1cc8",
+      "eventText": "IG-88 draait zijn optische sensoren naar de kantine en verplaatst zich naar de kantine toe.\n\n{-} <color=\"red\">IG-88</color> verplaatst 5 richting <color=\"red\">Han Solo</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Time to Run-2",
+      "GUID": "d2c05fce-f5d1-48f4-ac13-d24767157b4a",
+      "eventText": "Eén van de keizerlijke soldaten slaagt erin versterking op te roepen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Daring Escape",
+      "GUID": "1204f75d-ec87-43b5-8c42-c5801461984f",
+      "eventText": "Omdat Han zichzelf moest bevrijden, stijgt het dreigingsniveau van de volgende missie (en alleen de volgende missie) met 1. Tijdens de Rebel Upgrade-fase kunnen de rebellenspelers beslissen om 50 credits per held uit te geven om dit te voorkomen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No Daring Escape",
+      "GUID": "58d44998-3736-4485-8c40-f7ffa776c77e",
+      "eventText": "Omdat de helden Han bereikten voordat hij zichzelf moest bevrijden, krijgen ze 100 credits per held.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "f36f2593-b3cd-449b-b6a7-fbcbd9915e0d",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "286ebdb8-45e6-42e9-8845-b9fb531678ad",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "6a25789e-bd76-461e-a47c-358886fdcdc7",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Plaats de helden hier.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "250c41d4-ae00-46b5-b8f5-abbbfd335a72",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Kitchen Door",
+      "GUID": "006cbdac-0f3d-487f-903e-98cbd17e134b",
+      "mainText": "De deur scheidt de keuken van de kantine.",
+      "buttonList": [
+        {
+          "GUID": "a5d69b9c-9929-4042-a7d9-00dc927719a6",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Back Room Door",
+      "GUID": "3ea3c392-0fa8-463e-9390-a6a631f9a28c",
+      "mainText": "De deur naar de achterkamer zit op slot. Vanachter de deur klinken gedempte stemmen.\n\n{-} De deur naar de achterkamer zit op slot. Een held kan een interacte uitvoeren om de deur in te trappen.",
+      "buttonList": [
+        {
+          "GUID": "8c87ccff-41a8-4375-b7f6-e4ba501ee9ae",
+          "theText": "{A} Trap de deur in"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 1-1",
+      "GUID": "8003d418-14a1-4e50-bf2b-33030f8a39ac",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1-2",
+      "GUID": "14216442-71d3-49cf-bb4b-db8a5fdfbe7c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1-3",
+      "GUID": "b9670acd-b75d-4a88-b0f2-153e64c5a8de",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "c50044ec-8cc6-490d-8ac3-ee69cdfbed62",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "920b5943-f77e-4bfd-a4d4-f18397a89ae3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP IG-88",
+      "GUID": "2f8afa39-92be-40bc-8f87-9c870a66fe31",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "ecd56f9e-ff6b-4ac7-aa8a-d854b97be1ae",
+      "mainText": "Smalle gangen leiden weg van de kantine, waardoor het makkelijk is om achtervolgers af te schudden.\n\n{-} <color=\"red\">Han Solo</color> kan ontsnappen via de uitgang, waardoor de missie eindigt.",
+      "buttonList": [
+        {
+          "GUID": "330a5543-def8-4349-8739-562fd59d4a44",
+          "theText": "Han Solo ontsnapt"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 2-1",
+      "GUID": "01054b24-47b5-4060-9374-9f0209179fcf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2-2",
+      "GUID": "f5f27ebc-bd8b-4c9d-bf55-368a1b702411",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2-3",
+      "GUID": "777b833b-9e23-4cc3-82b1-4989a5e9b226",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "e025d0a8-0fcb-417f-9430-44fe74aeb281",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper",
+      "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Han Back Room",
+      "GUID": "931a1ab2-8a92-470b-af84-38a36800f91f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Han Cantina",
+      "GUID": "3cd4a0fe-9168-4c7e-b359-2025af5a187d",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

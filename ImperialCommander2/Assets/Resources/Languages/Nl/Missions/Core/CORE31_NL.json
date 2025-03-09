@@ -1,0 +1,467 @@
+{
+  "languageID": "Dutch (NL)",
+  "missionProperties": {
+    "missionName": "Productiemiddelen",
+    "missionDescription": "",
+    "missionInfo": "{-} Deuren zijn vergrendeld. Een rebellenfiguur kan een deur aanvallen (gezondheid: *2*, verdediging: 1 {G}).\n{-} De missie gaat verder als de fabriek is binnengedrongen.\n{-} De rebellen verliezen als alle helden gewond zijn.",
+    "campaignName": "Basisspel",
+    "startingObjective": "Dring de fabriek binnen om de datakern te vinden.",
+    "repositionOverride": "Blokkeert de toegang tot de datakern.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "83aba702-5662-403c-b849-d4d6467726cf",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "eff38c9d-cb91-4204-8979-0bf4b0c0bbca",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "bb3fd9b1-ab77-472a-8131-6343755dce18",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Je komt aan bij een kleine test fabriek. Je hebt te horen gekregen dat het de efficiëntie van de keizerlijke inspanningen aanzienlijk zal verhogen als de bouw voltooid is.\n\nDrie andere teams hebben blijkbaar geprobeerd om de fabriek te saboteren, helaas zonder succes. Hun rapporten suggereren een soort reactieve verdedigingsprotocollen.\n\n{-} Plaats de helden in het blauw gemarkeerde veld.\n{-} Deuren zijn vergrendeld. Een rebellenfiguur kan een deur aanvallen (gezondheid: *2*, verdediging: 1 {G}).\n{-} De missie gaat verder als de fabriek is binnengedrongen.\n{-} De rebellen verliezen als alle helden gewond zijn.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Zodra de kern vernietigd is, worden de verdedigingsprotocollen uitgeschakeld. Het alarm gaat en de verlichting gaan uit.\n\nAls het Rijk deze fabriek nog ergens voor wil gebruiken, duurt het nog wel even voor ze hem weer aan de praat krijgen.\n\n{-} De rebellen winnen de missie!\n{-} Elke held ontvangt 1 XP. Helden ontvangen 200 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "De verdediging van de fabriek is te sterk. Als je eindelijk de deur die naar de datakern leidt openbreekt, zie je hem naar beneden glijden in een deur naar een ander deel van de fabriek, buiten je bereik.\n\n{-} De rebellen verliezen de missie.\n{-} Elke held ontvangt 1 XP. Helden ontvangen 100 credits per held.\n{-} Het dreigingsniveau van de volgende missie (en alleen de volgende missie) stijgt met 1. Tijdens de Rebel Upgrade-fase kunnen de rebellen beslissen om 50 credits per held uit te geven om dit te voorkomen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Guarded",
+      "GUID": "083a7730-cf91-48fa-8da2-9eb073783dc6",
+      "eventText": "Als je door de eerste deur breekt, word je overvallen door een oorverdovend mechanisch geknars. Voor je zie je een zware afscherming over de volgende deur schuiven.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Facility Entrance",
+              "GUID": "bd17cfa8-4317-4bf3-9474-b4cce6a006d7",
+              "theText": "Deze deur heeft het label “Ingang fabriek”.\n\nDe deur is vergrendeld. Een rebellenfiguur kan hem aanvallen (gezondheid: *2*, verdediging: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "34193acb-3156-4562-8d67-f0b48406522f",
+                  "theText": "Vernietigen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "89d2e7e4-8ca0-4d85-80cb-449e5e4ea950",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "697ed242-b03b-4b83-a223-8d333c41a2fb",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "5318fbd2-9dbd-4d10-9179-632ba3285bd9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "face85e4-58a4-4f79-bf36-ee64ff866c0e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "theText": "{-} Deuren zijn vergrendeld. Een rebellenfiguur kan een deur aanvallen (gezondheid: *2*, verdediging: 1 {G}).\n{-} De missie gaat verder als de helden de datakern vinden.\n{-} De rebellen verliezen als alle helden gewond zijn.",
+          "GUID": "fc6cdf7c-481e-44ae-ad5d-c402473bfa72",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Vind de datakern.",
+          "longText": null,
+          "GUID": "d7697245-90d6-468a-bb74-e6370d7e120d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Side Door",
+      "GUID": "83050119-9254-485c-8652-3b183ef90d40",
+      "eventText": "De zijdeur stort in onder je aanvallen.\n\nAls er een neutrale missietoken lag naast de deur die je net hebt geopend, klik dan op de token in het controlegebied dat overeenkomt met de kleuren van de token en klik op “Activeren”.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Side Door",
+              "GUID": "5da78a7e-ea32-4dc7-a18f-4d2fbb4d255d",
+              "theText": "Deze deur heeft het label “Zijdeur”.\n\nDe deur is vergrendeld. Een rebellenfiguur kan hem aanvallen (gezondheid: *2*, verdediging: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "9514ea48-00eb-4211-9339-4121edb9679c",
+                  "theText": "Vernietigen"
+                }
+              ]
+            }
+          ],
+          "GUID": "d0cff48f-e915-4efa-a576-5eca03364b51",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Core Room",
+      "GUID": "b2f9a62d-c723-4dd4-a050-12097bb27d2b",
+      "eventText": "Je ziet een kleine kamer met een zoemende datakern, omgeven door rood licht. Als je de datakern vernietigt, zou dat de inspanningen van het Rijk ernstig belemmeren.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Core Room Door",
+              "GUID": "caaf0ec0-5aee-43e1-b95e-b9c3d8dcdf45",
+              "theText": "Deze deur heeft het label “ Kernkamer”.\n\nDe deur is vergrendeld. Een rebellenfiguur kan hem aanvallen (gezondheid: *2*, verdediging: 1 {G}).",
+              "buttonList": [
+                {
+                  "GUID": "4e800c00-db98-48ba-ae3c-a96c9e2d9473",
+                  "theText": "Vernietigen"
+                }
+              ]
+            }
+          ],
+          "GUID": "37a6bf2f-6e75-4f23-a6c0-6e0a0dd5a6a0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} Een rebellenfiguur kan een interactie uitvoeren op de datakern om deze te vernietigen en de missie te beëindigen.",
+          "GUID": "50902ae7-2827-4777-a4d0-5a136fb09b1e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Deuren zijn vergrendeld. Een rebellenfiguur kan een deur aanvallen (gezondheid: *2*, verdediging: 1 {G}).\n{-} De rebellen winnen als de datakern wordt vernietigd.\n{-} De rebellen verliezen als alle helden gewond zijn.",
+          "GUID": "d4629309-20e0-4670-95a8-4a35c72b1d4e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Vernietig de datakern.",
+          "longText": null,
+          "GUID": "e4b9966a-4d24-4608-9b05-3c1fdc83feb6",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "Als er een neutrale missietoken lag naast de deur die je net hebt geopend, klik dan op de token in het controlegebied dat overeenkomt met de kleuren van de token en klik op “Activeren”.",
+          "GUID": "98e07dc0-2a1b-4506-98d7-09560b669502",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Reveal CA",
+      "GUID": "784267a1-85cb-4e00-8cfd-0f139c46b8c5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "De ruimtes los van het speelbord zijn de controlekamer. Elke keer als je een deur opent met een neutrale blauwe, rode of gele missietoken ernaast, klik je op de token die overeenkomt met de kleur van de missietoken en klik je op “activeren”.\n\nElke keer als je een deur aanvalt met een groene neutrale missietoken ernaast, lijdt de aanvaller 2 {H} voor elke groene neutrale missietoken naast de deur.",
+          "GUID": "756d77fb-154b-4b65-8d16-adab0a3abc28",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Defenses Blue 1",
+      "GUID": "6293949e-90bb-451c-8a5c-a8a58dcf1772",
+      "eventText": "Plaats een BLAUWE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Blue 2",
+      "GUID": "639fb135-eb67-49da-8644-1273aee2030e",
+      "eventText": "Plaats een BLAUWE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 1",
+      "GUID": "5755bcd0-c5cd-4f38-8f56-2b0b7de00b91",
+      "eventText": "Plaats een RODE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Red 2",
+      "GUID": "faed7616-833b-48d3-b0eb-8fbcf2ecddff",
+      "eventText": "Plaats een RODE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 1",
+      "GUID": "8b4d07e6-e180-4909-82b3-ef99abf77fad",
+      "eventText": "Plaats een GROENE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Green 2",
+      "GUID": "f742d3bc-7b8c-4fd3-8b8b-47310817c113",
+      "eventText": "Plaats een GROENE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 1",
+      "GUID": "3cbd986b-6fc0-43fc-8b70-eac5bfea0caf",
+      "eventText": "Plaats een GELE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses Yellow 2",
+      "GUID": "cfc116c5-66bd-4642-b1a6-89595bd4eb94",
+      "eventText": "Plaats een GELE neutrale missietoken naast een gesloten deur in de volgende volgorde. Je kunt op een deur klikken om het label te lezen.\n\n1. Als de ingang van de fabriek gesloten is, plaats het dan ernaast.\n2. Als de ingang van de fabriek open is, maar er zijn nog geen helden tegel 28A binnengegaan, plaats het dan naast de zijdeur.\n3. Als helden Tegel 28A al betreden hebben, plaats het dan naast de kernkamerdeur.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Defenses End of Round",
+      "GUID": "43574d4c-926f-46dd-b9bb-014f026a4fd2",
+      "eventText": "Keizerlijke veiligheidsprotocollen gaan verder met het afsluiten van de fabriek.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Red",
+      "GUID": "c4f3fd42-dba3-4dc7-bca2-c3e64c727246",
+      "eventText": "Het alarm schalt door de hele fabriek.\n\nAls er twee rode tokens naast deze deur liggen, klik je nogmaals op “activeer rood”.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Activate Yellow",
+      "GUID": "7562643c-39d9-4b7b-aec9-37ab559b6b0a",
+      "eventText": "Er komt een verblindende flits uit de deur zodra die instort.\n\nElke held binnen 5 velden van de deur test {K}. Elke held die faalt is <color=“rood”>verdoofd</color>.\n\nAls er twee gele missietokens naast de deur liggen, rol dan twee keer en kies het slechtste resultaat.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Reveal CA Event",
+      "GUID": "d560a1a1-1894-4ab4-94c3-116c2e2669e0",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "77ad1dc6-c81c-4471-8159-48b28f85a518",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "e641bf49-a61b-4f08-91eb-4bdd670fca5a",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Plaats de helden hier.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "23e2172c-3435-49c4-8a8e-96718f9286fe",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "df14b7ba-feb7-4d24-bb3b-6d086610804c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "1320db38-7dd3-4bd1-913f-fd1fd58e7416",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Facility Entrance",
+      "GUID": "5af07f73-e1fe-4be2-ab15-0a1a6defa440",
+      "mainText": "Deze deur heeft het label “Ingang fabriek”.\n\nDe deur is vergrendeld. Een rebellenfiguur kan hem aanvallen (gezondheid: *2*, verdediging: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "7a4fec7a-8f33-4178-a08d-581a54f8dea8",
+          "theText": "Vernietigen"
+        }
+      ]
+    },
+    {
+      "entityName": "Side Door",
+      "GUID": "7ff79fd5-4054-4181-a72e-b6303d94d6e5",
+      "mainText": "Deze deur heeft het label “Zijdeur”.\n\nDe deur is vergrendeld. Een rebellenfiguur kan hem aanvallen (gezondheid: *2*, verdediging: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "9c73df61-4d01-4f57-8078-5e6438af73ce",
+          "theText": "Vernietigen"
+        }
+      ]
+    },
+    {
+      "entityName": "Core Room Door",
+      "GUID": "d89ff5b0-bb55-43a2-9cc8-6c7fc5ee71f5",
+      "mainText": "Deze deur heeft het label “Kernkamer”.\n\nDe deur is vergrendeld. Een rebellenfiguur kan hem aanvallen (gezondheid: *2*, verdediging: 1 {G}).",
+      "buttonList": [
+        {
+          "GUID": "e7a58490-da37-4250-9913-cc3a6a3e8384",
+          "theText": "Vernietigen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "99a88f52-7505-41db-9244-37962f9132f8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "95a8dd62-0360-40cb-8815-d305b2120585",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "ff0e06f2-f4ef-41dc-bd5e-f2f30f816371",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Blue Token",
+      "GUID": "a3dbc1b4-2eaf-45b1-a4d7-e6e116abe04e",
+      "mainText": "Pas *2* extra gezondheid toe op een deur met een blauw token ernaast. Als er twee blauwe tokens naast liggen, gebruik dan *4* extra gezondheid.",
+      "buttonList": [
+        {
+          "GUID": "c0641759-c7c0-41c1-a849-5740efaf5c6e",
+          "theText": "Activeer blauw"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Token",
+      "GUID": "bed6feb3-bba2-4b88-8e48-9357d99b7265",
+      "mainText": "Elke keer als je een deur opent met een rode neutrale missietoken ernaast, klik je één keer op “activeer rood” voor elke rode missietoken naast de deur.",
+      "buttonList": [
+        {
+          "GUID": "20e7822f-67f8-4bee-a352-7d04e645a508",
+          "theText": "Activeer rood"
+        }
+      ]
+    },
+    {
+      "entityName": "Green Token",
+      "GUID": "66d11f99-f4c4-4505-a373-7b02e037f156",
+      "mainText": "Elke keer als je een deur aanvalt met een groene neutrale missietoken ernaast, lijdt de aanvaller 2 {H} voor elke groene neutrale missietoken naast de deur.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Token",
+      "GUID": "2b36c803-c5bf-4fb8-9cca-b5ad0263e43d",
+      "mainText": "Elke keer als je een deur opent met een gele neutrale missietoken ernaast, klik je één keer op “activeer geel” voor elke gele missietoken naast de deur.",
+      "buttonList": [
+        {
+          "GUID": "3e05515a-2aff-4c95-b968-6a77f1964ffb",
+          "theText": "Activeer geel"
+        }
+      ]
+    },
+    {
+      "entityName": "Data Core",
+      "GUID": "8b48b9c7-d86d-4d8c-a637-c3eb3c120e3e",
+      "mainText": "De datakern van de fabriek wordt verlicht door een zacht rood licht.\n\nEen rebellenfiguur kan een interactie uitvoeren op de datakern om deze te vernietigen en de missie te beëindigen.",
+      "buttonList": [
+        {
+          "GUID": "c19885d8-2295-4b4a-bd7e-dec1f7af0c1b",
+          "theText": "{A} Vernietigen"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    }
+  ]
+}

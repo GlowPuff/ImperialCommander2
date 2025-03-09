@@ -1,0 +1,596 @@
+{
+  "languageID": "Dutch (NL)",
+  "missionProperties": {
+    "missionName": "Gevangen genomen",
+    "missionDescription": "",
+    "missionInfo": "{-} Draai de itemkaarten van alle helden met de beeldzijde naar beneden. De helden kunnen omgekeerde kaarten niet gebruiken. De neutrale missietoken vertegenwoordigen de uitrustingscache. Een held kan een interactie uitvoeren op de uitrustingscache om zijn items met de beeldzijde naar boven te draaien.\n{-} Als een held zich terugtrekt, wordt hij in plaats daarvan uitgeschakeld. Als hij activeert, krijgt hij slechts 1 actie en kan hij die actie alleen gebruiken om een verplaatsing uit te voeren of om een interactie uit te voeren op de uitrustingscache.\n{-} Een held zonder wapen kan een aangrenzende vijandig figuur aanvallen met 1 groene en 1 gele dobbelsteen. Vóór deze aanval test de held {K}. Als hij slaagt, krijgt de aanval {B}: +2 {H}.\n{-} De deuren in de opslagruimte en de hal zijn vergrendeld. Een deur naast een keizerlijk figuur blokkeert zijn verplaatsing of zichtlijn niet.\n{-} De missie gaat verder als alle helden hun voorwerpen met de beeldzijde naar boven draaien. De rebellen verliezen als alle helden gewond zijn.",
+    "campaignName": "Basisspel",
+    "startingObjective": "Haal je uitrusting uit de uitrustingscache.",
+    "repositionOverride": "Blokkeer de toegang tot terminals en missietokens.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Je probeert al dagen om je cel te openen, maar al je apparatuur, behalve één goed verstopte comlink, is weg.\n\nJe denkt dat het hopeloos is totdat de faciliteit beeft en de comlink kraakt.\n\n“Over tien seconden,” zegt een stem, ”gaat de deur van je cel open. Je apparatuur wordt verderop in de gang vastgehouden. Ren daar naartoe... nu!”",
+      "eventActions": [
+        {
+          "tbText": "{-} Plaats de helden op het blauw gemarkeerde veld.\r\n{-} Draai de itemkaarten van alle helden met de beeldzijde naar beneden. De helden kunnen omgekeerde kaarten niet gebruiken. De neutrale missietoken vertegenwoordigen de uitrustingscache. Een held kan een interactie uitvoeren op de uitrustingscache om zijn items met de beeldzijde naar boven te draaien.\n{-} Als een held zich terugtrekt, wordt hij in plaats daarvan uitgeschakeld. Als hij activeert, krijgt hij slechts 1 actie en kan hij die actie alleen gebruiken om een verplaatsing uit te voeren of om een interactie uit te voeren op de uitrustingscache.\n{-} Een held zonder wapen kan een aangrenzende vijandig figuur aanvallen met 1 groene en 1 gele dobbelsteen. Vóór deze aanval test de held {K}. Als hij slaagt, krijgt de aanval {B}: +2 {H}.\n{-} De deuren in de opslagruimte en de hal zijn vergrendeld. Een deur naast een keizerlijk figuur blokkeert zijn verplaatsing of zichtlijn niet.\n{-} De missie gaat verder als alle helden hun voorwerpen met de beeldzijde naar boven draaien. De rebellen verliezen als alle helden gewond zijn.",
+          "GUID": "d5cc48e2-ad5a-4c57-83e6-3d5bd079cc26",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Trash Compactor",
+      "GUID": "dac171c0-ca6b-492c-915e-54632e294337",
+      "eventText": "De luiken van de afvalpers schuiven open.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Imperial Token 1",
+              "GUID": "a73523a1-c650-467e-815c-429c5798e58b",
+              "theText": "De ingang van de afvalpers is gesloten.\n\nEen held kan een interactie uitvoeren op de rode terminal om alle ingangen naar de afvalpers te openen.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Imperial Token 2",
+              "GUID": "fd9d7423-7d02-48e5-8156-00dbbf6021dd",
+              "theText": "De ingang van de afvalpers is gesloten.\n\nEen held kan een interactie uitvoeren op de rode terminal om alle ingangen naar de afvalpers te openen.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "a8c22f13-aa05-4c76-b3e3-1cb1014a6705",
+              "theText": "De ingang van de afvalpers is open.\r\n\r\n{-} Een held kan een interactie uitvoeren op deze token om naar beneden te klimmen in de afvalpers.",
+              "buttonList": [
+                {
+                  "GUID": "77e78cff-71b2-45b3-8ff4-b07eb62afbe2",
+                  "theText": "{A} Naar beneden klimmen"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "0d66d078-3887-43a0-aec5-ad6b5a73fe52",
+              "theText": "De ingang van de afvalpers is open.\r\n\r\n{-} Een held kan een interactie uitvoeren op deze token om naar beneden te klimmen in de afvalpers.",
+              "buttonList": [
+                {
+                  "GUID": "5a785ed0-a6ad-4fd5-ae81-7c620b93403a",
+                  "theText": "{A} Naar beneden klimmen"
+                }
+              ]
+            },
+            {
+              "entityName": "Red Terminal",
+              "GUID": "804e7d9d-2284-41b8-afa3-01572c42daff",
+              "theText": "De terminal bedient de toegangsluiken naar de afvalpers.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "2c28072e-e528-42aa-86f8-54aa5ebd4240",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Trash Compactor",
+      "GUID": "84d326bd-6bf1-4bd2-b7b6-0637d91b6fe5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Je probeert de terminal te hacken.\n\n{-} Test {J} of {I}. Pas +1 {B} toe op de test voor elk forceertoken op de terminal en leg daarna alle forceertokens op de terminal af. Voer hieronder het aantal successen in.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d7bc3bde-9324-49e4-805f-116a03385032",
+              "theText": "De beveiligingssystemen die de terminal beschermen zijn te sterk. Je moet het blijven proberen.\n\n{-} Plaats 1 forceertoken op de terminal voor elk geworpen {B} symbool."
+            }
+          ],
+          "GUID": "db5f75d7-2ef2-4374-818b-009effe0de3b",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "TC Door Opens",
+      "GUID": "b19d3b9f-40f4-4ed6-844f-1ff7f586ea5f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "a20189f7-1e96-4376-be30-09203367fbe1",
+              "theText": "Deze roestige deur is duidelijk ontworpen om de hal af te schermen tegen de dampen van de afvalpers.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "8767cb64-1d2d-4b6d-85bd-9629c793131f",
+              "theText": "Deze terminal regelt de vuilnisuitlaat die uit de afvalpers komt.",
+              "buttonList": [
+                {
+                  "GUID": "70dd6469-abca-4237-b717-5369428ba0a9",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "2932ccdd-a648-4ed3-b9ee-27a677878836",
+              "theText": "Deze terminal regelt de vuilnisuitlaat die uit de afvalpers komt.",
+              "buttonList": [
+                {
+                  "GUID": "1104e1a7-ec1c-40c2-9501-9d21aa7d55c2",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            }
+          ],
+          "GUID": "9bf0635e-ea7a-48e4-b29d-65b3220eaef6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Cell Door opens",
+      "GUID": "830aa383-6c6f-4ce4-8cf0-c54bd43f28aa",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "0f5df446-d345-4f27-972d-70c1aa998d7e",
+              "theText": "De deur van de gevangeniscel lijkt stevig, maar is verzwakt door jouw inspanningen.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "bd24e3a6-293d-40cc-a7ae-33f061d4b781",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Ends - Rebel win",
+      "GUID": "719dc69a-6390-40b1-b564-f493ca8d39e4",
+      "eventText": "Terwijl je door het vuil en drek glijdt, kom je andere rebellengevangenen tegen die onlangs zijn bevrijd. Door samen te werken, overmeesteren jullie de keizerlijke troepen die in de weg staan. Door de instructies van je redder op te volgen, leid je ze naar buiten en stap je in een transport die een eindje verderop staat.\n\n{-} De rebellen winnen de missie!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Ends - Rebels lose",
+      "GUID": "1c4f99fe-5bd0-4683-afe8-cec815814869",
+      "eventText": "Je wordt weer gevangen genomen en zwaarder beveiligd terwijl je naar Kessel wordt vervoerd. Na een paar zware weken van hard werk lanceert het oppercommando van de rebllen gelukkig een grootschalige operatie. Rogue Squadron presteert geweldig en je wordt bevrijd samen met een aantal hooggeplaatste rebellenofficieren.\n\n{-} De rebellen verliezen de missie.\n{-} Het dreigingsniveau van de volgende missie (en alleen de volgende missie) stijgt met 2. Tijdens de Rebel Upgrade-fase kunnen de rebellenspelers beslissen om 100 credits per held uit te geven om dit te voorkomen.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Escape",
+      "GUID": "34fcad06-4144-4a3d-a4dc-00477c794f23",
+      "eventText": "“Ik heb het schip geparkeerd in de buurt van de afvalverwerking,” vertelt je redder, “maar je moet in hun systeem hacken en de passages openen. Wat je ook doet, schiet op! Ik hou\nze bezig, maar ik weet niet of dat nog veel langer lukt.”\n\n{-} Keizerlijke missietokens vertegenwoordigen gesloten doorgangen en rebellen missietokens vertegenwoordigen open doorgangen. Een held kan een interactie uitvoeren op een terminal om alle keizerlijke missietokens van de kleur die overeenkomt met die terminal om te draaien.\n{-} Een figuur kan een interactie uitvoeren op een rode rebellen missietoken om zijn figuur in een lege ruimte op de afvalpers te plaatsen.\n{-} Als een held zich terugtrekt, wordt hij in plaats daarvan uitgeschakeld. Als hij activeert, krijgt hij slechts 1 actie en kan hij die actie alleen gebruiken om een verplaatsing uit te voeren of om een interactie uit te voeren op de uitrustingscache.\n{-} De deuren in de opslagruimte en de hal zijn vergrendeld. Een deur naast een keizerlijk figuur blokkeert zijn verplaatsing of zichtlijn niet.\n{-}  Als alle helden op of naast de gele rebellentokens staan, klik dan op “Vertreken” op de token om de missie te winnen.\n{-} De rebellen verliezen als alle helden gewond zijn.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Terminal",
+              "GUID": "e39142fe-f976-4cc0-8b01-fab676149b3e",
+              "theText": "De terminal bedient de toegangsluiken naar de afvalpers.",
+              "buttonList": [
+                {
+                  "GUID": "d07e8b47-9270-42c7-8345-3a390573ac74",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Equipment Cache",
+              "GUID": "e85d7f60-35b1-4d2f-b350-fe50d10efc0b",
+              "theText": "Je uitrusting is in deze cache opgeslagen.\n\nEen held kan een interactie uitvoeren op deze cache om zijn itemkaarten met de beeldzijde naar boven te draaien. Als alle helden hun kaarten omgedraaid hebben, klik je op \"uitrusting teruggekregen\" om verder te gaan met de missie.",
+              "buttonList": [
+                {
+                  "GUID": "46189a01-0904-4ebc-a466-8f049306a9f1",
+                  "theText": "Uitrusting teruggekregen"
+                }
+              ]
+            }
+          ],
+          "GUID": "d037a863-7eaf-4f34-9ea8-a18575344161",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Keizerlijke missietokens vertegenwoordigen gesloten doorgangen en rebellen missietokens vertegenwoordigen open doorgangen. Een held kan een interactie uitvoeren op een terminal om alle keizerlijke missietokens van de kleur die overeenkomt met die terminal om te draaien.\n{-} Een figuur kan een interactie uitvoeren op een rode rebellen missietoken om zijn figuur in een lege ruimte op de afvalpers te plaatsen.\n{-} Als een held zich terugtrekt, wordt hij in plaats daarvan uitgeschakeld. Als hij activeert, krijgt hij slechts 1 actie en kan hij die actie alleen gebruiken om een verplaatsing uit te voeren of om een interactie uit te voeren op de uitrustingscache.\n{-} De deuren in de opslagruimte en de hal zijn vergrendeld. Een deur naast een keizerlijk figuur blokkeert zijn verplaatsing of zichtlijn niet.\n{-}  Als alle helden op of naast de gele rebellentokens staan, klik dan op “Vertrek” op de token om de missie te winnen.\n{-} De rebellen verliezen als alle helden gewond zijn.",
+          "GUID": "6ea359dc-7a18-447a-82f0-9b519291687a",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Zoek een manier om de luiken van de afvalpers te openen.",
+          "longText": null,
+          "GUID": "f7550b2c-70a0-4626-9abb-dc83a99ec9b7",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Hacking Garbage Chute",
+      "GUID": "c9a18ce4-ba8b-4b62-83f3-92f94a20c944",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Je probeert de terminal te hacken.\n\n{-} Test {J} of {I}. Pas +1 {B} toe op de test voor elk forceertoken op de terminal en leg daarna alle forceertokens op de terminal af. Voer hieronder het aantal successen in.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "86a3d9d5-16e5-4d31-8953-f26c41e88b3a",
+              "theText": "De beveiligingssystemen die de terminal beschermen zijn te sterk. Je moet het blijven proberen.\n\n{-} Plaats 1 forceertoken op de terminal voor elk geworpen {B} symbool."
+            }
+          ],
+          "GUID": "44b7b7ad-e373-421c-86e6-f68037705e87",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Garbage Chute Opens",
+      "GUID": "0d4a3a62-9f44-4bc6-be0b-c26cb015d0fa",
+      "eventText": "De vuilnisuitlaat schuift open. Dit kan jouw weg naar vrijheid zijn!",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Yellow Imperial Token 1",
+              "GUID": "f64a3ddc-8299-484e-ad7a-5b321d92f238",
+              "theText": "De uitgang van de afvalpers is afgesloten. Hij kan alleen worden geopend vanaf een gele terminal.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Imperial Token 2",
+              "GUID": "4b484ec0-3e00-415c-b7d7-9541b76d6788",
+              "theText": "De uitgang van de afvalpers is afgesloten. Hij kan alleen worden geopend vanaf een gele terminal.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Rebel Token 1",
+              "GUID": "51512a82-2895-4d99-b15f-55409439aabe",
+              "theText": "De uitgang van de afvalpers is open. Dit is je ontsnappingsroute!\n\n{-} Als alle helden op of naast de gele rebellentokens staan, klik je op \"Vertreken\" om de missie te winnen.",
+              "buttonList": [
+                {
+                  "GUID": "a3c0c164-f131-4531-bb47-33ddcfb69068",
+                  "theText": "Vertrekken"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Rebel Token 2",
+              "GUID": "e090a1a6-0740-4569-860a-137f44a410ad",
+              "theText": "De uitgang van de afvalpers is open. Dit is je ontsnappingsroute!\n\n{-} Als alle helden op of naast de gele rebellentokens staan, klik je op \"Vertreken\" om de missie te winnen.",
+              "buttonList": [
+                {
+                  "GUID": "32ccd7b4-d960-487d-bda1-78374621431f",
+                  "theText": "Vertrekken"
+                }
+              ]
+            },
+            {
+              "entityName": "Hallway Door",
+              "GUID": "79e4978f-94ff-48cd-a9a2-f17195cf0e22",
+              "theText": "De deur is afgesloten.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Storage Room Door",
+              "GUID": "277565b4-8ce5-47ce-8b45-bb97c91247f8",
+              "theText": "De deur is afgesloten.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Yellow Terminal 1",
+              "GUID": "0b777269-cbbe-47fc-b8e3-68e221342ec9",
+              "theText": "Deze terminal regelt de vuilnisuitlaat die uit de afvalpers komt.",
+              "buttonList": [
+                {
+                  "GUID": "52174907-05eb-44b1-b6be-03eb2b71cb06",
+                  "theText": "{A} Hacken"
+                }
+              ]
+            },
+            {
+              "entityName": "Yellow Terminal 2",
+              "GUID": "a685ee5f-2f84-46e0-ac4a-521f69b5018f",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "933d6bd5-b9fb-42b5-b4f2-f2d8b42c460d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Ontsnap door de vuilnisuitlaat.",
+          "longText": null,
+          "GUID": "5d87d0fe-7871-4024-ab3f-8d2ee647ae61",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Als een held zich terugtrekt, wordt hij in plaats daarvan uitgeschakeld. Als hij activeert, krijgt hij slechts 1 actie en kan hij die actie alleen gebruiken om een verplaatsing uit te voeren of om een interactie uit te voeren op de uitrustingscache.\n{-}  Als alle helden op of naast de gele rebellentokens staan, klik dan op “Vertrek” op de token om de missie te winnen.",
+          "GUID": "866c4cbf-2e35-4de7-adcb-4716d9ac6489",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Climb down",
+      "GUID": "af2f95f6-b30c-4fe8-8a75-066141a6c200",
+      "eventText": "Je klimt in het gat en wordt al snel omringd door afval. Wat een geweldige geur heb je ontdekt!",
+      "eventActions": [
+        {
+          "shortText": "Open de vuilnisuitlaat in de afvalpers.",
+          "longText": null,
+          "GUID": "f52451ad-3c33-40db-ba4f-1d973c12606d",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Red Rebel Token 2",
+              "GUID": "82a639ca-e6f6-4bfa-abfb-7cfc73002e4c",
+              "theText": "De ingang van de afvalpers is open.\n\n{-} Een held kan een interactie uitvoeren op deze token om zijn figuur in een lege ruimte op de afvalpers te plaatsen.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Red Rebel Token 1",
+              "GUID": "3f89a360-fc83-4409-a9c6-5658dda96af8",
+              "theText": "De ingang van de afvalpers is open.\n\n{-} Een held kan een interactie uitvoeren op deze token om zijn figuur in een lege ruimte op de afvalpers te plaatsen.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Trash Compactor Door",
+              "GUID": "4e3c96d9-b0c1-497a-9fe7-ec7b1047dc44",
+              "theText": "Deze roestige deur is duidelijk ontworpen om de hal af te schermen tegen de dampen van de afvalpers.",
+              "buttonList": [
+                {
+                  "GUID": "b5c48878-24cc-41d9-8434-9ae450c65de5",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "93de1451-40e7-4d18-adcf-92baefb3bbd7",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Entrance",
+      "GUID": "9c2b4f3a-c336-4a80-b015-7e27365a5326",
+      "mainText": "Dit is de cel van de helden. Plaats ze hier.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "29cd84c0-58f9-47e9-8ced-432f5515d9e9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "e78a0a86-e764-49fd-82f2-77fe019574e4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "d3d0ae17-f9cd-4516-8d5c-01b385b5080d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "0a45fcb1-2c6a-4c21-9877-86be6dfba11e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "82225e76-06ab-4aec-9069-a5bec843b375",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "551def1d-2afe-4ea1-b828-27c9a2b18c0a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "3be15fdc-a062-48c8-9d31-794fa22dfb6b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite Officer",
+      "GUID": "644e7104-8a58-4189-84c2-d091fcc1f864",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 3",
+      "GUID": "d992e442-5c6f-46ac-80d4-1b20cdeb4d04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 2",
+      "GUID": "55c48f99-c50a-4219-a4f7-209f6c75e465",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Elite ST 1",
+      "GUID": "84c3e752-11bb-4ae5-b09d-17513513f2cf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Terminal",
+      "GUID": "0f6454f8-bc95-447e-ad51-72f7e4db9f1e",
+      "mainText": "De terminal bedient de toegangsluiken naar de afvalpers.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 1",
+      "GUID": "69856693-788f-4357-8b7a-333a7dfdc330",
+      "mainText": "Deze terminal regelt de vuilnisuitlaat die uit de afvalpers komt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Terminal 2",
+      "GUID": "49632046-382f-4407-9584-39f8c1c2f7fe",
+      "mainText": "Deze terminal regelt de vuilnisuitlaat die uit de afvalpers komt.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 1",
+      "GUID": "e45723b0-7379-4d17-974e-a1dbd1dc22c5",
+      "mainText": "De ingang van de afvalpers is gesloten.\n\n{-} Een held kan een interactie uitvoeren op de rode terminal om alle ingangen naar de afvalpers te openen.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Imperial Token 2",
+      "GUID": "03cf63aa-bb2f-4427-b9b3-b3c82a0ca20b",
+      "mainText": "De ingang van de afvalpers is gesloten.\n\n{-} Een held kan een interactie uitvoeren op de rode terminal om alle ingangen naar de afvalpers te openen.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Red Rebel Token 2",
+      "GUID": "5f4f90d0-c524-4cd2-8d92-b7a72348fb1c",
+      "mainText": "De ingang van de afvalpers is open.\r\n\r\n{-} Een held kan een interactie uitvoeren op deze token om naar beneden te klimmen in de afvalpers.",
+      "buttonList": [
+        {
+          "GUID": "368f0b76-a31c-43e9-b8c2-6b464d8f2233",
+          "theText": "{A} Naar beneden klimmen"
+        }
+      ]
+    },
+    {
+      "entityName": "Red Rebel Token 1",
+      "GUID": "16037a15-1ded-4a0b-b9eb-fd0851e594b0",
+      "mainText": "De ingang van de afvalpers is open.\r\n\r\n{-} Een held kan een interactie uitvoeren op deze token om naar beneden te klimmen in de afvalpers.",
+      "buttonList": [
+        {
+          "GUID": "258b5ec7-e671-433f-be5d-2bcb0346c928",
+          "theText": "{A} Naar beneden klimmen"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Imperial Token 1",
+      "GUID": "7f6aeb7e-44e0-4e52-8308-fe0ba221ff23",
+      "mainText": "De vuilnisuitlaat van de afvalpers is gesloten. Hij kan alleen worden geopend vanaf een gele terminal.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Imperial Token 2",
+      "GUID": "889af84e-a26f-43bc-8d52-2ebff893a032",
+      "mainText": "De vuilnisuitlaat van de afvalpers is gesloten. Hij kan alleen worden geopend vanaf een gele terminal.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "d5879e17-e5cc-4501-867f-4bdbac0cc5b6",
+      "mainText": "De deur van de gevangeniscel is van massief plastaal, maar is ontgrendeld door je redder.",
+      "buttonList": [
+        {
+          "GUID": "9990c353-00d3-431c-8365-b4c3b074a092",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Hallway Door",
+      "GUID": "719a6aeb-dfa5-4819-8a15-f05c55a23ec5",
+      "mainText": "De deur in de hal is afgesloten.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Trash Compactor Door",
+      "GUID": "61c10a4f-dddd-4a68-9081-25c6def3540b",
+      "mainText": "Deze roestige deur is duidelijk ontworpen om de hal af te schermen tegen de dampen van de afvalpers.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Storage Room Door",
+      "GUID": "2f12d2ec-1b90-4b91-b043-9207d5d66d81",
+      "mainText": "De deur van de opslagruimte is afgesloten.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Yellow Rebel Token 1",
+      "GUID": "27ce12b5-ea26-4cc4-b0f3-d069df9f0622",
+      "mainText": "De uitgang van de afvalpers is open. Dit is je ontsnappingsroute!\n\n{-} Als alle helden op of naast de gele rebellentokens staan, klik je op \"Vertreken\" om de missie te winnen.",
+      "buttonList": [
+        {
+          "GUID": "4b9f202c-8cde-4f88-ad54-f88094648ba3",
+          "theText": "Vertrekken"
+        }
+      ]
+    },
+    {
+      "entityName": "Yellow Rebel Token 2",
+      "GUID": "04ca1c00-2ec6-4883-bd9c-683acec240a3",
+      "mainText": "De uitgang van de afvalpers is open. Dit is je ontsnappingsroute!\n\n{-} Als alle helden op of naast de gele rebellentokens staan, klik je op \"Vertreken\" om de missie te winnen.",
+      "buttonList": [
+        {
+          "GUID": "1aa1f395-cdf7-4a60-9fc9-2077ac41f891",
+          "theText": "Vertrekken"
+        }
+      ]
+    },
+    {
+      "entityName": "Equipment Cache",
+      "GUID": "b66ecce5-eb8d-4ee9-a701-ac60739f926c",
+      "mainText": "Je uitrusting is in deze cache opgeslagen.\n\nEen held kan een interactie uitvoeren op deze cache om zijn itemkaarten met de beeldzijde naar boven te draaien. Als alle helden hun kaarten omgedraaid hebben, klik je op \"uitrusting teruggekregen\" om verder te gaan met de missie.",
+      "buttonList": [
+        {
+          "GUID": "2d680aee-d2c5-43ae-b100-444cbf4c1bf6",
+          "theText": "Uitrusting teruggekregen"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}
