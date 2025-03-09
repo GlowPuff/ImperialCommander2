@@ -84,7 +84,7 @@ namespace Saga
 			System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 			System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
 
-			versionText.text = "App Mission Format: " + Utils.formatVersion;
+			versionText.text = DataStore.uiLanguage.uiSetup.appMissionFormat + " " + Utils.formatVersion;
 
 			Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
