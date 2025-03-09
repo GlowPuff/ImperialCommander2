@@ -10,19 +10,21 @@ using UnityEngine.UI;
 public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
-	public Image fader;
+	public Image fader, regularEnemyButton1, regularEnemyButton2, eliteEnemySingleButton, eliteEnemyButton1, eliteEnemyButton2, villainButton;
 	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle, ambientToggle, closeWindowToggle, zoomToggle, viewToggle, roundLimitToggleOn, roundLimitToggleOff, roundLimitToggleDangerous, skipWarpIntroToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
 	public SettingsLanguageController languageController;
-	public GameObject audioPanel, gfxPanel, uiPanel;
+	public GameObject audioPanel, gfxPanel, uiPanel, colorPanel;
 	public Toggle audioToggle;
 	public MWheelHandler musicWheelHandler, ambientWheelHandler, soundWheelHandler;
 	public BiomeType biomeType;
 	public HelpPanel audioHelpPanel;
 	public HelpPanel uiHelpPanel;
 	public HelpPanel graphicsHelpPanel;
+	public HelpPanel colorHelpPanel;
+	public GameObject eliteSelectionSingle, eliteSelectionDual;
 
 	Action<SettingsCommand> quitAction;
 	Action callbackAction;
@@ -75,6 +77,13 @@ public class SettingsScreen : MonoBehaviour
 		skipWarpIntroToggle.isOn = PlayerPrefs.GetInt( "skipWarpIntro" ) == 1;
 		toggleBusy = false;
 
+		regularEnemyButton1.color = DataStore.pipColors[PlayerPrefs.GetInt( "defaultRegularEnemyColor1" )].ToColor();
+		regularEnemyButton2.color = DataStore.pipColors[PlayerPrefs.GetInt( "defaultRegularEnemyColor2" )].ToColor();
+		eliteEnemySingleButton.color = DataStore.pipColors[PlayerPrefs.GetInt( "defaultEliteEnemyColor1" )].ToColor();
+		eliteEnemyButton1.color = DataStore.pipColors[PlayerPrefs.GetInt( "defaultEliteEnemyColor1" )].ToColor();
+		eliteEnemyButton2.color = DataStore.pipColors[PlayerPrefs.GetInt( "defaultEliteEnemyColor2" )].ToColor();
+		villainButton.color = DataStore.pipColors[PlayerPrefs.GetInt( "defaultVillainColor" )].ToColor();
+
 		//set the translated UI strings
 		languageController.SetTranslatedUI();
 
@@ -82,6 +91,7 @@ public class SettingsScreen : MonoBehaviour
 		audioPanel.SetActive( true );
 		gfxPanel.SetActive( false );
 		uiPanel.SetActive( false );
+		colorPanel.SetActive( false );
 	}
 
 	public void OnOK()
@@ -99,6 +109,18 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "ambientVolume", ambientWheelHandler.wheelValue );
 		PlayerPrefs.SetInt( "soundVolume", soundWheelHandler.wheelValue );
 		PlayerPrefs.SetInt( "skipWarpIntro", skipWarpIntroToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "defaultRegularEnemyColor1", ColorToIndex(regularEnemyButton1.color) );
+		PlayerPrefs.SetInt( "defaultRegularEnemyColor2", ColorToIndex(regularEnemyButton2.color) );
+		if (PlayerPrefs.GetString("Lothal") == "true")
+		{
+			PlayerPrefs.SetInt( "defaultEliteEnemyColor1", ColorToIndex(eliteEnemyButton1.color) );
+		}
+		else
+		{
+			PlayerPrefs.SetInt( "defaultEliteEnemyColor1", ColorToIndex(eliteEnemySingleButton.color) );
+		}
+		PlayerPrefs.SetInt( "defaultEliteEnemyColor2", ColorToIndex(eliteEnemyButton2.color) );
+		PlayerPrefs.SetInt( "defaultVillainColor", ColorToIndex(villainButton.color) );
 
 		PlayerPrefs.Save();
 
@@ -215,6 +237,7 @@ public class SettingsScreen : MonoBehaviour
 		audioPanel.SetActive( true );
 		gfxPanel.SetActive( false );
 		uiPanel.SetActive( false );
+		colorPanel.SetActive( false );
 	}
 
 	public void OnGraphicsTab()
@@ -222,6 +245,7 @@ public class SettingsScreen : MonoBehaviour
 		audioPanel.SetActive( false );
 		gfxPanel.SetActive( true );
 		uiPanel.SetActive( false );
+		colorPanel.SetActive( false );
 	}
 
 	public void OnUITab()
@@ -229,6 +253,36 @@ public class SettingsScreen : MonoBehaviour
 		audioPanel.SetActive( false );
 		gfxPanel.SetActive( false );
 		uiPanel.SetActive( true );
+		colorPanel.SetActive( false );
+	}
+
+	public void OnColorTab()
+	{
+		audioPanel.SetActive( false );
+		gfxPanel.SetActive( false );
+		uiPanel.SetActive( false );
+		if ( PlayerPrefs.GetString( "Lothal" ) == "true" )
+		{
+			eliteSelectionSingle.SetActive( false );
+			eliteSelectionDual.SetActive( true );
+		}
+		else
+		{
+			eliteSelectionSingle.SetActive( true );
+			eliteSelectionDual.SetActive( false );
+		}
+		colorPanel.SetActive( true );
+	}
+
+	public void ToggleColor(Image i)
+	{
+		EventSystem.current.SetSelectedGameObject(null);
+		sound.PlaySound(FX.Click);
+
+		int colorIndex = ColorToIndex(i.color);
+		//red black purple blue green gray
+		colorIndex = colorIndex == 6 ? 0 : colorIndex + 1;
+		i.color = DataStore.pipColors[colorIndex].ToColor();
 	}
 
 	public void OnHelpClick()
@@ -239,5 +293,28 @@ public class SettingsScreen : MonoBehaviour
 			graphicsHelpPanel.Show();
 		else if ( uiPanel.activeInHierarchy )
 			uiHelpPanel.Show();
+		else if ( colorPanel.activeInHierarchy )
+			colorHelpPanel.Show();
+	}
+
+	private int ColorToIndex( Color c )
+	{
+		if ( c.Equals( DataStore.pipColors[0].ToColor() ) )
+			return 0;
+		if ( c.Equals( DataStore.pipColors[1].ToColor() ) )
+			return 1; 
+		if ( c.Equals( DataStore.pipColors[2].ToColor() ) )
+			return 2;
+		if ( c.Equals( DataStore.pipColors[3].ToColor() ) )
+			return 3;
+		if ( c.Equals( DataStore.pipColors[4].ToColor() ) )
+			return 4;
+		if ( c.Equals( DataStore.pipColors[5].ToColor() ) )
+			return 5;
+		if ( c.Equals( DataStore.pipColors[6].ToColor() ) )
+			return 6;
+
+		//Default returns grey
+		return 0;
 	}
 }
