@@ -288,14 +288,19 @@ namespace Saga
 				&& !EventSystem.current.IsPointerOverGameObject( pointerID )
 				&& Input.touchCount <= 1 )
 			{
-				dragOrigin = GetMousePosition();
-				mButtonDown = true;
-				dragDistance = Vector3.zero;
+				if ( GetMousePosition( out Vector3 position ) )
+				{
+					dragOrigin = position;
+					mButtonDown = true;
+					dragDistance = Vector3.zero;
+				}
 			}
 			//get distance between current and saved position while held down
 			if ( Input.GetMouseButton( 0 ) && mButtonDown )
 			{
-				dragDistance = dragOrigin - GetMousePosition();
+				//(bool success, Vector3 position) = GetMousePosition();
+				if ( GetMousePosition( out Vector3 position ) )
+					dragDistance = dragOrigin - position;
 			}
 
 			Vector3 mousePosition = Input.mousePosition;
@@ -379,28 +384,37 @@ namespace Saga
 			}
 		}
 
-		Vector3 GetMousePosition()
+		bool GetMousePosition( out Vector3 position )
 		{
+			position = Vector3.zero;
+
 			//skip this method if more than one touch is detected, otherwise ScreenPointToRay causes issues
 			if ( Input.touchCount > 1 )
-				return Vector3.zero;
+				return false;
 
 			try
 			{
 				Plane plane = new Plane( Vector3.up, 0 );
 				float distance;
+				var mousePos = Input.mousePosition;
+
+				//if mouse is outside of screen, return false and avoid out of frustum errors with ScreenPointToRay
+				if ( mousePos.x < 0 || mousePos.x >= Screen.width || mousePos.y < 0 || mousePos.y >= Screen.height )
+					return false;
+
 				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( Input.mousePosition );
 				if ( plane.Raycast( ray, out distance ) )
 				{
-					return ray.GetPoint( distance );
+					position = ray.GetPoint( distance );
+					return true;
 				}
 				else
-					return Vector3.zero;
+					return false;
 			}
 			catch ( Exception e )
 			{
 				Utils.LogWarning( e.Message );
-				return Vector3.zero;
+				return false;
 			}
 		}
 
