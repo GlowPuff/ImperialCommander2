@@ -8,8 +8,8 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.2.2.5";
-	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No", "Ru" };
+	public static readonly string appVersion = "v.2.2.6";
+	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No", "Ru", "Nl" };
 
 	public static Mission mission;
 	public static GameType gameType;
@@ -1143,13 +1143,13 @@ public static class DataStore
 			PlayerPrefs.SetInt( "skipWarpIntro", 0 );//1=true, 0=false
 		if ( !PlayerPrefs.HasKey( "defaultRegularEnemyColor1" ) )
 			PlayerPrefs.SetInt( "defaultRegularEnemyColor1", 0 );//0=grey
-		if (!PlayerPrefs.HasKey( "defaultRegularEnemyColor2" ) )
+		if ( !PlayerPrefs.HasKey( "defaultRegularEnemyColor2" ) )
 			PlayerPrefs.SetInt( "defaultRegularEnemyColor2", 0 );//0=grey
-		if (!PlayerPrefs.HasKey( "defaultEliteEnemyColor1" ))
+		if ( !PlayerPrefs.HasKey( "defaultEliteEnemyColor1" ) )
 			PlayerPrefs.SetInt( "defaultEliteEnemyColor1", 0 );//0=grey
-		if (!PlayerPrefs.HasKey( "defaultEliteEnemyColor2" ))
+		if ( !PlayerPrefs.HasKey( "defaultEliteEnemyColor2" ) )
 			PlayerPrefs.SetInt( "defaultEliteEnemyColor2", 0 );//0=grey
-		if (!PlayerPrefs.HasKey( "defaultVillainColor" ) )
+		if ( !PlayerPrefs.HasKey( "defaultVillainColor" ) )
 			PlayerPrefs.SetInt( "defaultVillainColor", 0 );//0=grey
 	}
 }
