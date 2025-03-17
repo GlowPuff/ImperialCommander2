@@ -282,10 +282,11 @@ namespace Saga
 				pointerID = Input.GetTouch( 0 ).fingerId;
 			}
 
-			//make sure not clicking UI
+			//make sure not clicking UI and no more than 1 touch
 			if ( Input.GetMouseButtonDown( 0 )
 				&& !eventManager.IsUIHidden
-				&& !EventSystem.current.IsPointerOverGameObject( pointerID ) )
+				&& !EventSystem.current.IsPointerOverGameObject( pointerID )
+				&& Input.touchCount <= 1 )
 			{
 				dragOrigin = GetMousePosition();
 				mButtonDown = true;
@@ -380,15 +381,27 @@ namespace Saga
 
 		Vector3 GetMousePosition()
 		{
-			Plane plane = new Plane( Vector3.up, 0 );
-			float distance;
-			Ray ray = cameraController.ActiveCamera.ScreenPointToRay( Input.mousePosition );
-			if ( plane.Raycast( ray, out distance ) )
-			{
-				return ray.GetPoint( distance );
-			}
-			else
+			//skip this method if more than one touch is detected, otherwise ScreenPointToRay causes issues
+			if ( Input.touchCount > 1 )
 				return Vector3.zero;
+
+			try
+			{
+				Plane plane = new Plane( Vector3.up, 0 );
+				float distance;
+				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( Input.mousePosition );
+				if ( plane.Raycast( ray, out distance ) )
+				{
+					return ray.GetPoint( distance );
+				}
+				else
+					return Vector3.zero;
+			}
+			catch ( Exception e )
+			{
+				Utils.LogWarning( e.Message );
+				return Vector3.zero;
+			}
 		}
 
 		public IMapEntity GetEntity( Guid guid )
