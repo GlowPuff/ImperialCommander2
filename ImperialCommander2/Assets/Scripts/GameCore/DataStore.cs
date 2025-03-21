@@ -525,6 +525,12 @@ public static class DataStore
 			Utils.LogError( $"LoadHelpOverlays()::Error parsing help.json\n{e.Message}" );
 			throw e;
 		}
+		catch ( Exception e )
+		{
+			Utils.LogTranslationError( $"LoadHelpOverlays()::Error loading help.json\n{e.Message}" );
+			Utils.LogError( $"LoadHelpOverlays()::Error loading help.json\n{e.Message}" );
+			return uiLanguage.uiHelpOverlayBackup;//fallback to English if translation is missing or broken
+		}
 	}
 
 	public static ThumbnailData LoadThumbnailData()
