@@ -140,15 +140,17 @@ namespace Saga
 			//get mouse world coords on first click
 			if ( (Input.GetMouseButtonDown( 0 ) && !EventSystem.current.IsPointerOverGameObject( pointerID )) )
 			{
-				dragOrigin = GetMousePosition();
+				//dragOrigin = GetMousePosition();
+				GetMousePosition( out Vector3 dragOrigin );
 				mButtonDown = true;
 			}
 			//get distance between current and saved position while held down
 			if ( Input.GetMouseButton( 0 ) && mButtonDown )
 			{
-				Vector3 difference = dragOrigin - GetMousePosition();
+				//Vector3 difference = dragOrigin - GetMousePosition();
 				//move camera by that distance
-				transform.position += difference;
+				if ( GetMousePosition( out Vector3 difference ) )
+					transform.position += difference;
 			}
 			else
 				mButtonDown = false;
@@ -237,19 +239,22 @@ namespace Saga
 				else
 				{
 					oneClick = false;//found a double click, now reset
-					Vector3 camP = GetMousePosition();
-					//vector towards where clicked
-					if ( viewMode == CameraView.Normal )
+					if ( GetMousePosition( out Vector3 camP ) )
 					{
-						Vector3 dir = Vector3.Normalize( cam.transform.position - camP );
-						Vector3 target = camP + dir * 3f;
-						MoveTo( target, 1, 0, false );
-					}
-					else
-					{
-						Vector3 dir = Vector3.Normalize( topDownCamera.transform.position - camP );
-						Vector3 target = camP + dir * 3f;
-						MoveTo( target, 1, 0, false );
+						//Vector3 camP = GetMousePosition();
+						//vector towards where clicked
+						if ( viewMode == CameraView.Normal )
+						{
+							Vector3 dir = Vector3.Normalize( cam.transform.position - camP );
+							Vector3 target = camP + dir * 3f;
+							MoveTo( target, 1, 0, false );
+						}
+						else
+						{
+							Vector3 dir = Vector3.Normalize( topDownCamera.transform.position - camP );
+							Vector3 target = camP + dir * 3f;
+							MoveTo( target, 1, 0, false );
+						}
 					}
 				}
 			}
@@ -299,17 +304,37 @@ namespace Saga
 			callback?.Invoke();
 		}
 
-		Vector3 GetMousePosition()
+		bool GetMousePosition( out Vector3 position )
 		{
-			Plane plane = new Plane( Vector3.up, 0 );
-			float distance;
-			Ray ray = cam.ScreenPointToRay( Input.mousePosition );
-			if ( plane.Raycast( ray, out distance ) )
+			position = Vector3.zero;
+
+			try
 			{
-				return ray.GetPoint( distance );
+				Plane plane = new Plane( Vector3.up, 0 );
+				float distance;
+				var mousePos = Input.mousePosition;
+
+				//if mouse is outside of screen, return false and avoid out of frustum errors with ScreenPointToRay
+				if ( mousePos.x < 0 || mousePos.x >= Screen.width
+					|| mousePos.y < 0 || mousePos.y >= Screen.height )
+					return false;
+
+				Ray ray = cam.ScreenPointToRay( mousePos );
+				if ( plane.Raycast( ray, out distance ) )
+				{
+					position = ray.GetPoint( distance );
+					return true;
+				}
+				else
+				{
+					return true;
+				}
 			}
-			else
-				return Vector3.zero;
+			catch ( Exception e )
+			{
+				Utils.LogWarning( e.Message );
+				return false;
+			}
 		}
 
 		public void ToggleNavigation( bool canNav )

@@ -323,8 +323,26 @@ namespace Saga
 			{
 				LayerMask mask = LayerMask.GetMask( "MapEntities" );
 				RaycastHit hit;
-				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( mousePosition );
-				if ( Physics.Raycast( ray, out hit, 1000, mask ) )
+				bool safeRay = true;
+				Ray ray;
+
+				//if mouse is outside of screen, return false and avoid out of frustum errors with ScreenPointToRay
+				if ( mousePosition.x < 0 || mousePosition.x >= Screen.width
+					|| mousePosition.y < 0 || mousePosition.y >= Screen.height )
+					safeRay = false;
+
+				try
+				{
+					ray = cameraController.ActiveCamera.ScreenPointToRay( mousePosition );
+				}
+				catch ( Exception e )
+				{
+					Utils.LogWarning( e.Message );
+					ray = new Ray( Vector3.zero, Vector3.forward ); //fallback ray
+					safeRay = false;
+				}
+
+				if ( safeRay && Physics.Raycast( ray, out hit, 1000, mask ) )
 				{
 					Transform objectHit = hit.transform;
 					//Debug.Log( objectHit.name );
