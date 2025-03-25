@@ -44,6 +44,41 @@ namespace Saga
 			topDownCamLocalOrigin = topDownCamera.transform.localPosition;
 		}
 
+		//private void Update()
+		//{
+		//	int pointerID = -1;//mouse
+		//	if ( Input.touchCount > 0 && Input.GetTouch( 0 ).phase == TouchPhase.Began )
+		//	{
+		//		pointerID = Input.GetTouch( 0 ).fingerId;
+		//		touchStart = cam2D.ScreenToViewportPoint( Input.GetTouch( 0 ).position );
+		//		rotStart = camRotator.rotation.eulerAngles.y;
+		//	}
+
+		//	isTouching = Input.touchCount == 0 ? false : true;
+		//	if ( !isTouching )
+		//	{
+		//		prevDistance = curDistance = 0;
+		//	}
+
+		//	if ( Input.touchCount == 2 )
+		//		HandleTouchGestures(); // New combined handler for both zoom and rotation
+
+		//	if ( acceptNavivation )
+		//	{
+		//		if ( Input.touchCount < 2 )
+		//			updateTranslation( pointerID );
+
+		//		if ( !isTouching )
+		//		{
+		//			updateRotation();
+		//			updateZoom();
+		//			updateReset();
+		//		}
+
+		//		updateDoubleClick( pointerID );
+		//	}
+		//}
+
 		private void Update()
 		{
 			int pointerID = -1;//mouse
@@ -80,6 +115,115 @@ namespace Saga
 				updateDoubleClick( pointerID );
 			}
 		}
+
+		private Vector2 prevPos1, prevPos2; // Add these as class fields
+		private bool wasZoomingLastFrame = false;
+
+		//void HandleTouchGestures()
+		//{
+		//	if ( FindObjectOfType<SagaEventManager>().UIShowing
+		//			|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+		//		return;
+
+		//	Touch touch1 = Input.GetTouch( 0 );
+		//	Touch touch2 = Input.GetTouch( 1 );
+
+		//	// Store current positions
+		//	Vector2 currentPos1 = touch1.position;
+		//	Vector2 currentPos2 = touch2.position;
+
+		//	if ( touch1.phase == TouchPhase.Began || touch2.phase == TouchPhase.Began )
+		//	{
+		//		prevPos1 = currentPos1;
+		//		prevPos2 = currentPos2;
+		//		prevDistance = Vector2.Distance( currentPos1, currentPos2 );
+		//		wasZoomingLastFrame = false;
+		//		return;
+		//	}
+
+		//	if ( touch1.phase == TouchPhase.Moved || touch2.phase == TouchPhase.Moved )
+		//	{
+		//		// Calculate the current distance between fingers
+		//		curDistance = Vector2.Distance( currentPos1, currentPos2 );
+
+		//		// Calculate the difference in distances
+		//		float deltaDistance = curDistance - prevDistance;
+
+		//		// If the distance change is significant, handle as zoom
+		//		if ( Mathf.Abs( deltaDistance ) > 5f )
+		//		{
+		//			// Zooming
+		//			if ( curDistance > prevDistance )
+		//			{
+		//				wheelValue += interval / 3f;
+		//			}
+		//			else
+		//			{
+		//				wheelValue -= interval / 3f;
+		//			}
+
+		//			wheelValue = Mathf.Clamp( wheelValue, minValue, maxValue );
+
+		//			// Apply zoom
+		//			Vector3 nv = camLocalOrigin + camNormal * wheelValue;
+		//			nv.x = 0;
+		//			cam.transform.localPosition = nv;
+		//			nv = topDownCamLocalOrigin + Vector3.down * wheelValue;
+		//			nv.x = 0;
+		//			topDownCamera.transform.localPosition = nv;
+
+		//			wasZoomingLastFrame = true;
+		//		}
+		//		// If not zooming significantly, handle rotation
+		//		else if ( !wasZoomingLastFrame )
+		//		{
+		//			// Calculate rotation angle
+		//			float prevAngle = Mathf.Atan2( prevPos2.y - prevPos1.y, prevPos2.x - prevPos1.x ) * Mathf.Rad2Deg;
+		//			float currentAngle = Mathf.Atan2( currentPos2.y - currentPos1.y, currentPos2.x - currentPos1.x ) * Mathf.Rad2Deg;
+		//			float rotationAngle = currentAngle - prevAngle;
+
+		//			// Apply rotation
+		//			camRotator.rotation *= Quaternion.Euler( 0, -rotationAngle * (rotationSensitivity * 0.05f), 0 );
+		//		}
+
+		//		// Store positions for next frame
+		//		prevPos1 = currentPos1;
+		//		prevPos2 = currentPos2;
+		//		prevDistance = curDistance;
+		//	}
+		//}
+
+		//void HandleTouchRotate()
+		//{
+		//	if ( FindObjectOfType<SagaEventManager>().UIShowing
+		//			|| EventSystem.current.IsPointerOverGameObject( -1 ) )
+		//		return;
+
+		//	// Get both touch positions
+		//	Touch touch1 = Input.GetTouch( 0 );
+		//	Touch touch2 = Input.GetTouch( 1 );
+
+		//	if ( touch1.phase == TouchPhase.Moved || touch2.phase == TouchPhase.Moved )
+		//	{
+		//		// Get the previous frame's touch positions
+		//		Vector2 prevPos1 = touch1.position - touch1.deltaPosition;
+		//		Vector2 prevPos2 = touch2.position - touch2.deltaPosition;
+
+		//		// Get current frame's touch positions
+		//		Vector2 currentPos1 = touch1.position;
+		//		Vector2 currentPos2 = touch2.position;
+
+		//		// Calculate the angles between the two lines
+		//		float prevAngle = Mathf.Atan2( prevPos2.y - prevPos1.y, prevPos2.x - prevPos1.x ) * Mathf.Rad2Deg;
+		//		float currentAngle = Mathf.Atan2( currentPos2.y - currentPos1.y, currentPos2.x - currentPos1.x ) * Mathf.Rad2Deg;
+
+		//		// Calculate rotation angle
+		//		float rotationAngle = currentAngle - prevAngle;
+
+		//		// Apply rotation with sensitivity
+		//		camRotator.rotation *= Quaternion.Euler( 0, -rotationAngle * (rotationSensitivity * 0.05f), 0 );
+		//	}
+		//}
 
 		void HandleTouchRotate()
 		{
@@ -141,16 +285,24 @@ namespace Saga
 			if ( (Input.GetMouseButtonDown( 0 ) && !EventSystem.current.IsPointerOverGameObject( pointerID )) )
 			{
 				//dragOrigin = GetMousePosition();
-				GetMousePosition( out Vector3 dragOrigin );
-				mButtonDown = true;
+				if ( GetMousePosition( out Vector3 dOrigin ) )
+				{
+					dragOrigin = dOrigin;
+					mButtonDown = true;
+				}
 			}
 			//get distance between current and saved position while held down
 			if ( Input.GetMouseButton( 0 ) && mButtonDown )
 			{
 				//Vector3 difference = dragOrigin - GetMousePosition();
 				//move camera by that distance
-				if ( GetMousePosition( out Vector3 difference ) )
+				if ( GetMousePosition( out Vector3 p ) )
+				{
+					Vector3 difference = dragOrigin - p;
 					transform.position += difference;
+				}
+				else
+					mButtonDown = false;
 			}
 			else
 				mButtonDown = false;

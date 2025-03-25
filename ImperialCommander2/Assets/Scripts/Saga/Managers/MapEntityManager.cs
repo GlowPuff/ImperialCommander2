@@ -420,7 +420,7 @@ namespace Saga
 				if ( mousePos.x < 0 || mousePos.x >= Screen.width || mousePos.y < 0 || mousePos.y >= Screen.height )
 					return false;
 
-				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( Input.mousePosition );
+				Ray ray = cameraController.ActiveCamera.ScreenPointToRay( mousePos );
 				if ( plane.Raycast( ray, out distance ) )
 				{
 					position = ray.GetPoint( distance );
