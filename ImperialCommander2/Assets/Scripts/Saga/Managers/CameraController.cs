@@ -22,6 +22,8 @@ namespace Saga
 		private Vector3 dragOrigin, rotOrigin, camLocalOrigin, camNormal, touchStart, topDownCamLocalOrigin;
 		private float rotStart;
 		private bool mButtonDown = false;
+		//private Vector2 prevPos1, prevPos2; // Add these as class fields
+		//private bool wasZoomingLastFrame = false;
 
 		bool oneClick = false;
 		bool isTouching = false;
@@ -115,9 +117,6 @@ namespace Saga
 				updateDoubleClick( pointerID );
 			}
 		}
-
-		private Vector2 prevPos1, prevPos2; // Add these as class fields
-		private bool wasZoomingLastFrame = false;
 
 		//void HandleTouchGestures()
 		//{

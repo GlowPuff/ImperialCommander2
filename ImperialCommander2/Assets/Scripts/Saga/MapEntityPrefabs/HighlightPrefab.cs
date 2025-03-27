@@ -32,10 +32,18 @@ public class HighlightPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 		if ( !DataStore.sagaSessionData.gameVars.highlightLifeTimes.ContainsKey( mapEntity.GUID ) )
 			DataStore.sagaSessionData.gameVars.highlightLifeTimes.Add( mapEntity.GUID, 0 );
 
-		DataStore.sagaSessionData.gameVars.highlightLifeTimes[mapEntity.GUID]++;
+		//increment the highlight timer for this entity IF its owner map section is active
+		if ( FindObjectOfType<SagaController>().tileManager.IsMapSectionActive( mapEntity.mapSectionOwner ) )
+		{
+			Debug.Log( $"Highlight [{mapEntity.name}] timer increased" );
+			DataStore.sagaSessionData.gameVars.highlightLifeTimes[mapEntity.GUID]++;
+		}
 
 		if ( DataStore.sagaSessionData.gameVars.highlightLifeTimes[mapEntity.GUID] >= (mapEntity as SpaceHighlight).Duration )
+		{
+			Debug.Log( $"Highlight [{mapEntity.name}] timer EXPIRED and removed from map" );
 			HideEntity();
+		}
 	}
 
 	public void RemoveEntity()
