@@ -11,6 +11,7 @@ namespace Saga
 	public class FileManager
 	{
 		public static string baseDocumentFolder, campaignPath, customMissionPath, importedCharactersPath, classicSessionPath, sagaSessionPath, campaignSessionPath, classicDefaultsPath, customCampaignPath;
+		public static List<CampaignPackage> importedCampaigns = new List<CampaignPackage>();
 
 		/// <summary>
 		/// Creates default folders and sets up folder path properties
@@ -411,7 +412,8 @@ namespace Saga
 					using ( ZipArchive archive = new ZipArchive( zipPath, ZipArchiveMode.Read ) )
 					{
 						//skip MacOS "._" files
-						foreach ( var entry in archive.Entries.Where( x => !x.Name.StartsWith( "._" ) ) )
+						//skip translation files for other languages than the currently selected one
+						foreach ( var entry in archive.Entries.Where( x => !x.Name.StartsWith( "._" ) ).Where( x => !x.FullName.Contains( "Translations/" ) || ( x.FullName.Contains( "Translations/" ) && x.Name.Split( '.' )[0].EndsWith( $"_{DataStore.Language.ToUpper()}" ) ) ) )
 						{
 							//deserialize the CampaignPackage
 							if ( entry.Name == "campaign_package.json" )
@@ -513,11 +515,10 @@ namespace Saga
 
 						package.iconBytesBuffer = iconBytesBuffer;
 
-						//add all the translated instructions
-						foreach ( var item in package.campaignTranslationItems )
+						//add translated instruction for currently selected language
+						foreach (var item in package.campaignTranslationItems.Where(x => x.isInstruction && x.fileName.Split('.')[0].EndsWith($"_{DataStore.Language.ToUpper()}")))
 						{
-							if ( item.isInstruction )
-								item.campaignInstructionTranslation = campaignInstList[item.fileName];
+							item.campaignInstructionTranslation = campaignInstList[item.fileName];
 						}
 
 						//add all the missions to the CampaignPackage
@@ -532,11 +533,43 @@ namespace Saga
 								else
 									throw new Exception( $"Missing Mission in the zip archive:\n{item.missionName}\n{item.missionGUID}" );
 							}
-							//add the translations
-							foreach ( var item in package.campaignTranslationItems )
+							//add translation for currently selected language
+							foreach (var item in package.campaignTranslationItems.Where(x => !x.isInstruction && x.fileName.Split('.')[0].EndsWith($"_{DataStore.Language.ToUpper()}")))
 							{
-								if ( !item.isInstruction )
-									item.translatedMission = missionTranslationList[item.fileName];
+								item.translatedMission = missionTranslationList[item.fileName];
+							}
+
+							var translatedMissions = package.campaignTranslationItems.Where(x => x.translatedMission != null).ToList();
+
+							if (translatedMissions.Count > 0 && DataStore.Language.ToUpper() != "EN")
+							{
+								//change translated campaign name
+								package.campaignName = translatedMissions
+									.GroupBy(x => x.translatedMission.missionProperties.campaignName)
+									.OrderByDescending(n => n.Count())
+									.First().Key;
+
+								//change translated mission names and descriptions
+								foreach (var item in translatedMissions)
+								{
+									var campaignMissionItem = package.campaignMissionItems.FirstOrDefault(x => x.missionGUID == item.assignedMissionGUID);
+
+									if (campaignMissionItem != null)
+									{
+										campaignMissionItem.missionName = item.translatedMission.missionProperties.missionName;
+										campaignMissionItem.mission.missionProperties.missionDescription = item.translatedMission.missionProperties.missionDescription;
+										campaignMissionItem.mission.missionProperties.additionalMissionInfo = item.translatedMission.missionProperties.additionalMissionInfo;
+									}
+
+									var campaignStructureMission = package.campaignStructure.FirstOrDefault(x => x.missionID == item.assignedMissionGUID.ToString());
+
+									if (campaignStructureMission != null)
+									{
+										campaignStructureMission.projectItem.Title = item.translatedMission.missionProperties.missionName;
+										campaignStructureMission.projectItem.Description = item.translatedMission.missionProperties.missionDescription;
+										campaignStructureMission.projectItem.AdditionalInfo = item.translatedMission.missionProperties.additionalMissionInfo;
+									}
+								}
 							}
 						}
 					}
@@ -553,26 +586,45 @@ namespace Saga
 
 		public static List<CampaignPackage> GetCampaignPackageList( bool skipMissions )
 		{
-			List<CampaignPackage> importedCampaigns = new List<CampaignPackage>();
-
-			try
+			//not reloading campaigns if previously already loaded
+			if (importedCampaigns.Count > 0)
+				return importedCampaigns;
+			else
 			{
-				var filenames = Directory.GetFiles( customCampaignPath );
-
-				//ONLY grab zip files - Mac adds a .DS_Store file to all folders
-				foreach ( string filename in filenames.Where( x => x.EndsWith( ".zip" ) ) )
+				try
 				{
-					var cc = LoadCampaignPackage( filename, skipMissions );
-					if ( cc != null )
-						importedCampaigns.Add( cc );
+					List<CampaignPackage> importedCampaignsNoMission = new List<CampaignPackage>();
+					var filenames = Directory.GetFiles(customCampaignPath);
+
+					//ONLY grab zip files - Mac adds a .DS_Store file to all folders
+					foreach (string filename in filenames.Where(x => x.EndsWith(".zip")))
+					{
+						var cc = LoadCampaignPackage(filename, skipMissions);
+						if (cc != null)
+						{
+							if (!skipMissions)
+								importedCampaigns.Add(cc);
+							else 
+								importedCampaignsNoMission.Add(cc);
+						}
+					}
+
+					if (!skipMissions)
+					{
+						Debug.Log($"GetCampaignPackageList()::FOUND {importedCampaigns.Count} CUSTOM CAMPAIGNS");
+						return importedCampaigns;
+					}
+					else
+					{
+						Debug.Log($"GetCampaignPackageList()::FOUND {importedCampaignsNoMission.Count} CUSTOM CAMPAIGNS");
+						return importedCampaignsNoMission;
+					}
 				}
-				Debug.Log( $"GetCampaignPackageList()::FOUND {importedCampaigns.Count} CUSTOM CAMPAIGNS" );
-				return importedCampaigns;
-			}
-			catch ( Exception e )
-			{
-				Utils.LogWarning( "GetCampaignPackageList()::Could not create Custom Campaign List. Exception: " + e.Message );
-				return importedCampaigns;
+				catch (Exception e)
+				{
+					Utils.LogWarning("GetCampaignPackageList()::Could not create Custom Campaign List. Exception: " + e.Message);
+					return importedCampaigns;
+				}
 			}
 		}
 

@@ -43,8 +43,17 @@ namespace Saga
 				var imports = new List<CampaignPackage>();
 				await Task.Run( () =>
 				{
-					//do a quick load without deserializing any of the missions
-					imports = FileManager.GetCampaignPackageList( true );
+
+					if (DataStore.Language.ToUpper() == "EN")
+					{
+						//do a quick load without deserializing any of the missions
+						imports = FileManager.GetCampaignPackageList(true);
+					}
+					else 
+					{
+						//loading the missions in order to also extract the translated names
+						imports = FileManager.GetCampaignPackageList(false);
+					}
 				} );
 
 				foreach ( var item in imports )
