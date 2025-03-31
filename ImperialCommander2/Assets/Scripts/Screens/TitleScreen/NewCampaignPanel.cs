@@ -39,6 +39,7 @@ namespace Saga
 			nameGood = false;
 			selectedExpansion = "Core";
 			campaignExpansionDropdown.value = 0;
+			importedCampaignNameText.text = "...";
 
 			packageSprite.gameObject.SetActive( false );
 
@@ -103,7 +104,14 @@ namespace Saga
 					if ( campaignPanel.selectedPackage != null )
 					{
 						selectedCampaignPackage = campaignPanel.selectedPackage;
-						importedCampaignNameText.text = selectedCampaignPackage.campaignName;
+						
+						var translatedCampaignItem= selectedCampaignPackage.campaignTranslationItems.Where(x => x.fileName.ToLower().Contains($"_{DataStore.Language.ToLower()}.json")).FirstOr(null);
+
+						if (translatedCampaignItem != null)
+							importedCampaignNameText.text = translatedCampaignItem.translatedMission.missionProperties.campaignName;
+						else
+							importedCampaignNameText.text = selectedCampaignPackage.campaignName;
+
 						campaignExpansionDropdown.interactable = false;
 						customToggle.interactable = false;
 						importCampaignBtn.text = DataStore.uiLanguage.uiCampaign.removeUC.ToUpper();
