@@ -367,8 +367,8 @@ namespace Saga
 			{
 				setupOptions.projectItem.pickerMode = PickerMode.Embedded;
 				missionPicker.pickerMode = PickerMode.Embedded;
-				descriptionTextBox.gameObject.SetActive( true );
-				viewMissionCardButton.gameObject.SetActive( false );
+				descriptionTextBox.gameObject.SetActive( false );
+				viewMissionCardButton.gameObject.SetActive( true );
 			}
 		}
 
@@ -686,6 +686,44 @@ namespace Saga
 						missionCardZoom.Show( mc );
 						break;
 					}
+				}
+			}
+			else if ( missionPicker.pickerMode == PickerMode.Embedded )
+			{
+				sound.PlaySound( FX.Click );
+
+				var campaignStructureMission = RunningCampaign.sagaCampaign.campaignStructure.FirstOrDefault( x => x.missionID == missionPicker.selectedMission.missionID );
+
+				if ( campaignStructureMission != null )
+				{
+					global::MissionType missionType;
+					if ( Enum.IsDefined( typeof( global::MissionType ), campaignStructureMission.missionType.ToString() ) )
+						missionType = ( global::MissionType )Enum.Parse( typeof( global::MissionType ), campaignStructureMission.missionType.ToString() );
+					else
+						missionType = global::MissionType.Story;
+
+					MissionCard mc = new MissionCard
+					{
+						missionType = new global::MissionType[] { missionType },
+						descriptionText = missionPicker.selectedMission.Description,
+						bonusText = "",
+						name = missionPicker.selectedMission.Title,
+						tagsText = new string[] { },						
+						rebelRewardText = "",
+						imperialRewardText = "",
+						heroText = "",
+						villainText = "",
+						allyText = "",
+						hero = "",
+						villain = new string[] { },
+						ally = new string[] { },
+						page = 0,
+						expansionText = RunningCampaign.sagaCampaign.campaignImportedName,
+						timePeriod = new int[] { },
+						expansion = Expansion.Other
+					};
+
+					missionCardZoom.Show( mc );
 				}
 			}
 		}

@@ -381,6 +381,8 @@ public class TitleController : MonoBehaviour
 			return;
 		}
 
+		FileManager.importedCampaigns.Clear();
+
 		DataStore.languageCode = languageDropdown.value;
 		PlayerPrefs.SetInt( "language", DataStore.languageCode );
 		//reload translated data

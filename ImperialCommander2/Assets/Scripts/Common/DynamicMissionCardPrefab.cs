@@ -1,3 +1,4 @@
+using Saga;
 using System;
 using System.Linq;
 using TMPro;
@@ -48,7 +49,10 @@ public class DynamicMissionCardPrefab : MonoBehaviour
 			cardImage.color = Color.gray;
 
 		//description + bonus text
-		descriptionText.text = missionCard.descriptionText.Replace( "<i>", "" ).Replace( "</i>", "" ).Replace( "\n", "\n\n" );
+		if ( missionCard.expansion == Expansion.Other && FileManager.importedCampaigns.FirstOrDefault( x => x.campaignName == missionCard.expansionText ) != null )
+			descriptionText.text = missionCard.descriptionText;
+		else
+			descriptionText.text = missionCard.descriptionText.Replace( "<i>", "" ).Replace( "</i>", "" ).Replace( "\n", "\n\n" );
 		descriptionText.text += $"\n\n<color=orange>{missionCard.bonusText}</color>";
 
 		//tags
@@ -88,5 +92,14 @@ public class DynamicMissionCardPrefab : MonoBehaviour
 		expansionImage.sprite = expansionSprites[(int)missionCard.expansion];
 		if ( missionCard.expansion == Expansion.Other && !missionCard.missionType.Contains( MissionType.Agenda ) )
 			expansionImage.sprite = expansionSprites[8];
+		if ( missionCard.expansion == Expansion.Other && FileManager.importedCampaigns.FirstOrDefault( x => x.campaignName == missionCard.expansionText ) != null )
+		{
+			Texture2D tex = new Texture2D(2, 2);
+			if ( tex.LoadImage( FileManager.importedCampaigns.FirstOrDefault( x => x.campaignName == missionCard.expansionText ).iconBytesBuffer ) )
+			{
+				Sprite iconSprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0), 100f);
+				expansionImage.sprite = iconSprite;
+			}
+		}
 	}
 }

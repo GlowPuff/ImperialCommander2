@@ -163,11 +163,11 @@ namespace Saga
 			}
 			else if ( sagaCampaign.campaignType == CampaignType.Imported )
 			{
-				campaignExpansion.text = sagaCampaign.campaignImportedName;
-				//expansion icon
-				var p = FileManager.GetPackageByGUID( sagaCampaign.campaignPackage.GUID );
+				var packages = FileManager.GetCampaignPackageList(false);
+				var p = packages.Where(x => x.GUID == sagaCampaign.campaignPackage.GUID).FirstOr(null);
 				if ( p != null )
 				{
+					//expansion icon
 					Texture2D tex = new Texture2D( 2, 2 );
 					if ( tex.LoadImage( p.iconBytesBuffer ) )
 					{
@@ -175,9 +175,48 @@ namespace Saga
 						Sprite iconSprite = Sprite.Create( tex, new Rect( 0, 0, tex.width, tex.height ), new Vector2( 0, 0 ), 100f );
 						expansionLogo.sprite = iconSprite;
 					}
+
+					//checking if campaign/missions names should be updated to current language
+					var currentLanguageIntro = p.campaignStructure.Where(x => x.missionType == MissionType.Introduction).FirstOr(null);
+					var loadedIntro = sagaCampaign.campaignStructure.Where(x => x.missionType == MissionType.Introduction).FirstOr(null);
+					if (currentLanguageIntro != null && loadedIntro != null && currentLanguageIntro.projectItem.Title != loadedIntro.projectItem.Title)
+					{
+						sagaCampaign.campaignImportedName = p.campaignName;
+
+						foreach (var item in sagaCampaign.campaignStructure)
+						{
+							var currentLanguageItem = p.campaignMissionItems.Where(x => x.missionGUID.ToString() == item.missionID).FirstOr(null);
+							if (currentLanguageItem != null)
+							{
+								item.projectItem.Title = currentLanguageItem.missionName;
+								item.projectItem.Description = currentLanguageItem.mission.missionProperties.missionDescription;
+								item.projectItem.AdditionalInfo = currentLanguageItem.mission.missionProperties.additionalMissionInfo;
+							}
+						}
+
+						foreach (var item in sagaCampaign.campaignPackage.campaignMissionItems)
+						{
+							var currentLanguageItem = p.campaignMissionItems.Where(x => x.missionGUID == item.missionGUID).FirstOr(null);
+							if (currentLanguageItem != null)
+							{
+								item.missionName = currentLanguageItem.missionName;
+							}
+						}
+					}
+					else 
+					{
+						var introMissionItem = p.campaignMissionItems.Where(x => x.missionGUID.ToString() == loadedIntro.missionID).FirstOr(null);
+						if (introMissionItem != null)
+						{
+							loadedIntro.projectItem.Description = introMissionItem.mission.missionProperties.missionDescription;
+							loadedIntro.projectItem.AdditionalInfo = introMissionItem.mission.missionProperties.additionalMissionInfo;
+						}
+					}
 				}
 				else
 					Utils.LogError( $"CampaignManager::InitUI()::The original Campaign Package is either missing or was manipulated, and no longer exists in its original form.\nCampaign Name: [{sagaCampaign.campaignImportedName}], GUID= {sagaCampaign.campaignPackage.GUID}" );
+
+				campaignExpansion.text = sagaCampaign.campaignImportedName;
 			}
 
 			creditsWheel.ResetWheeler( sagaCampaign.credits );
