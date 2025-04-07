@@ -299,6 +299,12 @@ namespace Saga
 									campaignStructure[index].missionID = m.missionGUID.ToString();
 									campaignStructure[index].projectItem.Title = m.missionName;
 									campaignStructure[index].projectItem.missionGUID = m.missionGUID.ToString();
+
+									var currentCampaign = FileManager.importedCampaigns.FirstOrDefault( x => x.campaignName == RunningCampaign.sagaCampaign.campaignImportedName );
+									var selectedMission = currentCampaign.campaignMissionItems.FirstOrDefault( x => x.missionGUID == m.missionGUID );
+									campaignStructure[index].projectItem.Description = selectedMission.mission.missionProperties.missionDescription;
+									campaignStructure[index].projectItem.AdditionalInfo = selectedMission.mission.missionProperties.additionalMissionInfo;
+
 									break;
 								}
 								else
