@@ -95,12 +95,6 @@ namespace Saga
 				&& Guid.Parse( cs.missionID ) != Guid.Empty )
 			{
 				missionName.text = cs.projectItem.Title + "\n<color=orange>" + campaign.campaignImportedName + "</color>";
-				var eMission = FileManager.LoadEmbeddedMission( campaign.campaignPackage.GUID.ToString(), cs.projectItem.missionGUID, out string stringified );
-				if ( eMission != null )
-				{
-					campaignStructure.projectItem.Description = eMission.missionProperties.missionDescription;
-					campaignStructure.projectItem.AdditionalInfo = eMission.missionProperties.additionalMissionInfo;
-				}
 			}
 			else//empty slot, player selection
 				missionName.text = DataStore.uiLanguage.uiCampaign.selectMissionUC;
@@ -265,7 +259,7 @@ namespace Saga
 					campaignStructure.expansionCode = "Imported";
 					campaignStructure.structureGUID = Guid.Parse( card.expansionText );
 					campaignStructure.projectItem.missionGUID = card.hero;
-					campaignStructure.projectItem.Description = "";
+					campaignStructure.projectItem.Description = card.descriptionText;
 					campaignStructure.projectItem.AdditionalInfo = "";
 					campaignStructure.projectItem.Title = card.name;
 				}

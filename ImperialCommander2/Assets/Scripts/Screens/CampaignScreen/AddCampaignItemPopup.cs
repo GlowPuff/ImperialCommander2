@@ -203,9 +203,21 @@ namespace Saga
 			{
 				var campaign = FindObjectOfType<CampaignManager>().sagaCampaign;
 				var package = campaign.campaignPackage;
+				var packages = FileManager.GetCampaignPackageList(false);
+				var p = packages.Where(x => x.GUID.ToString() == campaign.campaignPackage.GUID.ToString()).FirstOr(null);
 				foreach ( var item in package.campaignMissionItems )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+
+					string missionDescriptionText = "";
+					if (p != null)
+					{
+						var mission = p.campaignMissionItems.Where(x => x.mission.missionGUID.ToString() == item.missionGUID.ToString()).FirstOr(null)?.mission;
+						
+						if (mission != null)
+							missionDescriptionText = mission.missionProperties.missionDescription;
+					}
+
 					//store mission GUID into 'hero'
 					//store imported campaign name into 'bonusText'
 					//store package GUID into 'expansionText'
@@ -215,7 +227,8 @@ namespace Saga
 						id = "Embedded",
 						hero = item.missionGUID.ToString(),
 						bonusText = campaign.campaignImportedName,
-						expansionText = package.GUID.ToString()
+						expansionText = package.GUID.ToString(),
+						descriptionText = missionDescriptionText
 					};
 					go.GetComponent<ItemSkillSelectorPrefab>().InitEmbeddedMission( card );
 				}
@@ -329,9 +342,21 @@ namespace Saga
 			{
 				var campaign = FindObjectOfType<CampaignManager>().sagaCampaign;
 				var package = campaign.campaignPackage;
+				var packages = FileManager.GetCampaignPackageList(false);
+				var p = packages.Where(x => x.GUID.ToString() == campaign.campaignPackage.GUID.ToString()).FirstOr(null);
 				foreach ( var item in package.campaignMissionItems )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+
+					string missionDescriptionText = "";
+					if (p != null)
+					{
+						var mission = p.campaignMissionItems.Where(x => x.mission.missionGUID.ToString() == item.missionGUID.ToString()).FirstOr(null)?.mission;
+
+						if (mission != null)
+							missionDescriptionText = mission.missionProperties.missionDescription;
+					}
+
 					//store mission GUID into 'hero'
 					//store imported campaign name into 'bonusText'
 					//store package GUID into 'expansionText'
@@ -341,7 +366,8 @@ namespace Saga
 						id = "Embedded",
 						hero = item.missionGUID.ToString(),
 						bonusText = campaign.campaignImportedName,
-						expansionText = package.GUID.ToString()
+						expansionText = package.GUID.ToString(),
+						descriptionText = missionDescriptionText
 					};
 					go.GetComponent<ItemSkillSelectorPrefab>().InitEmbeddedMission( card );
 				}
