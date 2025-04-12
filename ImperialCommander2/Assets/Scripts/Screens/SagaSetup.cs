@@ -698,7 +698,7 @@ namespace Saga
 				{
 					global::MissionType missionType;
 					if ( Enum.IsDefined( typeof( global::MissionType ), campaignStructureMission.missionType.ToString() ) )
-						missionType = ( global::MissionType )Enum.Parse( typeof( global::MissionType ), campaignStructureMission.missionType.ToString() );
+						missionType = (global::MissionType)Enum.Parse( typeof( global::MissionType ), campaignStructureMission.missionType.ToString() );
 					else
 						missionType = global::MissionType.Story;
 
@@ -708,7 +708,7 @@ namespace Saga
 						descriptionText = missionPicker.selectedMission.Description,
 						bonusText = "",
 						name = missionPicker.selectedMission.Title,
-						tagsText = new string[] { },						
+						tagsText = new string[] { },
 						rebelRewardText = "",
 						imperialRewardText = "",
 						heroText = "",

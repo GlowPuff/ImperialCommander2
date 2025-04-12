@@ -57,7 +57,7 @@ namespace Saga
 			//add global imports, omitting those already added to compaign
 			h = h.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero && !ch.Contains( x.deploymentCard.id ) ).Select( x => x.deploymentCard ) );
 
-			foreach ( var item in h.OrderBy(x => x.name) )
+			foreach ( var item in h.OrderBy( x => x.name ) )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitHero( item );
@@ -77,7 +77,7 @@ namespace Saga
 			//add global imports
 			var allies = DataStore.allyCards.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Ally ).Select( x => x.deploymentCard ) ).Where( x => !sc.Contains( x ) ).ToList();
 
-			foreach ( var item in allies.OrderBy(x => x.name) )
+			foreach ( var item in allies.OrderBy( x => x.name ) )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitAlly( item );
@@ -98,7 +98,7 @@ namespace Saga
 			var villains = DataStore.villainCards.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard ) ).Where( x => !sc.Contains( x ) ).ToList();
 
 			//omit villains already added to campaign
-			foreach ( var item in villains.OrderBy(x => x.name) )
+			foreach ( var item in villains.OrderBy( x => x.name ) )
 			{
 				var go = Instantiate( toonPrefab, itemContainer );
 				go.GetComponent<ToonSelectorPrefab>().InitVillain( item );
@@ -117,12 +117,12 @@ namespace Saga
 
 			var skills = SagaCampaign.campaignDataSkills.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).SelectMany( x => x.heroSkills ) );
 
-			foreach ( var item in skills.Where( x => x.owner == heroID ).OrderBy(x => x.name).OrderBy(x => x.cost) )
+			foreach ( var item in skills.Where( x => x.owner == heroID ).OrderBy( x => x.name ).OrderBy( x => x.cost ) )
 			{
-				if (!sagaCampaign.campaignHeroes.Where(x => x.heroID == heroID).First().campaignSkills.Any(x => x.id == item.id))
+				if ( !sagaCampaign.campaignHeroes.Where( x => x.heroID == heroID ).First().campaignSkills.Any( x => x.id == item.id ) )
 				{
-					var go = Instantiate(itemSkillSelectorPrefab, itemContainer);
-					go.GetComponent<ItemSkillSelectorPrefab>().Init(item, heroID);
+					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
+					go.GetComponent<ItemSkillSelectorPrefab>().Init( item, heroID );
 				}
 			}
 
@@ -203,18 +203,18 @@ namespace Saga
 			{
 				var campaign = FindObjectOfType<CampaignManager>().sagaCampaign;
 				var package = campaign.campaignPackage;
-				var packages = FileManager.GetCampaignPackageList(false);
-				var p = packages.Where(x => x.GUID.ToString() == campaign.campaignPackage.GUID.ToString()).FirstOr(null);
+				var packages = FileManager.GetCampaignPackageList( false );
+				var p = packages.Where( x => x.GUID.ToString() == campaign.campaignPackage.GUID.ToString() ).FirstOr( null );
 				foreach ( var item in package.campaignMissionItems )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 
 					string missionDescriptionText = "";
-					if (p != null)
+					if ( p != null )
 					{
-						var mission = p.campaignMissionItems.Where(x => x.mission.missionGUID.ToString() == item.missionGUID.ToString()).FirstOr(null)?.mission;
-						
-						if (mission != null)
+						var mission = p.campaignMissionItems.Where( x => x.mission.missionGUID.ToString() == item.missionGUID.ToString() ).FirstOr( null )?.mission;
+
+						if ( mission != null )
 							missionDescriptionText = mission.missionProperties.missionDescription;
 					}
 
@@ -236,7 +236,7 @@ namespace Saga
 			else
 			{
 				//default behavior in every other case, show missions from initially selected expansion in the dropdown (selectedExpansion)
-				foreach ( var item in DataStore.missionCards[selectedExpansion].OrderBy(x => x.name).OrderBy(x => x.missionType[0]).ToList() )
+				foreach ( var item in DataStore.missionCards[selectedExpansion].OrderBy( x => x.name ).OrderBy( x => x.missionType[0] ).ToList() )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( item );
@@ -332,7 +332,7 @@ namespace Saga
 			//official missions
 			if ( selectedExpansion != "Custom" && selectedExpansion != "Embedded" )
 			{
-				foreach ( var card in DataStore.missionCards[selectedExpansion].OrderBy(x => x.name).OrderBy(x => x.missionType[0]).ToList() )
+				foreach ( var card in DataStore.missionCards[selectedExpansion].OrderBy( x => x.name ).OrderBy( x => x.missionType[0] ).ToList() )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( card );
@@ -342,18 +342,18 @@ namespace Saga
 			{
 				var campaign = FindObjectOfType<CampaignManager>().sagaCampaign;
 				var package = campaign.campaignPackage;
-				var packages = FileManager.GetCampaignPackageList(false);
-				var p = packages.Where(x => x.GUID.ToString() == campaign.campaignPackage.GUID.ToString()).FirstOr(null);
+				var packages = FileManager.GetCampaignPackageList( false );
+				var p = packages.Where( x => x.GUID.ToString() == campaign.campaignPackage.GUID.ToString() ).FirstOr( null );
 				foreach ( var item in package.campaignMissionItems )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 
 					string missionDescriptionText = "";
-					if (p != null)
+					if ( p != null )
 					{
-						var mission = p.campaignMissionItems.Where(x => x.mission.missionGUID.ToString() == item.missionGUID.ToString()).FirstOr(null)?.mission;
+						var mission = p.campaignMissionItems.Where( x => x.mission.missionGUID.ToString() == item.missionGUID.ToString() ).FirstOr( null )?.mission;
 
-						if (mission != null)
+						if ( mission != null )
 							missionDescriptionText = mission.missionProperties.missionDescription;
 					}
 

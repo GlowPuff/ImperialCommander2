@@ -1,6 +1,6 @@
-using Saga;
 using System;
 using System.Linq;
+using Saga;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -94,10 +94,10 @@ public class DynamicMissionCardPrefab : MonoBehaviour
 			expansionImage.sprite = expansionSprites[8];
 		if ( missionCard.expansion == Expansion.Other && FileManager.importedCampaigns.FirstOrDefault( x => x.campaignName == missionCard.expansionText ) != null )
 		{
-			Texture2D tex = new Texture2D(2, 2);
+			Texture2D tex = new Texture2D( 2, 2 );
 			if ( tex.LoadImage( FileManager.importedCampaigns.FirstOrDefault( x => x.campaignName == missionCard.expansionText ).iconBytesBuffer ) )
 			{
-				Sprite iconSprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0, 0), 100f);
+				Sprite iconSprite = Sprite.Create( tex, new Rect( 0, 0, tex.width, tex.height ), new Vector2( 0, 0 ), 100f );
 				expansionImage.sprite = iconSprite;
 			}
 		}

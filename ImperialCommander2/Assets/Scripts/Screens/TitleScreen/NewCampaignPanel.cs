@@ -104,10 +104,10 @@ namespace Saga
 					if ( campaignPanel.selectedPackage != null )
 					{
 						selectedCampaignPackage = campaignPanel.selectedPackage;
-						
-						var translatedCampaignItem= selectedCampaignPackage.campaignTranslationItems.Where(x => x.fileName.ToLower().Contains($"_{DataStore.Language.ToLower()}.json")).FirstOr(null);
 
-						if (translatedCampaignItem != null)
+						var translatedCampaignItem = selectedCampaignPackage.campaignTranslationItems.Where( x => x.fileName.ToLower().Contains( $"_{DataStore.Language.ToLower()}.json" ) ).FirstOr( null );
+
+						if ( translatedCampaignItem != null )
 							importedCampaignNameText.text = translatedCampaignItem.translatedMission.missionProperties.campaignName;
 						else
 							importedCampaignNameText.text = selectedCampaignPackage.campaignName;

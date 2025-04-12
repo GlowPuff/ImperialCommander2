@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Saga
 {
@@ -10,6 +11,8 @@ namespace Saga
 
 		public void Show( MissionCard cd )
 		{
+			EventSystem.current.SetSelectedGameObject( null );
+
 			dynamicMissionCard.InitCard( cd );
 			gameObject.SetActive( true );
 			cg.DOFade( .95f, .5f );

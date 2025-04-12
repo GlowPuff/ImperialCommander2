@@ -30,21 +30,21 @@ namespace Saga
 			foreach ( Transform item in toggleContainer.transform )
 				Destroy( item.gameObject );
 			var clist = FileManager.GetCampaigns();
-			if (clist.Where(x => x.campaignExpansionCode == "Imported").FirstOr(null) != null)
-			{				
-				List<CampaignPackage> packages = new List <CampaignPackage>();
+			if ( clist.Where( x => x.campaignExpansionCode == "Imported" ).FirstOr( null ) != null )
+			{
+				List<CampaignPackage> packages = new List<CampaignPackage>();
 
-				if (DataStore.Language.ToUpper() == "EN")
-					packages = FileManager.GetCampaignPackageList(true);
+				if ( DataStore.Language.ToUpper() == "EN" )
+					packages = FileManager.GetCampaignPackageList( true );
 				else
-					packages = FileManager.GetCampaignPackageList(false);
+					packages = FileManager.GetCampaignPackageList( false );
 
-				foreach (var item in clist)
+				foreach ( var item in clist )
 				{
-					if (item.campaignExpansionCode == "Imported")
+					if ( item.campaignExpansionCode == "Imported" )
 					{
-						var p = packages.Where(x => x.GUID.ToString() == item.campaignPackage.GUID.ToString()).FirstOr(null);
-						if (p != null)
+						var p = packages.Where( x => x.GUID.ToString() == item.campaignPackage.GUID.ToString() ).FirstOr( null );
+						if ( p != null )
 							item.campaignImportedName = p.campaignName;
 					}
 				}

@@ -44,15 +44,15 @@ namespace Saga
 				await Task.Run( () =>
 				{
 
-					if (DataStore.Language.ToUpper() == "EN")
+					if ( DataStore.Language.ToUpper() == "EN" )
 					{
 						//do a quick load without deserializing any of the missions
-						imports = FileManager.GetCampaignPackageList(true);
+						imports = FileManager.GetCampaignPackageList( true );
 					}
-					else 
+					else
 					{
 						//loading the missions in order to also extract the translated names
-						imports = FileManager.GetCampaignPackageList(false);
+						imports = FileManager.GetCampaignPackageList( false );
 					}
 				} );
 

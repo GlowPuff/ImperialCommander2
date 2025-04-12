@@ -163,8 +163,8 @@ namespace Saga
 			}
 			else if ( sagaCampaign.campaignType == CampaignType.Imported )
 			{
-				var packages = FileManager.GetCampaignPackageList(false);
-				var p = packages.Where(x => x.GUID == sagaCampaign.campaignPackage.GUID).FirstOr(null);
+				var packages = FileManager.GetCampaignPackageList( false );
+				var p = packages.Where( x => x.GUID == sagaCampaign.campaignPackage.GUID ).FirstOr( null );
 				if ( p != null )
 				{
 					//expansion icon
@@ -177,16 +177,16 @@ namespace Saga
 					}
 
 					//checking if campaign/missions names should be updated to current language
-					var currentLanguageIntro = p.campaignStructure.Where(x => x.missionType == MissionType.Introduction).FirstOr(null);
-					var loadedIntro = sagaCampaign.campaignStructure.Where(x => x.missionType == MissionType.Introduction).FirstOr(null);
-					if (currentLanguageIntro != null && loadedIntro != null && currentLanguageIntro.projectItem.Title != loadedIntro.projectItem.Title)
+					var currentLanguageIntro = p.campaignStructure.Where( x => x.missionType == MissionType.Introduction ).FirstOr( null );
+					var loadedIntro = sagaCampaign.campaignStructure.Where( x => x.missionType == MissionType.Introduction ).FirstOr( null );
+					if ( currentLanguageIntro != null && loadedIntro != null && currentLanguageIntro.projectItem.Title != loadedIntro.projectItem.Title )
 					{
 						sagaCampaign.campaignImportedName = p.campaignName;
 
-						foreach (var item in sagaCampaign.campaignStructure)
+						foreach ( var item in sagaCampaign.campaignStructure )
 						{
-							var currentLanguageItem = p.campaignMissionItems.Where(x => x.missionGUID.ToString() == item.missionID).FirstOr(null);
-							if (currentLanguageItem != null)
+							var currentLanguageItem = p.campaignMissionItems.Where( x => x.missionGUID.ToString() == item.missionID ).FirstOr( null );
+							if ( currentLanguageItem != null )
 							{
 								item.projectItem.Title = currentLanguageItem.missionName;
 								item.projectItem.Description = currentLanguageItem.mission.missionProperties.missionDescription;
@@ -194,19 +194,19 @@ namespace Saga
 							}
 						}
 
-						foreach (var item in sagaCampaign.campaignPackage.campaignMissionItems)
+						foreach ( var item in sagaCampaign.campaignPackage.campaignMissionItems )
 						{
-							var currentLanguageItem = p.campaignMissionItems.Where(x => x.missionGUID == item.missionGUID).FirstOr(null);
-							if (currentLanguageItem != null)
+							var currentLanguageItem = p.campaignMissionItems.Where( x => x.missionGUID == item.missionGUID ).FirstOr( null );
+							if ( currentLanguageItem != null )
 							{
 								item.missionName = currentLanguageItem.missionName;
 							}
 						}
 					}
-					else 
+					else
 					{
-						var introMissionItem = p.campaignMissionItems.Where(x => x.missionGUID.ToString() == loadedIntro.missionID).FirstOr(null);
-						if (introMissionItem != null)
+						var introMissionItem = p.campaignMissionItems.Where( x => x.missionGUID.ToString() == loadedIntro.missionID ).FirstOr( null );
+						if ( introMissionItem != null )
 						{
 							loadedIntro.projectItem.Description = introMissionItem.mission.missionProperties.missionDescription;
 							loadedIntro.projectItem.AdditionalInfo = introMissionItem.mission.missionProperties.additionalMissionInfo;
@@ -226,17 +226,17 @@ namespace Saga
 
 			//items
 			Dictionary<string, string> items = new Dictionary<string, string>();
-			foreach (var campaignItem in sagaCampaign.campaignItems)
+			foreach ( var campaignItem in sagaCampaign.campaignItems )
 			{
-				items.Add(campaignItem, SagaCampaign.campaignDataItems.First(x => x.id == campaignItem).name);
+				items.Add( campaignItem, SagaCampaign.campaignDataItems.First( x => x.id == campaignItem ).name );
 			}
-			foreach ( var item in items.OrderBy(x => x.Value) )
+			foreach ( var item in items.OrderBy( x => x.Value ) )
 				AddItemToUI( sagaCampaign.GetItemFromID( item.Key ) );
 			//allies
-			foreach ( var ally in sagaCampaign.campaignAllies.OrderBy(x => x.name) )
+			foreach ( var ally in sagaCampaign.campaignAllies.OrderBy( x => x.name ) )
 				AddAllyToUI( ally );
 			//villains
-			foreach ( var villain in sagaCampaign.campaignVillains.OrderBy(x => x.name) )
+			foreach ( var villain in sagaCampaign.campaignVillains.OrderBy( x => x.name ) )
 				AddVillainToUI( villain );
 			//heroes
 			int c = sagaCampaign.campaignHeroes.Count;
@@ -247,12 +247,12 @@ namespace Saga
 			}
 			//rewards
 			Dictionary<string, string> rewards = new Dictionary<string, string>();
-			foreach (var campaignReward in sagaCampaign.campaignRewards)
+			foreach ( var campaignReward in sagaCampaign.campaignRewards )
 			{
-				rewards.Add(campaignReward, SagaCampaign.campaignDataRewards.First(x => x.id == campaignReward).name);
+				rewards.Add( campaignReward, SagaCampaign.campaignDataRewards.First( x => x.id == campaignReward ).name );
 			}
-			foreach ( var reward in rewards.OrderBy(x => x.Value))
-				AddRewardToUI( sagaCampaign.GetRewardFromID( reward.Key) );
+			foreach ( var reward in rewards.OrderBy( x => x.Value ) )
+				AddRewardToUI( sagaCampaign.GetRewardFromID( reward.Key ) );
 			//campaign structure
 			foreach ( Transform item in structureContainer )
 				Destroy( item.gameObject );
@@ -285,12 +285,12 @@ namespace Saga
 				return;
 			}
 
-			var index = sagaCampaign.campaignAllies.OrderBy(x => x.name).ToList().FindIndex(x => x.name == a.name);
+			var index = sagaCampaign.campaignAllies.OrderBy( x => x.name ).ToList().FindIndex( x => x.name == a.name );
 
 			var go = Instantiate( listItemPrefab, allyContainer );
 
-			if (index < allyContainer.childCount)
-				go.transform.SetSiblingIndex(index);
+			if ( index < allyContainer.childCount )
+				go.transform.SetSiblingIndex( index );
 
 			go.GetComponent<CampaignListItemPrefab>().InitAlly( a.name, ( n ) =>
 			{
@@ -307,12 +307,12 @@ namespace Saga
 				return;
 			}
 
-			var index = sagaCampaign.campaignVillains.OrderBy(x => x.name).ToList().FindIndex(x => x.name == v.name);
+			var index = sagaCampaign.campaignVillains.OrderBy( x => x.name ).ToList().FindIndex( x => x.name == v.name );
 
 			var go = Instantiate( listItemPrefab, villainContainer );
 
-			if (index < villainContainer.childCount)
-				go.transform.SetSiblingIndex(index);
+			if ( index < villainContainer.childCount )
+				go.transform.SetSiblingIndex( index );
 
 			go.GetComponent<CampaignListItemPrefab>().InitVillain( v.name, ( n ) =>
 			{
@@ -324,15 +324,15 @@ namespace Saga
 		void AddItemToUI( CampaignItem item, bool showCoinIcon = false )
 		{
 			List<string> items = new List<string>();
-			foreach (var campaignItem in sagaCampaign.campaignItems)
-				items.Add(SagaCampaign.campaignDataItems.First(x => x.id == campaignItem).name);
+			foreach ( var campaignItem in sagaCampaign.campaignItems )
+				items.Add( SagaCampaign.campaignDataItems.First( x => x.id == campaignItem ).name );
 
-			var index = items.OrderBy(x => x).ToList().FindIndex(x => x == item.name);
+			var index = items.OrderBy( x => x ).ToList().FindIndex( x => x == item.name );
 
 			var go = Instantiate( listItemPrefab, itemContainer );
 
-			if (index < itemContainer.childCount)
-				go.transform.SetSiblingIndex(index);
+			if ( index < itemContainer.childCount )
+				go.transform.SetSiblingIndex( index );
 
 			go.GetComponent<CampaignListItemPrefab>().InitGeneralItem( item.name, ( n ) =>
 			{
@@ -342,17 +342,17 @@ namespace Saga
 				sc.sound.PlaySound( 1 );
 
 				//remove item from hero items as well
-				foreach (var hero in sagaCampaign.campaignHeroes)
+				foreach ( var hero in sagaCampaign.campaignHeroes )
 				{
-					if (hero.campaignItems.Any(x => x.id == item.id))
+					if ( hero.campaignItems.Any( x => x.id == item.id ) )
 					{
-						hero.campaignItems.Remove(hero.campaignItems.Where(x => x.id == item.id).First());
+						hero.campaignItems.Remove( hero.campaignItems.Where( x => x.id == item.id ).First() );
 
 						int c = sagaCampaign.campaignHeroes.Count;
-						for (int i = 0; i < c; i++)
+						for ( int i = 0; i < c; i++ )
 						{
-							if (sagaCampaign.campaignHeroes[i].heroID == hero.heroID)
-								heroPrefabs[i].AddHeroToUI(sagaCampaign.campaignHeroes[i]);
+							if ( sagaCampaign.campaignHeroes[i].heroID == hero.heroID )
+								heroPrefabs[i].AddHeroToUI( sagaCampaign.campaignHeroes[i] );
 						}
 					}
 				}
@@ -365,15 +365,15 @@ namespace Saga
 		void AddRewardToUI( CampaignReward item )
 		{
 			List<string> rewards = new List<string>();
-			foreach (var campaignReward in sagaCampaign.campaignRewards)
-				rewards.Add(SagaCampaign.campaignDataRewards.First(x => x.id == campaignReward).name);
+			foreach ( var campaignReward in sagaCampaign.campaignRewards )
+				rewards.Add( SagaCampaign.campaignDataRewards.First( x => x.id == campaignReward ).name );
 
-			var index = rewards.OrderBy(x => x).ToList().FindIndex(x => x == item.name);
+			var index = rewards.OrderBy( x => x ).ToList().FindIndex( x => x == item.name );
 
 			var go = Instantiate( listItemPrefab, rewardContainer );
 
-			if (index < rewardContainer.childCount)
-				go.transform.SetSiblingIndex(index);
+			if ( index < rewardContainer.childCount )
+				go.transform.SetSiblingIndex( index );
 
 			go.GetComponent<CampaignListItemPrefab>().InitGeneralItem( item.name, ( n ) =>
 			{
