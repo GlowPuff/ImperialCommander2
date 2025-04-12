@@ -98,7 +98,7 @@ namespace Saga
 				string fixedAlly = FindObjectOfType<SagaSetup>().fixedAlly;
 				if ( !string.IsNullOrEmpty( fixedAlly ) && allyCards.Count > 0 )
 				{
-					Debug.Log( $"Ally Panel::Omitting {allyCards.First( x => x.id == fixedAlly )?.name} [{fixedAlly}] from the pool" );
+					Debug.Log( $"Ally Panel::Omitting {allyCards.FirstOrDefault( x => x.id == fixedAlly )?.name} [{fixedAlly}] from the pool" );
 					//remove it from the list so it can't be chosen
 					allyCards = allyCards.Where( x => x.id != fixedAlly ).ToList();
 				}
