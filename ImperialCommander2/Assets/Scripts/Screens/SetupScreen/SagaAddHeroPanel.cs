@@ -44,6 +44,151 @@ namespace Saga
 
 		private void ShowContent( bool showCustom )
 		{
+			try
+			{
+				//populate mugshot toggles
+				if ( characterType == CharacterType.Hero )
+				{
+					int i = 0;
+					List<DeploymentCard> heroCards = new List<DeploymentCard>();
+
+					if ( showCustom )
+					{
+						//add global imported characters - with null check
+						if ( DataStore.globalImportedCharacters != null && DataStore.globalImportedCharacters.Any() )
+						{
+							var importedHeroes = DataStore.globalImportedCharacters
+									.Where( x => x != null && x.deploymentCard != null && x.deploymentCard.characterType == CharacterType.Hero )
+									.Select( x => x.deploymentCard )
+									.ToList();
+
+							if ( importedHeroes.Any() )
+								heroCards.AddRange( importedHeroes );
+						}
+
+						//add embedded characters
+						var setup = FindObjectOfType<SagaSetup>();
+						if ( setup != null && setup.missionCustomHeroes != null && setup.missionCustomHeroes.Any() )
+							heroCards.AddRange( setup.missionCustomHeroes );
+					}
+
+					//finally, add stock heroes
+					if ( !showCustom && DataStore.heroCards != null && DataStore.heroCards.Any() )
+						heroCards.AddRange( DataStore.heroCards );
+
+					// Instantiate toggles for each hero
+					foreach ( var item in heroCards )
+					{
+						if ( item == null )
+							continue; // Skip null items
+
+						var mug = Instantiate( heroMugPrefab, mugContainer );
+						mug.GetComponent<MugshotToggle>().Init( item, i++ );
+						if ( DataStore.sagaSessionData.MissionHeroes.Contains( item ) )
+						{
+							mug.GetComponent<MugshotToggle>().isOn = true;
+							mug.GetComponent<MugshotToggle>().UpdateToggle();
+						}
+					}
+
+					if ( heroCards.Count > 0 )
+						cardPrefab.InitCard( heroCards[0], true );
+				}
+				else // allies
+				{
+					List<DeploymentCard> allyCards = new List<DeploymentCard>();
+
+					if ( showCustom )
+					{
+						//add global imported characters
+						if ( DataStore.globalImportedCharacters != null && DataStore.globalImportedCharacters.Any() )
+						{
+							var importedAllies = DataStore.globalImportedCharacters
+									.Where( x => x != null && x.deploymentCard != null && x.deploymentCard.characterType == CharacterType.Ally )
+									.Select( x => x.deploymentCard )
+									.ToList();
+
+							if ( importedAllies.Any() )
+								allyCards.AddRange( importedAllies );
+						}
+
+						//add embedded characters
+						var setup = FindObjectOfType<SagaSetup>();
+						if ( setup != null && setup.missionCustomAllies != null && setup.missionCustomAllies.Any() )
+							allyCards.AddRange( setup.missionCustomAllies );
+					}
+
+					//finally, add stock allies
+					if ( !showCustom && DataStore.allyCards != null )
+					{
+						var nonEliteAllies = DataStore.allyCards.MinusElite();
+						if ( nonEliteAllies != null && nonEliteAllies.Any() )
+							allyCards.AddRange( nonEliteAllies );
+					}
+
+					//get the fixed ally in the selected mission, if any
+					string fixedAlly = null;
+					var setupObj = FindObjectOfType<SagaSetup>();
+					if ( setupObj != null )
+						fixedAlly = setupObj.fixedAlly;
+
+					//remove fixed ally from the list
+					if ( !string.IsNullOrEmpty( fixedAlly ) && allyCards.Count > 0 )
+					{
+						Debug.Log( $"Ally Panel::Omitting {allyCards.FirstOrDefault( x => x.id == fixedAlly )?.name} [{fixedAlly}] from the pool" );
+						// Use Where instead of direct removal
+						allyCards = allyCards.Where( x => x != null && x.id != fixedAlly ).ToList();
+					}
+
+					int i = 0;
+					foreach ( var item in allyCards )
+					{
+						if ( item == null )
+							continue; // Skip null items
+
+						var mug = Instantiate( heroMugPrefab, mugContainer );
+						mug.GetComponent<MugshotToggle>().Init( item, i++ );
+						if ( DataStore.sagaSessionData.selectedAlly == item )
+						{
+							mug.GetComponent<MugshotToggle>().isOn = true;
+							mug.GetComponent<MugshotToggle>().UpdateToggle();
+						}
+					}
+
+					//show elite version of allies
+					if ( !showCustom && DataStore.allyCards != null )
+					{
+						var eliteAllies = DataStore.allyCards.OnlyElite();
+						if ( eliteAllies != null )
+						{
+							foreach ( var item in eliteAllies )
+							{
+								if ( item == null )
+									continue; // Skip null items
+
+								var mug = Instantiate( heroMugPrefab, mugContainer );
+								mug.GetComponent<MugshotToggle>().Init( item, i++ );
+								if ( DataStore.sagaSessionData.selectedAlly == item )
+								{
+									mug.GetComponent<MugshotToggle>().isOn = true;
+									mug.GetComponent<MugshotToggle>().UpdateToggle();
+								}
+							}
+						}
+					}
+
+					if ( allyCards.Count > 0 )
+						cardPrefab.InitCard( allyCards[0], true );
+				}
+			}
+			catch ( Exception ex )
+			{
+				Debug.LogError( $"Error in ShowContent: {ex.Message}\n{ex.StackTrace}" );
+			}
+		}
+
+		/*private void ShowContent( bool showCustom )
+		{
 			//populate mugshot toggles
 			if ( characterType == CharacterType.Hero )
 			{
@@ -132,7 +277,7 @@ namespace Saga
 				if ( allyCards.Count > 0 )
 					cardPrefab.InitCard( allyCards[0], true );
 			}
-		}
+		}*/
 
 		public bool OnToggle( DeploymentCard card )
 		{
