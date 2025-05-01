@@ -183,7 +183,7 @@ namespace Saga
 			}
 			catch ( Exception ex )
 			{
-				Debug.LogError( $"Error in ShowContent: {ex.Message}\n{ex.StackTrace}" );
+				Utils.LogError( $"Error in ShowContent: {ex.Message}\n{ex.StackTrace}" );
 			}
 		}
 
