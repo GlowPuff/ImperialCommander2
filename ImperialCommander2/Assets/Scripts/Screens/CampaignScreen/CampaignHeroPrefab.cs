@@ -115,28 +115,34 @@ namespace Saga
 			//skills
 			var skills = SagaCampaign.campaignDataSkills.Concat( DataStore.globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).SelectMany( x => x.heroSkills ) );
 
-			foreach ( var skill in campaignHero.campaignSkills.OrderBy(x => x.name) )
+			foreach ( var skill in campaignHero.campaignSkills.OrderBy( x => x.name ) )
 			{
 				var go = Instantiate( listItem, contentContainer );
-				string s = skills.Where( x => x.id == skill.id ).First().name;
-				go.GetComponent<CampaignListItemPrefab>().InitSkill( s, ( n ) =>
+				var selectedSkill = skills.FirstOrDefault( x => x.id == skill.id );
+				if ( selectedSkill != null )
 				{
-					campaignHero.xpAmount += skill.cost;
-					mWheelHandler.ResetWheeler( hero.xpAmount );
-					campaignHero.campaignSkills.Remove( skill );
-					Destroy( go );
-				} );
+					go.GetComponent<CampaignListItemPrefab>().InitSkill( selectedSkill.name, ( n ) =>
+					{
+						campaignHero.xpAmount += skill.cost;
+						mWheelHandler.ResetWheeler( hero.xpAmount );
+						campaignHero.campaignSkills.Remove( skill );
+						Destroy( go );
+					} );
+				}
 			}
 			//items
-			foreach ( var item in campaignHero.campaignItems.OrderBy(x => x.name) )
+			foreach ( var item in campaignHero.campaignItems.OrderBy( x => x.name ) )
 			{
 				var go = Instantiate( listItem, contentContainer );
-				string s = SagaCampaign.campaignDataItems.Where( x => x.id == item.id ).First().name;
-				go.GetComponent<CampaignListItemPrefab>().InitItem( s, ( n ) =>
+				var selectedSkill = skills.FirstOrDefault( x => x.id == item.id );
+				if ( selectedSkill != null )
 				{
-					campaignHero.campaignItems.Remove( item );
-					Destroy( go );
-				} );
+					go.GetComponent<CampaignListItemPrefab>().InitItem( selectedSkill.name, ( n ) =>
+					{
+						campaignHero.campaignItems.Remove( item );
+						Destroy( go );
+					} );
+				}
 			}
 		}
 	}

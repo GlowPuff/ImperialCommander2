@@ -228,7 +228,8 @@ namespace Saga
 			Dictionary<string, string> items = new Dictionary<string, string>();
 			foreach ( var campaignItem in sagaCampaign.campaignItems )
 			{
-				items.Add( campaignItem, SagaCampaign.campaignDataItems.First( x => x.id == campaignItem ).name );
+				if ( SagaCampaign.campaignDataItems.Any( x => x.id == campaignItem ) )
+					items.Add( campaignItem, SagaCampaign.campaignDataItems.First( x => x.id == campaignItem ).name );
 			}
 			foreach ( var item in items.OrderBy( x => x.Value ) )
 				AddItemToUI( sagaCampaign.GetItemFromID( item.Key ) );
@@ -249,7 +250,8 @@ namespace Saga
 			Dictionary<string, string> rewards = new Dictionary<string, string>();
 			foreach ( var campaignReward in sagaCampaign.campaignRewards )
 			{
-				rewards.Add( campaignReward, SagaCampaign.campaignDataRewards.First( x => x.id == campaignReward ).name );
+				if ( SagaCampaign.campaignDataRewards.Any( x => x.id == campaignReward ) )
+					rewards.Add( campaignReward, SagaCampaign.campaignDataRewards.First( x => x.id == campaignReward ).name );
 			}
 			foreach ( var reward in rewards.OrderBy( x => x.Value ) )
 				AddRewardToUI( sagaCampaign.GetRewardFromID( reward.Key ) );
@@ -323,9 +325,18 @@ namespace Saga
 
 		void AddItemToUI( CampaignItem item, bool showCoinIcon = false )
 		{
+			if ( item == null )
+			{
+				Utils.LogWarning( $"AddItemToUI()::item is null" );
+				return;
+			}
+
 			List<string> items = new List<string>();
 			foreach ( var campaignItem in sagaCampaign.campaignItems )
-				items.Add( SagaCampaign.campaignDataItems.First( x => x.id == campaignItem ).name );
+			{
+				if ( SagaCampaign.campaignDataItems.Any( x => x.id == campaignItem ) )
+					items.Add( SagaCampaign.campaignDataItems.First( x => x.id == campaignItem ).name );
+			}
 
 			var index = items.OrderBy( x => x ).ToList().FindIndex( x => x == item.name );
 
@@ -364,9 +375,18 @@ namespace Saga
 
 		void AddRewardToUI( CampaignReward item )
 		{
+			if ( item == null )
+			{
+				Utils.LogWarning( $"AddRewardToUI()::item is null" );
+				return;
+			}
+
 			List<string> rewards = new List<string>();
 			foreach ( var campaignReward in sagaCampaign.campaignRewards )
-				rewards.Add( SagaCampaign.campaignDataRewards.First( x => x.id == campaignReward ).name );
+			{
+				if ( SagaCampaign.campaignDataRewards.Any( x => x.id == campaignReward ) )
+					rewards.Add( SagaCampaign.campaignDataRewards.First( x => x.id == campaignReward ).name );
+			}
 
 			var index = rewards.OrderBy( x => x ).ToList().FindIndex( x => x == item.name );
 

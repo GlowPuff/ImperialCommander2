@@ -102,7 +102,7 @@ namespace Saga
 			else if ( !string.IsNullOrEmpty( id ) )
 			{
 				if ( dgOverrides.Any( x => x.ID == id ) )
-					return dgOverrides.Where( x => x.ID == id ).First();
+					return dgOverrides.Where( x => x.ID == id ).FirstOr( null );
 				else
 				{
 					var ovrd = new DeploymentGroupOverride( id );
@@ -116,7 +116,7 @@ namespace Saga
 		public DeploymentGroupOverride CreateCustomDeploymentOverride( CustomEnemyDeployment ced )
 		{
 			if ( dgOverrides.Any( x => x.ID == ced.enemyGroupData.cardID ) )
-				return dgOverrides.Where( x => x.ID == ced.enemyGroupData.cardID ).First();
+				return dgOverrides.Where( x => x.ID == ced.enemyGroupData.cardID ).FirstOr( null );
 			else
 			{
 				var ovrd = new DeploymentGroupOverride( ced.enemyGroupData.cardID );

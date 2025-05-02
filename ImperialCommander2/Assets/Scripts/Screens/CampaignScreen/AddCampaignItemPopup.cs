@@ -119,7 +119,8 @@ namespace Saga
 
 			foreach ( var item in skills.Where( x => x.owner == heroID ).OrderBy( x => x.name ).OrderBy( x => x.cost ) )
 			{
-				if ( !sagaCampaign.campaignHeroes.Where( x => x.heroID == heroID ).First().campaignSkills.Any( x => x.id == item.id ) )
+				var hero = sagaCampaign.campaignHeroes.FirstOrDefault( x => x.heroID == heroID );
+				if ( hero != null && !hero.campaignSkills.Any( x => x.id == item.id ) )
 				{
 					var go = Instantiate( itemSkillSelectorPrefab, itemContainer );
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( item, heroID );

@@ -844,7 +844,7 @@ public static class DataStore
 	/// </summary>
 	public static DeploymentCard GetHero( string id )
 	{
-		return heroCards.Concat( globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ) ).First( x => x.id == id ) ?? null;
+		return heroCards.Concat( globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Hero ).Select( x => x.deploymentCard ) ).FirstOrDefault( x => x.id == id ) ?? null;
 	}
 
 	/// <summary>
@@ -864,9 +864,9 @@ public static class DataStore
 		var imports = globalImportedCharacters.Where( x => x.deploymentCard.characterType == CharacterType.Imperial || x.deploymentCard.characterType == CharacterType.Villain ).Select( x => x.deploymentCard );
 
 		if ( villainCards.Concat( imports ).Any( x => x.id == id ) )
-			return villainCards.Where( x => x.id == id ).First();
+			return villainCards.Where( x => x.id == id ).FirstOr( null );
 		else if ( deploymentCards.Concat( imports ).Any( x => x.id == id ) )
-			return deploymentCards.Concat( imports ).Where( x => x.id == id ).First();
+			return deploymentCards.Concat( imports ).Where( x => x.id == id ).FirstOr( null );
 		else
 			return null;
 	}

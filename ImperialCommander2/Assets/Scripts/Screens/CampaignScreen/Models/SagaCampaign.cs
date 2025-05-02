@@ -240,9 +240,9 @@ namespace Saga
 			}
 		}
 
-		public CampaignItem GetItemFromID( string id ) => campaignDataItems.First( x => x.id == id );
-		public CampaignSkill GetSkillFromID( string id ) => campaignDataSkills.First( x => x.id == id );
-		public CampaignReward GetRewardFromID( string id ) => campaignDataRewards.First( x => x.id == id );
+		public CampaignItem GetItemFromID( string id ) => campaignDataItems.FirstOrDefault( x => x.id == id );
+		public CampaignSkill GetSkillFromID( string id ) => campaignDataSkills.FirstOrDefault( x => x.id == id );
+		public CampaignReward GetRewardFromID( string id ) => campaignDataRewards.FirstOrDefault( x => x.id == id );
 
 		public string GetCampaignInfo()
 		{

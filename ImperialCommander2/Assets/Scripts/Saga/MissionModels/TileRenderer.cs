@@ -19,6 +19,11 @@ namespace Saga
 
 		public void LoadTile( MapTile t, TileDescriptor td )
 		{
+			if ( t == null || td == null )
+			{
+				Utils.LogWarning( "LoadTile()::MapTile or TileDescriptor is null" );
+				return;
+			}
 			mapTile = t;
 			tileDescriptor = td;
 			//Debug.Log( "LoadTile()::" + mapTile.tileID );

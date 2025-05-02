@@ -232,7 +232,12 @@ namespace Saga
 				List<string> filenames = di.GetFiles().Where( file => file.Extension == ".json" ).Select( x => x.Name ).ToList();
 				if ( filenames.Contains( $"{guid}.json" ) )
 				{
-					var file = filenames.Where( x => x.Contains( $"{guid}.json" ) ).First();
+					var file = filenames.Where( x => x.Contains( $"{guid}.json" ) ).FirstOr( null );
+					if ( file == null )
+					{
+						Utils.LogWarning( $"DeleteCampaign()::Could not find campaign file with GUID: {guid}" );
+						return;
+					}
 					File.Delete( Path.Combine( campaignPath, file ) );
 				}
 			}

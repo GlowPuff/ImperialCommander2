@@ -59,7 +59,7 @@ namespace Saga
 				{
 					var t = Instantiate( tilePrefab, transform );
 					TileRenderer tileRenderer = t.GetComponent<TileRenderer>();
-					t.GetComponent<TileRenderer>().LoadTile( mt, tileDescriptors.Where( x => x.expansion == mt.expansion.ToString() && x.id.ToString() == mt.tileID ).First() );
+					t.GetComponent<TileRenderer>().LoadTile( mt, tileDescriptors.Where( x => x.expansion == mt.expansion.ToString() && x.id.ToString() == mt.tileID ).FirstOr( null ) );
 					mt.tileRenderer = tileRenderer;
 				}
 			}
@@ -87,7 +87,10 @@ namespace Saga
 
 		public void CamToSection( Guid guid )
 		{
-			int idx = mapSections.IndexOf( mapSections.Where( x => x.GUID == guid ).First() );
+			var selectedSection = mapSections.Where( x => x.GUID == guid ).FirstOr( null );
+			if ( selectedSection == null )
+				return;
+			int idx = mapSections.IndexOf( selectedSection );
 			CamToSection( idx );
 		}
 
