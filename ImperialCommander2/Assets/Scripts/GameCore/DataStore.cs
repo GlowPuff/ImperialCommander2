@@ -9,7 +9,7 @@ using UnityEngine;
 public static class DataStore
 {
 	public static readonly string appVersion = "v.2.2.8";
-	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No", "Ru", "Nl" };
+	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It", "Hu", "No", "Ru", "Nl", "Br" };
 
 	public static Mission mission;
 	public static GameType gameType;

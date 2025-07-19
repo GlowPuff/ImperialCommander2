@@ -134,10 +134,10 @@ namespace Saga
 			foreach ( var item in campaignHero.campaignItems.OrderBy( x => x.name ) )
 			{
 				var go = Instantiate( listItem, contentContainer );
-				var selectedSkill = skills.FirstOrDefault( x => x.id == item.id );
-				if ( selectedSkill != null )
+				var selectedItem = SagaCampaign.campaignDataItems.FirstOrDefault( x => x.id == item.id );
+				if ( selectedItem != null )
 				{
-					go.GetComponent<CampaignListItemPrefab>().InitItem( selectedSkill.name, ( n ) =>
+					go.GetComponent<CampaignListItemPrefab>().InitItem( selectedItem.name, ( n ) =>
 					{
 						campaignHero.campaignItems.Remove( item );
 						Destroy( go );

@@ -1,0 +1,345 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "Lua Alta",
+    "missionDescription": "",
+    "missionInfo": "{-} A porta está trancada.\r\n{-} O token de missão Rebelde representa um comlink. Jyn pode interagir com o comlink para chamar Szark.\r\n{-} A missão progredirá quando Jyn chamar Szark.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Ligue para Szark pelo comlink.",
+    "repositionOverride": "Block access to <b>Szark</b>.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Gritando, Jyn pula para fora da cobertura, tentando espremer mais alguns tiros. Três raios blaster a pegam no peito e ela cai. Em uma retirada de combate, você arrasta seu corpo quase vivo de volta para o navio.\r\n\"Até a próxima, Jyn ... \" Uma transmissão entra. \" Você terá que visitar novamente em breve!\" Szark dá uma risada longa e zombeteira, deixando você feliz por ela estar inconsciente.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Ferido, Szark se arrasta ao virar da esquina. Jyn segue, e você ouve uma troca de tiros de blaster, depois silêncio.\r\n\r\nNão muito tempo depois, ela ressurge, guardando sua arma. \"Vamos\", diz ela, sem olhar para trás.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Jyn recebe o cartão de recompensa \"Pacificador\".\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Gunfight",
+      "GUID": "e7a3f869-8d0e-43e3-b121-652d672ae6d1",
+      "eventText": "A porta da cantina se abre lentamente e um Trandoshan magro sai.\r\n\r\n\"Meu, meu\", ele rosna, sorrindo. \"Jyn Odan. Nunca pensei que veria o dia.\" Sua mão desliza em direção ao blaster no coldre.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cantina Door",
+              "GUID": "3fabca27-7d48-4048-9d13-a445ce8acc00",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Comlink",
+              "GUID": "70eca6bd-485f-437d-866d-e3ffc2b2af4a",
+              "theText": "Um antigo comlink estacionário está conectado aos sistemas de comunicação da cantina.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "af2163cc-e7c2-476c-a081-ad06a4538bb5",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "6125c4c4-ae26-4370-ad27-eedec4bb7615",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG016/Trandoshan Hunter (Elite)"
+        },
+        {
+          "tbText": "{-} Deploy one regular Trandoshan Hunter figure. This is Szark.",
+          "GUID": "e80ef351-a463-42a4-bb9d-926818bae9ab",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Szark",
+          "customText": "{-} TRANDOSHAN TOUGHNESS: Recover 2 {H}.",
+          "modification": "+1 {G}, +*2* H, +2 ACC",
+          "repositionInstructions": "",
+          "GUID": "a1779079-3b95-480b-a2e8-0bab7cb520d7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "tbText": "{-} Szark gains additional Health equal to twice the threat level.\r\n{-} Szark gains +1 {G}.\r\n{-} Szark applies + 2 Accuracy to his attack results and gains {B}: + 2 {H} (top of the surge priority list).\r\n{-} The Rebels win when Szark is defeated.",
+          "GUID": "1abd0b77-e204-4796-8350-4ffd32e4949c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Defeat Szark.",
+          "longText": "",
+          "GUID": "844c0871-86c5-4430-9c95-f3f49f5e8084",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Szark gains additional Health equal to twice the threat level.\r\n{-} Szark gains +1 {G}.\r\n{-} Szark applies + 2 Accuracy to his attack results and gains {B}: + 2 {H} (top of the surge priority list).\r\n{-} The Rebels win when Szark is defeated.\r\n{-} The Rebels lose when all heroes are wounded.",
+          "GUID": "924d18d2-51c8-4511-9513-0cf7b79ede9e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Escondendo-se na cobertura, você espera que Szark se mostre. \"Aparentemente, é a lua dele. Ele está fadado a vir eventualmente.\" Jyn xinga, carrancuda. Sua espera é bastante longa.\r\n\r\n\"Lá está ele\", diz Jyn, apontando. Descendo a rua, Szark sai da cantina, até o pequeno grupo de tropas imperiais. \"Trabalhando em outro negócio, hein? O quê, uma lua não foi suficiente?\"\r\n\r\nAntes que você possa detê-la, Jyn salta para fora da cobertura e corre para frente, disparando seu blaster. Os olhos de Szark se arregalam e ele se afasta. Ele entra em sua cantina pessoal, fechando a porta enquanto os raios do blaster passam por sua cabeça.\r\n\r\nVocê está alguns passos atrás de Jyn enquanto o mercenário de Szark e os aliados imperiais sacam suas armas.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} Jyn Odan não se posiciona com os heróis e, em vez disso, é colocada no espaço destacado em vermelho.\r\n{-} A porta está trancada.\r\n{-} O token de missão Rebelde representa um comlink. Jyn pode interagir com o comlink para chamar Szark.\r\n{-} A missão progredirá quando Jyn chamar Szark.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "24377393-d316-4bbe-9a8c-718a6cc2cf57",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "b0919fee-478c-41c1-91ca-1de463928ec9",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "36472561-1a0f-4778-bdf9-a03d96941882",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "33f5b9da-5944-48d7-afd6-e1575b65bbc2",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "5713b9fd-273b-47eb-b7b0-f209f71cb194",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Cantina Door",
+      "GUID": "7f20fe1d-9299-4fac-bb87-0dea00a9ae57",
+      "mainText": "A porta da cantina de Szark está bem trancada.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Comlink",
+      "GUID": "c5289b7a-b443-4442-b5db-5963633b7069",
+      "mainText": "Um antigo comlink estacionário está conectado aos sistemas de comunicação da cantina.\r\n\r\nJyn Odan pode interagir com o comlink para chamar Szark.",
+      "buttonList": [
+        {
+          "GUID": "01c86eed-dfa7-470f-88f2-cf27d9c09c9f",
+          "theText": "{A} Interagir"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "23c791a1-8163-4e1a-a7e7-394d0894d15e",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "ad76f7a7-cdbb-49cb-8774-badf4e961d2c",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "0a4be5a2-4727-415e-afdc-63f1541f7754",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "f6e18112-9399-4da4-b28c-268849ee7b28",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "2e921a85-18c5-45b9-b57e-c7257d4c171f",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP E-Web",
+      "GUID": "ce75ef2b-96d3-4ff5-90e3-d62ce242146b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "fa95e9cf-88f1-4e27-9ef4-1b8ac707ea08",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "58a58803-7b07-4743-b71c-5bbb36adbf02",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "949cacc3-50f6-4ff8-8ca5-d3b8e6bdb876",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "4d04e15d-08bc-4a5b-971a-6fe9cf06f8d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "6a54830e-afc0-46a3-b94e-8e424f7f2dc4",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "eacaa2ed-be08-4bb9-a4aa-38328fd8e5da",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Szark",
+      "GUID": "a22a2eda-d9c5-4a49-8893-8c3d6c0df2ce",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "5ff06121-cb5a-44ae-ae43-bfb01ff3135e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "7bd4c37b-6ce6-4348-9f26-4230ecf4fdc6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "719d803a-3c8c-4223-a7da-ac274e8c4f61",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance Jyn",
+      "GUID": "7a848518-1c1b-4ce6-8e9d-6b088a4c3560",
+      "mainText": "Posicione Jyn Odan aqui.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "E-Web Engineer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Nexu (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

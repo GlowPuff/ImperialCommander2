@@ -1,0 +1,606 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "Cercada",
+    "missionDescription": "",
+    "missionInfo": "{-} Os tokens de missão representam locais de captura. No final de cada rodada, se uma figura Imperial ocupar um quadrado com um local de captura e não houver figuras Rebeldes saudáveis nesse bloco, esse local é protegido pelo Império e esse token é reivindicado.\r\n{-} As portas estão trancadas. Uma figura imperial pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.\r\n{-} Os Rebels vencem no final da 8ª rodada.\r\n{-} Os rebeldes perdem quando o Império garante 4 locais de captura ou quando todos os heróis se retiram. Quando todos os heróis se retirarem, clique no espaço destacado verde e selecione \"Heróis retirados\".",
+    "campaignName": "Core Game",
+    "startingObjective": "Proteja os locais de captura. (Capturar locais tomados pelo Império: &Sites tomados&/4)",
+    "repositionOverride": "Closest capture site not occupied by at least two Imperial figures.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Assault - Trigger",
+      "GUID": "1e6d3a2a-7f03-4245-aef8-875bed6ec770",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Assault-1",
+      "GUID": "d5587515-8c6f-4636-a830-a8abd6579f32",
+      "eventText": "Fogo de artilharia chove sobre o complexo. De repente, uma das portas protegidas é aberta, estilhaços fumegantes voando por toda parte.\r\n\r\n{-} Remova a porta com mais figuras rebeldes dentro de 3 espaços dela.\r\n{-} Role 1 dado vermelho. Cada figura Rebelde dentro de 3 espaços da porta removida sofre {H} igual aos resultados de {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Assault-2",
+      "GUID": "a8b9a758-67f4-4d67-a284-2144d859f522",
+      "eventText": "Transmissões de rádio imperiais embaralhadas são ouvidas à distância, sinalizando a chegada iminente de mais reforços.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Check Early Defeat",
+      "GUID": "f611e2f4-0c47-445e-9beb-70444601f4fd",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Door East Destroyed",
+      "GUID": "72ef0c64-a827-4197-bcfc-d9e4c75daf42",
+      "eventText": "A porta desmorona sob o ataque imperial.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door East",
+              "GUID": "db0ab614-9c27-46ea-b67e-33eaa4e1d58f",
+              "theText": "Uma porta robusta leva para fora do complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+              "buttonList": [
+                {
+                  "GUID": "c6972345-93a5-47a0-be75-006381823df8",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "11fe6849-ed7f-4c80-a2ef-35339d6942dc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door North Destroyed",
+      "GUID": "90d1b4d1-be9e-46b0-a3c2-296dd70b2b8f",
+      "eventText": "A porta desmorona sob o ataque imperial.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door North",
+              "GUID": "ffa66119-6440-4198-9b64-34cce69ef8b5",
+              "theText": "Uma porta robusta leva para fora do complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+              "buttonList": [
+                {
+                  "GUID": "2d777e9a-8d77-473a-b1ba-66a00d4bde9a",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "28d34923-bd25-4d56-ba22-327853725c43",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door South Destroyed",
+      "GUID": "4bb0438e-fab6-4344-9cb9-52fc282af205",
+      "eventText": "A porta desmorona sob o ataque imperial.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door South",
+              "GUID": "04b6c2df-50f2-47ce-a1cc-ba81090b4ca9",
+              "theText": "Uma porta robusta leva mais fundo no complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+              "buttonList": [
+                {
+                  "GUID": "a98293ed-aeea-4c0c-84ed-b88d73b16f59",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "33caeab1-5e1e-4f6e-9665-42a5c47d1fca",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door West Destroyed",
+      "GUID": "6d27aa05-8749-42a7-b5f9-c87c1d25a0f8",
+      "eventText": "A porta desmorona sob o ataque imperial.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door West",
+              "GUID": "918310f1-3b26-46a7-b13d-7eb1bcb32342",
+              "theText": "Uma porta robusta leva mais fundo no complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+              "buttonList": [
+                {
+                  "GUID": "79af972d-d90e-4bac-bd28-ee202fc751eb",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "d50380f8-f882-4ac9-b9a6-3d0411ff535f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End Mission Early Defeat",
+      "GUID": "c50c6aaf-484d-4d57-916b-9a88481941e5",
+      "eventText": "Como 4 pontos de captura foram garantidos antes do final da Rodada 6, coloque a carta de Missão Lendária \"Fly Solo\" em jogo.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Normal",
+      "GUID": "bc91a667-9a7f-4669-9dc5-89f1505fdca8",
+      "eventText": "Como 4 pontos de captura foram garantidos após o final da Rodada 6, coloque a carta de Missão Lendária \"Hospitalidade Imperial\" em jogo e cada herói receberá 1 XP.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "As forças imperiais entram no complexo e você não consegue mais segurá-las. Esperando que o tempo que você comprou a outra equipe de ataque seja suficiente, você se desvencilha rapidamente.\r\n\r\nA sorte está do seu lado; Depois que você é extraído, uma transmissão chega do seu comandante. Ela não menciona seus esforços e, em vez disso, se concentra inteiramente nas descobertas da outra equipe. \"Weiss está desenvolvendo uma arma\", ela diz, \"e o Alto Comando está muito nervoso com isso. Eles já estão clamando por mais informações, então não se surpreenda se você for chamado em breve.\" \r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Cada herói recebe 1 XP além de qualquer um que já tenha recebido. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Mesmo que tenha chegado a chamada para você recuar há vários minutos, você ainda aguentou, apesar das probabilidades esmagadoras.\r\n\r\nMais tarde, você é informado de que os poucos minutos extras significaram céu limpo para a fuga do outro time. Seu piloto não ficou entusiasmado com os caças inimigos que vieram lidar com você, mas ainda assim deu certo.\r\n\r\nO sucesso da equipe de reconhecimento revelou um novo projeto de arma em desenvolvimento de Weiss, e suas descobertas sugerem que isso deve ser uma grande preocupação para a Rebelião.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque em jogo a carta de Missão Lendária \"Hospitalidade Imperial\".\r\n{-} Cada herói recebe 2 XP. Os heróis recebem 200 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture",
+      "GUID": "ac4ad5ed-82a8-4689-8d3c-f540e2bb0cc5",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "How many tiles are there with a capture site, no healthy figure on the tile, and at least 1 Imperial figure on the tile?",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "329063cc-21d8-4ddc-b1b2-daa2b86b50a5",
+              "theText": null
+            },
+            {
+              "GUID": "8c32786c-818e-4c56-a163-a32baae259f5",
+              "theText": null
+            },
+            {
+              "GUID": "2e152e21-1d59-44a2-b99e-aefec524f2ee",
+              "theText": null
+            },
+            {
+              "GUID": "d778f441-07ca-4dc7-a90b-ea6ccb4fcffc",
+              "theText": null
+            },
+            {
+              "GUID": "e6d48132-69f2-4572-aaa4-6efb545fa18d",
+              "theText": null
+            }
+          ],
+          "GUID": "f8294708-3f8d-42c5-aed6-4f4459413dc4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Imperial Capture 0",
+      "GUID": "fc33f044-a723-4ce7-90a7-2f806c55c4f3",
+      "eventText": "Para horror e fúria de seus líderes, o Império fez pouco progresso.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 1",
+      "GUID": "537a8e7f-221e-4f25-a26e-f558dd57b1aa",
+      "eventText": "O Império fortifica as posições capturadas.\r\n\r\n{-} O Império reivindica todos os locais de captura seguros. Descarte seus tokens.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 2",
+      "GUID": "d6113ed7-0f2d-4199-b875-005d39042e14",
+      "eventText": "O Império fortifica as posições capturadas.\r\n\r\n{-} O Império reivindica todos os locais de captura seguros. Descarte seus tokens.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 3",
+      "GUID": "62676cdb-452c-4c37-8602-5afa9972d5eb",
+      "eventText": "O Império fortifica as posições capturadas.\r\n\r\n{-} O Império reivindica todos os locais de captura seguros. Descarte seus tokens.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Imperial Capture 4",
+      "GUID": "1cc27b31-bcdc-47a7-a1b8-cc1638ffbfee",
+      "eventText": "O Império fortifica as posições capturadas.\r\n\r\n{-} O Império reivindica todos os locais de captura seguros. Descarte seus tokens.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "O comando atribuiu a você uma tarefa brutalmente simples: você deve causar um desvio, permitindo que outra equipe investigue uma instalação sob o controle de Weiss.\r\n\r\nAs instruções do seu comandante foram claras. \"Não bloqueie ou corte nenhum sinal\", ela lhe disse. Se eles enviarem alguma chamada para obter ajuda, ótimo. Se não o fizerem, então você não fez barulho suficiente.\r\n\r\nConsiderando a grande quantidade de peso imperial agora caindo sobre o complexo, você certamente conseguiu \"fazer barulho suficiente\".\r\n\r\nDepois de remover a presença imperial da instalação, você fez os preparativos para defendê-la. Muitas das portas estão fechadas, barricadas contra a possibilidade de as tropas entrarem por outra entrada. Você espera que eles tentem, mas espero que suas fortificações apressadas aguentem o tempo suficiente para manter seus números administráveis.\r\n\r\n{-} Coloque 1 ficha de missão Rebelde em cada peça com um destaque vermelho.\r\n{-} Os tokens de missão representam locais de captura. No final de cada rodada, se uma figura Imperial ocupar um quadrado com um local de captura e não houver figuras Rebeldes saudáveis nesse bloco, esse local é protegido pelo Império e esse token é reivindicado.\r\n{-} As portas estão trancadas. Uma figura imperial pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.\r\n{-} Os Rebels vencem no final da 8ª rodada.\r\n{-} Os rebeldes perdem quando o Império garante 4 locais de captura ou quando todos os heróis se retiram. Quando todos os heróis se retirarem, clique no espaço destacado verde e selecione \"Heróis retirados\".\r\n{-}  Os jogadores rebeldes implantam suas figuras em qualquer espaço interior.",
+      "eventActions": [
+        {
+          "newInstructions": "All Imperial figures will attack doors instead of Rebels if it is the quickest way to get to a capture site.",
+          "GUID": "c38f00ef-c5f7-4130-be5d-0d4267f5bc8a",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "newInstructions": "{-} When this group resolves an ORDER, after the ordered attack, the ordered group moves 2 towards the closest capture site on a tile not occupied by at least 2 Imperial figures.",
+          "GUID": "1a726c83-5fed-4b28-a01b-32bcc0257bd2",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "827b99ae-363a-47dd-b845-1d7130b36ad6",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "fabd6f5f-4e77-4685-8514-80e850d7427a",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "42965739-f412-415c-9df4-26fde0e1f392",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "17ea4354-f911-4fce-93be-3666386aef37",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "b61421c7-d835-46cb-a3f2-01a1c49bfe9c",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "28249e53-3725-4a27-949c-ea8fe840a995",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Specialists - Trigger",
+      "GUID": "28b144e0-9278-4d30-87e2-cf3e5f0f11ba",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Specialists-1",
+      "GUID": "e05da1bd-81c4-45fa-9ba2-09e7942a1795",
+      "eventText": "Ouve-se um barulho mecânico e um zumbido. Um enorme caminhante de combate sai pisando na floresta, com armas em punho.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4ab567b6-13de-48ed-a3e5-1eb060925285",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG014/AT-ST"
+        }
+      ]
+    },
+    {
+      "eventName": "Specialists-2",
+      "GUID": "7d96e633-09e6-4e52-b783-2c49f29424e3",
+      "eventText": "Você ouve o som sibilante de uma tocha de corte, depois uma explosão curta, mas violenta, quando uma saída de ar se abre. Os inimigos inundam, bem no coração do complexo. Sua chegada repentina o pega completamente de surpresa.\r\n\r\n{-} Nesta rodada, o Império recebe as duas primeiras ativações. Clique no ícone \"Próxima ativação\" para ativar os dois primeiros grupos sem realizar ativações rebeldes.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Wave 1",
+      "GUID": "85b75175-11ae-41a3-b6e2-05951e077bf6",
+      "eventText": "Para cada tropa que você corta, parece que mais três tomam seu lugar. Embora a pressão continue a aumentar, a base ainda está sob seu controle por enquanto.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "e95ee450-b488-4c50-9191-9dc5fb37620c",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Wave 2",
+      "GUID": "b920817b-0fcf-4dc7-8dc8-5a28b28a1a83",
+      "eventText": "A pressão aumenta a cada momento que passa, mas você é informado por meio de seu link de comunicação que a outra equipe de ataque está quase terminando.\r\n\r\nUma detonação ressoa pelos corredores, originada de algum lugar dentro do complexo. Era apenas uma questão de tempo até que eles tentassem entrar de outra maneira, mas você amaldiçoa sua sorte do mesmo jeito. Você só espera que a explosão não signifique que eles já violaram o complexo e estão inundando por dentro.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "15a9f143-7ba1-49c0-9994-f546c883e522",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Wave 3",
+      "GUID": "b1377a3f-3a85-4fda-8857-64b23737a51a",
+      "eventText": "Você mal pode acreditar, mas caminhando pelo campo com as tropas caídas está a figura imponente e aterrorizante do próprio Darth Vader, seguida por uma enxurrada de tropas.\r\n\r\nUma mensagem de comlink informa que a outra equipe está saindo. Mesmo que seu trabalho esteja feito, você sabe que mais alguns minutos de diversão podem fazer uma grande diferença para seus companheiros.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "1fe83cbc-fc56-444a-a03e-bdeaf44c76aa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG072/Darth Vader"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Capture Site",
+      "GUID": "18f8a5d2-960e-4d89-8d02-1c83415c1c20",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate)",
+      "GUID": "c9dde8d2-f67b-4752-8513-19961c5df3ec",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate) (Duplicate)",
+      "GUID": "3736f6ad-eb5d-41fa-81d0-709e5533b48a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate) (Duplicate) (Duplicate)",
+      "GUID": "a1c44d68-8da8-4357-92c3-2723fbcb5048",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Capture Site (Duplicate) (Duplicate) (Duplicate) (Duplicate)",
+      "GUID": "b50371bc-4960-42a1-a6ba-8668897423bd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "2f610d32-7e36-4e55-b60b-f7d0e3668f15",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "eb91e47c-df47-4fd3-bd57-ee7746d1bb17",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "c27f4ad4-b136-4e34-b18c-d717afb40661",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "1c7bdb35-6237-466b-9965-21cee348796f",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP AT-ST",
+      "GUID": "9eda6375-5593-488d-9833-572a5104767f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP E-Web",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "184d0a25-8864-490b-9c29-f605f34cf442",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "96096f01-99e7-4761-9729-319564f73ad8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "0e4ca184-d044-4bbc-90bc-cb5f4393d80e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "2149341e-b917-4595-952e-6ab062a0a63b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "6fc50ef3-9191-4721-8521-7a7cade02ac1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door East",
+      "GUID": "2c105e11-d552-4065-8800-68a05569a099",
+      "mainText": "Uma porta robusta leva para fora do complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+      "buttonList": [
+        {
+          "GUID": "267648fb-9aa4-4af9-9ba4-32f8b30dd957",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door North",
+      "GUID": "e4abd589-83f6-4bee-b266-cafd131bd5a0",
+      "mainText": "Uma porta robusta leva para fora do complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+      "buttonList": [
+        {
+          "GUID": "3c2a265f-3e51-4f81-855a-39c84cadd868",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door South",
+      "GUID": "a92d82bb-182f-462a-ba99-7f8a9fd97b7b",
+      "mainText": "Uma porta robusta leva mais fundo no complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+      "buttonList": [
+        {
+          "GUID": "3779d042-d706-4642-a51c-6566de992ce2",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Door West",
+      "GUID": "71e51334-3a34-4f78-a9e1-ba534f3a3b64",
+      "mainText": "Uma porta robusta leva mais fundo no complexo, mas não manterá os Imperiais fora para sempre.\r\n\r\n{-} A porta está trancada. Uma figura imperial pode atacá-lo (Saúde: 6, Defesa: 1 dado preto).\r\n{-} Uma porta adjacente a uma figura rebelde não bloqueia seu movimento ou linha de visão.",
+      "buttonList": [
+        {
+          "GUID": "44cedb8d-cfdd-4100-9b92-6c1207433c70",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Heroes withdrawn",
+      "GUID": "fc1e56aa-2472-471f-a805-18928d0ace00",
+      "mainText": "Quando todos os heróis forem retirados, clique em \"Heróis retirados\".",
+      "buttonList": [
+        {
+          "GUID": "8875b42f-4120-4eb7-aac5-aacb57da9ffb",
+          "theText": "Heróis retirados (Missão Final)"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "E-Web Engineer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

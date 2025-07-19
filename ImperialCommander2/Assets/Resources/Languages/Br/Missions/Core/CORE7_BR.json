@@ -1,0 +1,797 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "Hospitalidade Imperial",
+    "missionDescription": "",
+    "missionInfo": "{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.\r\n{-} Um terminal no Data Center transmitirá dados confidenciais no final da Rodada 4. Uma figura rebelde pode atacar o terminal (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para destruí-lo.\r\n{-} A missão progredirá quando a porta da célula se abrir.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Encontre e liberte o cativo. Opcional: Encontre o Data Center e pare a transmissão antes do final da Rodada 4.",
+    "repositionOverride": "Block access to the doors and the terminal.",
+    "additionalMissionInfo": null
+  },
+  "events": [
+    {
+      "eventName": "Cell Door Destroyed",
+      "GUID": "8c5e6f95-503a-46fa-9b8a-286ab98c1b2e",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "b85508cd-a485-4691-8348-e56ab7278902",
+              "theText": "A porta no corredor pouco iluminado parece resistente.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "6af218cb-2973-45e6-ab49-acb61d7a8d3a",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            }
+          ],
+          "GUID": "d6c81969-20a6-4965-9432-eeb982c185b4",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 1 Destroyed",
+      "GUID": "282a093a-cadc-4345-8a33-07b4de4fcd09",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "5187776c-f86f-48e2-a3cc-61159b4fe109",
+              "theText": "O zumbido dos computadores pode ser ouvido atrás desta porta.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "5b4c5e9f-ce81-4278-88fa-17c5bfd07e3b",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "de4216d1-e0f6-45b8-9551-4050effd8d35",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 Destroyed",
+      "GUID": "16f58178-2738-437c-93b4-2e08a5146741",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 2",
+              "GUID": "3dbfcdb6-bb89-4cf3-bea6-bf50ad6f115b",
+              "theText": "O zumbido dos computadores pode ser ouvido atrás desta porta.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "2098d708-e55e-4a74-99ec-487110f528ae",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "645d18aa-db67-40f2-a312-bf60ceb7e7fa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End Mission Terminal Destroyed",
+      "GUID": "370370bb-9d64-4fe3-8b82-b0fa80b66e38",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission Terminal Not Destroyed",
+      "GUID": "c009dccb-8cc8-45bc-8bb0-35e6c706a3a3",
+      "eventText": "Como os heróis não destruíram o terminal no Data Center, o nível de ameaça da próxima missão (e apenas da próxima missão) aumenta em 1. Durante o estágio Rebel Upgrade, os jogadores Rebel podem decidir gastar 50 créditos por herói para evitar isso.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Voltando ao Alto Comando de mãos vazias, você tenta não pensar no destino do agente que deixou para trás.\r\n\r\nFelizmente, o agente conseguiu entregar esquemas de armas roubadas em uma casa segura, descoberta pelas forças rebeldes logo após sua tentativa de resgate.\r\n\r\nA análise da arma de Weiss revela que ela é uma versão em menor escala do devastador superlaser da Estrela da Morte. Esta nova versão foi projetada para a superioridade da frota em vez da destruição planetária. \"Ao que tudo indica, eles poderiam ser produzidos em massa e instalados em naves capitais\", diz seu comandante, com um tom sombrio em sua voz.\r\n\r\nEla deixa claro que a frota rebelde não teria resposta para esse poder de fogo. \"Pode ser que possamos desenvolvê-lo nós mesmos, mas nossos engenheiros não conseguem descobrir algumas das últimas peças. Achamos que os planos devem ser antigos ou incompletos.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Coloque em jogo a carta de Missão Lendária \"Atraído\".\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Depois de alguns dias de atendimento médico, o agente é finalmente coerente o suficiente para falar. Ele rapidamente o redireciona para uma casa segura onde escondeu esquemas roubados para a nova arma imperial, que você entrega ao Alto Comando para análise.\r\n\r\nA análise da arma de Weiss revela que ela é uma versão em menor escala do devastador superlaser da Estrela da Morte. Esta nova versão foi projetada para a superioridade da frota em vez da destruição planetária. \"Ao que tudo indica, eles poderiam ser produzidos em massa e instalados em naves capitais\", diz seu comandante, com um tom sombrio em sua voz.\r\n\r\nEla deixa claro que a frota rebelde não teria resposta para esse poder de fogo. \"Pode ser que possamos desenvolvê-lo nós mesmos, mas nossos engenheiros parecem não conseguir descobrir algumas das últimas peças. Achamos que os planos devem ser antigos ou incompletos.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque a carta de Missão Lendária \"Chegando\" em jogo.\r\n{-} Cada herói recebe 2 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "\"Ele está vivo, por enquanto.\" A transmissão do Comando veio sobre o agente capturado alguns dias antes. \"Ele vai ficar detido por alguns dias em uma instalação perto de Thyferra antes de transferi-lo para Coruscant.\"\r\n\r\nVocê também é informado de que ele estava carregando um pacote de dados confidenciais que incluía o posicionamento de agentes rebeldes em toda a galáxia, incluindo vocês mesmos. Fortemente criptografado, é claro, mas apenas uma questão de tempo para quebrá-lo com os recursos à disposição do Império.\r\n\r\nVocê se lembra das instruções finais de seu comandante enquanto rasteja por redes de cavernas e poços de ventilação. \"Manter essa informação fora das mãos do Império é muito importante, mas o agente é sua principal prioridade.\"\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.\r\n{-} Um terminal no Data Center transmitirá dados confidenciais no final da Rodada 4. Uma figura rebelde pode atacar o terminal (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para destruí-lo.\r\n{-} A missão progredirá quando a porta da célula se abrir.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Objective 0-1",
+      "GUID": "26fc5ff1-16cb-45d2-b199-ccde9bb44028",
+      "eventText": "",
+      "eventActions": [
+        {
+          "theText": "{-} Doors are locked. A Rebel figure can attack a door (Health: 6, Defense: 1 black die) or interact ({I}) to open it.\r\n{-} The mission will progress when the door to the Cell opens.\r\n{-} The Rebels lose when all heroes are wounded.",
+          "GUID": "83b0791b-c581-42d8-884c-a77b373ec0a0",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Find and free the captive.",
+          "longText": null,
+          "GUID": "f87bd807-a1b6-4180-9503-d7a710f1a38f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 1-0",
+      "GUID": "da80b8c5-70b9-4a4b-9eb6-906b90edb736",
+      "eventText": "",
+      "eventActions": [
+        {
+          "theText": "{-} Doors are locked. A Rebel figure can attack a door (Health: 6, Defense: 1 black die) or interact ({I}) to open it.\r\n{-} A terminal in the Data Center will transmit sensitive data at the end of Round 4. A Rebel figure can attack the terminal (Health: 6, Defense: 1 black die) or interact ({I}) to destroy it.\r\n{-} The mission token represents the captive. The captive is a Rebel figure (Health: 8, Speed: 2, Defense: 1 white die). Heroes control the captive as an ally.\r\n{-} When the captive is targeted for an attack while adjacent to a hero who could also be a target of that attack, that hero may suffer 1 {C} to become the target of the attack.\r\n{-} The red Rebel mission token represents the exit. The captive can escape through the exit.\r\n{-} When the captive is defeated, select the exit and click \"captive defeated\".\r\n{-} The Rebels win when the captive escapes.\r\n{-} The Rebels lose when the captive is defeated or all heroes are wounded.",
+          "GUID": "895d3ccb-bf11-4b94-baea-ab74c52c0c8b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Help the captive escape. Optional: Find the Data Center and stop the transmission before the end of Round 4.",
+          "longText": null,
+          "GUID": "da0e5622-759e-4fe4-b9b5-c1ca7c785ddd",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Objective 1-1",
+      "GUID": "f5871b7e-da60-4be0-bfd4-1f07b6e0dcf3",
+      "eventText": "",
+      "eventActions": [
+        {
+          "theText": "{-} The mission token represents the captive. The captive is a Rebel figure (Health: 8, Speed: 2, Defense: 1 white die). Heroes control the captive as an ally.\r\n{-} When the captive is targeted for an attack while adjacent to a hero who could also be a target of that attack, that hero may suffer 1 {C} to become the target of the attack.\r\n{-} The red Rebel mission token represents the exit. The captive can escape through the exit.\r\n{-} When the captive is defeated, select the exit and click \"captive defeated\".\r\n{-} The Rebels win when the captive escapes.\r\n{-} The Rebels lose when the captive is defeated or all heroes are wounded.",
+          "GUID": "007344cd-b186-4ca8-839c-1e73f2c3403e",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Help the captive escape.",
+          "longText": null,
+          "GUID": "eb353096-806e-4b3d-9c1f-94ba41771726",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "e5648971-c9a1-4f87-b96a-5bb37c3603d4",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "35d2ca3d-3bb5-4512-ae8c-2bf815ca1e27",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "be8547ce-d2f4-4af3-92ce-cd621ba8039e",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "ea391d67-e552-4fe2-9965-a6fc40f0bc9f",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "e7757872-b4a1-4988-90c5-063ba01808fe",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "9dd66165-b863-409d-9196-4334f2be6c0d",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt Cell Door",
+      "GUID": "dba218fe-ea60-4efb-97a4-83f9cf53f99f",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "You try to slice the door's security systems.\r\n\r\n{-} Test {I}. Apply +1 {B} for each strain token on the door, then discard all strain tokens on the door. Enter the number of successes below.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "056031ed-de4f-4701-bb73-d86a3ecf6e40",
+              "theText": "You make progress, but the security protocols are too tight. You need to keep trying.\r\n\r\n{-} Place 1 strain token for each {B} result on the door."
+            }
+          ],
+          "GUID": "c72fcc93-e2a5-4ef5-a6ad-1acd632945e4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt Door 1",
+      "GUID": "bd6cb778-1d45-463c-ab57-fa720937cd53",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "You try to slice the door's security systems.\r\n\r\n{-} Test {I}. Apply +1 {B} for each strain token on the door, then discard all strain tokens on the door. Enter the number of successes below.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "f56a33b2-a868-4f67-9b93-0e4c20b704d8",
+              "theText": "You make progress, but the security protocols are too tight. You need to keep trying.\r\n\r\n{-} Place 1 strain token for each {B} result on the door."
+            }
+          ],
+          "GUID": "4f202032-1107-4c72-9fd2-ec1be0c93d61",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt Door 2",
+      "GUID": "e219e515-dc88-4142-ba4c-5b32f48b5d65",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "You try to slice the door's security systems.\r\n\r\n{-} Test {I}. Apply +1 {B} for each strain token on the door, then discard all strain tokens on the door. Enter the number of successes below.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "00b1bee6-b497-4908-bae2-b29cc1f8e1a9",
+              "theText": "You make progress, but the security protocols are too tight. You need to keep trying.\r\n\r\n{-} Place 1 strain token for each {B} result on the door."
+            }
+          ],
+          "GUID": "1bd5ad64-2e1a-4883-902d-62bdba76e353",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt Terminal",
+      "GUID": "6aba2fcb-cac6-440f-ba2b-3b947083fb6a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "You try to slice the terminal's security systems.\r\n\r\n{-} Test {I}. Apply +1 {B} for each strain token on the terminal, then discard all strain tokens on the terminal.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "904ea265-f925-4bdb-81c5-06dbe7b1439e",
+              "theText": "You make progress, but the security protocols are too tight. You need to keep trying.\r\n\r\n{-} Place 1 strain token for each {B} result on the terminal."
+            }
+          ],
+          "GUID": "db02bd08-5f0a-4954-977e-83973b6efd00",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "The Data",
+      "GUID": "e3d51192-fe61-45c2-b2d3-bed95e7dbf2f",
+      "eventText": "Você destrói o data center, espalhando os componentes eletrônicos sensíveis pela sala em vários pedaços arruinados. Quando você termina, nada resta na sala além de destroços fumegantes.\r\n\r\nQuaisquer que sejam os segredos roubados, eles estão a salvo do Império agora. Tudo o que resta é escapar com o agente.\r\n\r\n{-} Os heróis recebem 100 créditos por herói.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Transmission Terminal",
+              "GUID": "1d9ef650-79d1-4021-b452-0337d296d624",
+              "theText": "O terminal zumbe suavemente enquanto transmite os dados do Rebelde.\r\n\r\n{-} O terminal transmitirá dados confidenciais no final da Rodada 4. Uma figura rebelde pode atacar o terminal (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para destruí-lo.",
+              "buttonList": [
+                {
+                  "GUID": "1c879cdb-7114-4c0f-b1a8-f27109f7315b",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "d01d4546-dbaa-4ce1-b3a0-c47322d85c10",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            }
+          ],
+          "GUID": "6daa526f-6e00-43fa-a925-cf3d7aa2383d",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "The Prisoner",
+      "GUID": "67fc7394-5c15-416a-944d-949a1d18153c",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "Out of the holding cell stumbles a bloody and battered man, clutching his side.\r\n\r\n{-} Place 1 Rebel mission token on the green highlighted space.\r\n{-} The mission token represents the captive. The captive is a Rebel figure (Health: 8, Speed: 2, Defense: 1 white die). Heroes control the captive as an ally.\r\n{-} When the captive is targeted for an attack while adjacent to a hero who could also be a target of that attack, that hero may suffer 1 {C} to become the target of the attack.",
+          "GUID": "33be4a71-b382-45c1-b236-796afab3fa96",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "e3c02a61-7e8d-427a-872b-353f7f215b0c",
+              "theText": "A escotilha leva às saídas de ar e à liberdade.\r\n\r\n{-} O cativo pode escapar pela saída.\r\n{-} Quando o cativo for derrotado, selecione a saída e clique em \"cativo derrotado\".",
+              "buttonList": [
+                {
+                  "GUID": "f242af07-a223-4586-b0ca-c7e3d0bf72ed",
+                  "theText": "Fugas em cativeiro"
+                },
+                {
+                  "GUID": "c177b764-5516-4849-99d2-746a1f94f1be",
+                  "theText": "Cativo derrotado"
+                }
+              ]
+            },
+            {
+              "entityName": "Cell Door",
+              "GUID": "4deefe3f-48ad-4c55-be55-6ce5b38d6b9c",
+              "theText": "A porta no corredor pouco iluminado parece resistente.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "e6a4ac0d-39cd-4517-af80-05e96f3a7e1d",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "a8bf4bcc-6ee6-4b54-83c8-02227e736959",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            }
+          ],
+          "GUID": "31bb33ba-fd81-4808-a5b4-e392b5593794",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} The red Rebel mission token represents the exit. The captive can escape through the exit.\r\n{-} When the captive is defeated, select the exit and click \"captive defeated\".\r\n{-} The Rebels win when the captive escapes.\r\n{-} The Rebels lose when the captive is defeated or all heroes are wounded.",
+          "GUID": "b8d8536d-dcd6-4990-b6a8-35661f722068",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "otherTarget": "the captive",
+          "GUID": "59b25a97-e886-475b-a59f-a471def8fdc8",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
+          "repositionText": "Block access to the exit.",
+          "GUID": "3af0142c-341f-4b91-b400-2afab9479cf9",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "The Prisoner-1",
+      "GUID": "2e48954f-7c36-4236-a3fe-4185c740a0f6",
+      "eventText": "Depois de alguns passos, o prisioneiro estremece quando o sangue escorre pelos dedos agarrados ao seu lado.\r\n\r\n{-} O cativo torna-se <color=\"red\">Sangramento</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "The Prisoner-2",
+      "GUID": "907e7b51-a62e-462c-92e0-a8321d23406e",
+      "eventText": "Alarmes soam pela instalação, chamando mais reforços.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Transmission Received",
+      "GUID": "2ce8854a-e9b1-4c6e-a367-e273744304cf",
+      "eventText": "\"Excelente\", diz uma voz através do sistema de comunicação da instalação. \"A transferência de dados está completa. O prisioneiro não é mais necessário. Por favor, elimine-o.\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "fc1c8a12-255b-4809-a692-e2fc9a01caea",
+              "theText": "O zumbido dos computadores pode ser ouvido atrás desta porta.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "8985a5a7-eea8-48c6-9474-874771f88976",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "7a89dcd9-67cb-4463-8a51-803d732b0082",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            },
+            {
+              "entityName": "Door 2",
+              "GUID": "ae55d4cd-cf21-4d85-96e1-dcd13dcb56ca",
+              "theText": "O zumbido dos computadores pode ser ouvido atrás desta porta.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "8049e43d-6dd0-4706-9dac-6c8d2af5fc49",
+                  "theText": "Abrir"
+                },
+                {
+                  "GUID": "31fa0a58-c5dd-417e-ae6b-07485bdd8fd3",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            },
+            {
+              "entityName": "Cell Door",
+              "GUID": "c80cc693-1f67-4001-a663-6fbe4a24b990",
+              "theText": "A porta no corredor pouco iluminado parece resistente.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "22387e8f-2b52-4b7b-827c-68b60f958780",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            },
+            {
+              "entityName": "Transmission Terminal",
+              "GUID": "65f05f32-5640-4044-b813-d2e5add2c1c4",
+              "theText": "O terminal zumbe suavemente enquanto transmite os dados do Rebelde.\r\n\r\n{-} O terminal transmitirá dados confidenciais no final da Rodada 4. Uma figura rebelde pode atacar o terminal (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para destruí-lo.",
+              "buttonList": [
+                {
+                  "GUID": "4177da3e-7102-4189-b633-35df9563561e",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "175ad31a-ac5f-4da5-be4b-23ccc3ae9023",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Red 1",
+              "GUID": "6dc52ea0-97de-4ec4-9945-d7e9fb377495",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Red 2",
+              "GUID": "493ade16-1729-4d9c-b206-c5c0910a1112",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "598a39b2-0e38-4259-b668-d931c3140daf",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Help the captive escape.",
+          "longText": null,
+          "GUID": "ec010a94-cb4a-43ff-940f-b1295dabb0d5",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Well-Guarded",
+      "GUID": "f03f57ee-c48b-4651-b63d-83d49e89c1ba",
+      "eventText": "",
+      "eventActions": [
+        {
+          "tbText": "\"Will someone remove this Rebel scum from my facility?\" The voice comes through the comm system. \"Don't just stand there, you fools, get them!\"",
+          "GUID": "a16adde2-efb2-4574-ac90-06cbae8f369f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a05b3c61-9d0a-43df-97f5-97ba7d9d69ac",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a8bb23db-fcf7-4b65-8462-85d644a8ac9a",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG015/Trandoshan Hunter"
+        },
+        {
+          "repositionText": "Block access to the doors.",
+          "GUID": "72023349-fae2-4e41-b06b-75b2d743ca90",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Captive highlight",
+      "GUID": "f7c04b85-4f4d-4cbc-b5bd-803edc79ceac",
+      "mainText": "Implante o cativo aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "37062af8-9a50-41e8-8598-f485e1409d3a",
+      "mainText": "A porta no corredor pouco iluminado parece resistente.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+      "buttonList": [
+        {
+          "GUID": "a450edc9-413e-4962-8cb9-9bfe2734ffbf",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "5f9983d6-8c64-4b84-b456-36973be2eca4",
+          "theText": "{A} Fatia"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "d156bc08-a169-49fb-aebb-1b07597eaa65",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "c2ded6a9-0035-4d33-8a80-76e108d8601e",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "375fc01c-8440-4518-8484-34f7fc6720b8",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "1a7c3415-3909-46a6-b225-06f8f4d2fea3",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "99f8fd15-e75e-451f-ac6d-9e50c73277c6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid 2",
+      "GUID": "5fa9b5cb-3bf5-4bb3-987c-6a14a91bb25c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 1",
+      "GUID": "c68955dd-c45c-430e-b598-6e1591e56906",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red 2",
+      "GUID": "834bfef6-1265-4b3a-9909-806a03a0ff53",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 1",
+      "GUID": "6b332adc-123b-4125-958c-2b81e9279ba9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 2",
+      "GUID": "a30ea7c2-b81f-4027-84c8-c96d71907bf8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "cef9f8c5-7bac-441d-8a6a-c0c78cba9917",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "358323b8-b31f-48a0-b2de-ca318905996a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "3dfb60c9-8d8f-4626-8303-6aaf1d15d471",
+      "mainText": "O zumbido dos computadores pode ser ouvido atrás desta porta.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+      "buttonList": [
+        {
+          "GUID": "027adeb8-81ec-4006-9770-fa912ef638b9",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "98582f82-6766-4986-afd0-53d00005282b",
+          "theText": "{A} Fatia"
+        }
+      ]
+    },
+    {
+      "entityName": "Door 2",
+      "GUID": "3d7c1c49-09be-47fd-82b6-0d08ee4aa70a",
+      "mainText": "O zumbido dos computadores pode ser ouvido atrás desta porta.\r\n\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para abri-la.",
+      "buttonList": [
+        {
+          "GUID": "5abc3d37-a7be-4bf5-8d01-6dbd7aa59d9b",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "4aeb3eb8-5241-4da6-9d93-cfff13697b7e",
+          "theText": "{A} Fatia"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "2f709685-714c-420d-9937-99947dbb8b0f",
+      "mainText": "A escotilha leva às saídas de ar e à liberdade.\r\n\r\n{-} O cativo pode escapar pela saída.\r\n{-} Quando o cativo for derrotado, selecione a saída e clique em \"cativo derrotado\".",
+      "buttonList": [
+        {
+          "GUID": "8c97dac8-1773-46d2-88ed-01df10d2aefd",
+          "theText": "Fugas em cativeiro"
+        },
+        {
+          "GUID": "87edf887-65e4-4d73-ad6d-a33accf708e2",
+          "theText": "Cativo derrotado"
+        }
+      ]
+    },
+    {
+      "entityName": "Transmission Terminal",
+      "GUID": "438f6719-7e27-4cee-ae55-d4028c6c17b8",
+      "mainText": "O terminal zumbe suavemente enquanto transmite os dados do Rebelde.\r\n\r\n{-} O terminal transmitirá dados confidenciais no final da Rodada 4. Uma figura rebelde pode atacar o terminal (Saúde: 6, Defesa: 1 dado preto) ou interagir ({I}) para destruí-lo.",
+      "buttonList": [
+        {
+          "GUID": "00525cc9-5c79-4971-a078-f2186f774e71",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "4e2be4c6-4456-4444-afcd-2d1b097745f2",
+          "theText": "{A} Fatia"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Royal Guard",
+      "customInstructions": ""
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "Voe sozinho",
+    "missionDescription": "",
+    "missionInfo": "{-} A porta da Sala dos Fundos está trancada. Um herói pode interagir com a porta para chutá-la.\r\n{-} A missão progredirá quando a porta da Sala dos Fundos se abrir ({V}) ou no final da Rodada 3.",
+    "campaignName": "Core Game",
+    "startingObjective": "Abra a porta da Sala dos Fundos.",
+    "repositionOverride": "Block access to the Back Room.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Daring Escape",
+      "GUID": "7b364285-bb66-480d-a4b5-6a5dc97d8040",
+      "eventText": "Uma porta na parte de trás do bar se abre e um Han Solo maltratado tropeça pela abertura. Seus pulsos ainda estão amarrados, mas em suas mãos ele segura um blaster, atirando de volta para a sala que acabou de sair.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Back Room Door",
+              "GUID": "dd860065-7e02-4930-93ac-fbb6c4953e67",
+              "theText": "A porta da Sala dos Fundos está bem trancada. A voz abafada pode ser ouvida de dentro.\r\n\r\n{-} A porta da Sala dos Fundos está trancada. Um herói pode interagir com a porta para chutá-la.",
+              "buttonList": [
+                {
+                  "GUID": "7b58e95c-005b-47a6-a729-f9387c80423e",
+                  "theText": "{A} Chutar"
+                }
+              ]
+            }
+          ],
+          "GUID": "9ed03c53-73e4-4b28-9942-fa6edcaa6e36",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "customName": null,
+          "GUID": "cfc0e279-cba2-4f93-a963-b23022b3c581",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "Han is bleeding from a couple of superficial wounds.\r\n\r\n{-} <color=\"red\">Han Solo</color> suffers 4 {H}.",
+          "GUID": "13d150f1-b496-4157-8b0f-092ad0ee5126",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "66b7b7dc-ddeb-4f68-8f67-fd5c4d96c4e8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "tbText": "Han Solo seemed to have had a disagreement with the soldiers guarding him.\r\n\r\n{-} Each figure in the <color=\"red\">Stormtrooper</color> group suffers 2 {H}.",
+          "GUID": "407066f6-cd48-4259-bace-80928293534e",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "End Mission Daring Escape",
+      "GUID": "1204f75d-ec87-43b5-8c42-c5801461984f",
+      "eventText": "Como Han teve que se libertar, o nível de ameaça da próxima missão (e apenas da próxima missão) aumenta em 1. Durante o estágio Rebel Upgrade, os jogadores Rebel podem decidir gastar 50 créditos por herói para evitar isso.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End Mission No Daring Escape",
+      "GUID": "58d44998-3736-4485-8c40-f7ffa776c77e",
+      "eventText": "Como os heróis alcançaram Han antes que ele tivesse que se libertar, eles recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Um raio blaster corta o ombro de Han. Com um grito de dor, ele se arrasta em uma esquina. Os imperiais se movem para bloquear seu caminho até ele. Antes de sair de vista, ele joga algo em sua direção.\r\n\r\nEm meio a uma saraivada de tiros de blaster, você pega o objeto, um pequeno cubo de dados, e escapa na outra direção.\r\n\r\nAs informações obtidas do cubo de dados revelam a arma que o General Weiss está desenvolvendo para naves capitais. É avançado e bastante sofisticado, com capacidades destrutivas superando qualquer coisa que a Rebelião tenha à sua disposição.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Coloque em jogo a carta de Missão Lendária \"Atraído\".\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Deslizando por becos e desviando das tropas imperiais, você segue para o navio de Han. Chewbacca está esperando na escotilha, soltando um rugido gutural ao ver Han. \"Sim, sim, eu sei!\" Han diz, acenando para ele.\r\n\r\n\"Olha, estamos saindo daqui, mas isso é tudo que pude encontrar na arma.\" Ele lhe entrega um pequeno cubo de dados antes de subir a rampa para o Falcon.\r\n\r\nAs informações obtidas do cubo de dados revelam a arma que o General Weiss está desenvolvendo para naves capitais. É avançado e bastante sofisticado, com capacidades destrutivas superando qualquer coisa que a Rebelião tenha à sua disposição.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque a carta de Missão Lendária \"Chegando\" em jogo.\r\n{-} Cada herói recebe 2 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Kick in attempt",
+      "GUID": "956ca1de-85c1-46d8-a99f-97af556485c8",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "You kick the door with all your power.\r\n\r\n{-} Test {K}. Apply +1 {B} for each strain token on the door, then discard all strain tokens from the door. Enter the number of successes below.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "1d7abb53-9c01-4060-8bde-106f0ffe879a",
+              "theText": "You kick as hard as you can, but the door does not buckle. You need to keep trying.\r\n\r\nFor each {B} rolled, place 1 strain token on the door."
+            }
+          ],
+          "GUID": "c64844df-6fb1-498d-b8ae-b6c9a421d6e5",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Enquanto as forças rebeldes vasculham a galáxia em busca de informações sobre o projeto de armas de Weiss, o Capitão Solo não faz check-in há alguns dias.\r\n\r\nVocê é rápido em lembrar ao seu comandante que esse não tem sido um comportamento incomum para o contrabandista, mas ela encolhe os ombros e responde: \"O Capitão Solo disse algo sobre uma pista promissora em seu último check-in. Nós só queremos encontrá-lo e acompanhá-lo.\"\r\n\r\nAssim, agora vocês se encontram refazendo seus passos anteriores. Depois de passar por vários locais e contatos, este último se mostra promissor. Não apenas representa a última localização conhecida de Solo, mas também há um bom número de tropas imperiais patrulhando as proximidades.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} A porta da Sala dos Fundos está trancada. Um herói pode interagir com a porta para chutá-la.\r\n{-} A missão progredirá quando a porta da Sala dos Fundos se abrir ({V}) ou no final da Rodada 3.",
+      "eventActions": [
+        {
+          "newInstructions": "All Imperial figures will spend an action to open a door if it is the quickest way to their target.",
+          "GUID": "45628223-bfc3-42b7-aeca-7ea08b49dd62",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "195908ef-2aab-4a1e-a222-bf600ad6b371",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "22e15491-6dd2-478a-a482-6236241375ad",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "8d9e4e61-426e-40be-ab1f-0faab72828a5",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "9fc13df2-97c4-4d0f-aba8-7e56f1500c98",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "72d24cea-1856-4b92-9f58-5f50fc21293e",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "385bf05f-a316-4785-ac79-80d716ba08a4",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Kitchen Door",
+      "GUID": "bf44f221-4be1-4118-a18b-0ac7dacf867a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Kitchen Door",
+              "GUID": "2d27276e-8810-4d91-a3b2-6414a9ee1173",
+              "theText": "A porta separa a cozinha da cantina.",
+              "buttonList": [
+                {
+                  "GUID": "c602b4f3-9241-45ea-aebe-9652f172f78f",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "21c76dd3-7afc-472e-9880-38a877534aaa",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Strange Patrons",
+      "GUID": "0e0b5be9-1a00-4e14-896b-783deb1a988c",
+      "eventText": "Quando você chutou a porta, esperava encontrar uma sala dos fundos cheia de mesas Sabacc, não um posto de observação imperial em pleno funcionamento. \r\n\r\nAs telas cobrem as paredes e as vozes crepitam de vários alto-falantes. Computadores e equipamentos de monitoramento estão espalhados por toda parte. No fundo da sala, em uma pequena cela barrada por um campo de força, está Han Solo.\r\n\r\n\"Cuidado!\" ele grita, apontando para as tropas na sala, que lutam por suas armas.\r\n\r\nHá um pequeno estrondo sob seus pés. As luzes da sala piscam e o campo de força morre. \"Bom momento, Chewie,\" Han sorri para si mesmo enquanto mergulha para o blaster mais próximo.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Back Room Door",
+              "GUID": "2767804e-0c5b-4e6c-a23e-e571213f85b7",
+              "theText": "A porta da Sala dos Fundos está bem trancada. A voz abafada pode ser ouvida de dentro.\r\n\r\n{-} A porta da Sala dos Fundos está trancada. Um herói pode interagir com a porta para chutá-la.",
+              "buttonList": [
+                {
+                  "GUID": "d90c7b70-d942-4955-83bf-2ae6aa74eded",
+                  "theText": "{A} Chutar"
+                }
+              ]
+            }
+          ],
+          "GUID": "0d27dbca-935b-43fc-87ad-39ffb0a7f27a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "customName": null,
+          "GUID": "079031a4-5cbf-4a1c-be03-e31f765118e7",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "96a27445-2090-477d-bd82-1d1f2330c6ef",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "ec5d2349-e70b-43be-b583-b4e520ea1906",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Han Solo is alive, but battered and exhausted.\r\n\r\n{-} Exhaust <color=\"red\">Han Solo</color>'s Deployment card.",
+          "GUID": "8976440b-1320-440f-8613-ef0c0166f86f",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Time to Run",
+      "GUID": "68121706-35f7-4134-9940-b4ecfdaecf4c",
+      "eventText": "\"Vocês parecem familiares!\" Han grita, enviando tiros de blaster em direção a seus ex-captores. Ele abre a boca para falar novamente, mas para, mergulhando no chão enquanto os Imperiais respondem ao fogo.\r\n\r\n\"Fale mais tarde!\" ele grita enquanto se esforça para se proteger.\r\n\r\n{-} Os heróis controlam <color=\"red\">Han Solo</color> como aliado.\r\n{-} O token de missão Rebelde representa a saída.\r\n{-} <color=\"red\">Han Solo</color> pode escapar pela saída.\r\n{-} Os rebeldes vencem quando <color=\"red\">Han Solo</color> escapa.\r\n{-} Os rebeldes perdem quando <color=\"red\">Han Solo</color> é derrotado.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit",
+              "GUID": "db6ce373-cb3f-4264-990b-21ff5479493a",
+              "theText": "Caminhos estreitos levam para longe da cantina, facilitando a fuga dos perseguidores.\r\n\r\n{-} <color=\"red\">Han Solo</color> pode escapar pela saída, encerrando a missão.",
+              "buttonList": [
+                {
+                  "GUID": "8d84e205-876c-411e-8d73-8255612670b7",
+                  "theText": "Han Solo Escapa"
+                }
+              ]
+            }
+          ],
+          "GUID": "34e1a323-66cd-413b-89a6-6c6eb843bffc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "As you scramble towards the exit, mechanical whirring announces the arrival of a relentless hunter, looking for Solo.",
+          "GUID": "944cb357-3155-4710-b934-cae519446252",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "856aba9e-7a79-4659-a153-752603cad90d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG071/IG-88"
+        },
+        {
+          "theText": "{-} Heroes control <color=\"red\">Han Solo</color> as an ally.\r\n{-} The Rebel mission token represents the exit.\r\n{-} <color=\"red\">Han Solo</color> can escape through the exit.\r\n{-} The Rebels win when <color=\"red\">Han Solo</color> escapes.\r\n{-} The Rebels lose when <color=\"red\">Han Solo</color> is defeated.",
+          "GUID": "d624631a-54c4-4982-a157-e503b5212d9d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Help <color=\"red\">Han Solo</color> escape.",
+          "longText": null,
+          "GUID": "770b09f1-977c-44ff-a7c8-4d928e2c0915",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "otherTarget": null,
+          "GUID": "f64233e3-a718-4f90-905d-3bf5c6836072",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
+          "repositionText": "Block access to the Exit.",
+          "GUID": "2c901212-a768-41fb-b146-ff128d088447",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Time to Run-1",
+      "GUID": "9838f8ca-8f28-4186-b39a-236b4f4d1cc8",
+      "eventText": "IG-88 gira seus sensores ópticos em direção à cantina e começa a se mover em direção a ela.\r\n\r\n{-} <color=\"red\">IG-88</color> move 5 em direção a <color=\"red\">Han Solo</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Time to Run-2",
+      "GUID": "d2c05fce-f5d1-48f4-ac13-d24767157b4a",
+      "eventText": "Um dos Imperiais consegue sair de um pedido de reforços.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Back Room Door",
+      "GUID": "3ea3c392-0fa8-463e-9390-a6a631f9a28c",
+      "mainText": "A porta da Sala dos Fundos está bem trancada. A voz abafada pode ser ouvida de dentro.\r\n\r\n{-} A porta da Sala dos Fundos está trancada. Um herói pode interagir com a porta para chutá-la.",
+      "buttonList": [
+        {
+          "GUID": "8c87ccff-41a8-4375-b7f6-e4ba501ee9ae",
+          "theText": "{A} Chutar"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "f36f2593-b3cd-449b-b6a7-fbcbd9915e0d",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "286ebdb8-45e6-42e9-8845-b9fb531678ad",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "6a25789e-bd76-461e-a47c-358886fdcdc7",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "250c41d4-ae00-46b5-b8f5-abbbfd335a72",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP EOfficer",
+      "GUID": "e025d0a8-0fcb-417f-9430-44fe74aeb281",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper",
+      "GUID": "9bc0953e-c065-4840-807f-d2c6e04711eb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Han Back Room",
+      "GUID": "931a1ab2-8a92-470b-af84-38a36800f91f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Han Cantina",
+      "GUID": "3cd4a0fe-9168-4c7e-b359-2025af5a187d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP IG-88",
+      "GUID": "2f8afa39-92be-40bc-8f87-9c870a66fe31",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "c50044ec-8cc6-490d-8ac3-ee69cdfbed62",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "920b5943-f77e-4bfd-a4d4-f18397a89ae3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1-1",
+      "GUID": "8003d418-14a1-4e50-bf2b-33030f8a39ac",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1-2",
+      "GUID": "14216442-71d3-49cf-bb4b-db8a5fdfbe7c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1-3",
+      "GUID": "b9670acd-b75d-4a88-b0f2-153e64c5a8de",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2-1",
+      "GUID": "01054b24-47b5-4060-9374-9f0209179fcf",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2-2",
+      "GUID": "f5f27ebc-bd8b-4c9d-bf55-368a1b702411",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2-3",
+      "GUID": "777b833b-9e23-4cc3-82b1-4989a5e9b226",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit",
+      "GUID": "ecd56f9e-ff6b-4ac7-aa8a-d854b97be1ae",
+      "mainText": "Caminhos estreitos levam para longe da cantina, facilitando a fuga dos perseguidores.\r\n\r\n{-} <color=\"red\">Han Solo</color> pode escapar pela saída, encerrando a missão.",
+      "buttonList": [
+        {
+          "GUID": "330a5543-def8-4349-8739-562fd59d4a44",
+          "theText": "Han Solo escapa"
+        }
+      ]
+    },
+    {
+      "entityName": "Kitchen Door",
+      "GUID": "006cbdac-0f3d-487f-903e-98cbd17e134b",
+      "mainText": "A porta separa a cozinha da cantina.",
+      "buttonList": [
+        {
+          "GUID": "a5d69b9c-9929-4042-a7d9-00dc927719a6",
+          "theText": "{A} Aberto"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}
