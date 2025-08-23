@@ -1,0 +1,521 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "Aftermath",
+    "missionDescription": "VITÓRIA! Com a destruição da Estrela da Morte, a Rebelião deu esperança a uma galáxia que vive com medo. Tendo perdido sua arma final, o Império luta para se recuperar diante dessa derrota esmagadora.\r\n\r\nÀ medida que os fragmentos espalhados da estação de batalha chovem sobre a base rebelde em Yavin 4, o Império põe em ação um plano para buscar vingança contra as forças rebeldes estacionadas na pequena lua.\r\n\r\nNão muito tempo depois, quando um farol imperial começa a transmitir de um posto avançado a alguma distância da base rebelde, uma pequena equipe de agentes de elite é despachada; sua missão: silenciar o sinal a todo custo.",
+    "missionInfo": "{-} Uma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.\r\n{-} As portas estão trancadas para figuras imperiais.\r\n{-} Os rebeldes vencem quando todos os terminais são destruídos.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Destrua os terminais (&All terminals destroyed&/4).",
+    "repositionOverride": "Estar ao lado de um terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Crate 1 opened",
+      "GUID": "fae52e20-9575-448c-a8be-a5aa5f7b678f",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "421a7384-99d3-43b8-9b8b-a67c20c73fd1",
+              "theText": "Uma velha caixa de suprimentos imperial.",
+              "buttonList": [
+                {
+                  "GUID": "632ce159-ebc5-4fbb-885d-85ca7628d853",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "c843b940-bba5-4459-be63-c9fc32dad32c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 2 opened",
+      "GUID": "c5410e34-c9fd-40d2-b823-515f1e394b73",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "55af3c65-590a-4e0c-b580-2e7c2047c512",
+              "theText": "Uma velha caixa de suprimentos imperial.",
+              "buttonList": [
+                {
+                  "GUID": "dc7b530d-d8e8-4dfe-984b-cb3f81739c14",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "94d875b4-f21e-4944-97f3-c8fb45f6c373",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Crate 3 opened",
+      "GUID": "e86b66f8-57b8-401b-af32-320ce10e7ca7",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "d5d989e9-eb57-488e-a089-11688b2065fc",
+              "theText": "Uma velha caixa de suprimentos imperial.",
+              "buttonList": [
+                {
+                  "GUID": "aaec1525-1603-49e3-8639-57c6e3e3b4c5",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "b62ede53-88e8-4dcb-8a8a-7f1e22d6e25e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Door 2 destroyed",
+      "GUID": "90202d3e-1285-4763-9f1e-17b6c3c845e3",
+      "eventText": "Sob seus ataques, a porta logo cede.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "cf57686f-07fc-4e0e-8b7e-2d9e8f67875a",
+              "theText": "Uma porta leva ao posto avançado imperial",
+              "buttonList": [
+                {
+                  "GUID": "f466ce66-bb36-42ff-97b3-813195a57490",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "692704f0-8513-4aef-a30a-f0c277820f8e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End of mission - Rebels lose",
+      "GUID": "7ddd5374-8f96-43a0-8fc7-eda3931adea6",
+      "eventText": "Soldados imperiais derramam a floresta por todos os lados; O farol fez seu trabalho e você tem que correr. Com tantos sobreviventes imperiais se organizando, as tropas terrestres rebeldes terão as mãos ocupadas.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Coloque em jogo a carta de Missão Lendária \"Sob Cerco\".\r\n{-} Cada jogador recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of mission - Rebels win",
+      "GUID": "870b7c74-06ff-4e5c-a912-987a840df6d9",
+      "eventText": "Seus planos interrompidos, as forças imperiais restantes caem em uma retirada apressada. \"Bom trabalho!\" Seu piloto sorri de volta para você enquanto você entra no transporte.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque a carta de Missão Lendária \"Uma Nova Ameaça\" em jogo.\r\n{-} Cada jogador recebe 1 XP. Os heróis recebem 200 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Fortified",
+      "GUID": "44387bd2-8147-473c-a48b-a3bd08685a96",
+      "eventText": "\"Eles estão aqui!\" gritam as forças imperiais enquanto lutam em suas defesas. \"Mantenha-os longe dos transmissores!\"\r\n\r\nHá um estalo do seu comlink. \"Forças imperiais se aproximando!\" seu piloto entra em contato com você de seu transporte, agora circulando acima. \"O lugar vai estar cheio deles em breve, então faça o trabalho rápido!\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "1a7a686f-7397-424a-baf8-d5bfcc8ec1d1",
+              "theText": "Uma porta leva ao posto avançado imperial",
+              "buttonList": [
+                {
+                  "GUID": "06175041-a604-48ed-8319-00fcebf83655",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "04ff4ab0-d23b-4ba9-9bbf-d3233ba6f239",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "88b56268-6a96-42d4-bcf5-4a2e260d4fa7",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        },
+        {
+          "tbText": "O engenheiro da E-Web torna-se <color=\"red\">Focado</color>.",
+          "GUID": "b29a2e8e-9fd0-45ac-b850-bed92d238e39",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "2f434a05-b3db-4f2d-b6a6-2cd31cdb49aa",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "282cf3f0-3917-436b-a541-94ff9c06e59d",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - Selection",
+      "GUID": "48c1cabd-d027-4d10-af6b-9615f431a0ab",
+      "eventText": "Pouco depois de invadir os postos avançados, os protocolos de segurança imperiais são ativados.",
+      "eventActions": [
+        {
+          "mainText": "Existem duas ou mais figuras rebeldes fora do posto avançado?",
+          "buttonList": [
+            {
+              "GUID": "b26342d6-cd14-43f8-9f76-20f354d1b0a9",
+              "theText": "Sim"
+            },
+            {
+              "GUID": "1d2275cb-8062-4895-acdc-00a979af0129",
+              "theText": "Não"
+            }
+          ],
+          "GUID": "3841a266-35c9-4fc1-9874-471ef92e929d",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - option 1",
+      "GUID": "d02af3cc-d824-40a0-b8fc-068daff410d3",
+      "eventText": "Com um zumbido alto, os escudos de energia são ativados ao redor dos terminais restantes.\r\n\r\nCada terminal tem 7 de vida em vez de 4.",
+      "eventActions": [
+        {
+          "theText": "{-} Uma figura Rebelde pode atacar um terminal (Saúde: 7, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.\r\n{-} As portas estão trancadas para figuras imperiais.\r\n{-} Os rebeldes vencem quando todos os terminais são destruídos.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "ff0c6d17-0ae8-4ecc-b578-0124ced7f71c",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Lockdown - option 2",
+      "GUID": "3ccef7c8-2e48-4f39-8dd7-64b69b5dfcd4",
+      "eventText": "A porta se fecha novamente.\r\n\r\n{-} A porta está trancada. Uma figura rebelde pode atacar a porta (Saúde: 8, Defesa: 1 dado preto).",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Outpost Door 1",
+              "GUID": "c943b08c-5993-44cb-8961-1e424892713f",
+              "theText": "A porta está bem trancada.\r\n\r\nUma figura rebelde pode atacar a porta (Saúde: 8, Defesa: 1 dado preto).",
+              "buttonList": [
+                {
+                  "GUID": "72fad6c1-f077-4ad6-ac69-708e013cb1ec",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "d2f777a3-7fb1-4579-ab90-a4e1f2392fc6",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Uma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.\r\n{-} A porta está trancada. Uma figura rebelde pode atacar a porta (Saúde: 8, Defesa: 1 dado preto).\r\n{-} Os rebeldes vencem quando todos os terminais são destruídos.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "26fed357-841d-4dd4-95ca-3e72f33f1882",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "4ca9290d-b6b6-4314-a347-fbbd19b7b1a1",
+      "eventText": "Chegando ao posto avançado, você imediatamente abre fogo contra as tropas que montam guarda. Você suspeita que eles sabiam que você estava vindo e que você provavelmente está entrando em uma emboscada. Mesmo assim, com o sinal continuando a transmitir, simplesmente não há tempo para uma abordagem mais sutil.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} Uma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.\r\n{-} As portas estão trancadas para figuras imperiais.\r\n{-} Os rebeldes vencem quando todos os terminais são destruídos.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Terminal 1 destroyed",
+      "GUID": "6d935ef2-418e-434b-9ab4-55df80a4263a",
+      "eventText": "O terminal explode em uma chuva de faíscas. O zumbido da transmissão pára imediatamente.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal1",
+              "GUID": "e48a6569-e35a-43bd-9e2b-6c4c0baaaf85",
+              "theText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+              "buttonList": [
+                {
+                  "GUID": "cff8053c-e16a-458e-92aa-423cbb843bef",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "9efb3d19-8c3d-4b90-b8a7-fa3463850f63",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 2 destroyed",
+      "GUID": "4e6aa656-7f34-4820-b01f-1c2cb040c4c8",
+      "eventText": "O terminal explode em uma chuva de faíscas. O zumbido da transmissão pára imediatamente.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal2",
+              "GUID": "1c793804-1c11-49c3-a09f-350ef53dba85",
+              "theText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+              "buttonList": [
+                {
+                  "GUID": "53d957e9-0bb5-4d24-a86b-9d0967322552",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "2fb52ae4-cef6-404f-a3dc-325a7a0c57dd",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 3 destroyed",
+      "GUID": "b285b2dc-8961-4ebf-85d0-f2be705362d8",
+      "eventText": "O terminal explode em uma chuva de faíscas. O zumbido da transmissão pára imediatamente.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal3",
+              "GUID": "d7f5fcd8-2010-4f41-bb9f-fcb769b30c5b",
+              "theText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+              "buttonList": [
+                {
+                  "GUID": "5e9be623-e80d-4ada-9908-1b438f73742a",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "bd47b359-b647-46b1-ba6c-7894f737f230",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Terminal 4 destroyed",
+      "GUID": "d929242e-cff1-4245-95c2-60112d413950",
+      "eventText": "O terminal explode em uma chuva de faíscas. O zumbido da transmissão pára imediatamente.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Terminal4",
+              "GUID": "ac6058e5-d5cd-4db3-a2d2-f795690c5e6d",
+              "theText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+              "buttonList": [
+                {
+                  "GUID": "8daa7102-55b2-43f3-b5af-6b1aaf66b45a",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "a19a20e0-2328-43fb-91d9-2b9731765370",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "8029660c-518c-4158-b9a2-0bc5c0aafd37",
+      "mainText": "Uma velha caixa de suprimentos imperial.",
+      "buttonList": [
+        {
+          "GUID": "490b44fc-f56d-4c36-80ba-6a2cd04c15ed",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "f9220f6a-c9d1-4c47-afbd-561a601eb764",
+      "mainText": "Uma velha caixa de suprimentos imperial.",
+      "buttonList": [
+        {
+          "GUID": "615dd7d5-0d42-49d7-8cb3-428318500b77",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1631eed8-357a-43bd-8fa3-9f35fedf7768",
+      "mainText": "Uma velha caixa de suprimentos imperial.",
+      "buttonList": [
+        {
+          "GUID": "91ddce27-0a1a-4203-a083-2eaaada21300",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Green",
+      "GUID": "32fbea41-c677-469e-bb9e-628e47e221bd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Imperial Officer",
+      "GUID": "c9b21ce9-c10d-43cf-8512-4af8035c9fab",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "ea09f556-2a0b-48fb-b30d-a8be3929b449",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "00acfb0d-b9be-47a3-abf3-f1516260886a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 1",
+      "GUID": "213ef341-ae49-4a1c-88de-ff84c7dd2a76",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 2",
+      "GUID": "ad8ac2d1-90fb-4d3d-b36d-fdfb4b708d7f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Stormtrooper 3",
+      "GUID": "cfb99e66-b766-4bf3-8ba1-87d070ee0e0b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "61c15ba1-45d1-404c-aabc-62e2e4836a23",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "3e206334-2075-4690-8396-c45a3ce8a5be",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "f43f95ed-7316-4f00-b66c-d1f2d6ddf965",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Outpost Door 1",
+      "GUID": "0b1c0ae9-8fec-46c0-835d-f68031d2c2aa",
+      "mainText": "Uma porta leva ao posto avançado imperial",
+      "buttonList": [
+        {
+          "GUID": "150b4fd0-0b0b-491e-9607-eb5d4671e299",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal1",
+      "GUID": "71710954-71e1-4e6b-8f0f-906d301caba1",
+      "mainText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+      "buttonList": [
+        {
+          "GUID": "a3360f5d-9acd-4c21-9755-d9f89b21d705",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal2",
+      "GUID": "d90b24a6-1181-49f4-b659-ca6e7b5f8714",
+      "mainText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+      "buttonList": [
+        {
+          "GUID": "ee732d47-3f83-4e63-a796-d2282a1a83ae",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal3",
+      "GUID": "739d0d45-3a58-435e-9103-223304a67ca4",
+      "mainText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+      "buttonList": [
+        {
+          "GUID": "260d5068-23f7-48d3-b99a-b9bb1fa2fca7",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal4",
+      "GUID": "60441375-9584-486f-a56e-130420fff398",
+      "mainText": "O terminal zumbe com eletricidade enquanto transmite o sinal.\r\n\r\nUma figura rebelde pode atacar um terminal (Saúde: 4, Defesa: 1 {G}). Aplique +1 {G} aos resultados de defesa do terminal se ele estiver adjacente a 1 ou mais figuras imperiais.",
+      "buttonList": [
+        {
+          "GUID": "fca0a4f0-05eb-4035-a28e-3d014c106683",
+          "theText": "Destruir"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

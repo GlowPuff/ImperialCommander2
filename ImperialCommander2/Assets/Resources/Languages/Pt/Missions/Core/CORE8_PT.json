@@ -1,0 +1,672 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "Incoming",
+    "missionDescription": "",
+    "missionInfo": "{-} A missão progredirá quando uma figura rebelde entrar no corredor (clique no destaque verde e selecione \"Entrar no corredor\").\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Entre na instalação.",
+    "repositionOverride": "Fique a 2 espaços de um herói adjacente a um terminal.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Bombardment 3",
+      "GUID": "e3e8e936-f214-4d92-a96d-8a11319dc57a",
+      "eventText": "Fogo de artilharia chove sobre a instalação. Uma explosão bem ao lado de {rebel} rasga a parede, enviando chuvas de fragmentos de pedra afiados voando.\r\n\r\n{-} Coloque uma ficha de missão imperial no espaço de {rebel}.\r\n{-} {rebel} e todas as figuras rebeldes dentro de 3 espaços sofrem 1 {H} e se tornam <color=\"red\">Sangramento</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment-1",
+      "GUID": "cdf9dcfb-c669-4e53-b7b5-b43638ac3ba1",
+      "eventText": "Fogo de artilharia chove sobre a instalação. Explosões ressoam, transformando pedra em escombros. O teto desaba sobre {rebel} e tudo nas proximidades.\r\n\r\n{-} Coloque uma ficha de missão imperial no espaço de {rebel}.\r\n{-} {rebel} e todas as figuras Rebeldes dentro de 3 espaços de {rebel} sofrem 2 {H}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment-2",
+      "GUID": "2f6082aa-fb07-47bf-aceb-a2b4a1e601f8",
+      "eventText": "Fogo de artilharia chove sobre a instalação. De repente, uma enorme explosão ecoa pelo prédio. {rebel} é pego na onda de choque e enviado para longe.\r\n\r\n{-} Coloque uma ficha de missão imperial no espaço de {rebel}.\r\n{-} {rebel} e todas as figuras rebeldes dentro de 3 espaços ficam <color=\"red\">Atordoado</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Bombardment-Trigger",
+      "GUID": "8250ac59-b27c-4682-8f83-62d31a032b17",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Discard T1",
+      "GUID": "3052e57d-c8c9-4054-b28e-da02b2b6d18b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Correct Terminal 1",
+              "GUID": "d7975c57-5da0-4942-b392-27223b9572d1",
+              "theText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+              "buttonList": [
+                {
+                  "GUID": "e51cfc74-03cd-46cf-9d64-2c5fc3f829fd",
+                  "theText": "{A} Investigar"
+                }
+              ]
+            }
+          ],
+          "GUID": "5305f852-ddb3-42e1-8a0a-1055836a0bc8",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Discard T2",
+      "GUID": "47928fee-cfd6-4e3e-bcd3-67d8c1dda9de",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Correct Terminal 2",
+              "GUID": "7829c59a-f929-478d-8586-0e80e56fdd5d",
+              "theText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+              "buttonList": [
+                {
+                  "GUID": "7bb4ebf4-beac-434c-be86-c73a4f24120d",
+                  "theText": "{A} Investigar"
+                }
+              ]
+            }
+          ],
+          "GUID": "b2e061d3-7d64-4bb3-9c52-fd7a591506d2",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Com uma explosão final, o prédio ronca ao seu redor, fragmentos de pedra pesados chovendo de cima. Suas únicas escolhas são ficar dentro de casa enquanto a estrutura desmorona ao seu redor, lutando para sair ou se render.\r\n\r\nAvançando do lado de fora, você está pronto para lutar contra suas vidas até ver quantas tropas imperiais estão esperando do lado de fora. Várias dezenas de blasters estão apontados em sua direção e a rendição se torna sua única opção.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Coloque a carta de Missão Lendária \"A Fonte\" em jogo. Jogue \"Capturado\" como uma missão forçada.\r\n{-} O nível de ameaça da próxima missão (e apenas da próxima missão) aumenta em 1. Durante o estágio Rebel Upgrade, os jogadores Rebel podem decidir gastar 50 créditos por herói para evitar isso.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win early",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Você consegue abrir as portas de segurança apenas o suficiente para que todos se espremam, logo antes de uma explosão final enviar pedras pesadas trovejando. Poeira e fragmentos de rocha inundam o túnel, mas você já está em movimento.\r\n\r\nAinda pode ser necessário um pouco de manobra cuidadosa para se esquivar dos Imperiais quando você retornar à superfície, mas agora você está em casa livre.\r\n\r\nÉ uma vitória amarga com a perda do posto avançado. Os esquemas se foram, junto com qualquer análise detalhada que os engenheiros rebeldes poderiam ter fornecido. Pelo menos você saiu cedo.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque a carta de Missão Lendária \"Cadeia de Comando\" em jogo.\r\n{-} Cada herói recebe 2 XP. Os heróis recebem 100 créditos por herói.\r\n{-} Como a porta de segurança foi aberta antes do final da Rodada 5, os heróis recebem 100 créditos adicionais por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win late",
+      "GUID": "3d097218-f1f2-4ea2-93ff-486f4af19583",
+      "eventText": "Você consegue abrir as portas de segurança apenas o suficiente para que todos se espremam, logo antes de uma explosão final enviar pedras pesadas trovejando. Poeira e fragmentos de rocha inundam o túnel, mas você já está em movimento.\r\n\r\nAinda pode ser necessário um pouco de manobra cuidadosa para se esquivar dos Imperiais quando você retornar à superfície, mas agora você está em casa livre.\r\n\r\nÉ uma vitória amarga com a perda do posto avançado. Os esquemas se foram, junto com qualquer análise detalhada que os engenheiros rebeldes poderiam ter fornecido.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque a carta de Missão Lendária \"Cadeia de Comando\" em jogo.\r\n{-} Cada herói recebe 2 XP. Os heróis recebem 100 créditos por herói.\r\n{-} Como a porta de segurança foi aberta após o final da Rodada 5, o nível de ameaça da próxima missão (e apenas da próxima missão) aumenta em 1. Durante o estágio Rebel Upgrade, os jogadores Rebel podem decidir gastar 50 créditos por herói para evitar isso.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Enter Corridor",
+      "GUID": "7e77f45c-17c2-48d5-87d3-9f28dd237042",
+      "eventText": "Luzes fracas piscam quando você entra no corredor. Ao mesmo tempo, explosões abalam o prédio. Na parte de trás da instalação, você vê uma lacuna na parede, explodida por soldados imperiais para entrar.\r\n\r\nEm algum lugar aqui deve haver informações sobre os túneis.\r\n\r\n{-} Os tokens de missão imperial representam escombros. Escombros são terrenos difíceis.\r\n{-} No final de cada rodada, e durante certos eventos, o Império disparará tiros de artilharia contra a estrutura.\r\n{-} Um herói pode interagir com um terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.\r\n{-} A missão progredirá quando os dados sobre a rota de fuga forem encontrados.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Corridor Entrance",
+              "GUID": "c0731797-8916-47e3-8858-fc7cb1e3e248",
+              "theText": "O posto de escuta está em um silêncio sinistro, apenas moderadamente iluminado por luzes de emergência.\r\n\r\n{-} A primeira vez que uma figura rebelde se mover além deste espaço, clique em \"Entrar no corredor\".",
+              "buttonList": [
+                {
+                  "GUID": "24d134b8-58a2-458f-876a-9561ff2e0219",
+                  "theText": "Entrar no corredor"
+                }
+              ]
+            }
+          ],
+          "GUID": "d5c3f8bd-b171-46d5-abe9-9c05cfd33c38",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Os tokens de missão imperial representam escombros. Escombros são terrenos difíceis.\r\n{-} No final de cada rodada, e durante certos eventos, o Império disparará tiros de artilharia contra a estrutura.\r\n{-} Um herói pode interagir com um terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.\r\n{-} A missão progredirá quando os dados sobre a rota de fuga forem encontrados.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "d5ac7361-8b42-4e50-89cf-4c3a43881080",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Encontre dados sobre os túneis (&Terminals&/2).",
+          "longText": null,
+          "GUID": "7ac8b75d-84ed-4b91-b56e-792c958745e2",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Hidden Passage",
+      "GUID": "008a2a49-8e24-4e57-bd51-1a933a202d59",
+      "eventText": "Poeira e fragmentos de pedra caem do teto; A estrutura está agora sob ataque constante.\r\n\r\nVocê considera tentar a sorte contra a massa de forças imperiais do lado de fora, assim como encontra os controles para abrir os túneis subterrâneos.\r\n\r\nPressionando uma série de comandos, você espera que a porta de segurança oculta se abra. Em vez disso, você ouve o gemido alto de metal sob tensão, seguido por um grito agudo. Avisos vermelhos são exibidos na tela do terminal.\r\n\r\nAtolado. É claro.\r\n\r\n{-} O token de missão neutra representa a porta de segurança. Um herói pode interagir com a porta de segurança ({K}) para tentar abri-la.\r\n{-} Os rebeldes vencem quando abrem a porta de segurança.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Blast Door",
+              "GUID": "12abed1d-cf3a-4119-9f47-d9d334b6dd79",
+              "theText": "A porta de segurança está apertada. Será necessária alguma força para abri-lo o suficiente para você passar.\r\n\r\n{-} Um herói pode interagir com a porta de segurança ({K}) para tentar abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "90f246e7-4297-4b52-b727-49c29c0d7a98",
+                  "theText": "{A} Abra"
+                }
+              ]
+            },
+            {
+              "entityName": "Wrong Terminal 1",
+              "GUID": "f12e0dc1-356e-4c1d-8e85-d4966ca3e6a8",
+              "theText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+              "buttonList": [
+                {
+                  "GUID": "ded2fdac-4371-4e6a-be51-f910b6c86faa",
+                  "theText": "{A} Investigar"
+                }
+              ]
+            },
+            {
+              "entityName": "Wrong Terminal 2",
+              "GUID": "a16855e5-431c-48c8-8fa3-840c9d334983",
+              "theText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+              "buttonList": [
+                {
+                  "GUID": "5989012f-b5c2-427a-9aab-ff6dab9f6498",
+                  "theText": "{A} Investigar"
+                }
+              ]
+            }
+          ],
+          "GUID": "aff6e22e-a32f-4528-87af-75a236c66a33",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} Os tokens de missão imperial representam escombros. Escombros são terrenos difíceis.\r\n{-} No final de cada rodada, e durante certos eventos, o Império disparará tiros de artilharia contra a estrutura.\r\n{-} O token de missão neutra representa a porta de segurança. Um herói pode interagir com a porta de segurança ({K}) para tentar abri-la.\r\n{-} Os rebeldes vencem quando abrem a porta de segurança.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "10b2e5d0-e0fe-49df-b10c-d278b0d2e9b7",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Fuja pela Porta de Segurança.",
+          "longText": null,
+          "GUID": "91ba07cc-b211-4253-aa29-c93facff6d55",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Investigate Correct 1",
+      "GUID": "c6704276-624a-4ec7-9b55-cca18d25f892",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Você começa a limpar os escombros e apertar botões para tentar encontrar dados sobre os túneis.\r\n\r\n{-} Teste {I} ou {J}. Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados. Aplique +1 {B} aos resultados de cada token de strain no terminal e, em seguida, descarte todos os tokens de strain no terminal. Insira o número de sucessos abaixo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "9dd10ebb-96a3-4c1a-ab2f-7a85f98cbcf5",
+              "theText": "Você faz algum progresso, mas ainda não encontrou nada de interessante.\r\n\r\n{-} Coloque 1 token de strain no terminal para cada {B} ganho."
+            }
+          ],
+          "GUID": "0c731998-6fb9-4f57-8b5c-464fdb60b6d4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Investigate Correct 2",
+      "GUID": "153a1c43-e52c-419f-94cb-33bff9d88387",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Você começa a limpar os escombros e apertar botões para tentar encontrar dados sobre os túneis.\r\n\r\n{-} Teste {I} ou {J}. Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados. Aplique +1 {B} aos resultados de cada token de strain no terminal e, em seguida, descarte todos os tokens de strain no terminal. Insira o número de sucessos abaixo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "5345f046-e65e-4109-a46c-d89f4f1d3935",
+              "theText": "Você faz algum progresso, mas ainda não encontrou nada de interessante.\r\n\r\n{-} Coloque 1 token de strain no terminal para cada {B} ganho."
+            }
+          ],
+          "GUID": "cbc7e7f9-dde6-4d94-b088-895b2002ec7c",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Investigate Wrong 1",
+      "GUID": "53185f07-a3c2-4334-9724-5f9412db5be6",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Você começa a limpar os escombros e apertar botões para tentar encontrar dados sobre os túneis.\r\n\r\n{-} Teste {I} ou {J}. Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados. Aplique +1 {B} aos resultados de cada token de strain no terminal e, em seguida, descarte todos os tokens de strain no terminal. Insira o número de sucessos abaixo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "a4a8bf5f-db5e-4d74-a347-b2c31968ef7c",
+              "theText": "Você faz algum progresso, mas ainda não encontrou nada de interessante.\r\n\r\n{-} Coloque 1 token de strain no terminal para cada {B} ganho."
+            }
+          ],
+          "GUID": "4768e6b2-78fc-4a10-a714-1520f2c9b595",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Investigate Wrong 2",
+      "GUID": "96804d50-8a8d-4bd3-a52c-4c6223597b42",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Você começa a limpar os escombros e apertar botões para tentar encontrar dados sobre os túneis.\r\n\r\n{-} Teste {I} ou {J}. Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados. Aplique +1 {B} aos resultados de cada token de strain no terminal e, em seguida, descarte todos os tokens de strain no terminal. Insira o número de sucessos abaixo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "8d658ce2-7435-460a-b60e-003032f965c8",
+              "theText": "Você faz algum progresso, mas ainda não encontrou nada de interessante.\r\n\r\n{-} Coloque 1 token de strain no terminal para cada {B} ganho."
+            }
+          ],
+          "GUID": "9e186ac2-0414-4c89-ad2c-99e371dbf97a",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Os engenheiros rebeldes estão concluindo sua análise dos esquemas. Na esperança de manter suas descobertas em segredo, o Comando enviou você para ficar de olho em seu progresso e entregar seus resultados em mãos.\r\n\r\nPara sua surpresa, você chega a uma instalação em ruínas e invadida pelas forças imperiais. Pior, seu transporte que se aproxima é alvejado e levado a um pouso difícil.\r\n\r\nFugindo pela floresta com um batalhão perseguindo logo atrás, você se depara com um posto de escuta para a instalação. Você se lembra que esta área possui uma rede de túneis que conectam a instalação com rotas de fuga de emergência.\r\n\r\nVocê deve ser capaz de acessar os túneis de fuga através do posto de escuta se conseguir encontrar sua entrada antes que as forças imperiais o alcancem.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} A missão progredirá quando uma figura rebelde entrar no corredor (clique no destaque verde e selecione \"Entrar no corredor\").\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "ad91d4e6-241a-477d-9740-97490f2dfd2e",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "bc683330-2fe2-4ace-9cee-d72c8d49b758",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "cd81d749-5dd3-4554-91c3-9b7d1753f701",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "1e7ce7dd-f71f-44f9-b759-d79ceafa2e2c",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "50dbab10-a297-496e-99a7-9b46e540713a",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "910f5177-b996-4ac3-9cf1-31bcb7da1765",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Pry Attempt",
+      "GUID": "4d938873-7dc6-460d-aff0-baa3b4b7e614",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Você força os dedos na abertura e puxa com toda a força.\r\n\r\n{-} Teste {K}. Aplique +1 {B} aos resultados de cada ficha de tensão na Porta de Impacto e, em seguida, descarte todas as fichas de tensão na Porta de Segurança. Insira o número de sucessos abaixo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "95f6b344-555c-4211-bfcf-f6097b864e95",
+              "theText": "Você puxa o mais forte que pode, abrindo a porta aos poucos. Ainda não é largo o suficiente para passar, no entanto. Você precisa continuar tentando.\r\n\r\n{-} Coloque 1 ficha de tensão na Porta de Segurança para cada {B} ganho."
+            }
+          ],
+          "GUID": "9a86dc5d-f580-49e1-9546-f468035bcba4",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Pursuit",
+      "GUID": "fd390f74-1c47-4c9f-b3b8-b6e36557369e",
+      "eventText": "A lacuna na parede do outro lado da instalação é finalmente grande o suficiente para deixar os inimigos passarem. Imediatamente, os soldados chegam. \"Weiss quer essa escória viva!\", grita um policial, apontando para você.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "6c79e583-0f3c-4dce-ad42-774dc564e1a4",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "54b753e8-9c08-4b0c-8d85-051594d269a9",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "168220a1-843d-421e-9fa7-a30eb827026b",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Schematics",
+      "GUID": "7ed7f9ec-f77a-4525-8982-dcec91004376",
+      "eventText": "Empurrando os escombros para o lado, você finalmente localiza um terminal com informações que pode usar. O prédio estremece com outro impacto pesado enquanto você vasculha freneticamente os arquivos em busca de detalhes sobre os túneis subterrâneos.\r\n\r\nVocê encontra esquemas para os próprios túneis e mapeia uma rota rápida, mas alguns dos esquemas foram danificados. A parte que poderia mostrar como entrar nos túneis a partir deste posto de escuta é uma bagunça de linhas e textos distorcidos. Você terá que encontrar outra cópia dos esquemas.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Too Late Trigger",
+      "GUID": "5be1410e-fba3-40c4-a9c6-46ef14268bfa",
+      "eventText": "Explosões continuam abalando o prédio, e você ouve mais e mais tropas imperiais convergindo para o posto de escuta. \r\n\r\nVocê perdeu a chance de sair mais cedo, mas ainda pode escapar.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Wrong Terminal 1",
+      "GUID": "4c91a4a2-054a-49ff-81f7-1aa63cbba032",
+      "eventText": "Depois de procurar o que parece ser uma eternidade, você tem que admitir para si mesmo que não encontrará nada aqui.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Wrong Terminal 1",
+              "GUID": "1d665b8f-722f-4e46-9679-2c2d381529bb",
+              "theText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+              "buttonList": [
+                {
+                  "GUID": "9af63c49-b016-48b4-a990-9a2f679b89ed",
+                  "theText": "{A} Investigar"
+                }
+              ]
+            }
+          ],
+          "GUID": "95d08d67-4f45-4dc6-ba09-acfb25aa10c0",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Wrong Terminal 2",
+      "GUID": "4fb8bc26-d97f-4192-8dd8-8af049e30e96",
+      "eventText": "Depois de procurar o que parece ser uma eternidade, você tem que admitir para si mesmo que não encontrará nada aqui.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Wrong Terminal 2",
+              "GUID": "dd2c6a4d-eaa1-4bd3-9b4e-eb09b7b25e6e",
+              "theText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+              "buttonList": [
+                {
+                  "GUID": "f6e44a9c-bd8f-4b81-a493-13d0b224ca70",
+                  "theText": "{A} Investigar"
+                }
+              ]
+            }
+          ],
+          "GUID": "1fcc357b-d8f6-43b5-90da-60315b199d90",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Blast Door",
+      "GUID": "b6c86454-e6fe-48e3-ad5b-b847d4d99b35",
+      "mainText": "A porta de segurança está apertada. Será necessária alguma força para abri-lo o suficiente para você passar.\r\n\r\n{-} Um herói pode interagir com a porta de segurança ({K}) para tentar abri-la.",
+      "buttonList": [
+        {
+          "GUID": "874b3bae-c33e-4971-bc1f-4891e2b682e3",
+          "theText": "{A} Abra"
+        }
+      ]
+    },
+    {
+      "entityName": "Correct Terminal 1",
+      "GUID": "a76925f4-4310-4680-b78d-ec0ef3e3b66f",
+      "mainText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+      "buttonList": [
+        {
+          "GUID": "a16e4219-7f6e-46f6-864f-9d09808efdd1",
+          "theText": "{A} Investigar"
+        }
+      ]
+    },
+    {
+      "entityName": "Correct Terminal 2",
+      "GUID": "0000b824-92d7-453f-b57a-ac1b6ca2247b",
+      "mainText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+      "buttonList": [
+        {
+          "GUID": "22cbe18d-fbd6-40a0-bc01-618245dc22cb",
+          "theText": "{A} Investigar"
+        }
+      ]
+    },
+    {
+      "entityName": "Corridor Entrance",
+      "GUID": "8e9160d3-63d1-4f00-84bf-d5cd419d0e4f",
+      "mainText": "O posto de escuta está em um silêncio sinistro, apenas moderadamente iluminado por luzes de emergência.\r\n\r\n{-} A primeira vez que uma figura rebelde se mover além deste espaço, clique em \"Entrar no corredor\".",
+      "buttonList": [
+        {
+          "GUID": "006c725b-0e8f-406c-949a-ec0d5b55acef",
+          "theText": "Entrar no corredor"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "01a7be21-975c-4eea-a133-fc6d9db5560a",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "1e875061-7285-43f8-b4d7-b759b51d0e73",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "611c7966-1969-4345-bd00-e6c552b54cfb",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "1bea0b5a-40a8-4db1-96c3-0539125ceb6a",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Facility",
+      "GUID": "dfe8bc3a-fc2e-43b2-a275-c18e302d8c7b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "41f20c85-3b6a-4787-94ee-69062318a17d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "8c09289b-ba73-41ff-9886-0a250156b64c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "8097cb04-57da-4db7-bcf5-bf8a993cd0e3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "fdfc3470-0eda-4148-97bd-6daf4b69bc80",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Wrong Terminal 1",
+      "GUID": "815ea9e3-5d43-4e1c-8430-3dc1d0336bf8",
+      "mainText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+      "buttonList": [
+        {
+          "GUID": "9aa9559d-26d1-4010-b8f4-e67bb0d7998e",
+          "theText": "{A} Investigar"
+        }
+      ]
+    },
+    {
+      "entityName": "Wrong Terminal 2",
+      "GUID": "047d261e-4a88-42cc-9212-eb3f5d14f846",
+      "mainText": "O teto desabou aqui, enterrando um console de computador sob os escombros.\r\n\r\n{-} Um herói pode interagir com o terminal para testar ({I} ou {J}). Se uma figura Imperial estiver a 2 espaços desse herói, aplique -1 {B} aos resultados.\r\n{-} Se o herói passar, ele descobre se o terminal contém dados úteis.",
+      "buttonList": [
+        {
+          "GUID": "82cd098d-a713-4582-a08d-58f08cc0fcbe",
+          "theText": "{A} Investigar"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}

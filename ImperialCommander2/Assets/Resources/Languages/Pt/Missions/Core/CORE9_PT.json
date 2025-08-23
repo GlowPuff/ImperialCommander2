@@ -1,0 +1,607 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "Last Stand",
+    "missionDescription": "",
+    "missionInfo": "{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.\r\n{-} A missão progredirá quando a primeira porta se abrir.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Infiltre-se na instalação e encontre o General Weiss.",
+    "repositionOverride": "Bloqueie o acesso às portas.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "CC Door 1 Open",
+      "GUID": "9edef338-5b13-432f-8e88-9ba007ce04e7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "CC Door 1",
+              "GUID": "3945989c-0296-4a59-936d-2b434af9434f",
+              "theText": "Esta porta leva ao Centro de Comando.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "ee0ae14e-792b-400c-afd2-fca81bf2c9b2",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "299a72d4-4170-450f-b3fb-e8557f323506",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "aa111b5e-b806-44f1-bb7f-3f2c7d914247",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "CC Door 2 Open",
+      "GUID": "41a1fbaf-b55b-4a89-b618-b215c5bed3be",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "CC Door 2",
+              "GUID": "6b88da60-0a94-4b5e-910a-480e913cbf1e",
+              "theText": "Esta porta leva ao Centro de Comando.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "46954431-331b-48b7-a97f-4d1a059e7966",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "31df3aee-41f6-44db-86ef-bc661b35361b",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "1c489d61-7e5b-433d-b5c9-26800c557564",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Defenses Breached",
+      "GUID": "4454f84a-cd41-41e3-8e18-4b07926096d9",
+      "eventText": "A porta se abre para um enorme hangar. Imediatamente, soldados e oficiais avançam.\r\n\r\n\"Defenda o centro de comando!\", grita um oficial, que acabara de realizar manutenção no que parece ser um droide de tortura imperial.\r\n\r\n{-} A missão progredirá quando uma porta para o Centro de Comando se abrir.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hangar Door",
+              "GUID": "780f7745-7626-4865-ba17-4b0314cf8846",
+              "theText": "O zumbido e o zumbido das máquinas sugerem que há um enorme hangar atrás desta porta.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "473c410c-8544-497b-85e4-a5f10938bd4d",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "ed6683c0-bc9e-48f2-b6e4-e18787d34da4",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Blue 1",
+              "GUID": "6621036a-f0ae-4208-9e82-b1068c8c006f",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue 2",
+              "GUID": "cc8820b6-fae9-487b-8ac3-7917c4f828f9",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "282e5160-c6fc-4b0f-a4d8-339283c83d42",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.\r\n{-} A missão progredirá quando uma porta para o Centro de Comando se abrir.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "a63523ce-f934-49dd-b800-c3b1d8a9e0c7",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "9f611d60-ecc5-4797-8a50-f4c2b628d85e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7c8678c3-3d28-4be6-9a40-58a2231fd096",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG012/Probe Droid"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "f1c60ddb-3640-4d76-8fb6-a37c07203b10",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Vader é muito poderoso e, um por um, você cai no poder dele.\r\n\r\nAqueles que sobreviveram são feitos prisioneiros. Pelo que você ouve; As forças rebeldes foram derrotadas nos céus enquanto você lutava contra o Lorde das Trevas. Você acha que deve ser propaganda, mas é difícil saber com certeza.\r\n\r\nUm grande espetáculo é feito de seu julgamento em Coruscant. Suas atividades nos últimos meses estão se arrastando; É quase uma honra reviver suas façanhas. No final, você é acusado de alta traição, que acarreta uma sentença de morte.\r\n\r\nVocê nunca saberá o que sua contribuição proporcionou à Rebelião em seus últimos dias. Apesar da propaganda imperial, no entanto, você realmente acredita que a vitória foi decisiva, que sua parte nela foi importante e, acima de tudo, que seu sacrifício será lembrado.\r\n\r\n{-} Os rebeldes perdem a campanha.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Você mantém Vader na defensiva, espalhando-se e nunca permitindo que ele isole qualquer um de vocês. Logo você começa a expulsá-lo, coordenando seus golpes com absoluta precisão.\r\n\r\nVader cambaleia sob seu ataque, e você acha que pode até ser capaz de derrotá-lo. Ele para de lutar e levanta os dois braços, ignorando o fogo que você continua a derramar sobre ele. A sala treme e as paredes se dobram para dentro com um guincho de metal protestando. Você é jogado no chão enquanto a estrutura é destruída por seu incrível poder.\r\n\r\nNo momento em que você rasteja para fora dos destroços retorcidos, não há sinal de Vader. Ao partir em seu transporte, você vê os destroços da frota imperial flutuando no espaço ao seu redor. Embora você saiba que a guerra está longe de terminar, seus esforços contribuíram para uma grande vitória da Aliança Rebelde.\r\n\r\n{-} Os rebeldes vencem a campanha!",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of the Line",
+      "GUID": "597cbb3b-dc60-4e19-847b-123788d46644",
+      "eventText": "A porta se abre para revelar Weiss, de joelhos diante de Darth Vader; que paira sobre o general com a mão estendida.\r\n\r\n\"Lorde Vader; por favor!\" As mãos do General Weiss agarram a gola de seu uniforme, lutando para sufocar suas últimas palavras. \"Não é um fracasso ... apenas... um... revés.. . \"\r\n\r\nAntes que você possa decidir se tenta salvar o General ou foge aterrorizado; Weiss cai no chão.\r\n\r\nVader lentamente se vira para você, um silêncio sombrio na sala, exceto pelo assobio suave de seu aparelho de respiração. Ele avalia cada um de vocês antes que o vermelho ardente de seu sabre de luz ganhe vida.\r\n\r\n{-} Aplique +8 em <color=\"red\">Vida de Darth Vader</color>. Aplique +1 {G} a cada um de seus resultados de defesa.\r\n{-} <color=\"red\">Darth Vader</color> realiza duas ativações a cada rodada, uma após a outra. (Siga a lista de instruções novamente a partir do topo.)\r\n{-} Se <color=\"red\">Darth Vader</color> for derrotado, ele não será derrotado até o final de sua segunda ativação.\r\n{-} Os rebeldes vencem quando <color=\"red\">Darth Vader</color> é derrotado.",
+      "eventActions": [
+        {
+          "theText": "{-} Aplique +8 em <color=\"red\">Vida de Darth Vader</color>. Aplique +1 {G} a cada um de seus resultados de defesa.\r\n{-} <color=\"red\">Darth Vader</color> realiza duas ativações a cada rodada, uma após a outra. (Siga a lista de instruções novamente a partir do topo.)\r\n{-} Se <color=\"red\">Darth Vader</color> for derrotado, ele não será derrotado até o final de sua segunda ativação.\r\n{-} Os rebeldes vencem quando <color=\"red\">Darth Vader</color> é derrotado.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.\r\n",
+          "GUID": "244db42c-391c-481e-9ac4-4cac7e51b953",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Warehouse Door",
+              "GUID": "9473610d-483a-489d-98bb-09449b69faaa",
+              "theText": "A porta parece levar a um armazém.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "85ddb3bf-8e81-4424-8ed7-51f5ba940eb0",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "d0499e98-dc16-4482-aa31-26a4e9e72dd8",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            },
+            {
+              "entityName": "Hangar Door",
+              "GUID": "2b4a9b07-24dc-462a-85bc-5fe3663fac4a",
+              "theText": "O zumbido e o zumbido das máquinas sugerem que há um enorme hangar atrás desta porta.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "cfa7b883-7153-4fbc-80d6-eb78601b98fc",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "60c784e9-cde7-4fa4-bfea-14ea11256f9d",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "fd56cfab-eda5-4c60-8fb5-64fb01ece26f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "{-} <color=\"red\">Darth Vader</color> realiza duas ativações a cada rodada, uma após a outra. (Siga a lista de instruções novamente a partir do topo.)",
+          "modification": "+8 H, +1 {G}",
+          "repositionInstructions": "",
+          "GUID": "4a0d0c58-ed30-4210-8e78-4a198d1636e0",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG072/Darth Vader"
+        },
+        {
+          "shortText": "Derrote <color=\"red\">Darth Vader</color>.",
+          "longText": null,
+          "GUID": "a42fcb19-a7b0-4568-b515-4a580168240b",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Tecendo através da batalha intensa, seu transporte desvia de TIE Fighters e tiros de turbolaser. A frota rebelde abriu a batalha com uma finta, atraindo a emboscada de Weiss e depois lançando uma armadilha própria.\r\n\r\nÀ medida que você desce para a atmosfera do planeta, a batalha se torna uma explosão de luzes piscando acima das nuvens. Pelo que você poderia dizer antes de descer, a Rebelião tinha a vantagem.\r\n\r\nVocê rastreou a nave pessoal de Weisss até uma base imperial na superfície abaixo. Capturá-lo pode levar a um fim antecipado da batalha e à vitória da Rebelião, então você é instruído a levá-lo vivo, se puder.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.\r\n{-} A missão progredirá quando a primeira porta se abrir.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "244f3301-4f66-4281-9e9c-4607814f2e2e",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "09d26e75-4639-4a74-90c5-862c2fd41c9f",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "64c54d93-b4a8-4db0-8e9d-84347f3ef357",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "77baed78-d6a7-4cdf-b46c-833a951cc153",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "7402e774-0f82-4b5c-ad56-74bb529c8797",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "1962aeef-f541-4568-994c-38b7f7fbbfa7",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Welcoming Party",
+      "GUID": "2fefe49d-1b95-4315-b1ea-badc1234adba",
+      "eventText": "A porta se abre para revelar um armazém mal iluminado, um corredor que leva mais fundo no prédio. Um par de guardas de vestes escarlates e um droide flutuante guardam o corredor, virando-se imediatamente para você.\r\n\r\n{-} A missão progredirá quando a segunda porta se abrir.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Warehouse Door",
+              "GUID": "2c814f27-778d-488b-b371-7018b961ea12",
+              "theText": "A porta parece levar a um armazém.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+              "buttonList": [
+                {
+                  "GUID": "b0e52fab-5085-47bf-a26b-bbb040b5a11d",
+                  "theText": "Destruir"
+                },
+                {
+                  "GUID": "415d738a-49bc-41eb-8d48-818909cf698c",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "8bc0e9b0-a6d5-4dc9-8bdf-dd7c4f983918",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "96051706-89e1-4a6c-bfd6-8f3b363a0c5b",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue 1",
+              "GUID": "55880b28-2de0-49b4-bdaf-07ca7b2280bf",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Blue 2",
+              "GUID": "c7745b2b-7a85-4ca2-9b7d-32deca0f352d",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ba4c18e7-cd39-41c7-82c9-34385aeae12e",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} As portas estão trancadas. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.\r\n{-} A missão progredirá quando a segunda porta se abrir.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "215b7754-47ea-4239-99ba-13b553097873",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7f1f4ab4-92e4-4b9f-85b7-43e414c39b92",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG010/Royal Guard (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0173b2ef-c765-4eb9-b515-a10b504133fe",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG011/Probe Droid"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "CC Door 1",
+      "GUID": "b37f53ed-319b-4565-b581-e25af0ac8d71",
+      "mainText": "Esta porta leva ao Centro de Comando.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+      "buttonList": [
+        {
+          "GUID": "70257b94-8710-44cc-93fc-34f5f2864cc3",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "00156ae2-def6-457c-a0c8-845d00fd5ec6",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "CC Door 2",
+      "GUID": "6d427efc-3e26-4172-8d1b-4e39c3aeb9ae",
+      "mainText": "Esta porta leva ao Centro de Comando.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+      "buttonList": [
+        {
+          "GUID": "fa853742-228a-4148-aa8b-9545128320ba",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "09f0c6f1-131d-4a4e-949b-a7f8f7969400",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "1185297f-4c52-4192-bea5-409febfb1720",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "5df74338-b305-40c8-b640-4e6f57d402d4",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "64f3e1af-e5cf-484e-9c9c-6d4a5aa7f77f",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "508944f8-85b3-423a-9f4c-99fd90f9dd64",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Blue 1",
+      "GUID": "1446ce51-f99d-48b3-b56a-288bf2b0f469",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue 2",
+      "GUID": "1613e679-7426-4029-956c-ad8567faeaa1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EE-Web",
+      "GUID": "c3a02b9d-4e3c-4579-a695-7e2f428c3213",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Reception",
+      "GUID": "fc38f054-cfa7-43ce-afff-788398eb1e5b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 1",
+      "GUID": "c4977125-9c07-4c70-9ba2-f7a4ffeed415",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 2",
+      "GUID": "bdc2e808-d31b-4646-ac5c-dd6a7899ee09",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "8e3750cf-4030-4843-8607-e82acb418193",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "9fc3b8bc-68f4-4a9a-9e05-4770cda152c8",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Vader",
+      "GUID": "a91f5b8d-d4d0-4cc1-a018-db2b62b95637",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "533e29c6-441e-4bbf-bf0f-81cc06fb4b2a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "748927fe-d4fd-468c-8ab1-5a82bb954ca9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Hangar Door",
+      "GUID": "0e4d16aa-d7a6-44b6-b46c-535e244c0c19",
+      "mainText": "O zumbido e o zumbido das máquinas sugerem que há um enorme hangar atrás desta porta.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+      "buttonList": [
+        {
+          "GUID": "d3f1298c-942a-40fd-b1e7-bc6d6570f38b",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "3d1e67f0-657e-48fb-a302-ac249be77d40",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Warehouse Door",
+      "GUID": "006dc8a0-fd5e-4b51-a563-bd64fdbce956",
+      "mainText": "A porta parece levar a um armazém.\r\n\r\n{-} A porta está trancada. Uma figura Rebelde pode atacar uma porta (Saúde 5, Defesa: 1 dado preto), ou um herói pode interagir com uma porta ({I}) para abri-la.",
+      "buttonList": [
+        {
+          "GUID": "2477004d-23d1-4889-9d5f-80ec7d4c5a0a",
+          "theText": "Destruir"
+        },
+        {
+          "GUID": "0173830a-b41d-40a3-8f28-d5ae6e6727d8",
+          "theText": "{A} Aberto"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "E-Web Engineer (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Royal Guard",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

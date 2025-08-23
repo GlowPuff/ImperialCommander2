@@ -1,0 +1,526 @@
+{
+  "languageID": "English (EN)",
+  "missionProperties": {
+    "missionName": "The Source",
+    "missionDescription": "",
+    "missionInfo": "{-} O <color=\"red\">Oficial Imperial</color> foi capturado e é uma figura neutra.\r\n{-} As portas estão trancadas.\r\n{-} Uma figura rebelde pode interagir com o oficial capturado para realizar o seguinte:\r\n⯈ O herói e o oficial capturado se movem 2 espaços cada.\r\n⯈ Abra uma porta adjacente ao policial.\r\n⯈ Proteja um terminal adjacente ao oficial.\r\n{-} Se não houver figuras rebeldes saudáveis a 3 espaços do oficial capturado, uma figura imperial pode libertá-lo quando instruído. Quando isso acontecer, clique no destaque e selecione \"Oficial libertado\".\r\n{-} A missão progride quando o terminal é encontrado.\r\n{-} Os rebeldes perdem quando o oficial capturado é libertado ou quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Encontre o terminal.",
+    "repositionOverride": "Esteja ao lado do oficial capturado.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "All heroes wounded",
+      "GUID": "fe4d2a95-25d7-4215-a5e4-3ec11626b8ac",
+      "eventText": "",
+      "eventActions": []
+    },
+    {
+      "eventName": "Awaiting Departure",
+      "GUID": "4db252f2-291d-482c-8bec-3b14141abf05",
+      "eventText": "\"Não vai funcionar, você sabe\", diz o policial enquanto insere mais um código exclusivo. Meu povo lutará para me proteger.\"\r\n\r\nA porta se abre e vários raios blaster passam, errando por pouco o policial. \"Cuidado com sua mira, seus tolos!\" ele grita.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Inspection Station Door",
+              "GUID": "52ff4c9c-55b3-4de3-9c13-08a5560653ad",
+              "theText": "Vozes suaves e o zumbido das máquinas podem ser ouvidos atrás desta porta.\r\n\r\n{-} A porta está trancada.\r\n{-} Se o oficial capturado estiver ao lado da porta, uma figura rebelde pode interagir com ele para abrir a porta.",
+              "buttonList": [
+                {
+                  "GUID": "aee57271-e00b-4182-aa35-31fc7d1ee722",
+                  "theText": "Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "8105369d-26cb-466d-b4fc-1da3cd3b07b9",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "fa5fe700-cc3b-4324-b449-57a536c93ec9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "97bdada8-aa39-405d-b5b0-452e30712702",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "7f7985bf-2672-4f65-bf6c-d4e214ffd3e5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG001/Stormtrooper"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "O policial se afasta de você, gritando: \"Atire neles, seus tolos! Não os deixe escapar!\" Alarmes soam ao fundo e você corta as forças imperiais, tentando alcançar seu ex-prisioneiro.\r\n\r\nNo entanto, é tarde demais. Ele desaparece por uma abertura, e a porta se fecha e trava. No momento em que você quebrar esta porta, ele terá ido embora.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Coloque a carta de Missão Lendária \"Hora Desesperada\" em jogo.\r\n{-} O nível de ameaça da próxima missão (e apenas da próxima missão) aumenta em 1. Durante o estágio Rebel Upgrade, os jogadores Rebel podem decidir gastar 50 créditos por herói para evitar isso.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose 2",
+      "GUID": "1b61136b-334a-4295-9cd5-46d0692a4189",
+      "eventText": "O policial se afasta de você, gritando: \"Atire neles, seus tolos! Não os deixe escapar!\" Alarmes soam ao fundo e você corta as forças imperiais, tentando alcançar seu ex-prisioneiro.\r\n\r\nNo entanto, é tarde demais. Ele desaparece por uma abertura, e a porta se fecha e trava. No momento em que você quebrar esta porta, ele terá ido embora.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Coloque a carta de Missão Lendária \"Hora Desesperada\" em jogo.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.\r\n{-} Como o oficial capturado escapou cedo, o nível de ameaça da próxima missão (e apenas da próxima missão) aumenta em 1. Durante o estágio Rebel Upgrade, os jogadores Rebel podem decidir gastar 50 créditos por herói para evitar isso.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose Round limit",
+      "GUID": "8e4f5c9d-2353-4baa-abfc-27ebbe87129a",
+      "eventText": "O policial se afasta de você, gritando: \"Atire neles, seus tolos! Não os deixe escapar!\" Alarmes soam ao fundo e você corta as forças imperiais, tentando alcançar seu ex-prisioneiro.\r\n\r\nNo entanto, é tarde demais. Ele desaparece por uma abertura, e a porta se fecha e trava. No momento em que você quebrar esta porta, ele terá ido embora.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Coloque a carta de Missão Lendária \"Hora Desesperada\" em jogo.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win early",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "O policial engole em seco, afastando-se do terminal de comando. \"Lá, como você pode ver, é uma perda de tempo.\" \r\n\r\nÀ primeira vista, isso parece verdade. Apesar de inúmeras remessas para um local primário, nenhum dos materiais está relacionado a armamentos.\r\n\r\nDepois de apenas algumas perguntas, o policial racha. \"Não há arma!\" ele grita. \"É tudo um truque para atrair a frota rebelde. Eu disse a ele que o plano de Strang era muito mais adequado-\"\r\n\r\nVocê o interrompe, examinando o terminal com essa nova informação em mente. Na verdade, você pode ver as sementes do engano. Com essas informações e um novo prisioneiro, talvez isso possa ser usado para a Rebelião.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque a carta de Missão Lendária \"Última Batalha\" em jogo.\r\n{-} Cada herói recebe 2 XP. Os heróis recebem 100 créditos por herói.\r\n{-} Como os rebeldes garantiram o terminal mais cedo, eles recebem 100 créditos adicionais por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win late",
+      "GUID": "af2f2988-bb57-4fff-83a5-b964da245b9e",
+      "eventText": "O policial engole em seco, afastando-se do terminal de comando. \"Lá, como você pode ver, é uma perda de tempo.\" \r\n\r\nÀ primeira vista, isso parece verdade. Apesar de inúmeras remessas para um local primário, nenhum dos materiais está relacionado a armamentos.\r\n\r\nDepois de apenas algumas perguntas, o policial racha. \"Não há arma!\" ele grita. \"É tudo um truque para atrair a frota rebelde. Eu disse a ele que o plano de Strang era muito mais adequado-\"\r\n\r\nVocê o interrompe, examinando o terminal com essa nova informação em mente. Na verdade, você pode ver as sementes do engano. Com essas informações e um novo prisioneiro, talvez isso possa ser usado para a vantagem das rebeliões.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Coloque a carta de Missão Lendária \"Última Batalha\" em jogo.\r\n{-} Cada herói recebe 2 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Into the Den",
+      "GUID": "31d4ea33-e4cb-4642-bbb8-2543112b867a",
+      "eventText": "\"Não! Não lá! Há bestas nojentas lá dentro!\"\r\n\r\nSeu cativo luta, mas finalmente cede e abre a porta. Você quase gostaria que ele não tivesse. Cercados por lixo e detritos, feras rosnando se voltam para você. Os soldados que estavam tentando reinar também voltam sua atenção para você.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Junk Shop Door",
+              "GUID": "e1b97580-a968-42c1-b54f-1e9af9faf33c",
+              "theText": "O rosnado das feras pode ser ouvido atrás desta porta.\r\n\r\n{-} A porta está trancada.\r\n{-} Se o oficial capturado estiver ao lado da porta, uma figura rebelde pode interagir com ele para abrir a porta.",
+              "buttonList": [
+                {
+                  "GUID": "c08365ae-af6b-4d43-bbda-26494115dd06",
+                  "theText": "Abrir"
+                }
+              ]
+            }
+          ],
+          "GUID": "194d19fd-74ec-4195-96d0-ea833ff7fc06",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0c4add2d-b7a2-4a4a-aca1-d34d7f103251",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG017/Nexu"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "a9cb2912-0aee-4350-bab2-ce7cac7c59fb",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG018/Nexu (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "6385df9f-91d5-4479-a902-5802595d8999",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "\"Espiões rastrearam a fábrica primária na cadeia de suprimentos de Weiss\", informa seu comandante. \"Não é muito, mas seus registros podem indicar padrões de envio, talvez até contendo a localização do protótipo da arma.\" Ela parece desesperada e animada. \"Isso pode ser a coisa real. Deixe-nos todos orgulhosos.\"\r\n\r\nA segurança na fábrica é rígida, surpreendentemente, e cada porta leva um tempo considerável para ser hackeada ou arrombada. Cada momento arrisca sua descoberta e você está prestes a desistir quando a oportunidade surgir.\r\n\r\n\"Eu não me importo com suas desculpas. Mate as criaturas destruídas se você não puder mantê-las contidas.\" Um policial carrancudo desce o corredor. Ele fala em um comunicador. \"Arraste-me para este buraco purulento novamente e eu vou ver que você se torna a próxima refeição deles.\"\r\n\r\nEle abaixa o comunicador assim que você sai da cobertura, enfiando um blaster em suas costelas e sugerindo que ele se comporte e faça o que você pede.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} Coloque uma figura de Oficial Imperial <color=\"red\"></color> no espaço destacado em vermelho.\r\n{-} O Oficial Imperial foi capturado e é uma figura neutra.\r\n{-} As portas estão trancadas.\r\n{-} Uma figura rebelde pode interagir com o oficial capturado para realizar o seguinte:\r\n⯈ O herói e o oficial capturado se movem 2 espaços cada.\r\n⯈ Abra uma porta adjacente ao policial.\r\n⯈ Proteja um terminal adjacente ao oficial.\r\n{-} Se não houver figuras rebeldes saudáveis a 3 espaços do oficial capturado, uma figura imperial pode libertá-lo quando instruído. Quando isso acontecer, clique no destaque e selecione \"Oficial libertado\".\r\n{-} A missão progride quando o terminal é encontrado.\r\n{-} Os rebeldes perdem quando o oficial capturado é libertado ou quando todos os heróis são feridos.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Se esta figura estiver adjacente ao oficial capturado e não houver rebeldes saudáveis dentro de 3 espaços do oficial capturado: Liberte o oficial capturado. (Apenas figuras sem \"Não-senciente\".)",
+          "GUID": "6ae6ca28-965b-4416-9f67-3dc7dafdc667",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "repositionText": "Bloqueie o acesso ao terminal.",
+          "GUID": "b4d3ac9b-396a-46da-954f-97c1a0594580",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "On Board",
+      "GUID": "3912e9dc-40d0-49a8-b9b2-69a70ed2e210",
+      "eventText": "\"Ouça, tenho certeza de que podemos chegar a um acordo.\" O policial está ficando mais nervoso à medida que você se aproxima do seu objetivo. \"Por favor, você não entende!\"\r\n\r\nÉ preciso um pouco mais de persuasão para fazê-lo abrir a porta, mas eventualmente ele obedece, suor escorrendo pelo rosto.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Security Station Door",
+              "GUID": "22f46587-af0b-44fd-9202-c3a3f23c6c21",
+              "theText": "Bipes de computador podem ser ouvidos atrás desta porta. Você parece estar perto do seu alvo.\r\n\r\n{-} A porta está trancada.\r\n{-} Se o oficial capturado estiver ao lado da porta, uma figura rebelde pode interagir com ele para abrir a porta.",
+              "buttonList": [
+                {
+                  "GUID": "35f6aacf-0165-466c-960d-f8cb2206b678",
+                  "theText": "Abrir"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Yellow",
+              "GUID": "c1105bfa-488f-4b65-bfcc-7a628abdbb18",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "9e8c1fa7-a4e5-4662-8733-5f05936421dc",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "04a35bbf-4279-4d80-8854-188bd2dcbfd0",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG005/Imperial Officer"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "8a868e5f-e12b-4102-849b-3fc9f032bcb1",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG003/Stormtrooper (Elite)"
+        },
+        {
+          "shortText": "Proteja o terminal.",
+          "longText": null,
+          "GUID": "dc1ceafc-63af-4f0e-b5cd-6a5f78b0fde8",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "66b04a4f-ef1a-4b77-97e4-c4c7f8c3b4d4",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "265fc15a-44cc-49fb-b3cb-a040741f6dd8",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "8551d2a6-239b-45f4-99a3-8e3c34cf725a",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "b6ebca86-5099-4e94-8570-c17fd5476c5d",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "1628a543-e830-4eb3-b2af-d13d061850b4",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "2d46a243-a0f8-49a9-821c-0920282637e3",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Opportune Moment 1",
+      "GUID": "dafd801b-26dd-475d-83e5-d4b3ace7e470",
+      "eventText": "Seu cativo consegue se libertar por um momento e tropeça.\r\n\r\n{-} O oficial capturado se afasta 1 espaço do terminal.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment 2",
+      "GUID": "8a16864b-8890-490e-95e7-988aff129bc4",
+      "eventText": "Seu cativo grita ordens e um soldado levanta sua arma.\r\n\r\n{-} Outra figura imperial com um custo de valor de 3 ou menos que pode realizar um ataque ataca {rebel}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment 3",
+      "GUID": "e6f35b66-ec50-4ebd-bb1d-5033b97c4035",
+      "eventText": "Seu cativo grita por socorro e seus inimigos vêm correndo.\r\n\r\n{-} Todas as figuras imperiais dentro da linha de visão do oficial capturado se movem 2 em direção ao oficial capturado.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment 4",
+      "GUID": "be4c6d97-7cbd-4075-be3d-fd6cdfa2890e",
+      "eventText": "Um dos soldados imperiais, mais poderoso que os outros, corre para atacar.\r\n\r\n{-} A outra figura imperial com o maior custo de valor que pode atacar se move 4 para atacar {rebel}.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Opportune Moment Trigger",
+      "GUID": "e56775c8-5f71-47fa-a52c-452e18724a04",
+      "eventText": "Seu cativo luta contra seu aperto, gritando por socorro.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Too late",
+      "GUID": "ecf1de70-136a-4490-be18-1688b3901d00",
+      "eventText": "",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "6ffce822-f715-4257-ba2d-a4d939812be8",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "a92b13bb-9068-43ba-bcf4-b1bd022db2ad",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "b91d3fdc-0f2c-490b-ae93-6a75cbb06421",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "17d1442f-da95-40aa-a314-612c8f43b458",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP ENexu",
+      "GUID": "91ed31ff-6209-4bd4-948c-ed766ded5a26",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 1",
+      "GUID": "998d5522-ab7a-4744-be0c-25f448ac0ffb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 2",
+      "GUID": "a3b24115-837e-4396-87a2-f8048499df5b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP ETrooper 3",
+      "GUID": "e8ecb747-0503-49b9-80eb-6ff8825eda24",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "bdbbce0e-9c64-4769-9cb4-3af34ea45d35",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "1c35bb0a-2f6f-478d-a31f-f042f7f2092a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 1",
+      "GUID": "b68db7a8-1d65-4b5b-9672-2d9880982165",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 2",
+      "GUID": "ff239397-1a02-40f1-b670-ccea8bcd0d29",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "9e551b22-5830-4da5-a5e1-5e8cc5c040ea",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Deploy Officer",
+      "GUID": "dd433b7b-167e-40d5-85c4-e54f52f47ef8",
+      "mainText": "Posicione o oficial capturado aqui.\r\n\r\nSe o oficial capturado for libertado, clique em \"Oficial libertado\".",
+      "buttonList": [
+        {
+          "GUID": "db928c7b-7bfd-4304-b4b2-f6ebdbd72512",
+          "theText": "Oficial libertado"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Inspection Station Door",
+      "GUID": "cee84082-4441-4b2a-9ee1-f52f0dddbeec",
+      "mainText": "Vozes suaves e o zumbido das máquinas podem ser ouvidos atrás desta porta.\r\n\r\n{-} A porta está trancada.\r\n{-} Se o oficial capturado estiver ao lado da porta, uma figura rebelde pode interagir com ele para abrir a porta.",
+      "buttonList": [
+        {
+          "GUID": "ee9707b2-ebf3-4b72-b2ba-ecbb46d1134e",
+          "theText": "Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Junk Shop Door",
+      "GUID": "fcc78fba-1d53-45b2-a1b2-062a8e48f5da",
+      "mainText": "O rosnado das feras pode ser ouvido atrás desta porta.\r\n\r\n{-} A porta está trancada.\r\n{-} Se o oficial capturado estiver ao lado da porta, uma figura rebelde pode interagir com ele para abrir a porta.",
+      "buttonList": [
+        {
+          "GUID": "31cf3005-e357-4e40-aa67-bcbe15d7faff",
+          "theText": "Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Security Station Door",
+      "GUID": "8172f8c7-3189-4d5a-bc43-efe49038402e",
+      "mainText": "Bipes de computador podem ser ouvidos atrás desta porta. Você parece estar perto do seu alvo.\r\n\r\n{-} A porta está trancada.\r\n{-} Se o oficial capturado estiver ao lado da porta, uma figura rebelde pode interagir com ele para abrir a porta.",
+      "buttonList": [
+        {
+          "GUID": "c72afc4b-faba-42f7-bb1d-b236403f254b",
+          "theText": "Abrir"
+        }
+      ]
+    },
+    {
+      "entityName": "Terminal",
+      "GUID": "d3578f6b-73c0-42d7-9406-94e299654358",
+      "mainText": "O terminal zumbe suavemente.\r\n\r\n{-} Se o oficial capturado estiver adjacente ao terminal, uma figura rebelde pode interagir com ele para proteger o terminal.",
+      "buttonList": [
+        {
+          "GUID": "d3acdf5e-bdf2-4365-b75f-ffaa23b40ada",
+          "theText": "Terminal seguro"
+        }
+      ]
+    }
+  ],
+  "initialGroups": []
+}
