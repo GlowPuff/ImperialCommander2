@@ -46,8 +46,8 @@ public class DoorPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 		mapEntity.entityProperties.isActive = true;
 
 		transform.localScale = Vector3.zero;
-		doorModel.transform.rotation = Quaternion.Euler( -90, d.entityRotation, 0 );
-		doorOpenModel.transform.rotation = Quaternion.Euler( -90, d.entityRotation, 0 );
+		doorModel.transform.rotation = Quaternion.Euler( 0, d.entityRotation, 0 );
+		doorOpenModel.transform.rotation = Quaternion.Euler( 0, d.entityRotation, 0 );
 
 		mapEntity.entityPosition = transform.position.ToSagaVector();
 		gameObject.SetActive( false );

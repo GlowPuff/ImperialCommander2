@@ -1,0 +1,581 @@
+{
+  "languageID": "Dutch (NL)",
+  "missionProperties": {
+    "missionName": "Vijandige overname",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "The Bespin Gambit",
+    "startingObjective": "",
+    "repositionOverride": "Blokkeer toegang tot de cel.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "f49504ed-b538-457d-97b7-858b80a08db0",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "56c71cb9-3240-4e2a-bfe2-424635f5b45d",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "9d0e48d5-b717-4653-8fa3-f114e1adb9f8",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "33c8c41e-ae0f-48ad-902c-08724f4b26bb",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "fb693e22-eda5-46de-98de-74df63c4e2df",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Zelfs de ISB heeft blinde vlekken. Sympathiserende Ugnaught-arbeiders laten je zien hoe je onopgemerkt je weg naar de koolstofvrieskamer kunt vinden.\r\n\r\nJe haalt het rooster van de muur en haalt diep adem. De weg hierheen was misschien veilig, maar de volgende kamer is dat niet.\r\n\r\n{-} Plaats de helden op het blauw gemarkeerde veld.",
+      "eventActions": [
+        {
+          "tbText": "{-} Deuren zijn vergrendeld.\n{-} Een rebellenfiguur kan een interactie uitvoeren op de deur naar de cel ({I}) om te proberen deze te openen.\n{-} De missie gaat verder wanneer de deur naar de cel geopend is.\n{-} De rebellen verliezen wanneer alle helden gewond zijn.",
+          "GUID": "b5251b68-e8cc-40b4-bbed-6a802487af13",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Open de deur naar de cel.",
+          "longText": null,
+          "GUID": "91952d74-89c6-4932-8646-1879becf7a5f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Deuren zijn vergrendeld.\n{-} Een rebellenfiguur kan een interactie uitvoeren op de deur naar de cel ({I}) om te proberen deze te openen.\n{-} De missie gaat verder wanneer de deur naar de cel geopend is.\n{-} De rebellen verliezen wanneer alle helden gewond zijn.",
+          "GUID": "0b5d8b6c-16f6-479f-bf1b-af9582494b0b",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "De keizerlijke soldaten geven prioriteit aan de bescherming van de nu bevroren agent Blaise, ondanks jullie wanhopige situatie. Lando lijkt iets te veel van het moment te genieten.\n\n{-} De rebellen winnen de missie!\n{-} Als deze missie als zijmissie wordt gespeeld, ontvangen helden de beloningskaart “Relief Effort”.",
+      "eventActions": [
+        {
+          "mainText": "Heb je deze missie gespeeld als onderdeel van de minicampagne “The Bespin Gambit”?",
+          "buttonList": [
+            {
+              "GUID": "a6ce9472-2690-4d59-ace4-f16ff2831191",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "c0914855-28b9-4ac5-8ef6-2d37f2997e69",
+              "theText": "Nee"
+            }
+          ],
+          "GUID": "890ba495-9406-40c9-95bc-95fa07603a7c",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Blaises verweer was uiteindelijk effectief en verhinderde je tegenaanval. Er zit niets anders op dan je terug te trekken.\n\n{-} De rebellen verliezen de missie.",
+      "eventActions": [
+        {
+          "mainText": "Heb je deze missie gespeeld als onderdeel van de minicampagne “The Bespin Gambit”?",
+          "buttonList": [
+            {
+              "GUID": "4e24233e-40a9-4ed6-8ca9-eca1b50db05d",
+              "theText": "Ja"
+            },
+            {
+              "GUID": "cfe65d16-2324-41d2-a8ef-19335febab33",
+              "theText": "Nee"
+            }
+          ],
+          "GUID": "8a6c9177-e8c5-4197-8f22-823619ef8209",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Campaign Win Yes",
+      "GUID": "af917fbd-9915-436a-b294-4372d700417c",
+      "eventText": "“Waar zijn mijn ‘rebellenvrienden’, ondervrager? Hier, jij Banthavoer!” De ondervragingsmethoden van de ISB zijn uiterst geheim, maar wat er ook gebeurd is, Lando heeft het heel persoonlijk opgevat. “ Je bucketheads konden je niet redden, hè? En nu zit je vast. Jij! Niet ik, jij, achterlijke nerfherder!”\r\n\r\nJe trekt de razende Lando weg van het bedieningspaneel. Hoewel de ISB vooral bezig is met geheimhouding, zullen de talloze keizerlijke troepen die ongetwijfeld onderweg zijn veel agressiever zijn. Je vertrekt onmiddellijk naar het hoofdkwartier.\r\n\r\nEenmaal veilig terug bij je guerrillastrijders onthult Lando dat hij op weg naar buiten een paar bewakingscodes van Blaise heeft gestolen. Hij richt zich tot de soldaten: “Dit is niet waarvoor we gekomen zijn, maar het geeft het Verzet wel een kans. Het is tijd om een klap uit te delen aan de keizerlijke bezetting!” De leiders van het Verzet beginnen onmiddellijk met de uitvoering van een plan dat duidelijk al is ingestudeerd.\r\n\r\nLando wendt zich weer tot jou. “Bedankt, vrienden. Jullie hebben genoeg gedaan. Wij nemen het vanaf hier wel over. Ga terug naar het oppercommando. We zullen misschien nooit weten wat die keizerlijke codes bevatten, maar we komen hier niet met lege handen vandaan.”\n\n{-} De rebellen winnen de campagne!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign Defeat Yes",
+      "GUID": "6a66d0ea-65a9-452c-a3f1-edc5fac52ed2",
+      "eventText": "Niet in staat om de ISB te verslaan, trek je je terug te midden van overdonderend blastervuur. Lando kruipt terug in de servicetunnels en rent weg om de guerrillastrijders te waarschuwen. Terwijl je knielt om hem te volgen, voel je het eerste blasterschot.\r\n\r\nNa een kort maar intens vuurgevecht word je overmeesterd en fysiek in elkaar geslagen. “Nee, nee, nee. Je mag nog niet sterven. Er is nog zoveel te leren.” Blaise geeft een paar bevelen en je ziet hoe wazige doktoren je wonden verzorgen voordat je uiteindelijk het bewustzijn verliest.\r\n\r\nNa weken van ondervraging is Blaise tevreden dat de rebellen gebroken zijn. ISB-infiltranten vallen guerrillabolwerken binnen en elimineren het verzet. Vrede en stabiliteit keren terug naar Cloud City.\n\nLang leve de keizer!\n\n{-} De rebellen verliezen de campagne.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Campaign No",
+      "GUID": "e63594d1-6da1-41e8-a490-07d49aaebcb4",
+      "eventText": "{-} Elke held ontvangt 1 XP.\n{-} Helden ontvangen 100 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Cell Door Attempt",
+      "GUID": "43162076-510d-4770-ae85-76bfc27fb14b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Je begint het slot te openen.\n\n{-} Test {I}. Pas +1 {B} toe voor elk forceertoken op de deur en leg vervolgens alle forceertokens op de deur af. Vul hieronder het aantal successen in.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "b34aa8c5-edea-44f8-88cf-a85851bc6275",
+              "theText": "Je boekt geen vooruitgang."
+            },
+            {
+              "GUID": "ff84ec7a-3511-4e55-a050-70fb33240a21",
+              "theText": null
+            }
+          ],
+          "GUID": "e6e99c20-3773-4192-9ba4-53cdddf3aa28",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "A Familiar Face",
+      "GUID": "39145145-213a-4a97-8aca-b807b6490e0a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Cell Door",
+              "GUID": "29e99fdf-b5a0-44ba-b3e0-04a9b52efaf3",
+              "theText": "De deur naar de geïmproviseerde cel is vergrendeld.\n\n{-} Een rebellenfiguur kan een interactie uitvoeren op de deur naar de cel ({I}) om te proberen deze te openen.",
+              "buttonList": [
+                {
+                  "GUID": "a84f22fc-6cfa-4dd4-a9e3-0396dbf86aaf",
+                  "theText": "{A} Slot openbreken"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "88bb3582-e997-42a3-ad66-1d31e85cd41f",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 1",
+              "GUID": "a0bc8948-2ef4-4ec0-b768-907c98a987b7",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Yellow 2",
+              "GUID": "9bc0335d-2e66-48ab-a4c5-b1a3a4b6f847",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "Command Center Door Right",
+              "GUID": "1926693f-7bd5-4d44-a118-0cdeb0e04602",
+              "theText": "Deze deur scheidt het commandocentrum en de hal.",
+              "buttonList": [
+                {
+                  "GUID": "3829fa31-09af-4279-9de2-17de3d98c462",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "04f40adf-75d5-41d0-95c5-9f2e42c06bf9",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "Lando kijkt je woest aan met verse blauwe plekken en mompelt: “We zullen wel zien wie er uiteindelijk bevroren eindigt. ISB klootz...”",
+          "GUID": "d9fa8045-ca8f-4181-ab79-5088f06bb333",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "customName": null,
+          "GUID": "73165d65-a241-414f-a37a-2e9cfbd23870",
+          "eventActionType": 7,
+          "eaName": "Ally Deployment"
+        },
+        {
+          "tbText": "“Kom op,” mompelt Lando terwijl hij opstaat. “Ik weet dat Blaise ergens in het commandocentrum is. Gelukkig heb ik de toegangscodes nog steeds.”\r\n\r\n{-} Rebellen besturen <color=“red”>Lando Calrissian</color> als bondgenoot.\r\n{-} De deur tussen het commandocentrum en de hal ontgrendelt voor rebellenfiguren.\r\n{-} De missie gaat verder wanneer de deur naar het commandocentrum geopend wordt.",
+          "GUID": "10ddd084-c8bf-47c6-b956-977420442233",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Net als je de cel verlaat, stormt een grote Trandoshan door een deur naar binnen, brullend en zwaaiend met een enorm wapen. Hij wordt snel gevolgd door meer troepen.",
+          "GUID": "8e4042a8-092c-4682-8584-cde2624b2110",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "dcf65c52-77ed-438b-8999-92e4d855c314",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG080/Bossk"
+        },
+        {
+          "shortText": "Open de deur tussen de hal en het commandocentrum.",
+          "longText": null,
+          "GUID": "e8d65c9e-c973-468c-80ab-eeb99b611a24",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} De deur tussen de Carbonite kamer en het commandocentrum is vergrendeld.\r\n{-} De deur tussen het commandocentrum en de hal is vergrendeld voor keizerlijke figuren.\r\n{-} De missie gaat verder wanneer de deur naar het commandocentrum geopend wordt.\r\n{-} De rebellen verliezen wanneer alle helden gewond zijn.",
+          "GUID": "3b81f647-bbf7-4eca-8327-a3d32d9ae7fc",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "repositionText": "Blokkeer de toegang tot het Commandocentrum.",
+          "GUID": "e4d34cac-dd5e-4f74-b954-126b59d03715",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Hostage Situation",
+      "GUID": "5a6df01a-8d45-4fa2-a250-d1f6962ba22b",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Center Door Right",
+              "GUID": "9a940fa1-d106-4da9-b7d7-b466faa869ea",
+              "theText": "De deur tussen het commandocentrum en de hal is vergrendeld.",
+              "buttonList": []
+            },
+            {
+              "entityName": "Carbonite Chamber",
+              "GUID": "0b3f6ca9-369f-4edc-a22f-bf2db6cab599",
+              "theText": "Er komt stoom uit de carbonite put. Deze is klaar voor gebruik.\r\n\r\n{-} Tijdens de activering van een rebellenfiguur, als <color=“red”>Agent Blaise</color> naast de carbonite put staat, kan die rebellenfiguur een interactie uitvoeren op Agent Blaise ({K}) om hem in carbonite te bevriezen, daarna is de missie afgelopen.",
+              "buttonList": [
+                {
+                  "GUID": "9bc9146a-86fa-446f-9e5f-f18b7636a3a6",
+                  "theText": "Bevries Blaise (einde missie)"
+                }
+              ]
+            },
+            {
+              "entityName": "Command Center Door Left",
+              "GUID": "e5e7878f-6efa-4419-b798-020b3fcf25d9",
+              "theText": "Deze deur scheidt de Carbonite kamer en het commandocentrum.",
+              "buttonList": [
+                {
+                  "GUID": "835cf19f-2f66-4c68-b0f9-89ad39aac1c3",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "fd367eb7-fc6b-4376-976f-ad4f44daab7f",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Blokkeer de toegang tot de carbonite put.",
+          "GUID": "c07bf4e3-0112-4183-8531-40447972b53d",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "otherTarget": "de rebellenfiguur die het dichtst bij agent Blaise staat",
+          "GUID": "d58dfec3-6537-43fa-a5cd-586b8d347326",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
+          "tbText": "Agent Blaise, die druk bezig is met het controleren van gegevens op een terminal, kijkt verbaasd op als je het commandocentrum binnenstormt. Hij trekt zijn wapen, een beweging die snel wordt herhaald door zijn assistent.",
+          "GUID": "4e0945ac-4637-4d06-8259-c0343b70833b",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "Wanneer hij grenst aan een rebellenfiguur, kan <color=“red”>Agent Blaise</color> zijn veld niet vrijwillig verlaten.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "fb7f8734-3b36-4598-9207-3c475e6edd96",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG079/Agent Blaise"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5c205672-3dca-472f-a13c-9a5504cf640a",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Je kunt hier voor eens en voor altijd een einde aan maken. Nu Blaise onder jouw controle staat, kun je hem laten ervaren wat hij zoveel anderen heeft aangedaan: de koele stilte van de carbonite put.\r\n\r\n{-} De deur naar de Carbonite kamer ontgrendelt voor rebellenfiguren.\n{-} <color=“red”>Agent Blaise</color> kan geen {H} lijden en kan niet verslagen worden. Wanneer hij grenst aan een rebellenfiguur, kan <color=“red”>Agent Blaise</color> zijn veld niet vrijwillig verlaten.\r\n{-} Tijdens zijn activering kan een rebellenfiguur die grenst aan <color=“red”>Agent Blaise</color> {K} testen. Als dat lukt, duwt die held <color=“red”>Agent Blaise</color> maximaal 2 velden weg. Anders duwt die held <color=“red”>Agent Blaise</color> maximaal 1 veld weg. Eenmaal per activering.\r\n{-} Tijdens de activering van een rebellenfiguur, als <color=“red”>Agent Blaise</color> naast de carbonite put (rood gemarkeerd) staat, kan die rebellenfiguur een interactie uitvoeren op Agent Blaise ({K}) om hem in carbonite te bevriezen.\r\n{-} De rebellen winnen wanneer <color=“red”>Agent Blaise</color> in carbonite bevroren is.",
+          "GUID": "0b610221-4a2a-4039-8630-5ad46406b485",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "shortText": "Bevries <color=\"red\">Agent Blaise</color> in carbonite.",
+          "longText": null,
+          "GUID": "6bca99b5-203f-4d82-8a05-385849a5ff54",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} Deuren zijn vergrendeld voor keizerlijke figuren.\r\n{-} <color=“red”>Agent Blaise</color> kan geen {H} lijden en kan niet verslagen worden. Wanneer hij grenst aan een rebellenfiguur, kan <color=“red”>Agent Blaise</color> zijn veld niet vrijwillig verlaten.\r\n{-} Tijdens zijn activering kan een rebellenfiguur die grenst aan <color=“red”>Agent Blaise</color> {K} testen. Als dat lukt, duwt die held <color=“red”>Agent Blaise</color> maximaal 2 velden weg. Anders duwt die held <color=“red”>Agent Blaise</color> maximaal 1 veld weg. Eenmaal per activering.\r\n{-} Tijdens de activering van een rebellenfiguur, als <color=“red”>Agent Blaise</color> naast de carbonite put (rood gemarkeerd) staat, kan die rebellenfiguur een interactie uitvoeren op Agent Blaise ({K}) om hem in carbonite te bevriezen.\r\n{-} De rebellen winnen wanneer <color=“red”>Agent Blaise</color> in carbonite bevroren is.\r\n{-} De rebellen verliezen wanneer alle helden gewond zijn.",
+          "GUID": "d16e6ea6-5610-4e52-9985-0a7a7adf4c05",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Open CC Door Left",
+      "GUID": "2582d6fc-6f95-4533-ad37-d35933d6fdd0",
+      "eventText": "De deur schuift open. Gealarmeerd door het geschreeuw van agent Blaise stormt een groep stormtroopers naar binnen.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Command Center Door Left",
+              "GUID": "00f83e0d-1acd-435b-a27c-7b8bae02ffd9",
+              "theText": "De deur tussen de Carbonite kamer en het commandocentrum is vergrendeld.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "b92eda8d-fcad-403b-88c0-a594ec3a3c16",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "015b54ff-cfbf-478b-b935-d730dadae8e5",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "03751d04-e60f-4353-a566-f54628dab1d4",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "20e61345-83ac-4410-9e02-b9728f3b25cc",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Plaats de helden hier.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "fe729197-bdcb-4746-bf21-dc1ddbeb9625",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "56cebf5a-1c42-45b6-b5d7-a7a710d2842d",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "ce28cf20-2624-430a-8e5f-78f842ea8500",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "1109fbc8-1835-4e92-8d41-a069c8bfbc04",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "17d7de92-95e0-4d46-b39c-0cc55524b252",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 1",
+      "GUID": "f25e6e73-5e26-4d00-aa1d-fd0d85e2b1d1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 2",
+      "GUID": "1772f4dc-f2b5-40db-8bef-92c0e3e0d9af",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Wing 3",
+      "GUID": "e3d82a43-e46d-42d7-b859-8ef51fdb5a7b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Cell Door",
+      "GUID": "1ebccf52-2047-44c4-8a10-017951b63124",
+      "mainText": "De deur naar de geïmproviseerde cel is vergrendeld.\n\n{-} Een rebellenfiguur kan een interactie uitvoeren op de deur naar de cel ({I}) om te proberen deze te openen.",
+      "buttonList": [
+        {
+          "GUID": "67118e41-5e5f-4896-bddf-e3a7e7ba8baa",
+          "theText": "{A} Slot openbreken"
+        }
+      ]
+    },
+    {
+      "entityName": "Command Center Door Left",
+      "GUID": "c3fdd431-884b-43e5-9740-171b85b4321d",
+      "mainText": "De deur tussen de Carbonite kamer en het commandocentrum is vergrendeld.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Command Center Door Right",
+      "GUID": "90e59ed2-d289-4d88-af4a-ed48a5313d56",
+      "mainText": "De deur tussen het commandocentrum en de hal is vergrendeld.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Blue",
+      "GUID": "7517db83-c6af-4fcd-a9ab-0274ab9679f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Red",
+      "GUID": "d40f0588-3761-4977-91f6-5d8dbe09b59c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 1",
+      "GUID": "f4b49e42-189f-4d55-ad1b-3cfe3ddfbf21",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow 2",
+      "GUID": "5c1d90d4-9521-4074-8b53-94eb737d2860",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Carbonite Chamber",
+      "GUID": "ee2df8ea-85ad-4155-a243-b3a1b180c1cc",
+      "mainText": "Er komt stoom uit de carbonite put. Deze is klaar voor gebruik.\r\n\r\n{-} Tijdens de activering van een rebellenfiguur, als <color=“red”>Agent Blaise</color> naast de carbonite put staat, kan die rebellenfiguur een interactie uitvoeren op Agent Blaise ({K}) om hem in carbonite te bevriezen, daarna is de missie afgelopen.",
+      "buttonList": [
+        {
+          "GUID": "c7e44115-732d-4edb-b971-7a3f5a8cc14e",
+          "theText": "Bevries Blaise (einde missie)"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Wing Guard",
+      "customInstructions": ""
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "languageID": "Dutch (NL)",
+  "missionProperties": {
+    "missionName": "Ken je vijand",
+    "missionDescription": "",
+    "missionInfo": "",
+    "campaignName": "Return to Hoth",
+    "startingObjective": "",
+    "repositionOverride": "Block access to the door.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "18808fd0-d2e7-4814-af74-733c7b505609",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": [
+                {
+                  "GUID": "1607e7fa-89b9-4aca-bcd3-6a671599bc17",
+                  "theText": "{A} Openen"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "5267e4ae-e358-4c94-8d8c-95cc16985eb4",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Je rommelt door de voorraden en neemt alles wat nuttig lijkt.\r\n\r\nTrek een voorraadkaart. Je krijgt 1 medpac. Claim dit token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "ef139065-e423-4c8a-8980-096195e48d43",
+              "theText": "Een oud voorraadkrat.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Verena leidt je naar de geheime coördinaten van de verlaten buitenpost waar haar broer wacht. Ze gebaart met haar mes. “Mijn broer is een arrogante, opschepperige man. Maar hij is ook, spijtig genoeg, net zo vaardig en technisch onderlegd als ik. Onderschat hem niet.”\r\n\r\n“Ik vertel je dit omdat vele anderen dat wel hebben gedaan,” zegt ze, terwijl ze het litteken op haar gezicht aanraakt, “ik dus ook!”\r\n\r\n{-} Plaats de helden op het blauw gemarkeerde veld.\r\n{-} De missie gaat verder wanneer de deur opengaat.\r\n{-} De rebellen verliezen wanneer alle helden gewond zijn.",
+      "eventActions": [
+        {
+          "newInstructions": "{-} Plaats 1 keizerlijke missietoken op het heldenblad/de inzetkaart van elke rebel die tijdens deze activering is aangevallen.",
+          "GUID": "61a923a7-4b0e-49a1-a0a0-55e9cec4a4e3",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        },
+        {
+          "shortText": "Open de deur naar het commandocentrum.",
+          "longText": null,
+          "GUID": "d82deb18-88a6-4326-a5e9-0b16f5a32b07",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} De missie gaat verder wanneer de deur opengaat.\r\n{-} De rebellen verliezen wanneer alle helden gewond zijn.",
+          "GUID": "ce423ad7-5c25-42d3-83cf-161691241d96",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Ivan Talos ligt bewusteloos op de grond terwijl Verena hem in de boeien slaat. Ze toont een zeldzame glimlach. “Het lijkt erop dat ik deze keer als overwinnaar uit de strijd kom, liefste broer.”\r\n\r\n{-} De rebellen winnen de missie!\r\n{-} Verena Talos ontvangt de beloningskaart “Iron Hand”.\r\n{-} Elke held ontvangt 1 XP. Helden ontvangen 100 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Ivan's wrede gelach achtervolgt je terwijl je je terugtrekt. “Dat zijn er twee voor mij, lieve zus!” glundert hij. Verena zegt dagenlang geen woord, besteedt al haar tijd aan het oefenen van gevechtsmanoeuvres en vloekt zachtjes.\n\n{-} De rebellen verliezen de missie.\n{-} Elke held ontvangt 1 XP. Helden ontvangen 100 credits per held.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Face Off",
+      "GUID": "d034adad-9cb6-4563-b5c7-24365a0db1a8",
+      "eventText": "Ivan Talos glimlacht. \"Ik ben blij dat je bent gekomen, zusje. Het was erg aardig van je om mijn droids toe te laten om al deze informatie over je metgezellen te verzamelen...\"",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Door 1",
+              "GUID": "6d4080eb-6a1f-48e5-8fc5-01ca0b75f363",
+              "theText": "Een oude deur leidt naar het commandocentrum van de verlaten buitenpost waar Ivan Talos zich zou moeten bevinden.\r\n\r\n{-} De deur is vergrendeld voor keizerlijke figuren.",
+              "buttonList": [
+                {
+                  "GUID": "33065af6-8f11-43fe-9ed7-08a539473c79",
+                  "theText": "{A} Openen"
+                }
+              ]
+            },
+            {
+              "entityName": "DP Green 1",
+              "GUID": "6dabfa6b-0bb6-4452-b2ea-8990465b65bc",
+              "theText": null,
+              "buttonList": []
+            },
+            {
+              "entityName": "DP Green 2",
+              "GUID": "d7c075ee-7007-4e81-bd4d-7995f24c2f9c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "ae4cab6f-c971-470d-a293-3dbb90e0a4e3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Ivan Talos",
+              "GUID": "1293cb76-bd3c-446c-86fd-6430cb9be0c4",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "54afa064-feb3-4879-9682-f198e4282c02",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "tbText": "{-} De neutrale missietoken stelt Ivan Talos voor. Ivan Talos is een keizerlijk figuur.\n{-} Als een rebellenfiguur met een keizerlijke missietoken op zijn heldenblad/inzetkaart Ivan Talos aanvalt, voeg dan een extra +1 {G} toe aan de verdedigingsworp.",
+          "GUID": "7ee48502-b1e0-43c8-9126-3b63e3349a39",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "GUID": "1615cd73-6182-43f9-b953-c1fa138e0060",
+          "eventActionType": 21,
+          "eaName": "Custom Deployment: Ivan Talos",
+          "repositionInstructions": "",
+          "surges": "{B}: +3 Nauwkeurigheid\r\n{B}: Verdoven\r\n{B}: Focus\r\n{B}: +2 {H}",
+          "bonuses": "DEFENSE STUDY: Leg 1 keizerlijke missietoken af van het blad/kaart van het dichtstbijzijnde rebellenfiguur met een keizerlijke missietoken erop. Ivan Talos krijgt +2 {g}.\nIMPROVISATION: Tijdens deze activering kan dit figuur IMPROVED CLOSE QUARTERS gebruiken op rebellenfiguren zonder keizerlijke missietokens op hun bladen.\r\nATTACK STUDY: Verdeel X {h} zo gelijkmatig mogelijk over keizerlijke figuren binnen 3 velden van deze figuur, waarbij X het aantal keizerlijke missietokens op heldenbladen is.",
+          "keywords": "+1 {G}\r\n+*1* Health",
+          "abilities": "Ken je vijand: Als een rebellenfiguur met een keizerlijke missietoken op zijn heldenblad/inzetkaart Ivan Talos aanvalt, voeg dan een extra +1 {G} toe aan de verdedigingsworp.",
+          "customText": "{Q} IMPROVED CLOSE QUARTERS: Verplaats 2 om een interactie uit te voeren op een rebel en leg 1 keizerlijke missietoken af van het blad/kaart van die rebel. Kies het beste wapen dat de rebel bij zich heeft en voer 2 aanvallen uit met dat wapen.\r\n{-} Als dit figuur geen IMPROVED CLOSE QUARTERS heeft uitgevoerd, leg dan 1 keizerlijke missietoken af van de dichtstbijzijnde rebel met een keizerlijke token op zijn blad/kaart. Die held lijdt 2 {C}.\r\n{A} ORDER: Een andere keizerlijke figuur met figuurkosten van 6 of minder die een aanval kan uitvoeren, valt {rebel} aan.\n{Q} Als deze figuur geen ORDER heeft gebruikt, verplaats je 3 om {rebel} aan te vallen.\r\n{Q} Verplaats 1 om {rebel} aan te vallen.\n{A} Verplaats 3 om de andere keizerlijke figuur met de meeste resterende gezondheid aan te vallen.\r\n{A} Als dit figuur niet grenst aan een ander keizerlijk figuur, verplaats dan 4 naar herpositie 5.\n{-} COWER: Als het grenst aan een ander keizerlijk figuur, herstel dan 2 {H}. Het aangrenzende niet-<color=“red”>gefocust</color> keizerlijke figuur met de hoogste figuurkosten wordt <color=“red”>gefocust</color>.",
+          "cardName": "Ivan Talos"
+        },
+        {
+          "tbText": "Twee lijfwachten nemen hun positie in voor Verana's broer.",
+          "GUID": "aa8a3c81-928c-4268-8089-3f99fadceab5",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "0a21624f-db09-4760-9e7e-89a24904cd29",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        },
+        {
+          "tbText": "Met een uitdagende glimlach wenkt Ivan zijn zus.\n\n{-} De rebellen winnen wanneer Ivan Talos verslagen is.",
+          "GUID": "4d76d6b9-a594-44e7-ae0f-c69a53e64fde",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Ivan Talos",
+              "GUID": "c44fed20-ecdc-4b44-9501-62e11d6dd62c",
+              "theText": null,
+              "buttonList": []
+            }
+          ],
+          "GUID": "66159288-e2e4-45a6-aa75-1fba105230ee",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "shortText": "Versla Ivan Talos.",
+          "longText": null,
+          "GUID": "01daedf3-2336-4c69-9326-89695578d301",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "theText": "{-} De neutrale missietoken stelt Ivan Talos voor. Ivan Talos is een keizerlijk figuur.\n{-} Als een rebellenfiguur met een keizerlijke missietoken op zijn heldenblad/inzetkaart Ivan Talos aanvalt, voeg dan een extra +1 {G} toe aan de verdedigingsworp.\r\n{-} De rebellen winnen wanneer Ivan Talos verslagen is.\n{-} De rebellen verliezen wanneer alle helden gewond zijn.",
+          "GUID": "a2cbdbdc-a407-48e8-889a-c987a917070d",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "9d42ca43-8411-4e8e-9797-2c2e027e35ae",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "35123c01-5506-4bc6-8bd7-f20964968dc9",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Een oud voorraadkrat.",
+      "buttonList": [
+        {
+          "GUID": "1c8ead9b-40be-4b50-8145-ba84b3bdeed7",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Plaats de helden hier.",
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "81ead058-7663-414c-aed5-13a096cc71f9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HK1",
+      "GUID": "ea78719d-afa5-41f1-8c7b-85dc07544a49",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP HK2",
+      "GUID": "cba28062-ab14-4ad6-83e3-693b6f7a386d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Door 1",
+      "GUID": "a1724928-dfd2-482c-b800-215028355ea8",
+      "mainText": "Een oude deur leidt naar het commandocentrum van de verlaten buitenpost waar Ivan Talos zich zou moeten bevinden.\r\n\r\n{-} De deur is vergrendeld voor keizerlijke figuren.",
+      "buttonList": [
+        {
+          "GUID": "b1030db2-4d27-402c-8490-6d0c66166fb2",
+          "theText": "{A} Openen"
+        }
+      ]
+    },
+    {
+      "entityName": "Ivan Talos",
+      "GUID": "7072e103-9aae-4ecd-bc9a-4a5345bd8ee3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 1",
+      "GUID": "48306267-69bb-4784-9008-8b3746ce7369",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 2",
+      "GUID": "1236e287-5601-41b1-a739-880428eb8f6f",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP EProbe Droid",
+      "GUID": "f2d7d473-a4e6-48c9-b194-73fb19964be9",
+      "mainText": null,
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "HK Assassin Droid",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}
