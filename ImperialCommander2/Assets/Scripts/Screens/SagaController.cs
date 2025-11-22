@@ -23,7 +23,7 @@ namespace Saga
 		public Text roundText, currentThreatText, medPacText, timerText;
 		public Button activateImperialButton, endTurnButton, fameButton;
 		public TextMeshProUGUI missionTitleText;
-		public GameObject zoomBar, timerContainer;
+		public GameObject zoomBar, timerContainer, mapViewToggleButton;
 		//POPUPS
 		public SagaEventPopup eventPopup;
 		public SettingsScreen settingsScreen;
@@ -53,6 +53,8 @@ namespace Saga
 		public bool debugAdaptiveDifficulty = false;
 		public Difficulty debugDifficulty = Difficulty.Medium;
 		public bool debugUseAlly = false;
+
+		private float inputTimer = 0;
 
 		[HideInInspector]
 		public Sound sound;
@@ -1107,6 +1109,48 @@ namespace Saga
 			}
 
 			endTurnButton.interactable = !activateImperialButton.interactable;
+
+			//generic keyboard input
+			inputTimer = Mathf.Max( inputTimer - Time.deltaTime, 0 );
+
+			if ( !eventManager.UIShowing
+				|| !eventManager.IsProcessingEvents
+				|| inputTimer == 0 )
+			{
+				//activate Imperial
+				if ( Input.GetKeyDown( KeyCode.I ) )
+				{
+					inputTimer = 1;
+					OnActivateImperial();
+				}
+				//top down view
+				if ( Input.GetKeyDown( KeyCode.Home ) )
+				{
+					inputTimer = .25f;
+					//also save the Setting
+					if ( cameraController.CurrentViewMode == CameraView.Normal )
+					{
+						PlayerPrefs.SetInt( "viewToggle", 1 );
+						cameraController.CameraViewToggle( CameraView.TopDown );
+					}
+					else
+					{
+						PlayerPrefs.SetInt( "viewToggle", 0 );
+						cameraController.CameraViewToggle( CameraView.Normal );
+					}
+				}
+			}
+
+			//toggle map view during dialog boxes
+			if ( mapViewToggleButton.gameObject.activeInHierarchy
+				&& inputTimer == 0 )
+			{
+				if ( Input.GetKeyDown( KeyCode.M ) )
+				{
+					inputTimer = .25f;
+					eventManager.ToggleVisibility();
+				}
+			}
 		}
 	}
 }

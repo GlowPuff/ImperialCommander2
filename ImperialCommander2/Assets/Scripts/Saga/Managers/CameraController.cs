@@ -18,10 +18,11 @@ namespace Saga
 		public float interval = 1;
 
 		//private Sound sound;
-		private bool acceptNavivation = true;
+		private bool acceptNavigation = true;
 		private Vector3 dragOrigin, rotOrigin, camLocalOrigin, camNormal, touchStart, topDownCamLocalOrigin;
 		private float rotStart;
 		private bool mButtonDown = false;
+		private bool isKeyboardNavigating = false;
 		//private Vector2 prevPos1, prevPos2; // Add these as class fields
 		//private bool wasZoomingLastFrame = false;
 
@@ -32,6 +33,10 @@ namespace Saga
 		float prevDistance = 0;
 		float curDistance = 0;
 		CameraView viewMode = CameraView.Normal;
+		public CameraView CurrentViewMode
+		{
+			get { return viewMode; }
+		}
 
 		public Camera ActiveCamera
 		{
@@ -65,7 +70,7 @@ namespace Saga
 		//	if ( Input.touchCount == 2 )
 		//		HandleTouchGestures(); // New combined handler for both zoom and rotation
 
-		//	if ( acceptNavivation )
+		//	if ( acceptNavigation )
 		//	{
 		//		if ( Input.touchCount < 2 )
 		//			updateTranslation( pointerID );
@@ -102,13 +107,14 @@ namespace Saga
 			else if ( Input.touchCount == 3 )
 				HandleTouchRotate();
 
-			if ( acceptNavivation )
+			if ( acceptNavigation )
 			{
 				if ( Input.touchCount < 2 )
 					updateTranslation( pointerID );
 
 				if ( !isTouching )
 				{
+					HandleKeyboardNavigation();
 					updateRotation();
 					updateZoom();
 					updateReset();
@@ -421,12 +427,12 @@ namespace Saga
 		/// </summary>
 		public void MoveTo( Vector3 p, float speed = 1, float offset = 0, bool reset = false, Action callback = null )
 		{
-			acceptNavivation = false;
+			acceptNavigation = false;
 			p = new Vector3( p.x, 0, p.z/* - offset*/ );
 			transform.DOKill( true );
 			transform.DOMove( p, speed ).OnComplete( () =>
 			{
-				acceptNavivation = true;
+				acceptNavigation = true;
 				callback?.Invoke();
 			} ).SetEase( Ease.InOutCubic );
 
@@ -491,7 +497,7 @@ namespace Saga
 		public void ToggleNavigation( bool canNav )
 		{
 			//Debug.Log( $"ToggleNavigation()::{canNav}" );
-			acceptNavivation = canNav;
+			acceptNavigation = canNav;
 		}
 
 		public void MoveToEntity( Guid guid, Action cb = null )
@@ -543,12 +549,67 @@ namespace Saga
 				OnZoomInButton();
 				OnZoomOutButton();
 			}
-			else
+			else//top down
 			{
 				cam.gameObject.SetActive( false );
 				topDownCamera.gameObject.SetActive( true );
 				camRotator.rotation = Quaternion.Euler( 0, 0, 0 );
 				minValue = -35;
+			}
+		}
+
+		public void HandleKeyboardNavigation()
+		{
+			isKeyboardNavigating = false;
+			if ( FindObjectOfType<SagaEventManager>().UIShowing
+				|| mButtonDown
+				|| !acceptNavigation
+				|| Input.touchCount > 0 )
+				return;
+
+			Vector3 forward = camRotator.forward;
+			forward.y = 0;
+			forward.Normalize();
+			Vector3 right = camRotator.right;
+			right.y = 0;
+			right.Normalize();
+			float rotationSpeedModifier = .8f * Time.deltaTime;
+			float navigationSpeedModifier = 5f * Time.deltaTime;
+
+			if ( Input.GetKey( KeyCode.W ) || Input.GetKey( KeyCode.UpArrow ) )
+			{
+				transform.position += forward * navigationSpeedModifier;
+				isKeyboardNavigating = true;
+			}
+			if ( Input.GetKey( KeyCode.S ) || Input.GetKey( KeyCode.DownArrow ) )
+			{
+				transform.position += -forward * navigationSpeedModifier;
+				isKeyboardNavigating = true;
+			}
+			if ( Input.GetKey( KeyCode.A ) || Input.GetKey( KeyCode.LeftArrow ) )
+			{
+				transform.position += -right * navigationSpeedModifier;
+				isKeyboardNavigating = true;
+			}
+			if ( Input.GetKey( KeyCode.D ) || Input.GetKey( KeyCode.RightArrow ) )
+			{
+				transform.position += right * navigationSpeedModifier;
+				isKeyboardNavigating = true;
+			}
+
+			//rotate right
+			if ( Input.GetKey( KeyCode.E ) )
+			{
+				camRotator.rotation = Quaternion.Euler( 0,
+					camRotator.rotation.eulerAngles.y + rotationSpeedModifier * rotationSensitivity,
+					0 );
+			}
+			//rotate left
+			if ( Input.GetKey( KeyCode.Q ) )
+			{
+				camRotator.rotation = Quaternion.Euler( 0,
+					camRotator.rotation.eulerAngles.y + rotationSpeedModifier * -rotationSensitivity,
+					0 );
 			}
 		}
 	}
