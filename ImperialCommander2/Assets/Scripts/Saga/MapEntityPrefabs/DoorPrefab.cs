@@ -13,7 +13,7 @@ public class DoorPrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 	public void Init( Door d, bool restoring )
 	{
 		isAnimationBusy = false;
-		meshRenderer.material.color = Color.green;
+		//meshRenderer.material.color = Color.green;
 		//new Color( 74f / 255f, 125f / 255f, 63f / 255f );
 		//rgb(52, 87, 44)
 		//rgb(74, 125, 63)
