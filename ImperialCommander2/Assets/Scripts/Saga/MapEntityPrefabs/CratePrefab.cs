@@ -5,8 +5,8 @@ namespace Saga
 {
 	public class CratePrefab : MonoBehaviour, IEndTurnCleanup, IEntityPrefab
 	{
-		public MeshRenderer meshRenderer;
-		public SpriteRenderer spotRenderer;
+		public MeshRenderer meshRenderer, crateTop;
+		//public SpriteRenderer spotRenderer;
 		//[HideInInspector]
 		//public Crate crate { get; set; }
 		[HideInInspector]
@@ -18,7 +18,8 @@ namespace Saga
 			isAnimationBusy = false;
 			mapEntity = c;
 			//meshRenderer.material.color = Utils.String2UnityColor( c.deploymentColor );
-			spotRenderer.color = Utils.String2UnityColor( c.deploymentColor );
+			//spotRenderer.color = Utils.String2UnityColor( c.deploymentColor );
+			crateTop.material.color = Utils.String2UnityColor( c.deploymentColor );
 			//meshRenderer.sharedMaterial.color = Color.gray;//CHANGES ALL MATERIALS~!
 			if ( restoring )
 				transform.position = new Vector3( c.entityPosition.X, c.entityPosition.Y, c.entityPosition.Z );
@@ -76,8 +77,10 @@ namespace Saga
 			{
 				ShowEntity();
 			}
+			crateTop.material.color = Utils.String2UnityColor( props.entityColor );
+
 			//meshRenderer.material.color = Utils.String2UnityColor( props.entityColor );
-			spotRenderer.color = Utils.String2UnityColor( props.entityColor );
+			//spotRenderer.color = Utils.String2UnityColor( props.entityColor );
 		}
 	}
 }

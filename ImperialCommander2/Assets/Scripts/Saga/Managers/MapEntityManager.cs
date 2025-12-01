@@ -348,7 +348,7 @@ namespace Saga
 					//Debug.Log( objectHit.name );
 					if ( objectHit.name == "crate" )
 					{
-						var e = objectHit.parent.GetComponent<CratePrefab>();//.crate;
+						var e = objectHit.parent.parent.GetComponent<CratePrefab>();//.crate;
 						if ( !e.isAnimationBusy )
 						{
 							ProcessQuestionPrompt( e.mapEntity.entityProperties );

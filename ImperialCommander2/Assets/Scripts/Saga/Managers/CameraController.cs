@@ -22,7 +22,6 @@ namespace Saga
 		private Vector3 dragOrigin, rotOrigin, camLocalOrigin, camNormal, touchStart, topDownCamLocalOrigin;
 		private float rotStart;
 		private bool mButtonDown = false;
-		private bool isKeyboardNavigating = false;
 		//private Vector2 prevPos1, prevPos2; // Add these as class fields
 		//private bool wasZoomingLastFrame = false;
 
@@ -560,7 +559,6 @@ namespace Saga
 
 		public void HandleKeyboardNavigation()
 		{
-			isKeyboardNavigating = false;
 			if ( FindObjectOfType<SagaEventManager>().UIShowing
 				|| mButtonDown
 				|| !acceptNavigation
@@ -579,22 +577,18 @@ namespace Saga
 			if ( Input.GetKey( KeyCode.W ) || Input.GetKey( KeyCode.UpArrow ) )
 			{
 				transform.position += forward * navigationSpeedModifier;
-				isKeyboardNavigating = true;
 			}
 			if ( Input.GetKey( KeyCode.S ) || Input.GetKey( KeyCode.DownArrow ) )
 			{
 				transform.position += -forward * navigationSpeedModifier;
-				isKeyboardNavigating = true;
 			}
 			if ( Input.GetKey( KeyCode.A ) || Input.GetKey( KeyCode.LeftArrow ) )
 			{
 				transform.position += -right * navigationSpeedModifier;
-				isKeyboardNavigating = true;
 			}
 			if ( Input.GetKey( KeyCode.D ) || Input.GetKey( KeyCode.RightArrow ) )
 			{
 				transform.position += right * navigationSpeedModifier;
-				isKeyboardNavigating = true;
 			}
 
 			//rotate right
