@@ -1,0 +1,33 @@
+## Traduzir Imperial Commander 2 → PT-BR: Fase 6 - Expansão Empire
+
+### 📋 Contexto
+Traduzir as **16 missões** da expansão **Heart of the Empire** do Imperial Commander 2 para português brasileiro.
+
+### 📚 Recursos Obrigatórios (LER PRIMEIRO)
+1. **Instruções do tradutor:** `.agent/agents/imperial-translator.md`
+2. **Glossário e preservação:** `WORK/dicionarios/dicionario.json`
+3. **Plano de execução:** `WORK/PLAN-traducao-ptbr.md`
+
+### ⚠️ Instrução de Branch (IMPORTANTE)
+**O Pull Request gerado deve obrigatoriamente ter como base (target) o branch `jules-translate` e NÃO o `main`.**
+
+### 🎯 Tarefa
+**Passo 1:** Copiar missões para Br
+```bash
+mkdir -p ImperialCommander2/Assets/Resources/Languages/Br/Missions/Empire
+```
+
+**Passo 2:** Para cada missão em `SagaMissions/Empire/`:
+- Copiar para `Languages/Br/Missions/Empire/` com sufixo `_BR`
+- Traduzir conteúdo respeitando validade JSON e regras abaixo.
+
+### 🔴 Regras Críticas
+**Siga estritamente as diretrizes definidas em:** `.agent/agents/imperial-translator.md`
+
+### 📝 Commit
+```
+feat(i18n): traduzir missoes Empire para PT-BR (Fase 6)
+```
+
+### 🏷️ Labels
+`translation`, `pt-br`, `fase-6`, `missions`, `empire`
