@@ -1,0 +1,52 @@
+name: "Jules: Reviewer (Validation & Merge)"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - '**.json' # Monitoriza alterações em ficheiros JSON
+
+jobs:
+  jules_process:
+    # CONDIÇÃO DE PARAGEM: Só executa se a mensagem do último commit NÃO tiver a tag de conclusão
+    if: "!contains(github.event.head_commit.message, '[JULES-READY]')"
+    
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # IMPORTANTE: Usa um Personal Access Token (PAT) para permitir que commits do bot disparem o workflow novamente
+          token: ${{ secrets.JULES_PAT }}
+
+      - name: Execução do Jules (Modo Revisor/Corretor)
+        uses: google-labs-code/jules-action@v1
+        with:
+          github-token: ${{ secrets.JULES_PAT }}
+          jules_api_key: ${{ secrets.JULES_API_KEY }}
+          prompt: |
+            Tu és o Gestor de Qualidade do projeto Imperial Commander 2.
+            
+            TEU OBJETIVO: Garantir que a tradução está perfeita e os scripts de validação passam.
+            
+            INSTRUÇÕES:
+            1. **CONSULTA OBRIGATÓRIA:** Lê o arquivo `.agent/agents/imperial-translator.md` para entender as regras de tradução, preservação e hierarquia.
+            2. Executa os scripts de validação: `./WORK/scripts/validate-json.sh` e `./WORK/scripts/check-glossary.py`.
+            3. Se houver erros técnicos ou de termos Star Wars (conforme o agente/glossário), CORRIGE-OS e faz o commit na branch.
+            4. Quando (e apenas quando) tudo estiver 100% correto e validado, faz um commit final com a mensagem: "[JULES-READY]: Tradução validada e pronta para produção".
+            
+            Não pares até que os scripts de validação retornem sucesso.
+
+      - name: Ativar Auto-Merge
+        # Este passo só corre se o commit anterior (do Jules) tiver a tag [JULES-READY]
+        if: contains(github.event.head_commit.message, '[JULES-READY]')
+        env:
+          GITHUB_TOKEN: ${{ secrets.JULES_PAT }}
+        run: |
+          # Ativa o merge automático para este PR usando o GitHub CLI
+          gh pr merge ${{ github.event.pull_request.number }} --auto --merge --delete-branch

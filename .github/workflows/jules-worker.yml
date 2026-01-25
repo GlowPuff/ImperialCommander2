@@ -1,0 +1,55 @@
+name: "Jules: Worker (Issue -> PR)"
+
+on:
+  issues:
+    types: [assigned, labeled]
+
+jobs:
+  jules_translator:
+    # Executa se a issue tiver a label 'jules' (github event label)
+    # OU se for atribuída explicitamente a 'jules-imperial' (caso legacy)
+    if: contains(github.event.issue.labels.*.name, 'jules') || github.event.issue.assignee.login == 'jules-imperial'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: read
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+        with:
+          # IMPORTANTE: Usa PAT para que os commits do Jules disparem o workflow de validação (revisão)
+          token: ${{ secrets.JULES_PAT }}
+
+      - name: Configurar Git
+        run: |
+          git config user.name "Jules Agent"
+          git config user.email "jules-agent@imperial.bot"
+
+      - name: Jules - Executar Tradução
+        uses: google-labs-code/jules-action@v1
+        with:
+          github-token: ${{ secrets.JULES_PAT }}
+          jules_api_key: ${{ secrets.JULES_API_KEY }}
+          # O prompt injeta o contexto da Issue
+          prompt: |
+            Tu és o Agente Tradutor do Imperial Commander 2.
+            
+            TAREFA RECEBIDA DA ISSUE #${{ github.event.issue.number }}:
+            Título: "${{ github.event.issue.title }}"
+            
+            DESCRIÇÃO & INSTRUÇÕES:
+            ${{ github.event.issue.body }}
+            
+            ---------------------------------------------------------
+            DIRETRIZES OBRIGATÓRIAS:
+            1. LÊ o arquivo `.agent/agents/imperial-translator.md` antes de começar.
+            2. EXECUTA a tradução solicitada na descrição da issue.
+            3. CRIA UMA NOVA BRANCH a partir de `jules-translate` (ou usa a atual se já existir).
+            4. FAZ O COMMIT das alterações.
+            5. O código deve estar pronto para gerar um Pull Request.
+            
+            IMPORTANTE:
+            - NÃO inventes tarefas. Faz APENAS o que está na Issue.
+            - Se a issue pedir para traduzir o arquivo X, traduz APENAS o arquivo X.
