@@ -11,9 +11,14 @@ A melhor forma de criar as issues é usando os scripts Python. Eles geram issues
 ### Pré-requisitos
 1. **GitHub CLI (`gh`)** instalado e autenticado.
 2. **Branch de Destino:** `jules-translate` deve existir.
-3. **Secret `JULES_PAT` (Personal Access Token):** Configurado nos Settings do repositório.
-    *   Necessário para que os commits do Jules disparem novos workflows (validação recursiva).
-    *   Permissões: `repo` (full control) e `workflow`.
+3. **Segredos do Repositório (Settings > Secrets > Actions):**
+    *   `JULES_PAT`: Personal Access Token (com permissões `repo` e `workflow`).
+    *   `JULES_API_KEY`: API Key do Gemini (gerada em jules.google.com/settings/api).
+
+### 🏷️ Como Funciona
+*   Os scripts criam uma Issue com a label **`jules`**.
+*   O Workflow `.github/workflows/jules-worker.yml` detecta essa label.
+*   O Jules (agente) acorda, lê a issue, traduz e abre um Pull Request.
 
 ```bash
 git checkout main

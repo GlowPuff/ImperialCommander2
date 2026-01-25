@@ -17,9 +17,10 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Checkout do Código
+      - name: Checkout do Código (Target Branch)
         uses: actions/checkout@v4
         with:
+          ref: jules-translate
           fetch-depth: 0
           # IMPORTANTE: Usa um Personal Access Token (PAT) para permitir que commits do bot disparem o workflow novamente
           token: ${{ secrets.JULES_PAT }}
