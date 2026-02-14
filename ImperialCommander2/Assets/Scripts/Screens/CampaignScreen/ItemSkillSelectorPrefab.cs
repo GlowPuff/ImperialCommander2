@@ -28,13 +28,13 @@ namespace Saga
 			typeText.text = item.type;
 
 			bool itemAlreadyAssigned = false;
-			foreach (var campaignHero in FindObjectOfType<CampaignManager>().sagaCampaign.campaignHeroes)
+			foreach ( var campaignHero in FindObjectOfType<CampaignManager>().sagaCampaign.campaignHeroes )
 			{
-				if (campaignHero.campaignItems.Any(x => x.id == item.id) )
+				if ( campaignHero.campaignItems.Any( x => x.id == item.id ) )
 					itemAlreadyAssigned = true;
 			}
 
-			if (!itemAlreadyAssigned)
+			if ( !itemAlreadyAssigned )
 			{
 				nameText.text = $"{item.name} / <color=orange>{DataStore.uiLanguage.uiCampaign.tierUC} {item.tier}</color>";
 				costText.text = $"{DataStore.uiLanguage.uiCampaign.costUC}: {item.cost}";
@@ -76,6 +76,7 @@ namespace Saga
 			typeText.text = "U";
 			typeText.color = new Vector3( 1f, 0.1568628f, 0f ).ToColor();
 			costText.text = filename;
+
 			foreach ( var item in card.missionType )
 			{
 				if ( item == global::MissionType.Story )

@@ -1,0 +1,453 @@
+{
+  "languageID": "Portuguese (BR)",
+  "missionProperties": {
+    "missionName": "Impounded",
+    "missionDescription": "",
+    "missionInfo": "{-} A missão progredirá quando os controles do grampo de acoplamento forem desativados e o piloto for recuperado.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Encontre e solte os controles do grampo de encaixe. Encontre e resgate o piloto.",
+    "repositionOverride": "Bloqueie o acesso ao controle de grampos de acoplamento e ao piloto.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Você corre para o deserto, ciente de que os Imperiais agora estão destruindo sua nave, peça por peça. Tudo o que estava em seus registros de vôo de navios, mensagens, as posições de agentes-chave em breve estarão em suas mãos.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} O nível de ameaça da próxima missão (e apenas da próxima missão) aumenta em 2. Durante o estágio de atualização rebelde, os jogadores rebeldes podem decidir gastar 100 créditos por herói para evitar isso.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "O piloto é um pouco zeloso demais enquanto banha a área com tiros de canhão blaster antes de pousar a nave. Seu rosto está sombrio e ele não diz nada além de um curto \"Obrigado\", enquanto todos entram no transporte.\r\n\r\n{-} Os rebeldes vencem a missão!",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Enquanto reabastecia seu navio, você foi levado sob custódia por suspeita de atividade criminosa. Toda a sua documentação estava atualizada. Embora você tenha considerado explodir tudo\r\nVisão, seu piloto garantiu que ele poderia sair disso.\r\n\r\nIsso foi há três horas, então você decide fugir da sala de espera. Depois de alguns minutos olhando ao redor, você chega a uma área de observação bem a tempo de ver seu piloto jogado em um curral de animais. Feras temíveis rondam, mostrando dentes afiados em sua forma inconsciente.\r\n\r\nE para piorar as coisas, sua nave ainda está travada pelos grampos de encaixe.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} A missão progredirá quando os controles do grampo de acoplamento forem desativados e o piloto for recuperado.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Open Control Room",
+      "GUID": "22e9e3eb-dd27-46c4-b535-98890e846a0d",
+      "eventText": "Você abre a porta da Sala de Controle apenas para se encontrar cara a cara com os guardas.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Control Room Door",
+              "GUID": "4bbdbdf9-7248-4c4a-bc28-8aa9fa1af907",
+              "theText": "A porta é rotulada como \"Sala de Controle\".",
+              "buttonList": [
+                {
+                  "GUID": "1726a371-2b8e-4c46-b8cc-79c005a114a1",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "0b9c0802-fdff-4849-8f90-da6ceb66ffde",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "66c692b6-09c5-452e-9bd4-59435a93317e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "84bb86d0-1749-4419-89c3-fff27ee5244e",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG009/Royal Guard"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "7071c358-7747-4273-b3d1-e2a090f26eb1",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "eb9019cb-6c50-41df-9c7b-7f439d931ba2",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "e49c98f4-bc69-4d85-83f2-b286161c2dfc",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Exit Door",
+      "GUID": "037f196d-d213-407f-b390-d83870a18407",
+      "eventText": "O ar quente do deserto faz você engasgar ao abrir a porta. Perto dali, as feras rosnam agressivamente.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Exit Door",
+              "GUID": "042d8ced-1bf1-42bc-bb29-c24991ba5683",
+              "theText": "A porta é rotulada como \"Saída\".",
+              "buttonList": [
+                {
+                  "GUID": "128a3b2b-9954-4b5b-ad30-df12abdd8e86",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "da411f41-ee08-4882-9c68-95ac37bbed82",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "Place yourself on top of the pilot.",
+          "GUID": "fbd3c520-368d-44b3-866e-14edbabc4c69",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG017/Nexu"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "Place yourself on top of the pilot.",
+          "GUID": "e8ff8c50-17ef-4224-9e44-542f0a34ed33",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG018/Nexu (Elite)"
+        }
+      ]
+    },
+    {
+      "eventName": "Pen Door opens",
+      "GUID": "86d95cf3-f896-4f86-ba04-4ffe94f4ca84",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Pen Door",
+              "GUID": "e717e5e3-a709-43f4-abd4-65575f8ff610",
+              "theText": "Esta porta leva para fora do curral dos animais.",
+              "buttonList": [
+                {
+                  "GUID": "2d5c3341-dc8a-4d33-b75f-87598464c0ab",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "6ad67ba6-0fdb-4cc4-a142-256caabe86eb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Pilot retrieved",
+      "GUID": "889f8d37-4098-4a7d-bccf-75abc2bffa16",
+      "eventText": "Seu piloto claramente passou por muita coisa, mas não parece estar gravemente ferido.\r\n\r\n{-} Aplique -1 à velocidade e -1 {G} aos resultados da defesa de um herói carregando o piloto.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Pilot",
+              "GUID": "1ec93a65-9e69-4ce5-8040-ab60bdec0d2b",
+              "theText": "Seu piloto está imóvel no chão, inconsciente.\r\n\r\nUm herói pode recuperar o piloto. Aplique -1 à velocidade e -1 {G} aos resultados da defesa de um herói carregando o piloto.",
+              "buttonList": [
+                {
+                  "GUID": "080c7f07-2b90-45e9-ae7f-a87abb7d87f9",
+                  "theText": "{A} Resgate"
+                }
+              ]
+            }
+          ],
+          "GUID": "b1b39c91-505c-4f8e-ae7b-99ff8d92a222",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "theText": "{-} A missão progredirá quando os controles do grampo de acoplamento forem desativados e o piloto for recuperado.\r\n{-} Aplique -1 à velocidade e -1 {G} aos resultados da defesa de um herói carregando o piloto.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "73d53de0-dd21-411e-8a7d-6bbf05758523",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        }
+      ]
+    },
+    {
+      "eventName": "Prep for Takeoff",
+      "GUID": "e30f6aa1-d319-428d-a3e7-529984a07504",
+      "eventText": "Em péssimo estado, seu piloto desperta lentamente. Você o informa sobre a situação.\r\n\r\n\"Ok, com os grampos de encaixe liberados, tudo o que precisamos fazer é chegar ao navio.\" Ele estremece, segurando seu lado ferido. \"Oh, eles vão pagar por isso ...\" ele diz com os dentes cerrados.\r\n\r\n{-} Aplique -1 à velocidade e -1 {G} aos resultados da defesa de um herói carregando o piloto.\r\n{-} Um herói carregando o piloto pode interagir com a escotilha para que o piloto parta.\r\n{-} Os rebeldes vencem quando o piloto parte.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Hatch",
+              "GUID": "63cd4730-818e-453e-8494-253d92d7f95c",
+              "theText": "A escotilha leva à baía de desembarque onde sua nave está sendo mantida.\r\n\r\nUm herói carregando o piloto pode interagir com a escotilha para que o piloto parta, encerrando a missão.",
+              "buttonList": [
+                {
+                  "GUID": "8ff61de3-f36f-4d28-a190-9f588a19353a",
+                  "theText": "{A} Partida"
+                }
+              ]
+            }
+          ],
+          "GUID": "d3f935b3-fc3e-4d2b-93c3-c327429c12f3",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "repositionText": "Bloqueie o acesso à escotilha.",
+          "GUID": "bc733562-ce49-43b6-9816-462c4a4b24a4",
+          "eventActionType": 17,
+          "eaName": "Change Reposition Instructions"
+        },
+        {
+          "theText": "{-} Aplique -1 à velocidade e -1 {G} aos resultados da defesa de um herói carregando o piloto.\r\n{-} Um herói carregando o piloto pode interagir com a escotilha para que o piloto parta.\r\n{-} Os rebeldes vencem quando o piloto parte.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "eff57a45-1095-4862-b6e8-d3e3ddf20f37",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Ajude o piloto a escapar.",
+          "longText": null,
+          "GUID": "23154839-3bc7-44ed-9313-5717c759198f",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Attempt",
+      "GUID": "2033679c-f843-45c7-89e7-935e0cba16c7",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "Você começa a cortar o terminal.\r\n\r\nTeste {I} ou {J} e insira o número de sucessos abaixo. Aplique +1 {B} para cada ficha de tensão no terminal e, em seguida, descarte todas as fichas de tensão do terminal. Insira o número de sucessos abaixo.",
+          "failText": "",
+          "inputList": [
+            {
+              "GUID": "d2dc3d94-2290-4fa9-881e-c0c0c98c196a",
+              "theText": "Você não consegue superar os protocolos de segurança. Você precisa continuar tentando.\r\n\r\n{-} Para cada resultado {B}, coloque 1 token de tensão no terminal."
+            }
+          ],
+          "GUID": "284d9db2-0bf0-4d9d-a9ae-dbb758435eab",
+          "eventActionType": 20,
+          "eaName": "Input Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Slice Success",
+      "GUID": "bf1788a0-135b-4b5b-a29f-f520da3cb082",
+      "eventText": "Você consegue liberar os grampos de encaixe.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Clamp Controls",
+              "GUID": "4f88026d-1d33-4eea-a302-fe4a8e3e4a00",
+              "theText": "O terminal controla os grampos de encaixe.\r\n\r\nUm herói pode interagir com os controles do grampo de encaixe para tentar desativá-los.",
+              "buttonList": [
+                {
+                  "GUID": "1e278bfb-c7b3-403f-b765-86adac829e43",
+                  "theText": "{A} Fatia"
+                }
+              ]
+            }
+          ],
+          "GUID": "ffba9045-e3dd-43ac-86a4-45f85870ec29",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Clamp Controls",
+      "GUID": "dd7cb996-baec-4a8f-8a44-6d2e1401dfd5",
+      "mainText": "O terminal controla os grampos de encaixe.\r\n\r\nUm herói pode interagir com os controles do grampo de encaixe para tentar desativá-los.",
+      "buttonList": [
+        {
+          "GUID": "fd337f56-7dda-4933-9d70-f3b249178dd3",
+          "theText": "{A} Fatia"
+        }
+      ]
+    },
+    {
+      "entityName": "Control Room Door",
+      "GUID": "21076d95-5a09-474a-aec2-9be53ff22711",
+      "mainText": "A porta é rotulada como \"Sala de Controle\".",
+      "buttonList": [
+        {
+          "GUID": "b11a378e-5b62-4920-9f4e-df6c723bc45b",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "16e34fea-d15d-4848-8e34-103fe597b068",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "a3e5f757-641c-4889-afb2-713e7be2613d",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP ENexu",
+      "GUID": "9546a288-2af6-49d6-bbcf-abb4ffd4e2d5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "c8062d94-a52f-4458-b2cf-3c7b515747e5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "5bdffef2-c7c7-4e16-ab66-dca82b0481fd",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "64b4dbf2-4e39-4ce7-a5fe-94eed25c16d2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Nexu",
+      "GUID": "46a15125-1031-40f8-924c-d7881dfc0d7b",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "c5dafeb2-7a1b-4dce-b84b-903b7cd9acb5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 1",
+      "GUID": "1acbd03c-0633-4809-b7ba-23836d0f5edb",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal 2",
+      "GUID": "d625d3f7-e3e2-4cc7-b5c6-0512e9731db3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Exit Door",
+      "GUID": "9925d6ca-a2d3-4297-b725-decf24a09fae",
+      "mainText": "A porta é rotulada como \"Saída\".",
+      "buttonList": [
+        {
+          "GUID": "72663c18-a2ae-4269-91c6-4901705fef74",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Hatch",
+      "GUID": "a97e9959-a6b7-4895-8ca7-d28b96d60dc2",
+      "mainText": "A escotilha leva à baía de desembarque onde sua nave está sendo mantida.\r\n\r\nUm herói carregando o piloto pode interagir com a escotilha para que o piloto parta, encerrando a missão.",
+      "buttonList": [
+        {
+          "GUID": "6c7b8fbf-76cd-4371-97a0-fb0c22d5a91a",
+          "theText": "{A} Partida"
+        }
+      ]
+    },
+    {
+      "entityName": "Pen Door",
+      "GUID": "097f6279-b760-40bd-89c4-97e2abe63f3a",
+      "mainText": "Esta porta leva para fora do curral dos animais.",
+      "buttonList": [
+        {
+          "GUID": "6bb1331a-7cef-4577-99be-ac6bf424f384",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Pilot",
+      "GUID": "e73e2181-e662-4c71-9197-e26d2c5b8fe9",
+      "mainText": "Seu piloto está imóvel no chão, inconsciente.\r\n\r\nUm herói pode recuperar o piloto. Aplique -1 à velocidade e -1 {G} aos resultados da defesa de um herói carregando o piloto.",
+      "buttonList": [
+        {
+          "GUID": "5a51dbaf-b9f3-4caf-b15d-38e9ca672447",
+          "theText": "{A} Resgate"
+        }
+      ]
+    }
+  ],
+  "initialGroups": []
+}

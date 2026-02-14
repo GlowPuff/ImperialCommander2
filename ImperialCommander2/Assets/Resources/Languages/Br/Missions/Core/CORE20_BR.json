@@ -1,0 +1,373 @@
+{
+  "languageID": "Portuguese (BR)",
+  "missionProperties": {
+    "missionName": "Loose Cannon",
+    "missionDescription": "",
+    "missionInfo": "{-} O <color=\"red\">AT-ST</color> é uma figura rebelde sob o controle de Mak. Quando o Mak ativar, prepare e ative o <color=\"red\">AT-ST</color>. A figura do herói de Mak não é implantada e não pode ser ativada. Aplique Vida adicional igual ao nível de ameaça ao <color=\"red\">AT-ST.</color> O <color=\"red\">AT-ST</color> pode entrar e ocupar espaços no Hangar. Quando o <color=\"red\">AT-ST</color> for derrotado, clique no token de missão Imperial e selecione \"AT-ST derrotado\".\r\n{-} Quaisquer ataques que tenham como alvo Mak enquanto sua figura não estiver implantada tenham como alvo o <color=\"red\">AT-ST</color>.\r\n{-} A parede entre o Hangar (ladrilho 19A) e o Campo de Teste (ladrilho 2B) não bloqueia o movimento ou a linha de visão.\r\n{-} Os rebeldes vencem quando todas as figuras imperiais são derrotadas.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+    "campaignName": "Core Game",
+    "startingObjective": "Derrote todos os Imperiais.",
+    "repositionOverride": null,
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Advantage 1",
+      "GUID": "41fb0855-8d76-4813-a5c8-058aab4cf96a",
+      "eventText": "O <color=\"red\">Campeão da Guarda Real</color> recupera {H} igual a 1 + nível de ameaça (*1*).",
+      "eventActions": []
+    },
+    {
+      "eventName": "Advantage 2",
+      "GUID": "e5d6762c-aec9-4d1d-95ec-dc70a7b5cbb2",
+      "eventText": "O <color=\"red\">Campeão da Guarda Real</color> move 5 em direção ao Rebelde mais próximo e, em seguida, ataca esse Rebelde, se possível.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Advantage 3",
+      "GUID": "ab34be27-7799-41d2-aa74-75f96f09362e",
+      "eventText": "As duas figuras imperiais com o maior custo de valor tornam-se Focalizadas.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Chaos",
+      "GUID": "da4f0f53-91b7-45e8-b3d9-ac13cc715647",
+      "eventText": "Gritando Soldados imperiais vêm correndo, carregando um enorme canhão blaster em um tripé.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "6ba3db99-aba1-436a-87f9-63c5fd1975f8",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        }
+      ]
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "\"De novo não!\" Mak grita, tentando avançar mesmo quando você o arrasta para longe e sai do planeta.\r\n\r\nCom raiva latente, Mak se agacha no canto do porão, murmurando \"Da próxima vez ... \" repetidamente baixinho.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Mak faz uma busca minuciosa na instalação, recuperando componentes de protótipos antes de plantar várias cargas explosivas.\r\n\r\nDe uma distância segura, você observa como a explosão desnecessariamente maciça reduz a instalação a minúsculos fragmentos fumegantes.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Mak recebe o cartão de recompensa \"Traje das Sombras\".\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "Você está preocupado com a obsessão de Mak em destruir esta instalação. Ele ainda não lhe disse que tipo de importância isso tem, mas sua atitude é bastante volátil.\r\n\r\nIsto é, até você chegar ao hangar principal da instalação e ele avistar um andador de reconhecimento não tripulado.\r\n\r\n{-} A parede entre o Hangar (ladrilho 19A) e o Campo de Teste (ladrilho 2B) não bloqueia o movimento ou a linha de visão.\r\n{-} Os rebeldes vencem quando todas as figuras imperiais são derrotadas.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+      "eventActions": [
+        {
+          "tbText": "{-} Coloque a figura <color=\"red\">AT-ST</color> nos espaços destacados em vermelho.\r\n{-} O <color=\"red\">AT-ST</color> é uma figura rebelde sob o controle de Mak. Quando o Mak ativar, prepare e ative o <color=\"red\">AT-ST</color>. A figura do herói de Mak não é implantada e não pode ser ativada. Aplique Vida adicional igual ao nível de ameaça ao <color=\"red\">AT-ST.</color> O <color=\"red\">AT-ST</color> pode entrar e ocupar espaços no Hangar. Quando o <color=\"red\">AT-ST</color> for derrotado, clique no token de missão Imperial e selecione \"AT-ST derrotado\".\r\n{-} Quaisquer ataques que tenham como alvo Mak enquanto sua figura não estiver implantada tenham como alvo o <color=\"red\">AT-ST</color>.\r\n{-} Implante os heróis no espaço destacado em azul.",
+          "GUID": "3f2dcc6a-d136-4db4-b88b-7bb679435955",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "ef3ac2bb-317b-4817-a0fa-2dfcbdc09e5a",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "c97f7e66-f12a-4418-bf3e-3a2ed307ea18",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "04c52738-027f-4976-9532-4476d1a6afd5",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "b16ff3c3-fc57-4388-b32f-6010212968fc",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "059ddc53-6971-4bfa-85a9-5084a32ab4f7",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "724bf349-d668-40d0-a4ea-e0dca15b688d",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Press the Advantage",
+      "GUID": "85cb7813-f0e5-47c8-a3a6-4399ef5d0a83",
+      "eventText": "Gritando maldições, Mak mergulha para fora do topo do andador enquanto ele continua a ser atacado por todos os lados.\r\n\r\nMak bate no chão com força. Ele se levanta enquanto sua vantagem tática detona, enviando-o para cima mais uma vez.\r\n\r\n{-} Coloque a figura de Mak em um dos espaços que foi ocupado pelo <color=\"red\">AT-ST</color>. Ele sofre 10 {H}.",
+      "eventActions": [
+        {
+          "mainText": "Selecione a opção correta.\r\n\r\n<b>1:</b> O <color=\"red\">Campeão da Guarda Real</color> está no mapa e sofreu 7 ou mais {H}.\r\n<b>algarismo:</b> O <color=\"red\">Campeão da Guarda Real</color> está no mapa e sofreu menos de 7 {H}.\r\n<b>3:</b> O <color=\"red\">Campeão da Guarda Real</color> não está no mapa.",
+          "buttonList": [
+            {
+              "GUID": "f73c09d4-9356-4e07-b211-d1d5e640ea17",
+              "theText": "1"
+            },
+            {
+              "GUID": "f1f3e097-93b6-4d40-8df0-6fc65e049bb4",
+              "theText": "2"
+            },
+            {
+              "GUID": "3f6ff39a-3213-4650-be27-117b26816ff0",
+              "theText": "3"
+            }
+          ],
+          "GUID": "b1cc8da4-9a18-443e-82b8-bc863e98f867",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        },
+        {
+          "theText": "{-} A parede entre o Hangar (ladrilho 19A) e o Campo de Teste (ladrilho 2B) não bloqueia o movimento ou a linha de visão.\r\n{-} Os rebeldes vencem quando todas as figuras imperiais são derrotadas.\r\n{-} Os rebeldes perdem quando todos os heróis são feridos.",
+          "GUID": "68033082-8c64-4d33-8c38-fbd776fac1a1",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "otherTarget": null,
+          "GUID": "89ef1ffc-99fe-40d9-a9b6-5cf6978cf2c6",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "AT-ST Token",
+              "GUID": "8a699eb0-66d8-485f-9c88-7865526ec82f",
+              "theText": "Quando o <color=\"red\">AT-ST</color> for derrotado, clique em \"AT-ST derrotado\".",
+              "buttonList": [
+                {
+                  "GUID": "f5400e43-9835-4fe6-8c79-65cd75f11f7f",
+                  "theText": "AT-ST derrotado"
+                }
+              ]
+            }
+          ],
+          "GUID": "dc8786d9-eaee-46fb-a793-bc6bfeac0175",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Strategic Withdrawal",
+      "GUID": "859820fc-59c5-408d-986d-a9c85765fa9a",
+      "eventText": "O ataque das forças imperiais começa a diminuir. É provável que esta seja uma das ondas finais.",
+      "eventActions": []
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "AT-ST",
+      "GUID": "5714cf6c-3b57-4bc2-bf4b-863de49f3cb6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "AT-ST Token",
+      "GUID": "e0435ad7-e4b1-4144-aebc-52c63700b8d9",
+      "mainText": "Quando o <color=\"red\">AT-ST</color> for derrotado, clique em \"AT-ST derrotado\".",
+      "buttonList": [
+        {
+          "GUID": "a4fa1219-d7eb-415a-9713-a2e286a2bed2",
+          "theText": "AT-ST derrotado"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "1809a390-73f8-4027-bb2a-4f08fa03b46f",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "d1dd10a7-430d-49dc-be0f-5a1eacf46ddb",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "e96e3a70-8272-41f7-8262-a02622aa0d02",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "4d6c319a-9b01-422c-a87f-e48a94caa66b",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP Champion",
+      "GUID": "c9f896a2-e269-4c79-8425-f501d0fe9ce5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "096beea1-a205-4fdd-88ed-2cad24533f45",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "531d543f-b3a1-47b5-9016-a07d1eefd16e",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "a983deed-9c94-4208-ad0f-7080e99b3f02",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "791c3d93-4f0a-47f8-bb2c-2672ec711e19",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 1",
+      "GUID": "e5e5f62c-05b5-48cc-a489-a4a7e544ebc5",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Royal Guard 2",
+      "GUID": "84910b0c-7129-40a1-8af5-03c8f1acb1b3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "41a6b5c6-d680-457f-9f2f-7ffb2b9084a6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "6740b199-dfe8-4d5e-b4e7-7b5b40a1954d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "fe31c70a-cbcd-47d3-ae36-b4a703a8be1a",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Imperial Officer (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Royal Guard",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Royal Guard Champion",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper (Elite)",
+      "customInstructions": ""
+    }
+  ]
+}

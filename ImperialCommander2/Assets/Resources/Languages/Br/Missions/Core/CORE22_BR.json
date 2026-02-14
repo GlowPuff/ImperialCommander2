@@ -1,0 +1,352 @@
+{
+  "languageID": "Portuguese (BR)",
+  "missionProperties": {
+    "missionName": "Sorry About the Mess",
+    "missionDescription": "",
+    "missionInfo": "{-} A porta está trancada para todas as figuras, exceto <color=\"red\">Han Solo</color>.\r\n{-} A missão progride quando a porta da Garagem é aberta.\r\n{-} Os rebeldes perdem quando <color=\"red\">Han Solo</color> é derrotado.",
+    "campaignName": "Core Game",
+    "startingObjective": "Abra a porta da Garagem.",
+    "repositionOverride": "Bloqueie o acesso à Garagem.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Han se abaixa enquanto uma saraivada de tiros de blaster chia no alto. \"Huh\", diz ele, disparando de volta. \"Não pensei que haveria tantos.\"\r\n\r\nOs imperiais continuam avançando; Em pouco tempo, você se desliga, incapaz de lidar com seus números.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "\"Sem ressentimentos por Nar Shadaa\", diz Han sarcasticamente. Ele se vira para você, sorrindo. \"Obrigado rapazes, eu devo um a vocês. Se você se encontrar em uma situação difícil, talvez eu possa retribuir o favor.\"\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Os heróis recebem <color=\"red\">Han Solo</color> () como aliado.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "\"Você chegou bem na hora\", comenta Han Solo quando você chega. \"Ouvi falar de um oficial imperial trabalhando em uma espécie de operação aqui.\"\r\n\r\n\"Agora, eu verifiquei o lugar. Está bem trancado \", diz ele, acenando para você e segurando um pequeno queixo metálico, \"mas os guardas são tão descuidados com seus cartões-chave\". Ele sorri.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} Implante <color=\"red\">Han Solo</color> () no espaço realçado em vermelho.\r\n{-} A porta está trancada para todas as figuras, exceto <color=\"red\">Han Solo</color>.\r\n{-} A missão progride quando a porta da Garagem é aberta.\r\n{-} Os rebeldes perdem quando <color=\"red\">Han Solo</color> é derrotado.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Old Friends",
+      "GUID": "fbf51831-db56-4661-b09b-8f2da94a76f7",
+      "eventText": "A porta se abre e o policial olha para cima alarmado. \"Han? O que você está fazendo aqui?\" \r\n\r\nHan sorri. \"Olá, Gerrin. Ouvi dizer que você comprou uma comissão militar. Estou aqui apenas para parabenizá-lo.\" Ele levanta seu blaster.\r\n\r\n{-} Implante um <color=\"red\">Oficial Imperial</color>. Este é Gerrin.\r\n{-} Aplique Vida adicional igual a duas vezes o nível de ameaça a Gerrin.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Garage Door",
+              "GUID": "5b4b5933-d05b-4388-b60d-714b63871714",
+              "theText": "Esta porta leva à garagem.\r\n\r\nEle está bloqueado para todas as figuras, exceto <color=\"red\">Han Solo</color>.",
+              "buttonList": [
+                {
+                  "GUID": "1fe48a79-bb69-4291-878f-d43fac1e777a",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "f6690508-01ed-4c6a-a5d2-fa7ae1b4e9ec",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        },
+        {
+          "enemyName": "Gerrin",
+          "customText": "",
+          "modification": "+*2* Health",
+          "repositionInstructions": "",
+          "GUID": "a19fdd31-a945-4ab6-935b-33f04cb3ab92",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "tbText": "Reforços chegam.",
+          "GUID": "213bb6b0-02f5-4d7d-8af9-ea5270ffbf94",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Gerrin mira em Han, mas Han atira primeiro.\r\n\r\n{-} <color=\"red\">Han Solo</color> pode interromper para realizar um ataque contra Gerrin.",
+          "GUID": "c6ac5175-5f9d-4b82-94dd-c672717bf2c9",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} Aplique Vida adicional igual a duas vezes o nível de ameaça a Gerrin.\r\n{-} Os rebeldes vencem quando Gerrin é derrotado.\r\n{-} Os rebeldes perdem quando <color=\"red\">Han Solo</color> é derrotado.",
+          "GUID": "a79856a3-efac-4735-b13b-a7752d986cb0",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Derrote Gerrin.",
+          "longText": null,
+          "GUID": "237284c0-6d66-4c06-b4b5-e5177c7f3091",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        }
+      ]
+    },
+    {
+      "eventName": "Old Friends 1",
+      "GUID": "90b0550a-a95f-48e2-a87d-9a70a08e9bf7",
+      "eventText": "Gerrin faz uma careta, então dispara de volta com uma expressão de raiva no rosto.\r\n\r\n{-} Gerrin torna-se <color=\"red\">Focado</color>. Então, ele interrompe e move 3 para atacar <color=\"red\">Han Solo</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "Old Friends 2",
+      "GUID": "1593956e-2b26-409a-bcea-3c8086cd039c",
+      "eventText": "Mais tropas correm para a Garagem. Os últimos a entrar carregam um canhão blaster pesado.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "835f0563-b360-4a7d-83ce-31444d09ae90",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "24a8fb61-1dae-433a-8d28-cea121df0af3",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "a350b540-7731-4b9c-b3ad-591d99721fb0",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "3742f1e4-811c-4c6f-84b1-592bf18e3c6c",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "39f3ccfd-d095-4890-8ea0-e0f8cd8c4b34",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "1955de84-da02-4f39-aebc-6f8a89c9bc58",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "42a6745f-9b48-4847-b1ca-3b69205a1540",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Regulars",
+      "GUID": "fcb2df56-1d64-41af-a038-557c063e462d",
+      "eventText": "Uma porta na parte de trás da Cantina se abre, e caçadores de recompensas rosnando correm, arrastando suas armas para Han Solo.",
+      "eventActions": [
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "4e5432c7-77ac-4668-b86d-633a4c5e13ac",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG016/Trandoshan Hunter (Elite)"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "197a7135-0530-4b46-97d9-3cf82cd04b59",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "1da6d9cb-8a2a-4d8d-ba7b-c0537fe6d0d8",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "f314f9c8-8bc6-4f62-8680-1d7376bb5bd4",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "561dd4ec-dc9b-401e-821e-f55d4880ab94",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP  Red",
+      "GUID": "981e94f7-b03c-4748-94c2-eb610128b5d9",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP  Yellow",
+      "GUID": "120c6816-a674-42d3-8391-5e76a80c4573",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "51be9af0-25d2-48cb-928e-ac317e955839",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "74b5297f-d7fa-4441-a631-b2fb4a053083",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Probe Droid",
+      "GUID": "5ee714c7-a0fe-4521-bf50-b1fc59ac3510",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando",
+      "GUID": "c903d3e4-cd49-4dba-8bad-47f702fc475d",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "71acd8d2-7960-49c3-a0fe-1cfcbb60a0c0",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "66b4dfbf-0def-4e6e-98e4-15c1e688bcb3",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "ab52eb62-7a78-40d3-9d2f-ebec7e96cd14",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.",
+      "buttonList": []
+    },
+    {
+      "entityName": "Garage Door",
+      "GUID": "68eb6643-9df0-483a-bb84-87ded987096b",
+      "mainText": "Esta porta leva à garagem.\r\n\r\nEle está bloqueado para todas as figuras, exceto <color=\"red\">Han Solo</color>.",
+      "buttonList": [
+        {
+          "GUID": "efc828e9-7b7a-49da-8b25-15e4d269975e",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Han Entrance",
+      "GUID": "6c2e34a6-281e-4da9-a6d9-166bbb93ca6e",
+      "mainText": "Implante Han aqui.",
+      "buttonList": []
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Probe Droid (Elite)",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    }
+  ]
+}

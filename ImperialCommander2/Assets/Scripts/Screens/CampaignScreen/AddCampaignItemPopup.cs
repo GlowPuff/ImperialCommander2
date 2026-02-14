@@ -392,6 +392,9 @@ namespace Saga
 						bonusText = item.AdditionalInfo,
 						descriptionText = item.Description,
 					};
+					//NOTE: missionType is an ARRAY for built-in mission data, but NOT for custom missions
+					//make sure card.missionType is an array with a default value
+					card.missionType = new[] { global::MissionType.Story };
 					go.GetComponent<ItemSkillSelectorPrefab>().Init( card, item.fileName );
 				}
 			}

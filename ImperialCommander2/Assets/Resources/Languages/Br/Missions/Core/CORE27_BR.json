@@ -1,0 +1,500 @@
+{
+  "languageID": "Portuguese (BR)",
+  "missionProperties": {
+    "missionName": "Viper's Den",
+    "missionDescription": "",
+    "missionInfo": "{-} As portas estão trancadas. Qualquer figura pode atacar uma porta (Vida: 8, Defesa: Nenhuma).\r\n{-} Se o Courier for derrotado, deixe sua figura de lado. (Ele ainda conta como derrotado com o propósito de desencadear efeitos.)\r\n{-} A missão progride quando uma porta se abre.",
+    "campaignName": "Core Game",
+    "startingObjective": "Encontre o núcleo de dados.",
+    "repositionOverride": "Bloqueie o acesso ao núcleo de memória e à entrada.",
+    "additionalMissionInfo": ""
+  },
+  "events": [
+    {
+      "eventName": "Courier Question",
+      "GUID": "83bfdc5a-3cc9-4904-896d-a38689a35d76",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "O Courier é ativado.\r\n\r\nO Correio está posto de lado?",
+          "buttonList": [
+            {
+              "GUID": "7f29a211-ed59-4c4e-8807-185de8ae6850",
+              "theText": "Sim"
+            },
+            {
+              "GUID": "26fc8772-4df4-41ec-8061-f3f196f17d98",
+              "theText": "Não"
+            }
+          ],
+          "GUID": "06881f65-4f33-49ea-b843-22028c776675",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Courier deactivates",
+      "GUID": "283db41f-a070-4e45-95ba-b013b6a52f84",
+      "eventText": "Encerre esta ativação imediatamente sem resolver nenhuma instrução.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels lose",
+      "GUID": "9e960fce-d271-468c-8d6c-233bc752aa52",
+      "eventText": "Você perde de vista o Courier em um beco. Tentando alcançá-lo enquanto luta contra outras forças imperiais, eventualmente você chega a um beco sem saída.\r\n\r\n{-} Os rebeldes perdem a missão.\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Mission - Rebels win",
+      "GUID": "69b80fad-5e0e-46cd-a70e-defa45de4db6",
+      "eventText": "Com os raios blaster gemendo no alto e o núcleo de dados do droide na mão, você faz uma retirada rápida. Se alguém no Alto Comando puder quebrar a criptografia disso, definitivamente será útil.\r\n\r\n{-} Os rebeldes vencem a missão!\r\n{-} Os jogadores rebeldes escolhem 1 herói para receber o cartão de recompensa \"Rebel Recon\".\r\n{-} Cada herói recebe 1 XP. Os heróis recebem 100 créditos por herói.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Round Courier",
+      "GUID": "d59ac1d0-a7a4-4d9a-85ba-acaf427e0e74",
+      "eventText": "Coloque o Courier no núcleo de dados. Ele recupera imediatamente o núcleo de dados.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Round No",
+      "GUID": "3bcd2eaa-b05a-4065-b824-9f2a6d6d1d7b",
+      "eventText": "Os Imperiais aumentam seus esforços.\r\n\r\nA figura imperial mais próxima do rebelde carregando o núcleo de dados torna-se <color=\"red\">Focado</color>.",
+      "eventActions": []
+    },
+    {
+      "eventName": "End of Round Question",
+      "GUID": "48e92b13-bff8-4c56-85ff-1925f70a379a",
+      "eventText": "",
+      "eventActions": [
+        {
+          "mainText": "O núcleo de dados não foi recuperado?",
+          "buttonList": [
+            {
+              "GUID": "11154520-d6aa-4209-bef7-e8cc0a947ba1",
+              "theText": "Sim"
+            },
+            {
+              "GUID": "79343f14-c6e7-45f3-8a35-22f7082860bd",
+              "theText": "Não"
+            }
+          ],
+          "GUID": "065154d0-c88c-4323-b303-b638eab5fc7d",
+          "eventActionType": 5,
+          "eaName": "Question Prompt"
+        }
+      ]
+    },
+    {
+      "eventName": "Find the Droid",
+      "GUID": "3b582bc2-52ea-4137-bc04-0426d5839f23",
+      "eventText": "A luz do sol se espalha em uma loja de sucata mofada, desocupada, exceto por uma grande coleção de bugigangas inúteis. Um droide de sonda meio desmontado está descartado no chão.\r\n\r\nPontihas de luz brilham através de pequenos buracos espalhados pelas paredes, presumivelmente de tiros de blaster.\r\n\r\nA uma pequena distância está o corpo de Weyn Jarl, com vários ferimentos de blaster. Parece que ele se barricou, mas a estrutura se mostrou inadequada para se esconder.",
+      "eventActions": [
+        {
+          "tbText": "{-} Coloque um token de missão neutro no espaço destacado em vermelho.\r\n{-} O token de missão representa um núcleo de memória dentro de um droide quebrado. Qualquer figura pode recuperar o núcleo de dados.\r\n{-} Uma figura carregando o núcleo de memória pode escapar pela entrada.\r\n{-} Os rebeldes vencem quando uma figura rebelde carregando o núcleo de dados escapa.\r\n{-} Os rebeldes perdem quando uma figura imperial carregando o núcleo de dados escapa ou quando todos os heróis são feridos.",
+          "GUID": "8284137b-4dbc-4e60-bc60-11db46cff3fe",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "theText": "{-} As portas estão trancadas. Qualquer figura pode atacar uma porta (Vida: 8, Defesa: Nenhuma).\r\n{-} Se o Courier for derrotado, deixe sua figura de lado. (Ele ainda conta como derrotado com o propósito de desencadear efeitos.)\r\n{-} O token de missão representa um núcleo de memória dentro de um droide quebrado. Qualquer figura pode recuperar o núcleo de dados.\r\n{-} Uma figura carregando o núcleo de memória pode escapar pela entrada.\r\n{-} Os rebeldes vencem quando uma figura rebelde carregando o núcleo de dados escapa.\r\n{-} Os rebeldes perdem quando uma figura imperial carregando o núcleo de dados escapa ou quando todos os heróis são feridos.",
+          "GUID": "dd7385a3-d0a7-4f07-bb07-551690e989d1",
+          "eventActionType": 1,
+          "eaName": "Change Mission Info"
+        },
+        {
+          "shortText": "Escape com o núcleo de dados. Impedir que os Imperiais escapem com o núcleo de dados.",
+          "longText": null,
+          "GUID": "eaaab3f8-7e3c-41dc-858e-2ef03b5c1323",
+          "eventActionType": 2,
+          "eaName": "Change Objective"
+        },
+        {
+          "tbText": "Outra porta irrompe para dentro e os Imperiais inundam o interior.",
+          "GUID": "6e0e5989-14c6-4ec1-af76-9a3dc3b67611",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "8b5820ea-c527-43f5-8917-a1da276cfd7f",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG002/Stormtrooper"
+        },
+        {
+          "enemyName": null,
+          "customText": "",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "b74382c2-9dba-44c7-a73f-c9131b8fd704",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG006/Imperial Officer (Elite)"
+        },
+        {
+          "otherTarget": "the Rebel carrying the data core",
+          "GUID": "84b50882-5474-407b-958e-5860135de61d",
+          "eventActionType": 12,
+          "eaName": "Change Priority Target"
+        },
+        {
+          "newInstructions": "Se o Courier estiver carregando o núcleo de dados:\r\n\r\n{A} Mova 4 em direção à entrada.\r\n{A} Mova 4 em direção à entrada.\r\n\r\nSe o Courier não estiver carregando o núcleo de dados:\r\n\r\n{-} As outras duas figuras imperiais mais próximas tornam-se <color=\"red\">Focado</color>.",
+          "GUID": "f31ec38b-7744-4f81-b0bb-0260839d83fa",
+          "eventActionType": 11,
+          "eaName": "Change Group Instructions"
+        }
+      ]
+    },
+    {
+      "eventName": "Mission Briefing",
+      "GUID": "edc56ae0-7e4f-4ecd-9176-26e69bfd835a",
+      "eventText": "\"Uh, vocês podem se apressar? Estou em apuros aqui .. . \" A última transmissão de Jarl veio horas antes, sua voz fraca.\r\n\r\nAgora, as forças imperiais rastejam por toda esta área, provavelmente procurando exatamente o que você veio recuperar.\r\n\r\nRepetidas tentativas de entrar em contato com Jarl se mostraram infrutíferas, mas você está chegando perto do local de encontro. Infelizmente, o mesmo acontece com as forças imperiais, que cercaram a estrutura e estão trabalhando nas portas com equipamentos de corte.\r\n\r\n{-} Implante os heróis no espaço destacado em azul.\r\n{-} As portas estão trancadas. Qualquer figura pode atacar uma porta (Vida: 8, Defesa: Nenhuma).\r\n{-} A missão progride quando uma porta se abre.",
+      "eventActions": [
+        {
+          "tbText": "Um homem magro e atlético parece estar esperando sua chance de agir.\r\n\r\n{-} Implante um Oficial Imperial regular. Este é o Courier.",
+          "GUID": "ddbc9775-bb3d-47d2-b5da-7eb19a7acc8c",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": "Courier",
+          "customText": "O Courier apenas espera por sua chance.\r\n\r\n{-} As duas figuras imperiais mais próximas tornam-se <color=\"red\">Focado</color>.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "21eec8d7-ffcb-4ccd-b457-f08a03a64075",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG004/Imperial Officer"
+        },
+        {
+          "tbText": "{-} Se o Courier for derrotado, deixe sua figura de lado. (Ele ainda conta como derrotado com o propósito de desencadear efeitos.)",
+          "GUID": "24fc242c-b742-4107-af1b-1337964d68ec",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "tbText": "Um temível canhão blaster é colocado perto de uma das portas.",
+          "GUID": "56188aa9-6b50-4fd0-b988-e2e8a9fbf490",
+          "eventActionType": 16,
+          "eaName": "Text Box"
+        },
+        {
+          "enemyName": null,
+          "customText": "{-} Figuras imperiais não bloqueiam a linha de visão desta figura.\r\n{Q} Ataque a porta mais próxima.\r\n{Q} Ataque a porta mais próxima.",
+          "modification": null,
+          "repositionInstructions": "",
+          "GUID": "5cfcef17-545f-4de8-99a7-59c603bddde2",
+          "eventActionType": 6,
+          "eaName": "Deploy: DG007/E-Web Engineer"
+        }
+      ]
+    },
+    {
+      "eventName": "Northern Door Destroyed",
+      "GUID": "fde5cfa9-81e8-44b1-b192-48c825e43e29",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Northern Door",
+              "GUID": "9eed0cc4-3f38-4d81-a559-ad206f4bb549",
+              "theText": "A porta do prédio está trancada.\r\n\r\nQualquer figura pode atacar a porta (Saúde: 8, Defesa: Nenhuma).",
+              "buttonList": [
+                {
+                  "GUID": "b00f596e-f7a9-4e48-882d-32b0b4de91ba",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "4e25dc68-c737-4ec7-9fc1-005b7d79b800",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 1",
+      "GUID": "2dec36b9-ce77-4bf6-8c35-9489e6573609",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate1",
+              "GUID": "1b6cc33a-6a36-4e0d-ac84-85fa8d2d610c",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "2cb4d38b-d73e-483a-8514-e4e3fd6200dc",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "8eb6c4bb-fd64-4ae8-9b6d-a5ba3f737e6a",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 2",
+      "GUID": "74bbaee9-47db-48c2-b09c-7d0940adf6ab",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate2",
+              "GUID": "1a4a8b2a-7767-4205-ba17-8a3437e732be",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "a6f06d59-b18c-465a-acc1-85db4a122e25",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 3",
+      "GUID": "4c60aea9-45d0-4dbe-9bea-27d51eba9079",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate3",
+              "GUID": "df4d5ea8-3704-4964-82c9-b3387c5c1fdf",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": []
+            }
+          ],
+          "GUID": "50b5bf42-216f-45db-925e-d733f34fdd76",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Open Crate 4",
+      "GUID": "76a22dbc-227b-4ecd-8252-fd22ac3f7577",
+      "eventText": "Você vasculha os suprimentos e pega o que parecer útil.\r\n\r\nCompre uma carta de suprimentos. Você ganha 1 medpac. Reivindique este token.",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Crate4",
+              "GUID": "795a4af1-2fa5-4733-9205-2172d5dff249",
+              "theText": "Uma velha caixa de suprimentos.",
+              "buttonList": [
+                {
+                  "GUID": "d34f59a0-a347-4143-b9bf-67891deb96fb",
+                  "theText": "{A} Aberto"
+                }
+              ]
+            }
+          ],
+          "GUID": "5d3f9806-368e-4034-981d-86ca38608ffb",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    },
+    {
+      "eventName": "Southern Door Destroyed",
+      "GUID": "72838bba-21e0-4acd-a018-ee7b2bdfe82e",
+      "eventText": "",
+      "eventActions": [
+        {
+          "translatedEntityProperties": [
+            {
+              "entityName": "Southern Door",
+              "GUID": "109098ab-689b-474d-9641-b9368a67279b",
+              "theText": "A porta do prédio está trancada.\r\n\r\nQualquer figura pode atacar a porta (Saúde: 8, Defesa: Nenhuma).",
+              "buttonList": [
+                {
+                  "GUID": "d90263f0-5ef0-4dd0-adb7-5b93aea3b355",
+                  "theText": "Destruir"
+                }
+              ]
+            }
+          ],
+          "GUID": "81df829a-9cab-4be2-b45b-0a155fb86d2c",
+          "eventActionType": 15,
+          "eaName": "Modify Map Entity"
+        }
+      ]
+    }
+  ],
+  "mapEntities": [
+    {
+      "entityName": "Crate1",
+      "GUID": "dcf1e03e-e328-4f79-8427-e0a0bfc64f82",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "21246954-8a97-44ce-989c-467fea1ca39a",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate2",
+      "GUID": "461e69e0-7c26-42a1-ad2a-a5e71b4f7707",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "4a7277fa-6aaf-4bab-91b2-8ebc827c3b33",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate3",
+      "GUID": "1e60bee2-7e72-4f71-8c0e-45b5a2d0baf8",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "5a057c44-f4df-4a69-8041-e4533bab71e3",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "Crate4",
+      "GUID": "3cb4be6e-caea-4e62-8224-09b5c1aa9cba",
+      "mainText": "Uma velha caixa de suprimentos.",
+      "buttonList": [
+        {
+          "GUID": "723c2cae-be81-4680-9b7e-cd61ccb48732",
+          "theText": "{A} Aberto"
+        }
+      ]
+    },
+    {
+      "entityName": "DP E-Web",
+      "GUID": "83dee095-bab5-4558-b567-42cd332bccb1",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 1",
+      "GUID": "fbf3fd8b-ed37-48d8-885f-65f55641ceb2",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 2",
+      "GUID": "cbf48fa6-c53b-4c37-8835-0aea17feacee",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Green 3",
+      "GUID": "a37e6e30-9e81-4216-9f5e-26ec8e7039ef",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Officer",
+      "GUID": "650c985c-a2ab-4987-a761-45b6d069bfd6",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 1",
+      "GUID": "8ad88b9f-985d-4b94-87ee-9bf0c956ee05",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trando 2",
+      "GUID": "2a61f2ce-d9ca-4d2d-9158-14d6dfcca1fe",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 1",
+      "GUID": "f80742ed-2e5b-49a7-b13b-e3ea66cb17ae",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 2",
+      "GUID": "093e9bbf-7878-4edf-b49c-02f05b544210",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Trooper 3",
+      "GUID": "41e12dfb-e7c3-49d9-b74d-fc34e7596599",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "DP Yellow",
+      "GUID": "28ba9d8a-9038-4139-aa6c-5186ffe3424c",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Data core",
+      "GUID": "bc64f355-46f9-432b-93f5-cfd825318472",
+      "mainText": null,
+      "buttonList": []
+    },
+    {
+      "entityName": "Entrance",
+      "GUID": "a343a128-3b10-48ff-878f-71c89176d776",
+      "mainText": "Implante os heróis aqui.\r\n\r\nUma figura carregando o núcleo de dados pode escapar pela entrada, encerrando a missão.",
+      "buttonList": [
+        {
+          "GUID": "da39ed2f-40a1-4e21-804d-ed69fb3328b0",
+          "theText": "Rebelde escapa com o núcleo"
+        },
+        {
+          "GUID": "1eb53e89-ee08-421b-8364-726392aca58e",
+          "theText": "Imperial escapa com o núcleo"
+        }
+      ]
+    },
+    {
+      "entityName": "Northern Door",
+      "GUID": "595ecbe0-7bf4-40af-80c3-ef9c47b5c6df",
+      "mainText": "A porta do prédio está trancada.\r\n\r\nQualquer figura pode atacar a porta (Saúde: 8, Defesa: Nenhuma).",
+      "buttonList": [
+        {
+          "GUID": "0fe91f09-f12c-426d-bf0d-59a52203d502",
+          "theText": "Destruir"
+        }
+      ]
+    },
+    {
+      "entityName": "Southern Door",
+      "GUID": "aaf59fb6-4eb2-4ded-8254-f1cf3d149dc3",
+      "mainText": "A porta do prédio está trancada.\r\n\r\nQualquer figura pode atacar a porta (Saúde: 8, Defesa: Nenhuma).",
+      "buttonList": [
+        {
+          "GUID": "a31004cb-6402-4500-9d01-b7c756f3fe33",
+          "theText": "Destruir"
+        }
+      ]
+    }
+  ],
+  "initialGroups": [
+    {
+      "cardName": "Stormtrooper",
+      "customInstructions": ""
+    },
+    {
+      "cardName": "Trandoshan Hunter",
+      "customInstructions": ""
+    }
+  ]
+}
