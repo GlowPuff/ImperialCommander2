@@ -9,6 +9,7 @@ using DG.Tweening;
 using Newtonsoft.Json;
 using Saga;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
@@ -309,12 +310,19 @@ public class TitleController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
-		GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose );
+		//GlowEngine.FindUnityObject<SettingsScreen>().Show( OnSettingsClose );
+		GlowEngine.FindUnityObject<SettingsPanel>().Show( OnSettingsClose );
 	}
 
 	void OnSettingsClose( SettingsCommand s )
 	{
-		Application.Quit();
+#if UNITY_EDITOR
+		// Exits Play mode in the Unity Editor
+		EditorApplication.isPlaying = false;
+#else
+            // Quits the built application
+            Application.Quit();
+#endif
 	}
 
 	public void OnCloseExpansions()

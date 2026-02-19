@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,6 +26,7 @@ namespace Saga
 		//private Vector2 prevPos1, prevPos2; // Add these as class fields
 		//private bool wasZoomingLastFrame = false;
 
+		List<string> keyCodePressed = new List<string>();
 		bool oneClick = false;
 		bool isTouching = false;
 		float doubleClickTimer;
@@ -574,37 +576,57 @@ namespace Saga
 			float rotationSpeedModifier = .8f * Time.deltaTime;
 			float navigationSpeedModifier = 5f * Time.deltaTime;
 
-			if ( Input.GetKey( KeyCode.W ) || Input.GetKey( KeyCode.UpArrow ) )
+			if ( Input.anyKey )
 			{
-				transform.position += forward * navigationSpeedModifier;
-			}
-			if ( Input.GetKey( KeyCode.S ) || Input.GetKey( KeyCode.DownArrow ) )
-			{
-				transform.position += -forward * navigationSpeedModifier;
-			}
-			if ( Input.GetKey( KeyCode.A ) || Input.GetKey( KeyCode.LeftArrow ) )
-			{
-				transform.position += -right * navigationSpeedModifier;
-			}
-			if ( Input.GetKey( KeyCode.D ) || Input.GetKey( KeyCode.RightArrow ) )
-			{
-				transform.position += right * navigationSpeedModifier;
+				//get the keycode and convert it to a string
+				KeyCode[] keys = (KeyCode[])Enum.GetValues( typeof( KeyCode ) );
+				foreach ( KeyCode k in keys )
+				{
+					if ( Input.GetKey( k ) )
+					{
+						//push the keycode to the list of keycodes pressed this frame
+						keyCodePressed.Add( k.ToString() );
+					}
+				}
+
+				if ( keyCodePressed.Contains( PlayerPrefs.GetString( "mapNavForward" ) )
+					|| Input.GetKey( KeyCode.UpArrow ) )
+				{
+					transform.position += forward * navigationSpeedModifier;
+				}
+				if ( keyCodePressed.Contains( PlayerPrefs.GetString( "mapNavBack" ) )
+					|| Input.GetKey( KeyCode.DownArrow ) )
+				{
+					transform.position += -forward * navigationSpeedModifier;
+				}
+				if ( keyCodePressed.Contains( PlayerPrefs.GetString( "mapNavLeft" ) )
+					|| Input.GetKey( KeyCode.LeftArrow ) )
+				{
+					transform.position += -right * navigationSpeedModifier;
+				}
+				if ( keyCodePressed.Contains( PlayerPrefs.GetString( "mapNavRight" ) )
+					|| Input.GetKey( KeyCode.RightArrow ) )
+				{
+					transform.position += right * navigationSpeedModifier;
+				}
+
+				//rotate CCW
+				if ( keyCodePressed.Contains( PlayerPrefs.GetString( "mapNavCCW" ) ) )
+				{
+					camRotator.rotation = Quaternion.Euler( 0,
+						camRotator.rotation.eulerAngles.y + rotationSpeedModifier * rotationSensitivity,
+						0 );
+				}
+				//rotate CW
+				if ( keyCodePressed.Contains( PlayerPrefs.GetString( "mapNavCW" ) ) )
+				{
+					camRotator.rotation = Quaternion.Euler( 0,
+						camRotator.rotation.eulerAngles.y + rotationSpeedModifier * -rotationSensitivity,
+						0 );
+				}
 			}
 
-			//rotate right
-			if ( Input.GetKey( KeyCode.E ) )
-			{
-				camRotator.rotation = Quaternion.Euler( 0,
-					camRotator.rotation.eulerAngles.y + rotationSpeedModifier * rotationSensitivity,
-					0 );
-			}
-			//rotate left
-			if ( Input.GetKey( KeyCode.Q ) )
-			{
-				camRotator.rotation = Quaternion.Euler( 0,
-					camRotator.rotation.eulerAngles.y + rotationSpeedModifier * -rotationSensitivity,
-					0 );
-			}
+			keyCodePressed.Clear();
 		}
 	}
 }
