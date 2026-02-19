@@ -20,7 +20,7 @@ public class UILanguage
 
 public class UISettings
 {
-	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok, quickClose, ambient, zoomButtons, topdownView, roundLimitOn, roundLimitOff, roundLimitDangerous, roundLimitLabel, skipWarpIntroLabel, enemyGroupsColor, colorRegular, colorElite, colorVillain, audioHeader, uiHeader, graphicsHeader, mapperHeader, mapActivateImperialsLabel, mapToggleCamViewLabel, mapToggleMapVisibilityLabel, mapNavForwardLabel, mapNavBackLabel, mapNavLeftLabel, mapNavRightLabel, mapNavCWLabel, mapNavCCWLabel, reset;
+	public string settingsHeading, music, sound, bloom, vignette, quit, returnBtn, ok, quickClose, ambient, zoomButtons, topdownView, roundLimitOn, roundLimitOff, roundLimitDangerous, roundLimitLabel, skipWarpIntroLabel, enemyGroupsColor, colorRegular, colorElite, colorVillain, audioHeader, uiHeader, graphicsHeader, mapperHeader, mapActivateImperialsLabel, mapToggleCamViewLabel, mapToggleMapVisibilityLabel, mapNavForwardLabel, mapNavBackLabel, mapNavLeftLabel, mapNavRightLabel, mapNavCWLabel, mapNavCCWLabel, reset, pressKeyMessage;
 }
 
 public class UITitle

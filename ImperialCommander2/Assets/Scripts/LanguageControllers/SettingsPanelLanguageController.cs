@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SettingsPanelLanguageController : MonoBehaviour
 {
-	public Text settingsHeading, music, sound, ambient, bloom, vignette, topdownView, quitBtn, returnBtn, okBtn, quickClose, zoomButtons, skipWarpIntroLabel, roundLimitOn, roundLimitOff, roundLimitDangerous, roundLimitLabel, enemyGroupsColor, colorRegular, colorElite, colorVillain, audioHeader, uiHeader, graphicsHeader, mapperHeader, mapActivateImperialsLabel, mapToggleCamViewLabel, mapToggleMapVisibilityLabel, mapNavForwardLabel, mapNavBackLabel, mapNavLeftLabel, mapNavRightLabel, mapNavCWLabel, mapNavCCWLabel, reset;
+	public Text settingsHeading, music, sound, ambient, bloom, vignette, topdownView, quitBtn, returnBtn, okBtn, quickClose, zoomButtons, skipWarpIntroLabel, roundLimitOn, roundLimitOff, roundLimitDangerous, roundLimitLabel, enemyGroupsColor, colorRegular, colorElite, colorVillain, audioHeader, uiHeader, graphicsHeader, mapperHeader, mapActivateImperialsLabel, mapToggleCamViewLabel, mapToggleMapVisibilityLabel, mapNavForwardLabel, mapNavBackLabel, mapNavLeftLabel, mapNavRightLabel, mapNavCWLabel, mapNavCCWLabel, reset, pressKeyMessage;
 
 	public void SetTranslatedUI()
 	{
@@ -39,6 +39,7 @@ public class SettingsPanelLanguageController : MonoBehaviour
 		uiHeader.text = ui.uiHeader;
 		graphicsHeader.text = ui.graphicsHeader;
 		mapperHeader.text = ui.mapperHeader;
+		pressKeyMessage.text = ui.pressKeyMessage;
 		reset.text = ui.reset;
 
 		mapActivateImperialsLabel.text = ui.mapActivateImperialsLabel;

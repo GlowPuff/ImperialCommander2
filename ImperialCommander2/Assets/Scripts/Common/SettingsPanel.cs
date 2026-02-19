@@ -47,8 +47,8 @@ public class SettingsPanel : MonoBehaviour
 		fader.color = new Color( 0, 0, 0, 0 );
 		fader.DOFade( .95f, .5f );
 		cg.DOFade( 1, .5f );
-		transform.GetChild( 0 ).localScale = new Vector3( .85f, .85f, .85f );
-		transform.GetChild( 0 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
+		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 
 		musicWheelHandler.ResetWheeler( PlayerPrefs.GetInt( "musicVolume" ) );
 		ambientWheelHandler.ResetWheeler( PlayerPrefs.GetInt( "ambientVolume" ) );
@@ -142,7 +142,7 @@ public class SettingsPanel : MonoBehaviour
 			callbackAction?.Invoke();
 		} );
 		cg.DOFade( 0, .2f );
-		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}
 
 	public void OnQuit()
@@ -164,7 +164,7 @@ public class SettingsPanel : MonoBehaviour
 			quitAction?.Invoke( SettingsCommand.ReturnTitles );
 		} );
 		cg.DOFade( 0, .2f );
-		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}
 
 	public void OnHelpClick()
@@ -413,12 +413,12 @@ public class SettingsPanel : MonoBehaviour
 				if ( Input.GetKeyDown( kcode ) && !kcode.ToString().Contains( "Mouse" ) )
 				{
 					KeyCode pressedKey = kcode;
-					Debug.Log( "Key pressed: " + pressedKey );
+					//Debug.Log( "Key pressed: " + pressedKey );
 					keyValue.text = pressedKey.ToString();
 					cancelFader.gameObject.SetActive( false );
 					PlayerPrefs.SetString( inputCommand, pressedKey.ToString() );
 					PlayerPrefs.Save();
-					Debug.Log( "SET: " + inputCommand );
+					//Debug.Log( "SET: " + inputCommand );
 					break;
 				}
 			}
