@@ -635,28 +635,19 @@ namespace TacticalAI
             // the legacy path verbatim.
             if (_catalog == null || !_catalog.TryGetValue(cd.id, out catCard)) return false;
 
-            // Personas (M3): the persona+rank+boni line where the class-card
-            // line used to sit (Thomas 02.11.: the card system is replaced,
-            // its display place is the persona's). Printed ABOVE the actions
-            // next to the focus line - public by design (fairness law).
-            plan.PersonaLine = PersonaLine(cd.id);
-
-            // RR gives EVERY activation its printed actions: one movement and
-            // one attack (two action slots, one attack cap - rendered per the
-            // doctrine pattern below). The ONLY printed exclusion is the
-            // Stativ/Tripod rule (movement OR attack, never both): its blocks
-            // lead with the attack and the M13t emplacement trees state the
-            // exclusion in the action text itself (moveGuardTripod: "leaving
-            // your space means no shot"). The figure's printed facts decide -
-            // never a drawn card.
-            plan = new ActivationPlanData { CardId = cd.id, Tripod = catCard.IsTripod,
-                                            Assault = catCard.HasAssault };
             // Noldorion playtest 2.11: a card that PRINTS Assault (multiple
             // attack actions per activation) runs both slots as attacks -
             // the E-Web saw a "Tripod description" as its second action
             // instead of its printed second shot. Tripod without Assault:
             // the emplacement either holds and shoots or leaves (never
             // both). Everything else: the printed move + attack pair.
+            // Thomas playtest 02.11 (Player-16): the persona line MUST be
+            // assigned AFTER the object exists - the M3 insert sat above the
+            // ctor, NRE'd on every activation and failed the whole popup
+            // open to the legacy blocks.
+            plan = new ActivationPlanData { CardId = cd.id, Tripod = catCard.IsTripod,
+                                            Assault = catCard.HasAssault };
+            plan.PersonaLine = PersonaLine(cd.id);
             var blocks = plan.Assault ? new[] { "attack", "attack" }
                        : plan.Tripod ? new[] { "attack", "move" }
                        : new[] { "move", "attack" };

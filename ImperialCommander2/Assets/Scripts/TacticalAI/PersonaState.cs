@@ -343,8 +343,8 @@ namespace TacticalAI
             var name = DisplayName(v.Id);
             if (string.IsNullOrEmpty(name)) return null;
             return up
-                ? TF(lang.personaRankUpQM, name, v.Rank)
-                : TF(lang.personaRankDownQM, name, oldRank, v.Rank);
+                ? TF(lang.personaRankUpQM, name, oldRank, v.Rank)   // 346: template
+                : TF(lang.personaRankDownQM, name, oldRank, v.Rank); // has {0}{1}{2}
         }
 
         /// <summary>Subsidy announcement text (QM at mission start).</summary>
