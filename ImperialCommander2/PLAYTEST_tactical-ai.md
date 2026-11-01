@@ -14,7 +14,8 @@ Die App bekommt einen optional, **pro Saga-Kampagne einschaltbaren** Taktik-Modu
 bleibt vollständig erhalten. Die KI ist **fair konstruiert**: Sie benutzt ausschließlich
 Informationen, die auch ein am Brett sitzender imperialer Spieler aus dem Sichtfeld des
 Hauptquartiers hat — Brettgeometrie, Reichweiten-Tabellen der Karten, gemerkte Letztsicht,
-manuell eingetragener Heldenschaden (HP-Tracker), keine Sichtlinien, kein Würfel-Zugriff.
+die verwundet/erledigt-Markierung an den Heldenkarten (die App hat KEINEN HP-Tracker —
+Markierung wie im gedruckten Spiel am Brett), keine Sichtlinien, kein Würfel-Zugriff.
 
 Module: Aktivierungs-Inferenz aus dem Order-Deck (M2a), Skill-Kurven S1–S5 (M2b),
 Heldendrohprofil aus gedruckten Kartenwerten (M3), Fokus-/Zieldoktrinen,
@@ -323,9 +324,12 @@ Zeiten des gedruckten Vorgänger-Spiels. Deshalb:
 
 - Die KI sieht keine Sichtlinien — Angriffe „durch Wände" verhindert sie über
   Wahrscheinlichkeitszonen (Sichtlinien-Bereich v3.9 §3.5), nicht über echtes LoS.
-- Heldenschaden muss wie gehabt manuell in die Figuren-Tracker eingetragen werden;
-  die KI nutzt die Deltas (Schadensherd → Angreifer-Vermutung) und Heldenschaden
-  als Threat-Gewicht (HeroThreatProfile).
+- Die App hat **keinen Helden-HP-Tracker** — Heldenschaden wird wie im gedruckten Spiel am
+  Brett geführt; die KI liest ausschließlich die verwundet/erledigt-Markierung an den
+  Heldenkarten (ab Veteran als Fokus-Priorität; aus dem Zeitpunkt des Kipps während einer
+  imperialen Aktivierung schließt sie auf den wahrscheinlichen Schützen — kein Schadenwert,
+  kein Würfelzugriff). Feuerkraft-Gewicht kommt aus den gedruckten Kartenwerten
+  (HeroThreatProfile), nicht aus Schaden.
 - Der in-App-Fokus nutzt aktuell **verwundet zuerst → größte Feuerkraft → Aufstellung
   von links** (bei jeder Aktivierung neu berechnet, positionsunabhängig); die volle
   ThreatScore-/Doktrinen-Rechnung über Weltmodell (HeroThreatProfile aus euren

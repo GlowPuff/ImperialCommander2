@@ -17,9 +17,10 @@ and it shows its work.
 Three design promises come with it:
 
 - **Fair.** The AI only knows what a human Imperial player can see at the table: the board,
-  the printed cards, the announced objectives and the hero damage you log yourself. It never
-  reads hidden event data, never touches the dice, and the legacy hidden bonus-effect rolls
-  **never fire** in Tactical mode — the printed stat card is the only source of enemy power.
+  the printed cards, the announced objectives and the wounded/defeated status you mark on
+  the hero cards. It never reads hidden event data, never touches the dice, and the legacy
+  hidden bonus-effect rolls **never fire** in Tactical mode — the printed stat card is the
+  only source of enemy power.
 - **Deterministic.** Same seed, same decisions. No hidden difficulty buffs, no rubber-banding.
 - **Explainable.** Every order card can tell you *why* it did what it did.
 
@@ -56,25 +57,27 @@ gives the Imperials. What changes is *how well the Imperials pick* among those o
 In board terms: same army, different general.
 
 **Recruit (S1)** — the old "automaton" behaviour. Recruits focus on whoever happens to be
-closest or first in their own bookkeeping; they don't read the hero damage trackers, so they
-rarely finish off a wounded hero, and they concentrate their fire only by accident. They
-spend their whole threat budget immediately (activating everything they can, as fast as
-possible), move to the first legal position they find, and react to what the rebels did two
-rounds ago. Honest and forgiving — good for your first runs or for younger players.
+closest or first in their own bookkeeping; they ignore the wounded/defeated status on the
+hero cards, so they rarely finish off a weakened hero, and they concentrate their fire only
+by accident. They spend their whole threat budget immediately (activating everything they
+can, as fast as possible), move to the first legal position they find, and react to what
+the rebels did two rounds ago. Honest and forgiving — good for your first runs or for
+younger players.
 
-**Stormtrooper (S2)** — still doesn't read damage trackers (no deliberate focus fire), but
-now usually picks one of the two *sensible* targets, sometimes fumbles (about one fumble in
-three activations). Movement improves to greedy steps toward contact, and the threat budget
-is mostly held back for later activations instead of spent in one burst. The Imperial
-masses get reliably into the fight, but they still won't set up crossfires or use cover
-deliberately.
+**Stormtrooper (S2)** — still ignores the wounded/defeated status (no deliberate focus
+fire), but now usually picks one of the two *sensible* targets, sometimes fumbles (about
+one fumble in three activations). Movement improves to greedy steps toward contact, and the
+threat budget is mostly held back for later activations instead of spent in one burst. The
+Imperial masses get reliably into the fight, but they still won't set up crossfires or use
+cover deliberately.
 
-**Veteran (S3)** — the turning point: Veterans **read the hero damage trackers**. That
-unlocks deliberate focus fire: wounded heroes get finished first, the highest-firepower hero
-draws the shots, and the round's focus target is announced openly at round start. Veterans
-react to rebel events with a one-round delay and take reasonable approach paths (shortest
-route, but without dodging known fire lanes). At this level the Imperials start to feel like
-a competent squad — expect real pressure if you split your party.
+**Veteran (S3)** — the turning point: Veterans **read the wounded/defeated status you mark
+on the hero cards**. That unlocks deliberate focus fire: wounded heroes get finished first,
+the highest-firepower hero draws the shots, and the round's focus target is announced
+openly at round start. Veterans react to rebel events with a one-round delay and take
+reasonable approach paths (shortest route, but without dodging known fire lanes). At this
+level the Imperials start to feel like a competent squad — expect real pressure if you
+split your party.
 
 **Commandant (S4)** — the tactics turn professional. The Imperials now plan **two rounds
 ahead** (they will step into a position that cuts off a hero who is about to run, instead
@@ -171,7 +174,8 @@ Tactical campaigns add the Imperial counterweights from the printed campaign gam
 - The AI has **no line-of-sight model**: it never peeks through walls. Wall-shooting is
   suppressed via probability zones, not by real sight-line checks — that's also why *you*
   still enforce sight lines at the board.
-- **Hero damage stays manual**: enter it in the hero trackers; the AI reads those values
-  (and focuses accordingly from Veteran up).
+- **Hero status stays manual**: the app has no hero HP tracker — you mark the wounded and
+  defeated status on the hero cards as the printed game does. The AI reads exactly those
+  marks (and focuses accordingly from Veteran up); nothing else.
 - On missions where the tactical world feed is not active yet, the higher levels fall back
   to the reference brain — the app says so in the log instead of faking it.
