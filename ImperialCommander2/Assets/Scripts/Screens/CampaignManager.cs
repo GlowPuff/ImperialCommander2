@@ -489,11 +489,15 @@ namespace Saga
 			lrt.offsetMin = Vector2.zero;
 			lrt.offsetMax = Vector2.one * -1f;
 			label.font = TMPro.TMP_Settings.defaultFontAsset;
-			label.fontSize = 20;
+			label.fontSize = 10;
 			label.fontStyle = TMPro.FontStyles.Bold;
 			label.alignment = TMPro.TextAlignmentOptions.Center;
 			label.color = new Color( 0.02f, 0.10f, 0.09f, 1f );
-			label.enableWordWrapping = false;
+			// Thomas playtest 02.11.: long persona names overflowed the
+			// 20pt unwrapped label - wrap inside the button, 10pt.
+			label.enableWordWrapping = true;
+			label.enableHyphenation = 1;   // 'Sturmtruppen-Captain' is one
+			label.overflowMode = TMPro.TextOverflowModes.Ellipsis;   // hyphen token
 			label.raycastTarget = false;
 			label.text = PersonaButtonLabel();
 			personaButtonLabel = label;
@@ -540,20 +544,20 @@ namespace Saga
 			Debug.Log( "PersonaButton::cycle -> " + next );
 		}
 
-		/// <summary>Short live label: the persona in effect, no long words
-		/// (the bar button is small; full text lives in the popup).</summary>
+		/// <summary>Short live label: the persona NAME only (Thomas playtest
+		/// 02.11.: the "PERSONA: " head pushed long names over the button
+		/// edge - the teal colour plus the popup header identify the
+		/// control, the label carries just the selection).</summary>
 		string PersonaButtonLabel()
 		{
 			try
 			{
 				var tl = DataStore.uiLanguage != null ? DataStore.uiLanguage.uiTacticalAI : null;
-				string head = tl != null && !string.IsNullOrEmpty( tl.personaButton )
-					? tl.personaButton : "PERSONA";
 				var id = TacticalAI.PersonaState.EffectiveId( sagaCampaign );
 				if ( string.IsNullOrEmpty( id ) || id == TacticalAI.PersonaState.ExplicitNone )
-					return head + ": " + ( tl != null ? tl.personaNone : "none" );
-				var name = TacticalAI.PersonaState.DisplayName( id );
-				return head + ": " + name;
+					return tl != null && !string.IsNullOrEmpty( tl.personaNone )
+						? tl.personaNone : "none";
+				return TacticalAI.PersonaState.DisplayName( id );
 			}
 			catch { return "PERSONA"; }
 		}
