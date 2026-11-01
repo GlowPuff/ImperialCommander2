@@ -65,6 +65,11 @@ namespace TacticalAI.Core
     {
         public string Id;                      // slug of the printed deck name
         public string Name;
+        // Noldorion PR #194 review 2.11: the content box that printed this
+        // deck, as the app's Expansion enum code ("Core", "Jabba", ...).
+        // Asset-derived (importer, watermarked raw-URL provenance); missing
+        // or unknown field values degrade to "Core" (always eligible).
+        public string Expansion = "Core";
         public List<ImperialClassCard> Cards = new List<ImperialClassCard>();
 
         public IEnumerable<ImperialClassCard> BasicCards
@@ -98,6 +103,8 @@ namespace TacticalAI.Core
                     Id = Json.AsStr(dd["id"]),
                     Name = Json.AsStr(dd["name"]),
                 };
+                if (dd.ContainsKey("expansion") && dd["expansion"] != null)
+                    deck.Expansion = Json.AsStr(dd["expansion"]);
                 foreach (var rawCard in Json.AsList(dd["cards"]))
                 {
                     var dc = Json.AsDict(rawCard);
@@ -144,6 +151,14 @@ namespace TacticalAI.Core
             new Dictionary<string, int>(StringComparer.Ordinal);   // family -> villain count
         public int MissionCount;
         public int AgendaMissionCount;
+        // Noldorion PR #194 review 2.11: the content boxes the player's
+        // collection activated (app Expansion enum names). Choose() then
+        // only offers decks whose box is owned. NULL = content ownership
+        // unknown (console harness/fixtures, saves without the enrichment):
+        // every deck stays eligible - the canon vectors predate the gate
+        // and pin the ungated behaviour. The live Unity adapter fills it
+        // from DataStore.ownedExpansions (Core always present).
+        public HashSet<string> OwnedExpansions;
 
         public int VillainFamilyCount(string family)
         {
@@ -463,8 +478,26 @@ namespace TacticalAI.Core
             if (table == null || table.Decks.Count == 0) return null;
             profile = profile ?? new ImperialCampaignProfile();
 
+            // Collection gate (Noldorion PR #194 review 2.11): a deck whose
+            // box the player never activated is not an offer - "Hutt
+            // Mercenaries" with Jabba's Realm switched off was picked from
+            // content the collection says the table does not have. Owned
+            // list present -> only owned boxes compete; unknown (null) ->
+            // ungated (harness); nothing owned matches -> Core-box decks
+            // (the shipped fallback, always at least the three Core decks).
+            IEnumerable<ImperialClassDeck> offered = table.Decks;
+            if (profile.OwnedExpansions != null)
+            {
+                var owned = table.Decks
+                    .Where(d => d.Expansion == "Core"
+                                || profile.OwnedExpansions.Contains(d.Expansion))
+                    .ToList();
+                offered = owned.Count > 0 ? owned
+                    : table.Decks.Where(d => d.Expansion == "Core").ToList();
+            }
+
             var rows = new List<ImperialDeckScoreRow>();
-            foreach (var deck in table.Decks)
+            foreach (var deck in offered)
             {
                 var syn = SynergyScore(DeckFamilyCounts(deck), profile);
                 var noise = NoiseFor(seed, deck.Id);

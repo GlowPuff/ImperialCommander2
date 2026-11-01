@@ -246,7 +246,12 @@ Vader/Thrawn print none, so they get no block). Conditions shown are the card's 
 printed conditions; the human judges whether they are met. Keyword mechanics that come
 from unit keywords rather than cards (e.g. Stativ/Tripod "movement OR attack, never
 both", attack caps) are enforced as printed text on the popup, never as hidden
-modifiers.
+modifiers. One example with a visible effect: a card that **prints Assault**
+("multiple attack actions each activation" — the shipped roster prints it on
+E-Web Engineer, E-Web Elite, AT-DP and IG-88) gets both action slots rendered as
+attacks; every other figure keeps the printed one-attack-per-activation cap.
+The keyword is read from the card's own printed ability line in every shipped
+language, never from a hidden table.
 
 ## 11. Reinforcement deployment
 
@@ -269,7 +274,10 @@ serialization, `state.imperialDeck == null` ⇒ no AI-owned economy present).
   (`tactical_imperial_card_effects.json`).
 - **Deck choice at campaign start:** deterministic scoring of the 12 decks against the
   campaign's villain family mix, hero count and agenda signals, plus seeded jitter;
-  locked with the campaign.
+  locked with the campaign. Only decks whose content box is in the player's activated
+  collection compete (the decks' source boxes are digitization provenance — Core,
+  Twin Shadows, Return to Hoth, Bespin Gambit, Jabba's Realm, Heart of the Empire,
+  Tyrants of Lothal — 3 decks are Core-box and always eligible).
 - **Income:** there is no hidden formula. The app's mission files book hero XP at ~279
   mission-end outcome anchors; the mode books Imperial XP **at exactly those same
   anchors** (mirrored hook) plus a fixed per-stage stipend. What the mission doesn't

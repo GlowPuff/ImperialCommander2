@@ -497,6 +497,17 @@ namespace Saga
 					if ( cs.isAgendaMission )
 						profile.AgendaMissionCount++;   // Saga.MissionType has NO Agenda member - the flag IS the signal
 				}
+
+			// Collection gate (Noldorion PR #194 review 2.11): the boxes the
+			// player activated (DataStore.InitData reads them from PlayerPrefs;
+			// Core is always in). An empty list is impossible by app design,
+			// but stays NULL-honest: no gate rather than a wrong gate.
+			if ( DataStore.ownedExpansions != null && DataStore.ownedExpansions.Count > 0 )
+			{
+				profile.OwnedExpansions = new HashSet<string>();
+				foreach ( var e in DataStore.ownedExpansions )
+					profile.OwnedExpansions.Add( e.ToString() );
+			}
 			return profile;
 		}
 

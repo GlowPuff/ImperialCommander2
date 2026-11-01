@@ -53,6 +53,11 @@ namespace TacticalAI
         // forfeits the attack, so the tree must never suggest one while a
         // post is held or a target is in range.
         public bool Tripod;
+        // Noldorion playtest 2.11 (PR #194): the card prints Assault
+        // (multiple attack actions per activation - E-Web, AT-DP, IG-88).
+        // The activation then runs TWO attack blocks; the second one is the
+        // printed second attack, not a conditional move-check.
+        public bool Assault;
     }
 
     public static class TacticalAIBridge
@@ -389,7 +394,13 @@ namespace TacticalAI
             foreach (var f in figures) if (f != null) _patternByCard[f.Id] = f.Pattern;
             if (facts.Count == 0)
             {
-                _planRound = roundNo;
+                // Noldorion PR #194 bug 2.11 hardening: an empty round must
+                // NEVER be cached as "planned". If this build ever runs
+                // before the deployed roster is up (early hook, restore
+                // race), caching the round here would pin the whole round to
+                // an empty order -> every activation silently falls back to
+                // the legacy random draw. Leave _planRound untouched: the
+                // next hook/activation rebuilds from the real roster.
                 _slots = new List<Tac.OrderSlot>();
                 _publicLine = "";
                 return;
@@ -576,9 +587,17 @@ namespace TacticalAI
             // exclusion in the action text itself (moveGuardTripod: "leaving
             // your space means no shot"). The figure's printed facts decide -
             // never a drawn card.
-            plan = new ActivationPlanData { CardId = cd.id, Tripod = catCard.IsTripod };
-            var blocks = plan.Tripod ? new[] { "attack", "move" }
-                                     : new[] { "move", "attack" };
+            plan = new ActivationPlanData { CardId = cd.id, Tripod = catCard.IsTripod,
+                                            Assault = catCard.HasAssault };
+            // Noldorion playtest 2.11: a card that PRINTS Assault (multiple
+            // attack actions per activation) runs both slots as attacks -
+            // the E-Web saw a "Tripod description" as its second action
+            // instead of its printed second shot. Tripod without Assault:
+            // the emplacement either holds and shoots or leaves (never
+            // both). Everything else: the printed move + attack pair.
+            var blocks = plan.Assault ? new[] { "attack", "attack" }
+                       : plan.Tripod ? new[] { "attack", "move" }
+                       : new[] { "move", "attack" };
             if (TrySelectTarget(cd, out var targetName, out var why))
             {
                 plan.HasTarget = true;
@@ -754,6 +773,15 @@ namespace TacticalAI
                     case "attack":
                         if (priorAttack)
                         {
+                            // Noldorion playtest 2.11: the card PRINTS Assault
+                            // -> this block IS the second attack (printed
+                            // rule, not a conditional). Missing language key
+                            // falls back to the conditional rendering below.
+                            if (plan.Assault && !string.IsNullOrEmpty(L.assaultSecondAttack))
+                            {
+                                EmitBlock(outp, act, TF(L.assaultSecondAttack));
+                                break;
+                            }
                             // Thomas round 10: the SECOND attack block does not
                             // assert anything - it CHECKS: already attacked?
                             // second shot forbidden unless the unit's own card
@@ -1556,13 +1584,28 @@ namespace TacticalAI
             // print Stativ - the same printed-fact class as the DG071
             // hunter rule. Never read from hidden bonus data.
             var kws = new List<string>(cd.keywords ?? new string[0]);
-            bool tripod = false;
+            bool tripod = false, assault = false;
             var ab = cd.abilities;
             if (ab != null)
                 foreach (var a in ab)
-                    if (a != null && (a.name == "Tripod" || a.name == "Stativ")) tripod = true;
+                {
+                    if (a == null) continue;
+                    if (a.name == "Tripod" || a.name == "Stativ") tripod = true;
+                    // Noldorion playtest 2.11: printed Assault in any shipped
+                    // language name (De "Sturm", Ru "Штурм", Fr "Assaut";
+                    // partial overlays fall back to the EN name).
+                    if (a.name == "Assault" || a.name == "Sturm" ||
+                        a.name == "Штурм" || a.name == "Assaut") assault = true;
+                }
             if (cd.id == "DG007" || cd.id == "DG008") tripod = true;
             if (tripod && !kws.Contains("Tripod")) kws.Add("Tripod");
+            // DG-id belt (same printed-fact class as the Tripod belt): across
+            // ALL shipped language assets (base pools + 11 overlays) exactly
+            // these four cards print Assault: DG007/DG008 (E-Web, Elite),
+            // DG046 (AT-DP), DG071 (IG-88). Verified 2.11 programmatically.
+            if (cd.id == "DG007" || cd.id == "DG008" ||
+                cd.id == "DG046" || cd.id == "DG071") assault = true;
+            if (assault && !kws.Contains("Assault")) kws.Add("Assault");
             return new Dictionary<string, object>
             {
                 { "id", cd.id },

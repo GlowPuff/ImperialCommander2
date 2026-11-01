@@ -5,7 +5,8 @@
     "ids": "deck = slug(Deckname), Karte = deck_slug__karten_slug (stabiler Import-Key)",
     "xp": "xp=null bei Basic-Karten (0 XP, Setup-Schritt 3 'Choose Imperial Class': liegt ab sofort aus); sonst 1/2/3/4 - Imperiale XP kosten in der Imperial Upgrade Stage",
     "families": "Einheiten-Familien (TROOPER, REBEL, VEHICLE, DROID, HEAVY WEAPON, MINE, HERO, OFFICER, GUARDIAN, COMMANDER, AGENDA, MISSION) werden zur Laufzeit aus abilities.text + restriction + keyword extrahiert (Core ImperialDecks.FamilyCounts) - das Asset bleibt textnah und damit pruefbar",
-    "needs_review": "M12a-Ehrlichkeitsflag bleibt erhalten (47/109), Modell gewichtet es NICHT"
+    "needs_review": "M12a-Ehrlichkeitsflag bleibt erhalten (47/109), Modell gewichtet es NICHT",
+    "expansion": "Herkunfts-Box pro Deck (IC2 Expansion-Enum-Code), abgeleitet aus den watermarked Roh-URLs (eine Box pro Deck, Script verweigert bei Diskrepanz); Choose() laesst nur Decks deren Box in profile.OwnedExpansions liegt - Noldorion PR-#194-Review 2.11: kein Deck aus nicht aktivierter Collection"
   },
   "deck_count": 12,
   "card_count": 109,
@@ -13,6 +14,7 @@
     {
       "id": "armored_onslaught",
       "name": "Armored Onslaught",
+      "expansion": "Hoth",
       "cards": [
         {
           "id": "armored_onslaught__armor_corps",
@@ -166,6 +168,7 @@
     {
       "id": "hutt_mercenaries",
       "name": "Hutt Mercenaries",
+      "expansion": "Jabba",
       "cards": [
         {
           "id": "hutt_mercenaries__cheap_shot",
@@ -339,6 +342,7 @@
     {
       "id": "imperial_black_ops",
       "name": "Imperial Black Ops",
+      "expansion": "Bespin",
       "cards": [
         {
           "id": "imperial_black_ops__execution_squad",
@@ -496,6 +500,7 @@
     {
       "id": "inspiring_leadership",
       "name": "Inspiring Leadership",
+      "expansion": "Twin",
       "cards": [
         {
           "id": "inspiring_leadership__field_general",
@@ -645,6 +650,7 @@
     {
       "id": "military_might",
       "name": "Military Might",
+      "expansion": "Core",
       "cards": [
         {
           "id": "military_might__assault_armor",
@@ -798,6 +804,7 @@
     {
       "id": "nemeses",
       "name": "Nemeses",
+      "expansion": "Jabba",
       "cards": [
         {
           "id": "nemeses__devastating_legion",
@@ -986,6 +993,7 @@
     {
       "id": "overwhelming_oppression",
       "name": "Overwhelming Oppression",
+      "expansion": "Lothal",
       "cards": [
         {
           "id": "overwhelming_oppression__commence_landing",
@@ -1159,6 +1167,7 @@
     {
       "id": "power_of_the_dark_side",
       "name": "Power of the Dark Side",
+      "expansion": "Empire",
       "cards": [
         {
           "id": "power_of_the_dark_side__dark_resurgence",
@@ -1324,6 +1333,7 @@
     {
       "id": "precision_training",
       "name": "Precision Training",
+      "expansion": "Hoth",
       "cards": [
         {
           "id": "precision_training__assassins",
@@ -1485,6 +1495,7 @@
     {
       "id": "reactive_defenses",
       "name": "Reactive Defenses",
+      "expansion": "Empire",
       "cards": [
         {
           "id": "reactive_defenses__active_surveillance",
@@ -1670,6 +1681,7 @@
     {
       "id": "subversive_tactics",
       "name": "Subversive Tactics",
+      "expansion": "Core",
       "cards": [
         {
           "id": "subversive_tactics__executioner",
@@ -1815,6 +1827,7 @@
     {
       "id": "technological_superiority",
       "name": "Technological Superiority",
+      "expansion": "Core",
       "cards": [
         {
           "id": "technological_superiority__adaptive_weapons",

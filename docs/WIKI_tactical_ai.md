@@ -191,7 +191,8 @@ Tactical campaigns add the Imperial counterweights from the printed campaign gam
 
 - **Imperial class deck** — the **IMPERIUM panel** shows the Empire's class deck and its
   between-mission XP purchases; acquired cards strengthen the Imperial side (activation
-  efficiency and printed strength), in the same open way hero XP works for you.
+  efficiency and printed strength), in the same open way hero XP works for you. The deck
+  is picked only from class decks whose expansion you have activated in your collection.
 - **Agenda market** — the Empire spends influence on agenda cards between missions.
 
 ### Tips and known limits

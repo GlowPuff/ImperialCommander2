@@ -40,6 +40,9 @@ public class UITacticalAI
 	// Missing keys fall back to the plain guard trees (never empty rows).
 	public string moveGuardTripod, attackGuardTripod, attackGuardTripodNoTarget, attack2MoveGuardTripod;
 	public string attackSecondIntro, attackSecondTail;
+	// Noldorion playtest 2.11 (PR #194): assertive second-attack block for
+	// cards that PRINT Assault (multiple attack actions per activation).
+	public string assaultSecondAttack;
 	public string overlordFallback;
 	// M13c (Thomas 30.10): shuffleNote DELETED ("(afterwards: shuffle this
 	// group's deck)" does not exist in this app's flow - honest removal).

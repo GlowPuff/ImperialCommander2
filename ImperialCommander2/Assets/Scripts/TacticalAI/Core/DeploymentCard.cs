@@ -31,6 +31,13 @@ namespace TacticalAI.Core
         // card's PRINTED ability (En "Tripod" / De "Stativ"); it is public
         // card text the human reads on the physical card, fairness-safe.
         public bool IsTripod => Keywords.Contains("Tripod");
+        // Noldorion playtest 2.11 (PR #194): the printed Assault rule -
+        // "can perform multiple attack actions each activation" (En print;
+        // De "Sturm", Ru "Штурм", Fr "Assaut"). Same printed-fact class as
+        // Tripod: the app layer injects the keyword from the card's own
+        // ability line (DG-belt: across ALL shipped language assets exactly
+        // DG007/DG008/DG046/DG071 print Assault).
+        public bool HasAssault => Keywords.Contains("Assault");
         public bool IsMobile => Keywords.Contains("Mobile");
         public bool HasReach => Keywords.Contains("Reach");
         public bool IsLargeBase => Geometry.IsLarge(MiniSize);

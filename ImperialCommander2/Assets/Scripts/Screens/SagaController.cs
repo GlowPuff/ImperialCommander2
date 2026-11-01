@@ -623,6 +623,26 @@ namespace Saga
 			ApplyTacticalMedPacPolicy();
 			//restore deployed enemies and heroes/allies
 			dgManager.RestoreState();
+
+			// TACTICAL AI resume re-anchor (Noldorion PR #194 bug 2.11: after
+			// reopening the app the current round still showed the legacy
+			// instructions until the master switch was toggled). A resumed
+			// mission never passes the mission-start IncreaseRound hook, so
+			// the planner state must be rebuilt here: ResetSession clears ALL
+			// statics (catalog, round plan, focus, ledger - nothing stale may
+			// survive the restore), OnNewRound then rebuilds the plan for the
+			// RESTORED round from the freshly restored state. Both are
+			// ActiveNow-gated internally: a legacy-mode resume is a no-op.
+			try
+			{
+				TacticalAI.TacticalAIBridge.ResetSession();
+				TacticalAI.TacticalAIBridge.OnNewRound( DataStore.sagaSessionData.gameVars.round );
+			}
+			catch ( Exception e )
+			{
+				Debug.LogWarning( "TacticalAIBridge::resume re-anchor failed (legacy fallback): " + e );
+			}
+
 			//fame button
 			fameButton.interactable = DataStore.sagaSessionData.setupOptions.useAdaptiveDifficulty;
 			//set objective

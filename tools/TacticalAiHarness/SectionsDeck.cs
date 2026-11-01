@@ -57,6 +57,15 @@ namespace TacticalAiHarness
                 ChoiceRow(c);
             }
 
+            // ---------------------------------------- collection gate cases
+            // (Noldorion PR #194 review 2.11; owned_expansions is injected
+            // by ChoiceRow - see the comment there)
+            foreach (var raw in Json.AsList(v["gate_cases"]))
+            {
+                var c = Json.AsDict(raw);
+                ChoiceRow(c);
+            }
+
             // ----------------------------------- backfill: two loads, same pick
             foreach (var key in new[] { "backfill", "backfill_enriched", "empty_profile" })
             {
@@ -83,6 +92,16 @@ namespace TacticalAiHarness
             var save = Json.AsDict(c["campaign_save"]);
             var seed = ImperialDecks.DeckSeedFor(Json.AsStr(save["GUID"]));
             var profile = ImperialCampaignProfile.ProfileFromCampaignSave(save);
+            // Collection gate vectors (Noldorion PR #194 review 2.11):
+            // owned_expansions is NOT save data (it is runtime collection
+            // state) - the vector injects it directly, mirroring how the
+            // live adapter fills the profile from DataStore.ownedExpansions.
+            if (c.ContainsKey("owned_expansions"))
+            {
+                profile.OwnedExpansions = new HashSet<string>(StringComparer.Ordinal);
+                foreach (var e in Json.AsList(c["owned_expansions"]))
+                    profile.OwnedExpansions.Add(Json.AsStr(e));
+            }
             var choice = ImperialDecks.Choose(profile, seed);
             if (choice == null) { Fail(name, "Choose returned null"); return; }
             var got = choice.ToDict();
