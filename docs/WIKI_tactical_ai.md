@@ -12,7 +12,9 @@ code and the English language files — nothing in this text is invented._
 **Tactical AI** is an optional mode that turns the Imperial side from a random activation
 spinner into a thinking opponent. Instead of rolling for "who activates next" and drawing a
 random instruction, the app plans each Imperial round like a careful human player would —
-and it shows its work.
+and it shows its work. The mode also switches the game onto the **printed reference
+rules**: no MedPacs, no hidden bonuses, printed figure restrictions enforced — see
+"Played by the printed reference rules".
 
 Three design promises come with it:
 
@@ -96,6 +98,32 @@ no free steps. This is the "play it like the books say — perfectly" end of the
 > Implementation note: internally S1–S3 run the app's "reference" decision brain and S4–S5
 > the "overlord" brain. That is not a setting — the DIFFICULTY ladder (and the mission
 > badges) are the only knob you need.
+
+### Played by the printed reference rules
+
+Tactical AI does not only change *how* the Imperials are controlled — it also switches
+which ruleset they play by. A tactical mission is played by the printed reference rules,
+without the app's legacy conveniences:
+
+- **No MedPacs.** Wounded units stay wounded until the mission ends. The MedPac HUD slot
+  is switched off for the mission, and crates and mission rewards stop handing MedPacs
+  out. (Between-mission hero recovery is unchanged.)
+- **Only the printed stat card.** The legacy hidden bonus-effect rolls never fire — no
+  invisible power creep, nothing to roll behind a screen. What the card prints is what
+  the figure plays with.
+- **Figure restrictions apply again.** Massive figures stay out of interiors and no two
+  Massive figures share a space; blocking and immobile figures hold their printed jobs in
+  lanes and zones. Every move the AI plans is checked against these printed legality
+  rules before it can be proposed — the pop-ups can only ask for legal moves.
+- **Open growth instead of baked-in bonuses.** The Imperials receive no silent stat
+  boosts between missions. The Empire grows the way you do: by buying cards — the
+  Imperial class deck and the agenda market (see "Campaign extras").
+- **Printed action economics.** At most one attack per activation (unless the figure card
+  prints more) and doors cost an interaction action — both are printed on every pop-up
+  and summarized by the INFO TEXT toggle.
+- **Planned deployment, not rolled deployment.** Where reinforcements enter is chosen
+  deterministically from the tactical plan — same seed, same landing zones, and you can
+  read the likely entry points before they arrive.
 
 ### The activation pop-ups — how to read them, and how to play them well
 
