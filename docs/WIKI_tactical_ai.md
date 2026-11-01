@@ -82,18 +82,20 @@ level the Imperials start to feel like a competent squad — expect real pressur
 split your party.
 
 **Commandant (S4)** — the tactics turn professional. The Imperials now plan **two rounds
-ahead** (they will step into a position that cuts off a hero who is about to run, instead
-of chasing yesterday's position), fumbles are rare, and movement uses the full planner —
-cover, firing lanes, avoiding known hero fire. From Commandant up the AI also plays the
+ahead** on the movement envelope — they value positions that deny a hero's likely route
+rather than chasing where a hero stands today (they don't read your mind; they race your
+options), and fumbles are rare. Movement uses the full planner — zone control, covering
+doors and lanes, respecting the threat budget. From Commandant up the AI also proposes the
 **printed special abilities** of villain cards (the third action block on the pop-up) when
-the printed conditions fit — force powers, IG-88's hacking, and similar are now part of the
-game.
+the printed conditions fit — e.g. Darth Vader's printed Force Choke or General Sorin's
+Bombardment order.
 
 **Thrawn (S5)** — everything above, plus the complete risk judgement: the Imperials weigh
-each option against a full threat calculation (including your campaign-side reputation
-pressure) and essentially always take the best legal move on the board. Expect interceptions
-before you reach them, lanes kept clean for fire, wounded heroes hunted to the death, and
-no free steps. This is the "play it like the books say — perfectly" end of the ladder.
+each option against a full threat calculation (including the Imperium's own threat economy
+— spent threat on the table and what replacing a wounded group is worth) and essentially
+always take the best legal move the model sees. Expect zone control before you reach the
+objective, sight lanes kept clear for fire, wounded heroes hunted to the death, and no
+wasted actions. This is the "play it like the books say — perfectly" end of the ladder.
 
 > Implementation note: internally S1–S3 run the app's "reference" decision brain and S4–S5
 > the "overlord" brain. That is not a setting — the DIFFICULTY ladder (and the mission
