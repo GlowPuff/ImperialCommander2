@@ -110,7 +110,7 @@ writes nothing back:
 | Round number, round limit (incl. runtime re-wires), objectives announced | `gameVars`, `OnChangeObjective` |
 | Which deployment points were chosen, spawn groups | DeploymentManager state |
 | Own group positions at spawn and own movement (the AI placed them) | the mode's own orders (spawn DP + activation outcomes) |
-| Own group damage | the HPTracker wheels per imperial group (dial values the player already sets) |
+| Own group damage | the OPTIONAL per-group wound-tracker dial next to the deployment card (it is not tied to individual figures; if a table doesn't use the dial, the model only learns losses through Death/Removal events) |
 | Hero wounded / defeated status | hero card toggles (`heroState.isWounded/isDefeated`) |
 | Which hero activates when (public activation order) | activation events |
 | Threat spend/replacement | `gameVars.threat`, threat ledger hooks |
@@ -231,8 +231,9 @@ Notes:
 threat budget the app already tracks; the ledger models what is on the table (spawned
 groups, their damage state) and what replacing a wounded group would cost. The economy
 parameters (save rounds / force-after-idle / dump) decide when new groups may spawn;
-risk posture (rho) decides between press / hold / disengage per group using own wheel
-damage and ring distance — with the fallback clauses printed on the popup.
+risk posture (rho) decides between press / hold / disengage per group using own group
+damage state (from the optional dial when the table uses it, plus death/removal events in
+any case) and ring distance — with the fallback clauses printed on the popup.
 `ThreatSpend` events flow back into the feed so the human sees the ledger reasoning in
 the explain texts.
 
