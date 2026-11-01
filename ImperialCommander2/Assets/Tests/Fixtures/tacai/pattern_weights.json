@@ -1,0 +1,22 @@
+{
+  "row_count": 23,
+  "posture_mod_defend": { "aggressive": -25, "guard": 20, "blocker": 15, "hunter": -10 },
+  "effective_cases": [
+    { "id": "DG001", "posture": "hunt",
+      "expect": { "aggressive": 55, "hunter": 10, "guard": 25, "blocker": 10 } },
+    { "id": "DG001", "posture": "defend",
+      "expect": { "aggressive": 30, "guard": 45, "blocker": 25 } },
+    { "id": "DG071", "posture": "defend",
+      "expect": { "hunter": 70, "guard": 20, "blocker": 15 } },
+    { "id": "DG074", "posture": "defend",
+      "expect": { "guard": 75, "blocker": 35 } },
+    { "id": "DG007", "posture": "hunt",
+      "expect": { "guard": 100 } }
+  ],
+  "reach_cases": [
+    { "id": "DG001", "posture": "hunt",
+      "patterns": ["aggressive", "hunter", "guard", "blocker"] },
+    { "id": "DG001", "posture": "defend",
+      "patterns": ["aggressive", "guard", "blocker"] }
+  ]
+}

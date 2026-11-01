@@ -164,17 +164,31 @@ documented skill-layer fumble draw.
 
 ## 6. Doctrines (how a group plays the mission)
 
-`Doctrine.cs`. Each group gets one of eight named patterns per round, derived from
-mission properties (objective entity positions, mission type, round limit, win-condition
-counters) and the group's own traits ( immobile? Massive? base size?):
+`Doctrine.cs` + `PatternWeights.cs` (M13u). Each group gets one of the named patterns
+per round from **one single rule engine for every mission**:
 
-- Defend-type missions: immobile/Massive groups **Guard** the objective zone (never lured
-  out), large bases **Block** lanes, others hold the rim or **Patrol**.
-- Hunt-type missions: nobody guards — groups **Advance** toward the focus ring,
-  **Push** toward the objective zone center, or **Regroup** when broken.
-- Each group's doctrine line prints on the popup WITH its fallback clauses ("no hero in
-  range? hold position") — this is what makes the orders honest when the human's real
-  board differs from the model's guess.
+1. **Printed movement law first** (no dice): a deployed Stativ/Tripod can only Guard —
+   its printed rule forbids moving while set up; Massive groups never roll Hunter.
+2. **Public weight row**: every group matches a row in
+   `Resources/Languages/En/tactical_pattern_weights.json` (printed-flavour distribution,
+   e.g. Stormtrooper 55 Advance / 10 Hunter / 25 Guard / 10 Block; bounty hunters
+   60 Hunter; E-Web 100 Guard). First match wins; a catch-all row covers the roster.
+   The file is reviewable in the repo — fairness rule: no hidden modifiers, ever.
+3. **Mission-structure modifier as DATA, not code**: when the mission structurally
+   defends (a Terminal entity or an escort priority target is in play), the authored
+   defend row shifts it: Advance −25, Hunter −10, Guard +20, Block +15 (clamped at 0;
+   a positive shift can open a pattern the row never carried). No second code branch —
+   the mission clock's final third switches the row off (hunt phase), announced once.
+4. **Per-round draw**: seed = mission session key ^ Fnv1a64(card id + round), so the
+   doctrine is stable within a round, differs per mission, replays identically, and is
+   disclosed in EXPLAIN=AUSFÜHRLICH as "Muster-Wurf: <doctrine> (draw N/100)" plus the
+   full effective distribution on the Debug channel.
+5. On top of the roll the two persona layers still apply unchanged: the captain's guard
+   band pins the back half of the advancing squad in defend deployments (S4/S5), and
+   persona pattern multipliers bias flips.
+
+No asset / no matching row -> the legacy M4 classification branch runs bit-identical
+(the pre-M13u fixtures stay green either way).
 
 ## 7. Round and activation pipeline
 

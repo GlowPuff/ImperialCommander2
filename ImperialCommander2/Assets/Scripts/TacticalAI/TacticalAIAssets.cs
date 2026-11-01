@@ -23,6 +23,7 @@ namespace TacticalAI
         const string IMPERIAL_DECKS_PATH = "Languages/En/tactical_imperial_decks";
         const string IMPERIAL_CARD_EFFECTS_PATH = "Languages/En/tactical_imperial_card_effects";
         const string AGENDA_CARDS_PATH = "Languages/En/tactical_agenda_cards";
+        const string PATTERN_WEIGHTS_PATH = "Languages/En/tactical_pattern_weights";
         const string CAMPAIGN_ITEMS_PATH = "Languages/En/CampaignData/items";
         const string CAMPAIGN_SKILLS_PATH = "Languages/En/CampaignData/skills";
 
@@ -33,6 +34,8 @@ namespace TacticalAI
         static object _imperialDecksRoot;
         static object _imperialCardEffectsRoot;
         static object _agendaCardsRoot;
+        static object _patternWeightsRoot;
+        static bool _patternWeightsFailed;
         static object _campaignItemsRoot;
         static object _campaignSkillsRoot;
         static bool _lethalityFailed, _heroProfilesFailed,
@@ -116,6 +119,25 @@ namespace TacticalAI
         {
             var root = HeroCardsRoot;    // prime the Core doc cache (dev-30 seam)
             return Tac.HeroCards.For(heroName);
+        }
+
+        /// <summary>M13u (variant c, Thomas 01.11.): the public per-group
+        /// doctrine weight table. Loads AND primes the Core cache (same
+        /// seam as PersonasRoot: app and harness agree on the doc whoever
+        /// touches it first). Null table -> the doctrine dice stay dark and
+        /// ClassifyPattern keeps the legacy behaviour bit-identical.</summary>
+        public static Tac.PatternWeightTable PatternWeightsRoot
+        {
+            get
+            {
+                if (_patternWeightsRoot == null && !_patternWeightsFailed)
+                {
+                    _patternWeightsRoot = LoadJson(PATTERN_WEIGHTS_PATH, ref _patternWeightsFailed);
+                    var d = _patternWeightsRoot as System.Collections.Generic.Dictionary<string, object>;
+                    if (d != null) Tac.PatternWeights.PrimeDoc(d);
+                }
+                return Tac.PatternWeights.Load();
+            }
         }
 
         /// <summary>M12b: tacai.imperial_decks/1 - the 12 Imperial class

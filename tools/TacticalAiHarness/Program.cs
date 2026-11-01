@@ -140,6 +140,7 @@ namespace TacticalAiHarness
             Run("optional_deploy.json", SecOptionalDeploy);
             Run("settings_load.json", SecSettingsLoad);
             Run("personas.json", SecPersonas);
+            Run("pattern_weights.json", SecPatternWeights);
 
             Console.WriteLine("== summary: " + (TotalFails == 0 ? "ALL PASS" : "FAILURES") +
                               " | checks=" + TotalChecks + " fails=" + TotalFails);

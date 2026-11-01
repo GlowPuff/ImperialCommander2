@@ -129,6 +129,12 @@ namespace TacticalAI
         // disclosure; localization happens in ExplainFor, never here.
         static Tac.FocusPick _roundFocusRunnerUp;
         static string _roundFocusPosture;
+
+        // M13u (variante c): last rolled doctrine per group
+        // ("pattern|drawPct|dist tokens") for the EXPLAIN disclosure and
+        // the Debug channel; rewritten by ClassifyPattern every round.
+        static readonly Dictionary<string, string> _patternRoll =
+            new Dictionary<string, string>();
         // Punkt-2 block (Thomas + Noldorion 2.11): doctrine phase state.
         // _doctrineEffective is the per-round posture the classification
         // consumes (base defend -> hunt phase flip); the guard band holds
@@ -171,6 +177,7 @@ namespace TacticalAI
             _roundFocusPosture = null;
             _doctrineBase = null;
             _doctrineEffective = null;
+            _patternRoll.Clear();
             _phaseShiftAnnounced = false;
             _splitAnnounced = false;
             _guardBandCount = 0;
@@ -1458,6 +1465,24 @@ namespace TacticalAI
                         PhaseName(_doctrineBase), PhaseName(_doctrineEffective));
                     line = (line == null ? "" : line + "\n") + phaseLine;
                 }
+                // M13u (variant c): the per-round doctrine dice is fully
+                // transparent - rolled doctrine, the 53-bit draw as 0-99
+                // and the effective distribution it was drawn from (row
+                // weights + posture modifier + printed-law filter). All
+                // three are public data (asset + mission structure).
+                if (UIx != null && !string.IsNullOrEmpty(UIx.ordPatternRoll)
+                    && _patternRoll.TryGetValue(groupId, out var rolled))
+                {
+                    var bits = rolled.Split('|');
+                    if (bits.Length >= 2)
+                    {
+                        var rollLine = TF(UIx.ordPatternRoll,
+                            DoctrineName(bits[0], UIx), bits[1]);
+                        line = (line == null ? "" : line + "\n") + rollLine;
+                        Debug.Log("TacticalAIBridge::patternRoll " + groupId +
+                                  ": " + rolled + " posture=" + _doctrineEffective);
+                    }
+                }
                 // Noldorion direction reply 2.11 ("it just needs to be very
                 // transparent how exactly that power score is calculated"):
                 // EXPLAIN=VOLL discloses the REAL round-focus computation -
@@ -1791,6 +1816,15 @@ namespace TacticalAI
             }
         }
 
+        static Tac.PatternWeightTable PatternWeightTable()
+        {
+            // M13u: the shipped pattern-weight table (lazy, cached in Core;
+            // null only when the asset cannot load - the dice then stay dark
+            // and ClassifyPattern falls back to the legacy branch).
+            try { return TacticalAIAssets.PatternWeightsRoot; }
+            catch { return null; }
+        }
+
         /// M4 printed-trait x posture classification (fairness whitelist only:
         /// Id/Speed/AttackType/MiniSize/Keywords - all printed, all public).
         /// defend: immobile AND melee figures hold the objective zone (several
@@ -1801,6 +1835,49 @@ namespace TacticalAI
         /// Manual: DG071 IG-88 always hunter - its printed Relentless pursuit
         ///   is the tracker role (matches its own deck design note).
         static string ClassifyPattern(Tac.DeploymentCard c, string posture)
+        {
+            // Printed movement law BEFORE every dice (dev 41): a deployed
+            // Stativ/Tripod is immobile - the Wache-assignment is not a
+            // probability. Same for the DG071 hunter rule (see below).
+            if (c.IsTripod) return "guard";
+
+            // M13u (Thomas 01.11., variante c): the weighted per-round
+            // doctrine dice replaces the posture CODE BRANCH. Every group
+            // rolls its printed-flavour distribution (public asset
+            // tactical_pattern_weights.json); the mission structure shifts
+            // it through the defend MODIFIER ROW, never through different
+            // code. Seed = mission + card + round: one stable doctrine per
+            // group per round, replay-identical, EXPLAIN-disclosable.
+            // No asset / no row -> legacy branch stays authoritative
+            // (bit-identical fallback, all pre-M13u fixtures untouched).
+            var tbl = PatternWeightTable();
+            if (tbl != null && tbl.IsActive)
+            {
+                var dist0 = tbl.WeightsFor(c.Id, c.Name);
+                if (dist0 != null)
+                {
+                    var dist = Tac.PatternWeightTable.FilterIllegal(
+                        tbl.Effective(dist0, posture), c.IsMassive);
+                    int draw;
+                    var pat = tbl.Roll(dist, SessionSeed(), CurrentRound(), c.Id, out draw);
+                    if (pat != null)
+                    {
+                        _patternRoll[c.Id] = pat + "|" + draw + "|" +
+                             string.Join(" ", System.Linq.Enumerable.Select(
+                                System.Linq.Enumerable.OrderBy(dist.Keys, k => k,
+                                    StringComparer.Ordinal),
+                                k => k + ":" + dist[k]));
+                        c.Pattern = pat;    // keep the catalog in sync
+                        return pat;
+                    }
+                }
+            }
+            return ClassifyPatternLegacy(c, posture);
+        }
+
+        /// M13u: legacy doctrine branch (kept bit-identical as the
+        /// no-asset fallback - see ClassifyPattern wrapper).
+        static string ClassifyPatternLegacy(Tac.DeploymentCard c, string posture)
         {
             if (c.Id == "DG071") return "hunter";
             // M13t (Thomas 30.10., EMPIRE6 playtest): a Stativ/Tripod figure

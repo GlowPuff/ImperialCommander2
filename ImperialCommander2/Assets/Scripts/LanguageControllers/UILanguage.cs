@@ -116,6 +116,7 @@ public class UITacticalAI
 	// Punkt 2 (Thomas 01.11.): doctrine phase disclosure - one-shot QM at
 	// the defend->hunt flip and the EXPLAIN line naming both phases.
 	public string ordPhaseShiftQM, ordPhaseExplain, ordPhaseDefend, ordPhaseHunt;
+	public string ordPatternRoll;
 	public string expNone, expPostHoc, expFull;
 }
 
