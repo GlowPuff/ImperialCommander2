@@ -83,28 +83,39 @@ public class UITacticalAI
 	// rung number, {1} = skillS name. The (auto) variant marks ""/AUTO tokens
 	// that resolve to the global ladder rung.
 	public string badgeMissionFormat, badgeMissionAutoFormat, badgeMissionOff;
-	// M12c (Imperial Upgrade Stage): persistent purchase line per KI/human
-	// class-card buy. {0} = printed card name (NOT translated - board-game
-	// reality), {1} = spent XP. The stored audit trail stays machine-keyed
-	// ("buy:<cardId>" in the xpLog); this is the display row (M12e panel).
-	public string impBuyLog;
-	// M12d2 agenda purchase lines (ui.json uiTacticalAI, 11 languages).
-	// agendaBuyKept carries the SPEND ONLY - the card stays secret (RR
-	// "keep this card secret"; anti-leak law in AgendaState.RebelView).
-	public string agendaBuySide;
-	public string agendaBuyForced;
-	public string agendaBuyOngoing;
-	public string agendaBuyKept;
-	// M12e (Imperium-UI): play-area panel, Einsatzkarte deck line, campaign
-	// upgrade-stage section. Card NAMES and card TEXTS stay EN (printed
-	// board-game content, M11g doctrine); only the accompanying chrome is
-	// translated. impNoModelTag is the honest M12d(c) marker: card is played
-	// as printed but carries no model hook ("aktiv - ohne KI-Hebel").
-	public string impPanelTitle;
-	public string impDeckLine, impBasicTag, impXpTag, impNoModelTag, impNoModelTip, impMoreTag;
-	public string impAttachTip;
-	public string impBadgeDeckLine, impAgendaLine;
-	public string impCampaignHeader, impCampaignXpLine;
+	// Personas (M1/M3, Thomas 02.11.): the persona REPLACED the class-deck
+	// and agenda-card system - its ui.json keys (impBuyLog/agendaBuy*/imp*)
+	// are removed with it, 11-language parity re-checked. Vocabulary:
+	// picker words, rank/bonus chips (activation-card line), QM
+	// announcements, the three persona name/motto/signature rows (keys are
+	// the asset's nameKey/mottoKey/signaturText), settings row heading.
+	public string personaFollowDefault, personaNone, personaRank;
+	public string personaBonusCost, personaBonusSubsidy, personaBonusDoctrine, personaBonusGuard;
+	public string personaRankUpQM, personaRankDownQM, personaSubsidyQM;
+	public string personaButton, personaPopupHeader, setPersona;
+	public string personaPlainNote, personaRankColumn, personaCycleNote;
+	public string personaCaptTrooper, personaCaptTrooperMotto, personaCaptIsb, personaCaptIsbMotto;
+	public string personaCaptHutt, personaCaptHuttMotto;
+	public string personaCaptSignature, personaIsbSignature, personaHuttSignature;
+	// Noldorion review 2.11 (PR #194): popup note for non-villain groups
+	// whose printed abilities stay in the human lane (the mode never
+	// pre-decides "may" abilities it cannot see the board for). (The card
+	// announce line ordCardEffect is GONE - personas own that slot now.)
+	public string ordAbilitiesLane;
+	// Noldorion direction reply 2.11: "the power score needs to be very
+	// transparent" - EXPLAIN=VOLL discloses the real focus computation:
+	// score + what the number measures (posture-dependent) + wound economy
+	// + decision basis + runner-up. Numbers are the fixture-pinned sim
+	// values (FocusPick.AsDict), every input is a public table artifact.
+	public string ordFocusDetail;
+	// Basis/measure labels for the disclosure line (code maps the machine
+	// vocabulary; unknown basis falls through as the raw token).
+	public string ordFocusMeasureDamage, ordFocusMeasureRunner;
+	public string ordFocusBasisMark, ordFocusBasisChip, ordFocusBasisConditioned;
+	public string ordFocusBasisEconomy, ordFocusBasisPrinted;
+	// Punkt 2 (Thomas 01.11.): doctrine phase disclosure - one-shot QM at
+	// the defend->hunt flip and the EXPLAIN line naming both phases.
+	public string ordPhaseShiftQM, ordPhaseExplain, ordPhaseDefend, ordPhaseHunt;
 	public string expNone, expPostHoc, expFull;
 }
 

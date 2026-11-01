@@ -19,6 +19,7 @@ namespace TacticalAI
         const string HERO_LETHALITY_PATH = "Languages/En/tactical_hero_lethality";
         const string HERO_PROFILES_PATH = "Languages/En/tactical_hero_profiles";
         const string HERO_CARDS_PATH = "Languages/En/tactical_hero_cards";
+        const string PERSONAS_PATH = "Languages/En/tactical_personas";
         const string IMPERIAL_DECKS_PATH = "Languages/En/tactical_imperial_decks";
         const string IMPERIAL_CARD_EFFECTS_PATH = "Languages/En/tactical_imperial_card_effects";
         const string AGENDA_CARDS_PATH = "Languages/En/tactical_agenda_cards";
@@ -28,13 +29,15 @@ namespace TacticalAI
         static object _heroLethalityRoot;
         static object _heroProfilesRoot;
         static object _heroCardsRoot;
+        static object _personasRoot;
         static object _imperialDecksRoot;
         static object _imperialCardEffectsRoot;
         static object _agendaCardsRoot;
         static object _campaignItemsRoot;
         static object _campaignSkillsRoot;
         static bool _lethalityFailed, _heroProfilesFailed,
-                    _heroCardsFailed, _imperialDecksFailed, _imperialCardEffectsFailed,
+                    _heroCardsFailed, _personasFailed,
+                    _imperialDecksFailed, _imperialCardEffectsFailed,
                     _agendaCardsFailed,
                     _campaignItemsFailed, _campaignSkillsFailed;
 
@@ -85,6 +88,24 @@ namespace TacticalAI
                         Tac.HeroCards.PrimeDoc(d);
                 }
                 return _heroCardsRoot;
+            }
+        }
+
+        /// <summary>Personas (Thomas 02.11., CONCEPT_personas.md): the ONE
+        /// loader seam for the persona asset. Loads AND primes the Core doc
+        /// cache (same doctrine as HeroCardsRoot: app and harness agree on
+        /// the doc whoever touches it first).</summary>
+        public static Tac.PersonaTable PersonasRoot
+        {
+            get
+            {
+                if (_personasRoot == null && !_personasFailed)
+                {
+                    _personasRoot = LoadJson(PERSONAS_PATH, ref _personasFailed);
+                    var d = _personasRoot as System.Collections.Generic.Dictionary<string, object>;
+                    if (d != null) Tac.Personas.PrimeDoc(d);
+                }
+                return Tac.Personas.Load();
             }
         }
 

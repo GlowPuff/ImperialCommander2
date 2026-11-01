@@ -129,6 +129,15 @@ namespace TacticalAI.Core
             }
         }
 
+        /// The OrderPlan strength/efficiency stage condition (cardsFire):
+        /// owned hooks that actually MOVE the activation plan. The bridge's
+        /// EXPLAIN announcement uses exactly this condition - never more,
+        /// never less (announcing a card that changed no number is a lie).
+        public bool Fires
+        {
+            get { return OrderBoost > Rational.Zero || AtkEvBonus > Rational.Zero; }
+        }
+
         public Dictionary<string, object> AsDict()
         {
             return new Dictionary<string, object>

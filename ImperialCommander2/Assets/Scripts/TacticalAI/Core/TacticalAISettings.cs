@@ -114,6 +114,19 @@ namespace TacticalAI
             set { _infoText = value; Save(); }
         }
 
+        /// <summary>Personas (Thomas 02.11.): global DEFAULT persona for
+        /// campaigns that carry no explicit choice. "" = none (the exact
+        /// pre-persona behaviour); "none" is accepted as a synonym so the
+        /// settings row and the campaign field speak the same language.
+        /// The asset is the validator (PersonaState applies it) - the
+        /// settings layer never hardcodes persona ids.</summary>
+        public static string PersonaDefault
+        {
+            get { return _personaDefault; }
+            set { _personaDefault = string.IsNullOrEmpty(value) ? "" : value; Save(); }
+        }
+        static string _personaDefault = "";
+
         /// <summary>Injected by the Unity side: the hook receives the
         /// serialized settings, stores them, and returns the previously
         /// stored JSON (or null when nothing was stored yet).</summary>
@@ -152,6 +165,10 @@ namespace TacticalAI
                 // route in settings_load.json.
                 _explainLevel = Validate(Core.Json.AsStr(Core.Json.Get(d, "explain", DefaultExplainLevel)), ExplainLevelValues, DefaultExplainLevel);
                 _infoText = Core.Json.AsBool(Core.Json.Get(d, "info", (object)DefaultInfoText));
+                // Personas (02.11.): free-form id - validity (asset membership)
+                // is applied by PersonaState; the settings layer only stores.
+                var pd = Core.Json.AsStr(Core.Json.Get(d, "persona", (object)""));
+                _personaDefault = pd ?? "";
             }
             catch (Exception)
             {
@@ -166,6 +183,7 @@ namespace TacticalAI
             _skillLevel = DefaultSkillLevel;
             _explainLevel = DefaultExplainLevel;
             _infoText = DefaultInfoText;
+            _personaDefault = "";
         }
 
         /// <summary>Per-mission override resolution (concept 4.2.7): the
@@ -237,6 +255,8 @@ namespace TacticalAI
             if (_modeOverride != null) Kv(sb, "modeOverride", _modeOverride);
             sb.Append("\"explain\":\"").Append(_explainLevel).Append("\",");
             sb.Append("\"info\":").Append(_infoText ? "true" : "false");
+            if (!string.IsNullOrEmpty(_personaDefault))
+                sb.Append(",\"persona\":\"").Append(_personaDefault).Append('"');
             sb.Append('}');
             return sb.ToString();
         }

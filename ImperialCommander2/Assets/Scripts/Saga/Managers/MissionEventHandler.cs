@@ -297,10 +297,12 @@ namespace Saga
 			ovrd.useGenericMugshot = ed.useGenericMugshot;
 
 			//check if this deployment uses threat cost, and apply any modification
+			// Personas (M2): the persona discount rides the printed cost;
+			// the event's own modifier stays on top (public math).
 			if ( ed.useThreat )
 			{
 				Debug.Log( $"EnemyDeployment::APPLYING THREAT COST ({card.cost})::MODIFIER ({ed.threatCost})" );
-				DataStore.sagaSessionData.ModifyThreat( -(Mathf.Clamp( card.cost + ed.threatCost, 0, 100 )) );
+				DataStore.sagaSessionData.ModifyThreat( -(Mathf.Clamp( TacticalAI.PersonaState.CostFor( card, card.cost ) + ed.threatCost, 0, 100 )) );
 			}
 
 			//finally, do the actual deployment
@@ -853,65 +855,21 @@ namespace Saga
 		// upgrade stage there stays mode-restricted (Scope 3). Purchases do
 		// NOT trigger here: the RR upgrade stage runs BETWEEN missions, the
 		// campaign-load hook in SagaCampaign spends the XP.
+		// Personas (M4): ModifyImperialXP / ModifyInfluence event actions
+		// are HONEST NO-OPS now. They fed the class-deck XP and agenda
+		// influence accounts, which the persona system replaced (printed
+		// mission files still carry the actions - old MIJ files must keep
+		// loading and stepping through, so the handlers stay, book nothing
+		// and say so in the log).
 		void ModifyImperialXP( CampaignModifyImperialXP mixp )
 		{
-			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
-			{
-				var campaign = RunningCampaign.sagaCampaign;
-				if ( campaign.imperialDeck == null && TacticalAI.TacticalAISettings.Enabled )
-				{
-					try { campaign.EnsureImperialDeck(); }
-					catch ( Exception e ) { Debug.LogWarning( $"SagaEventManager()::ModifyImperialXP deck choice failed {e.Message}" ); }
-				}
-				if ( campaign.imperialDeck != null )
-				{
-					var reason = string.IsNullOrEmpty( mixp.reason ) ? "event" : mixp.reason;
-					Debug.Log( $"SagaEventManager()::PROCESSING ModifyImperialXP: {mixp.xpToAdd} ({reason})" );
-					campaign.imperialDeck.AddImperialXp( mixp.xpToAdd, $"imperial_xp:{reason}" );
-					campaign.SaveCampaignState();
-				}
-				else
-					Debug.Log( $"SagaEventManager()::ModifyImperialXP({mixp.xpToAdd})::no imperial deck (non-tactical), skipped" );
-			}
-			else
-				Debug.Log( $"SagaEventManager()::ModifyImperialXP({mixp.xpToAdd})::Campaign isn't active" );
-
+			Debug.Log( $"SagaEventManager()::ModifyImperialXP({mixp.xpToAdd})::imperial XP retired with the persona system, skipped" );
 			NextEventAction();
 		}
 
-		// TACTICAL AI M12d2: CM7 - influence income books into the single
-		// truth source, the M12d2 influence ledger on AgendaState (RR
-		// "Influence": gains and spends both recorded on the campaign log;
-		// saving up is legal). Mirrors ModifyImperialXP exactly: tactical
-		// campaigns without agenda data re-derive the deterministic setup
-		// choice first; non-tactical campaigns keep 'kein Agenda-State' and
-		// the booking is honestly skipped (Scope 6: the mode UI only ever
-		// shows what the mode allows). Purchases do NOT trigger here - the
-		// agenda market runs on the campaign-load hook (SagaCampaign), the
-		// RR upgrade stage is BETWEEN missions.
 		void ModifyInfluence( CampaignModifyInfluence mci )
 		{
-			if ( RunningCampaign.sagaCampaignGUID != Guid.Empty )
-			{
-				var campaign = RunningCampaign.sagaCampaign;
-				if ( campaign.agenda == null && TacticalAI.TacticalAISettings.Enabled )
-				{
-					try { campaign.EnsureAgendaDeck(); }
-					catch ( Exception e ) { Debug.LogWarning( $"SagaEventManager()::ModifyInfluence agenda choice failed {e.Message}" ); }
-				}
-				if ( campaign.agenda != null )
-				{
-					var reason = string.IsNullOrEmpty( mci.reason ) ? "event" : mci.reason;
-					Debug.Log( $"SagaEventManager()::PROCESSING ModifyInfluence: {mci.influenceToAdd} ({reason})" );
-					campaign.agenda.AddInfluence( mci.influenceToAdd, $"influence:{reason}" );
-					campaign.SaveCampaignState();
-				}
-				else
-					Debug.Log( $"SagaEventManager()::ModifyInfluence({mci.influenceToAdd})::no agenda deck (non-tactical), skipped" );
-			}
-			else
-				Debug.Log( $"SagaEventManager()::ModifyInfluence({mci.influenceToAdd})::Campaign isn't active" );
-
+			Debug.Log( $"SagaEventManager()::ModifyInfluence({mci.influenceToAdd})::agenda influence retired with the persona system, skipped" );
 			NextEventAction();
 		}
 

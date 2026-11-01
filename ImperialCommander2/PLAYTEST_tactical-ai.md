@@ -320,6 +320,92 @@ Zeiten des gedruckten Vorgänger-Spiels. Deshalb:
   Aktionen; E-Web zeigt Angriff zuerst mit dem Stativ-Hinweis im
   Bewegungstext; kein Popup verweist mehr auf Karten oder Mischstapel.
 
+## 4f. dev 40 — Sichtbarkeits-Fixes aus Noldorions PR-#194-Review
+
+Kernbefund seines Reviews: die Mechanik ist da, aber am Tisch unsichtbar.
+Drei Behobenes, rein additive UI-Ebene — Planner, Würfel und alle
+Fixture-Zahlen bleiben bitgleich:
+
+- **Fähigkeiten-Hinweis im Aktivierungs-Popup** (neuer ui.json-Schlüssel
+  `ordAbilitiesLane`, 11 Sprachen): Gruppen mit gedruckten Fähigkeiten
+  (Offizier {A} Order, Sondroid Self-Destruct, Sturmtruppe
+  Truppenausbildung …) sehen jetzt einen abschließenden Hinweis, dass
+  gedruckte Sonderfähigkeiten die Entscheidung des Imperium-Spielers am
+  Tisch bleiben (die Attack-Aktion darf sie wie gedruckt nutzen) — die
+  Tactical AI schlägt bewusst nur Bewegung/Angriff vor, weil ihr dafür der
+  Blick aufs Brett fehlt. Schurken mit aktivem {A}-options-Block (S4/S5)
+  bekommen keine Doppelung. Reiner Textblock: kein neuer Zustand, keine
+  Plannerwirkung. Das `ignored`-Feld bleibt wie entschieden leer — unsere
+  eigene abilities-JSON zeigt die gedruckten Kartentexte unverändert.
+- **Doktrin: Verteidigungs-Aufteilung + Phasen-Kipp** (Punkt 2, Thomas
+  01.11.): (1) In Missionen mit Verteidigungshaltung hält jetzt die HÄLFTE
+  der aufgestellten Fernkampf-Schützen (hintere Hälfte der öffentlichen
+  Aufstellungsreihenfolge) das Objekt als Wache, die vordere Hälfte rückt
+  wie gedruckt vor — deterministisch, null Brett-Wissen, NUR auf den
+  Veteran/Stufen S4/S5 (Schach-Modell: Doktrin-Tiefe ist Overlord-Stärke;
+  Referenz bleibt die simple Rollendoktrin). (2) Läuft die Missionsuhr im
+  letzten Drittel ab, kippt die Haltung öffentlich von Verteidigung auf
+  Jagd: die Wachen lösen sich auf, alle jagen — einmalige QuickMessage mit
+  Rundenstand („Runde {0} von {1}") plus ERKLÄRUNG-Zeile. Hat der Spieler
+  die Rundenbegrenzung ausgeschaltet, gibt es KEINEN Phasen-Kipp (ehrlich).
+- **Fokus-Wert offen gelegt** (`ordFocusDetail` + 8 Vokabel-Keys): bei
+  ERKLÄRUNG=VOLL zeigt die Popup-Erklärung jetzt die echte Rechnung des
+  Runden-Fokus: Punktewert des Ziel-Helden, WAS der Wert in dieser Mission
+  misst (Vernichtungs-/Ausmerz-Mission = gedruckter Schaden pro Runde;
+  Schutz-/Sprinter-Mission = Wert als Ziel-Erläufer), die Entscheidungs-
+  grundlage (Wund-Marker dieser Runde / Wundzähler-Chip / gedruckte
+  Condition / „Verwundeten fertig machen (x2)" / nur gedruckte Werte) und
+  den nächstplatzierten Helden mit seinem Wert. Einzige Eingaben sind, was
+  am Tisch öffentlich ist: gedruckte Heldenkarte, Wundmarker, Missionsziel.
+  Nur der Runden-Fokus — nie die Aktivierungsreihenfolge (post-hoc-Gesetz
+  unberührt).
+- (Personas, dev 41: die Class-Karten-ERKLÄRUNG `ordCardEffect` und die
+  Kauf-QuickMessages sind mit dem Karten-System ENTFALLEN — für Personas
+  gilt unten in 4g.)
+
+**Playtest-Prüfpunkte:** (1) Offizier aktivieren → unter den Aktionen der
+Fähigkeiten-Hinweis; Schurke mit {A}-Block (S4) → {A}-Block, kein
+zusätzlicher Hinweis. (1b) S4, Verteidigungs-Mission (Terminal drin), mehrere
+Sturmtruppen-Gruppen: hintere Hälfte zeigt Wache-Doktrin im Popup-Header,
+vordere Hälfte Angriff; auf S1-S3 alle wie bisher aggressiv. Mission mit
+Rundenbegrenzung spielen → im letzten Drittel einmalige QuickMessage
+„Die Zeit laeuft ab ..." und ab da wieder alle Angreifer; Rundenbegrenzung
+AUS → kein Kipp. (2)/(3) entfallen mit dem Karten-System (Personas:
+Prüfpunkte in 4g).
+
+## 4g. dev 41 — Personas ersetzen das Class-/Agenda-Karten-System (M1-M4)
+
+Das gedruckte Class-Deck + Agenda-Markt ist **komplett raus** (Thomas-
+Beschluss 01./02.11.): kein XP-Konto, kein KI-Kauf, kein IMPERIUM-Panel,
+keine Lese-Proben mehr. Stattdessen drei Personas
+(`tactical_personas.json`): **Sturmtruppen-Captain** (Truppen verbilligt,
+Vorwärtsdruck, ein Defensiv-Riegel), **ISB-Kommandant** (AT-ST/Jäger zuerst,
+mehr Distanzkampf, Reserve nur auf Befehl), **Hutt-Lord** (Kopfgeldjäger
+und Biester zuerst, teure Gruppen halten Position). Der **Rang (1-4) folgt
+automatisch dem Bedrohungsbudget der Mission** — reine Funktion, keine
+Buchhaltung, kein Aufkauf; eine schwächere Mission senkt den Rang
+ebenso offen wie eine stärkere ihn hebt. Alles öffentlich: Kosten,
+Doktrin-Anteil, Reserve-Band und die Texte — nie verdeckte Werte.
+„KEINE Persona" = exakt das alte Standardverhalten (bitkompatibel).
+
+**Playtest-Prüfpunkte:** (1) Kampagnenübersicht → PERSONA-Schaltfläche
+links vom "?": Klick zykl KEINE → Captain → ISB → Hutt; Popup zeigt
+Motto, Signatur und „Rang je Mission" (Rang steht schon auf der
+Einsatzkarte, bevor die Mission läuft). (2) Einsatzkarte: Persona-Zeile
+„Name — Rang n" rechts neben der Schwierigkeit. (3) Mission mit Persona:
+beim Öffnen des Aufstellungs-Fensters einmalig die Subventions-
+QuickMessage („kostenlose Verstaerkung im Wert von N") und der Budget-
+Text um N höher; Sturmtruppen-Gruppen kosten sichtbar weniger (Popup-
+Preis, nicht nur Abrechnung). (4) Erste Aktivierung: erste Zeile der
+Anweisungskarte = „Persona — Rang n — aktive Boni" (nur die Boni, die
+bei DIESER Gruppe greifen). (5) Rangwechsel zwischen zwei Missionen →
+eine QuickMessage mit Richtung und altem Rang („von 2 auf 3"). (6) KEINE
+Persona: kein Popup-Eintrag, keine Subvention, alte Zahlen. (7) Settings
+→ TACTICAL AI: neue Persona-Zeile setzt den globalen Standard, leere
+Kampagnen-Felder folgen ihm. (8) Alte Kampagnen-Saves (Vor-Persona-Ära)
+laden unverändert und spielen ohne Persona.
+
+
 ## 5. Bekannte Grenzen (bewusst so entschieden)
 
 - Die KI sieht keine Sichtlinien — Angriffe „durch Wände" verhindert sie über

@@ -239,7 +239,7 @@ namespace Saga
 			//M13k: Imperial class-deck info behind a bar button + scrollable
 			//popup (the old inline section crowded the overview and overlapped
 			//the rebel items list - Thomas playtest 29.10.)
-			AddImperialDeckButtonToBar();
+			AddPersonaButtonToBar();
 			//allies
 			foreach ( var ally in sagaCampaign.campaignAllies.OrderBy( x => x.name ) )
 				AddAllyToUI( ally );
@@ -391,30 +391,32 @@ namespace Saga
 		/// apart. Hidden entirely when the feature or a deck is absent
 		/// (classic campaigns render exactly as before).
 		/// </summary>
-		void AddImperialDeckButtonToBar()
+		void AddPersonaButtonToBar()
 		{
 			try
 			{
-				var info = Saga.ImperialDisplay.Build( sagaCampaign );
-				if ( info == null ) return;
+				// Personas (M1): the IMP button became the PERSONA control -
+				// it shows the live persona line, a click cycles the choice.
+				// Visible whenever the tactical AI plays (also at 'none':
+				// the button is HOW you pick one).
+				if ( !TacticalAI.TacticalAISettings.Enabled ) return;
 				// M13o (Thomas Player-10.log): at this call the bar may not
 				// be ACTIVE yet (GameObject.Find only sees activeInHierarchy)
 				// - the run failed with "help button not found" and the
 				// button never appeared. Locate + clone through a retry
 				// coroutine that waits for the bar (and its first layout).
-				impDeckInfoPending = info;
-				if ( impDeckButtonCo == null ) impDeckButtonCo = StartCoroutine( TryAddImperialDeckButtonCo() );
+				if ( personaButtonCo == null ) personaButtonCo = StartCoroutine( TryAddPersonaButtonCo() );
 			}
 			catch ( Exception e )
 			{
-				Utils.LogWarning( "AddImperialDeckButtonToBar skipped: " + e.Message );
+				Utils.LogWarning( "AddPersonaButtonToBar skipped: " + e.Message );
 			}
 		}
 
-		ImperialDisplay.Info impDeckInfoPending;   // info for the pending button
-		Coroutine impDeckButtonCo;
+		Coroutine personaButtonCo;
+		TMPro.TextMeshProUGUI personaButtonLabel;   // live persona line
 
-		GameObject FindImperialDeckBarAnchor()
+		GameObject FindPersonaBarAnchor()
 		{
 			// M13b (Player-13/14/15): the scene names scanned before are
 			// the SAGA GAME help names - the Campaign Manager's "?" is the
@@ -439,12 +441,12 @@ namespace Saga
 			return null;
 		}
 
-		IEnumerator TryAddImperialDeckButtonCo()
+		IEnumerator TryAddPersonaButtonCo()
 		{
 			GameObject helpGO = null;
 			for ( int i = 0; i < 240 && helpGO == null; i++ )
 			{
-				helpGO = FindImperialDeckBarAnchor();
+				helpGO = FindPersonaBarAnchor();
 				if ( helpGO == null ) yield return new WaitForEndOfFrame();
 			}
 			var btn0 = helpGO != null ? helpGO.GetComponent<Button>() : null;
@@ -453,27 +455,27 @@ namespace Saga
 				// M13b: abort ONLY on a missing anchor object - help
 				// objects legitimately lack a Button component (M13aa),
 				// the clone gets one added instead.
-				Utils.LogWarning( "AddImperialDeckButtonToBar skipped: bar anchor not found after 4s" );
-				impDeckButtonCo = null;
+				Utils.LogWarning( "AddPersonaButtonToBar skipped: bar anchor not found after 4s" );
+				personaButtonCo = null;
 				yield break;
 			}
-			if ( btn0 == null ) Debug.Log( "AddImperialDeckButtonToBar::anchor has no Button component - clone gets a fresh one" );
-			yield return AddImperialDeckButtonClone( helpGO );
-			impDeckButtonCo = null;
+			if ( btn0 == null ) Debug.Log( "AddPersonaButtonToBar::anchor has no Button component - clone gets a fresh one" );
+			yield return AddPersonaButtonClone( helpGO );
+			personaButtonCo = null;
 		}
 
-		IEnumerator AddImperialDeckButtonClone( GameObject helpGO )
+		IEnumerator AddPersonaButtonClone( GameObject helpGO )
 		{
 			var bar = helpGO.transform.parent;
 			var clone = Instantiate( helpGO, bar );
-			clone.name = "tacaiImpInfoButton";
+			clone.name = "tacaiPersonaButton";
 			clone.SetActive( true );
 			// full detour from the clone's inherited help behaviour:
 			// fresh event object, persistent calls cannot survive it
 			// (M13b: help anchors can lack the component outright)
 			var btn = clone.GetComponent<Button>() ?? clone.gameObject.AddComponent<Button>();
 			btn.onClick = new Button.ButtonClickedEvent();
-			btn.onClick.AddListener( ShowImperialDeckPopup );
+			btn.onClick.AddListener( OnPersonaButtonClicked );
 			// visual difference: teal (the tactical-AI accent) + own label
 			var img = clone.GetComponent<Image>();
 			if ( img != null ) img.color = new Color( 0.40f, 0.85f, 0.75f, 1f );
@@ -493,7 +495,8 @@ namespace Saga
 			label.color = new Color( 0.02f, 0.10f, 0.09f, 1f );
 			label.enableWordWrapping = false;
 			label.raycastTarget = false;
-			label.text = "IMP";
+			label.text = PersonaButtonLabel();
+			personaButtonLabel = label;
 			// sit it left of the "?": a bar layout group re-flows it, a
 			// manually placed bar needs the measured offset - so wait for
 			// the anchor's REAL rect (M13o: no more zero-rect placement)
@@ -512,43 +515,81 @@ namespace Saga
 				c.sizeDelta = h.sizeDelta;
 				c.anchoredPosition = h.anchoredPosition - new Vector2( h.rect.width + 10f, 0f );
 			}
-			Debug.Log( $"AddImperialDeckButtonToBar::deck={impDeckInfoPending.DeckName} rows={impDeckInfoPending.Rows.Count}" );
+			Debug.Log( "AddPersonaButtonToBar::persona=" + TacticalAI.PersonaState.DescribeSelection( sagaCampaign ) );
 		}
 
-		GameObject impPopup;   // at most one open Imperial popup
+		GameObject personaPopup;   // at most one open persona popup
 
-		/// <summary>All Imperial campaign info (deck, every acquired card with
-		/// its printed text, agenda, XP balance) in one scrollable text popup;
-		/// click beside the box or the close button dismisses it.</summary>
-		void ShowImperialDeckPopup()
+		/// <summary>Button click = cycle the campaign persona (the old IMP
+		/// popup stays reachable through the long list? No: click CYCLES -
+		/// one control, live label, the popup opens from the same click via
+		/// the details toggle below). Every change is saved immediately,
+		/// like every other campaign field.</summary>
+		void OnPersonaButtonClicked()
 		{
 			try
 			{
-				if ( impPopup != null ) Destroy( impPopup );
-				var info = Saga.ImperialDisplay.Build( sagaCampaign );
-				if ( info == null ) return;
+				var snd = UnityEngine.Object.FindObjectOfType<Sound>();
+				if ( snd != null ) snd.PlaySound( FX.Click );
+			}
+			catch { }
+			var next = TacticalAI.PersonaState.Cycle( sagaCampaign );
+			if ( personaButtonLabel != null ) personaButtonLabel.text = PersonaButtonLabel();
+			// an open popup is live: rebuild it on the new choice
+			if ( personaPopup != null ) ShowPersonaPopup();
+			Debug.Log( "PersonaButton::cycle -> " + next );
+		}
+
+		/// <summary>Short live label: the persona in effect, no long words
+		/// (the bar button is small; full text lives in the popup).</summary>
+		string PersonaButtonLabel()
+		{
+			try
+			{
+				var tl = DataStore.uiLanguage != null ? DataStore.uiLanguage.uiTacticalAI : null;
+				string head = tl != null && !string.IsNullOrEmpty( tl.personaButton )
+					? tl.personaButton : "PERSONA";
+				var id = TacticalAI.PersonaState.EffectiveId( sagaCampaign );
+				if ( string.IsNullOrEmpty( id ) || id == TacticalAI.PersonaState.ExplicitNone )
+					return head + ": " + ( tl != null ? tl.personaNone : "none" );
+				var name = TacticalAI.PersonaState.DisplayName( id );
+				return head + ": " + name;
+			}
+			catch { return "PERSONA"; }
+		}
+
+		/// <summary>All persona info (choice, rank per mission at ITS own
+		/// threat, motto + signature of the active persona) in one scrollable
+		/// text popup; click beside the box or the close button dismisses it.
+		/// Replaces the M12e class-deck popup 1:1 in look and place.</summary>
+		void ShowPersonaPopup()
+		{
+			try
+			{
+				if ( personaPopup != null ) Destroy( personaPopup );
+				if ( sagaCampaign == null ) return;
 				var canvas = GameObject.Find( "Canvas" )?.transform;
 				if ( canvas == null ) return;
 				var tl = DataStore.uiLanguage != null ? DataStore.uiLanguage.uiTacticalAI : null;
 
 				// full-screen dim catch layer: any click outside closes
-				impPopup = new GameObject( "tacaiImpPopup", typeof( RectTransform ) );
-				impPopup.transform.SetParent( canvas, false );
-				var pr = impPopup.GetComponent<RectTransform>();
+				personaPopup = new GameObject( "tacaiPersonaPopup", typeof( RectTransform ) );
+				personaPopup.transform.SetParent( canvas, false );
+				var pr = personaPopup.GetComponent<RectTransform>();
 				pr.anchorMin = Vector2.zero;
 				pr.anchorMax = Vector2.one;
 				pr.offsetMin = Vector2.zero;
 				pr.offsetMax = Vector2.zero;
-				var dim = impPopup.AddComponent<Image>();
+				var dim = personaPopup.AddComponent<Image>();
 				dim.color = new Color( 0f, 0f, 0f, 0.55f );
-				var dimBtn = impPopup.AddComponent<Button>();
+				var dimBtn = personaPopup.AddComponent<Button>();
 				dimBtn.transition = Selectable.Transition.None;
-				dimBtn.onClick.AddListener( () => { if ( impPopup != null ) Destroy( impPopup ); } );
+				dimBtn.onClick.AddListener( () => { if ( personaPopup != null ) Destroy( personaPopup ); } );
 
 				var tl2 = DataStore.uiLanguage;
 				// centred box
 				var box = new GameObject( "box", typeof( RectTransform ) );
-				box.transform.SetParent( impPopup.transform, false );
+				box.transform.SetParent( personaPopup.transform, false );
 				var brt = box.GetComponent<RectTransform>();
 				brt.anchorMin = new Vector2( .5f, .5f );
 				brt.anchorMax = new Vector2( .5f, .5f );
@@ -571,8 +612,8 @@ namespace Saga
 				headerGO.fontStyle = TMPro.FontStyles.Bold;
 				headerGO.alignment = TMPro.TextAlignmentOptions.Center;
 				headerGO.color = Color.white;
-				headerGO.text = Utils.ReplaceGlyphs( string.Format( System.Globalization.CultureInfo.InvariantCulture,
-					tl != null && !string.IsNullOrEmpty( tl.impCampaignHeader ) ? tl.impCampaignHeader : "Imperial class deck — {0}", info.DeckName ) );
+				headerGO.text = Utils.ReplaceGlyphs(
+					tl != null && !string.IsNullOrEmpty( tl.personaPopupHeader ) ? tl.personaPopupHeader : "IMPERIAL PERSONA" );
 
 				// scroll window
 				var scrollGO = new GameObject( "scroll", typeof( RectTransform ) ).AddComponent<ScrollRect>();
@@ -603,7 +644,7 @@ namespace Saga
 				contentGO.enableWordWrapping = true;
 				contentGO.richText = true;
 				contentGO.alignment = TMPro.TextAlignmentOptions.TopLeft;
-				contentGO.text = Utils.ReplaceGlyphs( BuildImperialDeckPopupText( info ) );
+				contentGO.text = Utils.ReplaceGlyphs( BuildPersonaPopupText() );
 				contentGO.rectTransform.sizeDelta = new Vector2( 0f, contentGO.GetPreferredValues( contentGO.text, 700f, 0f ).y );
 				crt.sizeDelta = new Vector2( 0f, Mathf.Max( crt.sizeDelta.y, contentGO.GetPreferredValues( contentGO.text, 700f, 0f ).y ) );
 				scrollGO.horizontal = false;
@@ -624,7 +665,7 @@ namespace Saga
 				var cimg = closeGO.AddComponent<Image>();
 				cimg.color = new Color( 1f, .62f, .2f, 1f );
 				var cbtn = closeGO.AddComponent<Button>();
-				cbtn.onClick.AddListener( () => { if ( impPopup != null ) Destroy( impPopup ); } );
+				cbtn.onClick.AddListener( () => { if ( personaPopup != null ) Destroy( personaPopup ); } );
 				var closeLabel = new GameObject( "label", typeof( RectTransform ) ).AddComponent<TMPro.TextMeshProUGUI>();
 				closeLabel.transform.SetParent( closeGO.transform, false );
 				var cl2 = closeLabel.GetComponent<RectTransform>();
@@ -641,48 +682,131 @@ namespace Saga
 				closeLabel.text = Utils.ReplaceGlyphs(
 					tl2?.uiMainApp?.close != null ? tl2.uiMainApp.close.ToUpper() : "CLOSE" ).Replace( "\r", "" ).Replace( "\n", "" );
 
-				impPopup.transform.SetAsLastSibling();   // on top of every panel
-				Debug.Log( $"ShowImperialDeckPopup::deck={info.DeckName} rows={info.Rows.Count}" );
+				personaPopup.transform.SetAsLastSibling();   // on top of every panel
+				Debug.Log( "ShowPersonaPopup::persona=" + TacticalAI.PersonaState.DescribeSelection( sagaCampaign ) );
 			}
 			catch ( Exception e )
 			{
-				if ( impPopup != null ) Destroy( impPopup );
-				Utils.LogWarning( "ShowImperialDeckPopup skipped: " + e.Message );
+				if ( personaPopup != null ) Destroy( personaPopup );
+				Utils.LogWarning( "ShowPersonaPopup skipped: " + e.Message );
 			}
 		}
 
-		/// <summary>One rich-text report: open agenda first, then every card
-		/// (name + XP tag + 1:1 printed text, M11g doctrine: printed content
-		/// stays EN) then the XP balance line - the same content the inline
-		/// section spilled across the overview, now in one scrollable column.</summary>
-		string BuildImperialDeckPopupText( Saga.ImperialDisplay.Info info )
+		/// <summary>Persona popup body (rich text): the current choice with
+		/// motto, the persona signature (what it does to its troops), then ONE
+		/// row per campaign mission - mission name, its threat budget and the
+		/// rank the persona WILL play there (rank law: pure threat function,
+		/// so it can be shown before the mission is even started). All
+		/// ui.json vocabulary; printed-name doctrine does not apply (personas
+		/// are app chrome, fully localized).</summary>
+		string BuildPersonaPopupText()
 		{
 			var tl = DataStore.uiLanguage != null ? DataStore.uiLanguage.uiTacticalAI : null;
 			var sb = new System.Text.StringBuilder();
-			if ( !string.IsNullOrEmpty( info.OpenAgenda ) )
-				sb.Append( "<color=#8FE3C8><b>" ).Append( info.OpenAgenda ).Append( "</b></color>\n\n" );
-			foreach ( var row in info.Rows )
+			sb.Append( "<color=white><b>" ).Append(
+				TacticalAI.PersonaState.DescribeSelection( sagaCampaign ) ).Append( "</b></color>\n" );
+
+			var id = TacticalAI.PersonaState.EffectiveId( sagaCampaign );
+			bool none = string.IsNullOrEmpty( id ) || id == TacticalAI.PersonaState.ExplicitNone;
+			if ( none )
 			{
-				string tag = row.Basic
-					? ( tl != null && !string.IsNullOrEmpty( tl.impBasicTag ) ? tl.impBasicTag : "Basic · free" )
-					: string.Format( System.Globalization.CultureInfo.InvariantCulture,
-						tl != null && !string.IsNullOrEmpty( tl.impXpTag ) ? tl.impXpTag : "{0} XP", row.Xp );
-				sb.Append( $"<color=white><b>{row.Name}</b></color>  <color=orange>{tag}</color>" );
-				if ( !row.Modelled )
-					sb.Append( $"\n<color=#8FE3C8><i>{( tl != null ? tl.impNoModelTag : "active — no AI lever" )}</i></color>" );
-				var card = Saga.ImperialDisplay.FindCard( row.CardId );
-				if ( card != null )
-				{
-					var body = string.Join( "\n", card.AbilityTexts
-						.Where( t => !string.IsNullOrWhiteSpace( t ) ).Select( t => t.Trim() ).ToArray() );
-					if ( !string.IsNullOrEmpty( body ) )
-						sb.Append( "\n<size=85%><color=#C9D6D3>" ).Append( body ).Append( "</color></size>" );
-				}
-				sb.Append( "\n\n" );
+				// 'none' explained once - the honest zero-state sentence
+				sb.Append( "<color=#C9D6D3><i>" ).Append( PersonaChrome(
+					tl != null ? tl.personaPlainNote : null,
+					"Standard folgen = keine KI-Persona: die Imperiale Seite spielt sachneutral." ) )
+				  .Append( "</i></color>\n" );
 			}
-			sb.Append( string.Format( System.Globalization.CultureInfo.InvariantCulture,
-				( tl != null && !string.IsNullOrEmpty( tl.impCampaignXpLine ) ? tl.impCampaignXpLine : "Imperial XP: {0}" ).Replace( "{0}", "<color=orange><b>{0}</b></color>" ), info.XpBalance.ToString() ) );
+			var def = none ? null : TacticalAI.PersonaState.Def( id );
+			if ( def != null )
+			{
+				var motto = PersonaKeyText( def.MottoKey );
+				if ( !string.IsNullOrEmpty( motto ) )
+					sb.Append( "<color=#8FE3C8><i>" ).Append( motto ).Append( "</i></color>\n\n" );
+				var sig = PersonaKeyText( PersonaSigKey( def ) );
+				if ( !string.IsNullOrEmpty( sig ) )
+					sb.Append( "<color=#C9D6D3>" ).Append( sig ).Append( "</color>\n\n" );
+			}
+
+			sb.Append( "<color=white><b>" ).Append( PersonaChrome(
+				tl != null ? tl.personaRankColumn : null, "Rang je Mission" ) )
+			  .Append( "</b></color>\n" );
+			var structs = sagaCampaign.campaignStructure ?? new List<CampaignStructure>();
+			foreach ( var cs in structs )
+			{
+				if ( cs == null ) continue;
+				var v = TacticalAI.PersonaState.ResolveFor( id, cs.threatLevel );
+				var name = PersonaMissionName( cs );
+				string rankTxt = v.Rank > 0
+					? RankChip( tl, v.Rank )
+					: ( tl != null ? tl.personaNone : "none" );
+				sb.Append( "<color=#C9D6D3>" ).Append( name ).Append( "</color>  " )
+				  .Append( "<color=#8FE3C8>" ).Append( cs.threatLevel ).Append( "</color>  " )
+				  .Append( "<color=orange><b>" ).Append( rankTxt ).Append( "</b></color>\n" );
+			}
+			if ( def == null )
+				sb.Append( "\n<color=#C9D6D3><i>" ).Append( PersonaChrome(
+					tl != null ? tl.personaCycleNote : null,
+					"Klick auf die PERSONA-Schaltflaeche waehlt die Persona (KEINE = sachneutral)." ) )
+				  .Append( "</i></color>" );
 			return sb.ToString();
+		}
+
+		/// <summary>Popup chrome: ui.json text with the German dev fallback
+		/// (same pattern as the settings dialog's Pick()).</summary>
+		static string PersonaChrome( string localized, string fallback )
+		{
+			return string.IsNullOrEmpty( localized ) ? fallback : localized;
+		}
+
+		/// <summary>Mission display name for a structure row (the SAME
+		/// translated source the mission list rows use - missionCards per
+		/// expansion; custom/imported missions carry projectItem.Title).</summary>
+		string PersonaMissionName( CampaignStructure cs )
+		{
+			try
+			{
+				if ( cs.projectItem != null && !string.IsNullOrEmpty( cs.projectItem.Title ) )
+					return cs.projectItem.Title;
+				if ( DataStore.missionCards != null && cs.expansionCode != null
+					&& DataStore.missionCards.ContainsKey( cs.expansionCode ) )
+				{
+					var mc = DataStore.missionCards[cs.expansionCode]
+						.FirstOrDefault( x => x.id == cs.missionID );
+					if ( mc != null && !string.IsNullOrEmpty( mc.name ) ) return mc.name;
+				}
+			}
+			catch { }
+			return cs.missionID;
+		}
+
+		static string RankChip( UITacticalAI tl, int rank )
+		{
+			var fmt = tl != null && !string.IsNullOrEmpty( tl.personaRank ) ? tl.personaRank : "rank {0}";
+			return fmt.Replace( "{0}", rank.ToString( System.Globalization.CultureInfo.InvariantCulture ) );
+		}
+
+		/// <summary>ui.json field lookup by key (motto/signaturText keys are
+		/// asset data - the asset stays the validator, reflection like
+		/// PersonaState.Localized).</summary>
+		static string PersonaKeyText( string key )
+		{
+			if ( string.IsNullOrEmpty( key ) ) return null;
+			var tl = DataStore.uiLanguage != null ? DataStore.uiLanguage.uiTacticalAI : null;
+			if ( tl == null ) return null;
+			var fi = typeof( UITacticalAI ).GetField( key );
+			return fi == null ? null : fi.GetValue( tl ) as string;
+		}
+
+		/// <summary>The signature key of a persona def = the signaturText
+		/// effect key its highest rank carries (Core.Personas keeps it as an
+		/// effect row so the planner and the UI read the SAME key).</summary>
+		static string PersonaSigKey( TacticalAI.Core.PersonaDef def )
+		{
+			if ( def == null || def.Ranks == null ) return null;
+			foreach ( var r in def.Ranks )
+				foreach ( var e in r.Effects ?? new List<TacticalAI.Core.PersonaEffect>() )
+					if ( e.Kind == "signaturText" && !string.IsNullOrEmpty( e.Key ) ) return e.Key;
+			return null;
 		}
 
 		void AddRewardToUI( CampaignReward item )

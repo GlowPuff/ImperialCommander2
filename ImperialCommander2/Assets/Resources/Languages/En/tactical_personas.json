@@ -1,0 +1,144 @@
+{
+  "_meta": {
+    "file": "tactical_personas.json",
+    "status": "ENTWURF M1 - vom Generator-Step gegen enemies.json validiert (DraftPersonas 01.11.2026), noch KEIN Verbraucher im Code",
+    "purpose": "Datenbasis der imperialen Personas (CONCEPT_personas.md). Ersetzt das Class-/Agenda-Kartensystem komplett (Thomas-Beschluss 01.11.).",
+    "rules": {
+      "rank": "Rang folgt AUTOMATISCH dem threatLevel der naechsten Mission (Schwellen 2/4/6/8, Thomas-Beschluss 02.11., kein Kauf, kein XP, Auf- UND Abstieg moeglich). personaRank(threat) = hoechster Rang mit minThreat <= threat; minThreat 0 = immer.",
+      "orthogonal": "Persona wirkt auf ALLEN S-Stufen gleich (Ladder = Mechanik-Tiefe, unabhaengig). 'Keine Persona' = Default, bitkompatibel.",
+      "channels": "NUR diese vier effect-kinds sind legal (Fairheits-Grenze): cost_reduction, free_deployment, pattern_weight, guard_split. Keine Wuerfel, keine versteckte Info, keine Token, keine Stat-Buffs.",
+      "matching": "internalNameMatch = Regex (case-insensitive) ueber den INTERNEN Kartenname aus CardData/enemies.json (sprachunabhaengig; die uebersetzten Anzeige-Namen in Languages/<L>/DeploymentGroups sind dafuer verboten - die UI ueersetzt nur die Anzeige, die Kartenobjekte behalten ihren internen Namen). Match vererbt automatisch auf '(Elite)'-Variante, da Regex auf den Basisnamen trifft). factionMatch = exakter DeploymentCard.faction ('Imperial' | 'Mercenary'). Beide Felder optional; sind beide gesetzt, muss BEIDES treffen.",
+      "stacking": "cost_reduction-Matches stapeln sich pro Karte (ISB R1+R3 koennen addiert treffen), gedeckelt durch minCost 1 im Verbraucher (Nie 0 durch Rabatt - gratis kommt nur ueber free_deployment).",
+      "determinism": "free_deployment waehlt die verbilligte Karte mit dem niedrigsten cost, bei Gleichstand die erste in deploymentOrder. Kein Zufall.",
+      "display": "Jede Wirkung ist oeffentlich: Persona+Rang im IMPERIUM-Panel + Einsatzkarten-Textfeld (Thomas 02.11.), Rabatte sichtbar im Deploy-Text (ThreatLedger.EffectiveCost), pattern_weight/guard_split sichtbar ueber die Doctrine-Anzeige (dev 41). signaturTextKey = ui.json-Key, nie Inline-Text."
+    }
+  },
+  "personas": [
+    {
+      "id": "trooper_captain",
+      "nameKey": "personaCaptTrooper",
+      "mottoKey": "personaCaptTrooperMotto",
+      "flavor": "Masse, die rollt. Sturmtruppen-Class-Deck-Essenz: Truppen verbilligen, vorwaerts, Reserve.",
+      "ranks": [
+        {
+          "rank": 1, "minThreat": 2,
+          "effects": [
+            { "kind": "cost_reduction", "amount": 1,
+              "filter": { "internalNameMatch": "stormtrooper" },
+              "source": "Sturmtruppen-Class-Deck: Truppen-Buff-Karten (deploy_cost-Hook)" }
+          ]
+        },
+        {
+          "rank": 2, "minThreat": 4,
+          "effects": [
+            { "kind": "pattern_weight", "multiplier": 1.2,
+              "filter": { "internalNameMatch": "stormtrooper" },
+              "patterns": ["aggressive"],
+              "source": "Agenda-Muster Vorwaertsdruck; ersetzt die Wuerfel-Manipulations-Karten des Decks" }
+          ]
+        },
+        {
+          "rank": 3, "minThreat": 6,
+          "effects": [
+            { "kind": "free_deployment", "count": 1, "per": "mission",
+              "filter": { "internalNameMatch": "stormtrooper" },
+              "source": "Class-Deck 'free/reduced deployment'-Karten (free_group-Hook)" }
+          ]
+        },
+        {
+          "rank": 4, "minThreat": 8,
+          "effects": [
+            { "kind": "guard_split", "guardPercent": 40,
+              "filter": { "internalNameMatch": "stormtrooper" },
+              "source": "Offensiv-Identitaet des Decks: die Wache-Band (dev 41, 50/50) wird 60/40 zugunsten Angriff" },
+            { "kind": "signaturText", "key": "personaCaptSignature" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "isb_commander",
+      "nameKey": "personaCaptIsb",
+      "mottoKey": "personaCaptIsbMotto",
+      "flavor": "Der Schatten vor dem Schuss. Aufklaerungs-Agendas + ISB-Zusammenarbeit mit dem Untergrund.",
+      "ranks": [
+        {
+          "rank": 1, "minThreat": 2,
+          "effects": [
+            { "kind": "cost_reduction", "amount": 1,
+              "filter": { "internalNameMatch": "\\bDroid" },
+              "source": "Aufklaerungs-Agendas + Drohnen-Regeln (Sondroid-Pflicht der ISB-Daten)" }
+          ]
+        },
+        {
+          "rank": 2, "minThreat": 4,
+          "effects": [
+            { "kind": "pattern_weight", "multiplier": 1.2,
+              "filter": { "factionMatch": "Imperial" },
+              "patterns": ["hunter", "blocker"],
+              "source": "ISB-Ueberwachung/Essienz: Muster-Gewicht statt Token-Chaos" }
+          ]
+        },
+        {
+          "rank": 3, "minThreat": 6,
+          "effects": [
+            { "kind": "cost_reduction", "amount": 1,
+              "filter": { "factionMatch": "Mercenary" },
+              "source": "ISB-Agenda-Essenz 'informants/impounded': Kopfgeld-Oekonomie statt Token, ohne Geheimnis-Verwaltung" }
+          ]
+        },
+        {
+          "rank": 4, "minThreat": 8,
+          "effects": [
+            { "kind": "free_deployment", "count": 1, "per": "mission",
+              "filter": { "factionMatch": "Imperial", "internalNameMatch": "\\bDroid|officer" },
+              "source": "Agenda 'verdecktes Einfahren'-Muster: eine billige Infiltrationsgruppe gratis" },
+            { "kind": "signaturText", "key": "personaIsbSignature" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hutt_lord",
+      "nameKey": "personaCaptHutt",
+      "mottoKey": "personaCaptHuttMotto",
+      "flavor": "Kopfgeld ist Geschaeft. Kriminellen-Decks, Söldner-Regeln, pursuit-Regeln der Kopfgeldjaeger.",
+      "ranks": [
+        {
+          "rank": 1, "minThreat": 2,
+          "effects": [
+            { "kind": "cost_reduction", "amount": 1,
+              "filter": { "factionMatch": "Mercenary" },
+              "source": "Kopfgeldjaeger-Figurenpacks + Belohnungs-Oekonomie der Kampagne" }
+          ]
+        },
+        {
+          "rank": 2, "minThreat": 4,
+          "effects": [
+            { "kind": "cost_reduction", "amount": 1,
+              "filter": { "internalNameMatch": "hunter|hired gun" },
+              "source": "gestaffelte Söldner-Regeln: Spezialisten bekommen den zweiten Abschlag" }
+          ]
+        },
+        {
+          "rank": 3, "minThreat": 6,
+          "effects": [
+            { "kind": "free_deployment", "count": 1, "per": "mission",
+              "filter": { "factionMatch": "Mercenary" },
+              "source": "Class-Deck 'free villain deployment'-Karten" }
+          ]
+        },
+        {
+          "rank": 4, "minThreat": 8,
+          "effects": [
+            { "kind": "pattern_weight", "multiplier": 1.3,
+              "filter": { "factionMatch": "Mercenary" },
+              "patterns": ["hunter"],
+              "source": "Kopfgeldjaeger-'pursuit'-Regeln: jagen den hoechsten Fokus-Helden (Fokus-Score selbst unveraendert)" },
+            { "kind": "signaturText", "key": "personaHuttSignature" }
+          ]
+        }
+      ]
+    }
+  ]
+}

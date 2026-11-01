@@ -58,6 +58,10 @@ namespace TacticalAI
         // The activation then runs TWO attack blocks; the second one is the
         // printed second attack, not a conditional move-check.
         public bool Assault;
+        // Personas (M3): "Persona - Rang - aktive Boni" line for this
+        // group's activation popup (PersonaState.DescribeLine); null when no
+        // persona plays. Pure display - changes no plan number.
+        public string PersonaLine;
     }
 
     public static class TacticalAIBridge
@@ -120,6 +124,29 @@ namespace TacticalAI
         static string _roundFocusHero;
         static Tac.FocusPick _roundFocus;
         static int _roundFocusRound = -1;
+        // Noldorion direction reply 2.11 (focus-score transparency): the
+        // RAW round-focus facts (runner-up + posture) for the EXPLAIN=VOLL
+        // disclosure; localization happens in ExplainFor, never here.
+        static Tac.FocusPick _roundFocusRunnerUp;
+        static string _roundFocusPosture;
+        // Punkt-2 block (Thomas + Noldorion 2.11): doctrine phase state.
+        // _doctrineEffective is the per-round posture the classification
+        // consumes (base defend -> hunt phase flip); the guard band holds
+        // the back-half troopers of a defend deployment (S4/S5, see
+        // DoctrineFor). Announcements are one-shot per mission session.
+        static string _doctrineBase;
+        static string _doctrineEffective;
+        static bool _phaseShiftAnnounced;
+        static bool _splitAnnounced;
+        static int _guardBandCount;
+        static HashSet<string> _guardIds;   // back-half defend troopers (this round)
+        // Personas (M2, Thomas 02.11.): the live round's resolved persona
+        // (rank + effects). EMPTY view = no persona = the exact pre-persona
+        // behaviour on every hook below. Announcements are once-per-mission
+        // (ResetSession clears); the rank itself is a pure (persona, threat)
+        // function - no memory, no purchase (Core.Personas rank law).
+        static Tac.PersonaView _personaView = new Tac.PersonaView();
+        static bool _personaQMAnnounced;
         static Dictionary<string, Tac.RiskDecision> _riskByGroup;
         static Dictionary<string, Tac.HeroThreatProfile> _profileByName;
         static Tac.ThreatLedger _threatLedger;
@@ -140,6 +167,16 @@ namespace TacticalAI
             _roundFocusHero = null;
             _roundFocus = null;
             _roundFocusRound = -1;
+            _roundFocusRunnerUp = null;
+            _roundFocusPosture = null;
+            _doctrineBase = null;
+            _doctrineEffective = null;
+            _phaseShiftAnnounced = false;
+            _splitAnnounced = false;
+            _guardBandCount = 0;
+            _guardIds = null;
+            _personaView = new Tac.PersonaView();
+            _personaQMAnnounced = false;
             _riskByGroup = null;
             _threatLedger = null;
             _ledgerRound = -1;
@@ -387,8 +424,17 @@ namespace TacticalAI
         static void EnsureRound(int roundNo)
         {
             if (_planRound == roundNo) return;
+            EnsurePersona();
             // M5: fresh feed state BEFORE building this round's plan
             var feedView = PullFeedView();
+            // Noldorion direction reply 2.11 + Thomas 01.11. (Punkt 2):
+            // doctrine phase. Base = MissionPosture() (structured mission
+            // data). A defend mission WITH a public round clock (the user's
+            // roundLimitToggle included - clock off = no phase, honest)
+            // shifts to hunt in the final third: the Imperium stops holding
+            // and races the rebels, exactly like a human would. Public
+            // trigger (HUD round display), deterministic, announced once.
+            SetDoctrinePhase(roundNo);
             BuildGroups(out var facts, out var figures, feedView);
             _patternByCard = new Dictionary<string, string>();
             foreach (var f in figures) if (f != null) _patternByCard[f.Id] = f.Pattern;
@@ -488,10 +534,13 @@ namespace TacticalAI
             // M12d: the campaign deck's acquired class cards hook into the
             // SAME pipeline (activation efficiency + printed strength). No
             // deck / no firing hook -> null -> bit-identical canon plan.
-            Tac.CardEffects cardEff; int cardSurch; Tac.EngagementEffects engage;
-            ImperialCardHooks(out cardEff, out cardSurch, out engage);
+            // Personas (M4): the class-card hook channel is GONE - the
+            // persona replaces the card system (CONCEPT_personas.md 6); the
+            // persona never touches the plan numbers (fairness law: only
+            // costs, doctrine share, guard band, texts). null = the exact
+            // bit-identical canon plan the fixtures pin.
             var plan = Tac.OrderPlanner.PlanRound(roundNo, facts, _catalog, posture, skill, rng,
-                                                  roundNo, null, null, null, cardEff);
+                                                  roundNo, null, null, null, null);
             Tac.OrderPlanner.AssertPermutation(plan, facts.Select(f => f.GroupId));
             _slots = plan.Slots;
             var names = facts.ToDictionary(f => f.GroupId, f => f.Name);
@@ -579,6 +628,12 @@ namespace TacticalAI
             // the legacy path verbatim.
             if (_catalog == null || !_catalog.TryGetValue(cd.id, out catCard)) return false;
 
+            // Personas (M3): the persona+rank+boni line where the class-card
+            // line used to sit (Thomas 02.11.: the card system is replaced,
+            // its display place is the persona's). Printed ABOVE the actions
+            // next to the focus line - public by design (fairness law).
+            plan.PersonaLine = PersonaLine(cd.id);
+
             // RR gives EVERY activation its printed actions: one movement and
             // one attack (two action slots, one attack cap - rendered per the
             // doctrine pattern below). The ONLY printed exclusion is the
@@ -638,6 +693,14 @@ namespace TacticalAI
             // above remain the planned proposal); without a focus target the
             // option would name nobody -> no block.
             plan.Blocks = WithVillainOption(plan, cd);
+            // Noldorion review 2.11 (PR #194): the honest boundary line. A
+            // non-villain group's printed abilities (Order, Cower, Squad
+            // Training, Self-Destruct ...) are REAL printed card data — the
+            // planner simply does not model them, so the mode never
+            // pre-decides those "may" calls; they stay at the table. The note
+            // says exactly that, in the group's own popup (the villain-option
+            // block above already names its ability -> no duplicate advice).
+            plan.Blocks = WithAbilitiesLaneNote(plan, cd);
             // M13n (Thomas 29.10): general RR info block under the actions,
             // BEFORE the gated explanation (popup appends ExplainLine after
             // Blocks, so appending here lands exactly between them). Door law
@@ -691,6 +754,42 @@ namespace TacticalAI
             lines.Add(TF(L.ordOptionPrinted, Saga.Utils.ReplaceGlyphs(a.name),
                                     Saga.Utils.ReplaceGlyphs(a.text)));
             return lines.ToArray();
+        }
+
+        /// Noldorion review 2.11: append the printed-ability human-lane note
+        /// to a rendered plan. Fires for NON-villain groups that print at
+        /// least one named ability (Officer's Order, Probe Droid's
+        /// Self-Destruct, Stormtrooper's Squad Training ...). Groups with no
+        /// printed abilities (none in the shipped data) and groups that
+        /// already received their villain {A} option block (which quotes the
+        /// printed text) get nothing. Missing language key -> no note.
+        static string[] WithAbilitiesLaneNote(ActivationPlanData plan, global::DeploymentCard cd)
+        {
+            if (plan == null || !plan.HasTarget || cd == null) return plan?.Blocks;
+            var ab = cd.abilities;
+            if (ab == null || ab.Length == 0) return plan.Blocks;
+            bool printed = false;
+            for (int i = 0; i < ab.Length; i++)
+                if (ab[i] != null && !string.IsNullOrEmpty(ab[i].name)) { printed = true; break; }
+            if (!printed) return plan.Blocks;
+            var L = UIx;
+            if (L == null || string.IsNullOrEmpty(L.ordAbilitiesLane)) return plan.Blocks;
+            var lines = plan.Blocks ?? new string[0];
+            // the villain-option block already IS the printed ability -> no
+            // duplicate advice. Detect it by its localized template prefix
+            // (same TF formatting, empty placeholders - prefix stays).
+            if (!string.IsNullOrEmpty(L.ordOptionPrinted))
+            {
+                var probe = TF(L.ordOptionPrinted, "", "");
+                for (int i = 0; i < lines.Length; i++)
+                    if (probe.Length > 4 && lines[i] != null
+                        && lines[i].StartsWith(probe.Substring(0, Math.Min(probe.Length, 16)),
+                                              StringComparison.Ordinal))
+                        return lines;
+            }
+            var outp = new List<string>(lines);
+            outp.Add(L.ordAbilitiesLane);
+            return outp.ToArray();
         }
 
         /// Threat balance for the utility gate; NULL (hidden) when neither the
@@ -905,6 +1004,59 @@ namespace TacticalAI
             catch (System.FormatException) { return fmt; }
         }
 
+        // Punkt-2 phase vocabulary (MissionPosture vocabulary only; unknown
+        // -> null, the caller skips the line - never a wrong label).
+        static string PhaseName(string posture)
+        {
+            var L = UIx;
+            if (L == null || string.IsNullOrEmpty(posture)) return null;
+            switch (posture)
+            {
+                case "defend": return L.ordPhaseDefend;
+                case "hunt":   return L.ordPhaseHunt;
+                default:       return null;
+            }
+        }
+
+        // Focus-transparency vocabularies (Noldorion direction reply 2.11).
+        // Posture -> what the disclosed score MEASURES (OverlordFocus.
+        // ThreatBase semantics, sim-pinned): eliminate/attrition = printed
+        // damage per round, protect/stall = objective-runner value, deny =
+        // node rules -> no score at all (helper returns null, no line).
+        static string FocusMeasureName(string posture)
+        {
+            var L = UIx;
+            if (L == null || string.IsNullOrEmpty(posture)) return null;
+            switch (posture)
+            {
+                case "protect":
+                case "stall":   return L.ordFocusMeasureRunner;
+                case "eliminate":
+                case "attrition": return L.ordFocusMeasureDamage;
+                default:        return null;
+            }
+        }
+
+        // FocusPick.Basis -> plain label (mark = defeated/wounded flip during
+        // imperial activation, chip = woundAll counter chip, card = printed
+        // conditioning, economy = wound-economy finish, proxy = printed
+        // values only). Unknown -> null (TF keeps the raw token visible,
+        // never a silently wrong label).
+        static string FocusBasisName(string basis)
+        {
+            var L = UIx;
+            if (L == null || string.IsNullOrEmpty(basis)) return "-";
+            switch (basis)
+            {
+                case "mark":    return L.ordFocusBasisMark;
+                case "chip":    return L.ordFocusBasisChip;
+                case "card":    return L.ordFocusBasisConditioned;
+                case "economy": return L.ordFocusBasisEconomy;
+                case "proxy":   return L.ordFocusBasisPrinted;
+                default:        return basis;
+            }
+        }
+
         static string DoctrineName(string p, UITacticalAI L)
         {
             switch (p)
@@ -987,17 +1139,14 @@ namespace TacticalAI
                 var cands = BuildFocusCandidates(ordView, living);
                 if (cands.Count > 0)
                 {
-                    // M12d: the deck's focus-condition cards lift the
-                    // conditioned hero (+1, M10b slot) and the engage prints
-                    // move the exchange (threat v2 seam). Null/0 = canon.
-                    Tac.CardEffects ce; int cs; Tac.EngagementEffects en;
-                    ImperialCardHooks(out ce, out cs, out en);
+                    // Personas (M4): the card hook channels are gone - the
+                    // rank law runs canon (null/0), personas never touch it.
                     var ranked = Tac.OverlordFocus.Rank(cands,
                         string.IsNullOrEmpty(ordView.Posture) ? "eliminate" : ordView.Posture,
                         null,                      // the app has no victory counter
                         // M11b: threat v2 runs against THIS figure's printed
                         // defense pool (public deployment-card data).
-                        DefenseOf(cd), cs, en);
+                        DefenseOf(cd), 0, null);
                     var dec = ranked[0];
                     _roundFocus = dec;
                     _roundFocusHero = dec.HeroId;
@@ -1137,134 +1286,14 @@ namespace TacticalAI
             catch { return null; }
         }
 
-        // ------------------------------------------------- M12d card effects
-        /// <summary>The live campaign's Imperial class deck state (M12b
-        /// store field). Null = no deck (non-tactical campaign / older save)
-        /// -> every card hook below is a documented zero: the pipelines run
-        /// bit-identical to the pre-M12d canon.</summary>
-        static Saga.ImperialDeckState ImperialDeckLive()
-        {
-            try
-            {
-                var camp = Saga.RunningCampaign.sagaCampaign;
-                return camp == null ? null : camp.imperialDeck;
-            }
-            catch { return null; }
-        }
-
-        /// <summary>M12d hook bundle for ONE pipeline call: the aggregated
-        /// effects of the campaign deck's ACQUIRED cards (basics always
-        /// owned - ImperialCardEffects.Aggregate checks the deck table).
-        /// FACTION law (task scope 3): the deck belongs to the IMPERIAL
-        /// side; whether the AI or the human Imperial player holds the
-        /// cards makes no difference - the hooks read the deck state, not a
-        /// controller flag. Returns null effects + 0 surcharge when there is
-        /// no deck or no hook fires.</summary>
-        static void ImperialCardHooks(out Tac.CardEffects eff, out int surcharge,
-                                      out Tac.EngagementEffects engage)
-        {
-            eff = null; surcharge = 0; engage = null;
-            try
-            {
-                var st = ImperialDeckLive();
-                if (st == null || string.IsNullOrEmpty(st.deckId)) return;
-                _ = TacticalAIAssets.ImperialDecksRoot;        // prime Core doc
-                _ = TacticalAIAssets.ImperialCardEffectsRoot;  // caches (app loader seam)
-                var owned = st.cards == null ? null
-                    : st.cards.Where(c => !string.IsNullOrEmpty(c.id)).Select(c => c.id).ToList();
-                var e = Tac.ImperialCardEffects.Aggregate(
-                    Tac.ImperialDecks.Load(), st.deckId, owned);
-                // store-model hooks (attach_lifecycle, stat_speed) move no
-                // pipeline number by themselves - CardEffects.IsNeutral says
-                // exactly that; announce only when a number can move.
-                if (e == null || e.IsNeutral) return;
-                eff = e;
-                surcharge = Tac.ImperialCardEffects.CardSurcharge(e);
-                engage = Tac.ImperialCardEffects.EngagementOf(e);
-            }
-            catch { eff = null; surcharge = 0; engage = null; }
-        }
-
-        /// <summary>M12e UI/API seam (no UI here): "aktive Karten +
-        /// Klassifikation" for the live campaign deck - one row per owned
-        /// card with bucket, hooks and the honest (c)-reason, plus the
-        /// re-attachable Attachment view. Null when no deck exists.</summary>
-        public static List<Dictionary<string, object>> ActiveImperialCardInfos(
-            string attachGroupTraits = null)
-        {
-            try
-            {
-                var st = ImperialDeckLive();
-                if (st == null || string.IsNullOrEmpty(st.deckId)) return null;
-                _ = TacticalAIAssets.ImperialDecksRoot;        // prime Core doc
-                _ = TacticalAIAssets.ImperialCardEffectsRoot;  // caches (app loader seam)
-                var owned = st.cards == null ? null
-                    : st.cards.Select(c => c.id).ToList();
-                return Tac.ImperialCardEffects.ActiveCardInfos(
-                    Tac.ImperialDecks.Load(), st.deckId, owned, attachGroupTraits);
-            }
-            catch { return null; }
-        }
-
-        // ------------------------------------------------- M12d2 agenda deck
-        /// <summary>The live campaign's agenda store (M12d2 field). Null =
-        /// 'kein Agenda-State': non-tactical campaigns never carry agenda
-        /// data and older saves load null (valid base state).</summary>
-        static Saga.AgendaState AgendaLive()
-        {
-            try
-            {
-                var camp = Saga.RunningCampaign.sagaCampaign;
-                return camp == null ? null : camp.agenda;
-            }
-            catch { return null; }
-        }
-
-        /// <summary>REBEL-SAFE purchase ledger for UI/log/export consumers
-        /// (M12e): RR type + printed influence cost of every buy, card
-        /// identities of UNREVEALED Kept Secrets removed - the anti-leak
-        /// law lives in AgendaState.RebelView, this seam just exposes it.
-        /// Null when there is no agenda state.</summary>
-        public static List<Dictionary<string, object>> AgendaPublicLedger()
-        {
-            try
-            {
-                var st = AgendaLive();
-                return st == null ? null : st.RebelView();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>Imperial-side audit view (human imperial / dev console
-        /// ONLY - feeding this into a rebel-facing surface is the leak the
-        /// anti-leak fixture forbids): full purchase rows incl. unrevealed
-        /// Kept Secrets. Null when there is no agenda state.</summary>
-        public static List<Dictionary<string, object>> AgendaImperialAuditView()
-        {
-            try
-            {
-                var st = AgendaLive();
-                return st == null ? null : st.ImperialAuditView();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>M12d-style classification table of the shipped agenda
-        /// asset (every card -> bucket + hook, pure function of the asset):
-        /// 'a_store' rows are model-wired (ongoing persistence, kept-secret
-        /// reserve), 'b_public' rows are announcement-only by the PRUF-
-        /// AUFTRAG (2) verdict. Null while the asset is unavailable.</summary>
-        public static List<Dictionary<string, object>> AgendaClassification()
-        {
-            try
-            {
-                _ = TacticalAIAssets.AgendaCardsRoot;          // prime Core doc
-                var table = Tac.AgendaCards.Load();
-                return table == null ? null
-                    : Tac.AgendaCards.ClassificationTable(table);
-            }
-            catch { return null; }
-        }
+        // Personas (M4): the M12d card-effect hook channel (ImperialDeckLive
+        // / ImperialCardHooks / ActiveImperialCardInfos) and the agenda
+        // readers (AgendaLive / audit views / AgendaClassification) are GONE
+        // with the class-deck + agenda-card system they read. Personas touch
+        // NONE of the planner's number channels (fairness law) - they drive
+        // costs, doctrine share, guard band and texts through their own
+        // hooks (EnsurePersona / DoctrineFor / BuildGroups / CostFor).
+        // OverlordFocus.Rank keeps its null channels (canon default).
 
         /// <summary>Round-level designation on the feed state (focus fire:
         /// every group plans towards the SAME target; the order plan decides
@@ -1278,14 +1307,14 @@ namespace TacticalAI
             if (living.Count == 0) return;
             var cands = BuildFocusCandidates(view, living);
             if (cands.Count == 0) return;
-            // M12d: same hooks on the round-level designation (see above).
-            Tac.CardEffects ce; int cs; Tac.EngagementEffects en;
-            ImperialCardHooks(out ce, out cs, out en);
+            // Personas (M4): canon channels (personas never touch focus math).
             var ranked = Tac.OverlordFocus.Rank(cands, posture ?? "eliminate", null,
-                                                null, cs, en);
+                                                null, 0, null);
             _roundFocus = ranked.Count > 0 ? ranked[0] : null;
             _roundFocusHero = _roundFocus != null ? _roundFocus.HeroId : null;
             _roundFocusRound = view.Round;
+            _roundFocusRunnerUp = ranked.Count > 1 ? ranked[1] : null;
+            _roundFocusPosture = posture ?? "eliminate";
         }
 
         /// <summary>Threat-economy mirror (concept 3.9, the calibrated
@@ -1420,6 +1449,48 @@ namespace TacticalAI
                               " why: " + rd.Why + " | fallback: " + rd.Fallback +
                               (string.IsNullOrEmpty(rd.Anchor) ? "" : " anchor: " + rd.Anchor));
                 }
+                // Punkt-2: the phase flip is also explainable in-place.
+                if (UIx != null && !string.IsNullOrEmpty(UIx.ordPhaseExplain)
+                    && _doctrineEffective != null && _doctrineBase != null
+                    && _doctrineEffective != _doctrineBase)
+                {
+                    var phaseLine = TF(UIx.ordPhaseExplain,
+                        PhaseName(_doctrineBase), PhaseName(_doctrineEffective));
+                    line = (line == null ? "" : line + "\n") + phaseLine;
+                }
+                // Noldorion direction reply 2.11 ("it just needs to be very
+                // transparent how exactly that power score is calculated"):
+                // EXPLAIN=VOLL discloses the REAL round-focus computation -
+                // the score, what it measures in this mission posture, the
+                // wound economy, the decision basis and the runner-up. All
+                // numbers are the fixture-pinned sim values; every input is
+                // a public table artifact (printed hero card + wound mark +
+                // mission goal). Round focus only - never the activation
+                // order (post_hoc leak law untouched).
+                if (UIx != null && !string.IsNullOrEmpty(UIx.ordFocusDetail)
+                    && _roundFocus != null && _roundFocus.Threat.HasValue)
+                {
+                    var focusLine = TF(UIx.ordFocusDetail,
+                        _roundFocus.HeroId ?? "",
+                        _roundFocus.Threat.Value.ToString(),
+                        FocusMeasureName(_roundFocusPosture),
+                        FocusBasisName(_roundFocus.Basis),
+                        _roundFocusRunnerUp != null && _roundFocusRunnerUp.Threat.HasValue
+                            ? _roundFocusRunnerUp.HeroId + " ("
+                              + _roundFocusRunnerUp.Threat.Value + ")"
+                            : "-");
+                    line = (line == null ? "" : line + "\n") + focusLine;
+                }
+                // Noldorion review 2.11 (PR #194): the class cards that move
+                // the planner's numbers become VISIBLE. Announce exactly when
+                // the strength/efficiency stage fires (OrderPlan cardsFire
+                // semantics) - the named cards are public campaign data once
+                // bought, and the printed text is already in the IMPERIUM
+                // popup; this is the missing "what is actually in play" line.
+                // The German sim-pinned Kartenwirkung why stays Debug.log only
+                // (no hardcoded game text on the player surface, ui.json law).
+                // Personas (M4): the class-card announce block is GONE -
+                // personas own this display slot now (plan.PersonaLine).
                 return line;
             }
             // post_hoc: printed at round end via OnNewRound quick message
@@ -1501,6 +1572,195 @@ namespace TacticalAI
             var sb = new System.Text.StringBuilder("TacticalAIBridge::doctrines posture=" + posture + ":");
             foreach (var kv in _catalog) sb.Append(' ').Append(kv.Key).Append('=').Append(kv.Value.Pattern);
             Debug.Log(sb.ToString());
+        }
+
+        /// Punkt-2 phase rule: compute base/effective doctrine posture for
+        /// this round and announce the flip ONCE per mission session (QM +
+        /// one Debug breadcrumb). Round 1 never flips (limit<3 guard: no
+        /// degenerate "final third" on mission start).
+        static void SetDoctrinePhase(int roundNo)
+        {
+            _doctrineBase = MissionPosture();
+            _doctrineEffective = _doctrineBase;
+            if (_doctrineBase == "defend")
+            {
+                long lim = DoctrineRoundLimit();
+                if (lim >= 3 && roundNo >= lim - Math.Max(1, lim / 3))
+                    _doctrineEffective = "hunt";
+            }
+            // guard band membership for a defend deployment (count computed
+            // in BuildGroups; DoctrineFor consumes it): recompute per round,
+            // wiped the moment the effective posture stops being defend.
+            if (_doctrineEffective != "defend") { _guardBandCount = 0; _guardIds = null; }
+            if (!_phaseShiftAnnounced && _doctrineEffective != _doctrineBase)
+            {
+                _phaseShiftAnnounced = true;
+                var L = UIx;
+                if (L != null && !string.IsNullOrEmpty(L.ordPhaseShiftQM))
+                {
+                    try
+                    {
+                        var qm = GlowEngine.FindUnityObject<QuickMessage>();
+                        if (qm != null) qm.Show(TF(L.ordPhaseShiftQM, roundNo, DoctrineRoundLimit()));
+                    }
+                    catch { /* cosmetic */ }
+                }
+                Debug.Log("TacticalAIBridge::doctrine phase " + _doctrineBase + " -> "
+                          + _doctrineEffective + " r" + roundNo + " limit=" + DoctrineRoundLimit());
+            }
+        }
+
+        /// Punkt-2 phase rule (see SetDoctrinePhase caller comment): one
+        /// group's doctrine = ClassifyPattern x effective posture, PLUS the
+        /// defend guard band. A defend deployment of small ranged shooters
+        /// (the plain trooper roster) is a human's split decision, not a
+        /// 100 % advance: the BACK HALF of the deployment order (public squad
+        /// order) holds the objective zone as guard, the front half keeps the
+        /// printed advance role. S4/S5 only - the reference brain stays the
+        /// simple printed-role doctrine (chess-model: doctrine depth is the
+        /// overlord rung's play strength, not a hidden buff). Zero position
+        /// knowledge: the trigger is the deployment order, never the board.
+
+        // ---------------------------------------------------------- personas
+        /// <summary>Personas (M2/M3): refresh the live persona view at the
+        /// mission threat; announce rank changes and the mission subsidy
+        /// ONCE per mission (the rank is a pure (persona, threat) function -
+        /// see Core.Personas rank law; the subsidy is the asset's
+        /// free_deployment channel booked by PersonaState).</summary>
+        static void EnsurePersona()
+        {
+            var camp = LiveCampaign();
+            _personaView = PersonaState.ResolveLive();
+            if (_personaQMAnnounced || _personaView.Rank <= 0 || camp == null) return;
+            _personaQMAnnounced = true;
+            string qm = null;
+            try
+            {
+                // The subsidy GRANT + QM lives at the deployment popup open
+                // (PersonaState.EnsureMissionSubsidy - spendable in the
+                // opening deployment); this per-round call is the idempotent
+                // backstop only, it never announces twice.
+                PersonaState.MissionSubsidy(camp, SessionKey());
+                var tracked = camp.personaRank ?? new Saga.PersonaRankMark();
+                int old = string.Equals(tracked.personaId, _personaView.Id, System.StringComparison.Ordinal)
+                          ? tracked.rank : 0;
+                if (old != _personaView.Rank)
+                {
+                    var line = PersonaState.RankChangeText(_personaView, old, _personaView.Rank > old);
+                    qm = string.IsNullOrEmpty(qm) ? line
+                         : (string.IsNullOrEmpty(line) ? qm : qm + "\n" + line);
+                    tracked.personaId = _personaView.Id;
+                    tracked.rank = _personaView.Rank;
+                    camp.personaRank = tracked;
+                    try { camp.SaveCampaignState(); } catch { }
+                }
+            }
+            catch { return; }
+            if (string.IsNullOrEmpty(qm)) return;
+            try
+            {
+                var q = GlowEngine.FindUnityObject<QuickMessage>();
+                if (q != null) q.Show(qm);
+            }
+            catch { /* cosmetics never break a round */ }
+            Debug.Log("TacticalAIBridge::persona " + _personaView.Id + " rank " + _personaView.Rank);
+        }
+
+        static Saga.SagaCampaign LiveCampaign()
+        {
+            try { return Saga.RunningCampaign.sagaCampaign; }
+            catch { return null; }
+        }
+
+        /// <summary>The instruction-card persona line for one card (internal
+        /// name + printed faction from the live roster; the internal name IS
+        /// DeploymentCard.name - translations only re-skin the UI).</summary>
+        static string PersonaLine(string cardId)
+        {
+            if (_personaView.IsEmpty) return null;
+            try
+            {
+                string faction = null;
+                var pool = DataStore.deployedEnemies;
+                if (pool != null)
+                    foreach (var c in pool)
+                        if (c != null && c.id == cardId) { faction = c.faction; break; }
+                return PersonaState.DescribeLine(_personaView, cardId, faction);
+            }
+            catch { return null; }
+        }
+
+        /// <summary>Does any active guard_split row apply to this catalog
+        /// card (internal-name match)?</summary>
+        static bool PersonaGuardApplies(Tac.DeploymentCard core)
+        {
+            if (_personaView.IsEmpty || core == null) return false;
+            foreach (var e in _personaView.Active)
+                if (e.GuardMatches(core.Name, null)) return true;
+            return false;
+        }
+
+        /// <summary>Guard share for the band; -1 = keep the 50 % default.
+        /// Uses the FIRST band member (a mission whose roster mixes several
+        /// guard_split rows keeps the default - no silent pick winner).</summary>
+        static int PersonaGuardPercent(List<string> bandIds)
+        {
+            if (_personaView.IsEmpty || bandIds == null || bandIds.Count == 0) return -1;
+            try
+            {
+                string name = null, faction = null;
+                foreach (var c in DataStore.deployedEnemies)
+                    if (c != null && c.id == bandIds[bandIds.Count - 1])
+                    { name = c.name; faction = c.faction; break; }
+                if (name == null) return -1;
+                return _personaView.GuardPercentFor(name, faction);
+            }
+            catch { return -1; }
+        }
+
+        static string DoctrineFor(Tac.DeploymentCard core, string cardId, string posture)
+        {
+            var pat = ClassifyPattern(core, posture);
+            if (posture == "defend" && _guardBandCount > 0 && _guardIds != null
+                && _guardIds.Contains(cardId)
+                && core != null && core.AttackType == "Ranged" && !core.IsTripod)
+            {
+                var ladder = TacticalAISettings.EffectiveSkill(CurrentMissionAiMode());
+                var prof = string.IsNullOrEmpty(ladder) ? null : Tac.SkillProfile.For(ladder);
+                if (prof != null && Tac.CardKeywords.SkillReadsCards(prof)) pat = "guard";
+            }
+            // Personas: the seeded doctrine-share flip on top (pure hash of
+            // persona+session seed+round+card - the same mission replays
+            // every flip; no persona -> the base doctrine unchanged).
+            if (!_personaView.IsEmpty)
+                pat = _personaView.PatternFor(core != null ? core.Name : null, null,
+                                              cardId, pat, SessionSeed(), CurrentRound());
+            return pat;
+        }
+
+        /// EffectiveRoundLimit semantics mirrored from WorldEventsUnity
+        /// (user's roundLimitToggle included - a clock the player switched
+        /// off must never drive doctrine). Same source of truth, same
+        /// priority: toggle, then runtime var, then authored mission data.
+        static long DoctrineRoundLimit()
+        {
+            try
+            {
+                if (PlayerPrefs.GetInt("roundLimitToggle", 1) == 0) return -1;
+            }
+            catch { }
+            try
+            {
+                long rt = DataStore.sagaSessionData?.gameVars?.roundLimit ?? -1;
+                if (rt >= 0) return rt;
+            }
+            catch { }
+            try
+            {
+                var mp = DataStore.mission?.missionProperties;
+                return mp != null && mp.roundLimit >= 0 ? mp.roundLimit : -1;
+            }
+            catch { return -1; }
         }
 
         /// M4 posture from STRUCTURED mission data (never event texts, so no
@@ -1637,7 +1897,39 @@ namespace TacticalAI
             EnsureCatalog();
             facts = new List<Tac.GroupFacts>();
             figures = new List<Tac.Figure>();
+            var posture = _doctrineEffective ?? MissionPosture();
             var seen = new HashSet<string>();
+            // Punkt-2 guard band (first pass): who WOULD advance in this
+            // posture (ClassifyPattern's small ranged shooters). The back
+            // half of the public deployment order holds instead - split into
+            // _guardIds, consumed by DoctrineFor in the second pass.
+            if (posture == "defend")
+            {
+                var advancers = new List<string>();
+                var seen1 = new HashSet<string>();
+                foreach (var cd in DataStore.deployedEnemies)
+                {
+                    if (cd == null || cd.isDummy || cd.currentSize <= 0) continue;
+                    if (!seen1.Add(cd.id)) continue;
+                    if (!_catalog.TryGetValue(cd.id, out var c1)) continue;
+                    if (ClassifyPattern(c1, posture) == "aggressive"
+                        && c1.AttackType == "Ranged" && !c1.IsTripod
+                        // Personas: when a persona authors a guard_split row,
+                        // only ITS matching groups share the band (e.g. the
+                        // captain bands his stormtroopers, an AT-ST keeps the
+                        // printed blocker role). No matching row -> the
+                        // uniform 50 % default (dev 41) stays.
+                        && (_personaView.IsEmpty || PersonaGuardApplies(c1)))
+                        advancers.Add(cd.id);
+                }
+                int pct = PersonaGuardPercent(advancers);   // -1 = 50 % default
+                int back = pct < 0 ? advancers.Count / 2
+                                   : advancers.Count * pct / 100;
+                _guardBandCount = back;
+                _guardIds = new HashSet<string>(
+                    advancers.Skip(advancers.Count - back).Take(back));
+            }
+            else { _guardBandCount = 0; _guardIds = null; }
             int idx = 0;
             foreach (var cd in DataStore.deployedEnemies)
             {
@@ -1647,9 +1939,10 @@ namespace TacticalAI
                 if (!_catalog.TryGetValue(cd.id, out var core)) continue;  // unknown card: legacy fallback
                 var gv = feedView != null ? feedView.FindGroup(cd.id) : null;
                 var vitality = gv != null ? gv.VitalityFrac : Tac.Rational.One;
+                var pattern = DoctrineFor(core, cd.id, posture);
                 facts.Add(new Tac.GroupFacts(
                     cd.id, idx, cd.id, cd.name,
-                    pattern: core.Pattern,                     // M4: posture x printed traits
+                    pattern: pattern,                          // M4 + Punkt-2 band
                     nAlive: Math.Max(1, cd.currentSize),
                     vitalityFrac: vitality,
                     zone: null, arrivedRound: null,
@@ -1658,7 +1951,7 @@ namespace TacticalAI
                 {
                     Id = cd.id, GroupId = cd.id, Card = core, Team = "imperial",
                     Anchor = new Tac.Cell(0, 0), Orientation = 0,
-                    Vitality = core.Health, Index = idx, Alive = true, Pattern = core.Pattern,
+                    Vitality = core.Health, Index = idx, Alive = true, Pattern = pattern,
                 };
                 figures.Add(fig);
                 idx++;

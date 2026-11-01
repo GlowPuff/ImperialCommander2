@@ -157,6 +157,11 @@ public class EnemyActivationPopup : MonoBehaviour
 			// explanation last. '\n' splits every decision-tree branch onto
 			// its own popup row (ParseInstructions keeps a fixed row height).
 			List<string> tacInstructions = new List<string>();
+			// Personas (M3): persona + rank + active bonuses ride FIRST on
+			// the instruction card (replaces the old class-card announce
+			// slot; Thomas 02.11.). Multi-line-safe via the row split below.
+			if ( !string.IsNullOrEmpty( tacPlan.PersonaLine ) )
+				tacInstructions.Add( tacPlan.PersonaLine );
 			if ( tacPlan.HasTarget && !string.IsNullOrEmpty( tacPlan.TargetWhy ) )
 				tacInstructions.Add( tacPlan.TargetWhy );
 			tacInstructions.AddRange( tacPlan.Blocks ?? new string[0] );

@@ -78,6 +78,12 @@ namespace Saga
 		{
 			acceptInput = true;
 			gameObject.SetActive( true );
+
+			// Personas (M2): the persona's mission subsidy is granted and
+			// announced HERE - at popup open the hand and the live threat
+			// exist, so the credit is spendable in the opening deployment
+			// (once per mission identity, see PersonaState).
+			TacticalAI.PersonaState.EnsureMissionSubsidy();
 			fader.color = new Color( 0, 0, 0, 0 );
 			//M13c: in the manual placement window the DM must be able to CLICK
 			//the map behind the popup - the fader stays visual-only there.
@@ -274,7 +280,7 @@ namespace Saga
 				topR2.Init( r1, 1 );
 				r1.currentSize += 1;
 				//update threat just spent
-				DataStore.sagaSessionData.ModifyThreat( -r1.rcost );
+				DataStore.sagaSessionData.ModifyThreat( -TacticalAI.PersonaState.CostFor( r1, r1.rcost ) );
 				//Debug.Log( "new size R1:" + r1.currentSize );
 			}
 
@@ -286,7 +292,7 @@ namespace Saga
 				bottomR2.Init( r2, 1 );
 				r2.currentSize += 1;
 				//update threat just spent
-				DataStore.sagaSessionData.ModifyThreat( -r2.rcost );
+				DataStore.sagaSessionData.ModifyThreat( -TacticalAI.PersonaState.CostFor( r2, r2.rcost ) );
 				//Debug.Log( "new size R2:" + r2.currentSize );
 			}
 
@@ -337,11 +343,14 @@ namespace Saga
 				{
 					if ( deploymentOverride.useThreat )
 					{
-						DataStore.sagaSessionData.ModifyThreat( -(Mathf.Clamp( d1.cost + deploymentOverride.threatCost, 0, 100 )) );
+						// Personas (M2): the persona discount rides the PRINTED
+					// cost, the event modifier is added on top (public math,
+					// PersonaState.CostFor - printed value stays untouched).
+					DataStore.sagaSessionData.ModifyThreat( -(Mathf.Clamp( TacticalAI.PersonaState.CostFor( d1, d1.cost ) + deploymentOverride.threatCost, 0, 100 )) );
 					}
 				}
 				else//update threat just spent
-					DataStore.sagaSessionData.ModifyThreat( -d1.cost );
+					DataStore.sagaSessionData.ModifyThreat( -TacticalAI.PersonaState.CostFor( d1, d1.cost ) );
 			}
 
 			DeploymentCard d2 = DataStore.GetFuzzyDeployable( DataStore.sagaSessionData.gameVars.currentThreat );
@@ -358,11 +367,12 @@ namespace Saga
 				{
 					if ( deploymentOverride.useThreat )
 					{
-						DataStore.sagaSessionData.ModifyThreat( -(Mathf.Clamp( d2.cost + deploymentOverride.threatCost, 0, 100 )) );
+						// Personas (M2): discount on the printed cost (see d1).
+					DataStore.sagaSessionData.ModifyThreat( -(Mathf.Clamp( TacticalAI.PersonaState.CostFor( d2, d2.cost ) + deploymentOverride.threatCost, 0, 100 )) );
 					}
 				}
 				else//update threat just spent
-					DataStore.sagaSessionData.ModifyThreat( -d2.cost );
+					DataStore.sagaSessionData.ModifyThreat( -TacticalAI.PersonaState.CostFor( d2, d2.cost ) );
 			}
 
 			if ( d1 == null && d2 == null )
@@ -412,7 +422,9 @@ namespace Saga
 				on1R1.Init( r1 );
 				on1R2.Init( r1, 1 );
 				r1.currentSize += 1;
-				DataStore.sagaSessionData.ModifyThreat( -(Mathf.Max( 1, r1.rcost - 1 )) );
+				// Personas (M2): persona discount FIRST, then the printed
+				// onslaught reduction (-1, floored at 1) - both public.
+				DataStore.sagaSessionData.ModifyThreat( -(Mathf.Max( 1, TacticalAI.PersonaState.CostFor( r1, r1.rcost ) - 1 )) );
 			}
 
 			DeploymentCard r2 = DataStore.GetReinforcement( DataStore.sagaSessionData.gameVars.currentThreat, true );
@@ -422,7 +434,8 @@ namespace Saga
 				on2R1.Init( r2 );
 				on2R2.Init( r2, 1 );
 				r2.currentSize += 1;
-				DataStore.sagaSessionData.ModifyThreat( -(Mathf.Max( 1, r2.rcost - 1 )) );
+				// Personas (M2): see r1.
+				DataStore.sagaSessionData.ModifyThreat( -(Mathf.Max( 1, TacticalAI.PersonaState.CostFor( r2, r2.rcost ) - 1 )) );
 			}
 
 			if ( r1 == null && r2 == null )

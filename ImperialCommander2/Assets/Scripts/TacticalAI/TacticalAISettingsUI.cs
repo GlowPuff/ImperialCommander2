@@ -135,6 +135,13 @@ namespace TacticalAI
             });
             // M13c (Thomas 30.10): show/hide the general RR info block under
             // the action texts - same row style as EXPLAIN, default ON.
+            // Personas (M1): global default persona (the campaign picker
+            // follows it while its own field is empty). Same row style.
+            MakeRow(go.transform, "persona", () =>
+            {
+                PersonaState.CycleDefault();
+                Refresh();
+            });
             MakeRow(go.transform, "info", () =>
             {
                 TacticalAISettings.InfoText = !TacticalAISettings.InfoText;
@@ -297,6 +304,9 @@ namespace TacticalAI
                             ? Pick(tl != null ? tl.expFull : null, "FULL")
                             : Pick(tl != null ? tl.expPostHoc : null, "POST-HOC");
                     break;
+                case "persona":
+                    value = PersonaState.DescribeDefault();
+                    break;
                 case "info":
                     value = TacticalAISettings.InfoText
                         ? Pick(tl != null ? tl.setOn : null, "ON")
@@ -310,6 +320,7 @@ namespace TacticalAI
             else if (kind == "mode") heading = tl.setMode;
             else if (kind == "skill") heading = tl.setSkill;
             else if (kind == "explain") heading = tl.setExplain;
+            else if (kind == "persona") heading = tl.setPersona;   // personas row
             else heading = tl.setInfo;   // M13c info-block row
             // dialog rows render in caps like the Rundenlimit neighbours
             return (tl != null ? tl.setRowFormat : "{0}:  {1}")

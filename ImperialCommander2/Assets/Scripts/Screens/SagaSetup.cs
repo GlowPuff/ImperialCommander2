@@ -181,8 +181,8 @@ namespace Saga
 		GameObject setupAiBadgeGo;
 		// M12e: the deck line under the badge ("Militaermacht · 4 Karten" +
 		// open agenda). Display-only, campaign missions with an Imperial deck.
-		TMPro.TextMeshProUGUI setupImperialDeckLineText;
-		GameObject setupImperialDeckLineGo;
+		TMPro.TextMeshProUGUI setupPersonaLineText;
+		GameObject setupPersonaLineGo;
 		SagaCampaign setupCampaign;
 
 		/// <summary>True exactly when this mission will run the tactical planner
@@ -205,7 +205,7 @@ namespace Saga
 					ApplyLegacyControls( !TacticalControlsActive() );
 					PlaceAiBadge();
 					setupAiBadgeText.text = SetupAiLabel( setupOptions.aiMode );
-					EnsureImperialDeckLine();
+					EnsurePersonaLine();
 				}
 				return;
 			}
@@ -240,17 +240,20 @@ namespace Saga
 			ApplyLegacyControls( !TacticalControlsActive() );
 			PlaceAiBadge();
 			setupAiBadgeText.text = SetupAiLabel( setupOptions.aiMode );
-			EnsureImperialDeckLine();
+			EnsurePersonaLine();
 		}
 
-		/// <summary>M12e: display-only deck line - "Militaermacht · 4 Karten"
-		/// plus an ACTIVE ONGOING agenda if one is face up (kept secrets never
-		/// render here - the Anti-Leak-Seam in ImperialDisplay/AgendaState owns
-		/// that law). Invisible without a campaign deck: a classic mission shows
-		/// no empty chrome. M13i (Thomas screenshot 28.10): placed to the RIGHT
-		/// of the difficulty row in the info column (see geometry block), no
+		/// <summary>Personas (M1): display-only persona line on the
+		/// Einsatzkarte - "Sturmtruppen-Captain — Rang 2" at THIS mission's
+		/// threat budget (the rank law is a pure threat function, so the
+		/// rank is honest before the mission starts). Replaces the M12e
+		/// deck line 1:1 in place and look (Thomas 02.11.: "bei dem Text,
+		/// wo jetzt die imperialen Karten angezeigt werden"). Invisible
+		/// without a persona: a classic mission shows no empty chrome.
+		/// M13i (Thomas screenshot 28.10): placed to the RIGHT of the
+		/// difficulty row in the info column (see geometry block), no
 		/// longer trailing the badge into the bottom buttons.</summary>
-		void EnsureImperialDeckLine()
+		void EnsurePersonaLine()
 		{
 			var campaign = setupCampaign ?? RunningCampaign.sagaCampaign;
 			if ( campaign == null && RunningCampaign.sagaCampaignGUID != Guid.Empty )
@@ -258,19 +261,19 @@ namespace Saga
 				try { campaign = SagaCampaign.LoadCampaignState( RunningCampaign.sagaCampaignGUID ); }
 				catch { campaign = null; }
 			}
-			var info = ImperialDisplay.Build( campaign );
-			string line = info == null ? null
-				: TacticalAI.TacticalAISettingsUnity.ImperialDeckBadgeText( info.DeckName, info.CardCount );
+			int threat = setupOptions != null ? setupOptions.threatLevel : -1;
+			var view = TacticalAI.PersonaState.ResolveFor(
+				TacticalAI.PersonaState.EffectiveId( campaign ), threat );
+			string line = TacticalAI.TacticalAISettingsUnity.PersonaBadgeText( view );
 			if ( string.IsNullOrEmpty( line ) )
 			{
-				if ( setupImperialDeckLineGo != null ) setupImperialDeckLineGo.SetActive( false );
+				if ( setupPersonaLineGo != null ) setupPersonaLineGo.SetActive( false );
 				return;
 			}
-			if ( !string.IsNullOrEmpty( info.OpenAgenda ) ) line += "\n" + info.OpenAgenda;
 
-			if ( setupImperialDeckLineText == null )
+			if ( setupPersonaLineText == null )
 			{
-				var go = new GameObject( "tacaiImperialDeckLine", typeof( RectTransform ) );
+				var go = new GameObject( "tacaiPersonaLine", typeof( RectTransform ) );
 				go.transform.SetParent( difficultyButton.transform.parent, false );
 				var img = go.AddComponent<Image>();
 				img.color = new Color( 0f, .35f, .30f, .85f );   // badge family, non-interactive
@@ -280,17 +283,17 @@ namespace Saga
 				var trt = textGo.GetComponent<RectTransform>();
 				trt.anchorMin = Vector2.zero; trt.anchorMax = Vector2.one;
 				trt.offsetMin = Vector2.zero; trt.offsetMax = Vector2.zero;
-				setupImperialDeckLineText = textGo.AddComponent<TMPro.TextMeshProUGUI>();
-				setupImperialDeckLineText.font = TMPro.TMP_Settings.defaultFontAsset;
-				setupImperialDeckLineText.enableAutoSizing = true;
-				setupImperialDeckLineText.fontSizeMax = 12; setupImperialDeckLineText.fontSizeMin = 7;
-				setupImperialDeckLineText.alignment = TMPro.TextAlignmentOptions.Center;
-				setupImperialDeckLineText.color = new Color( .85f, 1f, .95f, 1f );
-				setupImperialDeckLineGo = go;
+				setupPersonaLineText = textGo.AddComponent<TMPro.TextMeshProUGUI>();
+				setupPersonaLineText.font = TMPro.TMP_Settings.defaultFontAsset;
+				setupPersonaLineText.enableAutoSizing = true;
+				setupPersonaLineText.fontSizeMax = 12; setupPersonaLineText.fontSizeMin = 7;
+				setupPersonaLineText.alignment = TMPro.TextAlignmentOptions.Center;
+				setupPersonaLineText.color = new Color( .85f, 1f, .95f, 1f );
+				setupPersonaLineGo = go;
 			}
-			setupImperialDeckLineGo.SetActive( true );
+			setupPersonaLineGo.SetActive( true );
 
-			var rt = setupImperialDeckLineGo.GetComponent<RectTransform>();
+			var rt = setupPersonaLineGo.GetComponent<RectTransform>();
 			// M13i/M13o (Thomas screenshots 28./29.10.): the line sits to the
 			// RIGHT of the tactical-AI display (the AI badge, which owns the
 			// difficulty slot in tactical mode; legacy difficulty label when
@@ -301,7 +304,7 @@ namespace Saga
 			// WORLD space (any anchor setup, no point-anchor assumption) and
 			// retries through a coroutine until the anchor is actually laid
 			// out, so the fallback can no longer stick.
-			setupImperialDeckLineText.text = Utils.ReplaceGlyphs( line );
+			setupPersonaLineText.text = Utils.ReplaceGlyphs( line );
 			if ( !TryPlaceImperialDeckLine( rt ) && impDeckLinePlaceCo == null )
 				impDeckLinePlaceCo = StartCoroutine( PlaceImperialDeckLineWhenLaidOut( rt ) );
 		}

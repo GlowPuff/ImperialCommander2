@@ -87,8 +87,9 @@ namespace Saga
 			Debug.Log( "ENTERING SAGA GAME" );
 
 			//M12e: the Imperium play-area panel mounts itself (no scene edits);
-			//all feature/campaign gating lives in ImperialPanel.Start
-			new GameObject( "TacaiImperialPanelHost" ).AddComponent<ImperialPanel>();
+			// Personas (M4): the play-area ImperialPanel is GONE with the
+			// class/agenda card system - the persona announces itself on the
+			// activation popup (TacticalAIBridge.PersonaLine), no side panel.
 
 			//Exception handling for any Unity thrown exception, such as from asset management
 			Application.logMessageReceived += LogCallback;
@@ -1019,8 +1020,8 @@ namespace Saga
 				return;
 			}
 			// NOTE: the BASE itself stays ACTIVE - it is the empty 100x100
-			// slot the ImperialPanel measures its right edge from, and
-			// GameObject.Find would stop seeing an inactive base.
+			// slot the tactical HUD badges measure their right edge from,
+			// and GameObject.Find would stop seeing an inactive base.
 			if ( medBtn != null ) medBtn.gameObject.SetActive( false );
 			// M13r (Thomas screenshot: "ein roter Kreis. Warum?"): the BASE
 			// object itself carries the red medpac disc graphic - it was
