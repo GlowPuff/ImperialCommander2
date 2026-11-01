@@ -126,6 +126,11 @@ namespace TacticalAI.Tests
         {
             // risk.json profile_cases: the SAME grid the harness replays —
             // rho INNERMOST; asset doc primed for cover_shelter_max_range.
+            // The vector is huge (~240k generated lines) and not shipped on
+            // every branch: without it this test skips, it must not fail.
+            if (!System.IO.File.Exists(TacaiFixtures.Path2("risk.json")))
+                Assert.Ignore("risk.json golden vector not shipped — regenerate " +
+                              "via tacai_build tools/export_csharp_vectors.py");
             HeroProfiles.PrimeDoc(AssetDoc());
             var v = Json.AsDict(TacaiFixtures.Load("risk.json"));
             var cases = Json.AsList(v["profile_cases"]);

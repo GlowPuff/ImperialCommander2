@@ -111,13 +111,13 @@ namespace TacticalAiHarness
 
             Run("geometry.json", SecGeometry);
             Run("board.json", SecBoard);
-            Run("path.json", SecPath);
+            Run("path.json", SecPath, optional: true);
             Run("legality.json", SecLegality);
             Run("los.json", SecLos);
             Run("dice.json", SecDice);
             Run("threat.json", SecThreat);
             Run("skill.json", SecSkill);
-            Run("risk.json", SecRisk);
+            Run("risk.json", SecRisk, optional: true);
             Run("focus.json", SecFocus);
             Run("victory.json", SecVictory);
             Run("belief.json", SecBelief);
@@ -145,8 +145,18 @@ namespace TacticalAiHarness
             return TotalFails == 0 ? 0 : 1;
         }
 
-        static void Run(string file, Action sec)
+        static void Run(string file, Action sec, bool optional = false)
         {
+            // A golden vector can be unshipped (too large for a public PR —
+            // e.g. path.json/risk.json, ~490k generated lines). SKIP is not a
+            // FAIL: the vectors regenerate bit-exact from the reference model
+            // (tacai_build tools/export_csharp_vectors.py).
+            if (optional && !File.Exists(Path.Combine(FIX, file)))
+            {
+                Console.WriteLine("SKIP " + file + " (golden vector not shipped; " +
+                                  "regenerate via export_csharp_vectors.py)");
+                return;
+            }
             _sec = file; _secChecks = 0; _secFails = 0; _diffs.Clear(); _secFailCount = 0;
             try { sec(); }
             catch (Exception ex)

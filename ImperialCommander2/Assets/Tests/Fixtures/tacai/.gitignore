@@ -1,0 +1,8 @@
+# Machine-generated golden vectors that are too large to ship on a
+# public PR (~490k lines combined). They regenerate bit-exact from the
+# TacticalAI reference model (tacai_build tools/export_csharp_vectors.py).
+# Consumers degrade gracefully when the files are absent:
+#   tools/TacticalAiHarness  -> Run(..., optional: true) prints SKIP
+#   HeroProfileTests         -> NUnit Assert.Ignore
+path.json
+risk.json
