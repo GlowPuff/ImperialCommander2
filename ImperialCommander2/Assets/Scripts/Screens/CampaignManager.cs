@@ -496,8 +496,9 @@ namespace Saga
 			// Thomas playtest 02.11.: long persona names overflowed the
 			// 20pt unwrapped label - wrap inside the button, 10pt.
 			label.enableWordWrapping = true;
-			label.enableHyphenation = 1;   // 'Sturmtruppen-Captain' is one
-			label.overflowMode = TMPro.TextOverflowModes.Ellipsis;   // hyphen token
+			// (TMP 3.0.9 has no enableHyphenation yet - Ellipsis below is
+			// the guarantee that nothing can ever overflow again)
+			label.overflowMode = TMPro.TextOverflowModes.Ellipsis;
 			label.raycastTarget = false;
 			label.text = PersonaButtonLabel();
 			personaButtonLabel = label;
